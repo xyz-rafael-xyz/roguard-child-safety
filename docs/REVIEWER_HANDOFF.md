@@ -19,7 +19,7 @@ Recalculate the digest and repeat review if the taxonomy changes. Do not copy a 
 
 ## Possible institutional routes
 
-These official pages were checked on 30 September 2026 and are starting points for an introduction. They do not establish an individual's expertise, willingness to participate, or independence from RoGuard. Use a department or program contact route to ask whether a qualified person is available; verify the actual reviewer before assigning a role. Contact details can change, so use the linked page rather than a copied address.
+These official pages were rechecked on 1 October 2026 and are starting points for an introduction. They do not establish an individual's expertise, willingness to participate, or independence from RoGuard. Use a department or program contact route to ask whether a qualified person is available; verify the actual reviewer before assigning a role. Contact details can change, so use the linked page rather than a copied address.
 
 | Role sought | Romanian-language route | Ukrainian-language route |
 |---|---|---|

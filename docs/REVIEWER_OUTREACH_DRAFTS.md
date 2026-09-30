@@ -2,7 +2,7 @@
 
 **Status: drafts for the study owner; no invitation has been sent.** Each message asks for an introduction, not an endorsement or a review decision. Send the exact current [taxonomy and review packet](REVIEWER_HANDOFF.md) only after a prospective reviewer agrees to the scope and the study owner confirms their qualifications, independence, available time, attribution preference, and any compensation terms. If either taxonomy changes, use its new digest and obtain review of the new bytes.
 
-These routes were checked against the institutions' own pages on 30 September 2026. Verify the contact page again before sending. Do not send reference-labeled cards, owner maps, scores, child messages, realistic examples, case descriptions, or proposed replies. Record identities and contact details outside Git. The text below is an invitation to discuss a research review; it does not ask an institution to certify a model for deployment.
+These routes were rechecked against the institutions' own pages on 1 October 2026. Verify the contact page again before sending. Do not send reference-labeled cards, owner maps, scores, child messages, realistic examples, case descriptions, or proposed replies. Record identities and contact details outside Git. The text below is an invitation to discuss a research review; it does not ask an institution to certify a model for deployment.
 
 ## Romanian language specialist
 
