@@ -1,0 +1,25 @@
+{
+  "language": "ro",
+  "routing": {
+    "principal": "minor",
+    "item": "element-fictiv",
+    "purpose": "A",
+    "proposed_recipient": "tutore",
+    "recipient_roles": ["minor", "tutore"],
+    "allowed_by_scope": [
+      {
+        "principal": "minor",
+        "item": "element-fictiv",
+        "purpose": "A",
+        "recipients": ["minor"]
+      }
+    ]
+  },
+  "gate": {
+    "review_owner": "evaluator",
+    "model_output_parsed": true,
+    "accept_unparsed": false,
+    "external_action_branch": false,
+    "human_approval_required": true
+  }
+}

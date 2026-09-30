@@ -1,0 +1,3 @@
+# Selected v9a abstract-card research adapter
+
+This private Git artifact contains the exact selected v9a mmBERT LoRA weight bytes and a portable PEFT config. Its [development selection](../../eval/runs/ro-mmbert-v9a-dev-selection.json) chose epoch 5 and the cutoff `0.2561211958527565`; [the fresh symbolic test](../../BENCHMARK.md#frozen-romanian-pair-trained-encoder-comparison-batch-0019) failed the registered accuracy target at 28/72 complete pairs and 26/72 false reviews. The base model is fetched separately at the pinned revision. Run `python eval/verify_committed_historical_adapters.py` to verify hashes, or add `--base-model-path` to reproduce one saved score. This is a research comparator, not a live child-language detector.

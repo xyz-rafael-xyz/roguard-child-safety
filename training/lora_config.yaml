@@ -1,0 +1,8 @@
+base_model: OpenLLM-Ro/RoMistral-7b-Instruct
+task: multi_label_sequence_classification
+rank: 16
+alpha: 32
+dropout: 0.05
+target_modules: [q_proj, v_proj]
+max_length: 512
+notes: "Research starting point; no run until taxonomy and every selected batch are approved."

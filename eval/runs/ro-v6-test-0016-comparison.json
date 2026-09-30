@@ -1,0 +1,312 @@
+{
+  "status": "frozen_v6_compositional_comparison",
+  "test_batch": "batch-0016",
+  "test_sha256": "ff0f87d556c8c792e3c2a5e1c77b8e718d455577ee1543c0f051a91db7aeacf6",
+  "attestation_sha256": "22dae87e020c92c31b3d1035e8c1b215d66ecec848744afb65ffb4a1b35f738d",
+  "selection_record_sha256": "931f5b7bb08f558ed11bc1544e350666207c74c525798ec1869059085f833905",
+  "selected_weight_sha256": "7376df042263ef259c1febc234760d87f018b3791943cb29a136a7eb9e58fdcf",
+  "v4_comparator_weight_sha256": "b366d189c5d70617cfc0be7803309f496858cf11ee4a0337864e5dbca02aa249",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "run_sha256": {
+    "ro-v6-test-0016.json": "272d770417f751fce935346e9e9a5952e5596ccfc1c428a79a999fe7495e9154",
+    "ro-v4-test-0016.json": "bbe0d15160ddd821697ad98e7ce171720a4794068b31b591b9edccec1d49d659",
+    "romistral-base-v4-0016.json": "a1dccf282373145e818da5451fff6d54c2521fd36c047f43f4ae45b6a7a12d63",
+    "qwen3-base-v4-0016.json": "340bfe7ca679b5c7ffc70fd3bfc57ee88e07eb5733a093ca52869daee4c92816"
+  },
+  "reports": [
+    {
+      "model": "ro-v6-adapter",
+      "parsed_rows": 144,
+      "exact_rows": 78,
+      "exact_pairs": 9,
+      "correct_direction_flips": 9,
+      "false_review_on_negatives": 39,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 1.0,
+          "recall": 0.08333333333333333,
+          "tp": 1,
+          "fp": 0,
+          "fn": 11
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.6470588235294118,
+          "recall": 0.9166666666666666,
+          "tp": 11,
+          "fp": 6,
+          "fn": 1
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.42857142857142855,
+          "recall": 0.75,
+          "tp": 9,
+          "fp": 12,
+          "fn": 3
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 9,
+          "fn": 0
+        }
+      ]
+    },
+    {
+      "model": "ro-v4-adapter",
+      "parsed_rows": 144,
+      "exact_rows": 84,
+      "exact_pairs": 14,
+      "correct_direction_flips": 14,
+      "false_review_on_negatives": 22,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.625,
+          "recall": 0.8333333333333334,
+          "tp": 10,
+          "fp": 6,
+          "fn": 2
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.631578947368421,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 7,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.4,
+          "recall": 0.16666666666666666,
+          "tp": 2,
+          "fp": 3,
+          "fn": 10
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": 0.625,
+          "recall": 0.8333333333333334,
+          "tp": 10,
+          "fp": 6,
+          "fn": 2
+        }
+      ]
+    },
+    {
+      "model": "romistral-base",
+      "parsed_rows": 144,
+      "exact_rows": 66,
+      "exact_pairs": 6,
+      "correct_direction_flips": 7,
+      "false_review_on_negatives": 56,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.36363636363636365,
+          "recall": 0.3333333333333333,
+          "tp": 4,
+          "fp": 7,
+          "fn": 8
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": 0.5384615384615384,
+          "recall": 0.5833333333333334,
+          "tp": 7,
+          "fp": 6,
+          "fn": 5
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 9,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": 0.16666666666666666,
+          "recall": 0.25,
+          "tp": 3,
+          "fp": 15,
+          "fn": 9
+        }
+      ]
+    },
+    {
+      "model": "qwen3-base",
+      "parsed_rows": 144,
+      "exact_rows": 66,
+      "exact_pairs": 3,
+      "correct_direction_flips": 7,
+      "false_review_on_negatives": 65,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.6,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 8,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": 0.45454545454545453,
+          "recall": 0.8333333333333334,
+          "tp": 10,
+          "fp": 12,
+          "fn": 2
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 9,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": 0.32432432432432434,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 25,
+          "fn": 0
+        }
+      ]
+    }
+  ],
+  "always_review_reference": {
+    "exact_rows": 72,
+    "exact_pairs": 0,
+    "correct_direction_flips": 0,
+    "false_review_on_negatives": 72
+  },
+  "never_review_reference": {
+    "exact_rows": 72,
+    "exact_pairs": 0,
+    "correct_direction_flips": 0,
+    "false_review_on_negatives": 0
+  },
+  "preregistered_success": false,
+  "limitation": "Compositional symbolic descriptions only; no real child language or deployment validity."
+}

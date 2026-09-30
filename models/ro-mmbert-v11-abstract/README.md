@@ -1,0 +1,11 @@
+# Selected v11 research adapter
+
+This is the 8.8 MB rank-16 LoRA adapter selected by [v11 development](../../eval/runs/ro-mmbert-v11-dev-selection.json). It is included in the private repository to reproduce the Romanian **abstract-card** classifier results without refitting. It contains no base-model weights. The adapter was trained only on generated symbolic rule cards; it has not been validated on authentic child language or Ukrainian input.
+
+The [pinned base model](https://huggingface.co/jhu-clsp/mmBERT-base) lists an MIT license. Fetch revision `c5955035435e2bf121cde7f3c8863ef52ff35d82` with `python training/fetch_mmbert.py`. The loader checks the downloaded base hashes, the adapter weight and config hashes, and the prompt hash. The absolute training-machine path in PEFT's original config has been replaced by the model ID; the adapter weight bytes are unchanged. The selection record, code, synthetic batches, and frozen predictions remain in Git.
+
+The adapter **failed** the v11 registered target on batch 0023: 47/72 complete pairs, 8/72 false reviews, and 0/12 A1 positive recall. The v12 attempt reused these same weights and selected six thresholds on development cards; it reached only 46/72 pairs on a new test, below the unchanged v11 cutoff's 56/72 on the same scores. These scores are uncalibrated. Use this artifact for reproducing research diagnostics, not child-safety decisions. The operational path is the read-only declared-contract checker.
+
+With the same unchanged weights and v11 cutoff, a later [focused D1/S1 abstract-card test](../../BENCHMARK.md#frozen-romanian-d1s1-advisory-transfer-batch-0025) passed its preregistered narrow target: 47/48 exact pairs and no false reviews on 48 negative cards. This result is limited to symbolic descriptions of support patterns and response fields. It does not repair the six-category failure or validate a real disclosure detector.
+
+The subsequent [mixed-input test](../../BENCHMARK.md#frozen-romanian-mixed-input-workflow-batch-0026) used these same weights for D1/S1, with generated caller-declared facts checked separately for R1/A1/P1/G1. The combined workflow reached 72/72 symbolic pairs; this text-only adapter reached 55/72 on the same cards and again missed every A1 positive. The combined result does not make the adapter a six-category text classifier.

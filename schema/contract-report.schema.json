@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/schema/contract-report.schema.json",
+  "title": "RoGuard declared contract report",
+  "description": "Read-only result schema. A review suggestion never authorizes a notification or external action.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "language",
+    "taxonomy_status",
+    "checked_categories",
+    "caller_facts_verified",
+    "language_verified",
+    "review_suggested",
+    "incomplete",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {"const": 2},
+    "language": {"enum": ["ro", "uk"]},
+    "taxonomy_status": {"enum": ["approved_ro_v0.2", "draft_uk_v0.1"]},
+    "checked_categories": {"type": "array", "items": {"enum": ["D1", "R1", "A1", "P1", "G1", "S1"]}, "uniqueItems": true},
+    "caller_facts_verified": {"const": false},
+    "language_verified": {"const": false},
+    "review_suggested": {"type": "boolean"},
+    "incomplete": {"type": "boolean"},
+    "proposed_use": {"$ref": "#/$defs/proposedUse"},
+    "findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"language": {"const": "ro"}}, "required": ["language"]},
+      "then": {"properties": {"taxonomy_status": {"const": "approved_ro_v0.2"}}}
+    },
+    {
+      "if": {"properties": {"language": {"const": "uk"}}, "required": ["language"]},
+      "then": {"properties": {"taxonomy_status": {"const": "draft_uk_v0.1"}}}
+    }
+  ],
+  "$defs": {
+    "proposedUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason_codes", "incomplete", "action_taken", "caller_facts_verified"],
+      "properties": {
+        "status": {"enum": ["ready_for_human_decision", "incomplete", "review"]},
+        "reason_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "incomplete": {"type": "boolean"},
+        "action_taken": {"const": false},
+        "caller_facts_verified": {"const": false}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "source_kind", "decision_code", "status", "reason_codes", "evidence_basis"],
+      "properties": {
+        "category": {"enum": ["D1", "R1", "A1", "P1", "G1", "S1"]},
+        "source_kind": {
+          "enum": ["message", "routing_card", "response", "permission_card", "boundary_card", "gate_card"]
+        },
+        "decision_code": {
+          "enum": [
+            "NO_D1_SIGNAL", "INSUFFICIENT_CONTEXT", "REVIEW_SUPPORT_SIGNAL",
+            "NO_ROUTE_SIGNAL", "REVIEW_ROUTE",
+            "NO_A1_SIGNAL", "NEEDS_LANGUAGE_CALIBRATION", "REVIEW_ACCESSIBILITY",
+            "NO_PERSISTENCE_SIGNAL", "REVIEW_PERSISTENCE",
+            "NO_GATE_SIGNAL", "REVIEW_WORKFLOW",
+            "NO_RESPONSE_SIGNAL", "INSUFFICIENT_RESPONSE_CONTRACT", "REVIEW_RESPONSE"
+          ]
+        },
+        "status": {"enum": ["pass", "incomplete", "review"]},
+        "evidence_basis": {"enum": ["caller_judgment", "declared_word_cap", "declared_policy", "declared_permission_state", "declared_boundary", "declared_workflow"]},
+        "reason_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    }
+  }
+}

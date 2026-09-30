@@ -1,0 +1,205 @@
+{
+  "status": "development_selection_only",
+  "study": "v24_native_romanian_bert_d1",
+  "source_commit": "1f4f55361a11a5d9c8b56b8cfc32e3d113471482",
+  "model": "dumitrescustefan/bert-base-romanian-cased-v1",
+  "revision": "37fb0ffb4bc4f7c4cde429626775685fb18f234f",
+  "base_files_sha256": {
+    "config.json": "53d69f53eb2fa0a9e95ae77508ad527dc1ce658a74968a565fbae5cc29495542",
+    "model.safetensors": "c2471091c9b2613f671fc46f71023b10d8d3dee5e1b1fe2c6c4d3fce1b4b8508",
+    "vocab.txt": "1c8630d8abddcb7d36a51f32a25b72084dd12439bb223ee25cca7e81643acef9",
+    "tokenizer_config.json": "adac4eb1158c23ecf85b5215105c1d0bcc42e34d6a9f82d637018f4b7f0b1aa2"
+  },
+  "train_batches": [
+    "batch-0028",
+    "batch-0031",
+    "batch-0032",
+    "batch-0033",
+    "batch-0034",
+    "batch-0035",
+    "batch-0036"
+  ],
+  "development_batches": [
+    "batch-0037",
+    "batch-0038"
+  ],
+  "train_batch_sha256": {
+    "batch-0028": "364240f8b933e779868b05cb15427bd5c379019ab08af95439b285875c393b8e",
+    "batch-0031": "83d3152b4cbbc847fe950b87d391f0bf2a4684ad7eeb7309cd0de084caeb6638",
+    "batch-0032": "edfa835c189bc40a9b1a3955873b3d85a3a9d8a5aa1f47180e0e1d742c125840",
+    "batch-0033": "7ae4e868500f8e2815f523f92e58551e4f016f216933839a686c3b18df755f8d",
+    "batch-0034": "272b3c394db221e6af9f95e16a907927b21549822dee445eda0d27c4bea4953b",
+    "batch-0035": "3ce7c1350795368114d0ab50d0aaa43e55ec9acdb2b61ce88d5ed1ae2ea475fb",
+    "batch-0036": "fe0db9f727f8e1cb248ec8d628b85c52d28fb1b9f0766a8df113f48fcdb4c1c0"
+  },
+  "development_sha256": {
+    "batch-0037": "aa712b987ee9f9aa4db1280350ccd78c99e0bc6e1599aae8ce0eb22c3c245dc9",
+    "batch-0038": "b18f73118b403e2dc9b29f65619953e63f06d52b56c89998ec7d07b8afa4f6af"
+  },
+  "v16_baseline_summary": {
+    "surface_pairs": [
+      10,
+      23,
+      18,
+      24
+    ],
+    "worst_surface_pairs": 10,
+    "total_pairs": 75,
+    "false_reviews": 13,
+    "positive_recovered": 85
+  },
+  "v23_development_summary": {
+    "surface_pairs": [
+      11,
+      24,
+      17,
+      24
+    ],
+    "worst_surface_pairs": 11,
+    "total_pairs": 76,
+    "false_reviews": 6,
+    "positive_recovered": 81
+  },
+  "v23_selection_sha256": "c057de4393b8975a78842685992816befbba55ac66c63ca88db817ae511891cf",
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "predictor_sha256": "3d37f6879eabbae0bb64c1a909eb33fca75616308190e827171ee27697283c79",
+  "data_selector_sha256": "699e9119e5e51dc8337e8f47fd5f15e16a6aa5777491ce959fe3b71452c787df",
+  "trainer_sha256": "b147c05cfdf914cdefc915fddc1ce3233adcb8b6e6e41845cf51a8e45543ffa0",
+  "protocol_sha256": "d2a7ff76bf6222de3af9e081a1bc524347d7a31c9c65ca32574f94f086648d98",
+  "seed": 20261006,
+  "epochs": 6,
+  "pairs_per_group_per_epoch": 24,
+  "pairs_per_batch": 2,
+  "learning_rate_lora": 0.0002,
+  "learning_rate_classifier": 0.001,
+  "pair_loss_weight": 0.5,
+  "max_length": 256,
+  "max_prompt_tokens": 134,
+  "warmup_steps": 50,
+  "total_steps": 504,
+  "trainable_parameters": 591362,
+  "device": "mps",
+  "torch_version": "2.14.0",
+  "transformers_version": "4.57.6",
+  "peft_version": "0.21.1",
+  "candidates": [
+    {
+      "epoch": 1,
+      "mean_train_loss": 1.0369256479399545,
+      "weight_sha256": "3b4b6fe75cebca46aad76a6820c51b9cfde4fe061919e739a9773d275715ae8e",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "a0271ff2ece64c707f99f346f04b88e5f1e91bff56c996a05dd4b6701012dcb5",
+      "summary": {
+        "surface_pairs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 0,
+        "false_reviews": 5,
+        "positive_recovered": 4
+      }
+    },
+    {
+      "epoch": 2,
+      "mean_train_loss": 1.0260430006753831,
+      "weight_sha256": "5805e943bfd381418cb4686e978ab337aac7ff47954d9eac5887fd5d7af510f2",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "ba345104c8cafefc115507c4ce341836f9853a6c6fcf823b9a52a7ddd320f94b",
+      "summary": {
+        "surface_pairs": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 1,
+        "false_reviews": 18,
+        "positive_recovered": 15
+      }
+    },
+    {
+      "epoch": 3,
+      "mean_train_loss": 0.8492685602534384,
+      "weight_sha256": "d0e16784ebb0c1b8808f21755e093bf244c8439d3185b583eadc66768b8d4354",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "f559fe35de764c0d10bda731cd206f1a1ea0bf67c2f5ad57334ad929ec88fc03",
+      "summary": {
+        "surface_pairs": [
+          7,
+          0,
+          2,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 9,
+        "false_reviews": 10,
+        "positive_recovered": 13
+      }
+    },
+    {
+      "epoch": 4,
+      "mean_train_loss": 0.70449702725524,
+      "weight_sha256": "870b3d7ddb1bbc35441025f7b467bbe73b5667158a9a4da1b74d0bb32d7d0e32",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "9c234235a437fd9674f2be4c366fbde5009b2c05b5291e9c9ccb84831160bea5",
+      "summary": {
+        "surface_pairs": [
+          8,
+          0,
+          4,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 12,
+        "false_reviews": 36,
+        "positive_recovered": 48
+      }
+    },
+    {
+      "epoch": 5,
+      "mean_train_loss": 0.3203368517348454,
+      "weight_sha256": "e0a38a22caffa29cb02a5c0de5e4101a05e6a230c923c3ced6c5d1a40a3ef664",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "120e4a5cd798d8363bdf6c679d0f23706be786e9eb9cc389d37c3280536e3ed7",
+      "summary": {
+        "surface_pairs": [
+          17,
+          0,
+          8,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 25,
+        "false_reviews": 22,
+        "positive_recovered": 47
+      }
+    },
+    {
+      "epoch": 6,
+      "mean_train_loss": 0.1584081197201851,
+      "weight_sha256": "80698a558dee9c31f5998fa631a1b8b941f44c01263d98de4f74af5ae2f41d4d",
+      "adapter_config_sha256": "4ea6a721503fb7770fbcff585fbc363691b98a06999b9732596bba11cfd0dad1",
+      "dev_predictions_sha256": "7dd049be6994cb1817124ec0ea6610a6f404bc8f0efe81eb78c4f7eff09d471b",
+      "summary": {
+        "surface_pairs": [
+          15,
+          0,
+          10,
+          0
+        ],
+        "worst_surface_pairs": 0,
+        "total_pairs": 25,
+        "false_reviews": 23,
+        "positive_recovered": 48
+      }
+    }
+  ],
+  "selected_epoch": 5,
+  "selected_weight_sha256": "e0a38a22caffa29cb02a5c0de5e4101a05e6a230c923c3ced6c5d1a40a3ef664",
+  "development_gate_passed": false
+}

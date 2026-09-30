@@ -1,0 +1,256 @@
+{
+  "status": "frozen_v10_cross_category_comparison",
+  "batch": "batch-0020",
+  "test_sha256": "2fe2dc54e32f081c70e1929366e4b4a51478b66ea895088597372bd10a87b247",
+  "attestation_sha256": "cc65ba5f8a302bc8eb0954103a129c4883aa5998bff0e37fe5253387a016bd6f",
+  "selection_records_sha256": {
+    "v10": "f6f9e56833004298d250efa6715314e39465f6a31b58b17afba561b7ce5d430f",
+    "v9a": "a9bb20ac99cbaad089194bc2729e8d2572a2994701d357c091a0cad04b685087"
+  },
+  "selected_weights_sha256": {
+    "v10": "f6f1c34441bc60faf1f92ce5bc5fdd0535da4cbbaec8a831d5982f7e3434aa5f",
+    "v9a": "db7a51e8322c68027b8397074e5de677b017b60b2a2b14a9b14e1e3bbd3f0cb4"
+  },
+  "runs_sha256": {
+    "ro-mmbert-v10-test-0020.json": "f4f15e60a251638cccd74ba3afc7808def66c6a4722d99f710311c4707e64036",
+    "ro-mmbert-v9a-test-0020.json": "662c9aaf627160fba5778581bbee6dc4c7476467982af0e93627ec1b3fd6989c",
+    "ro-qwen-v8-test-0020.json": "a8f9a216f82dbc846559b64f85a9e34966096e1ee8390b41b0e6fccd0f93a582"
+  },
+  "v10": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 99,
+    "exact_pairs": 28,
+    "correct_direction_flips": 28,
+    "false_review_on_negatives": 40,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 0.631578947368421,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 7,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 0.5,
+        "recall": 0.75,
+        "tp": 9,
+        "fp": 9,
+        "fn": 3
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.625,
+        "recall": 0.8333333333333334,
+        "tp": 10,
+        "fp": 6,
+        "fn": 2
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 6,
+        "fn": 0
+      }
+    ]
+  },
+  "v9a": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 86,
+    "exact_pairs": 24,
+    "correct_direction_flips": 40,
+    "false_review_on_negatives": 23,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 0.631578947368421,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 7,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 0.36363636363636365,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 21,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.6363636363636364,
+        "recall": 0.5833333333333334,
+        "tp": 7,
+        "fp": 4,
+        "fn": 5
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 0.5,
+        "recall": 0.25,
+        "tp": 3,
+        "fp": 3,
+        "fn": 9
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 0.48,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 13,
+        "fn": 0
+      }
+    ]
+  },
+  "qwen_v8": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 86,
+    "exact_pairs": 17,
+    "correct_direction_flips": 17,
+    "false_review_on_negatives": 18,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.08333333333333333,
+        "tp": 1,
+        "fp": 0,
+        "fn": 11
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "tp": 11,
+        "fp": 0,
+        "fn": 1
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.08333333333333333,
+        "tp": 1,
+        "fp": 0,
+        "fn": 11
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 0.45454545454545453,
+        "recall": 0.4166666666666667,
+        "tp": 5,
+        "fp": 6,
+        "fn": 7
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.16666666666666666,
+        "tp": 2,
+        "fp": 0,
+        "fn": 10
+      }
+    ]
+  },
+  "paired_discordance": {
+    "v9a": {
+      "candidate_only_exact_pairs": 9,
+      "comparator_only_exact_pairs": 5,
+      "two_sided_exact_mcnemar_p": 0.4239501953125
+    },
+    "qwen_v8": {
+      "candidate_only_exact_pairs": 25,
+      "comparator_only_exact_pairs": 14,
+      "two_sided_exact_mcnemar_p": 0.10812902140605729
+    }
+  },
+  "always_review_reference": {
+    "exact_cards": 72,
+    "exact_pairs": 0,
+    "false_review_on_negatives": 72
+  },
+  "never_review_reference": {
+    "exact_cards": 72,
+    "exact_pairs": 0,
+    "false_review_on_negatives": 0
+  },
+  "preregistered_success": false,
+  "limitation": "Synthetic rule descriptions only; no authentic child-language validity."
+}

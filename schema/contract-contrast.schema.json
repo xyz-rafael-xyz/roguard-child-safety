@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/schema/contract-contrast.schema.json",
+  "title": "RoGuard one-fact contract contrast report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "language", "taxonomy_status", "changed_path",
+    "before_review_suggested", "after_review_suggested", "decision_changed", "transitions"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "language": {"enum": ["ro", "uk"]},
+    "taxonomy_status": {"enum": ["approved_ro_v0.2", "draft_uk_v0.1"]},
+    "changed_path": {"type": "string", "pattern": "^/"},
+    "before_review_suggested": {"type": "boolean"},
+    "after_review_suggested": {"type": "boolean"},
+    "decision_changed": {"type": "boolean"},
+    "proposed_use_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["before_status", "after_status", "before_reason_codes", "after_reason_codes", "before_incomplete", "after_incomplete"],
+      "properties": {
+        "before_status": {"enum": ["ready_for_human_decision", "incomplete", "review"]},
+        "after_status": {"enum": ["ready_for_human_decision", "incomplete", "review"]},
+        "before_reason_codes": {"type": "array", "items": {"type": "string"}},
+        "after_reason_codes": {"type": "array", "items": {"type": "string"}},
+        "before_incomplete": {"type": "boolean"},
+        "after_incomplete": {"type": "boolean"}
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "category", "source_kind", "before_status", "after_status",
+          "before_reason_codes", "after_reason_codes"
+        ],
+        "properties": {
+          "category": {"enum": ["D1", "R1", "A1", "P1", "G1", "S1"]},
+          "source_kind": {"enum": ["message", "response", "routing_card", "permission_card", "boundary_card", "gate_card"]},
+          "before_status": {"enum": ["pass", "incomplete", "review"]},
+          "after_status": {"enum": ["pass", "incomplete", "review"]},
+          "before_reason_codes": {"type": "array", "items": {"type": "string"}},
+          "after_reason_codes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "backend": "mlx_lm_codes",
+  "base_model_path": null,
+  "base_model_id": "OpenLLM-Ro/RoMistral-7b-Instruct",
+  "base_revision": "fc097a5fdc2a5a689df084c76ffacf2cfb9f6550",
+  "language": "ro",
+  "categories": [
+    "D1",
+    "R1",
+    "A1",
+    "P1",
+    "G1",
+    "S1"
+  ],
+  "batches": [
+    "batch-0009",
+    "batch-0010"
+  ],
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "train_sha256": "cb4d3f43c3111f6bbdb0b892555898e91e7cbc304e1658c6a1f15a5c38992da8",
+  "valid_sha256": "f6475ffde4c237a2d39a98779e7087b198664512af95c292af53c86f40cc1f7a",
+  "train_rows": 288,
+  "dev_rows": 36,
+  "train_tasks": 480,
+  "dev_tasks": 48,
+  "prompt_version": "v4",
+  "iters": 600,
+  "synthetic_only": true,
+  "score_semantics": "hard_code_output_not_calibrated_probability",
+  "selected_step": 500,
+  "selection_batch": "batch-0010",
+  "selection_rule": "max_exact_pairs_then_exact_rows_then_fewer_false_reviews_then_earlier_step"
+}

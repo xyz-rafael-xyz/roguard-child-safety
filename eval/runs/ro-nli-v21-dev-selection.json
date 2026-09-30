@@ -1,0 +1,313 @@
+{
+  "status": "development_selection",
+  "study": "v21_nli_adapted_d1",
+  "source_commit": "373653a910a161ca1ca450e4dd8323558ed815c1",
+  "model": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "base_files_sha256": {
+    "config.json": "bc7b85f164a17c1b007d87fb99d3676f4a4d2e6511d2288dd3f5334dc0f34e6b",
+    "model.safetensors": "7c8e29f1115986d032e92b0fbaa0bdef1062a46f658b08705f237c05014a8541",
+    "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+    "spm.model": "13c8d666d62a7bc4ac8f040aab68e942c861f93303156cc28f5c7e885d86d6e3",
+    "tokenizer.json": "e23095eb61ba944c7be3a5d3e8ec19e37ce7ced0daa03550bde03e83c21b3f8a",
+    "tokenizer_config.json": "25e9f84c6b43da7bff43a0aee8eeee2c8a39d246823d8464b9275ef704eab42f"
+  },
+  "train_batches": [
+    "batch-0028",
+    "batch-0031",
+    "batch-0032",
+    "batch-0033",
+    "batch-0034",
+    "batch-0036"
+  ],
+  "development_batch": "batch-0037",
+  "train_batch_sha256": {
+    "batch-0028": "364240f8b933e779868b05cb15427bd5c379019ab08af95439b285875c393b8e",
+    "batch-0031": "83d3152b4cbbc847fe950b87d391f0bf2a4684ad7eeb7309cd0de084caeb6638",
+    "batch-0032": "edfa835c189bc40a9b1a3955873b3d85a3a9d8a5aa1f47180e0e1d742c125840",
+    "batch-0033": "7ae4e868500f8e2815f523f92e58551e4f016f216933839a686c3b18df755f8d",
+    "batch-0034": "272b3c394db221e6af9f95e16a907927b21549822dee445eda0d27c4bea4953b",
+    "batch-0036": "fe0db9f727f8e1cb248ec8d628b85c52d28fb1b9f0766a8df113f48fcdb4c1c0"
+  },
+  "development_sha256": "aa712b987ee9f9aa4db1280350ccd78c99e0bc6e1599aae8ce0eb22c3c245dc9",
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "generator_sha256": "35e91f948d8c7d3e53827bb7234dd77b4dbae275673852bd7f08276efbcf8abc",
+  "trainer_sha256": "b65e3eb4ed4c1e8f180159afaee873697e4f5a0ba2ca615936449c3cfb545836",
+  "prompt_sha256": "2b75966ed4a82f50bb5161f26e59737ef042db37edacd3f626467df9ce4dcea9",
+  "protocol_sha256": "67c48ef7991d78e1bbd746ee829dbcb81695d9117b4bd6ad94849059483e7af5",
+  "seed": 20261003,
+  "epochs": 3,
+  "pair_batch_size": 2,
+  "train_pairs": 264,
+  "positive_counts": {
+    "minor_source": 462,
+    "support_anchor": 462,
+    "indirect_pattern": 330,
+    "explicit_request": 66
+  },
+  "class_weights": {
+    "minor_source": {
+      "positive": 0.5714285714285714,
+      "negative": 4.0
+    },
+    "support_anchor": {
+      "positive": 0.5714285714285714,
+      "negative": 4.0
+    },
+    "indirect_pattern": {
+      "positive": 0.8,
+      "negative": 1.3333333333333333
+    },
+    "explicit_request": {
+      "positive": 4.0,
+      "negative": 0.5714285714285714
+    }
+  },
+  "learning_rate": 3e-05,
+  "max_length": 256,
+  "warmup_steps": 40,
+  "total_steps": 396,
+  "device": "mps",
+  "torch_version": "2.14.0",
+  "transformers_version": "4.57.6",
+  "peft_version": "0.21.1",
+  "candidates": [
+    {
+      "epoch": 1,
+      "mean_train_loss": 0.4060555365303475,
+      "weight_sha256": "b32690e5f349093469c00b08378bad9aa73df4f14f434a9f712a25043977fd14",
+      "dev_predictions_sha256": "35bc2c02d76c328d68a86af7e17f789b982711c68b832b5d4befbd5fb3a6ae22",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 65,
+        "exact_pairs": 17,
+        "correct_direction_flips": 17,
+        "false_review_on_negatives": 30,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 48,
+            "precision": 0.6103896103896104,
+            "recall": 0.9791666666666666,
+            "tp": 47,
+            "fp": 30,
+            "fn": 1
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      },
+      "field_correct": 298
+    },
+    {
+      "epoch": 2,
+      "mean_train_loss": 0.2197977923576466,
+      "weight_sha256": "884d8e83251acaebf8ec381e3fe342da7f4b5bd11b7e154f22b558bad7eecd41",
+      "dev_predictions_sha256": "b3139c70b8e05c9f16e098b7202c95483580a9bf301b458efb75b9168e0cdde4",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 71,
+        "exact_pairs": 23,
+        "correct_direction_flips": 23,
+        "false_review_on_negatives": 19,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 48,
+            "precision": 0.6885245901639344,
+            "recall": 0.875,
+            "tp": 42,
+            "fp": 19,
+            "fn": 6
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      },
+      "field_correct": 308
+    },
+    {
+      "epoch": 3,
+      "mean_train_loss": 0.17708452086133714,
+      "weight_sha256": "f4510c302fe9e96c5e41e48bca4ff1f1abbfbd2be006a94b201503fa5175854f",
+      "dev_predictions_sha256": "a1374206e612d48eff5bac90eb7dd9f4ba24faaef80b1afbc0e61109df83cb0b",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 64,
+        "exact_pairs": 16,
+        "correct_direction_flips": 16,
+        "false_review_on_negatives": 19,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 48,
+            "precision": 0.6481481481481481,
+            "recall": 0.7291666666666666,
+            "tp": 35,
+            "fp": 19,
+            "fn": 13
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      },
+      "field_correct": 302
+    }
+  ],
+  "selected_epoch": 2,
+  "selected_weight_sha256": "884d8e83251acaebf8ec381e3fe342da7f4b5bd11b7e154f22b558bad7eecd41",
+  "development_gate_passed": false
+}

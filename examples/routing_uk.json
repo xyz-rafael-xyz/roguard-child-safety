@@ -1,0 +1,25 @@
+{
+  "language": "uk",
+  "routing": {
+    "principal": "дитина",
+    "item": "вигаданий-елемент",
+    "purpose": "А",
+    "proposed_recipient": "піклувальник",
+    "recipient_roles": ["дитина", "піклувальник"],
+    "allowed_by_scope": [
+      {
+        "principal": "дитина",
+        "item": "вигаданий-елемент",
+        "purpose": "А",
+        "recipients": ["дитина"]
+      }
+    ]
+  },
+  "gate": {
+    "review_owner": "оцінювач",
+    "model_output_parsed": true,
+    "accept_unparsed": false,
+    "external_action_branch": false,
+    "human_approval_required": true
+  }
+}

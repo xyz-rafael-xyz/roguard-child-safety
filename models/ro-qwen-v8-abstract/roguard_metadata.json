@@ -1,0 +1,66 @@
+{
+  "backend": "mlx_lm_codes",
+  "base_model_path": null,
+  "base_model_id": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "base_files_sha256": {
+    "config.json": "574349e5a343236546fda55e4744a76e181f534182d7dc60ff1bad7e7a502849",
+    "model.safetensors": "2a73c6c248601ab904e035548abd8e6abb65ea27dcb5f342fb0a8910eb44173f",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "4397cc477eb6d79715ccd2000accd6b3531928f30029665832fa1b255f24d2b9"
+  },
+  "language": "ro",
+  "categories": [
+    "D1",
+    "R1",
+    "A1",
+    "P1",
+    "G1",
+    "S1"
+  ],
+  "batches": [
+    "batch-0014",
+    "batch-0015"
+  ],
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "train_sha256": "1e673de2b4ce5f789ff6ad9ef1d4713a5b6b67b9dec162f6d00e573bc20387ba",
+  "valid_sha256": "b1fb76fc3068c60c45a88cee28830b5bb6d2ed7058d8b43e847de6b36ec6628f",
+  "train_rows": 576,
+  "dev_rows": 96,
+  "train_tasks": 1728,
+  "dev_tasks": 128,
+  "prompt_version": "v4",
+  "iters": 1200,
+  "synthetic_only": true,
+  "training_balance_rule": "three_copies_of_D1_R1_P1_G1_tasks_train_only",
+  "train_tasks_per_category": {
+    "D1": {
+      "da": 144,
+      "nu": 144
+    },
+    "R1": {
+      "da": 144,
+      "nu": 144
+    },
+    "A1": {
+      "da": 144,
+      "nu": 144
+    },
+    "P1": {
+      "da": 144,
+      "nu": 144
+    },
+    "G1": {
+      "da": 144,
+      "nu": 144
+    },
+    "S1": {
+      "da": 144,
+      "nu": 144
+    }
+  },
+  "score_semantics": "hard_code_output_not_calibrated_probability",
+  "selected_step": 1200,
+  "selection_batch": "batch-0015",
+  "selection_rule": "max_exact_pairs_then_exact_rows_then_fewer_false_reviews_then_earlier_step"
+}

@@ -1,0 +1,32 @@
+# Declared-contract audit
+
+RoGuard's structured path checks facts supplied by a caller. It can make exact comparisons against those declared facts; it cannot verify that a real permission, identity, age, or organizational rule was truthfully supplied.
+
+The independent permission-state test enumerates all 3,905 event histories of length one through five over `grant`, `narrow`, `revoke`, `pause`, and `resume`. For each history it checks both a proposed use and a required use withheld against a separate three-state reference machine: absent, active, paused. `narrow` removes the **exact scope named in the event**, while preserving unrelated scopes; resumption does not revive that removed permission. The test also checks that a grant for another principal cannot authorize use, that expiry blocks use at the expiry time, and that a later grant can renew permission. It runs in CI and contains symbolic keys only.
+
+An additional finite matrix checks 7,446 combinations of declared facts, including missing fields and decision boundaries:
+
+| Check | Symbolic combinations | Boundary covered |
+|---|---:|---|
+| D1 declared evidence | 108 | Source role, anchor, indirect or explicit support, and missing judgments |
+| A1 word cap | 585 | Word count equal to, below, or above a supplied limit at three declared ages |
+| R1 scoped route | 96 | Principal, item, purpose, recipient role, and allowed recipient set |
+| P1 boundary fields | 64 | Required, optional, protected, and unlisted fields before or after correction |
+| G1 workflow | 32 | Review owner, parser result, fail-open branch, external branch, and approval |
+| S1 declared response fields | 6,561 | Absent, passed, or failed state for each of eight applicable response fields |
+
+These are exhaustive **within the listed small symbolic domains**. They check branch behavior and reason-code priority, including that an invalid recipient role is rejected before a missing scope is considered. They do not test whether a caller's declarations match a real child, response, policy, or language. Passing them is neither a natural-language accuracy estimate nor a child-safety deployment certificate.
+
+Routing requires a match on principal, item, purpose, and proposed recipient under a supplied scope. No guardian or other role has implicit access. Boundary checking distinguishes unauthorized inclusion from withholding a required permitted field. The caller must assert that a currently proposed protected field was previously corrected and that a request followed; only then is its reappearance marked `BOUNDARY_RECURRENCE`. A newly introduced unlisted field is `UNAUTHORIZED_REUSE`. Both reasons may appear when both defects occur. Workflow checking reports an unparsed output as `OUTPUT_BLOCKED` when the policy stops it; accepting malformed output is `FAIL_OPEN`, even if the current output parses. Any external branch without required human approval is `AUTO_EXTERNAL_ACTION`. All checks return findings only; none executes a branch or notifies a person.
+
+The public Python checkers now validate their dataclass field types before deciding. A direct `RoutingCard` once accepted a string for both recipient sets; Python substring membership then let an undeclared `guard` recipient pass a policy containing only `guardian`. The regression rejects those strings and checks the intended recipient conflict with real `frozenset` values. Other direct checks reject boolean values in numeric contracts and malformed permission, boundary, workflow, D1, or S1 fields. Whitespace-only reviewer names and scope identifiers now count as missing; whitespace-only set members are invalid. The JSON CLI already validated the container shapes. These repairs close malformed-input safe-pass paths; they do not verify the truth of any declared policy.
+
+The JSON CLI accepts a single declared contract or a locally validated JSONL batch. A missing declaration yields an `incomplete` finding where possible; schema errors fail the command. Neither path downloads a model. The model-agnostic `roguard-pairs` evaluator provides a separate diagnostic for abstract contrast cards, including complete-pair consistency and false review load. Its scores describe those cards alone.
+
+For A1, the CLI can count a supplied response locally and reject a contradictory caller-supplied `measured_words` value. The Unicode counting convention is fixed in `count_words()` and checked with neutral Romanian and Ukrainian text. This removes one avoidable input error while leaving the caller responsible for the cap and any assessment of comprehension.
+
+The `roguard-contrast` command checks two valid declared-contract inputs with the same shape and exactly one changed scalar. It reports the field path and any review-status or reason-code transition without echoing the input values. This lets a reviewer confirm which stated fact caused a proposed decision to change. The output is still contingent on the caller's policy and facts. Both CLI entry points are exercised as installed commands in CI.
+
+When experimental model labels are assembled with declared contracts, R1/P1/G1 labels without a matching contract still suggest collecting facts. A model label that conflicts with a complete passing declared policy is retained as `policy_disagreements`, but it does not turn a passing policy check into a review decision. This precedence is tested directly. D1/A1/S1 model labels remain advisory because their broader linguistic questions are not settled by one declared numeric or field check.
+
+D1 and S1 also have a **declared-evidence path**. For D1, a caller supplies the source role, a safety or support anchor, and whether indirect or explicit support seeking was judged present. For S1, a caller supplies which response fields are applicable and which passed their own review. The checker computes internal reason codes from those declarations and reports missing fields as incomplete. It does not infer these judgments from Romanian or Ukrainian text. The sample cards contain only abstract facts; a person remains responsible for interpreting any real content before entering those facts.

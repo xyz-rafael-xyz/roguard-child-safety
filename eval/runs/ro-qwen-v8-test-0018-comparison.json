@@ -1,0 +1,257 @@
+{
+  "status": "frozen_qwen_balanced_comparison",
+  "test_batch": "batch-0018",
+  "test_sha256": "77b915b67bd8b4eec3decb38ab990e84cb96a1ddfa3c8053f129867372ee42f0",
+  "attestation_sha256": "24a4dfeec81dba0055d5af85fbb5109dda9d75c783377c8d6b1a67d2c4435d36",
+  "selection_record_sha256": "85a25c7e26f0123f8fc4efdfa7ba5394126e8e5e63b0d19e00dbff99f598b72c",
+  "v7_selection_record_sha256": "e08e24a195098d33fff9f5ddaa5c577291dd97aa4f045daa6bd5bedcd074226d",
+  "selected_weight_sha256": "6f33c2ebe7f3f9758bc077e1b8486173e7dabfddec60a3b4d6b2cde6a320b671",
+  "v7_comparator_weight_sha256": "7f0441b50d42c4a08f1b016c7b1c91ef4cdc15fea962b1dd6edb1e67c20362cf",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "parser_profile": "qwen_empty_think_wrapper_v1",
+  "parser_sha256": "5d3ec70a2cf249470481452a5155744fc7f60a550cf04bb111b18b7827ee1231",
+  "chat_template_sha256": "40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541",
+  "run_sha256": {
+    "ro-qwen-v8-test-0018.json": "abcc4763da0c8dd06ee4a12b764eebf01d09e6793eefb9640b90358ec5ca7485",
+    "ro-qwen-v7-wrapper-test-0018.json": "5bbcc8e288e942d343ef04d77443d0cdeb74969312de83a23bf58f25c60ccda6",
+    "qwen3-base-v4-0018.json": "1588279e61c21befd24cfaf3f8b0b6f77ac6054471d619ed4884d86f38504041"
+  },
+  "reports": [
+    {
+      "model": "ro-qwen-v8-adapter",
+      "parsed_rows": 144,
+      "exact_rows": 80,
+      "exact_pairs": 13,
+      "correct_direction_flips": 13,
+      "false_review_on_negatives": 18,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "tp": 4,
+          "fp": 4,
+          "fn": 8
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 0.625,
+          "recall": 0.4166666666666667,
+          "tp": 5,
+          "fp": 3,
+          "fn": 7
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.875,
+          "recall": 0.5833333333333334,
+          "tp": 7,
+          "fp": 1,
+          "fn": 5
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": 0.6666666666666666,
+          "recall": 0.16666666666666666,
+          "tp": 2,
+          "fp": 1,
+          "fn": 10
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.47058823529411764,
+          "recall": 0.6666666666666666,
+          "tp": 8,
+          "fp": 9,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        }
+      ]
+    },
+    {
+      "model": "ro-qwen-v7-adapter",
+      "parsed_rows": 144,
+      "exact_rows": 85,
+      "exact_pairs": 15,
+      "correct_direction_flips": 15,
+      "false_review_on_negatives": 14,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.6,
+          "recall": 0.25,
+          "tp": 3,
+          "fp": 2,
+          "fn": 9
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "tp": 8,
+          "fp": 4,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 1.0,
+          "recall": 0.5833333333333334,
+          "tp": 7,
+          "fp": 0,
+          "fn": 5
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 0.08333333333333333,
+          "tp": 1,
+          "fp": 1,
+          "fn": 11
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.5333333333333333,
+          "recall": 0.6666666666666666,
+          "tp": 8,
+          "fp": 7,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        }
+      ]
+    },
+    {
+      "model": "qwen3-base",
+      "parsed_rows": 144,
+      "exact_rows": 79,
+      "exact_pairs": 9,
+      "correct_direction_flips": 9,
+      "false_review_on_negatives": 59,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 12,
+          "precision": 0.5789473684210527,
+          "recall": 0.9166666666666666,
+          "tp": 11,
+          "fp": 8,
+          "fn": 1
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 12,
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 9,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 12,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 12,
+          "fp": 12,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 12,
+          "precision": 0.5384615384615384,
+          "recall": 0.5833333333333334,
+          "tp": 7,
+          "fp": 6,
+          "fn": 5
+        }
+      ]
+    }
+  ],
+  "paired_discordance": {
+    "ro-qwen-v7-adapter": {
+      "candidate_only_exact_pairs": 3,
+      "comparator_only_exact_pairs": 5,
+      "two_sided_exact_mcnemar_p": 0.7265625
+    },
+    "qwen3-base": {
+      "candidate_only_exact_pairs": 10,
+      "comparator_only_exact_pairs": 6,
+      "two_sided_exact_mcnemar_p": 0.454498291015625
+    }
+  },
+  "always_review_reference": {
+    "exact_rows": 72,
+    "exact_pairs": 0,
+    "correct_direction_flips": 0,
+    "false_review_on_negatives": 72
+  },
+  "never_review_reference": {
+    "exact_rows": 72,
+    "exact_pairs": 0,
+    "correct_direction_flips": 0,
+    "false_review_on_negatives": 0
+  },
+  "preregistered_success": false,
+  "limitation": "Symbolic descriptions only; no real child language or deployment validity."
+}

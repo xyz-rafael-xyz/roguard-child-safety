@@ -1,0 +1,21 @@
+# V27: class-balanced latent facts on a new sealed synthetic test
+
+V25 failed its fixed same-origin test target at 165/192 complete pairs. V26 changed to latent-fact supervision but missed its development gate at 163/192, weakest cell 36/48, so the V26 test remains sealed and will not be opened. V26's fact audit showed 24/192 source-role errors and 24/192 anchor errors on development; its paired training distribution contains seven true values for each false value on those two heads. That imbalance is the diagnosed target of V27.
+
+## Hypothesis and data
+
+V27 keeps the six separately estimated facts and the fixed D1/S1 composition from V26. It changes the training loss so each fact's positive and negative values have equal total weight among its applicable training cards. The weight for a value with count `n` among `N` applicable rows is `N / (2n)`. Counts and weights are calculated from training rows only and saved in the model-selection record. V27 uses eight epochs and a new random seed. It does not change the typed D1/S1 policy oracle or the downstream decision rule.
+
+The 1,536 training rows use metadata wording styles 0–7. The 384 development rows use style 8. The 384 prospective test rows use style 9, with a separate hidden 192-bit seed. The style banks were already written for V26, but V26 test rows were never created. V27 training and development rows use new public seeds; its test seed is independently generated. This is a narrower one-style transfer check than V25's two-style test. It remains same-origin synthetic metadata, with no independent author or fluent language review and no child messages, case narratives, or response drafts. The model may read only `language`, `source_kind`, and `text`; latent facts and labels are for fitting and audit only.
+
+## Frozen procedure
+
+Run `python -m training.generate_v27_balanced prepare` once. Commit and push this protocol, code, tests, generated training/development rows, source hashes, and test-seed commitment before fitting. The random seed is stored only under ignored `review_runs/`. Never generate test rows during model selection. Dummy-seed unit tests do not use the sealed seed.
+
+Fit pinned `jhu-clsp/mmBERT-base` with six-output LoRA rank 16, alpha 32, dropout 0.05, `Wqkv` and `Wo` adapters, and saved classifier head. Fixed training seed `20261003`; eight epochs; four pairs per batch; AdamW learning rate `3e-5`; 256-token cap; ten-percent linear warmup then decay. Minimize weighted fact BCE plus `0.5 ×` composed-outcome BCE plus `0.25 ×` pair ranking loss. Select the epoch by highest worst-cell complete development pairs, then total complete pairs, correct cards, fact correctness, and earliest epoch. Select one 0.05-grid decision cutoff per language/category cell on development only. Save every epoch's development scores and factor results, including failures.
+
+The development gate is **at least 168/192 complete pairs and at least 40/48 in each cell**. If it fails, preserve the selected model and development report, leave the V27 test seed closed, and start another separately registered study. If it passes, commit and push the selected adapter, cutoffs, and complete development record before revealing test rows. Score the unchanged selected model once. The prospective comparators are the frozen V25 and V26 adapters with their original cutoffs, a fixed character 3–5-gram logistic model fit on V27 training with cutoffs saved from V27 development before reveal, and always/never review. No cutoff or epoch is changed after test reveal.
+
+## Success target and limits
+
+Use the fixed V25 paired target: **44/48 complete pairs and 44/48 correct positives and negatives in each of the four language/category cells**, at least 9/12 per D1 changed factor, at least 20/24 per S1 changed factor, and all outputs finite. Report per-cell and per-factor counts, style 9 performance, false reviews, recall, specificity, precision, Wilson intervals, fact accuracy, and all comparator scores. A pass would show only controlled same-origin transfer to one unseen metadata wording style. It would not certify natural Romanian or Ukrainian, real disclosure recognition, safe handling of a child, or live deployment. Independent fluent review, independent authoring/adjudication, and the source audit in `docs/RELEASE_GATES.md` remain required.

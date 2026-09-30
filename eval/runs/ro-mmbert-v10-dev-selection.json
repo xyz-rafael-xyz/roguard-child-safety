@@ -1,0 +1,281 @@
+{
+  "status": "development_selection",
+  "study": "v10_cross_category_negative",
+  "source_commit": "af41d5c7b854306d8390e8de9e64b6e3a6e1856c",
+  "model": "jhu-clsp/mmBERT-base",
+  "revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+  "base_files_sha256": {
+    "config.json": "47b40fd2e1df8299426dd5f4bb18c28f028cfafcb51b73645f83e596d187eb37",
+    "pytorch_model.bin": "8ea64ec1ea4eb8fca0fc14b69a2ae571de6bfbc25fd214bb932dd4aba6a3a04e",
+    "tokenizer.json": "197d4cc5406ee12cc50c8b5511f2393cc32d9db321545979ce041c1199178356",
+    "tokenizer_config.json": "1d2f82c1341a79748e00efe82e67690f99d00b3c2a894f2b23128fd9d3519da3"
+  },
+  "train_batch": "batch-0014",
+  "development_batch": "batch-0015",
+  "train_batch_sha256": "9d3bea02db60e391fef3a210c6306091390edd945e5a7c2530c50eacdabfa2a9",
+  "development_sha256": "1a1d7249ea4caaab769c8ac04cca37aa671a550519d1deb81ceacb9383bc924c",
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "study_code_sha256": "18c7f3be0eb5543982bca17099eca6b8ddefc8d28fe1c3637915351f6c7209be",
+  "trainer_sha256": "fa24797ae49c9a78360980b3a32766180e0b086094a46d17b173acb8ffab8136",
+  "selector_sha256": "d5d61abb94d6b3973a8369ecbbfd91b6977e7a2612b84c116732082d69feb210",
+  "protocol_sha256": "0276b98cb99b7db568b26356b3781a0fabbc631b1309254a51b3d2cd4bf154c3",
+  "seed": 20260930,
+  "epochs": 3,
+  "pairs_per_batch": 2,
+  "primary_pair_exposures_per_epoch": 864,
+  "cross_negative_task_exposures_per_epoch": 576,
+  "unique_pairs": 288,
+  "pair_loss_weight": 0.5,
+  "cross_loss_weight": 0.5,
+  "learning_rate": 0.0001,
+  "max_length": 256,
+  "warmup_steps": 130,
+  "total_steps": 1296,
+  "device": "mps",
+  "torch_version": "2.14.0",
+  "transformers_version": "4.57.6",
+  "peft_version": "0.21.1",
+  "candidates": [
+    {
+      "epoch": 1,
+      "mean_train_loss": 1.0029794605992113,
+      "threshold": 0.31799405813217163,
+      "threshold_candidates": 130,
+      "weight_sha256": "08ccf28daeca038c8a1d43d98cdf94082294c145e5eb2889c3a5a6b23497793d",
+      "dev_predictions_sha256": "c89791caa0285baadbee00d51463f22132158f4f4a1cb2ad32f87dc13a77078e",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 87,
+        "exact_pairs": 39,
+        "correct_direction_flips": 39,
+        "false_review_on_negatives": 7,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 8,
+            "precision": 0.5714285714285714,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 6,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 8,
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 1,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 0.75,
+            "tp": 6,
+            "fp": 0,
+            "fn": 2
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      }
+    },
+    {
+      "epoch": 2,
+      "mean_train_loss": 0.22823050857496802,
+      "threshold": 0.391207292675972,
+      "threshold_candidates": 130,
+      "weight_sha256": "f6f1c34441bc60faf1f92ce5bc5fdd0535da4cbbaec8a831d5982f7e3434aa5f",
+      "dev_predictions_sha256": "9be97aca166d0d0fdd39bfd4fe786a2d2c5851eaddbcd9af430e4071cb03e4d5",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 92,
+        "exact_pairs": 45,
+        "correct_direction_flips": 45,
+        "false_review_on_negatives": 3,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 8,
+            "precision": 0.7,
+            "recall": 0.875,
+            "tp": 7,
+            "fp": 3,
+            "fn": 1
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      }
+    },
+    {
+      "epoch": 3,
+      "mean_train_loss": 0.1099306942629836,
+      "threshold": 0.18721101433038712,
+      "threshold_candidates": 130,
+      "weight_sha256": "f7fcd3c20d945391cd1234df039c2b689c7e85d507742b93147a1198ae40375a",
+      "dev_predictions_sha256": "0a5ea91de68e8c3292ba4bcc4d54f400ca3df88f9b7606ee9325e0af28bc40cc",
+      "report": {
+        "cards": 96,
+        "pairs": 48,
+        "parsed_cards": 96,
+        "exact_cards": 90,
+        "exact_pairs": 43,
+        "correct_direction_flips": 44,
+        "false_review_on_negatives": 4,
+        "per_category": [
+          {
+            "language": "ro",
+            "category": "D1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "R1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "A1",
+            "support": 8,
+            "precision": 0.6363636363636364,
+            "recall": 0.875,
+            "tp": 7,
+            "fp": 4,
+            "fn": 1
+          },
+          {
+            "language": "ro",
+            "category": "P1",
+            "support": 8,
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 1,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "G1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "language": "ro",
+            "category": "S1",
+            "support": 8,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0
+          }
+        ]
+      }
+    }
+  ],
+  "selected_epoch": 2,
+  "selected_threshold": 0.391207292675972,
+  "selected_weight_sha256": "f6f1c34441bc60faf1f92ce5bc5fdd0535da4cbbaec8a831d5982f7e3434aa5f"
+}

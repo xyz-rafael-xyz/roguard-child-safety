@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "registered_baseline_before_independent_batch",
+  "registered_on": "2026-09-30",
+  "pre_author_git_commit": "7b5f507ab136b1d89a08a83bd9186d808e2e1267",
+  "role": "fixed_research_comparator_not_deployment_model",
+  "language": "ro",
+  "categories": ["D1", "S1"],
+  "input_scope": "independently_authored_abstract_cards_only",
+  "adapter_dir": "models/ro-mmbert-v16-abstract",
+  "model_id": "jhu-clsp/mmBERT-base",
+  "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+  "cutoff": 0.5,
+  "max_length": 256,
+  "sha256": {
+    "models/ro-mmbert-v16-abstract/adapter_model.safetensors": "9f3ccab9b75b9aad5b42739518348bc3af84fd8037d17f3b49ecdb741a858f1d",
+    "models/ro-mmbert-v16-abstract/adapter_config.json": "8407b57edad9d6b980babf47511a9c505dda78ebcb9a3523a6f337a6d5114629",
+    "models/ro-mmbert-v16-abstract/research.json": "6e983b6f5f9101c3ea7b1ef7b7d2ac16f3d2c96fac2748e2744e533a543a2850",
+    "src/roguard/prompt_v4.py": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+    "src/roguard/mmbert_adapter.py": "47114531fa08d93f6fb91b56a50531847405098fc3fc4b3c0a660201fe4bcb3a",
+    "src/roguard/mmbert_study.py": "3d37f6879eabbae0bb64c1a909eb33fca75616308190e827171ee27697283c79",
+    "src/roguard/prospective_predict.py": "f59787c9fc6eb2261033ad6cb447784ae16d39ceacf288a937cea160a8780297",
+    "src/roguard/annotate_packet.py": "3f2a9217fd5787b651f73cd710ab87beff9abdb967670cef91dbc83550078237",
+    "src/roguard/human_eval.py": "dacdde70a8a200fc0cd7101b14edab230a9967b1e2a1aa4097124b60d053c2c2",
+    "docs/HUMAN_VALIDATION_PROTOCOL.md": "e9f3739725aaab978cbc96611a7867b1e71356e12fd673dea13b367137feefd1"
+  },
+  "independent_batch_received": false,
+  "human_review_completed": false,
+  "fresh_test_result_available": false,
+  "real_child_language_accuracy_established": false
+}

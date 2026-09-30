@@ -1,0 +1,7 @@
+# Frozen one-factor diagnostic protocol
+
+The [48 Romanian abstract cards](../data/synthetic/contrast-0001.jsonl) form 24 negative/positive pairs. Within a pair, the described source, context, rule, number, state, or workflow changes while the card type stays fixed. Four pairs probe each of D1, R1, A1, P1, G1, and S1. The [manifest](../data/synthetic/contrast-0001.manifest.json) binds the exact data bytes. The generator and data were committed **before** running the models. This is a diagnostic set and must never enter training.
+
+The comparator set is fixed here before evaluation: the existing RoMistral v2 adapter, its pinned prompt-only RoMistral base, and the pinned Qwen3 4B prompt-only base. All use the same Romanian v2 task prompt and a maximum of 24 new tokens. Record strict parse, exact card-label matches, per-category precision/recall, pairs with both complete answers correct, and pairs with the expected code switching in the correct direction. A malformed answer counts as no predicted labels and a parse failure.
+
+This test asks whether a model changes its category decision when one declared fact changes. It cannot measure detection of authentic disclosures, quality of a real answer, or whether the policy itself is right. Several pairs use the same rule words as earlier synthetic material. The set is too small for precise accuracy estimates, and once these results are inspected it cannot support a revised-model held-out claim.

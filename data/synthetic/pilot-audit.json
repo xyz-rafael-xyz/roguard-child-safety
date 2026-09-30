@@ -1,0 +1,64 @@
+{
+  "batch_sha256": {
+    "batch-0005": "1e714c11765be35f6426bfce419a8eb9d7cd7ac840fe96b51f7e0489eaa3427a",
+    "batch-0006": "1c155055656748b5a3deec444c22c028b523961b7b023ae69a79a650bb8a12f3",
+    "batch-0007": "68c30e3eaf93b59caed13d29160c71b086384d676275c1049cc1044e7e5dc887"
+  },
+  "rows": {
+    "batch-0005": 60,
+    "batch-0006": 40,
+    "batch-0007": 40
+  },
+  "positive_labels": {
+    "batch-0005": {
+      "P1": 5,
+      "D1": 6,
+      "R1": 6,
+      "A1": 6,
+      "S1": 6,
+      "G1": 6
+    },
+    "batch-0006": {
+      "P1": 4,
+      "R1": 4,
+      "D1": 4,
+      "A1": 4,
+      "S1": 4,
+      "G1": 4
+    },
+    "batch-0007": {
+      "G1": 4,
+      "R1": 4,
+      "P1": 4,
+      "A1": 4,
+      "S1": 5,
+      "D1": 4
+    }
+  },
+  "exact_duplicate_texts": 0,
+  "category_codes_in_card_text": [],
+  "character_similarity_by_source_kind": [
+    {
+      "source": "batch-0005",
+      "target": "batch-0006",
+      "mean_nearest_similarity": 0.506,
+      "max_nearest_similarity": 0.882,
+      "rows_above_0_90": 0
+    },
+    {
+      "source": "batch-0005",
+      "target": "batch-0007",
+      "mean_nearest_similarity": 0.53,
+      "max_nearest_similarity": 0.872,
+      "rows_above_0_90": 0
+    },
+    {
+      "source": "batch-0006",
+      "target": "batch-0007",
+      "mean_nearest_similarity": 0.659,
+      "max_nearest_similarity": 0.897,
+      "rows_above_0_90": 0
+    }
+  ],
+  "note": "Similarity is a superficial leakage check; it does not establish semantic independence."
+}

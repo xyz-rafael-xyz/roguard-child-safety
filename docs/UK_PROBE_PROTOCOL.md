@@ -1,0 +1,5 @@
+# Ukrainian draft-taxonomy probe
+
+The [Ukrainian taxonomy](../taxonomy/taxonomy_uk.md) is a native draft without an independent fluent or child-safety review. The [48 Ukrainian symbolic cards](../data/synthetic/uk-contrast-0001.jsonl) contain 24 negative/positive pairs, four per category. No child utterance or realistic assistant response appears. The generator and [manifest](../data/synthetic/uk-contrast-0001.manifest.json) are committed before inference, and the cards cannot enter training.
+
+This first probe uses the pinned Qwen3 4B 4-bit prompt-only base with the separate [Ukrainian rule prompt](../eval/uk_prompt_probe.py), a 24-token output cap, strict code parsing, and no fitting. Report exact rows, exact pairs, correct-direction flips, and per-category precision/recall. The probe asks whether the model follows one changed declared fact in Ukrainian. It cannot validate the taxonomy, natural child language, or deployment reliability. A Ukrainian fine-tuning result will require a reviewed taxonomy and independently authored training/development/test cards.

@@ -1,0 +1,258 @@
+{
+  "status": "frozen_v11_surface_comparison",
+  "batch": "batch-0023",
+  "test_sha256": "41d0779b307cca289a899011138460ff681e96f47c319c569616b7274fe84253",
+  "attestation_sha256": "a6f5e04a485243e2cedfbcb1bd239ce62eb4d91b9857baf742a3ab0715806cb8",
+  "selection_records_sha256": {
+    "v11": "bad9b49cde544972e0ff2017bcbca518dc858165670b53fa674a295c0e5649c9",
+    "v10": "f6f9e56833004298d250efa6715314e39465f6a31b58b17afba561b7ce5d430f",
+    "v9a": "a9bb20ac99cbaad089194bc2729e8d2572a2994701d357c091a0cad04b685087"
+  },
+  "selected_weights_sha256": {
+    "v11": "0b2144bd7a369e0b5f422a9a309bb70cfec65682de4a530aa2a8bc6283cd50bb",
+    "v10": "f6f1c34441bc60faf1f92ce5bc5fdd0535da4cbbaec8a831d5982f7e3434aa5f",
+    "v9a": "db7a51e8322c68027b8397074e5de677b017b60b2a2b14a9b14e1e3bbd3f0cb4"
+  },
+  "runs_sha256": {
+    "ro-mmbert-v11-test-0023.json": "19367ceaf0b266791b88506d3f65f77137ff76f646d711a174c05c125c1b9a76",
+    "ro-mmbert-v10-test-0023.json": "0c20a9d6169e36c90b21ec9220c2a04c1de7b6861fbed3bee666c5cbc1ca4a65",
+    "ro-mmbert-v9a-test-0023.json": "258c8e8ea184e8b92893f12db99569345d82175ec80b74fa65f6cba52a7d2920"
+  },
+  "v11": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 117,
+    "exact_pairs": 47,
+    "correct_direction_flips": 47,
+    "false_review_on_negatives": 8,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 0.75,
+        "recall": 0.75,
+        "tp": 9,
+        "fp": 3,
+        "fn": 3
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 12
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.8,
+        "recall": 0.6666666666666666,
+        "tp": 8,
+        "fp": 2,
+        "fn": 4
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 0.8,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 3,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      }
+    ]
+  },
+  "v10": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 121,
+    "exact_pairs": 53,
+    "correct_direction_flips": 53,
+    "false_review_on_negatives": 10,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 0.625,
+        "recall": 0.4166666666666667,
+        "tp": 5,
+        "fp": 3,
+        "fn": 7
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.75,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 4,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 0.6666666666666666,
+        "recall": 0.5,
+        "tp": 6,
+        "fp": 3,
+        "fn": 6
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      }
+    ]
+  },
+  "v9a": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 90,
+    "exact_pairs": 22,
+    "correct_direction_flips": 35,
+    "false_review_on_negatives": 23,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 0.5714285714285714,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 9,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 0.25925925925925924,
+        "recall": 0.5833333333333334,
+        "tp": 7,
+        "fp": 20,
+        "fn": 5
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.5714285714285714,
+        "recall": 0.6666666666666666,
+        "tp": 8,
+        "fp": 6,
+        "fn": 4
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.25,
+        "tp": 3,
+        "fp": 0,
+        "fn": 9
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 0.7058823529411765,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 5,
+        "fn": 0
+      }
+    ]
+  },
+  "paired_discordance": {
+    "v10": {
+      "candidate_only_exact_pairs": 4,
+      "comparator_only_exact_pairs": 10,
+      "two_sided_exact_mcnemar_p": 0.1795654296875
+    },
+    "v9a": {
+      "candidate_only_exact_pairs": 25,
+      "comparator_only_exact_pairs": 0,
+      "two_sided_exact_mcnemar_p": 5.960464477539063e-08
+    }
+  },
+  "always_review_reference": {
+    "exact_cards": 72,
+    "exact_pairs": 0,
+    "false_review_on_negatives": 72
+  },
+  "never_review_reference": {
+    "exact_cards": 72,
+    "exact_pairs": 0,
+    "false_review_on_negatives": 0
+  },
+  "preregistered_success": false,
+  "limitation": "Synthetic rule descriptions only; no authentic child-language validity."
+}

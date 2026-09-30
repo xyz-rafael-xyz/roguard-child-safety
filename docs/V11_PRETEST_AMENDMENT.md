@@ -1,0 +1,5 @@
+# V11 pretest development-file tag correction
+
+The first `eval/run_mmbert_v11.py` attempt stopped **before loading batch 0023 or running model inference**. It found that `training/train_mmbert_surface.py` wrote `"batches": ["batch-0015"]` into each saved development prediction file. The trainer actually loaded approved batch 0022, selected on its 144 row IDs and labels, and recorded `development_batch: batch-0022` with the correct batch hash. The mistake was a copied output tag, not a change to the fitted data, predictions, threshold, or selected adapter.
+
+The selected record and old development files remain unchanged. The corrected test gate verifies the original trainer bytes from the recorded fit commit and the saved prediction-file hash, checks every prediction against the approved batch-0022 row order and labels, requires the exact known erroneous tag, and names the amendment in the test output. The trainer's tag is corrected for future fresh fits. This amendment was committed before any batch-0023 model inference. It does not turn development accuracy into test evidence or alter the frozen success rule.

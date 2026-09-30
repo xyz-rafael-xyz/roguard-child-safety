@@ -1,0 +1,15 @@
+# Ukrainian numeral agreement: frozen-probe diagnostic
+
+**Registered before the corrected-text inference.** This is a post hoc language-quality diagnostic on the consumed `uk-contrast-0001` probe, not a new held-out accuracy test. The Ukrainian taxonomy is still an unreviewed draft, and none of these cards is eligible for training.
+
+The frozen A1 generator used `слів` after 54, 62, 63, and 92 in nominative or inanimate-accusative quantity phrases. In these frames, the expected form is `слова`. A [Ukrainian university grammar reference](https://dspace.luguniv.edu.ua/xmlui/bitstream/handle/123456789/8688/5452545.pdf?sequence=4) states that compound numerals ending in two, three, or four govern the nominative plural; the [official Ukrainian orthography](https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/Pravopys.2019/ukrayinskii-pravopis-oficiine-vidannia-2026.pdf) records the noun forms. This audit identifies seven occurrences in five of the eight A1 cards, with IDs `09-0`, `09-1`, `11-1`, `12-0`, and `12-1`. It does not assert that other Ukrainian wording is flawless.
+
+The original probe bytes and its failed Qwen result remain unchanged. The [diagnostic runner](../eval/diagnose_uk_numerals.py) checks the original probe and result hashes, makes only those four phrase substitutions **in memory**, and rescores all eight A1 cards with the same pinned Qwen3 4B revision, prompt, token cap, and strict parser. It reports original and corrected A1 exact cards, complete pairs, parsing, and every decision change. The original model marked A1 on all eight A1 cards; the correction may or may not change that behavior. Any observed difference is sensitivity to this edit on a consumed draft set, not Ukrainian model validation or evidence about child language.
+
+## Result
+
+The corrected Qwen run parsed all eight A1 cards and again matched **4/8 cards and 0/4 complete pairs**. It still returned `A1` for every card; **no decision changed**. The seven grammar corrections therefore did not explain the A1 false positives on this consumed probe. The [saved raw outputs](../eval/runs/uk-numeral-agreement-diagnostic.json) are bound to the corrected prompt hashes and replayed by the [verifier](../eval/verify_uk_numeral_diagnostic.py). Inference used `mlx-lm` 0.31.3 and the pinned model revision. This is a diagnostic of one defect, not a claim that the remaining wording is valid.
+
+The next independently authored Ukrainian set needs fluent review of numeral agreement and all other wording before approval. Do not replace the frozen `uk-contrast-0001` data, generator, manifest, or original prediction file with corrected text.
+
+The [narrow A1 preflight](../eval/uk_word_count_qa.py) now checks the two supported quantity frames (`межа — N …` and `виміряно N …`) and exits nonzero when a form disagrees. Its regression test finds exactly these seven historical errors and no errors after an in-memory correction. Run it on any proposed Ukrainian abstract A1 JSONL before freezing a future batch. It does not check other cases or validate Ukrainian prose; fluent review is still required.

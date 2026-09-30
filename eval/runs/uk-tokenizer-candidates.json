@@ -1,0 +1,63 @@
+{
+  "scope": "Tokenizer lengths on a consumed, unreviewed abstract-card probe; no accuracy result",
+  "probe_path": "data/synthetic/uk-contrast-0001.jsonl",
+  "probe_sha256": "87e974bf932620f71159c8b4f17cb02dbc9fa2c1c145656771aa6cbc40b28ef2",
+  "rows": 48,
+  "token_limit": 256,
+  "toolchain": {
+    "python": "3.12.13",
+    "transformers": "4.57.6",
+    "huggingface_hub": "0.36.2",
+    "sentencepiece": "0.2.2",
+    "protobuf": "6.33.6"
+  },
+  "candidates": [
+    {
+      "name": "ukr_roberta",
+      "repo_id": "youscan/ukr-roberta-base",
+      "revision": "8149bde480a6df9014aa934c3f8af30858dea5a6",
+      "tokenizer_file_sha256": {
+        "config.json": "f22e9a0554bd14026b5c55c4dcb71da0080f81378d6f35607d0f7ef2374d8fff",
+        "tokenizer_config.json": "166192c1eddba8386458140c441b2ac5cd6160249337bf8c72af8541215b5979",
+        "vocab.json": "e931648423c321602d85da5530dc9cdb872e70e17389cf6b919324a14f9e84b6",
+        "merges.txt": "8f3fb1c5e4a3a34bb1a78d127c106715945a0f429678a101a79b63af49fb09ba",
+        "special_tokens_map.json": "7638f5bbbe86ef6d604ef28ad3647dc690d6d117c81c0d63e885416be8da1150"
+      },
+      "median_tokens": 24.0,
+      "max_tokens": 40,
+      "rows_over_limit": 0,
+      "unknown_tokens": 0
+    },
+    {
+      "name": "uk_modernbert",
+      "repo_id": "KoichiYasuoka/modernbert-base-ukrainian",
+      "revision": "a64c57e5a16e95e27b09227cd335bb234be12ea1",
+      "tokenizer_file_sha256": {
+        "config.json": "d6ab76460e5ea5829241a1ea0e40846ff694f045260e0bef46f01deca8970ea9",
+        "tokenizer_config.json": "7fd55ed9369b7f066e1d6481349f58108dab4605d2ff9c751c7451390f796b7a",
+        "tokenizer.json": "e4a5d113d3b4a31b913f4b19f4031f4c33ae9e7dc0221a25c3d13963d20a01cd",
+        "tokenizer.model": "8c9699b255aa5ddd6575f1f3834454778153ebb60f957ac139d7b1685865e5e7",
+        "special_tokens_map.json": "ee06ffcbca335a9f0eef607931a16daf6224bd4fc04a7e13e6ef830f07a24d0f"
+      },
+      "median_tokens": 26.0,
+      "max_tokens": 43,
+      "rows_over_limit": 0,
+      "unknown_tokens": 0
+    },
+    {
+      "name": "mmbert",
+      "repo_id": "jhu-clsp/mmBERT-base",
+      "revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+      "tokenizer_file_sha256": {
+        "config.json": "47b40fd2e1df8299426dd5f4bb18c28f028cfafcb51b73645f83e596d187eb37",
+        "tokenizer_config.json": "1d2f82c1341a79748e00efe82e67690f99d00b3c2a894f2b23128fd9d3519da3",
+        "tokenizer.json": "197d4cc5406ee12cc50c8b5511f2393cc32d9db321545979ce041c1199178356",
+        "special_tokens_map.json": "baec30ea10906f16adb8c18af7a34023002c1746542612b8b41c9f09e1351351"
+      },
+      "median_tokens": 37.5,
+      "max_tokens": 63,
+      "rows_over_limit": 0,
+      "unknown_tokens": 0
+    }
+  ]
+}

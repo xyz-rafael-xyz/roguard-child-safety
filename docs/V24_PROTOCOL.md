@@ -1,0 +1,17 @@
+# V24 Romanian native-encoder development study
+
+The V23 mmBERT continuation failed its unchanged D1 development gate: 76/96 complete pairs, 81/96 positive reviews, 6/96 false reviews, and 11/24 on the weakest surface. The problem may involve language representation as well as loss weighting. V24 tests one new base-model hypothesis: a Romanian-specific cased encoder may read the invented Romanian polarity descriptions more consistently than the multilingual encoder. This is a **development-only** comparison on already consumed cards, not a fresh held-out test or an authentic child-language study.
+
+The candidate is [Romanian BERT cased](https://huggingface.co/dumitrescustefan/bert-base-romanian-cased-v1) at revision `37fb0ffb4bc4f7c4cde429626775685fb18f234f` (model card: MIT). Its authors report Romanian pretraining and task results unrelated to child safety; those results do not predict RoGuard accuracy. On the 192 consumed D1 development cards, the pinned tokenizer uses median 130 and maximum 134 tokens with the unchanged V4 prompt; pinned mmBERT uses median 183 and maximum 193. Neither reaches the 256-token cap. This tokenizer check is feasibility evidence only.
+
+## Fixed inputs and recipe
+
+Use only attested Romanian D1 message pairs from batches 0028, 0031, 0032, 0033, 0034, 0035, and 0036 for fitting. Batches 0037 and 0038 remain **development only** and are never included in optimizer input. Do not create new synthetic cards. Keep the exact [V4 D1 prompt](../src/roguard/prompt_v4.py), maximum length 256, and 0.5 decision cutoff. The trainer must reject any train or development prompt that exceeds the cap before fitting.
+
+Initialize a two-class sequence head on the pinned pretrained base; fit LoRA rank 16, alpha 32, dropout 0.05 on BERT `query` and `value` projections, saving the classifier head. Seed Python, NumPy, and Torch with `20261006` before loading the new head. For each of six epochs, sample 24 distinct pairs from each of the seven training batches without replacement using the seed plus epoch, shuffle them, and train two pairs per step. Use two-class cross entropy plus `0.5` times a softplus positive-over-negative pair loss. Use AdamW with LoRA learning rate `2e-4`, classifier learning rate `1e-3`, 10% warmup, linear decay, and no development-driven gradient update. Save every epoch adapter, exact raw development scores, and hashes. The code and this protocol must be committed before fitting; output is create-once.
+
+## Fixed comparison and gate
+
+Evaluate all six epochs on each of the four 24-pair surfaces from batches 0037 and 0038. Choose highest worst-surface complete pairs, then highest total complete pairs, then fewest false reviews, then earliest epoch. Keep the V23 numeric gate unchanged: at least 18/24 complete pairs on **every** surface, at least 84/96 overall, at least 90/96 positives recovered, at most 8/96 false reviews, and more than the unchanged V16 comparator's 75/96 complete pairs. Report V23's selected 76/96 development result alongside the frozen V16 comparator; neither is a new test.
+
+If V24 fails the gate, preserve the selected adapter and full score record as a failed development experiment. If it passes, it is only a candidate for a model freeze **before** independently authored, language-reviewed cards are created. No result here supports authentic disclosure detection, Romanian linguistic validity, or a Ukrainian classifier claim.

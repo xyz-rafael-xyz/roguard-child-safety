@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/schema/contract-input.schema.json",
+  "title": "RoGuard declared contract input",
+  "description": "Editor schema for read-only, caller-declared fictional contracts. The CLI remains authoritative for cross-field rule checks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["language"],
+  "anyOf": [
+    {"required": ["disclosure"]},
+    {"required": ["readability"]},
+    {"required": ["routing"]},
+    {"required": ["permission"]},
+    {"required": ["boundary"]},
+    {"required": ["gate"]},
+    {"required": ["support"]},
+    {"required": ["proposed_use"]}
+  ],
+  "properties": {
+    "language": {"enum": ["ro", "uk"]},
+    "disclosure": {"$ref": "#/$defs/disclosure"},
+    "readability": {"$ref": "#/$defs/readability"},
+    "routing": {"$ref": "#/$defs/routing"},
+    "permission": {"$ref": "#/$defs/permission"},
+    "boundary": {"$ref": "#/$defs/boundary"},
+    "gate": {"$ref": "#/$defs/gate"},
+    "support": {"$ref": "#/$defs/support"},
+    "proposed_use": {"$ref": "#/$defs/proposedUse"}
+  },
+  "$defs": {
+    "proposedUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["external_action"],
+      "properties": {"external_action": {"type": "boolean"}}
+    },
+    "nullableText": {"type": ["string", "null"]},
+    "nullableInteger": {"type": ["integer", "null"]},
+    "nullableBoolean": {"type": ["boolean", "null"]},
+    "nullableStringSet": {
+      "anyOf": [
+        {"type": "null"},
+        {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      ]
+    },
+    "nullableSupportSet": {
+      "anyOf": [
+        {"type": "null"},
+        {
+          "type": "array",
+          "items": {
+            "enum": [
+              "acknowledgement",
+              "next_step",
+              "human_support",
+              "no_blame",
+              "no_secret_promise",
+              "no_leading_question",
+              "no_unsupported_guarantee",
+              "no_dependency_pressure"
+            ]
+          },
+          "uniqueItems": true
+        }
+      ]
+    },
+    "disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_role", "safety_or_support_anchor", "indirect_or_repeated_support_pattern", "explicit_support_request"],
+      "properties": {
+        "source_role": {"enum": ["minor", "adult", "other", null]},
+        "safety_or_support_anchor": {"$ref": "#/$defs/nullableBoolean"},
+        "indirect_or_repeated_support_pattern": {"$ref": "#/$defs/nullableBoolean"},
+        "explicit_support_request": {"$ref": "#/$defs/nullableBoolean"}
+      }
+    },
+    "readability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declared_age", "measured_words", "max_words"],
+      "properties": {
+        "declared_age": {"$ref": "#/$defs/nullableInteger"},
+        "measured_words": {"$ref": "#/$defs/nullableInteger"},
+        "max_words": {"$ref": "#/$defs/nullableInteger"},
+        "text": {"type": "string", "description": "Optional local response text; counted without returning or storing it"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principal", "item", "purpose", "recipients"],
+      "properties": {
+        "principal": {"type": "string"},
+        "item": {"type": "string"},
+        "purpose": {"type": "string"},
+        "recipients": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principal", "item", "purpose", "proposed_recipient", "recipient_roles", "allowed_by_scope"],
+      "properties": {
+        "principal": {"$ref": "#/$defs/nullableText"},
+        "item": {"$ref": "#/$defs/nullableText"},
+        "purpose": {"$ref": "#/$defs/nullableText"},
+        "proposed_recipient": {"$ref": "#/$defs/nullableText"},
+        "recipient_roles": {"$ref": "#/$defs/nullableStringSet"},
+        "allowed_by_scope": {
+          "anyOf": [
+            {"type": "null"},
+            {"type": "array", "items": {"$ref": "#/$defs/scope"}}
+          ]
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "principal", "item", "purpose", "recipient", "action"],
+      "properties": {
+        "sequence": {"type": "integer"},
+        "principal": {"type": "string"},
+        "item": {"type": "string"},
+        "purpose": {"type": "string"},
+        "recipient": {"type": "string"},
+        "action": {"enum": ["grant", "narrow", "revoke", "pause", "resume"]},
+        "expires_at": {"$ref": "#/$defs/nullableInteger"}
+      }
+    },
+    "permission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principal", "item", "purpose", "recipient", "at", "proposed_use", "events", "use_required"],
+      "properties": {
+        "principal": {"$ref": "#/$defs/nullableText"},
+        "item": {"$ref": "#/$defs/nullableText"},
+        "purpose": {"$ref": "#/$defs/nullableText"},
+        "recipient": {"$ref": "#/$defs/nullableText"},
+        "at": {"$ref": "#/$defs/nullableInteger"},
+        "proposed_use": {"type": "boolean"},
+        "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+        "use_required": {"type": "boolean"}
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_fields", "protected_fields", "required_fields", "proposed_fields", "prior_correction", "renewed_request"],
+      "properties": {
+        "allowed_fields": {"$ref": "#/$defs/nullableStringSet"},
+        "protected_fields": {"$ref": "#/$defs/nullableStringSet"},
+        "required_fields": {"$ref": "#/$defs/nullableStringSet"},
+        "proposed_fields": {"$ref": "#/$defs/nullableStringSet"},
+        "prior_correction": {"type": "boolean", "description": "Caller asserts that a protected field in the current proposal was previously removed by correction."},
+        "renewed_request": {"type": "boolean", "description": "Caller asserts a new request occurred after that correction."}
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["review_owner", "model_output_parsed", "accept_unparsed", "external_action_branch", "human_approval_required"],
+      "properties": {
+        "review_owner": {"$ref": "#/$defs/nullableText"},
+        "model_output_parsed": {"type": "boolean"},
+        "accept_unparsed": {"type": "boolean"},
+        "external_action_branch": {"type": "boolean"},
+        "human_approval_required": {"type": "boolean"}
+      }
+    },
+    "support": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applicable_fields", "passed_fields"],
+      "properties": {
+        "applicable_fields": {"$ref": "#/$defs/nullableSupportSet"},
+        "passed_fields": {"$ref": "#/$defs/nullableSupportSet"}
+      }
+    }
+  }
+}

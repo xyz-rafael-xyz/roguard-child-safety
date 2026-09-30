@@ -1,0 +1,5 @@
+# V16 prefit loader amendment
+
+The first V16 launch stopped at `load_train_dev()` because its default coverage gate requires positive training rows for all six taxonomy codes. V16 intentionally trains only D1 and S1. The exception occurred before model loading, output-directory creation, any optimizer step, or any test inference. The failure is a software mismatch between a general loader and this preregistered narrow task; it is not a measured model result.
+
+This amendment adds an explicit `required_categories=("D1", "S1")` argument. The loader still rejects test rows, requires train and development splits, checks positive/negative coverage for both requested codes, and rejects unexpected labels. All registered data, initial v11 weights, prompt, three-epoch fit, loss, development selection, held-out batch 0030, and success criteria remain as stated in [V16_PROTOCOL.md](V16_PROTOCOL.md). Commit this amendment and corrected trainer before rerunning the fit. The sealed test remains unopened.

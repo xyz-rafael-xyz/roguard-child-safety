@@ -1,0 +1,105 @@
+{
+  "status": "development_selection",
+  "study": "v12_category_threshold_transfer",
+  "source_commit": "8050067b5781410438362defcc033aac34a723dc",
+  "fit": "unchanged_v11_epoch_3",
+  "model": "jhu-clsp/mmBERT-base",
+  "revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+  "selected_weight_sha256": "0b2144bd7a369e0b5f422a9a309bb70cfec65682de4a530aa2a8bc6283cd50bb",
+  "v11_selection_sha256": "bad9b49cde544972e0ff2017bcbca518dc858165670b53fa674a295c0e5649c9",
+  "development_batch": "batch-0022",
+  "development_sha256": "c785ab90176309e200d73dec6aeb69ec986a54bad0abc903b53c76820b91f972",
+  "development_scores_sha256": "cb3bd98ae344663fb635d1a4bb66a1b38131bec066779386f5480737600350f7",
+  "development_tag_amendment": "stored_batch_0015_tag_means_attested_batch_0022_rows_v11_pretest",
+  "protocol_sha256": "0ab2e28bd670be1d3bd83047d5e1984c344ac16f315a7218a63b4119acbc91ec",
+  "selector_sha256": "a8214ab22e1050ba1a7569a98a856830a92c776027e5b1c040673d17eade230f",
+  "sealed_test_batch": "batch-0024",
+  "sealed_test_sha256": "0b3aab455a567a862acea8cc5f9f3905187b6d71a42ca1779a434a342d5fb32e",
+  "thresholds": {
+    "D1": 0.5,
+    "R1": 0.5,
+    "P1": 0.9843243360519409,
+    "G1": 0.9997504651546478,
+    "A1": 0.5,
+    "S1": 0.5
+  },
+  "candidate_counts": {
+    "D1": 25,
+    "R1": 26,
+    "P1": 23,
+    "G1": 26,
+    "A1+S1": 2300
+  },
+  "selection_rule": "per_source_group_max_pairs_then_cards_then_fewer_false_reviews_then_nearest_half_then_lower_thresholds",
+  "development_report": {
+    "cards": 144,
+    "pairs": 72,
+    "parsed_cards": 144,
+    "exact_cards": 132,
+    "exact_pairs": 60,
+    "correct_direction_flips": 60,
+    "false_review_on_negatives": 6,
+    "per_category": [
+      {
+        "language": "ro",
+        "category": "D1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "R1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "A1",
+        "support": 12,
+        "precision": 0.6923076923076923,
+        "recall": 0.75,
+        "tp": 9,
+        "fp": 4,
+        "fn": 3
+      },
+      {
+        "language": "ro",
+        "category": "P1",
+        "support": 12,
+        "precision": 0.8571428571428571,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 2,
+        "fn": 0
+      },
+      {
+        "language": "ro",
+        "category": "G1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.75,
+        "tp": 9,
+        "fp": 0,
+        "fn": 3
+      },
+      {
+        "language": "ro",
+        "category": "S1",
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      }
+    ]
+  }
+}

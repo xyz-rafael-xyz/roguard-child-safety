@@ -1,0 +1,3 @@
+# Selected Qwen v7 research adapter
+
+This private artifact preserves the selected v7 LoRA weight bytes and a minimal portable MLX config. Its [literal-parser test](../../BENCHMARK.md#frozen-romanian-qwen-transfer-comparison-batch-0017) failed, and a separately registered empty-wrapper parser still left the unchanged weights below the [v8 comparison target](../../BENCHMARK.md#frozen-romanian-balanced-qwen-comparison-batch-0018). Supply the pinned local Qwen 4-bit base and, for the amended parser, `parse_qwen_binary`. The [artifact verifier](../../eval/verify_committed_mlx_adapters.py) replays a consumed wrapper-parser card. This adapter is not validated for child messages.

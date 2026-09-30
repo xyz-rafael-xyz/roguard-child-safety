@@ -1,0 +1,3 @@
+# Contributing
+
+Use only original, abstract, synthetic templates. Do not submit real or realistic disclosure or grooming text, even with names removed. Propose taxonomy changes for language and child-safety review. Generated batches must come from a registered, reproducible generator and pass `training/validate_generated.py` before training or evaluation; historical human approvals remain valid. Keep held-out batches sealed before model tuning and never put a diagnostic or test split into training. Report model revision, exact data and prompt provenance, strict parsing, per-category errors, false review load, and pair consistency. Do not claim live accuracy from symbolic cards.

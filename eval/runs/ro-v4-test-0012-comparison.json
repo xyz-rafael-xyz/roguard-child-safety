@@ -1,0 +1,451 @@
+{
+  "status": "frozen_v4_binary_comparison",
+  "test_batch": "batch-0012",
+  "test_sha256": "ac9995b76a32d559be979c5dc6b1cd9ce0c2c5286314a96bbf5dde8859a94c70",
+  "attestation_sha256": "dd962893fb6f1fac2b7a8bb00a328156aa9d49094a4a384bba7517e43b91ec20",
+  "train_batch_sha256": "52715ad34d7757d6cd9eb5298e779ba4aac94d79d370a55ccc2253cfc01a86bd",
+  "dev_batch_sha256": "51bcb348019feb12cbb537900fc5594618ea5216de47b8787d135749fc58a7d0",
+  "train_export_sha256": "cb4d3f43c3111f6bbdb0b892555898e91e7cbc304e1658c6a1f15a5c38992da8",
+  "dev_export_sha256": "f6475ffde4c237a2d39a98779e7087b198664512af95c292af53c86f40cc1f7a",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "selected_step": 500,
+  "selection_record_sha256": "cbf87d1ab5d1be7a849015de98692ed7a13bb58154685a21e53497dd13c78002",
+  "adapter_weight_sha256": "b366d189c5d70617cfc0be7803309f496858cf11ee4a0337864e5dbca02aa249",
+  "run_sha256": {
+    "ro-v4-test-0012.json": "2e4b853f8e537c45015d2b9e8f2646a7b295e7714d7dff50b71146b263d32ba4",
+    "romistral-base-v4-0012.json": "3eaa1afd2fa382a06811339ff3a657deba13f56f2b4f228c9a277f34a459a603",
+    "qwen3-base-v4-0012.json": "7137cd6e4ee2ef5f3aa10dc68632b5874ed6d21d3252f81d345bf28382309def",
+    "phi4-mini-base-v4-0012.json": "7ab05482d1421dd38cadd235b1d4f301d4bbb8e9bae1fcd52554999ba91ac4e9",
+    "gemma3-base-v4-0012.json": "f20b076fe4e07cb839346c6b74bc51a9735ec41f3c1281ddf5a8254484df27ad",
+    "mistral7b-base-v4-0012.json": "c5eabe2729f60ee131d2c67db15399991f460218725b429390683cecd484ab03"
+  },
+  "reports": [
+    {
+      "model": "ro-v4-adapter",
+      "parsed_rows": 48,
+      "exact_rows": 28,
+      "exact_pairs": 4,
+      "correct_direction_flips": 5,
+      "false_review_on_negatives": 3,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tp": 2,
+          "fp": 0,
+          "fn": 2
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 0.5,
+          "tp": 2,
+          "fp": 2,
+          "fn": 2
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 1,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 1,
+          "fn": 4
+        }
+      ]
+    },
+    {
+      "model": "romistral-base",
+      "parsed_rows": 45,
+      "exact_rows": 27,
+      "exact_pairs": 6,
+      "correct_direction_flips": 8,
+      "false_review_on_negatives": 12,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.75,
+          "tp": 3,
+          "fp": 0,
+          "fn": 1
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 1,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": 0.4,
+          "recall": 0.5,
+          "tp": 2,
+          "fp": 3,
+          "fn": 2
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": 0.3333333333333333,
+          "recall": 0.75,
+          "tp": 3,
+          "fp": 6,
+          "fn": 1
+        }
+      ]
+    },
+    {
+      "model": "qwen3-base",
+      "parsed_rows": 48,
+      "exact_rows": 29,
+      "exact_pairs": 5,
+      "correct_direction_flips": 5,
+      "false_review_on_negatives": 17,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": 0.8,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 1,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "tp": 2,
+          "fp": 0,
+          "fn": 2
+        }
+      ]
+    },
+    {
+      "model": "phi4-mini-base",
+      "parsed_rows": 47,
+      "exact_rows": 17,
+      "exact_pairs": 0,
+      "correct_direction_flips": 1,
+      "false_review_on_negatives": 23,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": 0.26666666666666666,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 11,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": 0.26666666666666666,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 11,
+          "fn": 0
+        }
+      ]
+    },
+    {
+      "model": "gemma3-base",
+      "parsed_rows": 35,
+      "exact_rows": 26,
+      "exact_pairs": 2,
+      "correct_direction_flips": 2,
+      "false_review_on_negatives": 7,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 4,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": 0.5714285714285714,
+          "recall": 1.0,
+          "tp": 4,
+          "fp": 3,
+          "fn": 0
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.25,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      ]
+    },
+    {
+      "model": "mistral7b-base",
+      "parsed_rows": 0,
+      "exact_rows": 24,
+      "exact_pairs": 0,
+      "correct_direction_flips": 0,
+      "false_review_on_negatives": 0,
+      "per_category": [
+        {
+          "language": "ro",
+          "category": "D1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "R1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "A1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "P1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "G1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        {
+          "language": "ro",
+          "category": "S1",
+          "support": 4,
+          "precision": null,
+          "recall": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      ]
+    }
+  ],
+  "always_review_reference": {
+    "exact_rows": 24,
+    "exact_pairs": 0,
+    "correct_direction_flips": 0,
+    "false_review_on_negatives": 24
+  },
+  "limitation": "Symbolic one-factor cards with recurring policy structure; no authentic child language or real-world validity."
+}

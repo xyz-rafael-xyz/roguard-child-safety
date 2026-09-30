@@ -1,0 +1,437 @@
+{
+  "model": "OpenLLM-Ro/RoMistral-7b-Instruct",
+  "revision": "fc097a5fdc2a5a689df084c76ffacf2cfb9f6550",
+  "quantization": "local MLX 4-bit",
+  "adapter": null,
+  "batch": "batch-0006",
+  "split": "dev",
+  "prompt_version": "v2",
+  "rows": 40,
+  "parsed_rows": 38,
+  "exact_match_rows": 23,
+  "metrics": [
+    {
+      "language": "ro",
+      "category": "D1",
+      "support": 4,
+      "precision": 0.8,
+      "recall": 1.0,
+      "tp": 4,
+      "fp": 1,
+      "fn": 0
+    },
+    {
+      "language": "ro",
+      "category": "R1",
+      "support": 4,
+      "precision": 0.5,
+      "recall": 1.0,
+      "tp": 4,
+      "fp": 4,
+      "fn": 0
+    },
+    {
+      "language": "ro",
+      "category": "A1",
+      "support": 4,
+      "precision": 0.5,
+      "recall": 0.5,
+      "tp": 2,
+      "fp": 2,
+      "fn": 2
+    },
+    {
+      "language": "ro",
+      "category": "P1",
+      "support": 4,
+      "precision": 0.5,
+      "recall": 1.0,
+      "tp": 4,
+      "fp": 4,
+      "fn": 0
+    },
+    {
+      "language": "ro",
+      "category": "G1",
+      "support": 4,
+      "precision": 0.5,
+      "recall": 1.0,
+      "tp": 4,
+      "fp": 4,
+      "fn": 0
+    },
+    {
+      "language": "ro",
+      "category": "S1",
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    }
+  ],
+  "predictions": [
+    {
+      "id": "batch-0006-ro-001",
+      "expected": [
+        "P1"
+      ],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-002",
+      "expected": [
+        "R1"
+      ],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-003",
+      "expected": [
+        "D1"
+      ],
+      "predicted": [
+        "D1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-004",
+      "expected": [
+        "D1"
+      ],
+      "predicted": [
+        "D1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-005",
+      "expected": [],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-006",
+      "expected": [
+        "P1"
+      ],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-007",
+      "expected": [],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-008",
+      "expected": [
+        "R1"
+      ],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-009",
+      "expected": [],
+      "predicted": [],
+      "strict_parse": false
+    },
+    {
+      "id": "batch-0006-ro-010",
+      "expected": [
+        "A1"
+      ],
+      "predicted": [
+        "A1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-011",
+      "expected": [],
+      "predicted": [
+        "A1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-012",
+      "expected": [],
+      "predicted": [],
+      "strict_parse": false
+    },
+    {
+      "id": "batch-0006-ro-013",
+      "expected": [],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-014",
+      "expected": [
+        "A1",
+        "S1"
+      ],
+      "predicted": [
+        "S1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-015",
+      "expected": [],
+      "predicted": [],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-016",
+      "expected": [
+        "A1",
+        "S1"
+      ],
+      "predicted": [
+        "S1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-017",
+      "expected": [],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-018",
+      "expected": [
+        "P1"
+      ],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-019",
+      "expected": [],
+      "predicted": [
+        "D1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-020",
+      "expected": [
+        "S1"
+      ],
+      "predicted": [
+        "S1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-021",
+      "expected": [],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-022",
+      "expected": [
+        "A1"
+      ],
+      "predicted": [
+        "A1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-023",
+      "expected": [
+        "G1"
+      ],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-024",
+      "expected": [],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-025",
+      "expected": [],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-026",
+      "expected": [],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-027",
+      "expected": [
+        "G1"
+      ],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-028",
+      "expected": [
+        "D1"
+      ],
+      "predicted": [
+        "D1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-029",
+      "expected": [],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-030",
+      "expected": [],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-031",
+      "expected": [
+        "G1"
+      ],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-032",
+      "expected": [
+        "D1"
+      ],
+      "predicted": [
+        "D1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-033",
+      "expected": [
+        "S1"
+      ],
+      "predicted": [
+        "S1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-034",
+      "expected": [
+        "R1"
+      ],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-035",
+      "expected": [],
+      "predicted": [
+        "A1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-036",
+      "expected": [
+        "G1"
+      ],
+      "predicted": [
+        "G1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-037",
+      "expected": [
+        "P1"
+      ],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-038",
+      "expected": [],
+      "predicted": [
+        "P1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-039",
+      "expected": [],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    },
+    {
+      "id": "batch-0006-ro-040",
+      "expected": [
+        "R1"
+      ],
+      "predicted": [
+        "R1"
+      ],
+      "strict_parse": true
+    }
+  ],
+  "note": "Development-only prompt baseline for v2 adapter comparison. No test batch loaded."
+}

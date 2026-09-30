@@ -1,0 +1,25 @@
+# Frozen equal-category Qwen study, v8
+
+## Prospective decoder amendment, before v8 fitting or batch 0018 inference
+
+The completed v7 development selection exposed a model-template interaction: all four Qwen checkpoints returned zero fully parsed cards under the literal `da`/`nu` parser. A raw **development** generation was exactly `<think>\n\n</think>\n\nnu`. The pinned Qwen chat template formats an empty reasoning block before assistant content. This amendment accepts either a lone `da`/`nu` or that precise empty-block structure followed by a lone `da`/`nu`; nonempty reasoning, additional text, or incomplete output still fails closed. The same parser is used for v8, its v7 comparator, and prompt-only Qwen on batch 0018. The prompt and eight-token cap remain fixed. The parser source hash is recorded in selection and comparison artifacts. The v7 batch-0017 result retains its original literal parser and is never rescored as its primary result. This change was made after v7 development inspection and before v8 fitting, selection, or any batch-0018 inference; it weakens the claim of a wholly unamended original preregistration and is reported openly.
+
+The local MLX completion dataset applies the model chat template to both the user prompt and assistant completion; the pinned Qwen template inserts the empty block before assistant content. To bind that effective format, the v8 selection records and comparison also verify `chat_template.jinja` SHA-256 `40c21f34cf67d8c760ef72f8ad3ae5afad514299d4b06e91dd9a8d705af7b541`.
+
+For a fair same-parser comparator, reselect among the **unchanged v7 weights** at steps 300, 600, 900, and 1200 on batch 0015 with the amended parser and the same pair-first rule. Record its selection and weight hash before batch 0018 inference. This does not refit v7 or use batch 0017 to choose a step; its original step-300 selection and batch-0017 result remain intact. Compare v8 against this reselected v7 checkpoint on batch 0018.
+
+This protocol responds to a specific exposure imbalance in the earlier v4 binary exporter. On batch 0014, D1, R1, P1, and G1 each supply 96 training tasks (48 `da`, 48 `nu`), while A1 and S1 each supply 288 (144 `da`, 144 `nu`). Overall answer balance therefore hides a threefold category imbalance. The v8 exporter repeats each D1, R1, P1, and G1 training task three times, yielding **288 tasks per category and 144 of each answer per category**. It leaves the prompt, unique training cards, and batch-0015 development tasks unchanged. Repetition changes exposure, not the number of independent examples.
+
+The holdout is the separately generated, attested [batch 0018](../data/synthetic/batch-0018.preview.md): 144 symbolic Romanian cards in 72 adjacent one-fact pairs, 12 pairs per category. The generator checks each label with the typed reference rules and uses new frames and field terms. No real or realistic child communication, assistant response, or case enters any split. Batch 0018 was committed before v8 fitting and before either adapter was evaluated on it. The v7 training run was already under way when this protocol was written, so its weights cannot depend on batch 0018.
+
+## Fixed fit and selection
+
+Use the same pinned Qwen3 4B 4-bit base and preregistered file hashes as [v7](V7_PROTOCOL.md), with the same rank 16, scale 2, eight adapter layers, dropout 0.05, v4 Romanian `da`/`nu` prompt, prompt masking, batch size 1, 512-token cap, learning rate `1e-5`, seed 20260929, and 1,200 steps. Train only on the category-balanced export of batch 0014. Use the **unrepeated** batch 0015 for development. Select among steps 300, 600, 900, and 1200 by complete exact development pairs, then exact cards, then fewer false reviews on negative cards, then earlier step. Commit the selection record and selected weight hash before any batch-0018 inference. The interrupted v7 attempt has no role in this fit.
+
+## Frozen test and decision
+
+On batch 0018, run the selected v8 adapter, the development-reselected v7 adapter under the original exposure distribution, and prompt-only Qwen3. All use the same v4 prompt, eight-token generation cap, and amended parser. Preserve strict parsing, exact cards, complete pairs, correct-direction flips, false reviews on 72 negatives, per-category precision and recall, raw prompt-only outputs, and hashes. Include always-review and never-review references.
+
+Report candidate-only and comparator-only exact pairs on the same cards, with the two-sided exact McNemar probability as a descriptive paired uncertainty check. It is not a replacement for the fixed success criterion, and it says nothing about authentic child-language accuracy.
+
+V8 meets its **symbolic-card** target only if it reaches at least 58/72 complete pairs, at least 9/12 positive recall in every category, at most 7/72 false reviews, and more exact pairs than both comparators. A failure remains in the record. Even success would not validate authentic child-language detection, Ukrainian behavior, comprehension, or deployed routing. The declared-contract checker and human decision remain the operational path.

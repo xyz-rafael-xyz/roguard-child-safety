@@ -1,0 +1,46 @@
+{
+  "status": "development_only_pending_new_test_review",
+  "created_at": "2026-09-29",
+  "adapter_metadata": {
+    "backend": "mlx_lm_codes",
+    "base_model_id": "OpenLLM-Ro/RoMistral-7b-Instruct",
+    "base_revision": "fc097a5fdc2a5a689df084c76ffacf2cfb9f6550",
+    "language": "ro",
+    "categories": [
+      "D1",
+      "R1",
+      "A1",
+      "P1",
+      "G1",
+      "S1"
+    ],
+    "batches": [
+      "batch-0004",
+      "batch-0005",
+      "batch-0006"
+    ],
+    "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+    "train_sha256": "634b1b835e945cd925a7b70d70633ab471be2432c449ddb7602365883eb2ba03",
+    "valid_sha256": "9d7589910a3f3453686a90e6c4507d17dfdb2c7df51bbe442cdaf4f9ea21a9a1",
+    "train_rows": 88,
+    "dev_rows": 40,
+    "prompt_version": "v2",
+    "iters": 200,
+    "synthetic_only": true,
+    "score_semantics": "hard_code_output_not_calibrated_probability"
+  },
+  "adapter_weights_sha256": "5522c8dc8b5f2233b0c3bedea86a48e98dc0597c37ab84c58e5bd7b42a4169da",
+  "development_run": "ro-v2-dev.json",
+  "development_run_sha256": "10aebeb32741c8026b37c41a73f058aa186a58e936d57fb912759bfdd47fe359",
+  "prompt_only_base_run": "romistral-base-v2-dev.json",
+  "prompt_only_base_run_sha256": "dcf7da2981429f8860ee5140b8892d332bc7403448e1d7e4234e26d182e50bfa",
+  "code_sha256": {
+    "src/roguard/prompt.py": "2c8bb34da9d5f01c1c92af07e3effcf4d7dba07a751d03d3971b7db4e46e5ba9",
+    "src/roguard/model.py": "4cfa666753dbc181c680b299fd4b17fef66ea43a09bced89a06f40b19d70e314",
+    "training/prepare_mlx.py": "883bcc59bdbf9641cad9541c509c91911a7741bdb18ee0d9d900b0c82d188548",
+    "training/train_mlx.py": "c98c486b051b53ba78d89c18f6c7bac8ff7db4d7016d0679407d0579b130a458"
+  },
+  "new_test_batch": "batch-0008",
+  "new_test_status": "pending_human_review; not evaluated",
+  "note": "V2 design followed v1 test diagnosis; batch 0007 is not independent for v2."
+}

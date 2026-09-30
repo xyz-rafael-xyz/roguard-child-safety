@@ -1,0 +1,46 @@
+{
+  "status": "frozen_first_pilot",
+  "created_at": "2026-09-29",
+  "code_commit_at_run": "bc1ae74e6cfbb41a5b41987291025d1d31e408e2",
+  "run_file": "ro-v1.json",
+  "run_sha256": "3b6e3c8df86759b21f5db70a49e51b133427505b2d71fdddbccf6a303ccaee31",
+  "adapter_weights_sha256": "ec538f81ee2f309d79e74b213f406efc86beb98217a5e5fbf9a4bd6211009911",
+  "adapter_metadata": {
+    "backend": "mlx_lm_codes",
+    "base_model_id": "OpenLLM-Ro/RoMistral-7b-Instruct",
+    "base_revision": "fc097a5fdc2a5a689df084c76ffacf2cfb9f6550",
+    "language": "ro",
+    "categories": [
+      "D1",
+      "R1",
+      "A1",
+      "P1",
+      "G1",
+      "S1"
+    ],
+    "batches": [
+      "batch-0004",
+      "batch-0005",
+      "batch-0006"
+    ],
+    "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+    "train_sha256": "6df2aaa1ce5ad8cd6d205eb15d7db641c882568a0e30274b38ca1e74872ec211",
+    "valid_sha256": "edd63925869ebb8e6e3c30ba58a10d4d2cf18d4a3d4ea6efdc418e6d6a9094b4",
+    "train_rows": 88,
+    "dev_rows": 40,
+    "iters": 200,
+    "synthetic_only": true,
+    "score_semantics": "hard_code_output_not_calibrated_probability"
+  },
+  "quantized_base_config_sha256": "9e5517005d3a60f8da62e22d7e8802f8a39e6da1dc695b41273730d4885a50c8",
+  "quantized_base_weight_sha256": {
+    "model.safetensors": "24286934a2ff2e9e3553997aa09439bc479b6162ba6c303f4375c1bf8191810b"
+  },
+  "test_batch_sha256": "68c30e3eaf93b59caed13d29160c71b086384d676275c1049cc1044e7e5dc887",
+  "test_review_sha256": "7679f999c7b3abb0920751b62bc1436b56ba93dd1f2f4f22319de9369e0f738f",
+  "test_preview_sha256": "2130fe5db9e75bcc41fa881bc9ce1f58cf7013cb6a9ff5a5489423fb705b6fb1",
+  "selection": "Final step-200 checkpoint selected before test because logged validation loss at step 200 (0.260) was lower than saved step-100 checkpoint (0.539).",
+  "strict_parse_rows": 40,
+  "exact_match_rows": 18,
+  "intended_interpretation": "Narrow abstract-card pilot only; no real-world reliability claim."
+}

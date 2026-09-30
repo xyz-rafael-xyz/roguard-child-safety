@@ -1,0 +1,193 @@
+{
+  "status": "development_selection_only",
+  "study": "v23_group_dro_worst_surface_d1",
+  "source_commit": "8f59073305e45614023d14de2dd17fc1d199f6b6",
+  "model": "jhu-clsp/mmBERT-base",
+  "revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+  "base_files_sha256": {
+    "config.json": "47b40fd2e1df8299426dd5f4bb18c28f028cfafcb51b73645f83e596d187eb37",
+    "pytorch_model.bin": "8ea64ec1ea4eb8fca0fc14b69a2ae571de6bfbc25fd214bb932dd4aba6a3a04e",
+    "tokenizer.json": "197d4cc5406ee12cc50c8b5511f2393cc32d9db321545979ce041c1199178356",
+    "tokenizer_config.json": "1d2f82c1341a79748e00efe82e67690f99d00b3c2a894f2b23128fd9d3519da3"
+  },
+  "source_adapter_weight_sha256": "9f3ccab9b75b9aad5b42739518348bc3af84fd8037d17f3b49ecdb741a858f1d",
+  "source_manifest_sha256": "6e983b6f5f9101c3ea7b1ef7b7d2ac16f3d2c96fac2748e2744e533a543a2850",
+  "train_batches": [
+    "batch-0028",
+    "batch-0031",
+    "batch-0032",
+    "batch-0033",
+    "batch-0034",
+    "batch-0035",
+    "batch-0036"
+  ],
+  "development_batches": [
+    "batch-0037",
+    "batch-0038"
+  ],
+  "train_batch_sha256": {
+    "batch-0028": "364240f8b933e779868b05cb15427bd5c379019ab08af95439b285875c393b8e",
+    "batch-0031": "83d3152b4cbbc847fe950b87d391f0bf2a4684ad7eeb7309cd0de084caeb6638",
+    "batch-0032": "edfa835c189bc40a9b1a3955873b3d85a3a9d8a5aa1f47180e0e1d742c125840",
+    "batch-0033": "7ae4e868500f8e2815f523f92e58551e4f016f216933839a686c3b18df755f8d",
+    "batch-0034": "272b3c394db221e6af9f95e16a907927b21549822dee445eda0d27c4bea4953b",
+    "batch-0035": "3ce7c1350795368114d0ab50d0aaa43e55ec9acdb2b61ce88d5ed1ae2ea475fb",
+    "batch-0036": "fe0db9f727f8e1cb248ec8d628b85c52d28fb1b9f0766a8df113f48fcdb4c1c0"
+  },
+  "development_sha256": {
+    "batch-0037": "aa712b987ee9f9aa4db1280350ccd78c99e0bc6e1599aae8ce0eb22c3c245dc9",
+    "batch-0038": "b18f73118b403e2dc9b29f65619953e63f06d52b56c89998ec7d07b8afa4f6af"
+  },
+  "baseline_run_sha256": {
+    "batch-0037": "c1e44bcaaf7faed0203eba913af5777e5812a9cd4672fa265109c15305efdcb7",
+    "batch-0038": "c2dd43723913ee7c4194552c3680db27919ef09daee79754c8d9073c3ba5a917"
+  },
+  "baseline_summary": {
+    "surface_pairs": [
+      10,
+      23,
+      18,
+      24
+    ],
+    "worst_surface_pairs": 10,
+    "total_pairs": 75,
+    "false_reviews": 13,
+    "positive_recovered": 85
+  },
+  "taxonomy_sha256": "523a2d679c73c4cc12632eb5d7eb1709dfb7b21c2ba1545d081a6539f5ffc9d4",
+  "prompt_sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+  "study_code_sha256": "3d37f6879eabbae0bb64c1a909eb33fca75616308190e827171ee27697283c79",
+  "trainer_sha256": "699e9119e5e51dc8337e8f47fd5f15e16a6aa5777491ce959fe3b71452c787df",
+  "protocol_sha256": "ecd7e5b73237405e79b21dfd0ac7ddc26fc358b7dcb041a983f0e714f49c7add",
+  "seed": 20261005,
+  "epochs": 3,
+  "pairs_per_group_per_epoch": 24,
+  "pairs_per_batch": 2,
+  "learning_rate": 2e-05,
+  "pair_loss_weight": 0.5,
+  "positive_class_weight": 1.5,
+  "group_dro_eta": 0.05,
+  "max_length": 256,
+  "warmup_steps": 25,
+  "total_steps": 252,
+  "device": "mps",
+  "torch_version": "2.14.0",
+  "transformers_version": "4.57.6",
+  "peft_version": "0.21.1",
+  "candidates": [
+    {
+      "epoch": 1,
+      "mean_train_loss": 0.4312906203835848,
+      "per_group_mean_loss": {
+        "batch-0028": 0.15784038981898144,
+        "batch-0031": 0.24641039984999225,
+        "batch-0032": 1.031243459515584,
+        "batch-0033": 0.35096309256429475,
+        "batch-0034": 0.5633859278168529,
+        "batch-0035": 0.21182707322683805,
+        "batch-0036": 0.23019567733475318
+      },
+      "group_weights": {
+        "batch-0028": 0.09990389853083788,
+        "batch-0031": 0.11110689114870351,
+        "batch-0032": 0.2849439211070137,
+        "batch-0033": 0.12595893643444384,
+        "batch-0034": 0.16253012266276232,
+        "batch-0035": 0.10659032303365418,
+        "batch-0036": 0.10896590708258463
+      },
+      "weight_sha256": "27fd3cc05aa830de907650961e5d87b2c6989f48850fae8ca37b62211611d09a",
+      "adapter_config_sha256": "704a0bf3ce1c9d7e64a0c81a24f97fd32e6c0c5e9ad403344d040c32edd81a67",
+      "dev_predictions_sha256": "898b447294113e4d8fd1fc846f1a34edbc6070ccd89c0230ef4c671f048b100a",
+      "summary": {
+        "surface_pairs": [
+          7,
+          24,
+          11,
+          24
+        ],
+        "worst_surface_pairs": 7,
+        "total_pairs": 66,
+        "false_reviews": 3,
+        "positive_recovered": 67
+      }
+    },
+    {
+      "epoch": 2,
+      "mean_train_loss": 0.13338036444509357,
+      "per_group_mean_loss": {
+        "batch-0028": 0.03840141613924667,
+        "batch-0031": 0.04739519710225674,
+        "batch-0032": 0.2249049108553057,
+        "batch-0033": 0.14684199382706234,
+        "batch-0034": 0.2372948918491602,
+        "batch-0035": 0.07323596386656088,
+        "batch-0036": 0.10029273907033105
+      },
+      "group_weights": {
+        "batch-0028": 0.0871043393335173,
+        "batch-0031": 0.09792317590834243,
+        "batch-0032": 0.31075181778532196,
+        "batch-0033": 0.12508364071649616,
+        "batch-0034": 0.17990582494013688,
+        "batch-0035": 0.09690122687951884,
+        "batch-0036": 0.10232997443666636
+      },
+      "weight_sha256": "407b2820016abe2305be2fef57b569e6837810de3dd321226d2ba77bb616d79f",
+      "adapter_config_sha256": "704a0bf3ce1c9d7e64a0c81a24f97fd32e6c0c5e9ad403344d040c32edd81a67",
+      "dev_predictions_sha256": "9c8f45dc3d961204a162605f9fbdd2f9c84fd392be263f4f52acf8ad29bfd515",
+      "summary": {
+        "surface_pairs": [
+          11,
+          24,
+          17,
+          24
+        ],
+        "worst_surface_pairs": 11,
+        "total_pairs": 76,
+        "false_reviews": 6,
+        "positive_recovered": 81
+      }
+    },
+    {
+      "epoch": 3,
+      "mean_train_loss": 0.05844288015768619,
+      "per_group_mean_loss": {
+        "batch-0028": 0.014304956317497878,
+        "batch-0031": 0.029804119191491434,
+        "batch-0032": 0.07719591719554349,
+        "batch-0033": 0.060954276171590514,
+        "batch-0034": 0.09086259678588249,
+        "batch-0035": 0.030972268641032013,
+        "batch-0036": 0.056116869001925807
+      },
+      "group_weights": {
+        "batch-0028": 0.08233440783946126,
+        "batch-0031": 0.09429843968348783,
+        "batch-0032": 0.31676055102447465,
+        "batch-0033": 0.125041317026731,
+        "batch-0034": 0.18641681055535303,
+        "batch-0035": 0.0934452170528595,
+        "batch-0036": 0.10170325681763281
+      },
+      "weight_sha256": "b0787d128da8ecf3ad84e2775e8422fcf1b66486de22fe360233e75b141b971b",
+      "adapter_config_sha256": "704a0bf3ce1c9d7e64a0c81a24f97fd32e6c0c5e9ad403344d040c32edd81a67",
+      "dev_predictions_sha256": "770ed3dd54a8eb8110406e65cff009c9de65824429d59a968062e150121b9547",
+      "summary": {
+        "surface_pairs": [
+          10,
+          24,
+          16,
+          24
+        ],
+        "worst_surface_pairs": 10,
+        "total_pairs": 74,
+        "false_reviews": 6,
+        "positive_recovered": 79
+      }
+    }
+  ],
+  "selected_epoch": 2,
+  "selected_weight_sha256": "407b2820016abe2305be2fef57b569e6837810de3dd321226d2ba77bb616d79f",
+  "development_gate_passed": false
+}
