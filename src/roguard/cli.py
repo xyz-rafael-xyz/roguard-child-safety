@@ -41,6 +41,23 @@ def _mapping(value: Any, name: str) -> dict:
     return value
 
 
+def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate JSON object key: {key}")
+        result[key] = value
+    return result
+
+
+def _reject_nonfinite(token: str) -> None:
+    raise ValueError(f"Nonstandard JSON numeric constant: {token}")
+
+
+def _strict_json_loads(raw: str) -> Any:
+    return json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_nonfinite)
+
+
 def _fields(value: dict, expected: set[str], name: str, optional: set[str] = frozenset()) -> None:
     if set(value) - expected or expected - optional - set(value):
         raise ValueError(f"{name} fields differ from the declared schema")
@@ -232,7 +249,7 @@ def assess_jsonl(raw: str) -> list[dict]:
         if not line.strip():
             raise ValueError(f"JSONL line {number} is blank")
         try:
-            reports.append(assess_json(json.loads(line)))
+            reports.append(assess_json(_strict_json_loads(line)))
         except (json.JSONDecodeError, TypeError, ValueError) as exc:
             raise ValueError(f"JSONL line {number}: {exc}") from exc
     return reports
@@ -245,7 +262,7 @@ def main() -> None:
     args = parser.parse_args()
     try:
         raw = sys.stdin.read() if args.input == "-" else Path(args.input).read_text(encoding="utf-8")
-        result = assess_jsonl(raw) if args.jsonl else assess_json(json.loads(raw))
+        result = assess_jsonl(raw) if args.jsonl else assess_json(_strict_json_loads(raw))
     except (OSError, json.JSONDecodeError, TypeError, ValueError) as exc:
         parser.error(str(exc))
     if args.jsonl:

@@ -111,6 +111,30 @@ class CommandLineTests(unittest.TestCase):
         self.assertEqual(failed.stdout, "")
         self.assertIn("JSONL line 3", failed.stderr)
 
+    def test_json_input_rejects_duplicate_keys_and_nonstandard_constants(self):
+        cases = (
+            ('{"language":"ro","language":"uk","gate":{}}', "Duplicate JSON object key"),
+            ('{"language":"ro","readability":{"declared_age":NaN}}', "Nonstandard JSON numeric constant"),
+            ('{"language":"uk","readability":{"declared_age":Infinity}}', "Nonstandard JSON numeric constant"),
+        )
+        for raw, expected in cases:
+            with self.subTest(raw=raw):
+                run = subprocess.run([sys.executable, "-m", "roguard"], input=raw,
+                                     capture_output=True, text=True)
+                self.assertNotEqual(run.returncode, 0)
+                self.assertEqual(run.stdout, "")
+                self.assertIn(expected, run.stderr)
+
+    def test_jsonl_rejects_nested_duplicate_without_partial_output(self):
+        valid = (ROOT / "examples/contracts_ro.json").read_text(encoding="utf-8")
+        invalid = '{"language":"uk","gate":{"review_owner":"a","review_owner":"b"}}'
+        run = subprocess.run([sys.executable, "-m", "roguard", "--jsonl"],
+                             input=valid.replace("\n", "") + "\n" + invalid + "\n",
+                             capture_output=True, text=True)
+        self.assertNotEqual(run.returncode, 0)
+        self.assertEqual(run.stdout, "")
+        self.assertIn("JSONL line 2: Duplicate JSON object key", run.stderr)
+
     def test_full_examples_include_declared_evidence_for_all_six_categories(self):
         for language in ("ro", "uk"):
             with self.subTest(language=language):
