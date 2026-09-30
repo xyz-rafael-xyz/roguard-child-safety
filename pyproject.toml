@@ -29,7 +29,7 @@ roguard-predict-abstract = "roguard.prospective_predict:main"
 [project.optional-dependencies]
 train = ["numpy>=1.26", "pyyaml>=6", "torch>=2.3", "transformers>=4.46,<5", "peft>=0.13,<1", "accelerate>=1,<2"]
 mlx = ["mlx-lm>=0.31.3,<0.32"]
-test = ["pytest>=8"]
+test = ["pytest>=8", "jsonschema>=4.23,<5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

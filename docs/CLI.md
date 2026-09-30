@@ -6,7 +6,7 @@ For a local batch, use `python -m roguard --jsonl examples/contracts_mixed.jsonl
 
 The input object requires `language` (`ro` or `uk`) and at least one contract or a `proposed_use` request. Field names are fixed; unknown or omitted fields are errors. These cards state **caller-supplied fictional rules**, not inferred authority:
 
-For editor completion and basic shape checks, use the [JSON Schema](../schema/contract-input.schema.json) as an editor setting. Keep `$schema` out of the input object because the CLI accepts only contract fields. The schema covers structure and primitive types; the CLI additionally checks cross-field meaning, scopes, and permission chronology.
+For editor completion and basic shape checks, use the [JSON Schema](../schema/contract-input.schema.json) as an editor setting. Keep `$schema` out of the input object because the CLI accepts only contract fields. The schema covers structure, primitive types, nonnegative counts and times, and nonblank policy identifiers; the CLI additionally checks cross-field meaning, scopes, and permission chronology.
 
 | Contract key | Required fields | Meaning |
 |---|---|---|

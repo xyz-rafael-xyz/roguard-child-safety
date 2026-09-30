@@ -35,12 +35,13 @@
       "properties": {"external_action": {"type": "boolean"}}
     },
     "nullableText": {"type": ["string", "null"]},
-    "nullableInteger": {"type": ["integer", "null"]},
+    "nonblankString": {"type": "string", "pattern": "\\S"},
+    "nullableInteger": {"type": ["integer", "null"], "minimum": 0},
     "nullableBoolean": {"type": ["boolean", "null"]},
     "nullableStringSet": {
       "anyOf": [
         {"type": "null"},
-        {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        {"type": "array", "items": {"$ref": "#/$defs/nonblankString"}, "uniqueItems": true}
       ]
     },
     "nullableSupportSet": {
@@ -91,10 +92,10 @@
       "additionalProperties": false,
       "required": ["principal", "item", "purpose", "recipients"],
       "properties": {
-        "principal": {"type": "string"},
-        "item": {"type": "string"},
-        "purpose": {"type": "string"},
-        "recipients": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        "principal": {"$ref": "#/$defs/nonblankString"},
+        "item": {"$ref": "#/$defs/nonblankString"},
+        "purpose": {"$ref": "#/$defs/nonblankString"},
+        "recipients": {"type": "array", "items": {"$ref": "#/$defs/nonblankString"}, "uniqueItems": true}
       }
     },
     "routing": {
@@ -120,11 +121,11 @@
       "additionalProperties": false,
       "required": ["sequence", "principal", "item", "purpose", "recipient", "action"],
       "properties": {
-        "sequence": {"type": "integer"},
-        "principal": {"type": "string"},
-        "item": {"type": "string"},
-        "purpose": {"type": "string"},
-        "recipient": {"type": "string"},
+        "sequence": {"type": "integer", "minimum": 0},
+        "principal": {"$ref": "#/$defs/nonblankString"},
+        "item": {"$ref": "#/$defs/nonblankString"},
+        "purpose": {"$ref": "#/$defs/nonblankString"},
+        "recipient": {"$ref": "#/$defs/nonblankString"},
         "action": {"enum": ["grant", "narrow", "revoke", "pause", "resume"]},
         "expires_at": {"$ref": "#/$defs/nullableInteger"}
       }
