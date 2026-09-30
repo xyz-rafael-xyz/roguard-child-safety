@@ -6,7 +6,7 @@ The [release-gate record](docs/RELEASE_GATES.md) tracks which project requiremen
 
 ## Download and run
 
-The repository is public. [Versioned source archives and a Python wheel](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest) are available from GitHub. You need Git, Python 3.10 or newer, and a terminal. On macOS or Linux:
+The repository is public. [Versioned source archives and a Python wheel](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest) are available from GitHub. You need Git, Python 3.9 or newer, and a terminal. On macOS or Linux:
 
 ```sh
 git clone https://github.com/xyz-rafael-xyz/roguard-child-safety.git
