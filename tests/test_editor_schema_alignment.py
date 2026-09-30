@@ -16,7 +16,8 @@ EXAMPLES = tuple(
     for name in ("contracts", "routing", "proposed_use", "reviewer_evidence")
     if (ROOT / "examples" / f"{name}_{language}.json").exists()
 )
-MUTATIONS = (None, "", " ", [], {}, 0, -1, True, False, "x", ["x"])
+MUTATIONS = (None, "", " ", [], {}, 0, -1, 1.0, 0.5, -0.0,
+             True, False, "x", ["x"])
 
 
 def leaf_paths(value, prefix=()):
@@ -80,6 +81,22 @@ class EditorSchemaAlignmentTests(unittest.TestCase):
                 self.assertFalse(self.validator.is_valid(payload))
                 with self.assertRaises(ValueError):
                     assess_json(payload)
+
+    def test_integral_decimal_values_follow_json_schema(self):
+        readability = {"language": "ro", "readability": {
+            "declared_age": 1.0, "measured_words": 1.0, "max_words": 1.0,
+        }}
+        permission = {"language": "uk", "permission": {
+            "principal": "minor", "item": "I", "purpose": "P", "recipient": "R",
+            "at": 1.0, "proposed_use": True, "use_required": False,
+            "events": [{"sequence": 1.0, "principal": "minor", "item": "I",
+                        "purpose": "P", "recipient": "R", "action": "grant",
+                        "expires_at": 2.0}],
+        }}
+        for payload in (readability, permission):
+            with self.subTest(language=payload["language"]):
+                self.assertTrue(self.validator.is_valid(payload))
+                self.assertEqual(assess_json(payload)["findings"][0]["status"], "pass")
 
 
 if __name__ == "__main__":

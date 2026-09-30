@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 from typing import Any
@@ -60,6 +61,17 @@ def _text_fields(value: dict, names: tuple[str, ...]) -> None:
         raise ValueError("Role, item, and purpose fields must be strings or null")
 
 
+def _integer_or_none(value: Any, name: str, *, nullable: bool = True) -> int | None:
+    """Use JSON Schema's value-based integer rule at the JSON boundary."""
+    if value is None and nullable:
+        return None
+    if type(value) is int and value >= 0:
+        return value
+    if type(value) is float and math.isfinite(value) and value >= 0 and value.is_integer():
+        return int(value)
+    raise ValueError(f"{name} must be a nonnegative integer" + (" or null" if nullable else ""))
+
+
 def _routing(value: dict) -> RoutingCard:
     _text_fields(value, ("principal", "item", "purpose", "proposed_recipient"))
     roles = _set(value["recipient_roles"], "recipient_roles")
@@ -91,17 +103,20 @@ def _permission(value: dict) -> PermissionCard:
     for event in events:
         event = _mapping(event, "event")
         _fields(event, EVENT_FIELDS, "event", {"expires_at"})
-        if type(event["sequence"]) is not int or any(
-            not isinstance(event[name], str) for name in ("principal", "item", "purpose", "recipient", "action")
-        ) or (event.get("expires_at") is not None and type(event["expires_at"]) is not int):
+        if any(not isinstance(event[name], str) for name in
+               ("principal", "item", "purpose", "recipient", "action")):
             raise ValueError("Invalid permission event value")
-        parsed.append(PermissionEvent(**event))
+        normalized = dict(event)
+        normalized["sequence"] = _integer_or_none(event["sequence"], "event sequence", nullable=False)
+        if "expires_at" in event:
+            normalized["expires_at"] = _integer_or_none(event["expires_at"], "event expiry")
+        parsed.append(PermissionEvent(**normalized))
     if (type(value["proposed_use"]) is not bool or
-            type(value["use_required"]) is not bool or
-            (value["at"] is not None and type(value["at"]) is not int)):
+            type(value["use_required"]) is not bool):
         raise ValueError("Invalid permission proposal or time")
+    at = _integer_or_none(value["at"], "permission time")
     return PermissionCard(value["principal"], value["item"], value["purpose"],
-                          value["recipient"], value["at"], value["proposed_use"], tuple(parsed),
+                          value["recipient"], at, value["proposed_use"], tuple(parsed),
                           value["use_required"])
 
 
@@ -147,16 +162,15 @@ def assess_json(payload: Any) -> dict:
                 raise ValueError("Disclosure evidence flags must be booleans or null")
             cards[name] = DisclosureEvidenceCard(**value)
         elif name == "readability":
-            if any(value[field] is not None and type(value[field]) is not int for field in
-                   ("declared_age", "measured_words", "max_words")):
-                raise ValueError("Readability values must be integers or null")
-            measured = value["measured_words"]
+            age = _integer_or_none(value["declared_age"], "declared_age")
+            measured = _integer_or_none(value["measured_words"], "measured_words")
+            maximum = _integer_or_none(value["max_words"], "max_words")
             if "text" in value:
                 counted = count_words(value["text"])
                 if measured is not None and measured != counted:
                     raise ValueError("Declared word count differs from local count")
                 measured = counted
-            cards[name] = ReadabilityCard(value["declared_age"], measured, value["max_words"])
+            cards[name] = ReadabilityCard(age, measured, maximum)
         elif name == "routing":
             cards[name] = _routing(value)
         elif name == "permission":

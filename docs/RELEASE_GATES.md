@@ -1,6 +1,6 @@
 # Release gates against the project requirements
 
-This is a status record, not a claim of completion. It separates the **working declared-contract tool** from the **unvalidated language classifier**. This repository is a public source snapshot. Trained weights and the historical Git record remain in a private research archive; see [Public release](PUBLIC_RELEASE.md). Any public model-weight release or package registration is a separate step.
+This is a status record, not a claim of completion. It separates the **working declared-contract tool** from the **unvalidated language classifier**. This repository began as a public source snapshot and has since received public toolkit fixes. Trained weights and the historical Git record remain in a private research archive; see [Public release](PUBLIC_RELEASE.md). Any public model-weight release or package registration is a separate step.
 
 | Requirement | Current evidence | Status |
 |---|---|---|
