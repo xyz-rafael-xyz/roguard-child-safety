@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-local"
-version = "0.1.3"
+version = "0.2.0"
 description = "Local research prototype for Romanian and Ukrainian child-safety signals"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
@@ -25,6 +25,8 @@ roguard-human-eval-registered = "roguard.human_eval_registered:main"
 roguard-independent-check = "roguard.independent_check:main"
 roguard-author-kit = "roguard.author_kit:main"
 roguard-predict-abstract = "roguard.prospective_predict:main"
+roguard-explore = "roguard.explore:main"
+roguard-studio = "roguard.studio:main"
 
 [project.optional-dependencies]
 train = ["numpy>=1.26", "pyyaml>=6", "torch>=2.3", "transformers>=4.46,<5", "peft>=0.13,<1", "accelerate>=1,<2"]
@@ -33,6 +35,9 @@ test = ["pytest>=8", "jsonschema>=4.23,<5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+roguard = ["studio.html", "studio.css", "studio.js"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>RoGuard Decision Studio</title>
+  <link rel="stylesheet" href="/studio.css">
+  <script src="/studio.js" defer></script>
+</head>
+<body data-token="__ROGUARD_TOKEN__">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">R</span><span>RoGuard <small>Decision Studio</small></span></div>
+    <span class="local-pill">● Local session</span>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Romanian + Ukrainian · declared facts</p>
+      <h1>Trace a decision before anyone acts.</h1>
+      <p>Check a fictional contract, explore which single facts change the result, or compare two versions. Everything stays in this browser session and the local RoGuard process. No model or external service runs here.</p>
+    </section>
+    <section class="workspace" aria-label="Decision workspace">
+      <div class="toolbar">
+        <div class="tabs" role="group" aria-label="Analysis mode">
+          <button type="button" class="tab active" data-mode="assess" aria-pressed="true">Check</button>
+          <button type="button" class="tab" data-mode="explore" aria-pressed="false">Explore changes</button>
+          <button type="button" class="tab" data-mode="contrast" aria-pressed="false">Compare</button>
+        </div>
+        <div class="sample-actions">
+          <button type="button" id="sample-ro" class="text-button">Load Romanian sample</button>
+          <button type="button" id="sample-uk" class="text-button">Load Ukrainian sample</button>
+        </div>
+      </div>
+      <div class="panels">
+        <section class="input-panel">
+          <div class="panel-heading"><h2 id="input-title">Declared contract</h2><span>JSON · editable</span></div>
+          <label class="sr-only" for="input-json">Declared contract JSON</label>
+          <textarea id="input-json" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          <div id="second-wrap" hidden>
+            <div class="panel-heading second-heading"><h2>After</h2><span>Change one value</span></div>
+            <label class="sr-only" for="after-json">After contract JSON</label>
+            <textarea id="after-json" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          </div>
+          <div class="form-footer">
+            <p id="mode-hint">Checks only the rules you declare. Missing evidence stays incomplete.</p>
+            <button type="button" id="run-button" class="primary-button">Check contract <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+        <section class="result-panel" aria-live="polite" aria-label="Result">
+          <div class="panel-heading"><h2>Result</h2><span id="result-type">Awaiting check</span></div>
+          <div id="placeholder" class="placeholder"><span class="placeholder-icon">◇</span><strong>Your decision trace appears here</strong><p>Load a sample or edit the contract, then run a check.</p></div>
+          <div id="error" class="error" role="alert" hidden></div>
+          <div id="summary" hidden></div>
+          <details id="raw-details" hidden><summary>Show machine-readable report</summary><pre id="raw-report"></pre></details>
+        </section>
+      </div>
+    </section>
+    <aside class="note"><strong>Scope of this tool</strong><p>These checks use caller-supplied fictional facts. A passing result does not verify a child's words, a person's authority, a real permission, or language quality. The Ukrainian taxonomy remains a draft pending independent review. No report, notification, or account change is sent.</p></aside>
+  </main>
+  <footer>RoGuard · read-only research toolkit · press Ctrl+C in the terminal to end this local session</footer>
+</body>
+</html>

@@ -19,7 +19,13 @@ python3 -m venv .venv
 
 On Windows, use `py -3.12 -m venv .venv`, then replace `.venv/bin/python` with `.venv\Scripts\python.exe` in the last three commands.
 
-Both example commands print a JSON report for fictional, caller-declared facts. To check your own case, copy an [example input](examples/contracts_ro.json), edit its declared fields, and pass the new JSON file to `roguard` using the same command. The [CLI guide](docs/CLI.md) explains the input fields and additional commands. This install has no model download and does not screen child messages; the language models are separate experimental research artifacts. No browser interface, package-index release, or one-click installer is available yet.
+Both example commands print a JSON report for fictional, caller-declared facts. To check your own case, copy an [example input](examples/contracts_ro.json), edit its declared fields, and pass the new JSON file to `roguard` using the same command. The [CLI guide](docs/CLI.md) explains the input fields and additional commands. This install has no model download and does not screen child messages; the language models are separate experimental research artifacts. No package-index release or one-click installer is available yet.
+
+## Decision Studio (v0.2)
+
+Run `.venv/bin/roguard-studio --open` to open a local browser workspace. Its Check view runs the same declared-contract checker as the CLI. Explore changes tests bounded, one-fact variants and shows which changes alter a finding or proposed-use decision. Compare checks exactly one edited scalar between two complete contracts. The page offers Romanian and Ukrainian **symbolic** samples, shows category names from the existing taxonomy, and keeps input in the browser session and local RoGuard process. Nothing is uploaded, stored, or acted upon externally. See the [Studio guide](docs/DECISION_STUDIO.md) for its safeguards and limits.
+
+For the counterfactual explorer without a browser, run `.venv/bin/roguard-explore examples/proposed_use_ro.json`. It reports only paths, mutation types, fixed field codes, and decision changes; it does not return caller-provided identifiers or source text. This strengthens review of a declared rule but is not a model accuracy estimate.
 
 The latest [bilingual synthetic metadata study](BENCHMARK.md#bilingual-same-origin-metadata-studies-v25v29) trained one Romanian/Ukrainian D1/S1 encoder and scored it once on a sealed test: **165/192 complete one-fact pairs**, below its fixed per-cell target. Romanian D1 was 43/48, Romanian S1 48/48, Ukrainian D1 36/48, and Ukrainian S1 38/48. Four further registered designs, including factorized and entailment hybrids, failed their development gates, so their tests remain sealed. The new cards describe only invented annotation fields; these results do not validate a child-message detector or Ukrainian language quality.
 

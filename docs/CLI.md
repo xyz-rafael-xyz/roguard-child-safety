@@ -1,5 +1,7 @@
 # Read-only contract CLI
 
+Version 0.2 also includes a [local Decision Studio](DECISION_STUDIO.md) and `roguard-explore` for bounded, content-free one-fact sensitivity checks. They use the same declared-contract rules as this CLI.
+
 Install the lightweight package with `python -m pip install -e .`, then run `python -m roguard examples/routing_ro.json` or `roguard examples/routing_uk.json`. Pass `-` or omit the file argument to read one JSON object from standard input. The command prints one JSON report to standard output, returns a nonzero exit code for malformed input, and performs no network or external action.
 
 For a local batch, use `python -m roguard --jsonl examples/contracts_mixed.jsonl`. The [four-card bilingual example](../examples/contracts_mixed.jsonl) demonstrates an allowed route, a conflicting route, a blocked unparsed output, and revoked permission. Each input line must contain one complete JSON object; the command checks **every** line before printing any result, then prints one compact JSON report per line in the original order. Blank or malformed lines fail with a line number and no partial output. The CLI rejects duplicate object keys and nonstandard `NaN`/`Infinity` constants in both file modes, so a later key cannot silently replace an earlier declared fact. This mode uses the same contract schema and never invokes a model or external service.

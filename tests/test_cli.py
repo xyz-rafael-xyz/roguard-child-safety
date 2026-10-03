@@ -167,6 +167,15 @@ class CommandLineTests(unittest.TestCase):
         self.assertEqual(failed_batch.stdout, "")
         self.assertIn("JSONL line 2: JSON number token is too long", failed_batch.stderr)
 
+    def test_deep_json_fails_cleanly(self):
+        raw = "[" * 12000 + "0" + "]" * 12000
+        run = subprocess.run([sys.executable, "-m", "roguard"], input=raw,
+                             capture_output=True, text=True)
+        self.assertNotEqual(run.returncode, 0)
+        self.assertEqual(run.stdout, "")
+        self.assertIn("JSON nesting is too deep", run.stderr)
+        self.assertNotIn("Traceback", run.stderr)
+
     def test_full_examples_include_declared_evidence_for_all_six_categories(self):
         for language in ("ro", "uk"):
             with self.subTest(language=language):

@@ -72,8 +72,11 @@ def _bounded_json_decimal(token: str) -> Decimal:
 
 
 def _strict_json_loads(raw: str) -> Any:
-    return json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_nonfinite,
-                      parse_int=_bounded_json_int, parse_float=_bounded_json_decimal)
+    try:
+        return json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_nonfinite,
+                          parse_int=_bounded_json_int, parse_float=_bounded_json_decimal)
+    except RecursionError as exc:
+        raise ValueError("JSON nesting is too deep") from exc
 
 
 def _fields(value: dict, expected: set[str], name: str, optional: set[str] = frozenset()) -> None:

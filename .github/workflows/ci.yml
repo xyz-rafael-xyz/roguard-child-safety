@@ -22,6 +22,7 @@ jobs:
       - run: python training/validate_generated.py --batch batch-0037
       - run: python training/validate_generated.py --batch batch-0038
       - run: roguard --jsonl examples/contracts_mixed.jsonl > /dev/null
+      - run: roguard-explore examples/proposed_use_ro.json > /dev/null
       - run: roguard-contrast examples/contrast_route_before.json examples/contrast_route_after.json > /dev/null
       - run: roguard-contrast examples/contrast_disclosure_before_ro.json examples/contrast_disclosure_after_ro.json > /dev/null
       - run: roguard-contrast examples/contrast_disclosure_before_uk.json examples/contrast_disclosure_after_uk.json > /dev/null
@@ -63,6 +64,8 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -m roguard "$GITHUB_WORKSPACE/examples/contracts_uk.json" > uk.json
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import json; from pathlib import Path; import roguard; assert not Path(roguard.__file__).is_relative_to(Path(__import__("os").environ["GITHUB_WORKSPACE"])); assert json.load(open("ro.json"))["language"] == "ro"; assert json.load(open("uk.json"))["language"] == "uk"'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from roguard import RoutingCard, check_routing; card = RoutingCard("minor", "x", "A", "minor", frozenset({"minor"}), {("minor", "x", "A"): frozenset({"minor"})}); assert check_routing(card).reason_codes == ()'
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from importlib import resources; from roguard.studio import make_server; assert b"Decision Studio" in resources.read_binary("roguard", "studio.html"); server = make_server(); server.server_close()'
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-explore" "$GITHUB_WORKSPACE/examples/proposed_use_ro.json" > /dev/null
       - name: Export exact review bundle from packaged module
         run: |
           cd "$RUNNER_TEMP"
