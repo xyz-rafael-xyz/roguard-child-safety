@@ -23,7 +23,7 @@ A **synthetic abstract card** is an invented description of annotation fields or
 
 ## Install and try it
 
-The public [GitHub releases](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest) provide source archives and a wheel. Python 3.9 or newer is supported. On macOS or Linux:
+The public [GitHub releases](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest) provide source archives and a wheel. CI tests Python 3.9 through 3.14. On macOS or Linux:
 
 ```sh
 git clone https://github.com/xyz-rafael-xyz/roguard-child-safety.git
