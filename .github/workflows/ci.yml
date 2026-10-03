@@ -23,6 +23,7 @@ jobs:
       - run: python training/validate_generated.py --batch batch-0038
       - run: roguard --jsonl examples/contracts_mixed.jsonl > /dev/null
       - run: roguard-explore examples/proposed_use_ro.json > /dev/null
+      - run: roguard-v1-evidence --root . > /dev/null
       - run: roguard-contrast examples/contrast_route_before.json examples/contrast_route_after.json > /dev/null
       - run: roguard-contrast examples/contrast_disclosure_before_ro.json examples/contrast_disclosure_after_ro.json > /dev/null
       - run: roguard-contrast examples/contrast_disclosure_before_uk.json examples/contrast_disclosure_after_uk.json > /dev/null
