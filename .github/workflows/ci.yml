@@ -42,6 +42,7 @@ jobs:
       - run: python -m roguard.review_bundle --language ro --output "$RUNNER_TEMP/roguard-ro-review.zip" > /dev/null
       - run: python -m roguard.review_bundle --language uk --output "$RUNNER_TEMP/roguard-uk-review.zip" > /dev/null
       - run: roguard-predict-abstract --help > /dev/null
+      - run: roguard-predict-bilingual --help > /dev/null
 
   wheel-install:
     runs-on: ubuntu-latest
@@ -68,6 +69,7 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from importlib import resources; from roguard.studio import make_server; assert b"Decision Studio" in resources.read_binary("roguard", "studio.html"); server = make_server(); server.server_close()'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-explore" "$GITHUB_WORKSPACE/examples/proposed_use_ro.json" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-evidence" --root "$GITHUB_WORKSPACE" > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-predict-bilingual" --help > /dev/null
       - name: Export exact review bundle from packaged module
         run: |
           cd "$RUNNER_TEMP"
