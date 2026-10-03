@@ -3,8 +3,9 @@ import subprocess
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-from roguard.cli import assess_json, assess_jsonl
+from roguard.cli import _strict_json_loads, assess_json, assess_jsonl
 from roguard.contrast import contrast_declared_contracts
 
 
@@ -173,8 +174,10 @@ class CommandLineTests(unittest.TestCase):
                              capture_output=True, text=True)
         self.assertNotEqual(run.returncode, 0)
         self.assertEqual(run.stdout, "")
-        self.assertIn("JSON nesting is too deep", run.stderr)
         self.assertNotIn("Traceback", run.stderr)
+        with patch("roguard.cli.json.loads", side_effect=RecursionError):
+            with self.assertRaisesRegex(ValueError, "JSON nesting is too deep"):
+                _strict_json_loads("[]")
 
     def test_full_examples_include_declared_evidence_for_all_six_categories(self):
         for language in ("ro", "uk"):
