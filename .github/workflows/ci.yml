@@ -67,6 +67,7 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from roguard import RoutingCard, check_routing; card = RoutingCard("minor", "x", "A", "minor", frozenset({"minor"}), {("minor", "x", "A"): frozenset({"minor"})}); assert check_routing(card).reason_codes == ()'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from importlib import resources; from roguard.studio import make_server; assert b"Decision Studio" in resources.read_binary("roguard", "studio.html"); server = make_server(); server.server_close()'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-explore" "$GITHUB_WORKSPACE/examples/proposed_use_ro.json" > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-evidence" --root "$GITHUB_WORKSPACE" > /dev/null
       - name: Export exact review bundle from packaged module
         run: |
           cd "$RUNNER_TEMP"
