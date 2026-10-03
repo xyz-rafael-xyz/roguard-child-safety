@@ -2,6 +2,8 @@
 
 The Romanian taxonomy has a project approval in `taxonomy/review_ro.json`. Independent language and child-safety reviews are still pending for Romanian and Ukrainian. The pending records are `taxonomy/review_ro_independent.json` and `taxonomy/review_uk.json`. These records bind a review to the exact taxonomy bytes through `taxonomy_sha256`.
 
+The owner-supplied [specialist memo](REVIEW_FEEDBACK_V2.md) gave README-focused feedback but says its reviewers did not read the taxonomy. It cannot fill either pending record, even if its editorial corrections are accepted.
+
 The [Romanian review packet](RO_REVIEW_PACKET.md) and [Ukrainian review packet](UK_REVIEW_PACKET.md) ask reviewers to inspect all six categories and the language-specific role terms. Reviewers should return corrections in their own words, without child disclosure text or case paraphrases. If any category needs revision, keep `status` as `pending`, revise the taxonomy, recompute its digest, and obtain reviews of that version.
 
 The [prospective human validation protocol](HUMAN_VALIDATION_PROTOCOL.md) separates this taxonomy signoff from a later blinded annotation study of abstract cards. The local batch agreement command can measure reviewer disagreement but cannot create an approval record or establish independence.

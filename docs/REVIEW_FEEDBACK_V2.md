@@ -1,0 +1,23 @@
+# Disposition of the owner-supplied specialist memo
+
+The project owner supplied `roguard_review_v2-2.docx` on 4 October 2026. Its SHA-256 is `db425ad500ed0b29f690d7a2202ffb0ead020c71abc323e84d7f47ea1eea4b49`. The source document is retained outside Git because its contributors requested that names not be disclosed. The memo gives three job titles: a Romanian-language child-protection practitioner, a Ukrainian linguist specializing in plain language and readability, and a child online-safety policy and evaluation specialist. The project has not independently checked their identities or qualifications; the owner represents them as real specialists. Their permitted job titles are the only identifiers published here.
+
+The memo explicitly says its evidence base was the **README**, and that the taxonomy and linked documentation were not read. Its D1 and S1 panel outcomes are **not accepted**; A1 and R1 are conditional; P1 and G1 are accepted as checks of caller-declared facts only. No category was accepted outright by all three. The memo therefore supplies valuable editorial and methods feedback, **not** the exact-version, category-by-category Romanian and Ukrainian taxonomy signoffs required by `verify_independent_reviews`. The two taxonomy records remain pending. It also contains no independently authored or adjudicated evaluation cards and does not establish model accuracy.
+
+| Memo edit | Disposition in public README | Remaining issue |
+|---|---|---|
+| E1, six codes and `check_boundary` | Added a six-code function table; mapped `check_boundary` to P1. | None for README. |
+| E2, card and pair definitions | Defined “synthetic abstract card” and “complete one-fact pair”; used those terms in both summaries. | Existing historical documents retain their original wording. |
+| E3, long study narrative | Kept a concise results table and the 47/48 versus 23/48 frozen-model contrast; detailed runs remain in `BENCHMARK.md`. | None for README. |
+| E4, author versus independent approval | Identified Romanian approval as project approval and automated batch checks as mechanical, not human specialist review. | Exact-taxonomy independent review is pending. |
+| E5, A1 scope | Defined A1 as a word-count check against a caller-supplied cap; made no Romanian or Ukrainian comprehension claim. | A validated language-specific comprehension measure does not exist here. |
+| E6, name collision | Named this README “RoGuard Local” and added a non-affiliation statement linking to Roblox’s current **Roblox Guard 1.0** announcement. | A repository/package rename is a separate compatibility decision; not required to state non-affiliation accurately. |
+| E7, Ukrainian summary | Rewrote it as four short sentences separating draft-taxonomy status, local structured checks, the Romanian-only public `screen()` path, and the private bilingual comparator. | Ukrainian taxonomy review remains pending. |
+| E8, public replay and weights | Marked model results author-reported and private-weight dependent. | Public weight release requires a separate licence and release decision under the master plan; no weights were published. |
+| E9, uncertainty | Added descriptive Wilson 95% intervals to the headline results. | Correlated synthetic pairs limit the interval interpretation. |
+| E10, adult role and route | Used `părinte` in the README example and explained that a relationship gives no automatic access, including when that adult is a source of concern. | The frozen R1 taxonomy uses *tutore* as a fictional role and still needs review of its exact text. |
+| E11, professional duties | Stated that the tool does not determine or replace applicable duties. | The memo requests jurisdiction-specific legal review before any detailed Romanian or Ukrainian statutory claim; none is asserted. |
+| E12, mixed-input result | Led with the typed-fact caveat, the 55/72 text-only comparator, and missed A1 positives before showing 72/72. | None for README. |
+| E13, private sibling links | Explained that selected weights and private Git history cannot be replayed from the public checkout. | Some frozen taxonomy research links still point outside the public checkout; changing those bytes requires a new taxonomy digest and review. |
+
+The README’s new naming claim was checked against [Roblox’s own announcement](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails). The casework and language opinions above are reported as the memo’s judgments within its stated README-only scope. The [v1 evidence ledger](V1_EVIDENCE.md) remains the release gate.
