@@ -2,6 +2,8 @@
 
 `roguard-v1-evidence --root .` reports the four independent abstract-study cells needed for a bilingual D1/S1 research release: `ro:D1`, `ro:S1`, `uk:D1`, and `uk:S1`. It first checks the exact-byte Romanian and Ukrainian independent taxonomy review records. It currently reports both as pending, and all four study cells as blocked. It cannot manufacture reviewers, authors, adjudications, or model accuracy.
 
+Separate private synthetic studies V30 and V31 failed their once-scored transfer targets after passing development gates, at 129/192 and 143/192 complete pairs. Those results cannot fill the independent-study cells and rule out a high-accuracy claim for the current text readers.
+
 Once the independently authored, approved, blinded, and adjudicated studies exist, the owner may keep a **private** manifest under `review_runs/` with paths relative to the repository:
 
 ```json
