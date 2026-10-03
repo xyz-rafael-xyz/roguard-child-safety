@@ -218,22 +218,20 @@ def check_permission(card: PermissionCard) -> PolicyResult:
         key=lambda event: event.sequence)
     if not matching:
         return PolicyResult("P1", ("MISSING_STATE",))
-    active = False
+    state = "absent"
     expiry: int | None = None
     for event in matching:
         if event.action == "grant":
-            active = True
+            state = "active"
             expiry = event.expires_at
-        elif event.action in {"narrow", "revoke", "pause"}:
-            active = False
-        elif event.action == "resume":
-            # A resume cannot create permission after a revoke or expired grant.
-            if any(prior.action == "grant" for prior in matching if prior.sequence < event.sequence):
-                last_revoke = max((prior.sequence for prior in matching if prior.action in {"narrow", "revoke"} and prior.sequence < event.sequence), default=-1)
-                last_grant = max((prior.sequence for prior in matching if prior.action == "grant" and prior.sequence < event.sequence), default=-1)
-                active = last_grant > last_revoke
-    if expiry is not None and card.at >= expiry:
-        active = False
+        elif event.action in {"narrow", "revoke"}:
+            state = "absent"
+            expiry = None
+        elif event.action == "pause" and state == "active":
+            state = "paused"
+        elif event.action == "resume" and state == "paused":
+            state = "active"
+    active = state == "active" and (expiry is None or card.at < expiry)
     if card.proposed_use and not active:
         return PolicyResult("P1", ("UNAUTHORIZED_REUSE",))
     if not card.proposed_use and active and card.use_required:

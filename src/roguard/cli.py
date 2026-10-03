@@ -6,6 +6,7 @@ import argparse
 import json
 import math
 import sys
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
@@ -33,6 +34,7 @@ CARD_FIELDS = {
 }
 EVENT_FIELDS = {"sequence", "principal", "item", "purpose", "recipient", "action", "expires_at"}
 OPTIONAL_CARD_FIELDS = {"readability": {"text"}}
+MAX_JSON_NUMBER_CHARS = 128
 
 
 def _mapping(value: Any, name: str) -> dict:
@@ -54,8 +56,24 @@ def _reject_nonfinite(token: str) -> None:
     raise ValueError(f"Nonstandard JSON numeric constant: {token}")
 
 
+def _bounded_json_int(token: str) -> int:
+    if len(token) > MAX_JSON_NUMBER_CHARS:
+        raise ValueError("JSON number token is too long")
+    return int(token)
+
+
+def _bounded_json_decimal(token: str) -> Decimal:
+    if len(token) > MAX_JSON_NUMBER_CHARS:
+        raise ValueError("JSON number token is too long")
+    try:
+        return Decimal(token)
+    except InvalidOperation as exc:
+        raise ValueError("Invalid JSON decimal") from exc
+
+
 def _strict_json_loads(raw: str) -> Any:
-    return json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_nonfinite)
+    return json.loads(raw, object_pairs_hook=_unique_object, parse_constant=_reject_nonfinite,
+                      parse_int=_bounded_json_int, parse_float=_bounded_json_decimal)
 
 
 def _fields(value: dict, expected: set[str], name: str, optional: set[str] = frozenset()) -> None:
@@ -84,6 +102,12 @@ def _integer_or_none(value: Any, name: str, *, nullable: bool = True) -> int | N
         return None
     if type(value) is int and value >= 0:
         return value
+    if type(value) is Decimal and value.is_finite() and value >= 0:
+        if value and value.adjusted() >= MAX_JSON_NUMBER_CHARS:
+            raise ValueError(f"{name} exceeds supported precision")
+        if value != value.to_integral_value():
+            raise ValueError(f"{name} must be a nonnegative integer" + (" or null" if nullable else ""))
+        return int(value)
     if type(value) is float and math.isfinite(value) and value >= 0 and value.is_integer():
         return int(value)
     raise ValueError(f"{name} must be a nonnegative integer" + (" or null" if nullable else ""))

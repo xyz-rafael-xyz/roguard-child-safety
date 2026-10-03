@@ -135,6 +135,38 @@ class CommandLineTests(unittest.TestCase):
         self.assertEqual(run.stdout, "")
         self.assertIn("JSONL line 2: Duplicate JSON object key", run.stderr)
 
+    def test_cli_keeps_decimal_counts_exact_and_bounds_numeric_tokens(self):
+        def readability(measured: str, maximum: str = "9007199254740992") -> str:
+            return ('{"language":"ro","readability":{"declared_age":12,'
+                    '"measured_words":' + measured + ',"max_words":' + maximum + '}}')
+
+        exact = subprocess.run([sys.executable, "-m", "roguard"],
+                               input=readability("9007199254740993.0"),
+                               capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(exact.stdout)["findings"][0]["reason_codes"],
+                         ["WORD_CAP_EXCEEDED"])
+        accepted = subprocess.run([sys.executable, "-m", "roguard"],
+                                  input=readability("1.0", "1"),
+                                  capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(accepted.stdout)["findings"][0]["reason_codes"], [])
+        for token, expected in (("1e-999", "nonnegative integer"),
+                                ("1.0000000000000000000000001", "nonnegative integer"),
+                                ("1e1000000", "supported precision"),
+                                ("9" * 10000, "JSON number token is too long")):
+            with self.subTest(token=token[:32]):
+                run = subprocess.run([sys.executable, "-m", "roguard"],
+                                     input=readability(token), capture_output=True, text=True)
+                self.assertNotEqual(run.returncode, 0)
+                self.assertEqual(run.stdout, "")
+                self.assertIn(expected, run.stderr)
+        valid_line = readability("1.0", "1")
+        failed_batch = subprocess.run([sys.executable, "-m", "roguard", "--jsonl"],
+                                      input=valid_line + "\n" + readability("9" * 10000) + "\n",
+                                      capture_output=True, text=True)
+        self.assertNotEqual(failed_batch.returncode, 0)
+        self.assertEqual(failed_batch.stdout, "")
+        self.assertIn("JSONL line 2: JSON number token is too long", failed_batch.stderr)
+
     def test_full_examples_include_declared_evidence_for_all_six_categories(self):
         for language in ("ro", "uk"):
             with self.subTest(language=language):

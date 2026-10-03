@@ -67,6 +67,23 @@ class PermissionStateMatrixTests(unittest.TestCase):
         self.assertEqual(check_permission(PermissionCard(
             "minor", "K", "A", "recipient", 6, True, renewed)).reason_codes, ())
 
+    def test_long_out_of_order_history_preserves_scope_and_expiry(self):
+        events = [PermissionEvent(index, "minor", "K", "A", "recipient",
+                                  "grant" if index == 1 else
+                                  "pause" if index % 2 == 0 else "resume",
+                                  expires_at=9000 if index == 1 else None)
+                  for index in range(1, 5001)]
+        events += [PermissionEvent(index, "other", "K", "A", "recipient", "revoke")
+                   for index in range(1, 101)]
+        events.reverse()
+        paused = PermissionCard("minor", "K", "A", "recipient", 5000, True, tuple(events))
+        self.assertEqual(check_permission(paused).reason_codes, ("UNAUTHORIZED_REUSE",))
+        resumed = PermissionCard("minor", "K", "A", "recipient", 4999, True, tuple(events))
+        self.assertEqual(check_permission(resumed).reason_codes, ())
+        expired_events = tuple(event for event in events if event.sequence != 5000)
+        expired = PermissionCard("minor", "K", "A", "recipient", 9000, True, expired_events)
+        self.assertEqual(check_permission(expired).reason_codes, ("UNAUTHORIZED_REUSE",))
+
 
 if __name__ == "__main__":
     unittest.main()
