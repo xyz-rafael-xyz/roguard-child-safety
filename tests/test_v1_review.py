@@ -20,11 +20,12 @@ FIELDS = {
 
 
 class V1ReviewTests(unittest.TestCase):
-    def test_candidate_shape_and_pending_gate(self):
+    def test_candidate_shape_and_owner_attested_review_gate(self):
         report = audit_candidate_reviews(ROOT)
-        self.assertFalse(report["machine_taxonomy_gate_passed"])
+        self.assertTrue(report["machine_taxonomy_gate_passed"])
+        self.assertFalse(report["reviewer_identity_and_independence_verified_by_software"])
         for language in ("ro", "uk"):
-            self.assertEqual(report["taxonomy"][language]["status"], "pending")
+            self.assertEqual(report["taxonomy"][language]["status"], "record_structure_verified")
             text = (ROOT / f"taxonomy/taxonomy_{language}_v1_candidate.md").read_text(encoding="utf-8")
             headings = list(re.finditer(r"^### (D1|R1|A1|P1|G1|S1) — ", text, re.M))
             self.assertEqual([match.group(1) for match in headings], list(CODES))
@@ -47,7 +48,22 @@ class V1ReviewTests(unittest.TestCase):
             path.write_text(path.read_text(encoding="utf-8") + "\nchanged\n", encoding="utf-8")
             report = audit_candidate_reviews(root)
             self.assertEqual(report["taxonomy"]["ro"]["status"], "invalid_digest")
-            self.assertEqual(report["taxonomy"]["uk"]["status"], "pending")
+            self.assertEqual(report["taxonomy"]["uk"]["status"], "record_structure_verified")
+
+    def test_same_reviewer_id_across_languages_fails_gate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "taxonomy").mkdir()
+            for language in ("ro", "uk"):
+                for name in (f"taxonomy_{language}_v1_candidate.md", f"review_{language}_v1_candidate.json"):
+                    shutil.copyfile(ROOT / "taxonomy" / name, root / "taxonomy" / name)
+            uk = root / "taxonomy/review_uk_v1_candidate.json"
+            record = json.loads(uk.read_text(encoding="utf-8"))
+            record["reviews"][0]["reviewer"] = "RO-L-20261004"
+            uk.write_text(json.dumps(record), encoding="utf-8")
+            report = audit_candidate_reviews(root)
+            self.assertFalse(report["machine_taxonomy_gate_passed"])
+            self.assertEqual(report["taxonomy"]["uk"]["status"], "duplicate_reviewer_id")
 
 
 if __name__ == "__main__":

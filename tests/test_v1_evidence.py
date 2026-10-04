@@ -19,7 +19,7 @@ class V1EvidenceTests(unittest.TestCase):
         self.assertFalse(report["candidate_v1_release_gates_passed"])
         self.assertFalse(report["candidate_v1_study_pipeline_bound"])
         self.assertEqual({item["status"] for item in report["candidate_v1_taxonomy"]["taxonomy"].values()},
-                         {"pending"})
+                         {"record_structure_verified"})
         self.assertEqual({item["status"] for item in report["taxonomy"].values()},
                          {"pending_or_invalid_record"})
         self.assertEqual({item["status"] for item in report["studies"].values()},

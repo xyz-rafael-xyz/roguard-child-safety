@@ -21,4 +21,4 @@ python -c 'from pathlib import Path; from roguard.review import verify_taxonomy;
 
 Both commands currently raise `ReviewError` because the reviews are pending.
 
-For the corrected v1 candidates, run `roguard-v1-review --root .`. It checks [Romanian](../taxonomy/review_ro_v1_candidate.json) and [Ukrainian](../taxonomy/review_uk_v1_candidate.json) candidate records against the candidate bytes. Both remain pending. Historical batch and study attestations retain the old taxonomy files and digests.
+For the corrected v1 candidates, run `roguard-v1-review --root .`. It checks [Romanian](../taxonomy/review_ro_v1_candidate.json) and [Ukrainian](../taxonomy/review_uk_v1_candidate.json) candidate records against the candidate bytes. Both now pass record-structure checks under the project owner's identity and independence attestation. Historical batch and study attestations retain the old taxonomy files and digests.
