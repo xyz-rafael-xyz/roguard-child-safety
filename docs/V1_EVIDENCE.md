@@ -2,6 +2,8 @@
 
 `roguard-v1-review --root .` is the gate for the corrected [Romanian](../taxonomy/taxonomy_ro_v1_candidate.md) and [Ukrainian](../taxonomy/taxonomy_uk_v1_candidate.md) candidates. Both exact-byte review records are pending. The new review memo requested the revisions; it did not accept the resulting bytes. `roguard-v1-evidence --root .` still audits the historical study pipeline bound to the earlier taxonomy paths. It reports both earlier independent review records pending and all four D1/S1 cells blocked. The study pipeline needs a new preregistration and exact-version packet binding before it can support v1 model claims.
 
+The evidence command also reports `candidate_v1_taxonomy`, `candidate_v1_study_pipeline_bound`, and `candidate_v1_release_gates_passed` separately. An old abstract-study pass can never turn the candidate release flag on: the current evaluator does not bind its packets to the corrected candidate. The owner-supplied [four-role submission](REVIEW_SUBMISSION_V1.md) matches the new digests, but the candidate review records remain pending until reviewer provenance and the category explanations are resolved.
+
 Separate private synthetic studies V30 and V31 failed their once-scored transfer targets after passing development gates, at 129/192 and 143/192 complete pairs. Those results cannot fill the independent-study cells and rule out a high-accuracy claim for the current text readers.
 
 The following **historical pipeline** manifest format remains available for older taxonomies. It must not be used as evidence for the corrected v1 candidate. A new study must register and bind the candidate digests before any candidate predictions are scored:

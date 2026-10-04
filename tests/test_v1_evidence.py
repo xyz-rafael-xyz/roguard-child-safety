@@ -16,6 +16,10 @@ class V1EvidenceTests(unittest.TestCase):
     def test_current_repository_reports_open_external_gates(self):
         report = audit_v1_evidence(ROOT)
         self.assertFalse(report["machine_abstract_gates_passed"])
+        self.assertFalse(report["candidate_v1_release_gates_passed"])
+        self.assertFalse(report["candidate_v1_study_pipeline_bound"])
+        self.assertEqual({item["status"] for item in report["candidate_v1_taxonomy"]["taxonomy"].values()},
+                         {"pending"})
         self.assertEqual({item["status"] for item in report["taxonomy"].values()},
                          {"pending_or_invalid_record"})
         self.assertEqual({item["status"] for item in report["studies"].values()},

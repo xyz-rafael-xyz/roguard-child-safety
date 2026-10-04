@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .human_eval_registered import evaluate_adjudicated_registered
 from .review import ReviewError, verify_independent_reviews
+from .v1_review import audit_candidate_reviews
 
 CELLS = ("ro:D1", "ro:S1", "uk:D1", "uk:S1")
 STUDY_FILES = frozenset({"packet_dir", "reviewer_a", "reviewer_b", "adjudicated", "predictions"})
@@ -44,6 +45,17 @@ def audit_v1_evidence(root: Path, study_manifest: Path | None = None) -> dict:
     """Recompute supplied study results; never infer real-world readiness."""
     root = root.resolve()
     studies = _manifest(root, study_manifest)
+    candidate_present = all((root / "taxonomy" / f"taxonomy_{language}_v1_candidate.md").is_file()
+                            for language in ("ro", "uk"))
+    if candidate_present:
+        try:
+            candidate = audit_candidate_reviews(root)
+        except (OSError, ValueError, TypeError, json.JSONDecodeError):
+            candidate = {"machine_taxonomy_gate_passed": False,
+                         "taxonomy": {language: {"status": "invalid_review"}
+                                      for language in ("ro", "uk")}}
+    else:
+        candidate = None
     taxonomy = {}
     for language in ("ro", "uk"):
         try:
@@ -102,10 +114,13 @@ def audit_v1_evidence(root: Path, study_manifest: Path | None = None) -> dict:
               all(item["status"] == "meets_numeric_target" for item in results.values()))
     return {
         "schema_version": 1,
-        "scope": "independently_authored_abstract_d1_s1_only",
+        "scope": "historical_taxonomy_abstract_d1_s1_only",
         "taxonomy": taxonomy,
+        "candidate_v1_taxonomy": candidate,
         "studies": results,
         "machine_abstract_gates_passed": passed,
+        "candidate_v1_study_pipeline_bound": False,
+        "candidate_v1_release_gates_passed": False,
         "human_identity_and_independence_verified_by_software": False,
         "model_execution_verified_by_software": False,
         "real_child_message_accuracy_established": False,
