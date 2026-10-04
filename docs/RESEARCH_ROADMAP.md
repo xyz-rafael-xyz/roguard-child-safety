@@ -1,5 +1,7 @@
 # Research and release gates
 
+**Historical roadmap:** Several status sentences below describe the earlier v0.2/v0.1 taxonomy and model experiments. The corrected v1 candidates have since received owner-attested, exact-digest reviews. The [v1 evidence ledger](V1_EVIDENCE.md) is the current release status; independent model-study evidence is still missing.
+
 RoGuard's goal is a useful, inspectable Romanian and Ukrainian child-safety evaluation toolkit. Current evidence supports a **structured contract checker** in both languages and an experimental Romanian abstract-card classifier. It does not support a claim of high accuracy on authentic child language or a claim to be the first child-safety guardrail. [The measured model results](../BENCHMARK.md) are the reason to keep these claims separate.
 
 ## Execution questions

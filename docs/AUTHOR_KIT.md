@@ -1,6 +1,8 @@
 # Offline kit for independent abstract-card authors
 
-`roguard-author-kit` prepares the future D1/S1 study without writing unreviewed cards to Git. It does not contact authors, review their work, or generate card text. The taxonomy's two independent reviews, a frozen model and evaluation plan, two fluent outside authors, and a separate content reviewer are prerequisites. The [intake contract](INDEPENDENT_BATCH_INTAKE.md) and [human validation protocol](HUMAN_VALIDATION_PROTOCOL.md) remain authoritative. Romanian and Ukrainian taxonomy reviews are currently pending, so the live repository will refuse `new` until they are recorded.
+**Version boundary:** This command and the workflow below are bound to the historical `taxonomy_ro.md` and `taxonomy_uk.md` files. Those historical independent review records remain pending, so `new` currently refuses both languages. The approved v1 candidate records do not unlock this command. Do not issue a v1 author assignment from this kit until a candidate-digest-bound study pipeline and model freeze are registered.
+
+`roguard-author-kit` prepares historical D1/S1 study workbooks without writing unreviewed cards to Git. It does not contact authors, review their work, or generate card text. That historical workflow requires a reviewed taxonomy, a frozen model and evaluation plan, two fluent outside authors, and a separate content reviewer. The [intake contract](INDEPENDENT_BATCH_INTAKE.md) and [human validation protocol](HUMAN_VALIDATION_PROTOCOL.md) describe the requirements; the [v1 evidence ledger](V1_EVIDENCE.md) tracks the corrected candidate separately.
 
 ## 1. Create separate author tasks
 

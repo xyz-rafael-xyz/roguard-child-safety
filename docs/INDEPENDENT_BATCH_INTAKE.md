@@ -1,12 +1,14 @@
 # Intake for independently authored abstract test cards
 
-This path lets independent Romanian or Ukrainian authors supply a **new abstract D1 or S1 test batch** for blinded annotation. It does not admit real or realistic disclosure/grooming text, case paraphrases, dialogue, or proposed replies. A human content reviewer must inspect every card **before** it is placed in the repository. The software checks hashes, declared provenance, pair structure, and the taxonomy review gate; it cannot establish that the named people are independent or that their intended labels are correct.
+**Version boundary:** The current `roguard-independent-check`, author kit, packet builder, and registered evaluator bind the earlier taxonomy files. They cannot ingest or validate a corrected v1 candidate study merely because the v1 review records now pass. This page documents that historical pipeline; a new exact-candidate binding is required for v1.
+
+This historical path lets independent Romanian or Ukrainian authors supply an **abstract D1 or S1 test batch** for blinded annotation under the earlier definitions. It does not admit real or realistic disclosure/grooming text, case paraphrases, dialogue, or proposed replies. A human content reviewer must inspect every card **before** it is placed in the repository. The software checks hashes, declared provenance, pair structure, and the taxonomy review gate; it cannot establish that the named people are independent or that their intended labels are correct.
 
 The [offline author kit](AUTHOR_KIT.md) can prepare two private, balanced workbooks and assemble the four files below without putting unreviewed text in Git. It requires a separate content-review declaration before sealing those files into the repository. Manual authoring remains possible under the same contract.
 
 ## Prerequisites
 
-1. Complete the [independent taxonomy review](REVIEW_GATE.md) for the batch's language. The loader rejects both Romanian and Ukrainian independently authored cards while that review remains pending.
+1. Complete the [historical independent taxonomy review](REVIEW_GATE.md) for the batch's language when replaying this pipeline. The loader rejects both Romanian and Ukrainian independently authored cards while those older records remain pending; the separate v1 approvals do not change that behavior.
 2. Freeze the model, prompt, cutoff, and evaluation code before authors see the task. Give `roguard-author-kit new` the exact committed `--freeze-record`; it binds that record and every named file hash into the workbooks and sealed provenance. A previous test or development batch cannot become this new test. Human timing still needs independent evidence.
 3. Engage **two different fluent authors** independent of the project. Each writes 24 adjacent negative-to-positive one-fact pairs in their own language. For D1, each author declares six pairs for each of the four D1 facts; for S1, each declares three pairs for each of the eight response fields. A separate content reviewer checks every card for the no-realistic-content rule, abstractness, intended pair logic, and declared factor balance. Record their actual identities, qualifications, independence, and review decisions privately; use pseudonymous IDs in Git. Do not claim that the software verified those facts.
 
