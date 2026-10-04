@@ -17,6 +17,8 @@ Only after the taxonomy text is settled, invite two fluent reviewers **per langu
 
 The 4 October 2026 [taxonomy review](TAXONOMY_REVIEW_V1.md) requested corrections to both texts. The next signoff target is the [Romanian v1 candidate](../taxonomy/taxonomy_ro_v1_candidate.md), digest `842e77806e56ebee65fe6200e172b6ecb472d80a9365adedaf11400e65794c62`, and the [Ukrainian v1 candidate](../taxonomy/taxonomy_uk_v1_candidate.md), digest `e5c6bf681b6cf81bcabb08222cf5e9db0dfec8bf803a09f3fe9d4a4619c1211d`. Reviewers should inspect the exact corrected files in their language and return one decision per category. The pending v1 records are [`review_ro_v1_candidate.json`](../taxonomy/review_ro_v1_candidate.json) and [`review_uk_v1_candidate.json`](../taxonomy/review_uk_v1_candidate.json). The older packets and digests above remain historical; their decisions cannot be copied into the new records.
 
+To hand off the exact corrected texts offline, run `python -m roguard.review_bundle --candidate-v1 --language ro --output /tmp/roguard-ro-v1-review.zip` and the same command with `--language uk --output /tmp/roguard-uk-v1-review.zip`. Each ZIP contains the relevant candidate, a language-specific review packet, the change disposition, and a hash manifest; no labeled cards or model scores are included. Sharing either ZIP with reviewers remains the project owner's action.
+
 Recalculate the digest and repeat review if the taxonomy changes. Do not copy a reviewer's name or decision into a record until that person has returned a judgment on the exact bytes. The [review gate](REVIEW_GATE.md) defines the machine-readable record; the [validation protocol](HUMAN_VALIDATION_PROTOCOL.md) defines the later annotation study and claim limits.
 
 ## Possible institutional routes

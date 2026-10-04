@@ -44,6 +44,8 @@ jobs:
       - run: roguard-author-kit --help > /dev/null
       - run: python -m roguard.review_bundle --language ro --output "$RUNNER_TEMP/roguard-ro-review.zip" > /dev/null
       - run: python -m roguard.review_bundle --language uk --output "$RUNNER_TEMP/roguard-uk-review.zip" > /dev/null
+      - run: python -m roguard.review_bundle --language ro --candidate-v1 --output "$RUNNER_TEMP/roguard-ro-v1-review.zip" > /dev/null
+      - run: python -m roguard.review_bundle --language uk --candidate-v1 --output "$RUNNER_TEMP/roguard-uk-v1-review.zip" > /dev/null
       - run: roguard-predict-abstract --help > /dev/null
       - run: roguard-predict-bilingual --help > /dev/null
       - run: roguard-replay-bilingual --help > /dev/null
@@ -83,3 +85,5 @@ jobs:
           cd "$RUNNER_TEMP"
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -m roguard.review_bundle --root "$GITHUB_WORKSPACE" --language ro --output "$RUNNER_TEMP/ro-review.zip" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import zipfile; archive = zipfile.ZipFile("ro-review.zip"); assert "taxonomy/taxonomy_ro.md" in archive.namelist()'
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -m roguard.review_bundle --root "$GITHUB_WORKSPACE" --language uk --candidate-v1 --output "$RUNNER_TEMP/uk-v1-review.zip" > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import zipfile; archive = zipfile.ZipFile("uk-v1-review.zip"); assert "taxonomy/taxonomy_uk_v1_candidate.md" in archive.namelist()'

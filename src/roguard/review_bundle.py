@@ -10,10 +10,12 @@ import zipfile
 from pathlib import Path
 
 from .review import LANGUAGES, taxonomy_sha256
+from .v1_review import candidate_digest
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKETS = {"ro": "RO_REVIEW_PACKET.md", "uk": "UK_REVIEW_PACKET.md"}
 RECORDS = {"ro": "review_ro_independent.json", "uk": "review_uk.json"}
+V1_PACKETS = {"ro": "RO_V1_REVIEW_PACKET.md", "uk": "UK_V1_REVIEW_PACKET.md"}
 READMES = {
     "ro": ("# Pachet pentru revizuirea taxonomiei\n\n"
            "Citiți mai întâi `docs/RO_REVIEW_PACKET.md`, apoi `taxonomy/taxonomy_ro.md`. "
@@ -30,7 +32,8 @@ READMES = {
 }
 
 
-def create_review_bundle(root: Path, language: str, output: Path) -> dict:
+def create_review_bundle(root: Path, language: str, output: Path,
+                         *, candidate_v1: bool = False) -> dict:
     """Write a create-once private ZIP; this never records or approves a review."""
     if language not in LANGUAGES:
         raise ValueError("Choose Romanian or Ukrainian")
@@ -46,32 +49,39 @@ def create_review_bundle(root: Path, language: str, output: Path) -> dict:
     if target.exists() or target.is_symlink():
         raise FileExistsError("Reviewer bundle destination already exists")
 
-    names = (
-        f"taxonomy/taxonomy_{language}.md",
-        f"docs/{PACKETS[language]}",
-        "docs/ROLE_TERMINOLOGY_AUDIT.md",
-        "docs/REVIEW_GATE.md",
-    )
+    taxonomy_name = (f"taxonomy/taxonomy_{language}_v1_candidate.md" if candidate_v1 else
+                     f"taxonomy/taxonomy_{language}.md")
+    packet_name = V1_PACKETS[language] if candidate_v1 else PACKETS[language]
+    names = ((taxonomy_name, f"docs/{packet_name}", "docs/TAXONOMY_REVIEW_V1.md",
+              "docs/REVIEW_GATE.md") if candidate_v1 else
+             (taxonomy_name, f"docs/{packet_name}", "docs/ROLE_TERMINOLOGY_AUDIT.md",
+              "docs/REVIEW_GATE.md"))
     sources = {}
     for name in names:
         path = root / name
         if path.is_symlink() or not path.is_file():
             raise ValueError(f"Review bundle source is missing or linked: {name}")
         sources[name] = path.read_bytes()
-    sources["README.md"] = READMES[language].encode("utf-8")
-    digest = taxonomy_sha256(root, language)
-    record_path = root / "taxonomy" / RECORDS[language]
+    sources["README.md"] = ((
+        f"# RoGuard v1 candidate review / Revizuire candidat v1 / Перегляд чернетки v1\n\n"
+        f"Read docs/{packet_name} and {taxonomy_name}. Verify manifest.json. "
+        "This bundle has no labeled cards or model scores and is not an approval.\n"
+    ) if candidate_v1 else READMES[language]).encode("utf-8")
+    digest = candidate_digest(root, language) if candidate_v1 else taxonomy_sha256(root, language)
+    record_name = f"review_{language}_v1_candidate.json" if candidate_v1 else RECORDS[language]
+    record_path = root / "taxonomy" / record_name
     if record_path.is_symlink() or not record_path.is_file():
         raise ValueError("Independent review record is missing or linked")
     record = json.loads(record_path.read_text(encoding="utf-8"))
     if (not isinstance(record, dict) or record.get("status") not in {"pending", "approved"} or
             record.get("taxonomy_sha256") != digest or
-            digest.encode("ascii") not in sources[f"docs/{PACKETS[language]}"]):
+            digest.encode("ascii") not in sources[f"docs/{packet_name}"]):
         raise ValueError("Reviewer packet or record differs from the current taxonomy")
     manifest = {
         "schema_version": 1,
         "language": language,
         "taxonomy_sha256": digest,
+        **({"taxonomy_version": "v1_candidate"} if candidate_v1 else {}),
         "files_sha256": {name: hashlib.sha256(value).hexdigest()
                          for name, value in sources.items()},
         "review_status_at_export": record["status"],
@@ -91,13 +101,16 @@ def create_review_bundle(root: Path, language: str, output: Path) -> dict:
             stream.flush()
             os.fsync(stream.fileno())
         if (any(hashlib.sha256((root / name).read_bytes()).hexdigest() != manifest["files_sha256"][name]
-                for name in names) or taxonomy_sha256(root, language) != digest):
+                for name in names) or
+                (candidate_digest(root, language) if candidate_v1 else taxonomy_sha256(root, language)) != digest):
             raise ValueError("Review source changed during export")
     except BaseException:
         target.unlink(missing_ok=True)
         raise
     return {"output": str(target), "language": language,
-            "taxonomy_sha256": digest, "files": list(sources),
+            "taxonomy_sha256": digest,
+            **({"taxonomy_version": "v1_candidate"} if candidate_v1 else {}),
+            "files": list(sources),
             "independent_review_completed_by_export": False}
 
 
@@ -106,9 +119,12 @@ def main() -> None:
     parser.add_argument("--language", required=True, choices=LANGUAGES)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--candidate-v1", action="store_true",
+                        help="Export the corrected v1 candidate and its pending review record")
     args = parser.parse_args()
     try:
-        print(json.dumps(create_review_bundle(args.root, args.language, args.output), indent=2))
+        print(json.dumps(create_review_bundle(args.root, args.language, args.output,
+                                              candidate_v1=args.candidate_v1), indent=2))
     except (OSError, TypeError, ValueError, json.JSONDecodeError) as exc:
         parser.error(str(exc))
 
