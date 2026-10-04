@@ -3,6 +3,8 @@ import itertools
 import unittest
 from pathlib import Path
 
+from jsonschema import Draft202012Validator
+
 from roguard.policy import RoutingCard, SupportContractCard
 from roguard.policy_v1 import (DisclosureCardV1, RoutingCardV1, check_disclosure_v1,
                                check_routing_v1, check_support_v1)
@@ -50,12 +52,17 @@ class V1ContractTests(unittest.TestCase):
             frozenset({"next_step"}), frozenset({"next_step"}))).reason_codes, ())
 
     def test_examples_and_reject_unknown_fields(self):
+        schema = json.loads((ROOT / "schema/v1-contract-input.schema.json").read_text(encoding="utf-8"))
+        Draft202012Validator.check_schema(schema)
+        validator = Draft202012Validator(schema)
         for language in ("ro", "uk"):
             payload = json.loads((ROOT / f"examples/v1_candidate_{language}.json").read_text(encoding="utf-8"))
+            validator.validate(payload)
             report = assess_v1_json(payload)
             self.assertEqual([check["category"] for check in report["checks"]], ["D1", "R1", "S1"])
             self.assertFalse(report["external_action_taken"])
         payload["disclosure"]["raw_child_message"] = "forbidden"
+        self.assertFalse(validator.is_valid(payload))
         with self.assertRaises(ValueError):
             assess_v1_json(payload)
 
