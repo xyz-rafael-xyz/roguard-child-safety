@@ -1,6 +1,6 @@
 # RoGuard Local — Romanian and Ukrainian child-safety research toolkit
 
-**Latest tagged release: v0.2.0. Main branch package version: 1.0.0.dev0. V1 evidence gate: open.** RoGuard Local is a local checker for caller-declared child-safety contracts and a research harness for Romanian and Ukrainian abstract-card evaluations. It does not read a child message to decide whom to notify, and it takes no external action. Its trained text models are experimental and have not been validated on authentic child language.
+**RoGuard Local v1.0.0 is an offline contract checker and evaluation toolkit. Text-model validation remains open.** It checks caller-declared child-safety contracts and supports Romanian and Ukrainian abstract-card research. It does not read a child message to decide whom to notify, and it takes no external action. Trained text models are experimental, are not included in this release, and have not been validated on authentic child language. The [v1.0 release scope](docs/V1_RELEASE.md) states exactly what is included.
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The package here is named `roguard-local`.
 
@@ -60,7 +60,7 @@ print(check_routing(card).reason_codes)  # ('PRINCIPAL_SCOPE_CONFLICT',)
 
 `părinte` here is an example role label, not a finding about legal authority or safe disclosure. A parent or guardian can be the subject of a concern; the checker must not infer permission to notify them from that relationship. The responsible human must assess the actual policy and situation. The [combined-use guide](docs/CLI.md#check-one-proposed-use-across-contracts) shows how routing, current permission, and a separate human gate fit together without sending anything.
 
-For the **candidate v1 rules**, run `roguard-v1-contract examples/v1_candidate_ro.json` or `roguard-v1-contract examples/v1_candidate_uk.json`. These separate examples exercise a direct D1 statement, an unresolved R1 recipient concern, and conditional S1 fields. The [v1 schema](schema/v1-contract-input.schema.json) describes the new inputs. These checks operate on facts supplied by the caller; they are not live screening or model inference.
+For the **reviewed v1 contract rules**, run `roguard-v1-contract examples/v1_candidate_ro.json` or `roguard-v1-contract examples/v1_candidate_uk.json`. These separate examples exercise a direct D1 statement, an unresolved R1 recipient concern, and conditional S1 fields. The [v1 schema](schema/v1-contract-input.schema.json) describes the new inputs. These checks operate on facts supplied by the caller; they are not live screening or model inference.
 
 ## What the research shows
 

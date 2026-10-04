@@ -1,5 +1,7 @@
 # Public source release
 
+Version 1.0.0 stabilizes the offline declared-contract checker, reviewed v1 contract rules, Decision Studio, and abstract-card evaluation tools. It does not include trained adapter weights or claim validated D1/S1 text classification. The [v1.0 release scope](V1_RELEASE.md) gives the install and evidence boundary.
+
 This repository began as a source-only snapshot of RoGuard at private research commit `f1b2c0bacddb6d319b35b91da09381f5d8f34aa3` and has since received public toolkit fixes. It contains the Romanian and Ukrainian declared-contract checker, taxonomies, synthetic data and research records, examples, and documentation. It has a separate public Git history so earlier private commits cannot expose research artifacts through a clone. Later public CLI fixes do not change the separately frozen private V16 study source or its recorded results.
 
 The selected adapter weights and adapter configs are **not** in this repository. They remain in a separate private research archive. The public package does not download them. The public CLI checks caller-declared facts without a model; it is not a detector for real child messages. The model score files and metadata document prior synthetic experiments, including failures, but a reader of this snapshot cannot verify those scores against the withheld weights or independently verify the historical order of private research commits.
