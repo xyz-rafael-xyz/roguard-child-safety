@@ -4,6 +4,8 @@ The project owner supplied a second review memo, `roguard_taxonomy_review.docx`,
 
 The memo reviews the earlier [Romanian v0.2](../taxonomy/taxonomy_ro.md) and [Ukrainian draft v0.1](../taxonomy/taxonomy_uk.md). It reports Romanian D1 unaccepted, R1/A1/P1/S1 conditional, and G1 accepted. It reports Ukrainian D1 unaccepted and the other five categories conditional. Its stated blockers are RC1, RC4, RC5, and RC15. The memo explicitly asks for a corrected version and a new signoff on its exact bytes. Its comments are therefore **revision requests**, not v1 taxonomy approval or model validation.
 
+The declared reviewer coverage is narrower than the v1 release gate: the Romanian practitioner explicitly does not claim a linguist role, the Ukrainian linguist does not claim child-protection expertise, and the policy specialist assessed code structure through translations rather than Romanian or Ukrainian wording. The corrected version still needs a Romanian language review and a Ukrainian child-protection review, as well as exact-byte acceptance of every category by reviewers qualified for their assigned disciplines.
+
 ## Implemented in the candidate
 
 | Review items | Change |
