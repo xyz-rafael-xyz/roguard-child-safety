@@ -2,7 +2,7 @@
 
 The Romanian taxonomy has a project approval in `taxonomy/review_ro.json`. Independent language and child-safety reviews are still pending for Romanian and Ukrainian. The pending records are `taxonomy/review_ro_independent.json` and `taxonomy/review_uk.json`. These records bind a review to the exact taxonomy bytes through `taxonomy_sha256`.
 
-The owner-supplied [specialist memo](REVIEW_FEEDBACK_V2.md) gave README-focused feedback but says its reviewers did not read the taxonomy. It cannot fill either pending record, even if its editorial corrections are accepted.
+The first owner-supplied [specialist memo](REVIEW_FEEDBACK_V2.md) gave README-focused feedback and says its reviewers did not read the taxonomy. A later [taxonomy review memo](TAXONOMY_REVIEW_V1.md) reviewed the earlier Romanian and Ukrainian texts, requested changes, and calls for a new review of the corrected exact bytes. Neither memo fills an approval record for the v1 candidates.
 
 The [Romanian review packet](RO_REVIEW_PACKET.md) and [Ukrainian review packet](UK_REVIEW_PACKET.md) ask reviewers to inspect all six categories and the language-specific role terms. Reviewers should return corrections in their own words, without child disclosure text or case paraphrases. If any category needs revision, keep `status` as `pending`, revise the taxonomy, recompute its digest, and obtain reviews of that version.
 
@@ -20,3 +20,5 @@ python -c 'from pathlib import Path; from roguard.review import verify_taxonomy;
 ```
 
 Both commands currently raise `ReviewError` because the reviews are pending.
+
+For the corrected v1 candidates, run `roguard-v1-review --root .`. It checks [Romanian](../taxonomy/review_ro_v1_candidate.json) and [Ukrainian](../taxonomy/review_uk_v1_candidate.json) candidate records against the candidate bytes. Both remain pending. Historical batch and study attestations retain the old taxonomy files and digests.
