@@ -66,6 +66,35 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(contrast["changed_path"], "/gate/accept_unparsed")
 
+    def test_guided_v1_endpoint_uses_corrected_rules_in_both_languages(self):
+        for language in ("ro", "uk"):
+            with self.subTest(language=language):
+                payload = {"language": language,
+                           "disclosure": {"source_role": "minor", "safety_or_support_anchor": False,
+                                          "indirect_or_repeated_support_pattern": False,
+                                          "explicit_support_request": False,
+                                          "direct_safety_statement": True,
+                                          "retracted_or_denied": True},
+                           "routing": {"principal": "minor", "item": "symbol", "purpose": "A",
+                                       "proposed_recipient": "guardian", "recipient_roles": ["minor", "guardian"],
+                                       "allowed_by_scope": [{"principal": "minor", "item": "symbol",
+                                                             "purpose": "A", "recipients": ["guardian"]}],
+                                       "recipient_may_be_source_of_concern": "unknown"},
+                           "support": {"applicable_fields": ["next_step", "no_pressing_for_details"],
+                                       "passed_fields": ["next_step"]}}
+                status, report = self.request("/api/v1/assess", payload)
+                self.assertEqual(status, 200)
+                self.assertEqual(report["language"], language)
+                self.assertEqual([check["decision_code"] for check in report["checks"]],
+                                 ["REVIEW_SUPPORT_SIGNAL", "REVIEW_ROUTE", "REVIEW_RESPONSE"])
+                self.assertFalse(report["external_action_taken"])
+                self.assertTrue(report["caller_facts_unverified"])
+
+    def test_guided_v1_endpoint_rejects_invalid_and_cross_origin_input(self):
+        self.assertEqual(self.request("/api/v1/assess", {"language": "ro"})[0], 400)
+        self.assertEqual(self.request("/api/v1/assess", {"language": "uk", "support": {}},
+                                      token="wrong")[0], 403)
+
     def test_cross_origin_token_and_host_are_rejected(self):
         payload = {"language": "uk", "gate": {"review_owner": "reviewer",
                    "model_output_parsed": True, "accept_unparsed": False,

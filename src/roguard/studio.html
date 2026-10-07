@@ -17,12 +17,13 @@
     <section class="hero">
       <p class="eyebrow">Romanian + Ukrainian · declared facts</p>
       <h1>Trace a decision before anyone acts.</h1>
-      <p>Check a fictional contract, explore which single facts change the result, or compare two versions. Everything stays in this browser session and the local RoGuard process. No model or external service runs here.</p>
+      <p>Use the guided Romanian or Ukrainian form for the corrected v1 D1/R1/S1 checks. You can also inspect historical contracts and their decision changes. Everything stays in this browser session and the local RoGuard process.</p>
     </section>
     <section class="workspace" aria-label="Decision workspace">
       <div class="toolbar">
         <div class="tabs" role="group" aria-label="Analysis mode">
-          <button type="button" class="tab active" data-mode="assess" aria-pressed="true">Check</button>
+          <button type="button" class="tab active" data-mode="v1" aria-pressed="true">Guided v1</button>
+          <button type="button" class="tab" data-mode="assess" aria-pressed="false">Legacy check</button>
           <button type="button" class="tab" data-mode="explore" aria-pressed="false">Explore changes</button>
           <button type="button" class="tab" data-mode="contrast" aria-pressed="false">Compare</button>
         </div>
@@ -33,17 +34,46 @@
       </div>
       <div class="panels">
         <section class="input-panel">
-          <div class="panel-heading"><h2 id="input-title">Declared contract</h2><span>JSON · editable</span></div>
-          <label class="sr-only" for="input-json">Declared contract JSON</label>
-          <textarea id="input-json" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          <div id="v1-form">
+            <div class="panel-heading"><h2 id="v1-title">Fișă simbolică v1</h2><span>D1 · R1 · S1</span></div>
+            <p id="v1-intro" class="form-intro">Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.</p>
+            <label class="form-label" for="v1-language"><span id="label-language">Limba</span><select id="v1-language"><option value="ro">Română</option><option value="uk">Українська</option></select></label>
+            <fieldset class="guided-card" id="v1-disclosure"><legend><label><input id="v1-use-d" type="checkbox" checked> <span id="label-d-title">D1 · Semnal declarat</span></label></legend>
+              <label class="form-label" for="v1-role"><span id="label-role">Rolul sursei</span><select id="v1-role"><option value="minor">minor</option><option value="adult">adult</option><option value="other">other</option><option value="unknown">necunoscut</option></select></label>
+              <div class="guided-grid">
+                <label class="form-label" for="v1-anchor"><span id="label-anchor">Reper de siguranță sau sprijin</span><select id="v1-anchor" class="tri-state"></select></label>
+                <label class="form-label" for="v1-indirect"><span id="label-indirect">Căutare indirectă sau repetată</span><select id="v1-indirect" class="tri-state"></select></label>
+                <label class="form-label" for="v1-explicit"><span id="label-explicit">Cerere explicită de sprijin</span><select id="v1-explicit" class="tri-state"></select></label>
+                <label class="form-label" for="v1-direct"><span id="label-direct">Afirmație directă despre siguranță</span><select id="v1-direct" class="tri-state"></select></label>
+                <label class="form-label" for="v1-retracted"><span id="label-retracted">Retractare sau negare ulterioară</span><select id="v1-retracted" class="tri-state"></select></label>
+              </div>
+            </fieldset>
+            <fieldset class="guided-card" id="v1-routing"><legend><label><input id="v1-use-r" type="checkbox" checked> <span id="label-r-title">R1 · Destinatar și permisiune</span></label></legend>
+              <p id="r-hint" class="form-intro">Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.</p>
+              <div class="guided-grid">
+                <label class="form-label" for="v1-recipient"><span id="label-recipient">Destinatar propus</span><select id="v1-recipient"><option value="minor">minor</option><option value="guardian">guardian</option><option value="other">other</option></select></label>
+                <label class="form-label" for="v1-allowed"><span id="label-allowed">Destinatar permis de regula fictivă</span><select id="v1-allowed"><option value="minor">minor</option><option value="guardian">guardian</option><option value="other">other</option><option value="none">niciunul</option></select></label>
+                <label class="form-label" for="v1-concern"><span id="label-concern">Destinatarul poate fi sursa îngrijorării</span><select id="v1-concern"><option value="unknown">necunoscut</option><option value="no">nu</option><option value="yes">da</option></select></label>
+              </div>
+            </fieldset>
+            <fieldset class="guided-card" id="v1-support"><legend><label><input id="v1-use-s" type="checkbox" checked> <span id="label-s-title">S1 · Verificarea răspunsului</span></label></legend>
+              <p id="s-hint" class="form-intro">Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.</p>
+              <div id="support-fields" class="support-fields"></div>
+            </fieldset>
+          </div>
+          <div id="legacy-form" hidden>
+            <div class="panel-heading"><h2 id="input-title">Declared contract</h2><span>JSON · editable</span></div>
+            <label class="sr-only" for="input-json">Declared contract JSON</label>
+            <textarea id="input-json" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          </div>
           <div id="second-wrap" hidden>
             <div class="panel-heading second-heading"><h2>After</h2><span>Change one value</span></div>
             <label class="sr-only" for="after-json">After contract JSON</label>
             <textarea id="after-json" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
           </div>
           <div class="form-footer">
-            <p id="mode-hint">Checks only the rules you declare. Missing evidence stays incomplete.</p>
-            <button type="button" id="run-button" class="primary-button">Check contract <span aria-hidden="true">↗</span></button>
+            <p id="mode-hint">Datele declarate rămân neverificate. Nu se face nicio acțiune externă.</p>
+            <button type="button" id="run-button" class="primary-button">Verifică fișa <span aria-hidden="true">↗</span></button>
           </div>
         </section>
         <section class="result-panel" aria-live="polite" aria-label="Result">
@@ -55,7 +85,7 @@
         </section>
       </div>
     </section>
-    <aside class="note"><strong>Scope of this tool</strong><p>These checks use caller-supplied fictional facts and the historical six-category contract rules. The corrected v1 D1/R1/S1 checks are available through the separate CLI. A passing result does not verify a child's words, a person's authority, a real permission, or language quality. No report, notification, or account change is sent.</p></aside>
+    <aside class="note"><strong>Scope of this tool</strong><p>The guided form checks corrected v1 D1/R1/S1 rules on caller-supplied symbolic facts. The other tabs inspect the historical six-category contract. A passing result does not verify a child's words, a person's authority, a real permission, or language quality. No report, notification, or account change is sent.</p></aside>
   </main>
   <footer>RoGuard · read-only research toolkit · press Ctrl+C in the terminal to end this local session</footer>
 </body>

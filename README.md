@@ -42,7 +42,7 @@ python3 -m venv .venv
 
 On Windows, create the environment with `py -3.12 -m venv .venv` and use `.venv\Scripts\python.exe` in the last three commands. The examples are fictional, caller-declared contracts; no model download is needed. For your own declared contract, copy an [example](examples/contracts_ro.json), edit its fields, and run the same command. The [JSON Schema](schema/contract-input.schema.json) and [CLI guide](docs/CLI.md) describe every field and status.
 
-`roguard-studio --open` opens a loopback-only [Decision Studio](docs/DECISION_STUDIO.md) for checking contracts and exploring one-fact changes. The command-line `roguard-explore examples/proposed_use_ro.json` shows which declared changes alter a result. Both are local consistency tools, not model accuracy tests. `python -m roguard --jsonl examples/contracts_mixed.jsonl` checks multiple contracts after validating every line.
+`roguard-studio --open` opens a loopback-only [Decision Studio](docs/DECISION_STUDIO.md). Its default guided Romanian/Ukrainian form checks corrected v1 D1/R1/S1 symbolic facts without editing JSON. Other tabs check historical contracts and explore one-fact changes. The command-line `roguard-explore examples/proposed_use_ro.json` shows which declared changes alter a result. These are local consistency tools, not model accuracy tests. `python -m roguard --jsonl examples/contracts_mixed.jsonl` checks multiple contracts after validating every line.
 
 For a small routing check in Python:
 
