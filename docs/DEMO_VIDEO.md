@@ -1,6 +1,6 @@
 # RoGuard Local video demo transcript
 
-The [46-second captioned demo](../media/roguard-demo.mp4) uses fictional symbolic inputs and the local RoGuard Decision Studio. It contains no child messages. The Studio images were captured from the running application; the corrected-v1 CLI rows were formatted from the command's JSON output.
+The [46-second captioned demo](../media/roguard-demo.mp4) uses fictional symbolic inputs and the local RoGuard Decision Studio. The [animated README version](../media/roguard-demo-loop.gif) plays automatically and loops without controls. It contains no child messages. The Studio images were captured from the running application; the corrected-v1 CLI rows were formatted from the command's JSON output.
 
 | Time | What appears | What it demonstrates |
 |---|---|---|

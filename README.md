@@ -1,8 +1,8 @@
 # RoGuard Local — Romanian and Ukrainian child-safety research toolkit
 
-[![Watch the 46-second RoGuard Local demo showing a Romanian contract check, a one-fact comparison, and Ukrainian output](media/roguard-demo-poster.png)](media/roguard-demo.mp4)
+[![A looping 46-second RoGuard Local demo showing a Romanian contract check, a one-fact comparison, Ukrainian output, and the corrected v1 CLI](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
 
-**[Watch the 46-second captioned demo](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
+**[Open the full-resolution 46-second video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
 **RoGuard Local v1.0.0 is an offline contract checker and evaluation toolkit. Text-model validation remains open.** It checks caller-declared child-safety contracts and supports Romanian and Ukrainian abstract-card research. It does not read a child message to decide whom to notify, and it takes no external action. Trained text models are experimental, are not included in this release, and have not been validated on authentic child language. The [v1.0 release scope](docs/V1_RELEASE.md) states exactly what is included.
 
