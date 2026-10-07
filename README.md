@@ -1,5 +1,9 @@
 # RoGuard Local — Romanian and Ukrainian child-safety research toolkit
 
+[![Watch the 46-second RoGuard Local demo showing a Romanian contract check, a one-fact comparison, and Ukrainian output](media/roguard-demo-poster.png)](media/roguard-demo.mp4)
+
+**[Watch the 46-second captioned demo](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
+
 **RoGuard Local v1.0.0 is an offline contract checker and evaluation toolkit. Text-model validation remains open.** It checks caller-declared child-safety contracts and supports Romanian and Ukrainian abstract-card research. It does not read a child message to decide whom to notify, and it takes no external action. Trained text models are experimental, are not included in this release, and have not been validated on authentic child language. The [v1.0 release scope](docs/V1_RELEASE.md) states exactly what is included.
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The package here is named `roguard-local`.
