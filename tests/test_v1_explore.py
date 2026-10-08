@@ -31,12 +31,32 @@ class V1ExploreTests(unittest.TestCase):
             "applicable_fields": ["next_step", "no_pressing_for_details"],
             "passed_fields": ["next_step"]}}
         full = explore_v1_contract(payload)
-        self.assertEqual({change["path"] for change in full["decision_changes"]},
-                         {"/support/passed_fields/next_step",
-                          "/support/passed_fields/no_pressing_for_details"})
+        paths = {change["path"] for change in full["decision_changes"]}
+        self.assertTrue({"/support/passed_fields/next_step",
+                         "/support/passed_fields/no_pressing_for_details",
+                         "/support/applicable_fields/no_pressing_for_details"} <= paths)
         limited = explore_v1_contract(payload, limit=1)
         self.assertTrue(limited["truncated"])
         self.assertEqual(limited["tested"], 1)
+
+    def test_exposes_policy_and_applicability_flips_without_custom_values(self):
+        payload = {"language": "ro",
+                   "routing": {"principal": "minor", "item": "secret-marker", "purpose": "A",
+                               "proposed_recipient": "custom-guardian",
+                               "recipient_roles": ["custom-guardian"],
+                               "allowed_by_scope": [{"principal": "minor", "item": "secret-marker",
+                                                     "purpose": "A", "recipients": ["custom-guardian"]}],
+                               "recipient_may_be_source_of_concern": "no"},
+                   "support": {"applicable_fields": ["next_step"],
+                               "passed_fields": ["next_step"]}}
+        result = explore_v1_contract(payload)
+        changes = {(row["path"], row["target_state_code"])
+                   for row in result["decision_changes"]}
+        self.assertIn(("/routing/allowed_by_scope/0/recipients", "not_allowed"), changes)
+        self.assertIn(("/routing/recipient_roles", "undeclared"), changes)
+        self.assertIn(("/support/applicable_fields/no_blame", "applicable"), changes)
+        self.assertNotIn("custom-guardian", str(result))
+        self.assertNotIn("secret-marker", str(result))
 
     def test_invalid_card_and_limit_fail_closed(self):
         with self.assertRaises(ValueError):

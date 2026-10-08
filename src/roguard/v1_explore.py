@@ -9,7 +9,9 @@ from itertools import islice
 from pathlib import Path
 
 from .cli import _strict_json_loads
+from .policy import SUPPORT_FIELDS
 from .v1_contract import assess_v1_json
+from .policy_v1 import V1_SUPPORT_FIELDS
 
 MAX_CANDIDATES = 128
 TRI_STATES = (None, False, True)
@@ -33,6 +35,15 @@ def _proposals(payload: dict):
         for recipient in sorted(card["recipient_roles"] or ()):
             if recipient != card["proposed_recipient"]:
                 yield ("R1", "/routing/proposed_recipient", "change_recipient", recipient)
+        recipient = card["proposed_recipient"]
+        if recipient is not None and card["recipient_roles"] is not None:
+            yield ("R1", "/routing/recipient_roles", "toggle_recipient_role", recipient)
+        if recipient is not None and card["allowed_by_scope"] is not None:
+            for index, scope in enumerate(card["allowed_by_scope"]):
+                if (scope["principal"], scope["item"], scope["purpose"]) == (
+                        card["principal"], card["item"], card["purpose"]):
+                    yield ("R1", f"/routing/allowed_by_scope/{index}/recipients",
+                           "toggle_scope_permission", (index, recipient))
         for value in ("yes", "no", "unknown"):
             if value != card["recipient_may_be_source_of_concern"]:
                 yield ("R1", "/routing/recipient_may_be_source_of_concern",
@@ -42,17 +53,30 @@ def _proposals(payload: dict):
         if card["applicable_fields"] is not None and card["passed_fields"] is not None:
             for field in sorted(card["applicable_fields"]):
                 yield ("S1", f"/support/passed_fields/{field}", "toggle_passed_field", field)
+            for field in sorted(SUPPORT_FIELDS | V1_SUPPORT_FIELDS):
+                if field not in card["passed_fields"]:
+                    yield ("S1", f"/support/applicable_fields/{field}",
+                           "toggle_applicable_field", field)
 
 
 def _mutate(copy: dict, path: str, mutation: str, value: object) -> None:
     section, field, *rest = path.strip("/").split("/")
-    if mutation == "toggle_passed_field":
+    if mutation in {"toggle_passed_field", "toggle_applicable_field",
+                    "toggle_recipient_role"}:
         passed = set(copy[section][field])
         if value in passed:
             passed.remove(value)
         else:
             passed.add(value)
         copy[section][field] = sorted(passed)
+    elif mutation == "toggle_scope_permission":
+        index, recipient = value
+        recipients = set(copy["routing"]["allowed_by_scope"][index]["recipients"])
+        if recipient in recipients:
+            recipients.remove(recipient)
+        else:
+            recipients.add(recipient)
+        copy["routing"]["allowed_by_scope"][index]["recipients"] = sorted(recipients)
     else:
         copy[section][field] = value
 
@@ -82,6 +106,17 @@ def explore_v1_contract(payload: object, limit: int = MAX_CANDIDATES) -> dict:
                 target = f"declared_recipient_{sorted(payload['routing']['recipient_roles']).index(value) + 1}"
             elif mutation == "toggle_passed_field":
                 target = "passed" if value not in payload["support"]["passed_fields"] else "failed"
+            elif mutation == "toggle_applicable_field":
+                target = ("applicable" if value not in payload["support"]["applicable_fields"]
+                          else "not_applicable")
+            elif mutation == "toggle_recipient_role":
+                target = ("declared" if value not in payload["routing"]["recipient_roles"]
+                          else "undeclared")
+            elif mutation == "toggle_scope_permission":
+                index, recipient = value
+                target = ("allowed" if recipient not in
+                          payload["routing"]["allowed_by_scope"][index]["recipients"]
+                          else "not_allowed")
             elif value is None:
                 target = "unknown"
             elif type(value) is bool:

@@ -23,6 +23,11 @@ const v1Labels = {
   ro: {title: "Fișă simbolică v1", intro: "Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.", language: "Limba", dTitle: "D1 · Semnal declarat", role: "Rolul sursei", anchor: "Reper de siguranță sau sprijin", indirect: "Căutare indirectă sau repetată", explicit: "Cerere explicită de sprijin", direct: "Afirmație directă despre siguranță", retracted: "Retractare sau negare ulterioară", rTitle: "R1 · Destinatar și permisiune", rHint: "Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.", recipient: "Destinatar propus", allowed: "Destinatar permis de regula fictivă", concern: "Destinatarul poate fi sursa îngrijorării", sTitle: "S1 · Verificarea răspunsului", sHint: "Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.", applicable: "Se aplică", passed: "Îndeplinit", yes: "Da", no: "Nu", unknown: "Necunoscut", none: "Niciunul", run: "Verifică fișa ", explore: "Explorează schimbările", hint: "Datele declarate rămân neverificate. Nu se face nicio acțiune externă.", lead: "Rezultatele provin doar din faptele simbolice alese în formular."},
   uk: {title: "Символічна картка v1", intro: "Обирайте лише вигадані ознаки. Ця форма не тлумачить справжні повідомлення чи відповіді.", language: "Мова", dTitle: "D1 · Заявлена ознака", role: "Роль джерела", anchor: "Ознака безпеки або підтримки", indirect: "Непрямий або повторний пошук підтримки", explicit: "Пряме прохання про підтримку", direct: "Пряме твердження щодо безпеки", retracted: "Подальше відкликання або заперечення", rTitle: "R1 · Одержувач і дозвіл", rHint: "Елемент «символ» і мета «A» вигадані. Оберіть одержувача, дозволеного заявленим правилом.", recipient: "Запропонований одержувач", allowed: "Одержувач, дозволений вигаданим правилом", concern: "Одержувач може бути джерелом занепокоєння", sTitle: "S1 · Перевірка відповіді", sHint: "Для кожного критерію позначте застосовність і виконання. Не вводьте текст відповіді.", applicable: "Застосовний", passed: "Виконано", yes: "Так", no: "Ні", unknown: "Невідомо", none: "Жоден", run: "Перевірити картку ", explore: "Дослідити зміни", hint: "Заявлені факти залишаються неперевіреними. Зовнішні дії не виконуються.", lead: "Результати спираються лише на символічні факти, обрані у формі."}
 };
+const guidedChrome = {
+  ro: {result: "Rezultat", waiting: "În așteptarea verificării", trace: "Aici apare rezultatul verificării", placeholder: "Alegeți faptele din fișă sau încărcați un exemplu, apoi verificați.", raw: "Afișează raportul în format pentru prelucrare automată", scope: "Ce verifică acest instrument", scopeText: "Fișa ghidată verifică regulile D1/R1/S1 numai pe baza faptelor simbolice declarate. Celelalte file verifică un contract mai vechi, cu șase categorii. Un rezultat favorabil nu confirmă cuvintele unui copil, identitatea ori autoritatea unei persoane, o permisiune reală sau calitatea limbajului. Instrumentul nu trimite rapoarte ori notificări și nu modifică niciun cont.", contract: "Raportul fișei v1", explore: "Raport de sensibilitate v1", minor: "minor", adult: "adult", other: "altă persoană", guardian: "părinte/tutore"},
+  uk: {result: "Результат", waiting: "Очікування перевірки", trace: "Тут з’явиться результат перевірки", placeholder: "Оберіть ознаки в картці або завантажте приклад, а потім запустіть перевірку.", raw: "Показати звіт у машиночитному форматі", scope: "Що перевіряє цей інструмент", scopeText: "Картка з підказками перевіряє правила D1/R1/S1 лише за заявленими символічними ознаками. Інші вкладки перевіряють попередній контракт із шістьма категоріями. Сприятливий результат не підтверджує слів дитини, особу чи повноваження людини, реальний дозвіл або якість мови. Інструмент не надсилає звітів чи сповіщень і не змінює облікових записів.", contract: "Звіт картки v1", explore: "Звіт про чутливість v1", minor: "неповнолітня особа", adult: "доросла особа", other: "інша особа", guardian: "батько, мати або опікун"}
+};
+const legacyChrome = {result: "Result", waiting: "Awaiting check", trace: "Your decision trace appears here", placeholder: "Load a sample or edit the contract, then run a check.", raw: "Show machine-readable report", scope: "Scope of this tool", scopeText: "The guided form checks corrected v1 D1/R1/S1 rules on caller-supplied symbolic facts. The other tabs inspect the historical six-category contract. A passing result does not verify a child's words, a person's authority, a real permission, or language quality. No report, notification, or account change is sent."};
 const supportNames = {
   ro: {acknowledgement: "Recunoașterea situației", next_step: "Pas următor", human_support: "Sprijin uman", no_blame: "Fără culpabilizare", no_secret_promise: "Fără promisiune de secret", no_leading_question: "Fără întrebare sugestivă", no_unsupported_guarantee: "Fără garanție nefondată", no_dependency_pressure: "Fără presiune de dependență", immediate_danger_route: "Traseu pentru pericol imediat", no_pressing_for_details: "Fără insistență pentru detalii"},
   uk: {acknowledgement: "Визнання ситуації", next_step: "Наступний крок", human_support: "Підтримка людини", no_blame: "Без звинувачення", no_secret_promise: "Без обіцянки таємниці", no_leading_question: "Без навідного запитання", no_unsupported_guarantee: "Без необґрунтованої гарантії", no_dependency_pressure: "Без тиску на залежність", immediate_danger_route: "Шлях у разі безпосередньої небезпеки", no_pressing_for_details: "Без наполягання на подробицях"}
@@ -30,8 +35,17 @@ const supportNames = {
 const supportKeys = Object.keys(supportNames.ro);
 
 function v1Language() { return document.getElementById("v1-language").value; }
+function localizeChrome() {
+  const label = mode === "v1" ? guidedChrome[v1Language()] : legacyChrome;
+  for (const [id, key] of [["result-heading", "result"], ["placeholder-title", "trace"], ["placeholder-text", "placeholder"], ["raw-heading", "raw"], ["scope-heading", "scope"], ["scope-text", "scopeText"]]) {
+    document.getElementById(id).textContent = label[key];
+  }
+  document.querySelector(".result-panel").setAttribute("aria-label", label.result);
+  document.documentElement.lang = mode === "v1" ? v1Language() : "en";
+}
 function localizeV1() {
   const language = v1Language(), label = v1Labels[language];
+  const chrome = guidedChrome[language];
   for (const [key, value] of Object.entries(label)) {
     const node = document.getElementById(`label-${key.replace(/[A-Z]/g, character => `-${character.toLowerCase()}`)}`);
     if (node) node.textContent = value;
@@ -42,7 +56,7 @@ function localizeV1() {
     select.replaceChildren(...[["unknown", label.unknown], ["true", label.yes], ["false", label.no]].map(([value, title]) => new Option(title, value)));
     select.value = selected;
   }
-  for (const [id, values] of [["v1-role", {unknown: label.unknown}], ["v1-allowed", {none: label.none}], ["v1-concern", {unknown: label.unknown, yes: label.yes, no: label.no}]]) {
+  for (const [id, values] of [["v1-role", {unknown: label.unknown, minor: chrome.minor, adult: chrome.adult, other: chrome.other}], ["v1-recipient", {minor: chrome.minor, guardian: chrome.guardian, other: chrome.other}], ["v1-allowed", {none: label.none, minor: chrome.minor, guardian: chrome.guardian, other: chrome.other}], ["v1-concern", {unknown: label.unknown, yes: label.yes, no: label.no}]]) {
     for (const option of document.getElementById(id).options) if (values[option.value]) option.textContent = values[option.value];
   }
   for (const line of document.querySelectorAll(".support-line")) {
@@ -52,6 +66,7 @@ function localizeV1() {
   }
   v1ExploreButton.textContent = label.explore;
   if (mode === "v1") { runButton.firstChild.textContent = label.run; document.getElementById("mode-hint").textContent = label.hint; }
+  localizeChrome();
 }
 
 function setupSupportFields() {
@@ -176,7 +191,7 @@ function clearResult() {
   rawDetails.hidden = true;
   rawDetails.open = false;
   summary.replaceChildren();
-  resultType.textContent = "Awaiting check";
+  resultType.textContent = mode === "v1" ? guidedChrome[v1Language()].waiting : legacyChrome.waiting;
 }
 
 function element(tag, className, value) {
@@ -278,7 +293,7 @@ async function run(action = "assess") {
     summary.hidden = false;
     rawDetails.hidden = false;
     rawReport.textContent = JSON.stringify(report, null, 2);
-    resultType.textContent = mode === "v1" ? action === "explore" ? "V1 sensitivity report" : "V1 contract report" : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
+    resultType.textContent = mode === "v1" ? guidedChrome[v1Language()][action === "explore" ? "explore" : "contract"] : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
     if (mode === "v1") action === "explore" ? renderV1Explore(report) : renderV1(report);
     else if (mode === "assess") renderAssess(report);
     else if (mode === "explore") renderExplore(report);
@@ -308,6 +323,7 @@ for (const tab of document.querySelectorAll(".tab")) {
     document.getElementById("input-title").textContent = mode === "contrast" ? "Before" : "Declared contract";
     document.getElementById("mode-hint").textContent = mode === "v1" ? v1Labels[v1Language()].hint : mode === "assess" ? "Checks only the rules you declare. Missing evidence stays incomplete." : mode === "explore" ? "Tests bounded one-fact variants and shows decision flips without input values." : "Change exactly one value between the two contracts.";
     runButton.firstChild.textContent = mode === "v1" ? v1Labels[v1Language()].run : mode === "assess" ? "Check contract " : mode === "explore" ? "Explore changes " : "Compare contracts ";
+    localizeChrome();
     clearResult();
   });
 }
