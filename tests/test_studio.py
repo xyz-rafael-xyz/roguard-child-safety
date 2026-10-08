@@ -89,6 +89,10 @@ class StudioTests(unittest.TestCase):
                                  ["REVIEW_SUPPORT_SIGNAL", "REVIEW_ROUTE", "REVIEW_RESPONSE"])
                 self.assertFalse(report["external_action_taken"])
                 self.assertTrue(report["caller_facts_unverified"])
+                status, sensitivity = self.request("/api/v1/explore", payload)
+                self.assertEqual(status, 200)
+                self.assertTrue(sensitivity["decision_changes"])
+                self.assertFalse(sensitivity["external_action_taken"])
 
     def test_guided_v1_endpoint_rejects_invalid_and_cross_origin_input(self):
         self.assertEqual(self.request("/api/v1/assess", {"language": "ro"})[0], 400)

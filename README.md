@@ -4,7 +4,7 @@
 
 **[Open the full-resolution 46-second video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard Local v1.0.0 is an offline contract checker and evaluation toolkit. Text-model validation remains open.** It checks caller-declared child-safety contracts and supports Romanian and Ukrainian abstract-card research. It does not read a child message to decide whom to notify, and it takes no external action. Trained text models are experimental, are not included in this release, and have not been validated on authentic child language. The [v1.0 release scope](docs/V1_RELEASE.md) states exactly what is included.
+**RoGuard Local v1.1.0 is an offline contract checker and evaluation toolkit. Text-model validation remains open.** It checks caller-declared child-safety contracts and supports Romanian and Ukrainian abstract-card research. It does not read a child message to decide whom to notify, and it takes no external action. Trained text models are experimental, are not included in this release, and have not been validated on authentic child language. The [v1.1 release scope](docs/V1_1_RELEASE.md) states exactly what is included.
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The package here is named `roguard-local`.
 
@@ -42,7 +42,7 @@ python3 -m venv .venv
 
 On Windows, create the environment with `py -3.12 -m venv .venv` and use `.venv\Scripts\python.exe` in the last three commands. The examples are fictional, caller-declared contracts; no model download is needed. For your own declared contract, copy an [example](examples/contracts_ro.json), edit its fields, and run the same command. The [JSON Schema](schema/contract-input.schema.json) and [CLI guide](docs/CLI.md) describe every field and status.
 
-`roguard-studio --open` opens a loopback-only [Decision Studio](docs/DECISION_STUDIO.md). Its default guided Romanian/Ukrainian form checks corrected v1 D1/R1/S1 symbolic facts without editing JSON. Other tabs check historical contracts and explore one-fact changes. The command-line `roguard-explore examples/proposed_use_ro.json` shows which declared changes alter a result. These are local consistency tools, not model accuracy tests. `python -m roguard --jsonl examples/contracts_mixed.jsonl` checks multiple contracts after validating every line.
+`roguard-studio --open` opens a loopback-only [Decision Studio](docs/DECISION_STUDIO.md). Its default guided Romanian/Ukrainian form checks corrected v1 D1/R1/S1 symbolic facts and explores which single declared facts flip a decision, without editing JSON. Other tabs check historical contracts and explore one-fact changes. The command-line `roguard-explore examples/proposed_use_ro.json` shows which declared changes alter a result. These are local consistency tools, not model accuracy tests. `python -m roguard --jsonl examples/contracts_mixed.jsonl` checks multiple contracts after validating every line.
 
 For a small routing check in Python:
 

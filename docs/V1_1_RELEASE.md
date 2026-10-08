@@ -1,0 +1,7 @@
+# RoGuard Local v1.1.0 release scope
+
+RoGuard Local v1.1.0 adds a guided Romanian/Ukrainian form to the local Decision Studio. A user can build corrected v1 D1, R1, and S1 symbolic cards without writing JSON, inspect the resulting decision and reason codes, and explore bounded one-fact changes. The same corrected-v1 audit is available as `roguard-v1-explore` for JSON cards. The form accepts only selections and fictional identifiers for its routing example; it has no child-message or response-text field. The historical six-category checker remains available in the other Studio tabs and CLI.
+
+The Studio binds to `127.0.0.1` and takes no external action. Its decisions describe only rules and facts supplied by the caller; it does not infer them from a child's words or validate a real guardian relationship. The corrected taxonomy has owner-attested specialist review at exact digests, while independent model accuracy and authentic-language behavior remain unestablished. No trained model weights ship in the public wheel. Read [Decision Studio](DECISION_STUDIO.md) for use and limits and [v1 evidence](V1_EVIDENCE.md) for the open validation gates.
+
+Install from the GitHub release wheel with Python 3.9–3.14, then run `roguard-studio --open`. The included wheel contains the HTML, JavaScript, and CSS assets. The source release and wheel have the same version. This release adds no network service, account integration, notification, or automatic routing action.

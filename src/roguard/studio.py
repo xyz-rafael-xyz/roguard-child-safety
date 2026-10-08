@@ -15,6 +15,7 @@ from .cli import _strict_json_loads, assess_json
 from .contrast import contrast_declared_contracts
 from .explore import explore_declared_contract
 from .v1_contract import assess_v1_json
+from .v1_explore import explore_v1_contract
 
 MAX_REQUEST_BYTES = 1_048_576
 ASSETS = {"/": ("studio.html", "text/html; charset=utf-8"),
@@ -76,7 +77,8 @@ def make_server(port: int = 0) -> HTTPServer:
                     not hmac.compare_digest(self.headers.get("X-RoGuard-Token", ""), token)):
                 self._json(403, {"error": "Forbidden request"})
                 return
-            if self.path not in {"/api/assess", "/api/explore", "/api/contrast", "/api/v1/assess"}:
+            if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
+                                 "/api/v1/assess", "/api/v1/explore"}:
                 self._json(404, {"error": "Not found"})
                 return
             if self.headers.get("Content-Type") != "application/json" or self.headers.get("Transfer-Encoding"):
@@ -95,7 +97,9 @@ def make_server(port: int = 0) -> HTTPServer:
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/v1/assess":
+                if self.path == "/api/v1/explore":
+                    result = explore_v1_contract(payload)
+                elif self.path == "/api/v1/assess":
                     result = assess_v1_json(payload)
                 elif self.path == "/api/assess":
                     result = assess_json(payload)

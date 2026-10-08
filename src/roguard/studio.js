@@ -5,6 +5,7 @@ const input = document.getElementById("input-json");
 const afterInput = document.getElementById("after-json");
 const secondWrap = document.getElementById("second-wrap");
 const runButton = document.getElementById("run-button");
+const v1ExploreButton = document.getElementById("v1-explore-button");
 const summary = document.getElementById("summary");
 const placeholder = document.getElementById("placeholder");
 const errorBox = document.getElementById("error");
@@ -19,8 +20,8 @@ const names = {
 };
 
 const v1Labels = {
-  ro: {title: "Fișă simbolică v1", intro: "Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.", language: "Limba", dTitle: "D1 · Semnal declarat", role: "Rolul sursei", anchor: "Reper de siguranță sau sprijin", indirect: "Căutare indirectă sau repetată", explicit: "Cerere explicită de sprijin", direct: "Afirmație directă despre siguranță", retracted: "Retractare sau negare ulterioară", rTitle: "R1 · Destinatar și permisiune", rHint: "Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.", recipient: "Destinatar propus", allowed: "Destinatar permis de regula fictivă", concern: "Destinatarul poate fi sursa îngrijorării", sTitle: "S1 · Verificarea răspunsului", sHint: "Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.", applicable: "Se aplică", passed: "Îndeplinit", yes: "Da", no: "Nu", unknown: "Necunoscut", none: "Niciunul", run: "Verifică fișa ", hint: "Datele declarate rămân neverificate. Nu se face nicio acțiune externă.", lead: "Rezultatele provin doar din faptele simbolice alese în formular."},
-  uk: {title: "Символічна картка v1", intro: "Обирайте лише вигадані ознаки. Ця форма не тлумачить справжні повідомлення чи відповіді.", language: "Мова", dTitle: "D1 · Заявлена ознака", role: "Роль джерела", anchor: "Ознака безпеки або підтримки", indirect: "Непрямий або повторний пошук підтримки", explicit: "Пряме прохання про підтримку", direct: "Пряме твердження щодо безпеки", retracted: "Подальше відкликання або заперечення", rTitle: "R1 · Одержувач і дозвіл", rHint: "Елемент «символ» і мета «A» вигадані. Оберіть одержувача, дозволеного заявленим правилом.", recipient: "Запропонований одержувач", allowed: "Одержувач, дозволений вигаданим правилом", concern: "Одержувач може бути джерелом занепокоєння", sTitle: "S1 · Перевірка відповіді", sHint: "Для кожного критерію позначте застосовність і виконання. Не вводьте текст відповіді.", applicable: "Застосовний", passed: "Виконано", yes: "Так", no: "Ні", unknown: "Невідомо", none: "Жоден", run: "Перевірити картку ", hint: "Заявлені факти залишаються неперевіреними. Зовнішні дії не виконуються.", lead: "Результати спираються лише на символічні факти, обрані у формі."}
+  ro: {title: "Fișă simbolică v1", intro: "Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.", language: "Limba", dTitle: "D1 · Semnal declarat", role: "Rolul sursei", anchor: "Reper de siguranță sau sprijin", indirect: "Căutare indirectă sau repetată", explicit: "Cerere explicită de sprijin", direct: "Afirmație directă despre siguranță", retracted: "Retractare sau negare ulterioară", rTitle: "R1 · Destinatar și permisiune", rHint: "Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.", recipient: "Destinatar propus", allowed: "Destinatar permis de regula fictivă", concern: "Destinatarul poate fi sursa îngrijorării", sTitle: "S1 · Verificarea răspunsului", sHint: "Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.", applicable: "Se aplică", passed: "Îndeplinit", yes: "Da", no: "Nu", unknown: "Necunoscut", none: "Niciunul", run: "Verifică fișa ", explore: "Explorează schimbările", hint: "Datele declarate rămân neverificate. Nu se face nicio acțiune externă.", lead: "Rezultatele provin doar din faptele simbolice alese în formular."},
+  uk: {title: "Символічна картка v1", intro: "Обирайте лише вигадані ознаки. Ця форма не тлумачить справжні повідомлення чи відповіді.", language: "Мова", dTitle: "D1 · Заявлена ознака", role: "Роль джерела", anchor: "Ознака безпеки або підтримки", indirect: "Непрямий або повторний пошук підтримки", explicit: "Пряме прохання про підтримку", direct: "Пряме твердження щодо безпеки", retracted: "Подальше відкликання або заперечення", rTitle: "R1 · Одержувач і дозвіл", rHint: "Елемент «символ» і мета «A» вигадані. Оберіть одержувача, дозволеного заявленим правилом.", recipient: "Запропонований одержувач", allowed: "Одержувач, дозволений вигаданим правилом", concern: "Одержувач може бути джерелом занепокоєння", sTitle: "S1 · Перевірка відповіді", sHint: "Для кожного критерію позначте застосовність і виконання. Не вводьте текст відповіді.", applicable: "Застосовний", passed: "Виконано", yes: "Так", no: "Ні", unknown: "Невідомо", none: "Жоден", run: "Перевірити картку ", explore: "Дослідити зміни", hint: "Заявлені факти залишаються неперевіреними. Зовнішні дії не виконуються.", lead: "Результати спираються лише на символічні факти, обрані у формі."}
 };
 const supportNames = {
   ro: {acknowledgement: "Recunoașterea situației", next_step: "Pas următor", human_support: "Sprijin uman", no_blame: "Fără culpabilizare", no_secret_promise: "Fără promisiune de secret", no_leading_question: "Fără întrebare sugestivă", no_unsupported_guarantee: "Fără garanție nefondată", no_dependency_pressure: "Fără presiune de dependență", immediate_danger_route: "Traseu pentru pericol imediat", no_pressing_for_details: "Fără insistență pentru detalii"},
@@ -49,6 +50,7 @@ function localizeV1() {
     line.querySelector(".support-applicable-label").textContent = label.applicable;
     line.querySelector(".support-passed-label").textContent = label.passed;
   }
+  v1ExploreButton.textContent = label.explore;
   if (mode === "v1") { runButton.firstChild.textContent = label.run; document.getElementById("mode-hint").textContent = label.hint; }
 }
 
@@ -107,6 +109,21 @@ function renderV1(report) {
     row(`${check.category} · ${categoryNames[check.category]}`, status,
         `${check.decision_code} · ${check.reason_codes.join(", ") || "—"}`);
   }
+}
+
+function renderV1Explore(report) {
+  const labels = v1Labels[report.language];
+  const counts = element("div", "result-count");
+  counts.append(count(report.language === "ro" ? "variante testate" : "перевірених варіантів", report.tested),
+                count(report.language === "ro" ? "decizii schimbate" : "змін рішень", report.decision_changes.length));
+  summary.append(counts, element("p", "result-lead", report.language === "ro" ?
+      "S-a schimbat un singur fapt declarat la fiecare pas. Rezultatul nu dovedește acoperirea tuturor variantelor." :
+      "Щоразу змінювався лише один заявлений факт. Результат не доводить охоплення всіх варіантів."));
+  for (const change of report.decision_changes) {
+    row(`${change.category} · ${change.path} · ${change.target_state_code}`, "review",
+        `${change.before_decision_code} → ${change.after_decision_code} · ${change.after_reason_codes.join(", ") || "—"}`);
+  }
+  if (!report.decision_changes.length) row(report.language === "ro" ? "Nicio schimbare găsită" : "Змін не виявлено", "incomplete", labels.lead);
 }
 
 function sample(language) {
@@ -231,7 +248,7 @@ function renderContrast(report) {
   }
 }
 
-async function run() {
+async function run(action = "assess") {
   clearResult();
   let body;
   try {
@@ -248,8 +265,9 @@ async function run() {
     return;
   }
   runButton.disabled = true;
+  v1ExploreButton.disabled = true;
   try {
-    const response = await fetch(mode === "v1" ? "/api/v1/assess" : `/api/${mode}`, {method: "POST", headers: {"Content-Type": "application/json", "X-RoGuard-Token": token}, body, cache: "no-store"});
+    const response = await fetch(mode === "v1" ? `/api/v1/${action}` : `/api/${mode}`, {method: "POST", headers: {"Content-Type": "application/json", "X-RoGuard-Token": token}, body, cache: "no-store"});
     const report = await response.json();
     placeholder.hidden = true;
     if (!response.ok) {
@@ -260,8 +278,8 @@ async function run() {
     summary.hidden = false;
     rawDetails.hidden = false;
     rawReport.textContent = JSON.stringify(report, null, 2);
-    resultType.textContent = mode === "v1" ? "V1 contract report" : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
-    if (mode === "v1") renderV1(report);
+    resultType.textContent = mode === "v1" ? action === "explore" ? "V1 sensitivity report" : "V1 contract report" : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
+    if (mode === "v1") action === "explore" ? renderV1Explore(report) : renderV1(report);
     else if (mode === "assess") renderAssess(report);
     else if (mode === "explore") renderExplore(report);
     else renderContrast(report);
@@ -271,6 +289,7 @@ async function run() {
     errorBox.textContent = "The local RoGuard process is unavailable. Check the terminal and try again.";
   } finally {
     runButton.disabled = false;
+    v1ExploreButton.disabled = false;
   }
 }
 
@@ -284,6 +303,7 @@ for (const tab of document.querySelectorAll(".tab")) {
     }
     document.getElementById("v1-form").hidden = mode !== "v1";
     document.getElementById("legacy-form").hidden = mode === "v1";
+    v1ExploreButton.hidden = mode !== "v1";
     secondWrap.hidden = mode !== "contrast";
     document.getElementById("input-title").textContent = mode === "contrast" ? "Before" : "Declared contract";
     document.getElementById("mode-hint").textContent = mode === "v1" ? v1Labels[v1Language()].hint : mode === "assess" ? "Checks only the rules you declare. Missing evidence stays incomplete." : mode === "explore" ? "Tests bounded one-fact variants and shows decision flips without input values." : "Change exactly one value between the two contracts.";
@@ -294,6 +314,7 @@ for (const tab of document.querySelectorAll(".tab")) {
 document.getElementById("sample-ro").addEventListener("click", () => loadSample("ro"));
 document.getElementById("sample-uk").addEventListener("click", () => loadSample("uk"));
 document.getElementById("v1-language").addEventListener("change", () => { localizeV1(); clearResult(); });
-runButton.addEventListener("click", run);
+runButton.addEventListener("click", () => run());
+v1ExploreButton.addEventListener("click", () => run("explore"));
 setupSupportFields();
 loadSample("ro");
