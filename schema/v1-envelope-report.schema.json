@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RoGuard v1.5 finite completion report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "language", "method", "categories", "caller_facts_unverified", "external_action_taken"],
+  "properties": {
+    "schema_version": {"const": "1.5"},
+    "language": {"enum": ["ro", "uk"]},
+    "method": {"const": "exact_finite_completion_of_declared_unknowns"},
+    "categories": {
+      "type": "array", "minItems": 1, "maxItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["category", "current_decision_code", "possible_decision_codes", "completion_count", "unknown_paths", "decision_stability"],
+        "properties": {
+          "category": {"enum": ["D1", "R1", "S1"]},
+          "current_decision_code": {"type": "string"},
+          "possible_decision_codes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "completion_count": {"type": ["integer", "null"], "minimum": 1},
+          "unknown_paths": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "decision_stability": {"enum": ["stable", "sensitive", "unbounded"]}
+        }
+      }
+    },
+    "caller_facts_unverified": {"const": true},
+    "external_action_taken": {"const": false}
+  }
+}

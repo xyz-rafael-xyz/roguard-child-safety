@@ -93,6 +93,12 @@ class StudioTests(unittest.TestCase):
                 self.assertEqual(status, 200)
                 self.assertTrue(sensitivity["decision_changes"])
                 self.assertFalse(sensitivity["external_action_taken"])
+                status, envelope = self.request("/api/v1/envelope", payload)
+                self.assertEqual(status, 200)
+                self.assertEqual(envelope["language"], language)
+                self.assertEqual([row["category"] for row in envelope["categories"]],
+                                 ["D1", "R1", "S1"])
+                self.assertEqual(envelope["categories"][1]["decision_stability"], "sensitive")
 
     def test_guided_v1_endpoint_rejects_invalid_and_cross_origin_input(self):
         self.assertEqual(self.request("/api/v1/assess", {"language": "ro"})[0], 400)

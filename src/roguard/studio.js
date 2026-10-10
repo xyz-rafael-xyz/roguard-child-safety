@@ -6,6 +6,7 @@ const afterInput = document.getElementById("after-json");
 const secondWrap = document.getElementById("second-wrap");
 const runButton = document.getElementById("run-button");
 const v1ExploreButton = document.getElementById("v1-explore-button");
+const v1EnvelopeButton = document.getElementById("v1-envelope-button");
 const summary = document.getElementById("summary");
 const placeholder = document.getElementById("placeholder");
 const errorBox = document.getElementById("error");
@@ -65,6 +66,7 @@ function localizeV1() {
     line.querySelector(".support-passed-label").textContent = label.passed;
   }
   v1ExploreButton.textContent = label.explore;
+  v1EnvelopeButton.textContent = language === "ro" ? "Verifică necunoscutele" : "Перевірити невідомі дані";
   if (mode === "v1") { runButton.firstChild.textContent = label.run; document.getElementById("mode-hint").textContent = label.hint; }
   localizeChrome();
 }
@@ -139,6 +141,24 @@ function renderV1Explore(report) {
         `${change.before_decision_code} → ${change.after_decision_code} · ${change.after_reason_codes.join(", ") || "—"}`);
   }
   if (!report.decision_changes.length) row(report.language === "ro" ? "Nicio schimbare găsită" : "Змін не виявлено", "incomplete", labels.lead);
+}
+
+function renderV1Envelope(report) {
+  const ro = report.language === "ro";
+  summary.append(element("p", "result-lead", ro ?
+      "Toate completările finite ale faptelor necunoscute sunt verificate. Stabilitatea se referă numai la codul deciziei și la aceste completări, nu la adevărul faptelor." :
+      "Перевірено всі скінченні заповнення невідомих ознак. Стійкість стосується лише коду рішення в цих варіантах, а не правдивості ознак."));
+  for (const item of report.categories) {
+    const state = item.decision_stability === "sensitive" ? "review" : "incomplete";
+    const roName = {stable: "Decizie stabilă după completare", sensitive: "Decizie sensibilă", unbounded: "Domeniu nelimitat"};
+    const ukName = {stable: "Стійке рішення після заповнення", sensitive: "Рішення залежить від невідомих даних", unbounded: "Немає скінченної області"};
+    const label = (ro ? roName : ukName)[item.decision_stability];
+    const detail = item.decision_stability === "unbounded" ?
+      (ro ? "Nu se poate certifica: lipsesc fapte structurale fără domeniu finit declarat." : "Неможливо підтвердити: бракує структурних даних без заданої скінченної області.") :
+      `${item.completion_count} ${ro ? "completări" : "варіантів"} · ${item.current_decision_code} → ${item.possible_decision_codes.join(" / ")}`;
+    row(`${item.category} · ${label}`, state,
+        `${detail}${item.unknown_paths.length ? ` · ${item.unknown_paths.join(", ")}` : ""}`);
+  }
 }
 
 function sample(language) {
@@ -281,6 +301,7 @@ async function run(action = "assess") {
   }
   runButton.disabled = true;
   v1ExploreButton.disabled = true;
+  v1EnvelopeButton.disabled = true;
   try {
     const response = await fetch(mode === "v1" ? `/api/v1/${action}` : `/api/${mode}`, {method: "POST", headers: {"Content-Type": "application/json", "X-RoGuard-Token": token}, body, cache: "no-store"});
     const report = await response.json();
@@ -293,8 +314,8 @@ async function run(action = "assess") {
     summary.hidden = false;
     rawDetails.hidden = false;
     rawReport.textContent = JSON.stringify(report, null, 2);
-    resultType.textContent = mode === "v1" ? guidedChrome[v1Language()][action === "explore" ? "explore" : "contract"] : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
-    if (mode === "v1") action === "explore" ? renderV1Explore(report) : renderV1(report);
+    resultType.textContent = mode === "v1" ? action === "envelope" ? (v1Language() === "ro" ? "Raportul necunoscutelor" : "Звіт про невідомі дані") : guidedChrome[v1Language()][action === "explore" ? "explore" : "contract"] : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
+    if (mode === "v1") action === "envelope" ? renderV1Envelope(report) : action === "explore" ? renderV1Explore(report) : renderV1(report);
     else if (mode === "assess") renderAssess(report);
     else if (mode === "explore") renderExplore(report);
     else renderContrast(report);
@@ -305,6 +326,7 @@ async function run(action = "assess") {
   } finally {
     runButton.disabled = false;
     v1ExploreButton.disabled = false;
+    v1EnvelopeButton.disabled = false;
   }
 }
 
@@ -319,6 +341,7 @@ for (const tab of document.querySelectorAll(".tab")) {
     document.getElementById("v1-form").hidden = mode !== "v1";
     document.getElementById("legacy-form").hidden = mode === "v1";
     v1ExploreButton.hidden = mode !== "v1";
+    v1EnvelopeButton.hidden = mode !== "v1";
     secondWrap.hidden = mode !== "contrast";
     document.getElementById("input-title").textContent = mode === "contrast" ? "Before" : "Declared contract";
     document.getElementById("mode-hint").textContent = mode === "v1" ? v1Labels[v1Language()].hint : mode === "assess" ? "Checks only the rules you declare. Missing evidence stays incomplete." : mode === "explore" ? "Tests bounded one-fact variants and shows decision flips without input values." : "Change exactly one value between the two contracts.";
@@ -332,5 +355,6 @@ document.getElementById("sample-uk").addEventListener("click", () => loadSample(
 document.getElementById("v1-language").addEventListener("change", () => { localizeV1(); clearResult(); });
 runButton.addEventListener("click", () => run());
 v1ExploreButton.addEventListener("click", () => run("explore"));
+v1EnvelopeButton.addEventListener("click", () => run("envelope"));
 setupSupportFields();
 loadSample("ro");
