@@ -1,5 +1,23 @@
 # RoGuard benchmark
 
+## RoGuard Local 3.0.0 fictional-message study, October 2026
+
+The new offline D1 advisory scorer was fitted on 5,120 generated Romanian/Ukrainian rows derived from **40 distinct training pairs**. Six development pairs and six test pairs per language were formatted into 96 contrast pairs each. The generator, selection rule, targets, and held-out stems were frozen in commit `49b8f72`; selected model bytes and cutoffs were frozen in `9c761c6` before the once-opened test. [The complete v3 result](research/v3-message-selection/holdout-result.json) and [scope note](docs/V3_MESSAGE_RELEASE.md) provide hashes, per-family errors, and reproduction steps.
+
+| Language | Development complete pairs | Test complete pairs | Test TP | Test FP | Test FN |
+|---|---:|---:|---:|---:|---:|
+| Romanian | 85/96 | 96/96 | 96 | 0 | 0 |
+| Ukrainian | 96/96 | 91/96 | 91 | 0 | 5 |
+
+The first precommitted synthetic target passed in both languages. Five Ukrainian positive variants were missed in two held-out families. A later frozen colloquial probe caught 9/10 Romanian and 7/10 Ukrainian positives, with no false reviews among ten negatives in each language. These probe pairs became training material for a **second model**; they are not its test. The second iteration's new, unmodified-message holdout was frozen before fitting and scored once after model selection:
+
+| Shipped second model | Development complete pairs | New test complete pairs | New test TP | New test FP | New test FN |
+|---|---:|---:|---:|---:|---:|
+| Romanian | 6/8 | 7/8 | 7 | 0 | 1 |
+| Ukrainian | 8/8 | 7/8 | 7 | 0 | 1 |
+
+The second precommitted target passed in both languages, although Romanian development was only 6/8. [The second frozen selection and test](research/v3b-message-selection/) bind its model bytes and errors. All stems and labels were written by the project owner; the first test has highly correlated variants and the second has only eight independent pairs per language. These results do **not** establish performance on authentic child messages, idiomatic quality, or safe autonomous use. The model score is not a calibrated probability. The legacy abstract-card studies below remain separate and their failures are unchanged.
+
 ## Romanian abstract-card pilot, 29 September 2026
 
 The first local RoMistral adapter was trained for 200 steps on 88 approved Romanian training cards, with 40 separate development cards. The final step-200 checkpoint had the lowest logged validation loss (0.260). One frozen evaluation used the 40 approved cards in batch 0007. [The recorded predictions and counts](eval/runs/ro-v1.json) are the source for this table. All 40 outputs passed the strict code parser. Exact card-label match was **18/40 (45%)**. The base model is pinned to `OpenLLM-Ro/RoMistral-7b-Instruct` revision `fc097a5fdc2a5a689df084c76ffacf2cfb9f6550`; training used a 4-bit MLX conversion, rank 16, scale 2, eight adapter layers, batch size 1, learning rate `1e-5`, and prompt masking.

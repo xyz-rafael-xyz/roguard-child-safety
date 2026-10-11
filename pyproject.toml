@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-local"
-version = "2.0.0"
+version = "3.0.0"
 description = "Offline Romanian and Ukrainian child-safety contract and evaluation toolkit"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
@@ -37,17 +37,19 @@ roguard-v2-audit = "roguard.v2_audit:main"
 roguard-v1-review = "roguard.v1_review:main"
 roguard-v1-annotate = "roguard.v1_study_annotate:main"
 roguard-v1-author-check = "roguard.v1_author_check:main"
+roguard-message-screen = "roguard.message_model:main"
 
 [project.optional-dependencies]
 train = ["numpy>=1.26", "pyyaml>=6", "torch>=2.3", "transformers>=4.46,<5", "peft>=0.13,<1", "accelerate>=1,<2"]
 mlx = ["mlx-lm>=0.31.3,<0.32"]
 test = ["pytest>=8", "jsonschema>=4.23,<5"]
+message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["studio.html", "studio.css", "studio.js"]
+roguard = ["studio.html", "studio.css", "studio.js", "message-model-*.json.gz"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

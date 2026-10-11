@@ -31,6 +31,8 @@ jobs:
       - run: roguard-v1-envelope examples/v1_candidate_uk.json > /dev/null
       - run: roguard-v2-audit examples/v2_uncertainty_ro.json > /dev/null
       - run: roguard-v2-audit examples/v2_uncertainty_uk.json > /dev/null
+      - run: roguard-message-screen examples/message_screen_ro.json > /dev/null
+      - run: roguard-message-screen examples/message_screen_uk.json > /dev/null
       - run: roguard-v1-annotate --help > /dev/null
       - run: roguard-v1-author-check --help > /dev/null
       - run: roguard-contrast examples/contrast_route_before.json examples/contrast_route_after.json > /dev/null
@@ -88,6 +90,9 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-envelope" "$GITHUB_WORKSPACE/examples/v1_candidate_uk.json" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v2-audit" "$GITHUB_WORKSPACE/examples/v2_uncertainty_ro.json" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v2-audit" "$GITHUB_WORKSPACE/examples/v2_uncertainty_uk.json" > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-message-screen" "$GITHUB_WORKSPACE/examples/message_screen_ro.json" > message-ro.json
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-message-screen" "$GITHUB_WORKSPACE/examples/message_screen_uk.json" > message-uk.json
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import json; assert json.load(open("message-ro.json"))["advisory_code"] == "REVIEW_SUPPORT_SIGNAL"; assert json.load(open("message-uk.json"))["advisory_code"] == "REVIEW_SUPPORT_SIGNAL"'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-annotate" --help > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-author-check" --help > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-predict-bilingual" --help > /dev/null

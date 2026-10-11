@@ -1,0 +1,48 @@
+{
+  "study": "v3_fictional_message_holdout",
+  "status": "once_scored",
+  "test_sha256": "a8ae0d3dcc828523501e605e1bee4ef5c4d062f3643c0b73006efb2cca07ef75",
+  "selection_sha256": "dee536539371ab715a26d3c0a8e5f76f1221eb3c73dd404478db2324be0c4a26",
+  "test_rows": 384,
+  "cells": {
+    "ro": {
+      "tp": 96,
+      "fp": 0,
+      "fn": 0,
+      "tn": 96,
+      "pairs": 96,
+      "complete_pairs": 96,
+      "family_errors": {},
+      "cutoff": 0.6729741111198531,
+      "model_sha256": "f9d445fedfd8785f520df8e47794fce0720355fcbdb4265647fd02bcf5b6f8c2",
+      "high_confidence_false_negatives": 0,
+      "high_confidence_false_reviews": 0,
+      "target_passed": true
+    },
+    "uk": {
+      "tp": 91,
+      "fp": 0,
+      "fn": 5,
+      "tn": 96,
+      "pairs": 96,
+      "complete_pairs": 91,
+      "family_errors": {
+        "вихід": 1,
+        "межа": 4
+      },
+      "cutoff": 0.752756168755198,
+      "model_sha256": "e3592a4aff74f4279b998fd7841f918601a2402d108fba68a1c03c42ea5f2736",
+      "high_confidence_false_negatives": 0,
+      "high_confidence_false_reviews": 0,
+      "target_passed": true
+    }
+  },
+  "target": {
+    "complete_pairs_per_language": 85,
+    "positive_recall_per_language": 90,
+    "maximum_false_reviews_per_language": 10
+  },
+  "target_passed": true,
+  "real_child_language_accuracy_established": false,
+  "external_action_taken": false
+}

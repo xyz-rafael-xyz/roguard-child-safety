@@ -1,6 +1,7 @@
 """Fictional-message generator and dependency-free inference contracts."""
 
 import gzip
+import hashlib
 import json
 import math
 import unittest
@@ -42,6 +43,21 @@ class MessageV3Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             assess_message({"language": "ro", "declared_source_role": "adult",
                             "text": "ab"}, model)
+
+    def test_packaged_models_match_frozen_selection(self):
+        from pathlib import Path
+        from importlib import resources
+
+        root = Path(__file__).resolve().parents[1]
+        selection = json.loads((root / "research/v3b-message-selection/selection.json")
+                               .read_text(encoding="utf-8"))
+        for language in ("ro", "uk"):
+            model = SyntheticMessageModel.packaged(language)
+            self.assertEqual(model.language, language)
+            self.assertEqual(model.sha256, selection["models"][language]["sha256"])
+            data = resources.read_binary("roguard", f"message-model-{language}.json.gz")
+            self.assertEqual(hashlib.sha256(data).hexdigest(), model.sha256)
+            self.assertEqual(model.cutoff, selection["selected"]["cells"][language]["cutoff"])
 
 
 if __name__ == "__main__":
