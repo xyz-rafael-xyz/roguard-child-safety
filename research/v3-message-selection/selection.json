@@ -1,0 +1,284 @@
+{
+  "status": "selected_before_test",
+  "task": "fictional_clear_support_signal",
+  "source": "locally_authored_synthetic_only",
+  "train_sha256": "6e7eb4a40257aab613431353fcc4ae61e19ee26e2b29f9f3eaf9e42955a08051",
+  "dev_sha256": "8fdfc21b85e6609af496655acbdce1f11a1517eed980f4ec602d3c9a258772f1",
+  "selected": {
+    "ngram_range": [
+      2,
+      5
+    ],
+    "C": 3.0,
+    "cells": {
+      "ro": {
+        "cutoff": 0.6729741111198531,
+        "metrics": {
+          "tp": 95,
+          "fp": 10,
+          "fn": 1,
+          "tn": 86,
+          "pairs": 96,
+          "complete_pairs": 85,
+          "family_errors": {
+            "cui_spun": 10,
+            "mesaj_nou": 1
+          }
+        },
+        "features": 3783
+      },
+      "uk": {
+        "cutoff": 0.752756168755198,
+        "metrics": {
+          "tp": 96,
+          "fp": 0,
+          "fn": 0,
+          "tn": 96,
+          "pairs": 96,
+          "complete_pairs": 96,
+          "family_errors": {}
+        },
+        "features": 4029
+      }
+    }
+  },
+  "models": {
+    "ro": {
+      "filename": "message-model-ro.json.gz",
+      "sha256": "f9d445fedfd8785f520df8e47794fce0720355fcbdb4265647fd02bcf5b6f8c2",
+      "maximum_score_difference": 6.661338147750939e-16
+    },
+    "uk": {
+      "filename": "message-model-uk.json.gz",
+      "sha256": "e3592a4aff74f4279b998fd7841f918601a2402d108fba68a1c03c42ea5f2736",
+      "maximum_score_difference": 8.881784197001252e-16
+    }
+  },
+  "candidates": [
+    {
+      "ngram_range": [
+        2,
+        5
+      ],
+      "C": 0.3,
+      "cells": {
+        "ro": {
+          "cutoff": 0.5776550357759167,
+          "metrics": {
+            "tp": 96,
+            "fp": 12,
+            "fn": 0,
+            "tn": 84,
+            "pairs": 96,
+            "complete_pairs": 84,
+            "family_errors": {
+              "cui_spun": 12
+            }
+          },
+          "features": 3783
+        },
+        "uk": {
+          "cutoff": 0.6385858879747942,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 4029
+        }
+      }
+    },
+    {
+      "ngram_range": [
+        2,
+        5
+      ],
+      "C": 1.0,
+      "cells": {
+        "ro": {
+          "cutoff": 0.6203677774397717,
+          "metrics": {
+            "tp": 96,
+            "fp": 12,
+            "fn": 0,
+            "tn": 84,
+            "pairs": 96,
+            "complete_pairs": 84,
+            "family_errors": {
+              "cui_spun": 12
+            }
+          },
+          "features": 3783
+        },
+        "uk": {
+          "cutoff": 0.6971079488372303,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 4029
+        }
+      }
+    },
+    {
+      "ngram_range": [
+        2,
+        5
+      ],
+      "C": 3.0,
+      "cells": {
+        "ro": {
+          "cutoff": 0.6729741111198531,
+          "metrics": {
+            "tp": 95,
+            "fp": 10,
+            "fn": 1,
+            "tn": 86,
+            "pairs": 96,
+            "complete_pairs": 85,
+            "family_errors": {
+              "cui_spun": 10,
+              "mesaj_nou": 1
+            }
+          },
+          "features": 3783
+        },
+        "uk": {
+          "cutoff": 0.752756168755198,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 4029
+        }
+      }
+    },
+    {
+      "ngram_range": [
+        3,
+        5
+      ],
+      "C": 0.3,
+      "cells": {
+        "ro": {
+          "cutoff": 0.568948595819467,
+          "metrics": {
+            "tp": 96,
+            "fp": 13,
+            "fn": 0,
+            "tn": 83,
+            "pairs": 96,
+            "complete_pairs": 83,
+            "family_errors": {
+              "cui_spun": 13
+            }
+          },
+          "features": 3489
+        },
+        "uk": {
+          "cutoff": 0.6401464292406691,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 3669
+        }
+      }
+    },
+    {
+      "ngram_range": [
+        3,
+        5
+      ],
+      "C": 1.0,
+      "cells": {
+        "ro": {
+          "cutoff": 0.6049375857968934,
+          "metrics": {
+            "tp": 96,
+            "fp": 13,
+            "fn": 0,
+            "tn": 83,
+            "pairs": 96,
+            "complete_pairs": 83,
+            "family_errors": {
+              "cui_spun": 13
+            }
+          },
+          "features": 3489
+        },
+        "uk": {
+          "cutoff": 0.6998323738854535,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 3669
+        }
+      }
+    },
+    {
+      "ngram_range": [
+        3,
+        5
+      ],
+      "C": 3.0,
+      "cells": {
+        "ro": {
+          "cutoff": 0.639121586955765,
+          "metrics": {
+            "tp": 96,
+            "fp": 13,
+            "fn": 0,
+            "tn": 83,
+            "pairs": 96,
+            "complete_pairs": 83,
+            "family_errors": {
+              "cui_spun": 13
+            }
+          },
+          "features": 3489
+        },
+        "uk": {
+          "cutoff": 0.7551591454969884,
+          "metrics": {
+            "tp": 96,
+            "fp": 0,
+            "fn": 0,
+            "tn": 96,
+            "pairs": 96,
+            "complete_pairs": 96,
+            "family_errors": {}
+          },
+          "features": 3669
+        }
+      }
+    }
+  ],
+  "real_child_language_accuracy_established": false,
+  "external_action_taken": false
+}
