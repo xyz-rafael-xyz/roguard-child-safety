@@ -1,0 +1,68 @@
+name: Taxonomy or language proposal
+description: Improve a Romanian or Ukrainian category, boundary, or interface term.
+title: "[Taxonomy] "
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Discuss category boundaries and wording at the pattern level. Do not submit a child utterance, realistic paraphrase, case account, or private reviewer comment. Existing reviewed taxonomy text is version-bound; a change needs a new review record before a new approval claim.
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - Romanian (ro)
+        - Ukrainian (uk)
+        - Both languages
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - D1 disclosure signal
+        - R1 recipient routing
+        - A1 readability contract
+        - P1 permission or boundary
+        - G1 human-review gate
+        - S1 support response
+        - Cross-category or interface term
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Current location
+      description: Link a public taxonomy section or file and version. Do not link a private review packet.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Boundary or wording issue
+      description: Explain the ambiguity or error without drafting a realistic child statement.
+    validations:
+      required: true
+  - type: textarea
+    id: revision
+    attributes:
+      label: Proposed wording or decision rule
+      description: State the change in the relevant language, or describe the needed review if wording is not ready.
+    validations:
+      required: true
+  - type: textarea
+    id: consequence
+    attributes:
+      label: Effect on decisions and review
+      description: Which in-scope and out-of-scope patterns or outputs change? What fluent or subject-matter review is still needed?
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-report check
+      options:
+        - label: I used only abstract patterns and did not reveal private reviewer identities or comments.
+          required: true

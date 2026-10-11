@@ -1,0 +1,50 @@
+name: Evaluation or benchmark finding
+description: Report a reproducibility, metric, split, or model-behavior concern.
+title: "[Evaluation] "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep sealed test material sealed. Do not paste private cards, raw child language, model weights, or reviewer streams. Public synthetic artifact IDs, hashes, aggregate counts, and safe commands are useful. A reported failure is welcome; do not retune on a consumed test and present it as held out.
+  - type: input
+    id: study
+    attributes:
+      label: Study or artifact
+      description: Name a public study version, batch, commit, or artifact path. State if the artifact is private without exposing it.
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Concern
+      options:
+        - Reproduction differs from recorded result
+        - Metric or per-category error
+        - Split leakage or study chronology
+        - Model output or strict parsing
+        - Claim exceeds available evidence
+        - Other evaluation question
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observation and expected result
+      description: Give aggregate counts, decision codes, or a symbolic counterexample; distinguish development from sealed test evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Safe reproduction path
+      description: Provide commands, versions, hashes, and public artifact links only. If it cannot be reproduced publicly, say why.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-report check
+      options:
+        - label: I did not expose a sealed split, private reviewer material, model weights, or real child content.
+          required: true

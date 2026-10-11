@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible defect in the package or tooling.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be public. Use only fictional, abstract inputs. Do not paste child messages, case details, credentials, private reviewer material, or realistic disclosure/grooming text. For a vulnerability, use the private security route in the issue chooser.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - CLI or Python API
+        - Decision Studio
+        - Evaluation or training tools
+        - Packaging or installation
+        - Documentation
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Give the release tag or commit hash. Include Python version if relevant.
+      placeholder: "vX.Y.Z; Python 3.12"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Use a minimal symbolic input and exact local command or UI steps. Redact paths and logs before posting.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: State the expected decision code or behavior and the rule or documentation that supports it.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include only non-sensitive output or a short error message.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-report checks
+      options:
+        - label: I used only fictional, abstract material and removed personal or private information.
+          required: true
+        - label: This is not a vulnerability that needs private reporting.
+          required: true

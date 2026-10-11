@@ -1,0 +1,44 @@
+name: Feature proposal
+description: Suggest a concrete improvement to usability, contracts, or evaluation tools.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the workflow without real child material. RoGuard returns findings for human review; proposals must not add automatic notification, escalation, or account changes.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Who is trying to do what, and where does the current tool stop helping?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the interface or behavior. A small symbolic example is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: How to tell it works
+      description: Give observable acceptance criteria, including a failure or unknown case where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Safety and evidence limits
+      description: Note effects on privacy, human review, Romanian/Ukrainian wording, and claims about accuracy. Write "not applicable" where appropriate.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-report check
+      options:
+        - label: This proposal contains no real or realistic child case material or private reviewer data.
+          required: true

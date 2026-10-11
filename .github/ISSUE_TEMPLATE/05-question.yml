@@ -1,0 +1,30 @@
+name: Usage question
+description: Ask how to install or use the published, offline toolkit.
+title: "[Question] "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask about the software, not a child-safety case. This public issue is not monitored as an emergency or case-reporting service. Do not include child messages, personal data, or private files.
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to do?
+      description: Describe the command, API, or Studio workflow using symbolic facts only.
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you tried?
+      description: Give version, relevant documentation link, and a sanitized command or error if applicable.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-report check
+      options:
+        - label: I removed personal and sensitive material from this question.
+          required: true
