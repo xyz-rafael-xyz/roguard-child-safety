@@ -22,9 +22,9 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def load_exact(path: Path, split: str) -> list[dict]:
+def load_exact(path: Path, split: str, generator=generate) -> list[dict]:
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
-    if rows != generate(split):
+    if rows != generator(split):
         raise ValueError(f"{split} does not match the registered fictional generator")
     return rows
 
@@ -74,10 +74,12 @@ def export_model(vectorizer: TfidfVectorizer, model: LogisticRegression,
     return digest(path)
 
 
-def fit(train_path: Path, dev_path: Path, output: Path) -> dict:
+def fit(train_path: Path, dev_path: Path, output: Path,
+        generator=generate, study: str = "v3") -> dict:
     if output.exists():
         raise FileExistsError("Selection output already exists")
-    train, dev = load_exact(train_path, "train"), load_exact(dev_path, "dev")
+    train = load_exact(train_path, "train", generator)
+    dev = load_exact(dev_path, "dev", generator)
     output.mkdir(parents=True)
     candidates = []
     for low, high, c in CONFIGS:
@@ -125,7 +127,8 @@ def fit(train_path: Path, dev_path: Path, output: Path) -> dict:
         if maximum_difference > 1e-10:
             raise AssertionError("Exported scorer differs from fitted estimator")
         files[language]["maximum_score_difference"] = maximum_difference
-    record = {"status": "selected_before_test", "task": "fictional_clear_support_signal",
+    record = {"status": "selected_before_test", "study": study,
+              "task": "fictional_clear_support_signal",
               "source": "locally_authored_synthetic_only", "train_sha256": digest(train_path),
               "dev_sha256": digest(dev_path), "selected": selected,
               "models": files,

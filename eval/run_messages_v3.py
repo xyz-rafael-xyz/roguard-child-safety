@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from roguard.message_model import SyntheticMessageModel
+from training.generate_messages_v3 import generate
 from training.fit_messages_v3 import digest, load_exact, metrics
 
 TARGET_PAIRS = 85
@@ -14,13 +15,17 @@ TARGET_RECALL = 90
 MAX_FALSE_REVIEWS = 10
 
 
-def evaluate(selection_dir: Path, test_path: Path, output_dir: Path) -> dict:
+def evaluate(selection_dir: Path, test_path: Path, output_dir: Path,
+             generator=generate, target_pairs: int = TARGET_PAIRS,
+             target_recall: int = TARGET_RECALL,
+             max_false_reviews: int = MAX_FALSE_REVIEWS,
+             study: str = "v3_fictional_message_holdout") -> dict:
     if output_dir.exists():
         raise FileExistsError("Test output already exists")
     record = json.loads((selection_dir / "selection.json").read_text(encoding="utf-8"))
     if record.get("status") != "selected_before_test" or set(record["models"]) != {"ro", "uk"}:
         raise ValueError("Missing frozen bilingual selection")
-    rows = load_exact(test_path, "test")
+    rows = load_exact(test_path, "test", generator)
     predictions = []
     cells = {}
     for language in ("ro", "uk"):
@@ -41,21 +46,21 @@ def evaluate(selection_dir: Path, test_path: Path, output_dir: Path) -> dict:
             row["label"] == 1 and score < 0.1 for row, score in zip(subset, scores))
         report["high_confidence_false_reviews"] = sum(
             row["label"] == 0 and score >= 0.9 for row, score in zip(subset, scores))
-        report["target_passed"] = (report["complete_pairs"] >= TARGET_PAIRS and
-                                   report["tp"] >= TARGET_RECALL and
-                                   report["fp"] <= MAX_FALSE_REVIEWS)
+        report["target_passed"] = (report["complete_pairs"] >= target_pairs and
+                                   report["tp"] >= target_recall and
+                                   report["fp"] <= max_false_reviews)
         cells[language] = report
         predictions.extend({"id": row["id"], "pair_id": row["pair_id"],
                             "language": language, "synthetic_score": score,
                             "predicted": int(score >= model.cutoff)}
                            for row, score in zip(subset, scores))
-    result = {"study": "v3_fictional_message_holdout", "status": "once_scored",
+    result = {"study": study, "status": "once_scored",
               "test_sha256": digest(test_path),
               "selection_sha256": digest(selection_dir / "selection.json"),
               "test_rows": len(rows), "cells": cells,
-              "target": {"complete_pairs_per_language": TARGET_PAIRS,
-                         "positive_recall_per_language": TARGET_RECALL,
-                         "maximum_false_reviews_per_language": MAX_FALSE_REVIEWS},
+              "target": {"complete_pairs_per_language": target_pairs,
+                         "positive_recall_per_language": target_recall,
+                         "maximum_false_reviews_per_language": max_false_reviews},
               "target_passed": all(cell["target_passed"] for cell in cells.values()),
               "real_child_language_accuracy_established": False,
               "external_action_taken": False}
