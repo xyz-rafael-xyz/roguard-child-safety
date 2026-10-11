@@ -70,6 +70,10 @@ V1_SUPPORT_FIELDS = frozenset({"immediate_danger_route", "no_pressing_for_detail
 def check_support_v1(card: SupportContractCard) -> PolicyResult:
     """The extra fields apply only when the caller declares them applicable."""
     applicable, passed = card.applicable_fields, card.passed_fields
+    if (applicable is not None and passed is not None and
+            (not isinstance(applicable, frozenset) or not isinstance(passed, frozenset) or
+             not passed <= applicable)):
+        raise ValueError("Passed support fields must be applicable")
     if applicable is None or passed is None or not applicable:
         return PolicyResult("S1", ("INSUFFICIENT_RESPONSE_CONTRACT",))
     if not isinstance(applicable, frozenset) or not isinstance(passed, frozenset):
@@ -78,8 +82,6 @@ def check_support_v1(card: SupportContractCard) -> PolicyResult:
     extra_passed = passed & V1_SUPPORT_FIELDS
     old = check_support_contract(SupportContractCard(
         applicable - V1_SUPPORT_FIELDS, passed - V1_SUPPORT_FIELDS))
-    if not passed <= applicable:
-        raise ValueError("Passed support fields must be applicable")
     if not extra_applicable and old.reason_codes == ("MISSING_SUPPORT_CONTRACT",):
         return PolicyResult("S1", ())
     old_reasons = () if old.reason_codes == ("MISSING_SUPPORT_CONTRACT",) else old.reason_codes

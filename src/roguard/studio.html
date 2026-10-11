@@ -17,12 +17,12 @@
     <section class="hero">
       <p class="eyebrow">Romanian + Ukrainian · declared facts</p>
       <h1>Trace a decision before anyone acts.</h1>
-      <p>Use the guided Romanian or Ukrainian form for the corrected v1 D1/R1/S1 checks. You can also inspect historical contracts and their decision changes. Everything stays in this browser session and the local RoGuard process.</p>
+      <p>Use the guided Romanian or Ukrainian form to audit corrected D1/R1/S1 rules, including facts you have not resolved yet. You can also inspect historical contracts and their decision changes. Everything stays in this browser session and the local RoGuard process.</p>
     </section>
     <section class="workspace" aria-label="Decision workspace">
       <div class="toolbar">
         <div class="tabs" role="group" aria-label="Analysis mode">
-          <button type="button" class="tab active" data-mode="v1" aria-pressed="true">Guided v1</button>
+          <button type="button" class="tab active" data-mode="v1" aria-pressed="true">Guided v2</button>
           <button type="button" class="tab" data-mode="assess" aria-pressed="false">Legacy check</button>
           <button type="button" class="tab" data-mode="explore" aria-pressed="false">Explore changes</button>
           <button type="button" class="tab" data-mode="contrast" aria-pressed="false">Compare</button>
@@ -35,7 +35,7 @@
       <div class="panels">
         <section class="input-panel">
           <div id="v1-form">
-            <div class="panel-heading"><h2 id="v1-title">Fișă simbolică v1</h2><span>D1 · R1 · S1</span></div>
+            <div class="panel-heading"><h2 id="v1-title">Fișă simbolică v2</h2><span>D1 · R1 · S1</span></div>
             <p id="v1-intro" class="form-intro">Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.</p>
             <label class="form-label" for="v1-language"><span id="label-language">Limba</span><select id="v1-language"><option value="ro">Română</option><option value="uk">Українська</option></select></label>
             <fieldset class="guided-card" id="v1-disclosure"><legend><label><input id="v1-use-d" type="checkbox" checked> <span id="label-d-title">D1 · Semnal declarat</span></label></legend>
@@ -57,7 +57,7 @@
               </div>
             </fieldset>
             <fieldset class="guided-card" id="v1-support"><legend><label><input id="v1-use-s" type="checkbox" checked> <span id="label-s-title">S1 · Verificarea răspunsului</span></label></legend>
-              <p id="s-hint" class="form-intro">Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.</p>
+              <p id="s-hint" class="form-intro">Pentru fiecare criteriu, marcați aplicabilitatea, îndeplinirea sau starea necunoscută. Nu introduceți textul răspunsului.</p>
               <div id="support-fields" class="support-fields"></div>
             </fieldset>
           </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="form-footer">
             <p id="mode-hint">Datele declarate rămân neverificate. Nu se face nicio acțiune externă.</p>
-            <div class="form-actions"><button type="button" id="v1-envelope-button" class="secondary-button">Verifică necunoscutele</button><button type="button" id="v1-explore-button" class="secondary-button">Explorează schimbările</button><button type="button" id="run-button" class="primary-button">Verifică fișa <span aria-hidden="true">↗</span></button></div>
+            <div class="form-actions"><button type="button" id="v2-audit-button" class="secondary-button">Auditează incertitudinea</button><button type="button" id="v1-envelope-button" class="secondary-button">Verifică necunoscutele</button><button type="button" id="v1-explore-button" class="secondary-button">Explorează schimbările</button><button type="button" id="run-button" class="primary-button">Verifică fișa <span aria-hidden="true">↗</span></button></div>
           </div>
         </section>
         <section class="result-panel" aria-live="polite" aria-label="Result">

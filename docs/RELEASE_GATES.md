@@ -2,7 +2,7 @@
 
 RoGuard Local v1.0.0 is a source and wheel release of the offline declared-contract and evaluation toolkit. Its version does not close the separate research text-model validation gates in the table below; no trained adapter is part of the wheel. See [v1.0 release scope](V1_RELEASE.md).
 
-This is a status record, not a claim of completion. It separates the **working declared-contract tool** from the **unvalidated language classifier**. This repository began as a public source snapshot and has since received public toolkit fixes. Trained weights and the historical Git record remain in a private research archive; see [Public release](PUBLIC_RELEASE.md). Any public model-weight release or package registration is a separate step.
+This is a status record, not a claim of completion. It separates the **working declared-contract tool** from the **unvalidated language classifier**. This repository began as a public source snapshot and has since received public toolkit fixes. Trained weights and the historical Git record remain in a private research archive; see [Public release](PUBLIC_RELEASE.md). Any public model-weight release or package registration is a separate step. The [v2.0 release](V2_RELEASE.md) adds exact field-level symbolic uncertainty and question ranking; it does not change the open child-language accuracy gate below.
 
 | Requirement | Current evidence | Status |
 |---|---|---|

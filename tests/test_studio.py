@@ -105,6 +105,20 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(self.request("/api/v1/assess", {"language": "uk", "support": {}},
                                       token="wrong")[0], 403)
 
+    def test_v2_audit_endpoint_handles_partial_support_facts(self):
+        for language in ("ro", "uk"):
+            status, report = self.request("/api/v2/audit", {"language": language,
+                "support": {"field_states": {"next_step": "passed",
+                                              "no_pressing_for_details": "unknown"}}})
+            self.assertEqual(status, 200)
+            self.assertEqual(report["schema_version"], "2.0")
+            self.assertEqual(report["language"], language)
+            self.assertIn("/support/field_states/no_pressing_for_details",
+                          report["categories"][0]["unknown_paths"])
+            self.assertFalse(report["external_action_taken"])
+        self.assertEqual(self.request("/api/v2/audit", {"language": "ro",
+                         "support": {"field_states": {"next_step": "invented"}}})[0], 400)
+
     def test_cross_origin_token_and_host_are_rejected(self):
         payload = {"language": "uk", "gate": {"review_owner": "reviewer",
                    "model_output_parsed": True, "accept_unparsed": False,

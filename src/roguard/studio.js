@@ -7,6 +7,7 @@ const secondWrap = document.getElementById("second-wrap");
 const runButton = document.getElementById("run-button");
 const v1ExploreButton = document.getElementById("v1-explore-button");
 const v1EnvelopeButton = document.getElementById("v1-envelope-button");
+const v2AuditButton = document.getElementById("v2-audit-button");
 const summary = document.getElementById("summary");
 const placeholder = document.getElementById("placeholder");
 const errorBox = document.getElementById("error");
@@ -21,8 +22,8 @@ const names = {
 };
 
 const v1Labels = {
-  ro: {title: "Fișă simbolică v1", intro: "Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.", language: "Limba", dTitle: "D1 · Semnal declarat", role: "Rolul sursei", anchor: "Reper de siguranță sau sprijin", indirect: "Căutare indirectă sau repetată", explicit: "Cerere explicită de sprijin", direct: "Afirmație directă despre siguranță", retracted: "Retractare sau negare ulterioară", rTitle: "R1 · Destinatar și permisiune", rHint: "Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.", recipient: "Destinatar propus", allowed: "Destinatar permis de regula fictivă", concern: "Destinatarul poate fi sursa îngrijorării", sTitle: "S1 · Verificarea răspunsului", sHint: "Marcați pentru fiecare criteriu dacă se aplică și dacă a fost îndeplinit. Nu introduceți textul răspunsului.", applicable: "Se aplică", passed: "Îndeplinit", yes: "Da", no: "Nu", unknown: "Necunoscut", none: "Niciunul", run: "Verifică fișa ", explore: "Explorează schimbările", hint: "Datele declarate rămân neverificate. Nu se face nicio acțiune externă.", lead: "Rezultatele provin doar din faptele simbolice alese în formular."},
-  uk: {title: "Символічна картка v1", intro: "Обирайте лише вигадані ознаки. Ця форма не тлумачить справжні повідомлення чи відповіді.", language: "Мова", dTitle: "D1 · Заявлена ознака", role: "Роль джерела", anchor: "Ознака безпеки або підтримки", indirect: "Непрямий або повторний пошук підтримки", explicit: "Пряме прохання про підтримку", direct: "Пряме твердження щодо безпеки", retracted: "Подальше відкликання або заперечення", rTitle: "R1 · Одержувач і дозвіл", rHint: "Елемент «символ» і мета «A» вигадані. Оберіть одержувача, дозволеного заявленим правилом.", recipient: "Запропонований одержувач", allowed: "Одержувач, дозволений вигаданим правилом", concern: "Одержувач може бути джерелом занепокоєння", sTitle: "S1 · Перевірка відповіді", sHint: "Для кожного критерію позначте застосовність і виконання. Не вводьте текст відповіді.", applicable: "Застосовний", passed: "Виконано", yes: "Так", no: "Ні", unknown: "Невідомо", none: "Жоден", run: "Перевірити картку ", explore: "Дослідити зміни", hint: "Заявлені факти залишаються неперевіреними. Зовнішні дії не виконуються.", lead: "Результати спираються лише на символічні факти, обрані у формі."}
+  ro: {title: "Fișă simbolică v2", intro: "Selectați numai fapte inventate. Acest formular nu interpretează mesaje sau răspunsuri reale.", language: "Limba", dTitle: "D1 · Semnal declarat", role: "Rolul sursei", anchor: "Reper de siguranță sau sprijin", indirect: "Căutare indirectă sau repetată", explicit: "Cerere explicită de sprijin", direct: "Afirmație directă despre siguranță", retracted: "Retractare sau negare ulterioară", rTitle: "R1 · Destinatar și permisiune", rHint: "Elementul „simbol” și scopul „A” sunt fictive. Alegeți cine poate primi elementul conform regulii declarate.", recipient: "Destinatar propus", allowed: "Destinatar permis de regula fictivă", concern: "Destinatarul poate fi sursa îngrijorării", sTitle: "S1 · Verificarea răspunsului", sHint: "Pentru fiecare criteriu, marcați aplicabilitatea, îndeplinirea sau starea necunoscută. Nu introduceți textul răspunsului.", applicable: "Se aplică", passed: "Îndeplinit", yes: "Da", no: "Nu", unknown: "Necunoscut", none: "Niciunul", run: "Verifică fișa ", explore: "Explorează schimbările", hint: "Datele declarate rămân neverificate. Nu se face nicio acțiune externă.", lead: "Rezultatele provin doar din faptele simbolice alese în formular."},
+  uk: {title: "Символічна картка v2", intro: "Обирайте лише вигадані ознаки. Ця форма не тлумачить справжні повідомлення чи відповіді.", language: "Мова", dTitle: "D1 · Заявлена ознака", role: "Роль джерела", anchor: "Ознака безпеки або підтримки", indirect: "Непрямий або повторний пошук підтримки", explicit: "Пряме прохання про підтримку", direct: "Пряме твердження щодо безпеки", retracted: "Подальше відкликання або заперечення", rTitle: "R1 · Одержувач і дозвіл", rHint: "Елемент «символ» і мета «A» вигадані. Оберіть одержувача, дозволеного заявленим правилом.", recipient: "Запропонований одержувач", allowed: "Одержувач, дозволений вигаданим правилом", concern: "Одержувач може бути джерелом занепокоєння", sTitle: "S1 · Перевірка відповіді", sHint: "Для кожного критерію позначте застосовність, виконання або невідомий стан. Не вводьте текст відповіді.", applicable: "Застосовний", passed: "Виконано", yes: "Так", no: "Ні", unknown: "Невідомо", none: "Жоден", run: "Перевірити картку ", explore: "Дослідити зміни", hint: "Заявлені факти залишаються неперевіреними. Зовнішні дії не виконуються.", lead: "Результати спираються лише на символічні факти, обрані у формі."}
 };
 const guidedChrome = {
   ro: {result: "Rezultat", waiting: "În așteptarea verificării", trace: "Aici apare rezultatul verificării", placeholder: "Alegeți faptele din fișă sau încărcați un exemplu, apoi verificați.", raw: "Afișează raportul în format pentru prelucrare automată", scope: "Ce verifică acest instrument", scopeText: "Fișa ghidată verifică regulile D1/R1/S1 numai pe baza faptelor simbolice declarate. Celelalte file verifică un contract mai vechi, cu șase categorii. Un rezultat favorabil nu confirmă cuvintele unui copil, identitatea ori autoritatea unei persoane, o permisiune reală sau calitatea limbajului. Instrumentul nu trimite rapoarte ori notificări și nu modifică niciun cont.", contract: "Raportul fișei v1", explore: "Raport de sensibilitate v1", minor: "minor", adult: "adult", other: "altă persoană", guardian: "părinte/tutore"},
@@ -64,9 +65,11 @@ function localizeV1() {
     line.querySelector(".support-name").textContent = supportNames[language][line.dataset.field];
     line.querySelector(".support-applicable-label").textContent = label.applicable;
     line.querySelector(".support-passed-label").textContent = label.passed;
+    line.querySelector(".support-unknown-label").textContent = label.unknown;
   }
   v1ExploreButton.textContent = label.explore;
   v1EnvelopeButton.textContent = language === "ro" ? "Verifică necunoscutele" : "Перевірити невідомі дані";
+  v2AuditButton.textContent = language === "ro" ? "Auditează incertitudinea" : "Перевірити невизначеність";
   if (mode === "v1") { runButton.firstChild.textContent = label.run; document.getElementById("mode-hint").textContent = label.hint; }
   localizeChrome();
 }
@@ -82,14 +85,21 @@ function setupSupportFields() {
     const passed = element("label", "support-option");
     const passes = document.createElement("input"); passes.type = "checkbox"; passes.className = "support-passes";
     passed.append(passes, element("span", "support-passed-label"));
+    const unknown = element("label", "support-option");
+    const uncertain = document.createElement("input"); uncertain.type = "checkbox"; uncertain.className = "support-unknown";
+    unknown.append(uncertain, element("span", "support-unknown-label"));
     applies.addEventListener("change", () => { if (!applies.checked) passes.checked = false; passes.disabled = !applies.checked; });
+    uncertain.addEventListener("change", () => {
+      applies.disabled = uncertain.checked;
+      passes.disabled = uncertain.checked || !applies.checked;
+    });
     passes.disabled = true;
-    line.append(title, applicable, passed); container.append(line);
+    line.append(title, applicable, passed, unknown); container.append(line);
   }
 }
 
 function tri(id) { const value = document.getElementById(id).value; return value === "unknown" ? null : value === "true"; }
-function v1Payload() {
+function v1Payload(allowUnknownSupport = false) {
   const payload = {language: v1Language()};
   if (document.getElementById("v1-use-d").checked) payload.disclosure = {
     source_role: document.getElementById("v1-role").value === "unknown" ? null : document.getElementById("v1-role").value,
@@ -105,6 +115,12 @@ function v1Payload() {
   if (document.getElementById("v1-use-s").checked) {
     const applicable_fields = [], passed_fields = [];
     for (const line of document.querySelectorAll(".support-line")) {
+      if (line.querySelector(".support-unknown").checked) {
+        if (!allowUnknownSupport) throw new Error(v1Language() === "ro" ?
+          "Pentru criterii necunoscute folosiți «Auditează incertitudinea»." :
+          "Для невідомих критеріїв скористайтеся «Перевірити невизначеність».");
+        continue;
+      }
       if (line.querySelector(".support-applies").checked) {
         applicable_fields.push(line.dataset.field);
         if (line.querySelector(".support-passes").checked) passed_fields.push(line.dataset.field);
@@ -113,6 +129,21 @@ function v1Payload() {
     payload.support = {applicable_fields, passed_fields};
   }
   if (Object.keys(payload).length === 1) throw new Error(v1Language() === "ro" ? "Selectați cel puțin o categorie." : "Оберіть хоча б одну категорію.");
+  return payload;
+}
+
+function v2Payload() {
+  const payload = v1Payload(true);
+  if (payload.support) {
+    const field_states = {};
+    for (const line of document.querySelectorAll(".support-line")) {
+      const state = line.querySelector(".support-unknown").checked ? "unknown" :
+        !line.querySelector(".support-applies").checked ? "not_applicable" :
+        line.querySelector(".support-passes").checked ? "passed" : "failed";
+      field_states[line.dataset.field] = state;
+    }
+    payload.support = {field_states};
+  }
   return payload;
 }
 
@@ -161,6 +192,33 @@ function renderV1Envelope(report) {
   }
 }
 
+function renderV2Audit(report) {
+  const ro = report.language === "ro";
+  summary.append(element("p", "result-lead", ro ?
+    "Auditorul verifică exact completările simbolice posibile. Întrebările sunt ordonate după câte coduri de decizie pot rămâne; nu sunt estimări de risc sau probabilitate." :
+    "Аудит перевіряє всі можливі символічні заповнення. Запитання впорядковано за кількістю кодів рішення, що можуть залишитися; це не оцінка ризику чи ймовірності."));
+  for (const item of report.categories) {
+    const state = item.decision_stability === "sensitive" ? "review" : "incomplete";
+    const title = ro ? {stable: "Cod stabil", sensitive: "Codul depinde de fapte necunoscute", unbounded: "Nu există domeniu finit declarat"} :
+      {stable: "Стійкий код", sensitive: "Код залежить від невідомих ознак", unbounded: "Скінченну область не задано"};
+    const outcomes = item.decision_stability === "unbounded" ?
+      (ro ? "Lipsesc fapte structurale; auditul nu emite certificat." : "Бракує структурних даних; аудит не видає висновку.") :
+      `${item.completion_count} ${ro ? "completări" : "заповнень"} · ${item.possible_decision_codes.join(" / ")}`;
+    row(`${item.category} · ${title[item.decision_stability]}`, state, outcomes);
+    if (item.next_questions.length) {
+      const next = item.next_questions[0];
+      row(ro ? "Următorul fapt de clarificat" : "Наступна ознака для уточнення", "incomplete",
+        `${next.path} · ${next.branches.map(branch => `${branch.answer_code}: ${branch.possible_decision_codes.join(" / ")}`).join(" · ")}`);
+    }
+    if (item.witnesses.length > 1) {
+      for (const witness of item.witnesses) {
+        row(`${item.category} · ${witness.decision_code}`, "incomplete",
+          witness.unknown_facts.map(fact => `${fact.path} = ${fact.state_code}`).join(" · "));
+      }
+    }
+  }
+}
+
 function sample(language) {
   return {
     language,
@@ -191,7 +249,10 @@ function loadSample(language) {
   document.getElementById("v1-allowed").value = "guardian";
   document.getElementById("v1-concern").value = "unknown";
   for (const line of document.querySelectorAll(".support-line")) {
-    const applies = line.querySelector(".support-applies"), passes = line.querySelector(".support-passes");
+    const applies = line.querySelector(".support-applies"), passes = line.querySelector(".support-passes"),
+          uncertain = line.querySelector(".support-unknown");
+    uncertain.checked = false;
+    applies.disabled = false;
     applies.checked = ["next_step", "no_pressing_for_details"].includes(line.dataset.field);
     passes.checked = line.dataset.field === "next_step";
     passes.disabled = !applies.checked;
@@ -287,7 +348,7 @@ async function run(action = "assess") {
   clearResult();
   let body;
   try {
-    if (mode === "v1") body = JSON.stringify(v1Payload());
+    if (mode === "v1") body = JSON.stringify(action === "audit" ? v2Payload() : v1Payload());
     else {
       JSON.parse(input.value);
       if (mode === "contrast") JSON.parse(afterInput.value);
@@ -302,8 +363,10 @@ async function run(action = "assess") {
   runButton.disabled = true;
   v1ExploreButton.disabled = true;
   v1EnvelopeButton.disabled = true;
+  v2AuditButton.disabled = true;
   try {
-    const response = await fetch(mode === "v1" ? `/api/v1/${action}` : `/api/${mode}`, {method: "POST", headers: {"Content-Type": "application/json", "X-RoGuard-Token": token}, body, cache: "no-store"});
+    const endpoint = mode === "v1" ? action === "audit" ? "/api/v2/audit" : `/api/v1/${action}` : `/api/${mode}`;
+    const response = await fetch(endpoint, {method: "POST", headers: {"Content-Type": "application/json", "X-RoGuard-Token": token}, body, cache: "no-store"});
     const report = await response.json();
     placeholder.hidden = true;
     if (!response.ok) {
@@ -314,8 +377,8 @@ async function run(action = "assess") {
     summary.hidden = false;
     rawDetails.hidden = false;
     rawReport.textContent = JSON.stringify(report, null, 2);
-    resultType.textContent = mode === "v1" ? action === "envelope" ? (v1Language() === "ro" ? "Raportul necunoscutelor" : "Звіт про невідомі дані") : guidedChrome[v1Language()][action === "explore" ? "explore" : "contract"] : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
-    if (mode === "v1") action === "envelope" ? renderV1Envelope(report) : action === "explore" ? renderV1Explore(report) : renderV1(report);
+    resultType.textContent = mode === "v1" ? action === "audit" ? (v1Language() === "ro" ? "Audit v2" : "Аудит v2") : action === "envelope" ? (v1Language() === "ro" ? "Raportul necunoscutelor" : "Звіт про невідомі дані") : guidedChrome[v1Language()][action === "explore" ? "explore" : "contract"] : mode === "assess" ? "Contract report" : mode === "explore" ? "Sensitivity report" : "One-fact comparison";
+    if (mode === "v1") action === "audit" ? renderV2Audit(report) : action === "envelope" ? renderV1Envelope(report) : action === "explore" ? renderV1Explore(report) : renderV1(report);
     else if (mode === "assess") renderAssess(report);
     else if (mode === "explore") renderExplore(report);
     else renderContrast(report);
@@ -327,6 +390,7 @@ async function run(action = "assess") {
     runButton.disabled = false;
     v1ExploreButton.disabled = false;
     v1EnvelopeButton.disabled = false;
+    v2AuditButton.disabled = false;
   }
 }
 
@@ -342,6 +406,7 @@ for (const tab of document.querySelectorAll(".tab")) {
     document.getElementById("legacy-form").hidden = mode === "v1";
     v1ExploreButton.hidden = mode !== "v1";
     v1EnvelopeButton.hidden = mode !== "v1";
+    v2AuditButton.hidden = mode !== "v1";
     secondWrap.hidden = mode !== "contrast";
     document.getElementById("input-title").textContent = mode === "contrast" ? "Before" : "Declared contract";
     document.getElementById("mode-hint").textContent = mode === "v1" ? v1Labels[v1Language()].hint : mode === "assess" ? "Checks only the rules you declare. Missing evidence stays incomplete." : mode === "explore" ? "Tests bounded one-fact variants and shows decision flips without input values." : "Change exactly one value between the two contracts.";
@@ -356,5 +421,6 @@ document.getElementById("v1-language").addEventListener("change", () => { locali
 runButton.addEventListener("click", () => run());
 v1ExploreButton.addEventListener("click", () => run("explore"));
 v1EnvelopeButton.addEventListener("click", () => run("envelope"));
+v2AuditButton.addEventListener("click", () => run("audit"));
 setupSupportFields();
 loadSample("ro");
