@@ -1,6 +1,6 @@
 # Public source release
 
-Version 3.0.0 adds a small, optional offline Romanian/Ukrainian D1 support-signal research model. The [v3 release scope](V3_MESSAGE_RELEASE.md) gives its exact synthetic results and limits. The earlier [v2](V2_RELEASE.md), [v1.1.1](V1_1_1_RELEASE.md), [v1.1.0](V1_1_RELEASE.md), and [v1.0](V1_RELEASE.md) notes remain historical release records. The declared-contract checker and abstract-card evaluation tools remain available.
+Version 3.0.1 adds a [one-command latest-release install](V3_0_1_RELEASE.md) while retaining the v3.0.0 model. The [v3 study scope](V3_MESSAGE_RELEASE.md) gives its exact synthetic results and limits. The earlier [v2](V2_RELEASE.md), [v1.1.1](V1_1_1_RELEASE.md), [v1.1.0](V1_1_RELEASE.md), and [v1.0](V1_RELEASE.md) notes remain historical release records. The declared-contract checker and abstract-card evaluation tools remain available.
 
 This repository began as a source-only snapshot of RoGuard at private research commit `f1b2c0bacddb6d319b35b91da09381f5d8f34aa3` and has since received public toolkit fixes. It contains the Romanian and Ukrainian declared-contract checker, taxonomies, synthetic data and research records, examples, and documentation. It has a separate public Git history so earlier private commits cannot expose research artifacts through a clone. Later public CLI fixes do not change the separately frozen private V16 study source or its recorded results.
 

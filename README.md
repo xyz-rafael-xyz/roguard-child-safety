@@ -4,7 +4,7 @@
 
 **[Open the full-resolution 46-second video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard Local v3.0.0 adds an offline Romanian/Ukrainian support-signal research model to its contract checker and evaluation toolkit.** The model can score a fictional or locally supplied message for human-review triage. It has passed a narrow synthetic test, has **not** been validated on authentic child language, and cannot decide whom to notify. The existing contract checks use caller-declared facts; neither component takes external action. The [v3 release scope and full results](docs/V3_MESSAGE_RELEASE.md) state exactly what was measured.
+**RoGuard Local v3.0.1 includes an offline Romanian/Ukrainian support-signal research model alongside its contract checker and evaluation toolkit.** The model can score a fictional or locally supplied message for human-review triage. It has passed a narrow synthetic test, has **not** been validated on authentic child language, and cannot decide whom to notify. The existing contract checks use caller-declared facts; neither component takes external action. The [v3 release scope and full results](docs/V3_MESSAGE_RELEASE.md) state exactly what was measured.
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The package here is named `roguard-local`.
 
@@ -33,7 +33,13 @@ A **synthetic abstract card** is an invented description of annotation fields or
 
 ## Install and try it
 
-The public [GitHub releases](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest) provide source archives and a wheel. CI tests Python 3.9 through 3.14. On macOS or Linux:
+Install or upgrade to the **latest published GitHub release** in one command (Python 3.9–3.14):
+
+```sh
+python3 -m pip install --upgrade https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest/download/roguard-local-latest.tar.gz
+```
+
+On Windows, use `py -m pip` in place of `python3 -m pip`. The `/releases/latest/` URL resolves to the newest stable release, and each release publishes the same asset name with its own version inside. Installation needs internet access; the installed checker and message scorer run offline. To run the included fictional examples or work on the source, clone the repository:
 
 ```sh
 git clone https://github.com/xyz-rafael-xyz/roguard-child-safety.git
