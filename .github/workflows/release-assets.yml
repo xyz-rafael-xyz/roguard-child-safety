@@ -1,14 +1,11 @@
-name: Release assets
+name: Publish Python package and GitHub release
 
 on:
   push:
     tags: ['v*']
 
-permissions:
-  contents: write
-
 jobs:
-  package:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -17,7 +14,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Verify tag matches package version
+      - name: Verify tag and distribution identity
         env:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
@@ -26,23 +23,62 @@ jobs:
           import tomllib
           from pathlib import Path
 
-          version = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
-          assert os.environ["RELEASE_TAG"] == f"v{version}", "Release tag/version mismatch"
+          project = tomllib.loads(Path("pyproject.toml").read_text())["project"]
+          assert project["name"] == "roguard-child-safety"
+          assert os.environ["RELEASE_TAG"] == f"v{project['version']}"
           PY
-      - name: Build versioned wheel and stable-name source archive
+      - name: Build and validate distributions
         run: |
-          python -m pip install 'setuptools>=69'
+          python -m pip install 'setuptools>=77' twine
           python -c 'from setuptools.build_meta import build_sdist; build_sdist("dist")'
           python -m pip wheel . --no-deps --no-build-isolation --wheel-dir dist
-          mv dist/roguard_local-*.tar.gz dist/roguard-local-latest.tar.gz
-      - name: Smoke-test source archive
+          python -m twine check dist/roguard_child_safety-*
+      - name: Smoke-test source archive and bundled models
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
         run: |
           python -m venv "$RUNNER_TEMP/roguard-release-test"
-          "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard-local-latest.tar.gz
+          "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_uk.json > /dev/null
-      - name: Publish release with installable assets
+          "$RUNNER_TEMP/roguard-release-test/bin/python" -c 'import os; from importlib.metadata import version; assert version("roguard-child-safety") == os.environ["RELEASE_TAG"].removeprefix("v")'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-distributions
+          path: dist/roguard_child_safety-*
+          if-no-files-found: error
+
+  pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/roguard-child-safety
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-distributions
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    needs: pypi
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-distributions
+          path: dist
+      - name: Publish release with stable source URLs
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.ref_name }}
-        run: gh release create "$RELEASE_TAG" dist/roguard-local-latest.tar.gz dist/roguard_local-*.whl --title "RoGuard Local ${RELEASE_TAG#v}" --generate-notes
+        run: |
+          cp dist/roguard_child_safety-*.tar.gz dist/roguard-child-safety-latest.tar.gz
+          cp dist/roguard_child_safety-*.tar.gz dist/roguard-local-latest.tar.gz
+          gh release create "$RELEASE_TAG" dist/roguard-child-safety-latest.tar.gz dist/roguard-local-latest.tar.gz dist/roguard_child_safety-*.whl --title "RoGuard Child Safety ${RELEASE_TAG#v}" --generate-notes

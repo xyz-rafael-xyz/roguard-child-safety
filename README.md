@@ -4,9 +4,9 @@
 
 **[Open the full-resolution 46-second video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard Local v3.0.1 includes an offline Romanian/Ukrainian support-signal research model alongside its contract checker and evaluation toolkit.** The model can score a fictional or locally supplied message for human-review triage. It has passed a narrow synthetic test, has **not** been validated on authentic child language, and cannot decide whom to notify. The existing contract checks use caller-declared facts; neither component takes external action. The [v3 release scope and full results](docs/V3_MESSAGE_RELEASE.md) state exactly what was measured.
+**RoGuard Child Safety v3.0.2 includes an offline Romanian/Ukrainian support-signal research model alongside its contract checker and evaluation toolkit.** The model can score a fictional or locally supplied message for human-review triage. It has passed a narrow synthetic test, has **not** been validated on authentic child language, and cannot decide whom to notify. The existing contract checks use caller-declared facts; neither component takes external action. The [v3 release scope and full results](docs/V3_MESSAGE_RELEASE.md) state exactly what was measured.
 
-This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The package here is named `roguard-local`.
+This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The PyPI distribution is named `roguard-child-safety`; Python imports remain `roguard`.
 
 Contributors: read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) before opening an issue or pull request.
 
@@ -33,13 +33,13 @@ A **synthetic abstract card** is an invented description of annotation fields or
 
 ## Install and try it
 
-Install or upgrade to the **latest published GitHub release** in one command (Python 3.9–3.14):
+Install or upgrade to the **latest PyPI release** in one command (Python 3.9–3.14):
 
 ```sh
-python3 -m pip install --upgrade https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest/download/roguard-local-latest.tar.gz
+pip install --upgrade roguard-child-safety
 ```
 
-On Windows, use `py -m pip` in place of `python3 -m pip`. The `/releases/latest/` URL resolves to the newest stable release, and each release publishes the same asset name with its own version inside. Installation needs internet access; the installed checker and message scorer run offline. To run the included fictional examples or work on the source, clone the repository:
+If `pip` points to another Python installation, use `python3 -m pip install --upgrade roguard-child-safety` (or `py -m pip install --upgrade roguard-child-safety` on Windows). Installation needs internet access; the installed checker and message scorer run offline. GitHub also retains a [direct-release source archive](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest/download/roguard-child-safety-latest.tar.gz). To run the included fictional examples or work on the source, clone the repository:
 
 ```sh
 git clone https://github.com/xyz-rafael-xyz/roguard-child-safety.git
