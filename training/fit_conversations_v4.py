@@ -47,17 +47,20 @@ def export_char(vectorizer,model,language,cutoff):
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--base',type=Path,required=True)
-    p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
+    p.add_argument('--corpus',choices=['v4','v4b'],default='v4');p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
     args=p.parse_args()
     if args.output.exists(): raise ValueError('Preserve existing experiment outputs')
     if subprocess.check_output(['git','status','--porcelain'],text=True).strip():
         raise ValueError('Commit protocol and study code before training')
     args.output.mkdir(parents=True)
-    train,dev=generate('train'),generate('dev')
+    corpus=generate
+    if args.corpus=='v4b':
+        from training.conversations_v4b import generate as corpus
+    train,dev=corpus('train'),corpus('dev')
     texts=[render(r['turns']) for r in train]; dtexts=[render(r['turns']) for r in dev]
     labels=np.array([r['label'] for r in train])
     record={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
-            'train_sha256':digest(train),'dev_sha256':digest(dev),'train_rows':len(train),
+            'train_sha256':digest(train),'dev_sha256':digest(dev),'train_rows':len(train),'corpus':args.corpus,'unique_training_conversations':len(set(texts)),
             'dev_rows':len(dev),'base_model':MODEL_ID,'base_revision':REVISION,'device':args.device,
             'candidates':[],'synthetic_only':True,'same_author':True}
     print(json.dumps({k:v for k,v in record.items() if k!='candidates'}),flush=True)
@@ -72,7 +75,7 @@ def main():
         print('character',c,report,flush=True)
         if best_char is None or rank(report)>rank(best_char[0]): best_char=(report,model,scores,c)
     encoder=SemanticEncoder(args.base,args.device)
-    started=time.perf_counter(); features=encoder.encode(texts);dfeatures=encoder.encode(dtexts)
+    started=time.perf_counter(); unique=list(dict.fromkeys(texts)); encoded=encoder.encode(unique); lookup=dict(zip(unique,encoded)); features=np.asarray([lookup[text] for text in texts]);dfeatures=encoder.encode(dtexts)
     record['embedding_seconds']=time.perf_counter()-started
     print('embedded',features.shape,'seconds',record['embedding_seconds'],flush=True)
     best_sem=None
