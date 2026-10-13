@@ -1,0 +1,298 @@
+{
+  "version": "6.0.0",
+  "fictional_examples": true,
+  "backend": "adapted",
+  "ro": {
+    "input": {
+      "case_id": "fictional_ro_1",
+      "language": "ro",
+      "turns": [
+        {
+          "role": "minor",
+          "text": "Mă simt singur și aș vrea să vorbesc cu cineva."
+        }
+      ],
+      "draft": "Putem vorbi în ritmul tău."
+    },
+    "output": {
+      "schema_version": "4.0",
+      "language": "ro",
+      "case_id": "fictional_ro_1",
+      "signal": {
+        "decision": "REVIEW_SUPPORT_SIGNAL",
+        "reason_codes": [],
+        "synthetic_score": 0.999856,
+        "development_cutoff": 0.24000000000000005,
+        "model": {
+          "backend": "adapted",
+          "semantic_preprocessing": "surface-v1",
+          "fast_sha256": "140f9fe450c7abe8bd0bad619217d80cb3bb9c0b3c2fcca43d04bb662cb839fc",
+          "semantic_head_sha256": "19557343192cee579aaf296ced0993a2a5b6a07631d0efce1b2551e670bd2389",
+          "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82"
+        },
+        "evidence_references": [
+          {
+            "turn_index": 0,
+            "start": 0,
+            "end": 47,
+            "score_change_if_omitted": 0.999472,
+            "basis": "turn_ablation_sensitivity_not_verified_evidence"
+          }
+        ]
+      },
+      "response_review": {
+        "status": "NO_LISTED_PATTERN",
+        "findings": [],
+        "complexity": {
+          "words": 5,
+          "sentences": 1,
+          "mean_words_per_sentence": 5.0,
+          "long_words_12plus": 0,
+          "jargon_occurrences": 0,
+          "reading_age_estimated": false,
+          "comprehension_established": false
+        },
+        "safe_response_established": false,
+        "coverage": "limited_phrase_rules",
+        "recommended_human_checks": [
+          "assumptions",
+          "pressure",
+          "privacy",
+          "meaning",
+          "support_contract"
+        ]
+      },
+      "declared_contract": null,
+      "uncertainty_audit": null,
+      "next_step": "HUMAN_REVIEW",
+      "authority_from_model": false,
+      "external_action_taken": false,
+      "text_in_report": false,
+      "real_world_accuracy_established": false,
+      "language_verified": false,
+      "calibration": {
+        "prediction_set": [
+          1
+        ],
+        "decision": "REVIEW_SUPPORT_SIGNAL",
+        "alpha": 0.1,
+        "calibration_counts": {
+          "0": 12,
+          "1": 18
+        },
+        "coverage_requires_exchangeability": true,
+        "real_world_coverage_established": false
+      },
+      "action_review": {
+        "status": "NOT_ASSESSED",
+        "reason_codes": [
+          "NO_ACTION_FACTS"
+        ],
+        "external_action_taken": false
+      },
+      "trace": [
+        {
+          "step": "interpretation",
+          "source": "model_advisory",
+          "decision": "REVIEW_SUPPORT_SIGNAL"
+        },
+        {
+          "step": "proposed_action",
+          "source": "declared_facts_only",
+          "decision": "NOT_ASSESSED"
+        }
+      ],
+      "declared_facts_unverified": true
+    }
+  },
+  "uk": {
+    "input": {
+      "case_id": "fictional_uk_1",
+      "language": "uk",
+      "turns": [
+        {
+          "role": "minor",
+          "text": "Мені самотньо і хочеться з кимось поговорити."
+        }
+      ],
+      "draft": "Можемо поговорити в зручному для тебе темпі."
+    },
+    "output": {
+      "schema_version": "4.0",
+      "language": "uk",
+      "case_id": "fictional_uk_1",
+      "signal": {
+        "decision": "REVIEW_SUPPORT_SIGNAL",
+        "reason_codes": [],
+        "synthetic_score": 0.999863,
+        "development_cutoff": 0.5000000000000001,
+        "model": {
+          "backend": "adapted",
+          "semantic_preprocessing": "surface-v1",
+          "fast_sha256": "cdc390bd92f58a2a1f3f215029ac00fe907a8313513b671b027118a7768712cb",
+          "semantic_head_sha256": "19557343192cee579aaf296ced0993a2a5b6a07631d0efce1b2551e670bd2389",
+          "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82"
+        },
+        "evidence_references": [
+          {
+            "turn_index": 0,
+            "start": 0,
+            "end": 45,
+            "score_change_if_omitted": 0.999478,
+            "basis": "turn_ablation_sensitivity_not_verified_evidence"
+          }
+        ]
+      },
+      "response_review": {
+        "status": "NO_LISTED_PATTERN",
+        "findings": [],
+        "complexity": {
+          "words": 7,
+          "sentences": 1,
+          "mean_words_per_sentence": 7.0,
+          "long_words_12plus": 0,
+          "jargon_occurrences": 0,
+          "reading_age_estimated": false,
+          "comprehension_established": false
+        },
+        "safe_response_established": false,
+        "coverage": "limited_phrase_rules",
+        "recommended_human_checks": [
+          "assumptions",
+          "pressure",
+          "privacy",
+          "meaning",
+          "support_contract"
+        ]
+      },
+      "declared_contract": null,
+      "uncertainty_audit": null,
+      "next_step": "HUMAN_REVIEW",
+      "authority_from_model": false,
+      "external_action_taken": false,
+      "text_in_report": false,
+      "real_world_accuracy_established": false,
+      "language_verified": false,
+      "calibration": {
+        "prediction_set": [
+          1
+        ],
+        "decision": "REVIEW_SUPPORT_SIGNAL",
+        "alpha": 0.1,
+        "calibration_counts": {
+          "0": 12,
+          "1": 18
+        },
+        "coverage_requires_exchangeability": true,
+        "real_world_coverage_established": false
+      },
+      "action_review": {
+        "status": "NOT_ASSESSED",
+        "reason_codes": [
+          "NO_ACTION_FACTS"
+        ],
+        "external_action_taken": false
+      },
+      "trace": [
+        {
+          "step": "interpretation",
+          "source": "model_advisory",
+          "decision": "REVIEW_SUPPORT_SIGNAL"
+        },
+        {
+          "step": "proposed_action",
+          "source": "declared_facts_only",
+          "decision": "NOT_ASSESSED"
+        }
+      ],
+      "declared_facts_unverified": true
+    }
+  },
+  "repair": {
+    "schema_version": "6.0",
+    "status": "REPAIR_PROPOSED",
+    "original_decision": "BLOCK",
+    "original_reason_codes": [
+      "SOURCE_PERMISSION_INACTIVE"
+    ],
+    "selected": [
+      "lesson"
+    ],
+    "removed_from_proposal": [
+      "private_note"
+    ],
+    "added_to_proposal": [],
+    "requirements_preserved": true,
+    "semantic_sufficiency_verified": false,
+    "scope": {
+      "purpose": "tutoring",
+      "recipient": "teacher",
+      "operation": "export"
+    },
+    "plan": {
+      "status": "PROPOSAL_READY",
+      "selected": [
+        "lesson"
+      ],
+      "declared_cost": 1,
+      "retained": [
+        {
+          "artifact_id": "lesson",
+          "requirements": [
+            "learning"
+          ]
+        }
+      ],
+      "removed": [
+        {
+          "artifact_id": "private_note",
+          "reason_codes": [
+            "SOURCE_PERMISSION_INACTIVE"
+          ]
+        }
+      ],
+      "missing_requirements": [],
+      "optimal_within_declared_candidates": true,
+      "objective": "cost_then_count_then_ids",
+      "policy_revision": 3,
+      "clock": 0,
+      "semantic_sufficiency_verified": false,
+      "execution_authorized": false,
+      "text_in_report": false
+    },
+    "execution_authorized": false,
+    "text_in_report": false
+  },
+  "revocation": {
+    "before": {
+      "decision": "ALLOW",
+      "reason_codes": [],
+      "sources": [
+        "lesson"
+      ],
+      "artifact_ids": [
+        "summary"
+      ],
+      "clock": 0,
+      "policy_revision": 3,
+      "authority_verified": false,
+      "text_in_report": false
+    },
+    "after": {
+      "decision": "BLOCK",
+      "reason_codes": [
+        "SOURCE_PERMISSION_INACTIVE"
+      ],
+      "sources": [
+        "lesson"
+      ],
+      "artifact_ids": [
+        "summary"
+      ],
+      "clock": 0,
+      "policy_revision": 4,
+      "authority_verified": false,
+      "text_in_report": false
+    }
+  }
+}

@@ -1,8 +1,8 @@
 # RoGuard — Romanian and Ukrainian child-safety research toolkit
 
-[![A looping 46-second RoGuard Local demo showing a Romanian contract check, a one-fact comparison, Ukrainian output, and the corrected v1 CLI](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
+[![A looping 26-second RoGuard v6 visual walkthrough: Romanian and Ukrainian model review, permission-aware repair, and source revocation](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
 
-**[Open the earlier contract-workflow video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
+**[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
 
 **RoGuard 6.0 adds an adapted language model and durable application controls:** authenticated tenant APIs, encrypted permission state, queued execution, metadata-only monitoring, long-conversation analysis and permission-aware repair. [Setup and integration](docs/RELIABILITY.md) · [v6 experiments and limits](docs/V6_RELEASE.md).
 
