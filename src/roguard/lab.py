@@ -113,6 +113,7 @@ def main():
         command = sub.add_parser(name)
         command.add_argument('--target', choices=['guarded', 'permissive', 'overblocking', 'stale'], default='guarded')
         command.add_argument('--no-enforce', action='store_true')
+        if name != 'reduce': command.add_argument('--fail-on-failure', action='store_true')
         if name in ('run', 'reduce'):
             command.add_argument('input'); command.add_argument('--recorded')
         else:
@@ -124,6 +125,7 @@ def main():
         if name == 'reduce': command.add_argument('--max-probes', type=int, default=96)
     compare = sub.add_parser('compare'); compare.add_argument('--language', choices=['ro', 'uk'], default='ro'); compare.add_argument('--seed', type=int, default=17)
     consistent = sub.add_parser('consistency'); consistent.add_argument('input')
+    consistent.add_argument('--fail-on-failure', action='store_true')
     consistent.add_argument('--backend', choices=['fast', 'semantic', 'hybrid'], default='fast')
     args = parser.parse_args()
     try:
@@ -141,6 +143,8 @@ def main():
                 if args.command == 'reduce': result = minimize_failure(scenario, factory, enforce=not args.no_enforce, max_probes=args.max_probes)
                 else: result = run_scenario(scenario, factory, enforce=not args.no_enforce)
         print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False))
+        if getattr(args, 'fail_on_failure', False) and (result.get('first_failure') or result.get('failures') or result.get('failed') or result.get('unresolved')):
+            raise SystemExit(1)
     except (ValueError, TypeError, KeyError, OSError, ImportError):
         parser.error('Invalid laboratory input or unavailable optional model; see the interaction laboratory guide')
 

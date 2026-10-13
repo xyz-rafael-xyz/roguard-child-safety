@@ -43,6 +43,14 @@ class InteractionTests(unittest.TestCase):
             self.assertEqual(r['requests'][0]['outcome'],'REVIEW')
         with self.assertRaises(ValueError):workbench({'target_url':'https://example.org'})
 
+    def test_cli_can_fail_a_ci_gate_while_preserving_json_report(self):
+        import subprocess,sys
+        result=subprocess.run([sys.executable,'-m','roguard.lab','demo','--target','permissive','--fail-on-failure'],capture_output=True,text=True)
+        self.assertEqual(result.returncode,1)
+        self.assertEqual(json.loads(result.stdout)['first_failure']['code'],'UNAUTHORIZED_PROPOSAL')
+        passing=subprocess.run([sys.executable,'-m','roguard.lab','demo','--fail-on-failure'],capture_output=True,text=True)
+        self.assertEqual(passing.returncode,0)
+
     def test_target_exceptions_are_unresolved_without_echoing_text(self):
         def factory():
             def fail(observation):raise RuntimeError('SECRET ERROR CONTENT')
