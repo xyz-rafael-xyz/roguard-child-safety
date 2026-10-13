@@ -1,0 +1,113 @@
+{
+  "schema_version": "5.0",
+  "case_id": "uk_revocation_17",
+  "language": "uk",
+  "events": [
+    {
+      "id": "e0",
+      "kind": "source",
+      "artifact_id": "note",
+      "value": "Вигадана вправа. Я віддаю перевагу коротким поясненням.",
+      "complete": true
+    },
+    {
+      "id": "e1",
+      "kind": "derive",
+      "artifact_id": "summary",
+      "value": "Вигадане побажання: короткі пояснення.",
+      "parents": [
+        "note"
+      ]
+    },
+    {
+      "id": "e2",
+      "kind": "permission",
+      "source": "note",
+      "purpose": "tutoring",
+      "recipient": "student",
+      "operation": "use",
+      "action": "grant"
+    },
+    {
+      "id": "e3",
+      "kind": "message",
+      "role": "minor",
+      "text": "Можеш допомогти мені з цією вправою?"
+    },
+    {
+      "id": "e4",
+      "kind": "message",
+      "role": "minor",
+      "text": "Можеш допомогти мені з цією вправою?"
+    },
+    {
+      "id": "e5",
+      "kind": "message",
+      "role": "minor",
+      "text": "Можеш допомогти мені з цією вправою?"
+    },
+    {
+      "id": "e6",
+      "kind": "request",
+      "purpose": "tutoring",
+      "recipient": "student",
+      "operation": "use",
+      "requirements": [
+        "context"
+      ],
+      "candidates": [
+        {
+          "artifact_id": "summary",
+          "covers": [
+            "context"
+          ],
+          "cost": 1
+        },
+        {
+          "artifact_id": "note",
+          "covers": [
+            "context"
+          ],
+          "cost": 4
+        }
+      ],
+      "expected": "ALLOW"
+    },
+    {
+      "id": "e7",
+      "kind": "permission",
+      "source": "note",
+      "purpose": "tutoring",
+      "recipient": "student",
+      "operation": "use",
+      "action": "revoke"
+    },
+    {
+      "id": "e8",
+      "kind": "request",
+      "purpose": "tutoring",
+      "recipient": "student",
+      "operation": "use",
+      "requirements": [
+        "context"
+      ],
+      "candidates": [
+        {
+          "artifact_id": "summary",
+          "covers": [
+            "context"
+          ],
+          "cost": 1
+        },
+        {
+          "artifact_id": "note",
+          "covers": [
+            "context"
+          ],
+          "cost": 4
+        }
+      ],
+      "expected": "BLOCK"
+    }
+  ]
+}

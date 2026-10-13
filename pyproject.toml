@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-child-safety"
-version = "4.0.0"
+version = "5.0.0"
 description = "Offline Romanian and Ukrainian child-safety contract and evaluation toolkit"
 readme = "docs/PYPI.md"
 requires-python = ">=3.9"
@@ -33,6 +33,7 @@ Documentation = "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/mai
 Issues = "https://github.com/xyz-rafael-xyz/roguard-child-safety/issues"
 
 [project.scripts]
+roguard-lab = "roguard.lab:main"
 roguard-compare-reports = "roguard.conversation:compare_main"
 roguard-conversation = "roguard.conversation:main"
 roguard-model = "roguard.model_setup:main"
@@ -75,7 +76,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
+roguard = ["lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -21,7 +21,9 @@ from .v2_audit import audit_v2_contract
 from .conversation import analyze_conversation, analyze_batch, compare_reports, ConversationScorer
 
 MAX_REQUEST_BYTES = 1_048_576
-ASSETS = {"/conversation": ("conversation.html", "text/html; charset=utf-8"),
+ASSETS = {"/lab": ("lab.html", "text/html; charset=utf-8"),
+          "/lab.js": ("lab.js", "text/javascript; charset=utf-8"),
+          "/lab.css": ("lab.css", "text/css; charset=utf-8"),"/conversation": ("conversation.html", "text/html; charset=utf-8"),
           "/conversation.js": ("conversation.js", "text/javascript; charset=utf-8"),
           "/conversation.css": ("conversation.css", "text/css; charset=utf-8"),"/": ("studio.html", "text/html; charset=utf-8"),
           "/studio.js": ("studio.js", "text/javascript; charset=utf-8"),
@@ -85,7 +87,8 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                 return
             if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
-                                 "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports"}:
+                                 "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports",
+                                 "/api/lab", "/api/lab/compare", "/api/lab/consistency"}:
                 self._json(404, {"error": "Not found"})
                 return
             if self.headers.get("Content-Type") != "application/json" or self.headers.get("Transfer-Encoding"):
@@ -104,7 +107,18 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/conversation":
+                if self.path == "/api/lab":
+                    from .lab import workbench
+                    result = workbench(payload)
+                elif self.path == "/api/lab/compare":
+                    from .lab import compare_reference_targets
+                    if not isinstance(payload, dict) or set(payload) != {"language", "seed"}:
+                        raise ValueError("Expected language and seed")
+                    result = compare_reference_targets(**payload)
+                elif self.path == "/api/lab/consistency":
+                    from .consistency import conversation_consistency
+                    result = conversation_consistency(payload, scorer)
+                elif self.path == "/api/conversation":
                     result = analyze_conversation(payload, scorer)
                 elif self.path == "/api/conversations":
                     result = analyze_batch(payload, scorer)
@@ -143,7 +157,9 @@ def main() -> None:
     parser.add_argument("--backend", choices=["fast", "semantic", "hybrid"], default="fast")
     parser.add_argument("--model-path")
     parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cpu")
-    parser.add_argument("--conversation", action="store_true")
+    view = parser.add_mutually_exclusive_group()
+    view.add_argument("--conversation", action="store_true")
+    view.add_argument("--lab", action="store_true")
     args = parser.parse_args()
     try:
         server = make_server(args.port, backend=args.backend, model_path=args.model_path, device=args.device)
@@ -152,6 +168,8 @@ def main() -> None:
     url = f"http://127.0.0.1:{server.server_port}/"
     if args.conversation:
         url += "conversation"
+    elif args.lab:
+        url += "lab"
     print(f"RoGuard Decision Studio: {url}", flush=True)
     print("Runs on this computer only. Press Ctrl+C to stop.", flush=True)
     if args.open:

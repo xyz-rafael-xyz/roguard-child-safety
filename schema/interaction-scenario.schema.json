@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RoGuard v5 fictional interaction scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "5.0"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,64}$"
+    },
+    "language": {
+      "enum": [
+        "ro",
+        "uk"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "source"
+              },
+              "artifact_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000,
+                "pattern": "\\S"
+              },
+              "complete": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "artifact_id",
+              "value"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "derive"
+              },
+              "artifact_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000,
+                "pattern": "\\S"
+              },
+              "parents": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                },
+                "minItems": 1,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "complete": {
+                "type": "boolean"
+              },
+              "artifact_kind": {
+                "enum": [
+                  "summary",
+                  "memory",
+                  "tool_result",
+                  "transformation"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "artifact_id",
+              "value",
+              "parents"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "permission"
+              },
+              "source": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "purpose": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "recipient": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "operation": {
+                "enum": [
+                  "use",
+                  "memory",
+                  "export",
+                  "tool"
+                ]
+              },
+              "action": {
+                "enum": [
+                  "grant",
+                  "revoke",
+                  "pause",
+                  "resume"
+                ]
+              },
+              "expires_at": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "source",
+              "purpose",
+              "recipient",
+              "operation",
+              "action"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "clock"
+              },
+              "at": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000000000
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "at"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "message"
+              },
+              "role": {
+                "enum": [
+                  "minor",
+                  "assistant",
+                  "other"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 6000,
+                "pattern": "\\S"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "role",
+              "text"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "kind": {
+                "const": "request"
+              },
+              "purpose": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "recipient": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,64}$"
+              },
+              "operation": {
+                "enum": [
+                  "use",
+                  "memory",
+                  "export",
+                  "tool"
+                ]
+              },
+              "requirements": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                },
+                "minItems": 1,
+                "maxItems": 16,
+                "uniqueItems": true
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact_id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                    },
+                    "covers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                      },
+                      "minItems": 0,
+                      "maxItems": 16,
+                      "uniqueItems": true
+                    },
+                    "cost": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000
+                    }
+                  },
+                  "required": [
+                    "artifact_id",
+                    "covers",
+                    "cost"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 18
+              },
+              "expected": {
+                "enum": [
+                  "ALLOW",
+                  "BLOCK"
+                ]
+              },
+              "next": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ALLOW": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                  },
+                  "BLOCK": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                  },
+                  "REVIEW": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9_-]{1,64}$"
+                  }
+                }
+              },
+              "task": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "const": "addition"
+                  },
+                  "a": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 999
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 999
+                  }
+                },
+                "required": [
+                  "kind",
+                  "a",
+                  "b"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "purpose",
+              "recipient",
+              "operation",
+              "requirements",
+              "candidates",
+              "expected"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "language",
+    "events"
+  ],
+  "description": "Runtime additionally checks unique IDs, forward branches, total text budget, dependencies, candidate IDs, and at least one request."
+}

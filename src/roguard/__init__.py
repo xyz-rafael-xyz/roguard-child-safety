@@ -24,6 +24,22 @@ from .policy import (BoundaryCard, DisclosureEvidenceCard, GateCard, PermissionC
                      check_routing, check_support_contract)
 
 def __getattr__(name):
+    if name in {"FlowLedger", "ToolBinding", "ToolGateway"}:
+        from . import flow
+        return getattr(flow, name)
+    if name == "minimize_disclosure":
+        from .disclosure import minimize_disclosure
+        return minimize_disclosure
+    if name in {"run_scenario", "minimize_failure", "ReferenceTarget", "recorded_factory"}:
+        from . import interaction_lab
+        return getattr(interaction_lab, name)
+    if name in {"evaluate_consistency", "conversation_consistency"}:
+        from . import consistency
+        return getattr(consistency, name)
+    if name in {"summarize_runs", "tradeoff_frontier"}:
+        from . import lab_metrics
+        return getattr(lab_metrics, name)
+
     if name in {"analyze_conversation", "analyze_batch", "compare_reports", "ConversationScorer"}:
         from . import conversation
         return getattr(conversation, name)
@@ -34,6 +50,8 @@ def __getattr__(name):
 
 
 __all__ = [
+    "FlowLedger", "ToolBinding", "ToolGateway", "minimize_disclosure", "run_scenario", "minimize_failure",
+    "ReferenceTarget", "recorded_factory", "evaluate_consistency", "conversation_consistency", "summarize_runs", "tradeoff_frontier",
     "analyze_conversation", "analyze_batch", "compare_reports", "ConversationScorer", "review_response",
     "CATEGORIES", "ScreenResult", "HumanReviewSignal", "screen", "calibrate", "escalate",
     "HFClassifier", "MLXClassifier", "MLXTokenMarginClassifier", "MMBertResearchClassifier", "D1FactorResearchClassifier", "JointD1ResearchClassifier", "BalancedJointD1ResearchClassifier", "NLIResearchClassifier", "count_words",

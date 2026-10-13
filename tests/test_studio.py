@@ -59,6 +59,23 @@ class StudioTests(unittest.TestCase):
         payload['turns'][0]['role']=[]
         self.assertEqual(self.request('/api/conversation',payload)[0],400)
 
+    def test_interaction_lab_offline_routes_and_invalid_authority(self):
+        for asset in ('/lab', '/lab.js', '/lab.css'):
+            with urlopen(self.origin + asset, timeout=5) as response:
+                data=response.read().decode()
+                self.assertTrue(data)
+                self.assertNotIn('__ROGUARD_TOKEN__',data)
+                if asset=='/lab':self.assertIn(self.token,data)
+        status,report=self.request('/api/lab',{'language':'uk','target':'stale','reduce':True})
+        self.assertEqual(status,200)
+        self.assertEqual(report['run']['requests'][-1]['outcome'],'BLOCK')
+        self.assertEqual(report['reproducer']['status'],'REDUCED')
+        self.assertEqual(self.request('/api/lab',{},token='wrong')[0],403)
+        self.assertEqual(self.request('/api/lab',{'scenario':[]})[0],400)
+        self.assertEqual(self.request('/api/lab',{'callback':'run-code'})[0],400)
+        self.assertEqual(self.request('/api/lab/compare',{'language':'ro','seed':17})[0],200)
+        self.assertEqual(self.request('/api/lab/consistency',[])[0],400)
+
     def test_security_headers_and_packaged_assets(self):
         self.assertEqual(self.headers["Cache-Control"], "no-store")
         self.assertIn("default-src 'none'", self.headers["Content-Security-Policy"])
