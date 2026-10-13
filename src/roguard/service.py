@@ -2,7 +2,7 @@
 import argparse,asyncio,hashlib,hmac,json,os,time
 from pathlib import Path
 from .flow import identifier
-from .v1_contract import _strict_json_loads
+from .cli import _strict_json_loads
 from .conversation import analyze_conversation,ConversationScorer
 from .long_context import analyze_long_conversation
 
