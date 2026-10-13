@@ -1,19 +1,44 @@
 """Optional local semantic features. No network or message cache at inference."""
 from __future__ import annotations
 import math
+import re
+import unicodedata
 from pathlib import Path
 from .mmbert_study import MODEL_ID, REVISION, verify_base
 
 MAX_TOKENS = 256
 
+def normalize_semantic_text(text):
+    """Canonicalize surface forms without removing roles or turn boundaries.
+
+    Ordinary sentence casing is retained. Fully capitalized lines use sentence
+    case; this cannot reconstruct proper-name casing and is not a language fix.
+    """
+    lines=[]
+    for line in unicodedata.normalize('NFC',text).split('\n'):
+        line=re.sub(r'[^\S\n]+',' ',line)
+        match=re.match(r'^(minor|assistant|adult|other|unknown): ',line)
+        prefix=match.group(0) if match else ''
+        body=line[len(prefix):]
+        if body.isupper():
+            body=body.lower()
+            for index,char in enumerate(body):
+                if char.isalpha():
+                    body=body[:index]+char.upper()+body[index+1:]
+                    break
+        lines.append(prefix+body)
+    return '\n'.join(lines)
+
+
 class SemanticEncoder:
-    def __init__(self, path, device='cpu', quantize=False):
+    def __init__(self, path, device='cpu', quantize=False, normalize_inputs=True):
         import torch
         from transformers import AutoModel, AutoTokenizer
         path = Path(path)
         verify_base(path)
         self.torch = torch
         self.device = device
+        self.normalize_inputs = normalize_inputs
         self.tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True, trust_remote_code=False)
         self.model = AutoModel.from_pretrained(path, local_files_only=True, trust_remote_code=False,
                                                attn_implementation='eager').eval()
@@ -34,7 +59,7 @@ class SemanticEncoder:
         torch = self.torch
         with torch.inference_mode():
             for offset in range(0, len(texts), batch_size):
-                tokens = self.tokenizer(texts[offset:offset+batch_size], padding=True,
+                tokens = self.tokenizer([normalize_semantic_text(t) if self.normalize_inputs else t for t in texts[offset:offset+batch_size]], padding=True,
                                         truncation=False, return_tensors='pt')
                 if tokens['input_ids'].shape[1] > MAX_TOKENS:
                     raise ValueError('Semantic token limit exceeded; shorten the conversation')

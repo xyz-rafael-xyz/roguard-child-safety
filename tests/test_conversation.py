@@ -65,7 +65,10 @@ class ConversationTests(unittest.TestCase):
         for edit in [lambda p:p.update(extra=True),lambda p:p.update(turns=[]),lambda p:p.update(turns=p['turns']*17),lambda p:p.update(case_id='private words here'),lambda p:p.update(revision='without draft'),lambda p:p.update(contract={'language':'uk'})]:
             p=sample();edit(p)
             with self.assertRaises(ValueError):validate(p)
-        p=sample();p['turns'][0]['text']='x'*2001
+        for text in ['x'*2001, ' '*2000+'x']:
+            p=sample();p['turns'][0]['text']=text
+            with self.assertRaises(ValueError):validate(p)
+        p=sample();p['draft']=' '*6000+'x'
         with self.assertRaises(ValueError):validate(p)
 
     def test_batch_no_partial_return_and_comparison_checks_identity(self):
@@ -83,6 +86,25 @@ class ConversationTests(unittest.TestCase):
             self.assertIsNotNone(r['signal']['synthetic_score'])
             self.assertEqual(len(r['signal']['model']['fast_sha256']),64)
             self.assertIs(SyntheticMessageModel.packaged(language),SyntheticMessageModel.packaged(language))
+
+    def test_batch_matches_individual_results_without_mutating_input(self):
+        payloads=[sample('ro'),sample('uk')]
+        original=copy.deepcopy(payloads)
+        expected=[analyze_conversation(p) for p in payloads]
+        self.assertEqual(analyze_batch(payloads),expected)
+        self.assertEqual(payloads,original)
+        self.assertEqual(analyze_batch([sample('ro')]),[expected[0]])
+
+    def test_semantic_surface_normalization_preserves_roles_and_normal_text(self):
+        import unicodedata
+        from roguard.semantic import normalize_semantic_text
+        for text in ['minor: Mă simt singur.\nassistant: Putem discuta.',
+                     'minor: Мені потрібна підтримка.']:
+            self.assertEqual(normalize_semantic_text(text),text)
+            self.assertEqual(normalize_semantic_text(text.replace(' ','  ')),text)
+            self.assertEqual(normalize_semantic_text(unicodedata.normalize('NFD',text)),text)
+            upper='\n'.join(line.split(': ',1)[0]+': '+line.split(': ',1)[1].upper() for line in text.split('\n'))
+            self.assertEqual(normalize_semantic_text(upper),text)
 
     def test_optional_semantic_rejects_missing_base_files(self):
         from tempfile import TemporaryDirectory

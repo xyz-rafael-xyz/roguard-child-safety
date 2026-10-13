@@ -41,6 +41,7 @@ jobs:
           "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_uk.json > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-conversation" --jsonl examples/conversations.jsonl > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/python" -c 'import os; from importlib.metadata import version; assert version("roguard-child-safety") == os.environ["RELEASE_TAG"].removeprefix("v")'
       - uses: actions/upload-artifact@v4
         with:
@@ -81,4 +82,4 @@ jobs:
         run: |
           cp dist/roguard_child_safety-*.tar.gz dist/roguard-child-safety-latest.tar.gz
           cp dist/roguard_child_safety-*.tar.gz dist/roguard-local-latest.tar.gz
-          gh release create "$RELEASE_TAG" dist/roguard-child-safety-latest.tar.gz dist/roguard-local-latest.tar.gz dist/roguard_child_safety-*.whl --title "RoGuard Child Safety ${RELEASE_TAG#v}" --generate-notes
+          gh release create "$RELEASE_TAG" dist/roguard-child-safety-latest.tar.gz dist/roguard-local-latest.tar.gz dist/roguard_child_safety-*.whl --title "RoGuard ${RELEASE_TAG#v}" --generate-notes

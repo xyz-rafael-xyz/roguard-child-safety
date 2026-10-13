@@ -91,13 +91,13 @@ def validate(payload):
     for turn in turns:
         if not isinstance(turn,dict) or set(turn)!={'role','text'} or not isinstance(turn.get('role'),str) or turn['role'] not in ROLES:
             raise ValueError('Each turn needs a supported declared role and text')
-        if not isinstance(turn['text'],str) or not 1<=len(turn['text'].strip())<=2000:
+        if not isinstance(turn['text'],str) or (not turn['text'].strip() or len(turn['text'])>2000):
             raise ValueError('Each turn must have 1 to 2000 characters')
     if sum(len(t['text']) for t in turns)>MAX_TOTAL_CHARS:raise ValueError('Conversation too long')
     if 'case_id' in payload and (not isinstance(payload['case_id'],str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}',payload['case_id'])):
         raise ValueError('Case ID must be a short opaque identifier')
     for field in ('draft','revision'):
-        if field in payload and (not isinstance(payload[field],str) or not 1<=len(payload[field].strip())<=6000):
+        if field in payload and (not isinstance(payload[field],str) or (not payload[field].strip() or len(payload[field])>6000)):
             raise ValueError('Drafts must contain 1 to 6000 characters')
     if 'revision' in payload and 'draft' not in payload:raise ValueError('Revision requires an original draft')
     for field in ('contract','audit'):
@@ -147,7 +147,7 @@ def analyze_conversation(payload, scorer=None):
                                  'basis':'turn_ablation_sensitivity_not_verified_evidence'})
             evidence.sort(key=lambda e:-abs(e['score_change_if_omitted']))
             evidence=evidence[:3]
-            identity={'backend':scorer.backend,'fast_sha256':fast_model(language).sha256,
+            identity={'backend':scorer.backend,'semantic_preprocessing':'surface-v1' if scorer.backend!='fast' else None,'fast_sha256':fast_model(language).sha256,
                       'semantic_head_sha256':getattr(scorer,'head_sha256',None),
                       'base_revision':configuration().get('base_revision') if scorer.backend!='fast' else None}
         except ValueError:
@@ -250,7 +250,11 @@ def main():
     p.add_argument('--model-path',type=Path);p.add_argument('--device',choices=['cpu','mps','cuda'],default='cpu')
     args=p.parse_args()
     try:
-        raw=args.input.read_text(encoding='utf-8') if args.input else sys.stdin.read(MAX_TOTAL_CHARS*1000+1)
+        if args.input:
+            with args.input.open(encoding='utf-8') as stream:
+                raw=stream.read(MAX_TOTAL_CHARS*1000+1)
+        else:
+            raw=sys.stdin.read(MAX_TOTAL_CHARS*1000+1)
         if len(raw)>MAX_TOTAL_CHARS*1000:raise ValueError('Input too large')
         scorer=ConversationScorer(args.backend,args.model_path,args.device)
         if args.jsonl:

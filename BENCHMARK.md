@@ -1,5 +1,7 @@
 # RoGuard benchmark
 
+Current conversation-model results are in [V4_RELEASE.md](docs/V4_RELEASE.md). The second frozen semantic model scored 96.7%/96.2% balanced accuracy on 100 Romanian/100 Ukrainian fictional conversations, with 59/60 and 57/60 positive recall and 2/40 and 1/40 false alerts. The uncertainty-band counts, complete-family results, other backends, source-shift diagnostics and limitations are reported there. These new results do not supersede or repair the historical abstract-card studies below.
+
 ## RoGuard Local 3.0.0 fictional-message study, October 2026
 
 The new offline D1 advisory scorer was fitted on 5,120 generated Romanian/Ukrainian rows derived from **40 distinct training pairs**. Six development pairs and six test pairs per language were formatted into 96 contrast pairs each. The generator, selection rule, targets, and held-out stems were frozen in commit `49b8f72`; selected model bytes and cutoffs were frozen in `9c761c6` before the once-opened test. [The complete v3 result](research/v3-message-selection/holdout-result.json) and [scope note](docs/V3_MESSAGE_RELEASE.md) provide hashes, per-family errors, and reproduction steps.

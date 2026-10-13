@@ -21,3 +21,7 @@ The model is advisory. Unknown, unsupported and ambiguous inputs produce an expl
 ## Release criteria
 
 All existing and new relevant tests pass; clean packaged CLI and Studio workflows work; evaluated artifacts match reported hashes; CI passes on supported Python versions; a stronger semantic candidate is offered only with its measured results and separate optional dependencies. No claim of universal superiority or first-of-its-kind status is made.
+
+## Implementation record
+
+The deliverables are implemented in v4.0.0. The [release report](V4_RELEASE.md) records two frozen training iterations, all comparator results, source-shift diagnostics and the quantization outcome. The [workspace guide](CONVERSATION_WORKSPACE.md) documents setup, APIs, input limits and current limitations.

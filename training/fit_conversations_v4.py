@@ -74,7 +74,7 @@ def main():
         record['candidates'].append({'kind':'character','C':c,'dev':report})
         print('character',c,report,flush=True)
         if best_char is None or rank(report)>rank(best_char[0]): best_char=(report,model,scores,c)
-    encoder=SemanticEncoder(args.base,args.device)
+    encoder=SemanticEncoder(args.base,args.device,normalize_inputs=False)  # Reproduce the registered raw-input fit.
     started=time.perf_counter(); unique=list(dict.fromkeys(texts)); encoded=encoder.encode(unique); lookup=dict(zip(unique,encoded)); features=np.asarray([lookup[text] for text in texts]);dfeatures=encoder.encode(dtexts)
     record['embedding_seconds']=time.perf_counter()-started
     print('embedded',features.shape,'seconds',record['embedding_seconds'],flush=True)

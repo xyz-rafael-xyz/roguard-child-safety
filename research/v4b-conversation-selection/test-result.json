@@ -1,0 +1,3197 @@
+{
+  "source_commit": "6d8565acff46f29aabd791161b6b58ef1c6ff33a",
+  "test_sha256": "e151911a42de3de78903299ab64f1a89339d2f25b4d95c9bebae8f418a8ff2ee",
+  "test_rows": 200,
+  "seconds": 1.6784144579432905,
+  "reports": {
+    "v3_last_message": {
+      "ro": {
+        "tp": 28,
+        "fn": 32,
+        "fp": 17,
+        "tn": 23,
+        "recall": 0.4666666666666667,
+        "fpr": 0.425,
+        "balanced_accuracy": 0.5208333333333333,
+        "precision": 0.6222222222222222,
+        "false_alerts_per_1000_negatives": 425.0,
+        "recall_wilson_descriptive": [
+          0.3463,
+          0.5911
+        ],
+        "fpr_wilson_descriptive": [
+          0.2851,
+          0.578
+        ],
+        "complete_families": 0,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 1.0,
+        "abstentions": 0,
+        "decided_misses": 32,
+        "decided_false_alerts": 17,
+        "overall_review_or_unresolved": 45,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 14,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 3,
+            "abstentions": 0
+          },
+          "personal": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 20,
+            "abstentions": 0
+          }
+        }
+      },
+      "uk": {
+        "tp": 22,
+        "fn": 38,
+        "fp": 12,
+        "tn": 28,
+        "recall": 0.36666666666666664,
+        "fpr": 0.3,
+        "balanced_accuracy": 0.5333333333333333,
+        "precision": 0.6470588235294118,
+        "false_alerts_per_1000_negatives": 300.0,
+        "recall_wilson_descriptive": [
+          0.2562,
+          0.4932
+        ],
+        "fpr_wilson_descriptive": [
+          0.1807,
+          0.4543
+        ],
+        "complete_families": 0,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 1.0,
+        "abstentions": 0,
+        "decided_misses": 38,
+        "decided_false_alerts": 12,
+        "overall_review_or_unresolved": 34,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 9,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 11,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 1,
+            "abstentions": 0
+          },
+          "personal": {
+            "total": 20,
+            "errors": 9,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 20,
+            "abstentions": 0
+          }
+        }
+      }
+    },
+    "fast": {
+      "ro": {
+        "tp": 45,
+        "fn": 15,
+        "fp": 8,
+        "tn": 32,
+        "recall": 0.75,
+        "fpr": 0.2,
+        "balanced_accuracy": 0.775,
+        "precision": 0.8490566037735849,
+        "false_alerts_per_1000_negatives": 200.0,
+        "recall_wilson_descriptive": [
+          0.6277,
+          0.8422
+        ],
+        "fpr_wilson_descriptive": [
+          0.105,
+          0.3476
+        ],
+        "complete_families": 8,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.88,
+        "abstentions": 12,
+        "decided_misses": 13,
+        "decided_false_alerts": 5,
+        "overall_review_or_unresolved": 58,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 3,
+            "abstentions": 3
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 3,
+            "abstentions": 2
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 5,
+            "abstentions": 4
+          },
+          "personal": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 2
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 1
+          }
+        }
+      },
+      "uk": {
+        "tp": 38,
+        "fn": 22,
+        "fp": 2,
+        "tn": 38,
+        "recall": 0.6333333333333333,
+        "fpr": 0.05,
+        "balanced_accuracy": 0.7916666666666666,
+        "precision": 0.95,
+        "false_alerts_per_1000_negatives": 50.0,
+        "recall_wilson_descriptive": [
+          0.5068,
+          0.7438
+        ],
+        "fpr_wilson_descriptive": [
+          0.0138,
+          0.165
+        ],
+        "complete_families": 7,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.84,
+        "abstentions": 16,
+        "decided_misses": 18,
+        "decided_false_alerts": 1,
+        "overall_review_or_unresolved": 46,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 5,
+            "abstentions": 1
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 1
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 2
+          },
+          "personal": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 5
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 11,
+            "abstentions": 7
+          }
+        }
+      }
+    },
+    "semantic": {
+      "ro": {
+        "tp": 59,
+        "fn": 1,
+        "fp": 2,
+        "tn": 38,
+        "recall": 0.9833333333333333,
+        "fpr": 0.05,
+        "balanced_accuracy": 0.9666666666666666,
+        "precision": 0.9672131147540983,
+        "false_alerts_per_1000_negatives": 50.0,
+        "recall_wilson_descriptive": [
+          0.9114,
+          0.9971
+        ],
+        "fpr_wilson_descriptive": [
+          0.0138,
+          0.165
+        ],
+        "complete_families": 17,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.97,
+        "abstentions": 3,
+        "decided_misses": 1,
+        "decided_false_alerts": 1,
+        "overall_review_or_unresolved": 62,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 1,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 1
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          }
+        }
+      },
+      "uk": {
+        "tp": 57,
+        "fn": 3,
+        "fp": 1,
+        "tn": 39,
+        "recall": 0.95,
+        "fpr": 0.025,
+        "balanced_accuracy": 0.9624999999999999,
+        "precision": 0.9827586206896551,
+        "false_alerts_per_1000_negatives": 25.0,
+        "recall_wilson_descriptive": [
+          0.863,
+          0.9829
+        ],
+        "fpr_wilson_descriptive": [
+          0.0044,
+          0.1288
+        ],
+        "complete_families": 16,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.95,
+        "abstentions": 5,
+        "decided_misses": 1,
+        "decided_false_alerts": 1,
+        "overall_review_or_unresolved": 60,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 3
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 1,
+            "abstentions": 0
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 3,
+            "abstentions": 2
+          }
+        }
+      }
+    },
+    "hybrid": {
+      "ro": {
+        "tp": 52,
+        "fn": 8,
+        "fp": 1,
+        "tn": 39,
+        "recall": 0.8666666666666667,
+        "fpr": 0.025,
+        "balanced_accuracy": 0.9208333333333334,
+        "precision": 0.9811320754716981,
+        "false_alerts_per_1000_negatives": 25.0,
+        "recall_wilson_descriptive": [
+          0.7583,
+          0.9309
+        ],
+        "fpr_wilson_descriptive": [
+          0.0044,
+          0.1288
+        ],
+        "complete_families": 15,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.88,
+        "abstentions": 12,
+        "decided_misses": 6,
+        "decided_false_alerts": 0,
+        "overall_review_or_unresolved": 56,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 3
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 1,
+            "abstentions": 1
+          },
+          "personal": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 4
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 4,
+            "abstentions": 3
+          }
+        }
+      },
+      "uk": {
+        "tp": 46,
+        "fn": 14,
+        "fp": 0,
+        "tn": 40,
+        "recall": 0.7666666666666667,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.8833333333333333,
+        "precision": 1.0,
+        "false_alerts_per_1000_negatives": 0.0,
+        "recall_wilson_descriptive": [
+          0.6456,
+          0.8556
+        ],
+        "fpr_wilson_descriptive": [
+          0.0,
+          0.0876
+        ],
+        "complete_families": 14,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.88,
+        "abstentions": 12,
+        "decided_misses": 10,
+        "decided_false_alerts": 0,
+        "overall_review_or_unresolved": 50,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 4,
+            "abstentions": 4
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "personal": {
+            "total": 20,
+            "errors": 4,
+            "abstentions": 4
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 6,
+            "abstentions": 4
+          }
+        }
+      }
+    },
+    "previous_v4_fast": {
+      "ro": {
+        "tp": 39,
+        "fn": 21,
+        "fp": 7,
+        "tn": 33,
+        "recall": 0.65,
+        "fpr": 0.175,
+        "balanced_accuracy": 0.7375,
+        "precision": 0.8478260869565217,
+        "false_alerts_per_1000_negatives": 175.0,
+        "recall_wilson_descriptive": [
+          0.5236,
+          0.7583
+        ],
+        "fpr_wilson_descriptive": [
+          0.0875,
+          0.3195
+        ],
+        "complete_families": 3,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.4,
+        "abstentions": 60,
+        "decided_misses": 8,
+        "decided_false_alerts": 0,
+        "overall_review_or_unresolved": 62,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 3,
+            "abstentions": 17
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 7,
+            "abstentions": 10
+          },
+          "personal": {
+            "total": 20,
+            "errors": 14,
+            "abstentions": 16
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 4,
+            "abstentions": 17
+          }
+        }
+      },
+      "uk": {
+        "tp": 46,
+        "fn": 14,
+        "fp": 16,
+        "tn": 24,
+        "recall": 0.7666666666666667,
+        "fpr": 0.4,
+        "balanced_accuracy": 0.6833333333333333,
+        "precision": 0.7419354838709677,
+        "false_alerts_per_1000_negatives": 400.0,
+        "recall_wilson_descriptive": [
+          0.6456,
+          0.8556
+        ],
+        "fpr_wilson_descriptive": [
+          0.2635,
+          0.554
+        ],
+        "complete_families": 3,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.68,
+        "abstentions": 32,
+        "decided_misses": 6,
+        "decided_false_alerts": 12,
+        "overall_review_or_unresolved": 75,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 4
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 2,
+            "abstentions": 3
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 14,
+            "abstentions": 6
+          },
+          "personal": {
+            "total": 20,
+            "errors": 7,
+            "abstentions": 10
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 5,
+            "abstentions": 9
+          }
+        }
+      }
+    },
+    "previous_v4_semantic": {
+      "ro": {
+        "tp": 60,
+        "fn": 0,
+        "fp": 15,
+        "tn": 25,
+        "recall": 1.0,
+        "fpr": 0.375,
+        "balanced_accuracy": 0.8125,
+        "precision": 0.8,
+        "false_alerts_per_1000_negatives": 375.0,
+        "recall_wilson_descriptive": [
+          0.9398,
+          1.0
+        ],
+        "fpr_wilson_descriptive": [
+          0.2422,
+          0.5297
+        ],
+        "complete_families": 5,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.98,
+        "abstentions": 2,
+        "decided_misses": 0,
+        "decided_false_alerts": 14,
+        "overall_review_or_unresolved": 76,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 15,
+            "abstentions": 1
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          }
+        }
+      },
+      "uk": {
+        "tp": 60,
+        "fn": 0,
+        "fp": 12,
+        "tn": 28,
+        "recall": 1.0,
+        "fpr": 0.3,
+        "balanced_accuracy": 0.85,
+        "precision": 0.8333333333333334,
+        "false_alerts_per_1000_negatives": 300.0,
+        "recall_wilson_descriptive": [
+          0.9398,
+          1.0
+        ],
+        "fpr_wilson_descriptive": [
+          0.1807,
+          0.4543
+        ],
+        "complete_families": 8,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.96,
+        "abstentions": 4,
+        "decided_misses": 0,
+        "decided_false_alerts": 10,
+        "overall_review_or_unresolved": 73,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 12,
+            "abstentions": 3
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          }
+        }
+      }
+    },
+    "previous_v4_hybrid": {
+      "ro": {
+        "tp": 60,
+        "fn": 0,
+        "fp": 11,
+        "tn": 29,
+        "recall": 1.0,
+        "fpr": 0.275,
+        "balanced_accuracy": 0.8625,
+        "precision": 0.8450704225352113,
+        "false_alerts_per_1000_negatives": 275.0,
+        "recall_wilson_descriptive": [
+          0.9398,
+          1.0
+        ],
+        "fpr_wilson_descriptive": [
+          0.1611,
+          0.4283
+        ],
+        "complete_families": 9,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.91,
+        "abstentions": 9,
+        "decided_misses": 0,
+        "decided_false_alerts": 8,
+        "overall_review_or_unresolved": 73,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 11,
+            "abstentions": 5
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 3
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 1
+          }
+        }
+      },
+      "uk": {
+        "tp": 60,
+        "fn": 0,
+        "fp": 15,
+        "tn": 25,
+        "recall": 1.0,
+        "fpr": 0.375,
+        "balanced_accuracy": 0.8125,
+        "precision": 0.8,
+        "false_alerts_per_1000_negatives": 375.0,
+        "recall_wilson_descriptive": [
+          0.9398,
+          1.0
+        ],
+        "fpr_wilson_descriptive": [
+          0.2422,
+          0.5297
+        ],
+        "complete_families": 5,
+        "families": 20,
+        "setting_groups": 20,
+        "need_groups": 20,
+        "coverage": 0.96,
+        "abstentions": 4,
+        "decided_misses": 0,
+        "decided_false_alerts": 13,
+        "overall_review_or_unresolved": 77,
+        "per_discourse": {
+          "direct": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "fiction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 2
+          },
+          "ordinary": {
+            "total": 20,
+            "errors": 15,
+            "abstentions": 2
+          },
+          "personal": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          },
+          "retraction": {
+            "total": 20,
+            "errors": 0,
+            "abstentions": 0
+          }
+        }
+      }
+    }
+  },
+  "synthetic_only": true,
+  "independent_author_validation": false,
+  "row_intervals_ignore_shared_templates": true,
+  "predictions": [
+    {
+      "id": "v4b-ro-test-0-direct-0",
+      "family": "v4b-ro-test-0",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5041492329477494,
+        "fast": 0.9502456294250246,
+        "semantic": 0.9926546384446527,
+        "hybrid": 0.9714501339348387
+      }
+    },
+    {
+      "id": "v4b-ro-test-0-ordinary-0",
+      "family": "v4b-ro-test-0",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.15208467459349384,
+        "fast": 0.07468132039032874,
+        "semantic": 0.0005728517829310318,
+        "hybrid": 0.03762708608662989
+      }
+    },
+    {
+      "id": "v4b-ro-test-0-personal-0",
+      "family": "v4b-ro-test-0",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5041492329477494,
+        "fast": 0.817850125804107,
+        "semantic": 0.991371530234411,
+        "hybrid": 0.9046108280192591
+      }
+    },
+    {
+      "id": "v4b-ro-test-0-fiction-0",
+      "family": "v4b-ro-test-0",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.5041492329477494,
+        "fast": 0.20212511014350376,
+        "semantic": 0.08631999127637717,
+        "hybrid": 0.14422255070994047
+      }
+    },
+    {
+      "id": "v4b-ro-test-0-retraction-0",
+      "family": "v4b-ro-test-0",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.7673007797365615,
+        "semantic": 0.9494184266706888,
+        "hybrid": 0.8583596032036251
+      }
+    },
+    {
+      "id": "v4b-ro-test-1-direct-0",
+      "family": "v4b-ro-test-1",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6475608197709876,
+        "fast": 0.9645290884676125,
+        "semantic": 0.9924839125548088,
+        "hybrid": 0.9785065005112107
+      }
+    },
+    {
+      "id": "v4b-ro-test-1-ordinary-0",
+      "family": "v4b-ro-test-1",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.2801181868793412,
+        "fast": 0.462343840287187,
+        "semantic": 0.14353738546986017,
+        "hybrid": 0.3029406128785236
+      }
+    },
+    {
+      "id": "v4b-ro-test-1-personal-0",
+      "family": "v4b-ro-test-1",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6475608197709876,
+        "fast": 0.8664627661872695,
+        "semantic": 0.9812359563313247,
+        "hybrid": 0.9238493612592971
+      }
+    },
+    {
+      "id": "v4b-ro-test-1-fiction-0",
+      "family": "v4b-ro-test-1",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.6475608197709876,
+        "fast": 0.30286323938576515,
+        "semantic": 0.11418881217999466,
+        "hybrid": 0.2085260257828799
+      }
+    },
+    {
+      "id": "v4b-ro-test-1-retraction-0",
+      "family": "v4b-ro-test-1",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.8597671265195959,
+        "semantic": 0.9471845246826415,
+        "hybrid": 0.9034758256011186
+      }
+    },
+    {
+      "id": "v4b-ro-test-2-direct-0",
+      "family": "v4b-ro-test-2",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.858623286585895,
+        "fast": 0.9713673043247935,
+        "semantic": 0.9954890399335138,
+        "hybrid": 0.9834281721291536
+      }
+    },
+    {
+      "id": "v4b-ro-test-2-ordinary-0",
+      "family": "v4b-ro-test-2",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.39192371214408184,
+        "fast": 0.18032906451933667,
+        "semantic": 0.00256257178079008,
+        "hybrid": 0.09144581815006338
+      }
+    },
+    {
+      "id": "v4b-ro-test-2-personal-0",
+      "family": "v4b-ro-test-2",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.858623286585895,
+        "fast": 0.8853157789064945,
+        "semantic": 0.9946187245658429,
+        "hybrid": 0.9399672517361687
+      }
+    },
+    {
+      "id": "v4b-ro-test-2-fiction-0",
+      "family": "v4b-ro-test-2",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.858623286585895,
+        "fast": 0.3547285525329326,
+        "semantic": 0.14349633915274138,
+        "hybrid": 0.24911244584283698
+      }
+    },
+    {
+      "id": "v4b-ro-test-2-retraction-0",
+      "family": "v4b-ro-test-2",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.8692860809071246,
+        "semantic": 0.9530955643935103,
+        "hybrid": 0.9111908226503174
+      }
+    },
+    {
+      "id": "v4b-ro-test-3-direct-0",
+      "family": "v4b-ro-test-3",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.2745899908473572,
+        "fast": 0.26442282283113705,
+        "semantic": 0.896404123304179,
+        "hybrid": 0.580413473067658
+      }
+    },
+    {
+      "id": "v4b-ro-test-3-ordinary-0",
+      "family": "v4b-ro-test-3",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.17896666111173995,
+        "fast": 0.0938358201714208,
+        "semantic": 0.011140082246224262,
+        "hybrid": 0.05248795120882253
+      }
+    },
+    {
+      "id": "v4b-ro-test-3-personal-0",
+      "family": "v4b-ro-test-3",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.2745899908473572,
+        "fast": 0.21909208754648718,
+        "semantic": 0.9351843404563923,
+        "hybrid": 0.5771382140014397
+      }
+    },
+    {
+      "id": "v4b-ro-test-3-fiction-0",
+      "family": "v4b-ro-test-3",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.2745899908473572,
+        "fast": 0.019760355926130395,
+        "semantic": 0.06163075057214734,
+        "hybrid": 0.04069555324913887
+      }
+    },
+    {
+      "id": "v4b-ro-test-3-retraction-0",
+      "family": "v4b-ro-test-3",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.17708535326926375,
+        "semantic": 0.8437283415756852,
+        "hybrid": 0.5104068474224744
+      }
+    },
+    {
+      "id": "v4b-ro-test-4-direct-0",
+      "family": "v4b-ro-test-4",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.8766213670532875,
+        "fast": 0.9965861217293511,
+        "semantic": 0.9995811733438392,
+        "hybrid": 0.9980836475365952
+      }
+    },
+    {
+      "id": "v4b-ro-test-4-ordinary-0",
+      "family": "v4b-ro-test-4",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.5968565789919614,
+        "fast": 0.4651066539550365,
+        "semantic": 0.11250295083567868,
+        "hybrid": 0.28880480239535755
+      }
+    },
+    {
+      "id": "v4b-ro-test-4-personal-0",
+      "family": "v4b-ro-test-4",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.8766213670532875,
+        "fast": 0.9748878108999551,
+        "semantic": 0.9984865805315162,
+        "hybrid": 0.9866871957157357
+      }
+    },
+    {
+      "id": "v4b-ro-test-4-fiction-0",
+      "family": "v4b-ro-test-4",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.8766213670532875,
+        "fast": 0.6455396090478549,
+        "semantic": 0.3162691517707025,
+        "hybrid": 0.4809043804092787
+      }
+    },
+    {
+      "id": "v4b-ro-test-4-retraction-0",
+      "family": "v4b-ro-test-4",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.971728119823852,
+        "semantic": 0.9883400399154549,
+        "hybrid": 0.9800340798696534
+      }
+    },
+    {
+      "id": "v4b-ro-test-5-direct-0",
+      "family": "v4b-ro-test-5",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.7355103161512152,
+        "fast": 0.9248368821523015,
+        "semantic": 0.8877811382680292,
+        "hybrid": 0.9063090102101654
+      }
+    },
+    {
+      "id": "v4b-ro-test-5-ordinary-0",
+      "family": "v4b-ro-test-5",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.5720094777866943,
+        "fast": 0.7681428116546366,
+        "semantic": 0.08223040781701693,
+        "hybrid": 0.4251866097358268
+      }
+    },
+    {
+      "id": "v4b-ro-test-5-personal-0",
+      "family": "v4b-ro-test-5",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.7355103161512152,
+        "fast": 0.7922668232567838,
+        "semantic": 0.9756171605036917,
+        "hybrid": 0.8839419918802378
+      }
+    },
+    {
+      "id": "v4b-ro-test-5-fiction-0",
+      "family": "v4b-ro-test-5",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.7355103161512152,
+        "fast": 0.20479550351645126,
+        "semantic": 0.013007420886235079,
+        "hybrid": 0.10890146220134317
+      }
+    },
+    {
+      "id": "v4b-ro-test-5-retraction-0",
+      "family": "v4b-ro-test-5",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.7396661232858467,
+        "semantic": 0.7760453901957172,
+        "hybrid": 0.757855756740782
+      }
+    },
+    {
+      "id": "v4b-ro-test-6-direct-0",
+      "family": "v4b-ro-test-6",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6707819624747786,
+        "fast": 0.6858389547926318,
+        "semantic": 0.900794884223082,
+        "hybrid": 0.7933169195078569
+      }
+    },
+    {
+      "id": "v4b-ro-test-6-ordinary-0",
+      "family": "v4b-ro-test-6",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.2668728339789932,
+        "fast": 0.06190864686910494,
+        "semantic": 0.06820382128102247,
+        "hybrid": 0.0650562340750637
+      }
+    },
+    {
+      "id": "v4b-ro-test-6-personal-0",
+      "family": "v4b-ro-test-6",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6707819624747786,
+        "fast": 0.5058821827614475,
+        "semantic": 0.9497491573890328,
+        "hybrid": 0.7278156700752401
+      }
+    },
+    {
+      "id": "v4b-ro-test-6-fiction-0",
+      "family": "v4b-ro-test-6",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.6707819624747786,
+        "fast": 0.08408503635708607,
+        "semantic": 0.079259947774151,
+        "hybrid": 0.08167249206561854
+      }
+    },
+    {
+      "id": "v4b-ro-test-6-retraction-0",
+      "family": "v4b-ro-test-6",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.45107324137954496,
+        "semantic": 0.838070424482026,
+        "hybrid": 0.6445718329307855
+      }
+    },
+    {
+      "id": "v4b-ro-test-7-direct-0",
+      "family": "v4b-ro-test-7",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6761482328548045,
+        "fast": 0.9821369036076737,
+        "semantic": 0.9909603524377087,
+        "hybrid": 0.9865486280226912
+      }
+    },
+    {
+      "id": "v4b-ro-test-7-ordinary-0",
+      "family": "v4b-ro-test-7",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.17199340910330307,
+        "fast": 0.1418668248619091,
+        "semantic": 0.0525472129564684,
+        "hybrid": 0.09720701890918876
+      }
+    },
+    {
+      "id": "v4b-ro-test-7-personal-0",
+      "family": "v4b-ro-test-7",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.6761482328548045,
+        "fast": 0.9069426475246948,
+        "semantic": 0.9918833731871043,
+        "hybrid": 0.9494130103558995
+      }
+    },
+    {
+      "id": "v4b-ro-test-7-fiction-0",
+      "family": "v4b-ro-test-7",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.6761482328548045,
+        "fast": 0.3820564929465648,
+        "semantic": 0.0814386515288122,
+        "hybrid": 0.2317475722376885
+      }
+    },
+    {
+      "id": "v4b-ro-test-7-retraction-0",
+      "family": "v4b-ro-test-7",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.8973387936406146,
+        "semantic": 0.9460109670146731,
+        "hybrid": 0.9216748803276439
+      }
+    },
+    {
+      "id": "v4b-ro-test-8-direct-0",
+      "family": "v4b-ro-test-8",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.7762767721836316,
+        "fast": 0.9322530326912997,
+        "semantic": 0.9958176523673155,
+        "hybrid": 0.9640353425293076
+      }
+    },
+    {
+      "id": "v4b-ro-test-8-ordinary-0",
+      "family": "v4b-ro-test-8",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.11272772345916005,
+        "fast": 0.06957391580297116,
+        "semantic": 0.06341045307506189,
+        "hybrid": 0.06649218443901653
+      }
+    },
+    {
+      "id": "v4b-ro-test-8-personal-0",
+      "family": "v4b-ro-test-8",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.7762767721836316,
+        "fast": 0.7784729604906475,
+        "semantic": 0.9942799400758353,
+        "hybrid": 0.8863764502832414
+      }
+    },
+    {
+      "id": "v4b-ro-test-8-fiction-0",
+      "family": "v4b-ro-test-8",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.7762767721836316,
+        "fast": 0.17099003559447212,
+        "semantic": 0.13592260873784434,
+        "hybrid": 0.15345632216615823
+      }
+    },
+    {
+      "id": "v4b-ro-test-8-retraction-0",
+      "family": "v4b-ro-test-8",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.7112818358984482,
+        "semantic": 0.9692082708277716,
+        "hybrid": 0.8402450533631098
+      }
+    },
+    {
+      "id": "v4b-ro-test-9-direct-0",
+      "family": "v4b-ro-test-9",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3654723488804709,
+        "fast": 0.5732134825929865,
+        "semantic": 0.7564483586397968,
+        "hybrid": 0.6648309206163916
+      }
+    },
+    {
+      "id": "v4b-ro-test-9-ordinary-0",
+      "family": "v4b-ro-test-9",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.34563951304390245,
+        "fast": 0.14247090737401338,
+        "semantic": 0.009696999039527743,
+        "hybrid": 0.07608395320677057
+      }
+    },
+    {
+      "id": "v4b-ro-test-9-personal-0",
+      "family": "v4b-ro-test-9",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3654723488804709,
+        "fast": 0.4246645987347913,
+        "semantic": 0.9606103379905155,
+        "hybrid": 0.6926374683626534
+      }
+    },
+    {
+      "id": "v4b-ro-test-9-fiction-0",
+      "family": "v4b-ro-test-9",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3654723488804709,
+        "fast": 0.07102390000496943,
+        "semantic": 0.02210499544118936,
+        "hybrid": 0.0465644477230794
+      }
+    },
+    {
+      "id": "v4b-ro-test-9-retraction-0",
+      "family": "v4b-ro-test-9",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.4062484501493228,
+        "semantic": 0.6847211519498762,
+        "hybrid": 0.5454848010495995
+      }
+    },
+    {
+      "id": "v4b-ro-test-10-direct-0",
+      "family": "v4b-ro-test-10",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.26325413433830225,
+        "fast": 0.4749070610351814,
+        "semantic": 0.8945262496349475,
+        "hybrid": 0.6847166553350644
+      }
+    },
+    {
+      "id": "v4b-ro-test-10-ordinary-0",
+      "family": "v4b-ro-test-10",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.11978145692801907,
+        "fast": 0.02838054193525867,
+        "semantic": 0.03881209067041019,
+        "hybrid": 0.03359631630283443
+      }
+    },
+    {
+      "id": "v4b-ro-test-10-personal-0",
+      "family": "v4b-ro-test-10",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.26325413433830225,
+        "fast": 0.33720228696975346,
+        "semantic": 0.9736851776296638,
+        "hybrid": 0.6554437322997086
+      }
+    },
+    {
+      "id": "v4b-ro-test-10-fiction-0",
+      "family": "v4b-ro-test-10",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.26325413433830225,
+        "fast": 0.03487327142964058,
+        "semantic": 0.030230005808418416,
+        "hybrid": 0.032551638619029495
+      }
+    },
+    {
+      "id": "v4b-ro-test-10-retraction-0",
+      "family": "v4b-ro-test-10",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.2953637329458568,
+        "semantic": 0.7716216202473383,
+        "hybrid": 0.5334926765965975
+      }
+    },
+    {
+      "id": "v4b-ro-test-11-direct-0",
+      "family": "v4b-ro-test-11",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.20338263233877527,
+        "fast": 0.28428908992533386,
+        "semantic": 0.196726386599574,
+        "hybrid": 0.24050773826245392
+      }
+    },
+    {
+      "id": "v4b-ro-test-11-ordinary-0",
+      "family": "v4b-ro-test-11",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.4260497831613477,
+        "fast": 0.0423433213639966,
+        "semantic": 0.00011699674459152989,
+        "hybrid": 0.021230159054294064
+      }
+    },
+    {
+      "id": "v4b-ro-test-11-personal-0",
+      "family": "v4b-ro-test-11",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.20338263233877527,
+        "fast": 0.2110716282356702,
+        "semantic": 0.9030814427342932,
+        "hybrid": 0.5570765354849817
+      }
+    },
+    {
+      "id": "v4b-ro-test-11-fiction-0",
+      "family": "v4b-ro-test-11",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.20338263233877527,
+        "fast": 0.02143743939998888,
+        "semantic": 0.008018545928650046,
+        "hybrid": 0.014727992664319463
+      }
+    },
+    {
+      "id": "v4b-ro-test-11-retraction-0",
+      "family": "v4b-ro-test-11",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.23585065001809633,
+        "semantic": 0.5761915891533701,
+        "hybrid": 0.4060211195857332
+      }
+    },
+    {
+      "id": "v4b-ro-test-12-direct-0",
+      "family": "v4b-ro-test-12",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5215924057574581,
+        "fast": 0.9584519083538674,
+        "semantic": 0.9509047272965995,
+        "hybrid": 0.9546783178252334
+      }
+    },
+    {
+      "id": "v4b-ro-test-12-ordinary-0",
+      "family": "v4b-ro-test-12",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.10603997374159475,
+        "fast": 0.05108027030113287,
+        "semantic": 0.007773152233043655,
+        "hybrid": 0.029426711267088262
+      }
+    },
+    {
+      "id": "v4b-ro-test-12-personal-0",
+      "family": "v4b-ro-test-12",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5215924057574581,
+        "fast": 0.8582568771425269,
+        "semantic": 0.9785660022942911,
+        "hybrid": 0.918411439718409
+      }
+    },
+    {
+      "id": "v4b-ro-test-12-fiction-0",
+      "family": "v4b-ro-test-12",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.5215924057574581,
+        "fast": 0.2587532208745944,
+        "semantic": 0.050769991582431,
+        "hybrid": 0.1547616062285127
+      }
+    },
+    {
+      "id": "v4b-ro-test-12-retraction-0",
+      "family": "v4b-ro-test-12",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.8169436711423703,
+        "semantic": 0.8649577495010318,
+        "hybrid": 0.8409507103217011
+      }
+    },
+    {
+      "id": "v4b-ro-test-13-direct-0",
+      "family": "v4b-ro-test-13",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.9086614391745097,
+        "fast": 0.9981018983550144,
+        "semantic": 0.9969714565319284,
+        "hybrid": 0.9975366774434714
+      }
+    },
+    {
+      "id": "v4b-ro-test-13-ordinary-0",
+      "family": "v4b-ro-test-13",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.20285475564843122,
+        "fast": 0.7216161203668832,
+        "semantic": 0.33379988616588013,
+        "hybrid": 0.5277080032663817
+      }
+    },
+    {
+      "id": "v4b-ro-test-13-personal-0",
+      "family": "v4b-ro-test-13",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.9086614391745097,
+        "fast": 0.9787665649714652,
+        "semantic": 0.9974987603008384,
+        "hybrid": 0.9881326626361517
+      }
+    },
+    {
+      "id": "v4b-ro-test-13-fiction-0",
+      "family": "v4b-ro-test-13",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.9086614391745097,
+        "fast": 0.7586689418527299,
+        "semantic": 0.42529805826800376,
+        "hybrid": 0.5919835000603668
+      }
+    },
+    {
+      "id": "v4b-ro-test-13-retraction-0",
+      "family": "v4b-ro-test-13",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.979372135710749,
+        "semantic": 0.9726115929190176,
+        "hybrid": 0.9759918643148833
+      }
+    },
+    {
+      "id": "v4b-ro-test-14-direct-0",
+      "family": "v4b-ro-test-14",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.48062410460567945,
+        "fast": 0.9475566869358151,
+        "semantic": 0.9826521169544344,
+        "hybrid": 0.9651044019451247
+      }
+    },
+    {
+      "id": "v4b-ro-test-14-ordinary-0",
+      "family": "v4b-ro-test-14",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3914650946996555,
+        "fast": 0.6807185800527623,
+        "semantic": 0.17711526558603094,
+        "hybrid": 0.42891692281939664
+      }
+    },
+    {
+      "id": "v4b-ro-test-14-personal-0",
+      "family": "v4b-ro-test-14",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.48062410460567945,
+        "fast": 0.8426488669372336,
+        "semantic": 0.990134981359481,
+        "hybrid": 0.9163919241483574
+      }
+    },
+    {
+      "id": "v4b-ro-test-14-fiction-0",
+      "family": "v4b-ro-test-14",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.48062410460567945,
+        "fast": 0.26260404773034396,
+        "semantic": 0.06407711995916053,
+        "hybrid": 0.16334058384475225
+      }
+    },
+    {
+      "id": "v4b-ro-test-14-retraction-0",
+      "family": "v4b-ro-test-14",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.7765046468215823,
+        "semantic": 0.927644822741949,
+        "hybrid": 0.8520747347817657
+      }
+    },
+    {
+      "id": "v4b-ro-test-15-direct-0",
+      "family": "v4b-ro-test-15",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.9182261506627799,
+        "fast": 0.9948083717163241,
+        "semantic": 0.9973765100048073,
+        "hybrid": 0.9960924408605657
+      }
+    },
+    {
+      "id": "v4b-ro-test-15-ordinary-0",
+      "family": "v4b-ro-test-15",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3592544281520674,
+        "fast": 0.5402522853909016,
+        "semantic": 0.7910388279764022,
+        "hybrid": 0.6656455566836519
+      }
+    },
+    {
+      "id": "v4b-ro-test-15-personal-0",
+      "family": "v4b-ro-test-15",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.9182261506627799,
+        "fast": 0.9474161485994734,
+        "semantic": 0.9956703581305169,
+        "hybrid": 0.9715432533649951
+      }
+    },
+    {
+      "id": "v4b-ro-test-15-fiction-0",
+      "family": "v4b-ro-test-15",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.9182261506627799,
+        "fast": 0.4898035330975295,
+        "semantic": 0.3360003544912154,
+        "hybrid": 0.41290194379437245
+      }
+    },
+    {
+      "id": "v4b-ro-test-15-retraction-0",
+      "family": "v4b-ro-test-15",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.9358522780288238,
+        "semantic": 0.9660403844348364,
+        "hybrid": 0.95094633123183
+      }
+    },
+    {
+      "id": "v4b-ro-test-16-direct-0",
+      "family": "v4b-ro-test-16",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3202165561758011,
+        "fast": 0.7795570563939553,
+        "semantic": 0.90059226029112,
+        "hybrid": 0.8400746583425377
+      }
+    },
+    {
+      "id": "v4b-ro-test-16-ordinary-0",
+      "family": "v4b-ro-test-16",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.15491073116877607,
+        "fast": 0.12033680782783765,
+        "semantic": 0.0035323416919966683,
+        "hybrid": 0.061934574759917156
+      }
+    },
+    {
+      "id": "v4b-ro-test-16-personal-0",
+      "family": "v4b-ro-test-16",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3202165561758011,
+        "fast": 0.6132132151641836,
+        "semantic": 0.9609924657945121,
+        "hybrid": 0.7871028404793479
+      }
+    },
+    {
+      "id": "v4b-ro-test-16-fiction-0",
+      "family": "v4b-ro-test-16",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3202165561758011,
+        "fast": 0.13957773770372522,
+        "semantic": 0.015377518727102475,
+        "hybrid": 0.07747762821541385
+      }
+    },
+    {
+      "id": "v4b-ro-test-16-retraction-0",
+      "family": "v4b-ro-test-16",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.5596236499463298,
+        "semantic": 0.7228758291637466,
+        "hybrid": 0.6412497395550383
+      }
+    },
+    {
+      "id": "v4b-ro-test-17-direct-0",
+      "family": "v4b-ro-test-17",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.8033147256558191,
+        "fast": 0.9911346328407632,
+        "semantic": 0.997689827019785,
+        "hybrid": 0.9944122299302741
+      }
+    },
+    {
+      "id": "v4b-ro-test-17-ordinary-0",
+      "family": "v4b-ro-test-17",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.4430130617736509,
+        "fast": 0.3619159193107185,
+        "semantic": 0.5078137368063121,
+        "hybrid": 0.43486482805851534
+      }
+    },
+    {
+      "id": "v4b-ro-test-17-personal-0",
+      "family": "v4b-ro-test-17",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.8033147256558191,
+        "fast": 0.9462603719434043,
+        "semantic": 0.9978428300036751,
+        "hybrid": 0.9720516009735397
+      }
+    },
+    {
+      "id": "v4b-ro-test-17-fiction-0",
+      "family": "v4b-ro-test-17",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.8033147256558191,
+        "fast": 0.557434684218426,
+        "semantic": 0.31876485750180855,
+        "hybrid": 0.4380997708601173
+      }
+    },
+    {
+      "id": "v4b-ro-test-17-retraction-0",
+      "family": "v4b-ro-test-17",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.9428522913720705,
+        "semantic": 0.9690688010131591,
+        "hybrid": 0.9559605461926148
+      }
+    },
+    {
+      "id": "v4b-ro-test-18-direct-0",
+      "family": "v4b-ro-test-18",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3635413622614947,
+        "fast": 0.5504009150951688,
+        "semantic": 0.9948113092731432,
+        "hybrid": 0.772606112184156
+      }
+    },
+    {
+      "id": "v4b-ro-test-18-ordinary-0",
+      "family": "v4b-ro-test-18",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3748207315966858,
+        "fast": 0.5667214111819947,
+        "semantic": 0.02766091933474146,
+        "hybrid": 0.2971911652583681
+      }
+    },
+    {
+      "id": "v4b-ro-test-18-personal-0",
+      "family": "v4b-ro-test-18",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.3635413622614947,
+        "fast": 0.4019959460583724,
+        "semantic": 0.9951205002460872,
+        "hybrid": 0.6985582231522298
+      }
+    },
+    {
+      "id": "v4b-ro-test-18-fiction-0",
+      "family": "v4b-ro-test-18",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.3635413622614947,
+        "fast": 0.07836384160316422,
+        "semantic": 0.13114599904392935,
+        "hybrid": 0.10475492032354677
+      }
+    },
+    {
+      "id": "v4b-ro-test-18-retraction-0",
+      "family": "v4b-ro-test-18",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.3696760030964179,
+        "semantic": 0.9639931194020516,
+        "hybrid": 0.6668345612492348
+      }
+    },
+    {
+      "id": "v4b-ro-test-19-direct-0",
+      "family": "v4b-ro-test-19",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5841641077387436,
+        "fast": 0.9524248853644929,
+        "semantic": 0.9843469950451736,
+        "hybrid": 0.9683859402048333
+      }
+    },
+    {
+      "id": "v4b-ro-test-19-ordinary-0",
+      "family": "v4b-ro-test-19",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.1754658417179618,
+        "fast": 0.01691105783189643,
+        "semantic": 6.0033100612506376e-05,
+        "hybrid": 0.008485545466254468
+      }
+    },
+    {
+      "id": "v4b-ro-test-19-personal-0",
+      "family": "v4b-ro-test-19",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.5841641077387436,
+        "fast": 0.8540114926990922,
+        "semantic": 0.979464625414806,
+        "hybrid": 0.916738059056949
+      }
+    },
+    {
+      "id": "v4b-ro-test-19-fiction-0",
+      "family": "v4b-ro-test-19",
+      "language": "ro",
+      "label": 0,
+      "scores": {
+        "v3": 0.5841641077387436,
+        "fast": 0.3266274327732884,
+        "semantic": 0.1577491566867521,
+        "hybrid": 0.24218829473002024
+      }
+    },
+    {
+      "id": "v4b-ro-test-19-retraction-0",
+      "family": "v4b-ro-test-19",
+      "language": "ro",
+      "label": 1,
+      "scores": {
+        "v3": 0.14102099026207865,
+        "fast": 0.8372076376726072,
+        "semantic": 0.9112826774794397,
+        "hybrid": 0.8742451575760235
+      }
+    },
+    {
+      "id": "v4b-uk-test-0-direct-0",
+      "family": "v4b-uk-test-0",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.7346445986127709,
+        "fast": 0.8930494792961631,
+        "semantic": 0.9992977223678174,
+        "hybrid": 0.9461736008319903
+      }
+    },
+    {
+      "id": "v4b-uk-test-0-ordinary-0",
+      "family": "v4b-uk-test-0",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.3371461767967775,
+        "fast": 0.14316565549739096,
+        "semantic": 0.007619675045354855,
+        "hybrid": 0.07539266527137291
+      }
+    },
+    {
+      "id": "v4b-uk-test-0-personal-0",
+      "family": "v4b-uk-test-0",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.7346445986127709,
+        "fast": 0.7985491115362163,
+        "semantic": 0.9927047941019936,
+        "hybrid": 0.895626952819105
+      }
+    },
+    {
+      "id": "v4b-uk-test-0-fiction-0",
+      "family": "v4b-uk-test-0",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.7346445986127709,
+        "fast": 0.3118690896694748,
+        "semantic": 0.19179391243881236,
+        "hybrid": 0.2518315010541436
+      }
+    },
+    {
+      "id": "v4b-uk-test-0-retraction-0",
+      "family": "v4b-uk-test-0",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.6310596098634376,
+        "semantic": 0.9808147292861444,
+        "hybrid": 0.805937169574791
+      }
+    },
+    {
+      "id": "v4b-uk-test-1-direct-0",
+      "family": "v4b-uk-test-1",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5624470292038598,
+        "fast": 0.8876034781747286,
+        "semantic": 0.9933611791775303,
+        "hybrid": 0.9404823286761295
+      }
+    },
+    {
+      "id": "v4b-uk-test-1-ordinary-0",
+      "family": "v4b-uk-test-1",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.34232749823680153,
+        "fast": 0.45122124149830545,
+        "semantic": 0.11155813023576508,
+        "hybrid": 0.2813896858670353
+      }
+    },
+    {
+      "id": "v4b-uk-test-1-personal-0",
+      "family": "v4b-uk-test-1",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5624470292038598,
+        "fast": 0.7917193523477466,
+        "semantic": 0.9414337147417976,
+        "hybrid": 0.8665765335447722
+      }
+    },
+    {
+      "id": "v4b-uk-test-1-fiction-0",
+      "family": "v4b-uk-test-1",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.5624470292038598,
+        "fast": 0.3019387294119188,
+        "semantic": 0.05885883560984631,
+        "hybrid": 0.18039878251088254
+      }
+    },
+    {
+      "id": "v4b-uk-test-1-retraction-0",
+      "family": "v4b-uk-test-1",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.7099941913750409,
+        "semantic": 0.9685501492779486,
+        "hybrid": 0.8392721703264947
+      }
+    },
+    {
+      "id": "v4b-uk-test-2-direct-0",
+      "family": "v4b-uk-test-2",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5164402933104739,
+        "fast": 0.8672507155392809,
+        "semantic": 0.987199819240365,
+        "hybrid": 0.9272252673898229
+      }
+    },
+    {
+      "id": "v4b-uk-test-2-ordinary-0",
+      "family": "v4b-uk-test-2",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.07843668636324029,
+        "fast": 0.02319313357290433,
+        "semantic": 5.7615731565496044e-05,
+        "hybrid": 0.011625374652234913
+      }
+    },
+    {
+      "id": "v4b-uk-test-2-personal-0",
+      "family": "v4b-uk-test-2",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5164402933104739,
+        "fast": 0.7906906703077081,
+        "semantic": 0.9570655647823353,
+        "hybrid": 0.8738781175450216
+      }
+    },
+    {
+      "id": "v4b-uk-test-2-fiction-0",
+      "family": "v4b-uk-test-2",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.5164402933104739,
+        "fast": 0.32092921209593545,
+        "semantic": 0.06841100029211653,
+        "hybrid": 0.19467010619402597
+      }
+    },
+    {
+      "id": "v4b-uk-test-2-retraction-0",
+      "family": "v4b-uk-test-2",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.622702427009469,
+        "semantic": 0.8916078790837713,
+        "hybrid": 0.7571551530466201
+      }
+    },
+    {
+      "id": "v4b-uk-test-3-direct-0",
+      "family": "v4b-uk-test-3",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.2811358465688811,
+        "fast": 0.17348765919311726,
+        "semantic": 0.5288076818480835,
+        "hybrid": 0.35114767052060036
+      }
+    },
+    {
+      "id": "v4b-uk-test-3-ordinary-0",
+      "family": "v4b-uk-test-3",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.20345172496292863,
+        "fast": 0.048332651570350556,
+        "semantic": 0.006202883527054774,
+        "hybrid": 0.027267767548702665
+      }
+    },
+    {
+      "id": "v4b-uk-test-3-personal-0",
+      "family": "v4b-uk-test-3",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.2811358465688811,
+        "fast": 0.21905613384594624,
+        "semantic": 0.7316186070166132,
+        "hybrid": 0.4753373704312797
+      }
+    },
+    {
+      "id": "v4b-uk-test-3-fiction-0",
+      "family": "v4b-uk-test-3",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.2811358465688811,
+        "fast": 0.03354894496184939,
+        "semantic": 0.007319109860680615,
+        "hybrid": 0.020434027411265
+      }
+    },
+    {
+      "id": "v4b-uk-test-3-retraction-0",
+      "family": "v4b-uk-test-3",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.09409483733394665,
+        "semantic": 0.4170174936658935,
+        "hybrid": 0.2555561654999201
+      }
+    },
+    {
+      "id": "v4b-uk-test-4-direct-0",
+      "family": "v4b-uk-test-4",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8789793744211969,
+        "fast": 0.9991065981530851,
+        "semantic": 0.9992609046445493,
+        "hybrid": 0.9991837513988172
+      }
+    },
+    {
+      "id": "v4b-uk-test-4-ordinary-0",
+      "family": "v4b-uk-test-4",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.776956007818588,
+        "fast": 0.6943817784660227,
+        "semantic": 0.18655898321281597,
+        "hybrid": 0.4404703808394193
+      }
+    },
+    {
+      "id": "v4b-uk-test-4-personal-0",
+      "family": "v4b-uk-test-4",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8789793744211969,
+        "fast": 0.9917168019683884,
+        "semantic": 0.9920080235941616,
+        "hybrid": 0.991862412781275
+      }
+    },
+    {
+      "id": "v4b-uk-test-4-fiction-0",
+      "family": "v4b-uk-test-4",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.8789793744211969,
+        "fast": 0.9143479539744829,
+        "semantic": 0.22470506972097085,
+        "hybrid": 0.5695265118477268
+      }
+    },
+    {
+      "id": "v4b-uk-test-4-retraction-0",
+      "family": "v4b-uk-test-4",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.991402104025749,
+        "semantic": 0.9808815380853779,
+        "hybrid": 0.9861418210555635
+      }
+    },
+    {
+      "id": "v4b-uk-test-5-direct-0",
+      "family": "v4b-uk-test-5",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6874735594761389,
+        "fast": 0.9608022992508309,
+        "semantic": 0.9935379975804794,
+        "hybrid": 0.9771701484156552
+      }
+    },
+    {
+      "id": "v4b-uk-test-5-ordinary-0",
+      "family": "v4b-uk-test-5",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.2971329007585743,
+        "fast": 0.4659011344397984,
+        "semantic": 0.6203404893042549,
+        "hybrid": 0.5431208118720267
+      }
+    },
+    {
+      "id": "v4b-uk-test-5-personal-0",
+      "family": "v4b-uk-test-5",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6874735594761389,
+        "fast": 0.9107286958293639,
+        "semantic": 0.9709654621115513,
+        "hybrid": 0.9408470789704576
+      }
+    },
+    {
+      "id": "v4b-uk-test-5-fiction-0",
+      "family": "v4b-uk-test-5",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.6874735594761389,
+        "fast": 0.5850372223648376,
+        "semantic": 0.08368509132246456,
+        "hybrid": 0.3343611568436511
+      }
+    },
+    {
+      "id": "v4b-uk-test-5-retraction-0",
+      "family": "v4b-uk-test-5",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.8493819999799093,
+        "semantic": 0.9226868713246207,
+        "hybrid": 0.8860344356522649
+      }
+    },
+    {
+      "id": "v4b-uk-test-6-direct-0",
+      "family": "v4b-uk-test-6",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6522670676677328,
+        "fast": 0.9230079371098713,
+        "semantic": 0.9587537092259703,
+        "hybrid": 0.9408808231679208
+      }
+    },
+    {
+      "id": "v4b-uk-test-6-ordinary-0",
+      "family": "v4b-uk-test-6",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.16610353574254957,
+        "fast": 0.26953545261063805,
+        "semantic": 0.005402843040211163,
+        "hybrid": 0.1374691478254246
+      }
+    },
+    {
+      "id": "v4b-uk-test-6-personal-0",
+      "family": "v4b-uk-test-6",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6522670676677328,
+        "fast": 0.8426556852029702,
+        "semantic": 0.9340070492286225,
+        "hybrid": 0.8883313672157964
+      }
+    },
+    {
+      "id": "v4b-uk-test-6-fiction-0",
+      "family": "v4b-uk-test-6",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.6522670676677328,
+        "fast": 0.4445088668391811,
+        "semantic": 0.05397473068422341,
+        "hybrid": 0.24924179876170227
+      }
+    },
+    {
+      "id": "v4b-uk-test-6-retraction-0",
+      "family": "v4b-uk-test-6",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.750532456211787,
+        "semantic": 0.8831082402805368,
+        "hybrid": 0.8168203482461619
+      }
+    },
+    {
+      "id": "v4b-uk-test-7-direct-0",
+      "family": "v4b-uk-test-7",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.7419522869090452,
+        "fast": 0.9560756387953375,
+        "semantic": 0.9671201038206793,
+        "hybrid": 0.9615978713080084
+      }
+    },
+    {
+      "id": "v4b-uk-test-7-ordinary-0",
+      "family": "v4b-uk-test-7",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.42567761474689686,
+        "fast": 0.29819630853035484,
+        "semantic": 0.005077575578048043,
+        "hybrid": 0.15163694205420145
+      }
+    },
+    {
+      "id": "v4b-uk-test-7-personal-0",
+      "family": "v4b-uk-test-7",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.7419522869090452,
+        "fast": 0.8904377544622116,
+        "semantic": 0.9793496891602222,
+        "hybrid": 0.934893721811217
+      }
+    },
+    {
+      "id": "v4b-uk-test-7-fiction-0",
+      "family": "v4b-uk-test-7",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.7419522869090452,
+        "fast": 0.5307319842465451,
+        "semantic": 0.0736349520160078,
+        "hybrid": 0.30218346813127644
+      }
+    },
+    {
+      "id": "v4b-uk-test-7-retraction-0",
+      "family": "v4b-uk-test-7",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.8182616483052655,
+        "semantic": 0.8573096795665968,
+        "hybrid": 0.8377856639359311
+      }
+    },
+    {
+      "id": "v4b-uk-test-8-direct-0",
+      "family": "v4b-uk-test-8",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6160145686523542,
+        "fast": 0.9583015323005833,
+        "semantic": 0.972301660229757,
+        "hybrid": 0.9653015962651701
+      }
+    },
+    {
+      "id": "v4b-uk-test-8-ordinary-0",
+      "family": "v4b-uk-test-8",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.09674265584497949,
+        "fast": 0.01305325844807833,
+        "semantic": 0.012913195968530918,
+        "hybrid": 0.012983227208304624
+      }
+    },
+    {
+      "id": "v4b-uk-test-8-personal-0",
+      "family": "v4b-uk-test-8",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6160145686523542,
+        "fast": 0.8672301910906653,
+        "semantic": 0.9329170887146058,
+        "hybrid": 0.9000736399026356
+      }
+    },
+    {
+      "id": "v4b-uk-test-8-fiction-0",
+      "family": "v4b-uk-test-8",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.6160145686523542,
+        "fast": 0.38763352130681955,
+        "semantic": 0.05930955116418674,
+        "hybrid": 0.22347153623550314
+      }
+    },
+    {
+      "id": "v4b-uk-test-8-retraction-0",
+      "family": "v4b-uk-test-8",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.7559293388803328,
+        "semantic": 0.9295170697805779,
+        "hybrid": 0.8427232043304553
+      }
+    },
+    {
+      "id": "v4b-uk-test-9-direct-0",
+      "family": "v4b-uk-test-9",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5457622857839958,
+        "fast": 0.784160891915332,
+        "semantic": 0.5482745249774261,
+        "hybrid": 0.6662177084463791
+      }
+    },
+    {
+      "id": "v4b-uk-test-9-ordinary-0",
+      "family": "v4b-uk-test-9",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.23981033245512154,
+        "fast": 0.27473970928925634,
+        "semantic": 0.0007848769812904228,
+        "hybrid": 0.13776229313527338
+      }
+    },
+    {
+      "id": "v4b-uk-test-9-personal-0",
+      "family": "v4b-uk-test-9",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.5457622857839958,
+        "fast": 0.7149070258924537,
+        "semantic": 0.7792530809542887,
+        "hybrid": 0.7470800534233712
+      }
+    },
+    {
+      "id": "v4b-uk-test-9-fiction-0",
+      "family": "v4b-uk-test-9",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.5457622857839958,
+        "fast": 0.23216502829878094,
+        "semantic": 0.007211804133194146,
+        "hybrid": 0.11968841621598754
+      }
+    },
+    {
+      "id": "v4b-uk-test-9-retraction-0",
+      "family": "v4b-uk-test-9",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.46895378099104534,
+        "semantic": 0.4897828959784051,
+        "hybrid": 0.4793683384847252
+      }
+    },
+    {
+      "id": "v4b-uk-test-10-direct-0",
+      "family": "v4b-uk-test-10",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.36357502184709783,
+        "fast": 0.5572160804951789,
+        "semantic": 0.5731363697993574,
+        "hybrid": 0.5651762251472682
+      }
+    },
+    {
+      "id": "v4b-uk-test-10-ordinary-0",
+      "family": "v4b-uk-test-10",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.2790249431562339,
+        "fast": 0.27417938728454566,
+        "semantic": 0.10432124441033028,
+        "hybrid": 0.18925031584743796
+      }
+    },
+    {
+      "id": "v4b-uk-test-10-personal-0",
+      "family": "v4b-uk-test-10",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.36357502184709783,
+        "fast": 0.5101670976516266,
+        "semantic": 0.658510853923456,
+        "hybrid": 0.5843389757875412
+      }
+    },
+    {
+      "id": "v4b-uk-test-10-fiction-0",
+      "family": "v4b-uk-test-10",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.36357502184709783,
+        "fast": 0.10811566550834507,
+        "semantic": 0.00804187927031091,
+        "hybrid": 0.058078772389327994
+      }
+    },
+    {
+      "id": "v4b-uk-test-10-retraction-0",
+      "family": "v4b-uk-test-10",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.3097863159310179,
+        "semantic": 0.4373470310189347,
+        "hybrid": 0.3735666734749763
+      }
+    },
+    {
+      "id": "v4b-uk-test-11-direct-0",
+      "family": "v4b-uk-test-11",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.46483964957278806,
+        "fast": 0.5465869737911241,
+        "semantic": 0.7143786590187052,
+        "hybrid": 0.6304828164049147
+      }
+    },
+    {
+      "id": "v4b-uk-test-11-ordinary-0",
+      "family": "v4b-uk-test-11",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.15486370228347768,
+        "fast": 0.029722341792296422,
+        "semantic": 3.3919225778823275e-05,
+        "hybrid": 0.014878130509037623
+      }
+    },
+    {
+      "id": "v4b-uk-test-11-personal-0",
+      "family": "v4b-uk-test-11",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.46483964957278806,
+        "fast": 0.49346062540427404,
+        "semantic": 0.8281713159488742,
+        "hybrid": 0.6608159706765742
+      }
+    },
+    {
+      "id": "v4b-uk-test-11-fiction-0",
+      "family": "v4b-uk-test-11",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.46483964957278806,
+        "fast": 0.09818461439339922,
+        "semantic": 0.009026402545638837,
+        "hybrid": 0.05360550846951903
+      }
+    },
+    {
+      "id": "v4b-uk-test-11-retraction-0",
+      "family": "v4b-uk-test-11",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.2723751459067382,
+        "semantic": 0.7228571527815612,
+        "hybrid": 0.49761614934414966
+      }
+    },
+    {
+      "id": "v4b-uk-test-12-direct-0",
+      "family": "v4b-uk-test-12",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8135080598454677,
+        "fast": 0.9345965176532988,
+        "semantic": 0.8664790227979667,
+        "hybrid": 0.9005377702256327
+      }
+    },
+    {
+      "id": "v4b-uk-test-12-ordinary-0",
+      "family": "v4b-uk-test-12",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.42009044220623326,
+        "fast": 0.634252974392263,
+        "semantic": 0.00889407703034148,
+        "hybrid": 0.32157352571130227
+      }
+    },
+    {
+      "id": "v4b-uk-test-12-personal-0",
+      "family": "v4b-uk-test-12",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8135080598454677,
+        "fast": 0.8541681180894055,
+        "semantic": 0.7852463315231729,
+        "hybrid": 0.8197072248062892
+      }
+    },
+    {
+      "id": "v4b-uk-test-12-fiction-0",
+      "family": "v4b-uk-test-12",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.8135080598454677,
+        "fast": 0.460044934387377,
+        "semantic": 0.02515972583407187,
+        "hybrid": 0.24260233011072443
+      }
+    },
+    {
+      "id": "v4b-uk-test-12-retraction-0",
+      "family": "v4b-uk-test-12",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.7784361569178224,
+        "semantic": 0.6919413711821433,
+        "hybrid": 0.7351887640499828
+      }
+    },
+    {
+      "id": "v4b-uk-test-13-direct-0",
+      "family": "v4b-uk-test-13",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8611136291058409,
+        "fast": 0.9944746476182342,
+        "semantic": 0.9951097280436931,
+        "hybrid": 0.9947921878309637
+      }
+    },
+    {
+      "id": "v4b-uk-test-13-ordinary-0",
+      "family": "v4b-uk-test-13",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.14349145748787784,
+        "fast": 0.3480102075844885,
+        "semantic": 0.1049325148990574,
+        "hybrid": 0.22647136124177294
+      }
+    },
+    {
+      "id": "v4b-uk-test-13-personal-0",
+      "family": "v4b-uk-test-13",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8611136291058409,
+        "fast": 0.9683855902340962,
+        "semantic": 0.9900381125748485,
+        "hybrid": 0.9792118514044723
+      }
+    },
+    {
+      "id": "v4b-uk-test-13-fiction-0",
+      "family": "v4b-uk-test-13",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.8611136291058409,
+        "fast": 0.7627763075032881,
+        "semantic": 0.10107387344494348,
+        "hybrid": 0.43192509047411576
+      }
+    },
+    {
+      "id": "v4b-uk-test-13-retraction-0",
+      "family": "v4b-uk-test-13",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.9520644737649282,
+        "semantic": 0.9635024815300505,
+        "hybrid": 0.9577834776474894
+      }
+    },
+    {
+      "id": "v4b-uk-test-14-direct-0",
+      "family": "v4b-uk-test-14",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.131293048463702,
+        "fast": 0.4824146762614504,
+        "semantic": 0.9596254294713802,
+        "hybrid": 0.7210200528664152
+      }
+    },
+    {
+      "id": "v4b-uk-test-14-ordinary-0",
+      "family": "v4b-uk-test-14",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.07856194785612232,
+        "fast": 0.03582040142133848,
+        "semantic": 0.002197084703424489,
+        "hybrid": 0.019008743062381483
+      }
+    },
+    {
+      "id": "v4b-uk-test-14-personal-0",
+      "family": "v4b-uk-test-14",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.131293048463702,
+        "fast": 0.46613129873859843,
+        "semantic": 0.8876150556044053,
+        "hybrid": 0.6768731771715019
+      }
+    },
+    {
+      "id": "v4b-uk-test-14-fiction-0",
+      "family": "v4b-uk-test-14",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.131293048463702,
+        "fast": 0.13140105746840994,
+        "semantic": 0.02248213292273182,
+        "hybrid": 0.07694159519557088
+      }
+    },
+    {
+      "id": "v4b-uk-test-14-retraction-0",
+      "family": "v4b-uk-test-14",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.2780260153503065,
+        "semantic": 0.7602107593272306,
+        "hybrid": 0.5191183873387686
+      }
+    },
+    {
+      "id": "v4b-uk-test-15-direct-0",
+      "family": "v4b-uk-test-15",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8221176654380324,
+        "fast": 0.9675862393973954,
+        "semantic": 0.9975702281372756,
+        "hybrid": 0.9825782337673354
+      }
+    },
+    {
+      "id": "v4b-uk-test-15-ordinary-0",
+      "family": "v4b-uk-test-15",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.5169439349935813,
+        "fast": 0.710638927684651,
+        "semantic": 0.15623203336994176,
+        "hybrid": 0.43343548052729636
+      }
+    },
+    {
+      "id": "v4b-uk-test-15-personal-0",
+      "family": "v4b-uk-test-15",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.8221176654380324,
+        "fast": 0.8967655796844737,
+        "semantic": 0.982498986228432,
+        "hybrid": 0.9396322829564528
+      }
+    },
+    {
+      "id": "v4b-uk-test-15-fiction-0",
+      "family": "v4b-uk-test-15",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.8221176654380324,
+        "fast": 0.5259748359065144,
+        "semantic": 0.18790235542100892,
+        "hybrid": 0.3569385956637616
+      }
+    },
+    {
+      "id": "v4b-uk-test-15-retraction-0",
+      "family": "v4b-uk-test-15",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.8419243916656435,
+        "semantic": 0.9585580711324236,
+        "hybrid": 0.9002412313990336
+      }
+    },
+    {
+      "id": "v4b-uk-test-16-direct-0",
+      "family": "v4b-uk-test-16",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.49823277587791287,
+        "fast": 0.9188550862386309,
+        "semantic": 0.9776151591811965,
+        "hybrid": 0.9482351227099137
+      }
+    },
+    {
+      "id": "v4b-uk-test-16-ordinary-0",
+      "family": "v4b-uk-test-16",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.14740486877407816,
+        "fast": 0.007552813371222481,
+        "semantic": 0.00505270293290077,
+        "hybrid": 0.006302758152061626
+      }
+    },
+    {
+      "id": "v4b-uk-test-16-personal-0",
+      "family": "v4b-uk-test-16",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.49823277587791287,
+        "fast": 0.8284317889438659,
+        "semantic": 0.9467608723952876,
+        "hybrid": 0.8875963306695768
+      }
+    },
+    {
+      "id": "v4b-uk-test-16-fiction-0",
+      "family": "v4b-uk-test-16",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.49823277587791287,
+        "fast": 0.3606243314423663,
+        "semantic": 0.01790858471848355,
+        "hybrid": 0.18926645808042492
+      }
+    },
+    {
+      "id": "v4b-uk-test-16-retraction-0",
+      "family": "v4b-uk-test-16",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.7005388109518557,
+        "semantic": 0.8160309370873755,
+        "hybrid": 0.7582848740196155
+      }
+    },
+    {
+      "id": "v4b-uk-test-17-direct-0",
+      "family": "v4b-uk-test-17",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6103240721598641,
+        "fast": 0.8993520792808545,
+        "semantic": 0.9706348442232393,
+        "hybrid": 0.9349934617520469
+      }
+    },
+    {
+      "id": "v4b-uk-test-17-ordinary-0",
+      "family": "v4b-uk-test-17",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.22223687655506322,
+        "fast": 0.08994321464106936,
+        "semantic": 0.0015876874665261655,
+        "hybrid": 0.045765451053797764
+      }
+    },
+    {
+      "id": "v4b-uk-test-17-personal-0",
+      "family": "v4b-uk-test-17",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6103240721598641,
+        "fast": 0.8033192941425467,
+        "semantic": 0.9736999287541679,
+        "hybrid": 0.8885096114483573
+      }
+    },
+    {
+      "id": "v4b-uk-test-17-fiction-0",
+      "family": "v4b-uk-test-17",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.6103240721598641,
+        "fast": 0.33119874133302896,
+        "semantic": 0.04281103679224147,
+        "hybrid": 0.1870048890626352
+      }
+    },
+    {
+      "id": "v4b-uk-test-17-retraction-0",
+      "family": "v4b-uk-test-17",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.6657109408323892,
+        "semantic": 0.8891672862590858,
+        "hybrid": 0.7774391135457375
+      }
+    },
+    {
+      "id": "v4b-uk-test-18-direct-0",
+      "family": "v4b-uk-test-18",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.3461288288871135,
+        "fast": 0.5159116891814867,
+        "semantic": 0.9841987639482763,
+        "hybrid": 0.7500552265648814
+      }
+    },
+    {
+      "id": "v4b-uk-test-18-ordinary-0",
+      "family": "v4b-uk-test-18",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.38483288437493196,
+        "fast": 0.41355684721056013,
+        "semantic": 0.02742962362627105,
+        "hybrid": 0.2204932354184156
+      }
+    },
+    {
+      "id": "v4b-uk-test-18-personal-0",
+      "family": "v4b-uk-test-18",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.3461288288871135,
+        "fast": 0.4963443964828051,
+        "semantic": 0.9624233977740513,
+        "hybrid": 0.7293838971284282
+      }
+    },
+    {
+      "id": "v4b-uk-test-18-fiction-0",
+      "family": "v4b-uk-test-18",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.3461288288871135,
+        "fast": 0.12929379593906934,
+        "semantic": 0.05770092493585923,
+        "hybrid": 0.09349736043746429
+      }
+    },
+    {
+      "id": "v4b-uk-test-18-retraction-0",
+      "family": "v4b-uk-test-18",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.29931739378743394,
+        "semantic": 0.8931410650138936,
+        "hybrid": 0.5962292294006637
+      }
+    },
+    {
+      "id": "v4b-uk-test-19-direct-0",
+      "family": "v4b-uk-test-19",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6943600554059387,
+        "fast": 0.955996556191475,
+        "semantic": 0.9956037147308887,
+        "hybrid": 0.9758001354611818
+      }
+    },
+    {
+      "id": "v4b-uk-test-19-ordinary-0",
+      "family": "v4b-uk-test-19",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.22774626908825596,
+        "fast": 0.016867710194470167,
+        "semantic": 2.5777546900560308e-05,
+        "hybrid": 0.008446743870685364
+      }
+    },
+    {
+      "id": "v4b-uk-test-19-personal-0",
+      "family": "v4b-uk-test-19",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.6943600554059387,
+        "fast": 0.908308310551173,
+        "semantic": 0.9735498833878163,
+        "hybrid": 0.9409290969694947
+      }
+    },
+    {
+      "id": "v4b-uk-test-19-fiction-0",
+      "family": "v4b-uk-test-19",
+      "language": "uk",
+      "label": 0,
+      "scores": {
+        "v3": 0.6943600554059387,
+        "fast": 0.5643661535793808,
+        "semantic": 0.09851605592565309,
+        "hybrid": 0.3314411047525169
+      }
+    },
+    {
+      "id": "v4b-uk-test-19-retraction-0",
+      "family": "v4b-uk-test-19",
+      "language": "uk",
+      "label": 1,
+      "scores": {
+        "v3": 0.24694919088011394,
+        "fast": 0.8444934296143429,
+        "semantic": 0.9144174420432387,
+        "hybrid": 0.8794554358287908
+      }
+    }
+  ]
+}

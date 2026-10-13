@@ -23,7 +23,18 @@ from .policy import (BoundaryCard, DisclosureEvidenceCard, GateCard, PermissionC
                      check_gate, check_permission, check_readability_contract,
                      check_routing, check_support_contract)
 
+def __getattr__(name):
+    if name in {"analyze_conversation", "analyze_batch", "compare_reports", "ConversationScorer"}:
+        from . import conversation
+        return getattr(conversation, name)
+    if name == "review_response":
+        from .response_review import review_response
+        return review_response
+    raise AttributeError(name)
+
+
 __all__ = [
+    "analyze_conversation", "analyze_batch", "compare_reports", "ConversationScorer", "review_response",
     "CATEGORIES", "ScreenResult", "HumanReviewSignal", "screen", "calibrate", "escalate",
     "HFClassifier", "MLXClassifier", "MLXTokenMarginClassifier", "MMBertResearchClassifier", "D1FactorResearchClassifier", "JointD1ResearchClassifier", "BalancedJointD1ResearchClassifier", "NLIResearchClassifier", "count_words",
     "ContractAssessment", "ContractFinding", "GuardReport", "assess_contracts", "assemble_report", "assess_case",

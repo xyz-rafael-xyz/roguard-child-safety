@@ -1,15 +1,24 @@
-# RoGuard Child Safety
+# RoGuard
 
-RoGuard is an offline Romanian and Ukrainian child-safety **contract and evaluation toolkit**. Its deterministic checks examine caller-declared facts about disclosure signals, recipient scope, permission, readability limits, support-response fields, and human-review gates. It also includes a small experimental text model that marks possible support signals for human review.
+RoGuard is an offline Romanian and Ukrainian child-safety research toolkit. Version 4 adds a local conversation workspace, optional semantic classification, explicit uncertainty, draft-response checks and a separate audit of declared routing, permission and human-review requirements. Reports reference relevant turns without copying message text. The software never contacts a guardian or takes an external action.
 
-The text model was trained and tested only on project-authored fictional messages. Its synthetic test results do **not** establish accuracy on real children's messages, native-language validity, or safety for autonomous screening. A negative model signal must not close a concern, and a positive signal does not authorize contacting a guardian or anyone else. The software takes no external action.
-
-## Install
+## Install and open
 
 ```sh
-python3 -m pip install --upgrade roguard-child-safety
+pip install --upgrade roguard-child-safety
+roguard-studio --conversation --open
 ```
 
-Python 3.9 and newer are supported. Installation downloads the package; use after installation is local and requires no network connection. The import package is `roguard`. The main commands are `roguard` for declared contracts, `roguard-message-screen` for the experimental Romanian/Ukrainian advisory, and `roguard-studio --open` for the local Decision Studio.
+The basic package supports Python 3.9–3.14 and includes a small fast model. The stronger semantic backend uses optional dependencies and a one-time, explicit model download:
 
-See the [README](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/README.md) for examples and the [v3 research report](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V3_MESSAGE_RELEASE.md) for frozen results and limitations. Report defects through [GitHub Issues](https://github.com/xyz-rafael-xyz/roguard-child-safety/issues).
+```sh
+pip install --upgrade 'roguard-child-safety[semantic]'
+roguard-model fetch
+roguard-studio --conversation --open --backend semantic
+```
+
+Use Python 3.10+ for the optional backend; the semantic test environment is Python 3.12. After downloading the pinned base, inference is local and requires no network. The Python import is `roguard`. The `roguard-conversation` command supports JSON and batches; `roguard-compare-reports` compares matching case IDs.
+
+The semantic model reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on a 200-conversation synthetic test. This test contains only 20 phrase families per language and has correlated rows. The fast model is weaker. Neither result establishes accuracy on authentic child language; a negative signal cannot close a concern. Scores are not safety probabilities, response checks are limited phrase rules, and complexity measures do not prove comprehension. Prior specialist taxonomy review does not validate the new models or message banks.
+
+See the [workspace guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/CONVERSATION_WORKSPACE.md), [full results](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V4_RELEASE.md), and [README](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/README.md). Report defects through [GitHub Issues](https://github.com/xyz-rafael-xyz/roguard-child-safety/issues).

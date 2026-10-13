@@ -1,10 +1,10 @@
-# RoGuard Local — Romanian and Ukrainian child-safety research toolkit
+# RoGuard — Romanian and Ukrainian child-safety research toolkit
 
 [![A looping 46-second RoGuard Local demo showing a Romanian contract check, a one-fact comparison, Ukrainian output, and the corrected v1 CLI](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
 
-**[Open the full-resolution 46-second video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
+**[Open the earlier contract-workflow video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard Child Safety v3.0.2 includes an offline Romanian/Ukrainian support-signal research model alongside its contract checker and evaluation toolkit.** The model can score a fictional or locally supplied message for human-review triage. It has passed a narrow synthetic test, has **not** been validated on authentic child language, and cannot decide whom to notify. The existing contract checks use caller-declared facts; neither component takes external action. The [v3 release scope and full results](docs/V3_MESSAGE_RELEASE.md) state exactly what was measured.
+**RoGuard 4.0 adds a local Romanian/Ukrainian conversation workspace: inspect support-signal suggestions, review a draft response, clarify missing facts, and check a proposed action against declared permissions.** It includes a small fast model and an optional stronger semantic model. The new semantic model reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on a 200-conversation synthetic test, with errors and explicit abstentions. These are correlated, project-authored examples, not authentic child-language validation. [Results, comparisons and limitations](docs/V4_RELEASE.md) · [Workspace and API guide](docs/CONVERSATION_WORKSPACE.md).
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The PyPI distribution is named `roguard-child-safety`; Python imports remain `roguard`.
 
@@ -25,7 +25,7 @@ Each check compares **facts supplied by the caller** with a declared rule. The t
 
 The design couples explicit person–item–purpose–recipient rules and permission history with one-fact counterfactual tests. It keeps model signals separate from authority and external-action decisions; the [novelty note](docs/NOVELTY.md) states the narrower research contribution and prior-work limits.
 
-The optional `roguard-message-screen` command adds an **advisory D1 signal** from text when the caller declares `minor` as the source role. Its synthetic score is not a safety probability; a negative signal cannot close a concern, and a positive signal cannot grant guardian access. Both languages use separately trained, offline models. See [the registered study](docs/V3_MESSAGE_STUDY_PROTOCOL.md).
+The retained v3 `roguard-message-screen` command adds an **advisory D1 signal** from text when the caller declares `minor` as the source role. Its synthetic score is not a safety probability; a negative signal cannot close a concern, and a positive signal cannot grant guardian access. Both languages use separately trained, offline models. See [the registered study](docs/V3_MESSAGE_STUDY_PROTOCOL.md).
 
 The CLI can count A1 words locally when text is supplied; the cap still comes from the caller. The historical [Romanian v0.2 taxonomy](taxonomy/taxonomy_ro.md) and [Ukrainian draft v0.1 taxonomy](taxonomy/taxonomy_uk.md) remain bound to their original batches. The corrected [Romanian v1 candidate](taxonomy/taxonomy_ro_v1_candidate.md) and [Ukrainian v1 candidate](taxonomy/taxonomy_uk_v1_candidate.md) incorporate the later specialist review. The owner-attested, exact-version taxonomy review records now pass structural checks; the model study gate remains open. The [taxonomy review disposition](docs/TAXONOMY_REVIEW_V1.md) and [v1 evidence ledger](docs/V1_EVIDENCE.md) explain the open gates.
 
@@ -38,6 +38,22 @@ Install or upgrade to the **latest PyPI release** in one command (Python 3.9–3
 ```sh
 pip install --upgrade roguard-child-safety
 ```
+
+Open the new local conversation workspace:
+
+```sh
+roguard-studio --conversation --open
+```
+
+The default fast model needs no additional download. For the **stronger semantic backend** (Python 3.10+, tested on 3.12), install the optional dependencies and fetch the pinned model once:
+
+```sh
+pip install --upgrade 'roguard-child-safety[semantic]'
+roguard-model fetch
+roguard-studio --conversation --open --backend semantic
+```
+
+The model download is about 1.2 GB. Subsequent inference is offline; no conversation is sent to the model host. The fast and semantic backends have different measured accuracy. The [guide](docs/CONVERSATION_WORKSPACE.md) covers batch input, report comparison and Python integration.
 
 If `pip` points to another Python installation, use `python3 -m pip install --upgrade roguard-child-safety` (or `py -m pip install --upgrade roguard-child-safety` on Windows). Installation needs internet access; the installed checker and message scorer run offline. GitHub also retains a [direct-release source archive](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/latest/download/roguard-child-safety-latest.tar.gz). To run the included fictional examples or work on the source, clone the repository:
 
@@ -80,6 +96,8 @@ For the **reviewed v1 contract rules**, run `roguard-v1-contract examples/v1_can
 
 ## What the research shows
 
+The [v4 conversation study](docs/V4_RELEASE.md) is the current text-model evaluation. Its second frozen semantic model found 59/60 Romanian and 57/60 Ukrainian positives, with 2/40 and 1/40 false alerts. An uncertainty band left 3/100 and 5/100 cases unresolved; among decided cases, each language had one missed positive and one false alert. The test has only 20 phrase families per language, with shared forms. Earlier v4 candidates and the new fast/hybrid alternatives are reported alongside it. These results do not validate the older studies below, whose historical failures remain unchanged.
+
 **The mixed-input result is not six-category text understanding.** Four categories in the 72/72 workflow received typed facts; D1 and S1 used a frozen model on abstract-card text. The same text-only model scored 55/72 and missed every A1 positive. A separate frozen Romanian D1/S1 model scored 47/48 on one abstract wording surface and 23/48 on another. This sensitivity is why no trained adapter is offered for live screening.
 
 | Study on synthetic abstract cards | Complete pairs | Descriptive 95% Wilson interval | Interpretation |
@@ -96,7 +114,7 @@ The new v3 fictional-message work is a **different task**. Its first model passe
 
 All model results in this table are **author-reported**. Selected adapter weights and their Git history are in a separate private research archive, so public readers cannot replay weight-dependent results from this checkout. The [benchmark ledger](BENCHMARK.md) retains the study-by-study results, including failures and development-only diagnostics; the [public-release note](docs/PUBLIC_RELEASE.md) explains what CI can reproduce. Wilson intervals are descriptive for each count and may be optimistic when paired cards share wording or authoring patterns. No row estimates performance on authentic Romanian or Ukrainian child language.
 
-The earlier research adapters are not included in the public wheel. The **v3 small character models are included** because their training text is locally authored and synthetic. The older adapter studies remain separate; the new fictional-message benchmark does not repair their failed gates or validate the model on authentic child language.
+The earlier research adapters are not included in the public wheel. The **v3 and v4 character models and v4 semantic head are included** because their training text is locally authored and synthetic. The pinned mmBERT base is a separate explicit download. The older adapter studies remain separate; the new fictional-message benchmark does not repair their failed gates or validate the model on authentic child language.
 
 Authors in the corrected-v1 abstract study can check a completed JSON workbook against their original, private author ZIP with `roguard-v1-author-check issued-packet.zip completed-workbook.json`. The command checks the assigned factor order, metadata, date, and basic card format without printing card text. It cannot verify who authored the work, whether a pair changes one fact, or whether work actually occurred after the model freeze. The study owner performs those separate checks before blind packets are made.
 
