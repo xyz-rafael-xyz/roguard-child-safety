@@ -24,6 +24,10 @@ from .policy import (BoundaryCard, DisclosureEvidenceCard, GateCard, PermissionC
                      check_routing, check_support_contract)
 
 def __getattr__(name):
+    modules={"DurableGateway":"durable", "GatewayApp":"service", "Monitor":"observability", "CalibratedDecisions":"uncertainty", "FeatureSupport":"uncertainty", "analyze_calibrated_conversation":"uncertainty", "analyze_long_conversation":"long_context", "repair_proposal":"repair", "ChatTarget":"targets"}
+    if name in modules:
+        from importlib import import_module
+        return getattr(import_module("."+modules[name], __name__), name)
     if name in {"FlowLedger", "ToolBinding", "ToolGateway"}:
         from . import flow
         return getattr(flow, name)
@@ -50,6 +54,7 @@ def __getattr__(name):
 
 
 __all__ = [
+    "DurableGateway", "GatewayApp", "Monitor", "CalibratedDecisions", "FeatureSupport", "analyze_calibrated_conversation", "analyze_long_conversation", "repair_proposal", "ChatTarget",
     "FlowLedger", "ToolBinding", "ToolGateway", "minimize_disclosure", "run_scenario", "minimize_failure",
     "ReferenceTarget", "recorded_factory", "evaluate_consistency", "conversation_consistency", "summarize_runs", "tradeoff_frontier",
     "analyze_conversation", "analyze_batch", "compare_reports", "ConversationScorer", "review_response",

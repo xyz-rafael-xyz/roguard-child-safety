@@ -10,7 +10,7 @@ from training.conversations_v6 import generate,digest
 from training.adapt_v6 import metrics
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');p.add_argument('--corpus',choices=['v6','v6b'],default='v6');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');p.add_argument('--corpus',choices=['v6','v6b','v6c'],default='v6');a=p.parse_args()
     if a.output.exists():raise ValueError('Preserve evaluation')
     frozen=json.loads((a.candidate/'freeze.json').read_text())
     for file,sha in frozen.items():
@@ -18,6 +18,8 @@ def main():
     corpus=generate
     if a.corpus=='v6b':
         from training.conversations_v6b import generate as corpus
+    if a.corpus=='v6c':
+        from training.conversations_v6c import generate as corpus
     torch.set_num_threads(4);cal=corpus('cal');test=corpus('test');rows=cal+test;texts=[render(r['turns']) for r in rows]
     baseline=ConversationScorer('semantic',a.base,a.device);base=baseline.scores(texts,'ro')
     encoder=baseline.encoder;encoder.model=PeftModel.from_pretrained(encoder.model,a.candidate/'adapter',is_trainable=False).eval()

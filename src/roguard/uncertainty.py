@@ -77,3 +77,35 @@ class FeatureSupport:
         if model_id!=a['model_id'] or len(features)!=a['dimension'] or any(type(v) not in (float,int) or not math.isfinite(v) for v in features):raise ValueError('Incompatible features')
         distance=sum(((v-c)/s)**2 for v,c,s in zip(features,a['center'],a['scale']))/a['dimension']
         return dict(distance=distance,outside_reference_support=distance>a['limit'],semantic_novelty_verified=False)
+
+
+def scorer_identity(scorer,language):
+    if getattr(scorer,'model_id',None):return scorer.model_id
+    if scorer.backend=='semantic':
+        return fingerprint({'head':scorer.head_sha256,'preprocessing':'surface-v1'})
+    from .conversation import fast_model
+    return fingerprint({'backend':scorer.backend,'fast':fast_model(language).sha256,'head':getattr(scorer,'head_sha256',None),'config':scorer.config})
+
+
+def analyze_calibrated_conversation(payload,scorer,calibration,*,support=None):
+    from .conversation import analyze_conversation,render
+    c=calibration if isinstance(calibration,CalibratedDecisions) else CalibratedDecisions(calibration)
+    lang=payload.get('language');identity=scorer_identity(scorer,lang)
+    # The ordinary pipeline retains structural/language/model-input abstentions.
+    report=analyze_conversation(payload,scorer)
+    signal=report['signal']
+    if signal['synthetic_score'] is None:
+        report['calibration']={'applied':False};return report
+    # Use full precision, not the rounded display score, at set boundaries.
+    score=probability(scorer.scores([render(payload['turns'])],lang)[0])
+    result=c.predict(score,model_id=identity,language=lang)
+    if support is not None:
+        if scorer.encoder is None:raise ValueError('Feature support requires a semantic encoder')
+        diagnostic=support.check(scorer.encoder.encode([render(payload['turns'])])[0].tolist(),model_id=identity)
+        report['feature_support']=diagnostic
+        if diagnostic['outside_reference_support']:result['decision']='INSUFFICIENT_EVIDENCE'
+    signal['decision']=result['decision'];signal['reason_codes']=['CALIBRATED_SET_NOT_SINGLETON'] if len(result['prediction_set'])!=1 else []
+    if support is not None and report['feature_support']['outside_reference_support']:signal['reason_codes'].append('OUTSIDE_REFERENCE_FEATURE_SUPPORT')
+    report['calibration']={'applied':True,**result};report['trace'][0]['decision']=result['decision']
+    report['next_step']='NO_MODEL_SIGNAL_DOES_NOT_CLOSE_CONCERN' if result['decision']=='NO_MODEL_SIGNAL' else 'HUMAN_REVIEW'
+    return report

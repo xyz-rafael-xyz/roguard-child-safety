@@ -30,13 +30,16 @@ def select(rows,scores):
     return cuts,metrics(rows,scores,cuts)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');p.add_argument('--negative-weight',type=float,default=1.0);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');p.add_argument('--negative-weight',type=float,default=1.0);p.add_argument('--consume-prior-tests',action='store_true');a=p.parse_args()
     if a.output.exists():raise ValueError('Preserve previous experiment')
     if subprocess.check_output(['git','status','--porcelain'],text=True).strip():raise ValueError('Commit study first')
     if a.negative_weight not in (1.0,2.0):raise ValueError('Unregistered class weight')
     a.output.mkdir(parents=True);torch.set_num_threads(4);random.seed(20261026);np.random.seed(20261026);torch.manual_seed(20261026)
     consumed=old('train');random.Random(20261026).shuffle(consumed)
     train=consumed[:320]+generate('train');dev=generate('dev')
+    if a.consume_prior_tests:
+        from training.conversations_v6b import generate as second
+        train+=generate('test')+second('test')
     record=dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),train_digest=digest(train),dev_digest=digest(dev),train_rows=len(train),dev_rows=len(dev),synthetic_only=True,negative_weight=a.negative_weight,candidates=[])
     basehead=json.loads(Path('src/roguard/conversation-head.json').read_text()); best=None
     for lr in (.0001,.0003):

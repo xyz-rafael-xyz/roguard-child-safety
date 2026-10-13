@@ -23,3 +23,7 @@ Prior methods: https://opentelemetry.io/docs/languages/python/instrumentation/ ;
 ## Registered second iteration
 
 The first selected encoder improves recall but adds one Romanian false alert against v4 on the first fresh test, failing the promotion gate. That test is now consumed. The second iteration uses the same two learning rates, three epochs, training families and development selection, with negative-example BCE weight 2.0 (positive weight 1.0). No first-test rows are added to training. A separate 8-family-per-language test in `conversations_v6b.py` is frozen before fitting. Reused calibration is explicitly development evidence for this second iteration. The same promotion gate applies; the first iteration and its failure remain recorded.
+
+## Registered third iteration
+
+The second fresh test recovered every positive but misclassified one fictional-context negative in each language, again failing promotion. The two opened tests (180 conversations total) are now explicitly consumed as hard training examples. The third iteration adds these rows to the previous 400 training rows, retains negative weight 2, both learning rates, three epochs, and the original development selection. `conversations_v6c.py` freezes a new six-family-per-language test before this fit. Calibration remains reused and is not new validation. Promotion gate is unchanged. This is a bounded third iteration, not repeated tuning against an untouched test.
