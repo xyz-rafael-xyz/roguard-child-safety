@@ -18,9 +18,12 @@ from .v1_contract import assess_v1_json
 from .v1_explore import explore_v1_contract
 from .v1_envelope import envelope_v1_contract
 from .v2_audit import audit_v2_contract
+from .conversation import analyze_conversation, analyze_batch, compare_reports, ConversationScorer
 
 MAX_REQUEST_BYTES = 1_048_576
-ASSETS = {"/": ("studio.html", "text/html; charset=utf-8"),
+ASSETS = {"/conversation": ("conversation.html", "text/html; charset=utf-8"),
+          "/conversation.js": ("conversation.js", "text/javascript; charset=utf-8"),
+          "/conversation.css": ("conversation.css", "text/css; charset=utf-8"),"/": ("studio.html", "text/html; charset=utf-8"),
           "/studio.js": ("studio.js", "text/javascript; charset=utf-8"),
           "/studio.css": ("studio.css", "text/css; charset=utf-8")}
 SECURITY_HEADERS = {
@@ -33,10 +36,11 @@ SECURITY_HEADERS = {
 }
 
 
-def make_server(port: int = 0) -> HTTPServer:
+def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu") -> HTTPServer:
     """Create an ephemeral loopback service; caller owns serve_forever/shutdown."""
     if type(port) is not int or not 0 <= port <= 65535:
         raise ValueError("port must be from 0 to 65535")
+    scorer = ConversationScorer(backend, model_path, device)
     token = secrets.token_hex(32)
 
     class Handler(BaseHTTPRequestHandler):
@@ -69,7 +73,7 @@ def make_server(port: int = 0) -> HTTPServer:
                 return
             name, content_type = asset
             data = resources.read_binary("roguard", name)
-            if name == "studio.html":
+            if name.endswith(".html"):
                 data = data.replace(b"__ROGUARD_TOKEN__", token.encode("ascii"))
             self._send(200, data, content_type)
 
@@ -81,7 +85,7 @@ def make_server(port: int = 0) -> HTTPServer:
                 return
             if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
-                                 "/api/v2/audit"}:
+                                 "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports"}:
                 self._json(404, {"error": "Not found"})
                 return
             if self.headers.get("Content-Type") != "application/json" or self.headers.get("Transfer-Encoding"):
@@ -100,7 +104,15 @@ def make_server(port: int = 0) -> HTTPServer:
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/v2/audit":
+                if self.path == "/api/conversation":
+                    result = analyze_conversation(payload, scorer)
+                elif self.path == "/api/conversations":
+                    result = analyze_batch(payload, scorer)
+                elif self.path == "/api/compare-reports":
+                    if not isinstance(payload, dict) or set(payload) != {"before", "after"}:
+                        raise ValueError("Expected before and after reports")
+                    result = compare_reports(payload["before"], payload["after"])
+                elif self.path == "/api/v2/audit":
                     result = audit_v2_contract(payload)
                 elif self.path == "/api/v1/explore":
                     result = explore_v1_contract(payload)
@@ -116,7 +128,7 @@ def make_server(port: int = 0) -> HTTPServer:
                     if not isinstance(payload, dict) or set(payload) != {"before", "after"}:
                         raise ValueError("Contrast requires before and after")
                     result = contrast_declared_contracts(payload["before"], payload["after"])
-            except (UnicodeDecodeError, json.JSONDecodeError, TypeError, ValueError):
+            except (UnicodeDecodeError, json.JSONDecodeError, TypeError, ValueError, KeyError):
                 self._json(400, {"error": "Invalid JSON or declared contract"})
                 return
             self._json(200, result)
@@ -128,12 +140,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Open a local, read-only RoGuard decision workspace")
     parser.add_argument("--port", type=int, default=0, help="Loopback port; 0 chooses a free port")
     parser.add_argument("--open", action="store_true", help="Open the local page in your browser")
+    parser.add_argument("--backend", choices=["fast", "semantic", "hybrid"], default="fast")
+    parser.add_argument("--model-path")
+    parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cpu")
+    parser.add_argument("--conversation", action="store_true")
     args = parser.parse_args()
     try:
-        server = make_server(args.port)
-    except (OSError, ValueError) as exc:
+        server = make_server(args.port, backend=args.backend, model_path=args.model_path, device=args.device)
+    except (OSError, ValueError, ImportError) as exc:
         parser.error(str(exc))
     url = f"http://127.0.0.1:{server.server_port}/"
+    if args.conversation:
+        url += "conversation"
     print(f"RoGuard Decision Studio: {url}", flush=True)
     print("Runs on this computer only. Press Ctrl+C to stop.", flush=True)
     if args.open:

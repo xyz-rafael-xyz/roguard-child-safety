@@ -41,6 +41,24 @@ class StudioTests(unittest.TestCase):
         except HTTPError as exc:
             return exc.code, json.load(exc)
 
+    def test_conversation_workspace_and_api_boundaries(self):
+        with urlopen(self.origin + "/conversation", timeout=5) as response:
+            page=response.read().decode()
+            self.assertIn('data-token="'+self.token+'"',page)
+            self.assertNotIn('__ROGUARD_TOKEN__',page)
+        from test_conversation import sample
+        payload=sample()
+        status,report=self.request('/api/conversation',payload)
+        self.assertEqual(status,200)
+        self.assertFalse(report['text_in_report'])
+        self.assertFalse(report['external_action_taken'])
+        self.assertEqual(self.request('/api/conversation',payload,token='wrong')[0],403)
+        self.assertEqual(self.request('/api/conversations',[payload])[0],200)
+        self.assertEqual(self.request('/api/compare-reports',{'before':[report],'after':[report]})[1]['decision_changes'],[])
+        self.assertEqual(self.request('/api/conversation',{'language':'ro','turns':[]})[0],400)
+        payload['turns'][0]['role']=[]
+        self.assertEqual(self.request('/api/conversation',payload)[0],400)
+
     def test_security_headers_and_packaged_assets(self):
         self.assertEqual(self.headers["Cache-Control"], "no-store")
         self.assertIn("default-src 'none'", self.headers["Content-Security-Policy"])

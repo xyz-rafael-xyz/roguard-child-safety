@@ -20,6 +20,8 @@ class SemanticEncoder:
         if quantize:
             if device != 'cpu':
                 raise ValueError('Dynamic quantization requires CPU')
+            if torch.backends.quantized.engine == 'none' and 'qnnpack' in torch.backends.quantized.supported_engines:
+                torch.backends.quantized.engine = 'qnnpack'
             self.model = torch.ao.quantization.quantize_dynamic(
                 self.model, {torch.nn.Linear}, dtype=torch.qint8)
         self.model.to(device)

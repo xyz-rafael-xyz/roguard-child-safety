@@ -87,13 +87,16 @@ def validate(payload):
     if not isinstance(turns,list) or not 1<=len(turns)<=MAX_TURNS:
         raise ValueError('Provide 1 to 16 turns')
     for turn in turns:
-        if not isinstance(turn,dict) or set(turn)!={'role','text'} or turn['role'] not in ROLES:
+        if not isinstance(turn,dict) or set(turn)!={'role','text'} or not isinstance(turn.get('role'),str) or turn['role'] not in ROLES:
             raise ValueError('Each turn needs a supported declared role and text')
         if not isinstance(turn['text'],str) or not 1<=len(turn['text'].strip())<=2000:
             raise ValueError('Each turn must have 1 to 2000 characters')
     if sum(len(t['text']) for t in turns)>MAX_TOTAL_CHARS:raise ValueError('Conversation too long')
     if 'case_id' in payload and (not isinstance(payload['case_id'],str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}',payload['case_id'])):
         raise ValueError('Case ID must be a short opaque identifier')
+    for field in ('draft','revision'):
+        if field in payload and (not isinstance(payload[field],str) or not 1<=len(payload[field].strip())<=6000):
+            raise ValueError('Drafts must contain 1 to 6000 characters')
     if 'revision' in payload and 'draft' not in payload:raise ValueError('Revision requires an original draft')
     for field in ('contract','audit'):
         if field in payload and (not isinstance(payload[field],dict) or payload[field].get('language')!=payload['language']):
@@ -109,6 +112,11 @@ def language_uncertainty(turns, language):
     cyr=sum('\u0400'<=c<='\u052f' for c in letters)/len(letters)
     if (language=='ro' and cyr>.2) or (language=='uk' and cyr<.6):
         return ['SCRIPT_MISMATCH_OR_MIXTURE']
+    words=set(re.findall(r'[^\W\d_]+',text.lower()))
+    if language=='ro' and not words.intersection({'eu','nu','am','sunt','să','sa','și','si','de','la','cu','mă','ma','îmi','imi','vreau','ce','un','o','este','e','mi','aș','as'}):
+        return ['LANGUAGE_NOT_CONFIRMED']
+    if len(words.intersection({'please','need','help','with','feel','someone','would','about'}))>=2:
+        return ['LANGUAGE_MIXTURE_REQUIRES_REVIEW']
     return []
 
 
@@ -157,7 +165,33 @@ def analyze_conversation(payload, scorer=None):
 def analyze_batch(payloads, scorer=None):
     if not isinstance(payloads,list) or not 1<=len(payloads)<=200:raise ValueError('Batch must contain 1 to 200 conversations')
     for payload in payloads:validate(payload)
-    return [analyze_conversation(p,scorer) for p in payloads]
+    scorer=scorer or default_scorer()
+    # Request-scoped reuse only; text keys and embeddings are discarded on return.
+    cached={}
+    for language in ('ro','uk'):
+        texts=[]
+        for payload in payloads:
+            turns=payload['turns']
+            if payload['language']!=language or language_uncertainty(turns,language) or any(t['role'] not in ('minor','assistant') for t in turns):
+                continue
+            texts.append(render(turns))
+            texts.extend(render([{**t,'text':''} if i==removed else t for i,t in enumerate(turns)])
+                         for removed,t in enumerate(turns) if t['role']=='minor')
+        texts=list(dict.fromkeys(texts))
+        if texts:
+            try:
+                cached.update({(language,text):score for text,score in zip(texts,scorer.scores(texts,language))})
+            except ValueError:
+                pass  # Individual token-limit errors become individual abstentions.
+    class RequestScorer:
+        backend=scorer.backend
+        head_sha256=getattr(scorer,'head_sha256',None)
+        def thresholds(self,language):return scorer.thresholds(language)
+        def scores(self,texts,language):
+            if all((language,text) in cached for text in texts):
+                return [cached[(language,text)] for text in texts]
+            return scorer.scores(texts,language)
+    return [analyze_conversation(p,RequestScorer()) for p in payloads]
 
 
 def compare_reports(before,after):
@@ -190,7 +224,7 @@ def main():
     p.add_argument('--model-path',type=Path);p.add_argument('--device',choices=['cpu','mps','cuda'],default='cpu')
     args=p.parse_args()
     try:
-        raw=args.input.read_text(encoding='utf-8') if args.input else sys.stdin.read(MAX_TOTAL_CHARS*1000)
+        raw=args.input.read_text(encoding='utf-8') if args.input else sys.stdin.read(MAX_TOTAL_CHARS*1000+1)
         if len(raw)>MAX_TOTAL_CHARS*1000:raise ValueError('Input too large')
         scorer=ConversationScorer(args.backend,args.model_path,args.device)
         if args.jsonl:
@@ -200,3 +234,18 @@ def main():
     except (ValueError,TypeError,KeyError,OSError,ImportError):p.error('Invalid input or unavailable optional model; see the conversation guide')
 
 if __name__=='__main__':main()
+
+
+def compare_main():
+    parser=argparse.ArgumentParser(description='Compare v4 reports by opaque case ID; no accuracy claim without labels')
+    parser.add_argument('before',type=Path);parser.add_argument('after',type=Path)
+    args=parser.parse_args()
+    def read(path):
+        if path.stat().st_size>12_000_000:raise ValueError('Report file too large')
+        raw=path.read_text(encoding='utf-8')
+        try:
+            value=_strict_json_loads(raw)
+            return value if isinstance(value,list) else [value]
+        except ValueError:return [_strict_json_loads(line) for line in raw.splitlines() if line.strip()]
+    try:print(json.dumps(compare_reports(read(args.before),read(args.after)),ensure_ascii=False,indent=2))
+    except (ValueError,TypeError,KeyError,OSError):parser.error('Invalid or mismatched report files')

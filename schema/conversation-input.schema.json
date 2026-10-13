@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RoGuard conversation advisory input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["language", "turns"],
+  "dependentRequired": {"revision": ["draft"]},
+  "properties": {
+    "case_id": {"type": "string", "pattern": "^[A-Za-z0-9_-]{1,64}$"},
+    "language": {"type": "string", "maxLength": 16},
+    "turns": {"type": "array", "minItems": 1, "maxItems": 16, "items": {
+      "type": "object", "additionalProperties": false, "required": ["role", "text"],
+      "properties": {"role": {"enum": ["minor", "assistant", "adult", "other", "unknown"]},
+                     "text": {"type": "string", "minLength": 1, "maxLength": 2000}}
+    }},
+    "draft": {"type": "string", "minLength": 1, "maxLength": 6000},
+    "revision": {"type": "string", "minLength": 1, "maxLength": 6000},
+    "contract": {"type": "object"},
+    "audit": {"type": "object"}
+  },
+  "$comment": "Runtime also enforces nonblank text, 12000 total turn characters, matching languages, and the full legacy/v2 contract validators. Script/language heuristics are not language verification."
+}

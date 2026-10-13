@@ -41,11 +41,14 @@ def review_response(text, language, revision=None):
     if language not in RULES or not isinstance(text,str) or not 1 <= len(text.strip()) <= 6000:
         raise ValueError('Provide a nonempty Romanian/Ukrainian draft up to 6000 characters')
     source=normalized(text,language)
+    positions=[]
+    for index,char in enumerate(text):
+        positions.extend([index]*len(normalized(char,language)))
     findings=[]
     for code,pattern in RULES[language].items():
         # Offsets refer to the original draft only when normalization preserves length.
         for match in re.finditer(pattern,source):
-            findings.append({'code':code,'start':match.start(),'end':match.end(),
+            findings.append({'code':code,'start':positions[match.start()],'end':positions[match.end()-1]+1,
                              'basis':'lexical_pattern_requires_context_review'})
     result={'status':'REVIEW_RESPONSE' if findings else 'NO_LISTED_PATTERN',
             'findings':findings,'complexity':complexity(text,language),
