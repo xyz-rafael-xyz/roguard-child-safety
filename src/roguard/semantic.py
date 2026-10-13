@@ -1,12 +1,26 @@
 """Optional local semantic features. No network or message cache at inference."""
 from __future__ import annotations
 import math
+import hashlib
 import re
 import unicodedata
 from pathlib import Path
 from .mmbert_study import MODEL_ID, REVISION, verify_base
 
 MAX_TOKENS = 256
+
+SPECIAL_TOKENS_SHA256 = 'baec30ea10906f16adb8c18af7a34023002c1746542612b8b41c9f09e1351351'
+
+
+def verify_semantic_extras(path):
+    """Reject auxiliary tokenizer/adapter overrides outside the pinned base."""
+    path=Path(path)
+    special=path/'special_tokens_map.json'
+    if special.exists() and hashlib.sha256(special.read_bytes()).hexdigest()!=SPECIAL_TOKENS_SHA256:
+        raise ValueError('Special token map hash differs')
+    if any((path/name).exists() for name in ['added_tokens.json','adapter_config.json']):
+        raise ValueError('Unregistered tokenizer or adapter override')
+
 
 def normalize_semantic_text(text):
     """Canonicalize surface forms without removing roles or turn boundaries.
@@ -36,12 +50,13 @@ class SemanticEncoder:
         from transformers import AutoModel, AutoTokenizer
         path = Path(path)
         verify_base(path)
+        verify_semantic_extras(path)
         self.torch = torch
         self.device = device
         self.normalize_inputs = normalize_inputs
         self.tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True, trust_remote_code=False)
         self.model = AutoModel.from_pretrained(path, local_files_only=True, trust_remote_code=False,
-                                               attn_implementation='eager').eval()
+                                               attn_implementation='eager', use_safetensors=False, weights_only=True).eval()
         if quantize:
             if device != 'cpu':
                 raise ValueError('Dynamic quantization requires CPU')

@@ -106,6 +106,18 @@ class ConversationTests(unittest.TestCase):
             upper='\n'.join(line.split(': ',1)[0]+': '+line.split(': ',1)[1].upper() for line in text.split('\n'))
             self.assertEqual(normalize_semantic_text(upper),text)
 
+    def test_semantic_rejects_unregistered_local_overrides(self):
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from roguard.semantic import verify_semantic_extras
+        with TemporaryDirectory() as directory:
+            path=Path(directory)
+            verify_semantic_extras(path)
+            for name in ['special_tokens_map.json','added_tokens.json','adapter_config.json']:
+                file=path/name;file.write_text('{}')
+                with self.assertRaises(ValueError):verify_semantic_extras(path)
+                file.unlink()
+
     def test_optional_semantic_rejects_missing_base_files(self):
         from tempfile import TemporaryDirectory
         with TemporaryDirectory() as path:

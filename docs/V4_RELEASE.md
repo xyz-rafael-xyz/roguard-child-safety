@@ -57,7 +57,7 @@ The repair leaves **all 200 frozen holdout encoder inputs byte-for-byte unchange
 
 ## What is and is not established
 
-Software tests cover strict input limits, role handling, uncertainty, text-free outputs, independent authority checks, batch equivalence, revision signals and loopback request protections. Browser checks exercise both languages, desktop/mobile layout, policy integration, clearing inputs and invalidating stale exports. These tests verify behavior, not child-safety accuracy.
+Model loading explicitly selects the hash-verified PyTorch weight file and rejects unregistered adapter/tokenizer overrides; auxiliary special-token metadata is also checked. Software tests cover strict input limits, role handling, uncertainty, text-free outputs, independent authority checks, batch equivalence, revision signals and loopback request protections. Browser checks exercise both languages, desktop/mobile layout, policy integration, clearing inputs and invalidating stale exports. These tests verify behavior, not child-safety accuracy.
 
 The new UI wording, message banks and response patterns have not received independent native-language validation. Prior specialist review applies to the exact reviewed taxonomy, not these models or texts. Every example is fictional. No authentic-child accuracy, demographic fairness, comprehension, universal harm coverage or readiness for autonomous deployment is established. Response phrase checks can miss paraphrases and can flag quoted criticism; complexity counts and revision checks do not prove comprehension or preserved meaning.
 
