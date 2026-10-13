@@ -50,26 +50,39 @@ def summarize(rows,scores,settings):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True)
-    p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
+    p.add_argument('--corpus',choices=['v4','v4b'],default='v4');p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu')
     args=p.parse_args()
     if args.output.exists():raise ValueError('Evaluation output exists; preserve prior results')
     if subprocess.check_output(['git','status','--porcelain'],text=True).strip():raise ValueError('Freeze selection in Git first')
-    selection=json.loads(Path('research/v4-conversation-selection/selection.json').read_text())
+    selection=json.loads(Path(f'research/{args.corpus}-conversation-selection/selection.json').read_text())
     for name,expected in selection['artifact_sha256'].items():
         assert hashlib.sha256((Path('src/roguard')/name).read_bytes()).hexdigest()==expected
-    rows=generate('test');config=configuration();fast=ConversationScorer();semantic=ConversationScorer('semantic',args.base,args.device)
-    started=time.perf_counter();cs=[];ss=[];old=[]
+    corpus=generate
+    if args.corpus=='v4b':
+        from training.conversations_v4b import generate as corpus
+    rows=corpus('test');config=configuration();fast=ConversationScorer();semantic=ConversationScorer('semantic',args.base,args.device)
+    started=time.perf_counter();cs=[];ss=[];old=[];all_features=[]
     for language in ('ro','uk'):
         subset=[r for r in rows if r['language']==language]
         texts=[render(r['turns']) for r in subset]
         cs.extend(fast.scores(texts,language))
-        ss.extend(head_scores(semantic.encoder.encode(texts),semantic.head).tolist())
+        features=semantic.encoder.encode(texts);all_features.extend(features);ss.extend(head_scores(features,semantic.head).tolist())
         baseline=SyntheticMessageModel.packaged(language)
         old.extend(baseline.score(next(t['text'] for t in reversed(r['turns']) if t['role']=='minor')) for r in subset)
     mixed=[config['semantic_weight']*s+(1-config['semantic_weight'])*c for s,c in zip(ss,cs)]
     old_config={lang:{'cutoff':SyntheticMessageModel.packaged(lang).cutoff} for lang in ('ro','uk')}
     reports={name:summarize(rows,score,setting) for name,score,setting in [
         ('v3_last_message',old,old_config),('fast',cs,config['fast']),('semantic',ss,config['semantic']),('hybrid',mixed,config['hybrid'])]}
+    if args.corpus=='v4b':
+        from roguard.conversation import _long_score
+        def prior(name):return subprocess.check_output(['git','show','c2a6f96:src/roguard/'+name])
+        pc=json.loads(prior('conversation-selection.json'));ph=json.loads(prior('conversation-head.json'))
+        models={lang:SyntheticMessageModel(prior(f'conversation-model-{lang}.json.gz')) for lang in ('ro','uk')}
+        prev_fast=[_long_score(models[r['language']],render(r['turns'])) for r in rows]
+        prev_sem=head_scores(np.asarray(all_features),ph)
+        prev_mix=pc['semantic_weight']*prev_sem+(1-pc['semantic_weight'])*np.asarray(prev_fast)
+        for name,scores in [('fast',prev_fast),('semantic',prev_sem),('hybrid',prev_mix)]:
+            reports['previous_v4_'+name]=summarize(rows,scores,pc[name])
     predictions=[{'id':r['id'],'family':r['family'],'language':r['language'],'label':r['label'],
                   'scores':dict(v3=old[i],fast=cs[i],semantic=ss[i],hybrid=mixed[i])} for i,r in enumerate(rows)]
     record={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),

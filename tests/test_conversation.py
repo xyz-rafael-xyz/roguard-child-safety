@@ -38,6 +38,8 @@ class ConversationTests(unittest.TestCase):
         low=analyze_conversation(p,FixedScorer(.1));high=analyze_conversation(p,FixedScorer(.9))
         self.assertEqual(low['declared_contract'],high['declared_contract'])
         self.assertEqual(low['uncertainty_audit'],high['uncertainty_audit'])
+        self.assertEqual(low['action_review'],high['action_review'])
+        self.assertEqual(high['action_review']['status'],'HUMAN_REVIEW_REQUIRED')
         self.assertNotEqual(low['declared_contract']['findings'][0]['status'],'pass')
         self.assertTrue(high['uncertainty_audit']['categories'][0]['next_questions'])
 
@@ -82,8 +84,10 @@ class ConversationTests(unittest.TestCase):
             self.assertEqual(len(r['signal']['model']['fast_sha256']),64)
             self.assertIs(SyntheticMessageModel.packaged(language),SyntheticMessageModel.packaged(language))
 
-    def test_optional_semantic_requires_explicit_path(self):
-        with self.assertRaises(ValueError):ConversationScorer('semantic')
+    def test_optional_semantic_rejects_missing_base_files(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as path:
+            with self.assertRaises((OSError,ImportError,ValueError)):ConversationScorer('semantic',path)
 
 class ResponseTests(unittest.TestCase):
     def test_review_patterns_in_both_languages(self):

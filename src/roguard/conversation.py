@@ -38,7 +38,9 @@ class ConversationScorer:
         self.backend=backend
         self.encoder=None
         if backend!='fast':
-            if base_path is None:raise ValueError('Semantic backend requires an explicitly provided local model path')
+            if base_path is None:
+                from .model_setup import locate_model
+                base_path=locate_model()
             from .semantic import SemanticEncoder
             self.encoder=SemanticEncoder(base_path,device)
         self.config=configuration()
@@ -159,7 +161,31 @@ def analyze_conversation(payload, scorer=None):
         'next_step':'HUMAN_REVIEW' if decision!='NO_MODEL_SIGNAL' else 'NO_MODEL_SIGNAL_DOES_NOT_CLOSE_CONCERN',
         'authority_from_model':False,'external_action_taken':False,'text_in_report':False,
         'real_world_accuracy_established':False,'language_verified':False}
+    report['action_review']=action_review(report['declared_contract'],report['uncertainty_audit'])
+    report['trace']=[{'step':'interpretation','source':'model_advisory','decision':decision},
+                     {'step':'proposed_action','source':'declared_facts_only',
+                      'decision':report['action_review']['status']}]
+    report['declared_facts_unverified']=True
     return report
+
+
+def action_review(contract,audit):
+    reasons=[]
+    if contract is None and audit is None:
+        return {'status':'NOT_ASSESSED','reason_codes':['NO_ACTION_FACTS'],'external_action_taken':False}
+    if contract is None or not contract.get('proposed_use'):
+        reasons.append('MISSING_COMBINED_ACTION_CONTRACT')
+    elif contract['proposed_use']['status']!='ready_for_human_decision':
+        reasons.append('DECLARED_ACTION_REQUIREMENTS_NOT_MET')
+    if contract and any(f['status']!='pass' for f in contract['findings']):
+        reasons.append('DECLARED_CHECK_REQUIRES_REVIEW')
+    routing=next((c for c in (audit or {}).get('categories',[]) if c['category']=='R1'),None)
+    if routing is None:
+        reasons.append('MISSING_RECIPIENT_CONCERN_CHECK')
+    elif routing['decision_stability']!='stable' or routing['possible_decision_codes']!=['NO_ROUTE_SIGNAL']:
+        reasons.append('RECIPIENT_CONCERN_OR_SCOPE_UNRESOLVED')
+    return {'status':'HUMAN_REVIEW_REQUIRED' if reasons else 'READY_FOR_HUMAN_REVIEW',
+            'reason_codes':reasons,'authority_verified':False,'external_action_taken':False}
 
 
 def analyze_batch(payloads, scorer=None):

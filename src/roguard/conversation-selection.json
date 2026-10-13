@@ -1,39 +1,39 @@
 {
-  "character_C": 2,
+  "character_C": 8,
   "semantic_C": 0.1,
   "semantic_weight": 0.5,
   "fast": {
     "ro": {
-      "cutoff": 0.9000000000000001,
+      "cutoff": 0.54,
       "abstain_margin": 0.08,
-      "tp": 123,
-      "fn": 21,
-      "fp": 5,
-      "tn": 99,
-      "recall": 0.8541666666666666,
-      "fpr": 0.04807692307692308,
-      "balanced_accuracy": 0.9030448717948718
+      "tp": 34,
+      "fn": 2,
+      "fp": 2,
+      "tn": 22,
+      "recall": 0.9444444444444444,
+      "fpr": 0.08333333333333333,
+      "balanced_accuracy": 0.9305555555555556
     },
     "uk": {
-      "cutoff": 0.7800000000000001,
+      "cutoff": 0.7400000000000001,
       "abstain_margin": 0.08,
-      "tp": 140,
-      "fn": 4,
-      "fp": 7,
-      "tn": 97,
-      "recall": 0.9722222222222222,
-      "fpr": 0.0673076923076923,
-      "balanced_accuracy": 0.9524572649572649
+      "tp": 28,
+      "fn": 8,
+      "fp": 1,
+      "tn": 23,
+      "recall": 0.7777777777777778,
+      "fpr": 0.041666666666666664,
+      "balanced_accuracy": 0.8680555555555556
     }
   },
   "semantic": {
     "ro": {
-      "cutoff": 0.6400000000000001,
+      "cutoff": 0.5000000000000001,
       "abstain_margin": 0.08,
-      "tp": 144,
+      "tp": 36,
       "fn": 0,
       "fp": 0,
-      "tn": 104,
+      "tn": 24,
       "recall": 1.0,
       "fpr": 0.0,
       "balanced_accuracy": 1.0
@@ -41,40 +41,41 @@
     "uk": {
       "cutoff": 0.5000000000000001,
       "abstain_margin": 0.08,
-      "tp": 144,
+      "tp": 36,
       "fn": 0,
-      "fp": 0,
-      "tn": 104,
+      "fp": 1,
+      "tn": 23,
       "recall": 1.0,
-      "fpr": 0.0,
-      "balanced_accuracy": 1.0
+      "fpr": 0.041666666666666664,
+      "balanced_accuracy": 0.9791666666666667
     }
   },
   "hybrid": {
     "ro": {
-      "cutoff": 0.7800000000000001,
+      "cutoff": 0.6400000000000001,
       "abstain_margin": 0.08,
-      "tp": 144,
+      "tp": 36,
       "fn": 0,
       "fp": 0,
-      "tn": 104,
+      "tn": 24,
       "recall": 1.0,
       "fpr": 0.0,
       "balanced_accuracy": 1.0
     },
     "uk": {
-      "cutoff": 0.5200000000000001,
+      "cutoff": 0.7000000000000002,
       "abstain_margin": 0.08,
-      "tp": 144,
-      "fn": 0,
+      "tp": 35,
+      "fn": 1,
       "fp": 0,
-      "tn": 104,
-      "recall": 1.0,
+      "tn": 24,
+      "recall": 0.9722222222222222,
       "fpr": 0.0,
-      "balanced_accuracy": 1.0
+      "balanced_accuracy": 0.9861111111111112
     }
   },
   "base_model": "jhu-clsp/mmBERT-base",
   "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
-  "research_only": true
+  "research_only": true,
+  "study": "v4b"
 }
