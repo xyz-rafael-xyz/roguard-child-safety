@@ -30,13 +30,14 @@ def select(rows,scores):
     return cuts,metrics(rows,scores,cuts)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--base',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--device',default='cpu');p.add_argument('--negative-weight',type=float,default=1.0);a=p.parse_args()
     if a.output.exists():raise ValueError('Preserve previous experiment')
     if subprocess.check_output(['git','status','--porcelain'],text=True).strip():raise ValueError('Commit study first')
+    if a.negative_weight not in (1.0,2.0):raise ValueError('Unregistered class weight')
     a.output.mkdir(parents=True);torch.set_num_threads(4);random.seed(20261026);np.random.seed(20261026);torch.manual_seed(20261026)
     consumed=old('train');random.Random(20261026).shuffle(consumed)
     train=consumed[:320]+generate('train');dev=generate('dev')
-    record=dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),train_digest=digest(train),dev_digest=digest(dev),train_rows=len(train),dev_rows=len(dev),synthetic_only=True,candidates=[])
+    record=dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),train_digest=digest(train),dev_digest=digest(dev),train_rows=len(train),dev_rows=len(dev),synthetic_only=True,negative_weight=a.negative_weight,candidates=[])
     basehead=json.loads(Path('src/roguard/conversation-head.json').read_text()); best=None
     for lr in (.0001,.0003):
         torch.manual_seed(20261026);encoder=SemanticEncoder(a.base,a.device)
@@ -54,7 +55,7 @@ def main():
         for epoch in range(1,4):
             model.train();head.train();order=list(range(len(train)));random.Random(20261026+epoch).shuffle(order);start=time.time();losses=[]
             for offset in range(0,len(order),8):
-                batch=[train[i] for i in order[offset:offset+8]];opt.zero_grad();logits=forward(batch);loss=torch.nn.functional.binary_cross_entropy_with_logits(logits,torch.tensor([r['label'] for r in batch],device=a.device,dtype=torch.float32));loss.backward();torch.nn.utils.clip_grad_norm_(params,1);opt.step();losses.append(float(loss.detach().cpu()))
+                batch=[train[i] for i in order[offset:offset+8]];opt.zero_grad();logits=forward(batch);loss=torch.nn.functional.binary_cross_entropy_with_logits(logits,torch.tensor([r['label'] for r in batch],device=a.device,dtype=torch.float32),weight=torch.tensor([1.0 if r['label'] else a.negative_weight for r in batch],device=a.device));loss.backward();torch.nn.utils.clip_grad_norm_(params,1);opt.step();losses.append(float(loss.detach().cpu()))
             model.eval();head.eval();scores=[]
             with torch.no_grad():
                 for offset in range(0,len(dev),8):scores.extend(torch.sigmoid(forward(dev[offset:offset+8])).cpu().tolist())
