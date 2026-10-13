@@ -10,6 +10,7 @@ import math
 import sys
 import unicodedata
 from collections import Counter
+from functools import lru_cache
 from importlib import resources
 from pathlib import Path
 
@@ -40,6 +41,7 @@ class SyntheticMessageModel:
             raise ValueError("Duplicate model feature")
 
     @classmethod
+    @lru_cache(maxsize=2)
     def packaged(cls, language: str) -> "SyntheticMessageModel":
         if language not in ("ro", "uk"):
             raise ValueError("Language must be ro or uk")

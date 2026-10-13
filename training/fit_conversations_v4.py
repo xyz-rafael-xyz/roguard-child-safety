@@ -91,7 +91,7 @@ def main():
         print('hybrid',weight,report,flush=True)
         if best_mix is None or rank(report)>rank(best_mix[0]):best_mix=(report,weight,scores)
     record['selected']={'character_C':best_char[3],'semantic_C':best_sem[3],
-        'semantic_weight':best_mix[1],'fast':best_char[0],'semantic':best_mix[0]}
+        'semantic_weight':best_mix[1],'fast':best_char[0],'semantic':best_sem[0],'hybrid':best_mix[0]}
     for language in ('ro','uk'):
         data=export_char(vectorizer,best_char[1],language,best_char[0][language]['cutoff'])
         path=args.output/f'conversation-model-{language}.json.gz'
