@@ -76,5 +76,9 @@ def surface_pairs(payloads):
 
 
 def conversation_consistency(payloads, scorer=None):
-    from .conversation import analyze_conversation
-    return evaluate_consistency(surface_pairs(payloads), lambda p: analyze_conversation(p, scorer)['signal']['decision'])
+    from .conversation import analyze_conversation, default_scorer
+    scorer = scorer or default_scorer()
+    result = evaluate_consistency(surface_pairs(payloads), lambda p: analyze_conversation(p, scorer)['signal']['decision'])
+    result['backend'] = scorer.backend
+    result['semantic_head_sha256'] = getattr(scorer, 'head_sha256', None)
+    return result
