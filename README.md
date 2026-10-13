@@ -1,5 +1,14 @@
 # RoGuard — Romanian and Ukrainian child-safety research toolkit
 
+[![CI](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml)
+[![PyPI version](https://img.shields.io/pypi/v/roguard-child-safety?color=7ee4c6)](https://pypi.org/project/roguard-child-safety/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/roguard-child-safety?color=b8a5ff)](https://pypi.org/project/roguard-child-safety/)
+[![License](https://img.shields.io/github/license/xyz-rafael-xyz/roguard-child-safety?color=a6b6cb)](LICENSE)
+
+[![Languages: Romanian + Ukrainian](https://img.shields.io/badge/languages-Romanian%20%2B%20Ukrainian-b8a5ff)](docs/V6_RELEASE.md)
+[![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
+[![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
+
 [![A looping 26-second RoGuard v6 visual walkthrough: Romanian and Ukrainian model review, permission-aware repair, and source revocation](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
 
 **[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
