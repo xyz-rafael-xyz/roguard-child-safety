@@ -88,7 +88,7 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
             if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
                                  "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports",
-                                 "/api/lab", "/api/lab/compare", "/api/lab/consistency"}:
+                                 "/api/lab", "/api/lab/compare", "/api/lab/consistency", "/api/lab/scenario"}:
                 self._json(404, {"error": "Not found"})
                 return
             if self.headers.get("Content-Type") != "application/json" or self.headers.get("Transfer-Encoding"):
@@ -107,7 +107,12 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/lab":
+                if self.path == "/api/lab/scenario":
+                    from .lab_scenarios import make_scenario
+                    if not isinstance(payload, dict) or set(payload) != {"language", "family", "seed"}:
+                        raise ValueError("Expected fictional scenario parameters")
+                    result = make_scenario(**payload)
+                elif self.path == "/api/lab":
                     from .lab import workbench
                     result = workbench(payload)
                 elif self.path == "/api/lab/compare":

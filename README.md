@@ -4,7 +4,19 @@
 
 **[Open the earlier contract-workflow video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard 4.0 adds a local Romanian/Ukrainian conversation workspace: inspect support-signal suggestions, review a draft response, clarify missing facts, and check a proposed action against declared permissions.** It includes a small fast model and an optional stronger semantic model. The new semantic model reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on a 200-conversation synthetic test, with errors and explicit abstentions. These are correlated, project-authored examples, not authentic child-language validation. [Results, comparisons and limitations](docs/V4_RELEASE.md) · [Workspace and API guide](docs/CONVERSATION_WORKSPACE.md).
+**RoGuard 5.0 adds a bilingual interaction laboratory:** replay branching scenarios, find the first failure, reduce it to a smaller example, track permissions through summaries and memory, and select the minimum permitted information for a task. It measures useful assistance preserved alongside unauthorized proposals and actions stopped. [Workspace and integration guide](docs/INTERACTION_LAB.md) · [v5 results and limits](docs/V5_RELEASE.md).
+
+The new laboratory's controlled reference results are software tests, not language-model accuracy. The unchanged optional v4 semantic classifier reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on 200 correlated synthetic conversations; those results do not establish authentic-child accuracy. [Classifier results](docs/V4_RELEASE.md).
+
+| New workflow | Use |
+|---|---|
+| Simulate and reduce | Connect a callable or recorded chatbot response sequence, replay fictional branches, and obtain a reproducible failing scenario. |
+| Preserve restrictions | Derived artifacts inherit all source restrictions; dispatch rechecks revocation, expiry, purpose and recipient. |
+| Minimize disclosure | Find the lowest-cost permitted field set covering explicit task requirements. |
+| Test consistency | Distinguish changes that should preserve a decision from policy changes that should reverse it. |
+| Measure useful assistance | Report unnecessary refusal and permitted-task completion alongside unauthorized proposals and deliveries. |
+
+The browser and CLI simulate actions. The Python gateway can invoke only explicitly configured host callbacks, with external-operation approval and current-policy checks. It is an integration boundary, not a sandbox for arbitrary Python or a verifier of legal authority.
 
 This project is independent of Roblox. [Roblox Guard 1.0](https://about.roblox.com/newsroom/2025/07/roblox-guard-advancing-safety-for-llms-with-robust-guardrails) is a separate LLM moderation toolkit; there is no affiliation, shared model, or compatibility claim. The PyPI distribution is named `roguard-child-safety`; Python imports remain `roguard`.
 
@@ -39,11 +51,13 @@ Install or upgrade to the **latest PyPI release** in one command (Python 3.9–3
 pip install --upgrade roguard-child-safety
 ```
 
-Open the new local conversation workspace:
+Open the new local interaction laboratory:
 
 ```sh
-roguard-studio --conversation --open
+roguard-studio --lab --open
 ```
+
+For text and draft-response review, use `roguard-studio --conversation --open`. The two workspaces link to each other.
 
 The default fast model needs no additional download. For the **stronger semantic backend** (Python 3.10+, tested on 3.12), install the optional dependencies and fetch the pinned model once:
 

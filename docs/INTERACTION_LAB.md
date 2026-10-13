@@ -9,7 +9,7 @@ pip install --upgrade roguard-child-safety
 roguard-studio --lab --open
 ```
 
-Choose Romanian or Ukrainian, a fictional situation and a reference behavior. Run the simulation. Click a request in the timeline to inspect its minimum-disclosure proposal. Enable reduction to find a smaller failing scenario. Compare behaviors to see why refusing everything does not preserve useful assistance. All browser actions are simulated; there is no live tool execution route or remote model URL field.
+Choose Romanian or Ukrainian, a fictional situation and a reference behavior. Use the preview button to inspect the fictional messages and artifact values. Run the simulation. Click a request in the timeline to inspect its minimum-disclosure proposal. Enable reduction to find a smaller failing scenario. Compare behaviors to see why refusing everything does not preserve useful assistance. All browser actions are simulated; there is no live tool execution route or remote model URL field.
 
 The four programmed reference behaviors are:
 

@@ -1,15 +1,32 @@
-# RoGuard
+# RoGuard — Romanian and Ukrainian interaction testing and guardrails
 
-RoGuard is an offline Romanian and Ukrainian child-safety research toolkit. Version 4 adds a local conversation workspace, optional semantic classification, explicit uncertainty, draft-response checks and a separate audit of declared routing, permission and human-review requirements. Reports reference relevant turns without copying message text. The software never contacts a guardian or takes an external action.
+RoGuard 5 provides a local bilingual laboratory for fictional AI interactions, source-linked permissions, minimum necessary disclosure, decision consistency and useful-task preservation. It includes an optional semantic text classifier and the existing declared-contract checks.
 
 ## Install and open
 
 ```sh
 pip install --upgrade roguard-child-safety
-roguard-studio --conversation --open
+roguard-studio --lab --open
 ```
 
-The basic package supports Python 3.9–3.14 and includes a small fast model. The stronger semantic backend uses optional dependencies and a one-time, explicit model download:
+The core package has no runtime dependencies and supports Python 3.9–3.14. The browser and CLI simulate actions; they do not contact guardians or execute external tools. A separately configured Python gateway can call trusted host callbacks after live policy and approval checks.
+
+## What you can do
+
+- Replay branching fictional scenarios against programmed references, recorded responses or your own explicit Python adapter.
+- Identify the first failing step and reduce a scenario with a bounded replay budget.
+- Retain source restrictions through summaries, proposed memory and tool results.
+- Compute the exact minimum declared disclosure cost while covering required task fields.
+- Test decision invariance and required policy transitions, retaining uncertainty.
+- Compare permitted-task completion, unnecessary refusal and unauthorized proposals/deliveries.
+
+```sh
+roguard-lab demo --language uk --family revocation --target stale
+roguard-lab compare --language ro
+roguard-lab suite --fail-on-failure
+```
+
+For the stronger optional text classifier, use Python 3.10+ (tested on 3.12):
 
 ```sh
 pip install --upgrade 'roguard-child-safety[semantic]'
@@ -17,8 +34,6 @@ roguard-model fetch
 roguard-studio --conversation --open --backend semantic
 ```
 
-Use Python 3.10+ for the optional backend; the semantic test environment is Python 3.12. After downloading the pinned base, inference is local and requires no network. The Python import is `roguard`. The `roguard-conversation` command supports JSON and batches; `roguard-compare-reports` compares matching case IDs.
+The pinned model download is approximately 1.2 GB; subsequent inference is local. V5 does not change the v4 classifiers. Their synthetic results do not establish real-world child-language accuracy. Laboratory reference scores demonstrate controlled software behavior, not AI reasoning or human benefit. Provenance, coverage, costs and authority are host declarations; callback code is trusted, not sandboxed. Reduced scenario exports contain their input text.
 
-The semantic model reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on a 200-conversation synthetic test. This test contains only 20 phrase families per language and has correlated rows. The fast model is weaker. Neither result establishes accuracy on authentic child language; a negative signal cannot close a concern. Scores are not safety probabilities, response checks are limited phrase rules, and complexity measures do not prove comprehension. Prior specialist taxonomy review does not validate the new models or message banks.
-
-See the [workspace guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/CONVERSATION_WORKSPACE.md), [full results](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V4_RELEASE.md), and [README](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/README.md). Report defects through [GitHub Issues](https://github.com/xyz-rafael-xyz/roguard-child-safety/issues).
+[GitHub and full README](https://github.com/xyz-rafael-xyz/roguard-child-safety) · [Interaction guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/INTERACTION_LAB.md) · [v5 evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V5_RELEASE.md) · [Classifier evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V4_RELEASE.md)

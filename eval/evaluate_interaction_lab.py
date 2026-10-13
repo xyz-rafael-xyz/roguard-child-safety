@@ -59,6 +59,7 @@ def main():
     reduction=minimize_failure(scenarios[0],lambda:ReferenceTarget('stale'))
     # The reduced scenario is reproducible from the generator; retain metadata only here.
     reduction.pop('scenario',None);reduction['text_in_report']=False
+    reduction['contains_synthetic_scenario_text']=False
     code_paths=list(Path('src/roguard').glob('*.py'))+[Path(__file__)]
     record={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
             'seed':args.seed,'repetitions_per_family_language':args.repetitions,

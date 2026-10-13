@@ -34,3 +34,7 @@ The working name **RoGuard** collides with an [unrelated Roblox monitoring produ
 ## V4 conversation extension
 
 V4 connects a trained bilingual conversation advisory to independent declared action contracts, turn-ablation references, limited response lint, descriptive complexity measures and exact symbolic clarification questions. It compares frozen character, semantic and hybrid candidates across two synthetic studies, includes explicit abstention and review workload, and preserves a weaker second-source diagnostic. These established techniques are combined in an inspectable workflow; no generic priority or authentic-child accuracy claim follows. [Measured results](V4_RELEASE.md) and [API behavior](CONVERSATION_WORKSPACE.md) define the contribution.
+
+## Version 5 interaction laboratory
+
+The connected workflow adds branching replay, bounded counterexample reduction, immutable source unions, live scoped permission checks, single-use host approvals, exact minimum-disclosure proposals and utility/violation comparisons. The [release report](V5_RELEASE.md) distinguishes controlled reference behavior from model accuracy and cites adjacent auditing, information-flow and privacy-engineering work. No individual component is claimed to be invented here; the contribution is the implemented combination and inspectable bilingual study artifacts.

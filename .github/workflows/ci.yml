@@ -33,6 +33,11 @@ jobs:
       - run: roguard-v2-audit examples/v2_uncertainty_uk.json > /dev/null
       - run: roguard-message-screen examples/message_screen_ro.json > /dev/null
       - run: roguard-message-screen examples/message_screen_uk.json > /dev/null
+      - run: roguard-lab demo --language ro --fail-on-failure > /dev/null
+      - run: roguard-lab demo --language uk --fail-on-failure > /dev/null
+      - run: roguard-lab suite --fail-on-failure > /dev/null
+      - run: roguard-lab compare --language uk > /dev/null
+      - run: roguard-lab consistency examples/lab_surface_conversations.json > /dev/null
       - run: roguard-conversation examples/conversation_ro.json > /dev/null
       - run: roguard-conversation --jsonl examples/conversations.jsonl > /dev/null
       - run: roguard-v1-annotate --help > /dev/null
@@ -96,6 +101,10 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-message-screen" "$GITHUB_WORKSPACE/examples/message_screen_ro.json" > message-ro.json
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-message-screen" "$GITHUB_WORKSPACE/examples/message_screen_uk.json" > message-uk.json
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import json; assert json.load(open("message-ro.json"))["advisory_code"] == "REVIEW_SUPPORT_SIGNAL"; assert json.load(open("message-uk.json"))["advisory_code"] == "REVIEW_SUPPORT_SIGNAL"'
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-lab" demo --language ro --fail-on-failure > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-lab" demo --language uk --fail-on-failure > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-lab" compare > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from importlib import resources; from roguard import FlowLedger, ToolGateway, minimize_disclosure; assert b"Interaction Lab" in resources.read_binary("roguard", "lab.html")'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-conversation" --jsonl "$GITHUB_WORKSPACE/examples/conversations.jsonl" > conversations.jsonl
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-compare-reports" conversations.jsonl conversations.jsonl > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-v1-annotate" --help > /dev/null

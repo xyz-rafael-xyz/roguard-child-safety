@@ -41,6 +41,8 @@ jobs:
           "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_uk.json > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-lab" demo --language ro --fail-on-failure > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-lab" demo --language uk --fail-on-failure > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-conversation" --jsonl examples/conversations.jsonl > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/python" -c 'import os; from importlib.metadata import version; assert version("roguard-child-safety") == os.environ["RELEASE_TAG"].removeprefix("v")'
       - uses: actions/upload-artifact@v4

@@ -74,6 +74,9 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(self.request('/api/lab',{'scenario':[]})[0],400)
         self.assertEqual(self.request('/api/lab',{'callback':'run-code'})[0],400)
         self.assertEqual(self.request('/api/lab/compare',{'language':'ro','seed':17})[0],200)
+        status,scenario=self.request('/api/lab/scenario',{'language':'uk','family':'revocation','seed':17})
+        self.assertEqual(status,200);self.assertTrue(scenario['events'])
+        self.assertEqual(self.request('/api/lab/scenario',{'language':'uk','family':'revocation','seed':17},token='wrong')[0],403)
         self.assertEqual(self.request('/api/lab/consistency',[])[0],400)
 
     def test_security_headers_and_packaged_assets(self):

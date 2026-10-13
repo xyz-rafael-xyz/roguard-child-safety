@@ -26,3 +26,7 @@ The same engine is not independent evidence of its own policy correctness: dedic
 ## Release gates
 
 Meaningful new adversarial/regression tests pass; existing APIs remain compatible; installed wheels work on supported core Python versions; browser workflows run in both languages; public-tree audit passes; main CI is green before a release tag. Publish scope-specific counts and limitations. No claim that a simulated or exact policy result proves authentic-child accuracy or universal security.
+
+## Implementation record
+
+All five components are implemented. See the [integration guide](INTERACTION_LAB.md) and [release report](V5_RELEASE.md) for executable examples, measured results and boundaries. The learned v4 classifiers are unchanged; no model is used to infer execution permission.

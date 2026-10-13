@@ -1,5 +1,7 @@
 # RoGuard benchmark
 
+The [v5 interaction laboratory report](docs/V5_RELEASE.md) records software/reference evaluations separately from the unchanged v4 classifiers and historical adapter studies.
+
 Current conversation-model results are in [V4_RELEASE.md](docs/V4_RELEASE.md). The second frozen semantic model scored 96.7%/96.2% balanced accuracy on 100 Romanian/100 Ukrainian fictional conversations, with 59/60 and 57/60 positive recall and 2/40 and 1/40 false alerts. The uncertainty-band counts, complete-family results, other backends, source-shift diagnostics and limitations are reported there. These new results do not supersede or repair the historical abstract-card studies below.
 
 ## RoGuard Local 3.0.0 fictional-message study, October 2026

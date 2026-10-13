@@ -1,5 +1,7 @@
 # Public source release
 
+Version 5 adds the [interaction laboratory](INTERACTION_LAB.md) and [controlled reference evaluation](V5_RELEASE.md). Its programmed-reference scores are separate from classifier accuracy.
+
 Version 4.0.0 adds the conversation workspace, optional semantic inference, explicit uncertainty, response checks, batch processing and independent action summaries. See the [v4 results and limits](V4_RELEASE.md) and [workspace guide](CONVERSATION_WORKSPACE.md). The PyPI distribution remains `roguard-child-safety`. [Version 3.0.2](V3_0_2_RELEASE.md) introduced PyPI publishing; earlier studies remain historical records.
 
 This repository began as a source-only snapshot of RoGuard at private research commit `f1b2c0bacddb6d319b35b91da09381f5d8f34aa3` and has since received public toolkit fixes. It contains the Romanian and Ukrainian declared-contract checker, taxonomies, synthetic data and research records, examples, and documentation. It has a separate public Git history so earlier private commits cannot expose research artifacts through a clone. Later public CLI fixes do not change the separately frozen private V16 study source or its recorded results.
