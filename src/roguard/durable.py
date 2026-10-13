@@ -40,7 +40,9 @@ class DurableGateway:
         identifier(tenant);identifier(session)
         row=db.execute('SELECT revision,state FROM sessions WHERE tenant=? AND id=?',(tenant,session)).fetchone()
         if row is None:raise KeyError('Unknown session')
-        state=self._unpack(row[1]);ledger=FlowLedger()
+        envelope=self._unpack(row[1])
+        if envelope['tenant']!=tenant or envelope['session']!=session:raise ValueError('Encrypted state context mismatch')
+        state=envelope['events'];ledger=FlowLedger()
         for event in state:
             if event['kind']=='source':ledger.add_source(**event['args'])
             elif event['kind']=='derive':ledger.derive(**event['args'])
@@ -52,7 +54,7 @@ class DurableGateway:
         identifier(tenant);identifier(session)
         with self._tx() as db:
             if db.execute('SELECT COUNT(*) FROM sessions WHERE tenant=?',(tenant,)).fetchone()[0]>=100:raise ValueError('Tenant session limit')
-            db.execute('INSERT INTO sessions VALUES(?,?,0,?)',(tenant,session,self._pack([])))
+            db.execute('INSERT INTO sessions VALUES(?,?,0,?)',(tenant,session,self._pack(dict(tenant=tenant,session=session,events=[]))))
         return {'session':session,'revision':0}
     def mutate(self,tenant,session,kind,args):
         if kind not in ('source','derive','permission') or not isinstance(args,dict):raise ValueError('Invalid mutation')
@@ -61,7 +63,7 @@ class DurableGateway:
             try:
                 if len(state)>=2048:raise ValueError('Session event limit')
                 {'source':ledger.add_source,'derive':ledger.derive,'permission':ledger.permission}[kind](**args)
-                state.append(dict(kind=kind,args=args));db.execute('UPDATE sessions SET revision=?,state=? WHERE tenant=? AND id=?',(rev+1,self._pack(state),tenant,session))
+                state.append(dict(kind=kind,args=args));db.execute('UPDATE sessions SET revision=?,state=? WHERE tenant=? AND id=?',(rev+1,self._pack(dict(tenant=tenant,session=session,events=state)),tenant,session))
                 # A changed policy/provenance invalidates every pending approval and proposal.
                 db.execute("UPDATE jobs SET status='STALE' WHERE tenant=? AND session=? AND status IN ('PENDING','APPROVED')",(tenant,session))
             finally:ledger.close()

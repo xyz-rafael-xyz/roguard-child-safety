@@ -71,12 +71,12 @@ class GatewayApp:
 
 def main():
     p=argparse.ArgumentParser(description='Authenticated local gateway; reverse-proxy TLS required for network deployments')
-    p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid'],default='fast');p.add_argument('--model-path',type=Path)
+    p.add_argument('--key-file',type=Path);p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid'],default='fast');p.add_argument('--model-path',type=Path)
     a=p.parse_args()
     from .durable import DurableGateway
     from .observability import Monitor
     import uvicorn
-    key=os.environ.get('ROGUARD_STATE_KEY')
+    key=a.key_file.read_text().strip() if a.key_file else os.environ.get('ROGUARD_STATE_KEY')
     if not key:p.error('Set ROGUARD_STATE_KEY to a Fernet key; keep it outside the database')
     credentials=_strict_json_loads(a.credentials.read_text());gateway=DurableGateway(a.state,key.encode());monitor=Monitor(str(a.state)+'.metrics')
     app=GatewayApp(gateway,credentials,scorer=ConversationScorer(a.backend,a.model_path),monitor=monitor)

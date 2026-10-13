@@ -21,7 +21,7 @@ from .v2_audit import audit_v2_contract
 from .conversation import analyze_conversation, analyze_batch, compare_reports, ConversationScorer
 
 MAX_REQUEST_BYTES = 1_048_576
-ASSETS = {"/lab": ("lab.html", "text/html; charset=utf-8"),
+ASSETS = {"/reliability": ("reliability.html", "text/html; charset=utf-8"), "/reliability.js": ("reliability.js", "text/javascript; charset=utf-8"),"/lab": ("lab.html", "text/html; charset=utf-8"),
           "/lab.js": ("lab.js", "text/javascript; charset=utf-8"),
           "/lab.css": ("lab.css", "text/css; charset=utf-8"),"/conversation": ("conversation.html", "text/html; charset=utf-8"),
           "/conversation.js": ("conversation.js", "text/javascript; charset=utf-8"),
@@ -88,7 +88,7 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
             if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
                                  "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports",
-                                 "/api/lab", "/api/lab/compare", "/api/lab/consistency", "/api/lab/scenario"}:
+                                 "/api/lab", "/api/lab/compare", "/api/lab/consistency", "/api/lab/scenario", "/api/long", "/api/repair-demo"}:
                 self._json(404, {"error": "Not found"})
                 return
             if self.headers.get("Content-Type") != "application/json" or self.headers.get("Transfer-Encoding"):
@@ -107,7 +107,15 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/lab/scenario":
+                if self.path == "/api/long":
+                    from .long_context import analyze_long_conversation
+                    result = analyze_long_conversation(payload, scorer)
+                elif self.path == "/api/repair-demo":
+                    from .ops import repair_demo
+                    if not isinstance(payload, dict) or set(payload) != {"language"}:
+                        raise ValueError("Expected language")
+                    result = repair_demo(**payload)
+                elif self.path == "/api/lab/scenario":
                     from .lab_scenarios import make_scenario
                     if not isinstance(payload, dict) or set(payload) != {"language", "family", "seed"}:
                         raise ValueError("Expected fictional scenario parameters")
@@ -165,6 +173,7 @@ def main() -> None:
     view = parser.add_mutually_exclusive_group()
     view.add_argument("--conversation", action="store_true")
     view.add_argument("--lab", action="store_true")
+    view.add_argument("--reliability", action="store_true")
     args = parser.parse_args()
     try:
         server = make_server(args.port, backend=args.backend, model_path=args.model_path, device=args.device)
@@ -175,6 +184,8 @@ def main() -> None:
         url += "conversation"
     elif args.lab:
         url += "lab"
+    elif args.reliability:
+        url += "reliability"
     print(f"RoGuard Decision Studio: {url}", flush=True)
     print("Runs on this computer only. Press Ctrl+C to stop.", flush=True)
     if args.open:

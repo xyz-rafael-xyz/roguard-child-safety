@@ -54,3 +54,26 @@ class CalibratedDecisions:
         return {'prediction_set':labels,'decision':('NO_MODEL_SIGNAL' if labels==[0] else 'REVIEW_SUPPORT_SIGNAL' if labels==[1] else 'INSUFFICIENT_EVIDENCE'),
                 'alpha':self.artifact['alpha'],'calibration_counts':self.artifact['counts'],
                 'coverage_requires_exchangeability':True,'real_world_coverage_established':False}
+
+class FeatureSupport:
+    """Diagonal-distance diagnostic, not a semantic novelty detector or guarantee."""
+    def __init__(self,artifact):
+        self.artifact=json.loads(json.dumps(artifact,allow_nan=False))
+        a=self.artifact
+        if set(a)!={'model_id','center','scale','limit','dimension','reference_count','calibration_count'}:raise ValueError('Invalid support artifact')
+        if not isinstance(a['model_id'],str) or type(a['dimension']) is not int or not 1<=a['dimension']<=4096 or len(a['center'])!=a['dimension'] or len(a['scale'])!=a['dimension']:raise ValueError('Invalid feature dimension')
+        if any(type(x) not in (float,int) or not math.isfinite(x) for x in a['center']+a['scale']+[a['limit']]) or min(a['scale'])<=0 or a['limit']<0:raise ValueError('Invalid feature support')
+    @classmethod
+    def fit(cls,reference,calibration,*,model_id):
+        if not 2<=len(reference)<=10000 or not 2<=len(calibration)<=10000:raise ValueError('Insufficient or oversized feature sample')
+        d=len(reference[0])
+        if not 1<=d<=4096 or any(len(row)!=d or any(type(v) not in (float,int) or not math.isfinite(v) for v in row) for row in reference+calibration):raise ValueError('Invalid features')
+        center=[sum(row[i] for row in reference)/len(reference) for i in range(d)]
+        scale=[max(1e-6,math.sqrt(sum((row[i]-center[i])**2 for row in reference)/len(reference))) for i in range(d)]
+        distances=sorted(sum(((v-c)/s)**2 for v,c,s in zip(row,center,scale))/d for row in calibration)
+        return cls(dict(model_id=model_id,center=center,scale=scale,limit=distances[math.ceil(.95*len(distances))-1],dimension=d,reference_count=len(reference),calibration_count=len(calibration)))
+    def check(self,features,*,model_id):
+        a=self.artifact
+        if model_id!=a['model_id'] or len(features)!=a['dimension'] or any(type(v) not in (float,int) or not math.isfinite(v) for v in features):raise ValueError('Incompatible features')
+        distance=sum(((v-c)/s)**2 for v,c,s in zip(features,a['center'],a['scale']))/a['dimension']
+        return dict(distance=distance,outside_reference_support=distance>a['limit'],semantic_novelty_verified=False)
