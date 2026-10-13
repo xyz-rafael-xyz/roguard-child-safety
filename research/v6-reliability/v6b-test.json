@@ -1,0 +1,1279 @@
+{
+  "source_commit": "ca27b618e447337a1c98f4b7d7e16b8e8ac24957",
+  "freeze": {
+    "head.json": "39a80db2fe2872df17ac69dabb3cf827e30a510adc185fe6eb775bdf55f5c98e",
+    "development.json": "e704dc9809b2ead49c44abae683f10738d8cf84519c8739b880c51c1618a08bb",
+    "adapter/adapter_model.safetensors": "e5a0759e17107e52f93a6916799dbd0ba60ef78ebfece1309fbb8fc510243082",
+    "adapter/README.md": "78c5bab37752baa2bc3d440bb95617d18abfcf3a289f0300f71880cbbce76073",
+    "adapter/adapter_config.json": "5f3af90b1c07036887358a7f08053bb960f6fb27fa9946b87d8353920f83dc4c"
+  },
+  "test_digest": "ed255ae9337b1b6d8919f2732097ae6dddc99bc6d9ec0e8e13d34e7be14c6915",
+  "calibration_digest": "8ea65441a4ca9e3aa24366d463896ee77ea829f84f0eca7d6f3fd3f35151be4e",
+  "synthetic_only": true,
+  "independent_language_validation": false,
+  "models": {
+    "v4_semantic": {
+      "metrics": {
+        "ro": {
+          "recall": 0.5833333333333334,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.7916666666666667,
+          "tp": 14,
+          "fp": 0,
+          "positives": 24,
+          "negatives": 16,
+          "cutoff": 0.5000000000000001
+        },
+        "uk": {
+          "recall": 0.625,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.8125,
+          "tp": 15,
+          "fp": 0,
+          "positives": 24,
+          "negatives": 16,
+          "cutoff": 0.5000000000000001
+        }
+      },
+      "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+      "rows": [
+        {
+          "id": "v6b-ro-0-direct",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.6061264004379562
+        },
+        {
+          "id": "v6b-ro-0-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 0,
+          "score": 0.05527336508881815
+        },
+        {
+          "id": "v6b-ro-0-fiction",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 0,
+          "score": 0.03890545515607798
+        },
+        {
+          "id": "v6b-ro-0-retraction",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.8671629716640457
+        },
+        {
+          "id": "v6b-ro-0-switch",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.04367160583946601
+        },
+        {
+          "id": "v6b-ro-1-direct",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.48300545352325025
+        },
+        {
+          "id": "v6b-ro-1-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 0,
+          "score": 0.002949640247199607
+        },
+        {
+          "id": "v6b-ro-1-fiction",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 0,
+          "score": 0.0430409684730885
+        },
+        {
+          "id": "v6b-ro-1-retraction",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.7947419973259616
+        },
+        {
+          "id": "v6b-ro-1-switch",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.015065395624303922
+        },
+        {
+          "id": "v6b-ro-2-direct",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.4505055745100657
+        },
+        {
+          "id": "v6b-ro-2-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 0,
+          "score": 0.005222102441497871
+        },
+        {
+          "id": "v6b-ro-2-fiction",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 0,
+          "score": 0.04523307108824353
+        },
+        {
+          "id": "v6b-ro-2-retraction",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.781871406513614
+        },
+        {
+          "id": "v6b-ro-2-switch",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.025363798840636796
+        },
+        {
+          "id": "v6b-ro-3-direct",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.9707144423505427
+        },
+        {
+          "id": "v6b-ro-3-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 0,
+          "score": 0.000984645223676894
+        },
+        {
+          "id": "v6b-ro-3-fiction",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 0,
+          "score": 0.13578022658263436
+        },
+        {
+          "id": "v6b-ro-3-retraction",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.9807604466232183
+        },
+        {
+          "id": "v6b-ro-3-switch",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.035802564419521725
+        },
+        {
+          "id": "v6b-ro-4-direct",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.9600728131481349
+        },
+        {
+          "id": "v6b-ro-4-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 0,
+          "score": 0.0007480426027656672
+        },
+        {
+          "id": "v6b-ro-4-fiction",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 0,
+          "score": 0.26029183842025055
+        },
+        {
+          "id": "v6b-ro-4-retraction",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.9639234138388451
+        },
+        {
+          "id": "v6b-ro-4-switch",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.050960934855964736
+        },
+        {
+          "id": "v6b-ro-5-direct",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.969253892420276
+        },
+        {
+          "id": "v6b-ro-5-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 0,
+          "score": 3.790399065274197e-05
+        },
+        {
+          "id": "v6b-ro-5-fiction",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 0,
+          "score": 0.2432181440128215
+        },
+        {
+          "id": "v6b-ro-5-retraction",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.9788474421261841
+        },
+        {
+          "id": "v6b-ro-5-switch",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.016792636069329146
+        },
+        {
+          "id": "v6b-ro-6-direct",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.6744785301659095
+        },
+        {
+          "id": "v6b-ro-6-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 0,
+          "score": 0.0014266109381046222
+        },
+        {
+          "id": "v6b-ro-6-fiction",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 0,
+          "score": 0.06509121663542419
+        },
+        {
+          "id": "v6b-ro-6-retraction",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.8558150844331552
+        },
+        {
+          "id": "v6b-ro-6-switch",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.013210689174303852
+        },
+        {
+          "id": "v6b-ro-7-direct",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.9807653019173345
+        },
+        {
+          "id": "v6b-ro-7-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 0,
+          "score": 0.03318077634405176
+        },
+        {
+          "id": "v6b-ro-7-fiction",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 0,
+          "score": 0.3695560828452884
+        },
+        {
+          "id": "v6b-ro-7-retraction",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.988118853106392
+        },
+        {
+          "id": "v6b-ro-7-switch",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.11255934157506295
+        },
+        {
+          "id": "v6b-uk-0-direct",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.6162335547407729
+        },
+        {
+          "id": "v6b-uk-0-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 0,
+          "score": 0.028596781236015716
+        },
+        {
+          "id": "v6b-uk-0-fiction",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 0,
+          "score": 0.061683176442227546
+        },
+        {
+          "id": "v6b-uk-0-retraction",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.8830977387090702
+        },
+        {
+          "id": "v6b-uk-0-switch",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.011760569738820921
+        },
+        {
+          "id": "v6b-uk-1-direct",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.23881143609023947
+        },
+        {
+          "id": "v6b-uk-1-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 0,
+          "score": 0.11879798369649902
+        },
+        {
+          "id": "v6b-uk-1-fiction",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 0,
+          "score": 0.023868612765831163
+        },
+        {
+          "id": "v6b-uk-1-retraction",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.5378704488071769
+        },
+        {
+          "id": "v6b-uk-1-switch",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.006831668270251484
+        },
+        {
+          "id": "v6b-uk-2-direct",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.8686558140033191
+        },
+        {
+          "id": "v6b-uk-2-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 0,
+          "score": 0.02169519588343832
+        },
+        {
+          "id": "v6b-uk-2-fiction",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 0,
+          "score": 0.07638277615610127
+        },
+        {
+          "id": "v6b-uk-2-retraction",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.9251035061583707
+        },
+        {
+          "id": "v6b-uk-2-switch",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.019129703603663943
+        },
+        {
+          "id": "v6b-uk-3-direct",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.9881576585677001
+        },
+        {
+          "id": "v6b-uk-3-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 0,
+          "score": 0.05007006451335525
+        },
+        {
+          "id": "v6b-uk-3-fiction",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 0,
+          "score": 0.24048479618459542
+        },
+        {
+          "id": "v6b-uk-3-retraction",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.9885146144824126
+        },
+        {
+          "id": "v6b-uk-3-switch",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.03406406012451978
+        },
+        {
+          "id": "v6b-uk-4-direct",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.9554983945450684
+        },
+        {
+          "id": "v6b-uk-4-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 0,
+          "score": 0.00024276286163516121
+        },
+        {
+          "id": "v6b-uk-4-fiction",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 0,
+          "score": 0.19353307153764823
+        },
+        {
+          "id": "v6b-uk-4-retraction",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.9723931415012655
+        },
+        {
+          "id": "v6b-uk-4-switch",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.014072668238236517
+        },
+        {
+          "id": "v6b-uk-5-direct",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.8100087201399644
+        },
+        {
+          "id": "v6b-uk-5-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 0,
+          "score": 0.0013207365673404124
+        },
+        {
+          "id": "v6b-uk-5-fiction",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 0,
+          "score": 0.08553900009564694
+        },
+        {
+          "id": "v6b-uk-5-retraction",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.8947399176381672
+        },
+        {
+          "id": "v6b-uk-5-switch",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.003970960846036307
+        },
+        {
+          "id": "v6b-uk-6-direct",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.5373619022158114
+        },
+        {
+          "id": "v6b-uk-6-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 0,
+          "score": 0.006546710146851142
+        },
+        {
+          "id": "v6b-uk-6-fiction",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 0,
+          "score": 0.03192064452480252
+        },
+        {
+          "id": "v6b-uk-6-retraction",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.7717921519863659
+        },
+        {
+          "id": "v6b-uk-6-switch",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.0053141272492796465
+        },
+        {
+          "id": "v6b-uk-7-direct",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.9913634582781062
+        },
+        {
+          "id": "v6b-uk-7-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 0,
+          "score": 0.04426246281717255
+        },
+        {
+          "id": "v6b-uk-7-fiction",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 0,
+          "score": 0.27445455518304945
+        },
+        {
+          "id": "v6b-uk-7-retraction",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.9875255989171507
+        },
+        {
+          "id": "v6b-uk-7-switch",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.04461802339245372
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.390097999773499,
+              "1": 0.9900685712877576
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "62ea7c38f8e8b77c76164ca4269b9e5ed9269985fc10459ca5cf646e0abeade2"
+          },
+          "test_cases": 40,
+          "covered": 40,
+          "singleton": 22,
+          "wrong_singletons": 0
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.21032191704030911,
+              "1": 0.9970832350676625
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "ec899e2092af5c51eefd85ee0a6cbbcd709e4454924abc89ea79bc4977a4ad39"
+          },
+          "test_cases": 40,
+          "covered": 38,
+          "singleton": 20,
+          "wrong_singletons": 2
+        }
+      }
+    },
+    "v6_adapter": {
+      "metrics": {
+        "ro": {
+          "recall": 1.0,
+          "fpr": 0.0625,
+          "balanced_accuracy": 0.96875,
+          "tp": 24,
+          "fp": 1,
+          "positives": 24,
+          "negatives": 16,
+          "cutoff": 0.24000000000000005
+        },
+        "uk": {
+          "recall": 1.0,
+          "fpr": 0.0625,
+          "balanced_accuracy": 0.96875,
+          "tp": 24,
+          "fp": 1,
+          "positives": 24,
+          "negatives": 16,
+          "cutoff": 0.5000000000000001
+        }
+      },
+      "model_id": "41358eae672d0a0d2506c24ac2509dca8d46e5a2879c01b8d6993ddff3731223",
+      "rows": [
+        {
+          "id": "v6b-ro-0-direct",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.9905754194580509
+        },
+        {
+          "id": "v6b-ro-0-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 0,
+          "score": 0.12659502123440114
+        },
+        {
+          "id": "v6b-ro-0-fiction",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 0,
+          "score": 0.005531226767703882
+        },
+        {
+          "id": "v6b-ro-0-retraction",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.9994032361536925
+        },
+        {
+          "id": "v6b-ro-0-switch",
+          "language": "ro",
+          "family": "v6b-ro-0",
+          "label": 1,
+          "score": 0.9947850770009463
+        },
+        {
+          "id": "v6b-ro-1-direct",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.9096229530576864
+        },
+        {
+          "id": "v6b-ro-1-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 0,
+          "score": 0.00012591360317385845
+        },
+        {
+          "id": "v6b-ro-1-fiction",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 0,
+          "score": 0.001635998952926777
+        },
+        {
+          "id": "v6b-ro-1-retraction",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.9969288626997245
+        },
+        {
+          "id": "v6b-ro-1-switch",
+          "language": "ro",
+          "family": "v6b-ro-1",
+          "label": 1,
+          "score": 0.9004528398237327
+        },
+        {
+          "id": "v6b-ro-2-direct",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.9805115905165845
+        },
+        {
+          "id": "v6b-ro-2-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 0,
+          "score": 0.0021045029741843767
+        },
+        {
+          "id": "v6b-ro-2-fiction",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 0,
+          "score": 0.003203814001694381
+        },
+        {
+          "id": "v6b-ro-2-retraction",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.9979914447051774
+        },
+        {
+          "id": "v6b-ro-2-switch",
+          "language": "ro",
+          "family": "v6b-ro-2",
+          "label": 1,
+          "score": 0.9751301496989118
+        },
+        {
+          "id": "v6b-ro-3-direct",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.9998731809947589
+        },
+        {
+          "id": "v6b-ro-3-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 0,
+          "score": 3.5428039118454055e-05
+        },
+        {
+          "id": "v6b-ro-3-fiction",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 0,
+          "score": 0.029709328991146148
+        },
+        {
+          "id": "v6b-ro-3-retraction",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.9999470267527413
+        },
+        {
+          "id": "v6b-ro-3-switch",
+          "language": "ro",
+          "family": "v6b-ro-3",
+          "label": 1,
+          "score": 0.987020412842052
+        },
+        {
+          "id": "v6b-ro-4-direct",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.9997498182216455
+        },
+        {
+          "id": "v6b-ro-4-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 0,
+          "score": 9.161096235488947e-06
+        },
+        {
+          "id": "v6b-ro-4-fiction",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 0,
+          "score": 0.16546053196192664
+        },
+        {
+          "id": "v6b-ro-4-retraction",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.9998534722836321
+        },
+        {
+          "id": "v6b-ro-4-switch",
+          "language": "ro",
+          "family": "v6b-ro-4",
+          "label": 1,
+          "score": 0.9833710563737909
+        },
+        {
+          "id": "v6b-ro-5-direct",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.9999036033184335
+        },
+        {
+          "id": "v6b-ro-5-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 0,
+          "score": 8.14580338304021e-07
+        },
+        {
+          "id": "v6b-ro-5-fiction",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 0,
+          "score": 0.10600318556220224
+        },
+        {
+          "id": "v6b-ro-5-retraction",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.9999663957280734
+        },
+        {
+          "id": "v6b-ro-5-switch",
+          "language": "ro",
+          "family": "v6b-ro-5",
+          "label": 1,
+          "score": 0.9426071953826418
+        },
+        {
+          "id": "v6b-ro-6-direct",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.9426576464524912
+        },
+        {
+          "id": "v6b-ro-6-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 0,
+          "score": 2.2871643621715787e-05
+        },
+        {
+          "id": "v6b-ro-6-fiction",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 0,
+          "score": 0.0026951937121380866
+        },
+        {
+          "id": "v6b-ro-6-retraction",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.9956432398639029
+        },
+        {
+          "id": "v6b-ro-6-switch",
+          "language": "ro",
+          "family": "v6b-ro-6",
+          "label": 1,
+          "score": 0.835263010064431
+        },
+        {
+          "id": "v6b-ro-7-direct",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.999985870265447
+        },
+        {
+          "id": "v6b-ro-7-ordinary",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 0,
+          "score": 0.002833829429633876
+        },
+        {
+          "id": "v6b-ro-7-fiction",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 0,
+          "score": 0.642823320391048
+        },
+        {
+          "id": "v6b-ro-7-retraction",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.9999943034329285
+        },
+        {
+          "id": "v6b-ro-7-switch",
+          "language": "ro",
+          "family": "v6b-ro-7",
+          "label": 1,
+          "score": 0.999242317278436
+        },
+        {
+          "id": "v6b-uk-0-direct",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.9940419104686105
+        },
+        {
+          "id": "v6b-uk-0-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 0,
+          "score": 0.04163678648938041
+        },
+        {
+          "id": "v6b-uk-0-fiction",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 0,
+          "score": 0.024062136573178027
+        },
+        {
+          "id": "v6b-uk-0-retraction",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.9991298395937472
+        },
+        {
+          "id": "v6b-uk-0-switch",
+          "language": "uk",
+          "family": "v6b-uk-0",
+          "label": 1,
+          "score": 0.9868637000706029
+        },
+        {
+          "id": "v6b-uk-1-direct",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.5689156546109041
+        },
+        {
+          "id": "v6b-uk-1-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 0,
+          "score": 0.03658047051887316
+        },
+        {
+          "id": "v6b-uk-1-fiction",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 0,
+          "score": 0.002959662515695326
+        },
+        {
+          "id": "v6b-uk-1-retraction",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.9637792006170608
+        },
+        {
+          "id": "v6b-uk-1-switch",
+          "language": "uk",
+          "family": "v6b-uk-1",
+          "label": 1,
+          "score": 0.857540101865654
+        },
+        {
+          "id": "v6b-uk-2-direct",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.9987974575658624
+        },
+        {
+          "id": "v6b-uk-2-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 0,
+          "score": 0.0031065420941548045
+        },
+        {
+          "id": "v6b-uk-2-fiction",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 0,
+          "score": 0.008297463217741564
+        },
+        {
+          "id": "v6b-uk-2-retraction",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.9996316844864728
+        },
+        {
+          "id": "v6b-uk-2-switch",
+          "language": "uk",
+          "family": "v6b-uk-2",
+          "label": 1,
+          "score": 0.984546835376844
+        },
+        {
+          "id": "v6b-uk-3-direct",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.9999720648306072
+        },
+        {
+          "id": "v6b-uk-3-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 0,
+          "score": 0.009752945806749565
+        },
+        {
+          "id": "v6b-uk-3-fiction",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 0,
+          "score": 0.09407496347197278
+        },
+        {
+          "id": "v6b-uk-3-retraction",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.9999644574399663
+        },
+        {
+          "id": "v6b-uk-3-switch",
+          "language": "uk",
+          "family": "v6b-uk-3",
+          "label": 1,
+          "score": 0.9955259133778859
+        },
+        {
+          "id": "v6b-uk-4-direct",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.9996184911605392
+        },
+        {
+          "id": "v6b-uk-4-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 0,
+          "score": 2.0832001294129465e-06
+        },
+        {
+          "id": "v6b-uk-4-fiction",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 0,
+          "score": 0.07417314857531898
+        },
+        {
+          "id": "v6b-uk-4-retraction",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.9998723099233504
+        },
+        {
+          "id": "v6b-uk-4-switch",
+          "language": "uk",
+          "family": "v6b-uk-4",
+          "label": 1,
+          "score": 0.9581580439490412
+        },
+        {
+          "id": "v6b-uk-5-direct",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.9953476557568286
+        },
+        {
+          "id": "v6b-uk-5-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 0,
+          "score": 0.00034038120366379227
+        },
+        {
+          "id": "v6b-uk-5-fiction",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 0,
+          "score": 0.03422469384443058
+        },
+        {
+          "id": "v6b-uk-5-retraction",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.9984788584881722
+        },
+        {
+          "id": "v6b-uk-5-switch",
+          "language": "uk",
+          "family": "v6b-uk-5",
+          "label": 1,
+          "score": 0.9276916786328787
+        },
+        {
+          "id": "v6b-uk-6-direct",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.9935411758423714
+        },
+        {
+          "id": "v6b-uk-6-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 0,
+          "score": 0.000774774945610816
+        },
+        {
+          "id": "v6b-uk-6-fiction",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 0,
+          "score": 0.007094947035699743
+        },
+        {
+          "id": "v6b-uk-6-retraction",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.9955778751465725
+        },
+        {
+          "id": "v6b-uk-6-switch",
+          "language": "uk",
+          "family": "v6b-uk-6",
+          "label": 1,
+          "score": 0.9563750995772466
+        },
+        {
+          "id": "v6b-uk-7-direct",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.9999973360084421
+        },
+        {
+          "id": "v6b-uk-7-ordinary",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 0,
+          "score": 0.003239151261786947
+        },
+        {
+          "id": "v6b-uk-7-fiction",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 0,
+          "score": 0.5162372353313108
+        },
+        {
+          "id": "v6b-uk-7-retraction",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.9999959491000937
+        },
+        {
+          "id": "v6b-uk-7-switch",
+          "language": "uk",
+          "family": "v6b-uk-7",
+          "label": 1,
+          "score": 0.9992671060211786
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "41358eae672d0a0d2506c24ac2509dca8d46e5a2879c01b8d6993ddff3731223",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.3772023589557373,
+              "1": 0.3028462884231061
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "1f4c8bc1730f06bf401cbfd5e8bda7d7e8613d4824ae1cdd6816a4f211318dfc"
+          },
+          "test_cases": 40,
+          "covered": 39,
+          "singleton": 39,
+          "wrong_singletons": 0
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "41358eae672d0a0d2506c24ac2509dca8d46e5a2879c01b8d6993ddff3731223",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.16463767632347368,
+              "1": 0.5445012348896092
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "6b7933c246267c506331ef4297c315e5d8754e4941123ffa645d2dddba5181a4"
+          },
+          "test_cases": 40,
+          "covered": 39,
+          "singleton": 40,
+          "wrong_singletons": 1
+        }
+      }
+    }
+  },
+  "promotion_gate_passed": false
+}

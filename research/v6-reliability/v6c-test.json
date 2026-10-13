@@ -1,0 +1,999 @@
+{
+  "source_commit": "b9209ab7cf0c26d2ea87f32af89df6aa53fd333e",
+  "freeze": {
+    "head.json": "fa4be82a82c730c6978dd7a44d3fab28a4b40ba2f22e503f4168bf1f14e8d79a",
+    "development.json": "5411d7fade4cd174ea494e75b8410faea34aac1ee2f1050c281ee74bc1a68db4",
+    "adapter/adapter_model.safetensors": "3cddad2dbfbe59a717117cc3bcb54e9fb3e007b2ea6ffc32af4929d8a3ac4857",
+    "adapter/README.md": "78c5bab37752baa2bc3d440bb95617d18abfcf3a289f0300f71880cbbce76073",
+    "adapter/adapter_config.json": "5f3af90b1c07036887358a7f08053bb960f6fb27fa9946b87d8353920f83dc4c"
+  },
+  "test_digest": "e4bd60bd4a8478e1020ddd4bcfc390327bfd60d4205413973a15d7a58cc595c7",
+  "calibration_digest": "8ea65441a4ca9e3aa24366d463896ee77ea829f84f0eca7d6f3fd3f35151be4e",
+  "synthetic_only": true,
+  "independent_language_validation": false,
+  "models": {
+    "v4_semantic": {
+      "metrics": {
+        "ro": {
+          "recall": 0.5555555555555556,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.7777777777777778,
+          "tp": 10,
+          "fp": 0,
+          "positives": 18,
+          "negatives": 12,
+          "cutoff": 0.5000000000000001
+        },
+        "uk": {
+          "recall": 0.6666666666666666,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.8333333333333333,
+          "tp": 12,
+          "fp": 0,
+          "positives": 18,
+          "negatives": 12,
+          "cutoff": 0.5000000000000001
+        }
+      },
+      "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+      "rows": [
+        {
+          "id": "v6c-ro-0-direct",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.3361819402196485
+        },
+        {
+          "id": "v6c-ro-0-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 0,
+          "score": 0.004848885338558623
+        },
+        {
+          "id": "v6c-ro-0-fiction",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 0,
+          "score": 0.0286348952548024
+        },
+        {
+          "id": "v6c-ro-0-retraction",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.712448400732445
+        },
+        {
+          "id": "v6c-ro-0-switch",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.01974775767261597
+        },
+        {
+          "id": "v6c-ro-1-direct",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.48698968872313686
+        },
+        {
+          "id": "v6c-ro-1-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 0,
+          "score": 0.0485594019460365
+        },
+        {
+          "id": "v6c-ro-1-fiction",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 0,
+          "score": 0.02433013832410767
+        },
+        {
+          "id": "v6c-ro-1-retraction",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.739122964465659
+        },
+        {
+          "id": "v6c-ro-1-switch",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.023513738847848402
+        },
+        {
+          "id": "v6c-ro-2-direct",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.9963504404454092
+        },
+        {
+          "id": "v6c-ro-2-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 0,
+          "score": 0.0007011527385598687
+        },
+        {
+          "id": "v6c-ro-2-fiction",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 0,
+          "score": 0.49714257184498833
+        },
+        {
+          "id": "v6c-ro-2-retraction",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.9940095686582668
+        },
+        {
+          "id": "v6c-ro-2-switch",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.08428017649645292
+        },
+        {
+          "id": "v6c-ro-3-direct",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.7634287848996621
+        },
+        {
+          "id": "v6c-ro-3-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 0,
+          "score": 0.0036598656269138355
+        },
+        {
+          "id": "v6c-ro-3-fiction",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 0,
+          "score": 0.08987503265594499
+        },
+        {
+          "id": "v6c-ro-3-retraction",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.9133364213367382
+        },
+        {
+          "id": "v6c-ro-3-switch",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.02630914100524548
+        },
+        {
+          "id": "v6c-ro-4-direct",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.967051127101769
+        },
+        {
+          "id": "v6c-ro-4-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 0,
+          "score": 0.06997139501098522
+        },
+        {
+          "id": "v6c-ro-4-fiction",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 0,
+          "score": 0.42387028840678975
+        },
+        {
+          "id": "v6c-ro-4-retraction",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.9856266758091826
+        },
+        {
+          "id": "v6c-ro-4-switch",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.17154540175276098
+        },
+        {
+          "id": "v6c-ro-5-direct",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.9732325118890497
+        },
+        {
+          "id": "v6c-ro-5-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 0,
+          "score": 0.030079145803215777
+        },
+        {
+          "id": "v6c-ro-5-fiction",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 0,
+          "score": 0.24581011721800228
+        },
+        {
+          "id": "v6c-ro-5-retraction",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.9854704441665908
+        },
+        {
+          "id": "v6c-ro-5-switch",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.06859453621660042
+        },
+        {
+          "id": "v6c-uk-0-direct",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.8501610419146433
+        },
+        {
+          "id": "v6c-uk-0-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 0,
+          "score": 0.019496019422233862
+        },
+        {
+          "id": "v6c-uk-0-fiction",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 0,
+          "score": 0.0806131234911831
+        },
+        {
+          "id": "v6c-uk-0-retraction",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.8794540639798015
+        },
+        {
+          "id": "v6c-uk-0-switch",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.012043512193312088
+        },
+        {
+          "id": "v6c-uk-1-direct",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.7079720087487472
+        },
+        {
+          "id": "v6c-uk-1-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 0,
+          "score": 0.15231984357886258
+        },
+        {
+          "id": "v6c-uk-1-fiction",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 0,
+          "score": 0.04987315669624037
+        },
+        {
+          "id": "v6c-uk-1-retraction",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.8738840914231991
+        },
+        {
+          "id": "v6c-uk-1-switch",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.018373147060117966
+        },
+        {
+          "id": "v6c-uk-2-direct",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.9754842406228333
+        },
+        {
+          "id": "v6c-uk-2-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 0,
+          "score": 0.00012546483309831054
+        },
+        {
+          "id": "v6c-uk-2-fiction",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 0,
+          "score": 0.26724557340020055
+        },
+        {
+          "id": "v6c-uk-2-retraction",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.9740118259657935
+        },
+        {
+          "id": "v6c-uk-2-switch",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.014349130145958988
+        },
+        {
+          "id": "v6c-uk-3-direct",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.9468400402947886
+        },
+        {
+          "id": "v6c-uk-3-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 0,
+          "score": 0.0007170441949872991
+        },
+        {
+          "id": "v6c-uk-3-fiction",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 0,
+          "score": 0.20768521472497914
+        },
+        {
+          "id": "v6c-uk-3-retraction",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.9624775406517769
+        },
+        {
+          "id": "v6c-uk-3-switch",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.02601271800728449
+        },
+        {
+          "id": "v6c-uk-4-direct",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.9794508813006082
+        },
+        {
+          "id": "v6c-uk-4-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 0,
+          "score": 0.002880054683109561
+        },
+        {
+          "id": "v6c-uk-4-fiction",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 0,
+          "score": 0.39635081737796074
+        },
+        {
+          "id": "v6c-uk-4-retraction",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.9820258239275232
+        },
+        {
+          "id": "v6c-uk-4-switch",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.03693119212357888
+        },
+        {
+          "id": "v6c-uk-5-direct",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.9636904856926919
+        },
+        {
+          "id": "v6c-uk-5-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 0,
+          "score": 0.025598445292427174
+        },
+        {
+          "id": "v6c-uk-5-fiction",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 0,
+          "score": 0.1353557837692306
+        },
+        {
+          "id": "v6c-uk-5-retraction",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.9678655201949665
+        },
+        {
+          "id": "v6c-uk-5-switch",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.02118269729566159
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.390097999773499,
+              "1": 0.9900685712877576
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "62ea7c38f8e8b77c76164ca4269b9e5ed9269985fc10459ca5cf646e0abeade2"
+          },
+          "test_cases": 30,
+          "covered": 28,
+          "singleton": 16,
+          "wrong_singletons": 2
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.21032191704030911,
+              "1": 0.9970832350676625
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "ec899e2092af5c51eefd85ee0a6cbbcd709e4454924abc89ea79bc4977a4ad39"
+          },
+          "test_cases": 30,
+          "covered": 28,
+          "singleton": 17,
+          "wrong_singletons": 2
+        }
+      }
+    },
+    "v6_adapter": {
+      "metrics": {
+        "ro": {
+          "recall": 1.0,
+          "fpr": 0.0,
+          "balanced_accuracy": 1.0,
+          "tp": 18,
+          "fp": 0,
+          "positives": 18,
+          "negatives": 12,
+          "cutoff": 0.24000000000000005
+        },
+        "uk": {
+          "recall": 1.0,
+          "fpr": 0.0,
+          "balanced_accuracy": 1.0,
+          "tp": 18,
+          "fp": 0,
+          "positives": 18,
+          "negatives": 12,
+          "cutoff": 0.5000000000000001
+        }
+      },
+      "model_id": "82e2e352c87d9f92743cb6b9c648250c20407be480a029298a07add459d76981",
+      "rows": [
+        {
+          "id": "v6c-ro-0-direct",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.6202189448561957
+        },
+        {
+          "id": "v6c-ro-0-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 0,
+          "score": 0.003777397723857191
+        },
+        {
+          "id": "v6c-ro-0-fiction",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 0,
+          "score": 0.004806169837041689
+        },
+        {
+          "id": "v6c-ro-0-retraction",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.9504835826190314
+        },
+        {
+          "id": "v6c-ro-0-switch",
+          "language": "ro",
+          "family": "v6c-ro-0",
+          "label": 1,
+          "score": 0.9544183478834793
+        },
+        {
+          "id": "v6c-ro-1-direct",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.8549768188223534
+        },
+        {
+          "id": "v6c-ro-1-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 0,
+          "score": 0.11956676792692668
+        },
+        {
+          "id": "v6c-ro-1-fiction",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 0,
+          "score": 0.0014638875124906984
+        },
+        {
+          "id": "v6c-ro-1-retraction",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.953985502029519
+        },
+        {
+          "id": "v6c-ro-1-switch",
+          "language": "ro",
+          "family": "v6c-ro-1",
+          "label": 1,
+          "score": 0.9406829384636295
+        },
+        {
+          "id": "v6c-ro-2-direct",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.9989345298736123
+        },
+        {
+          "id": "v6c-ro-2-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 0,
+          "score": 7.203676741228458e-05
+        },
+        {
+          "id": "v6c-ro-2-fiction",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 0,
+          "score": 0.04249537262145271
+        },
+        {
+          "id": "v6c-ro-2-retraction",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.9991139352023715
+        },
+        {
+          "id": "v6c-ro-2-switch",
+          "language": "ro",
+          "family": "v6c-ro-2",
+          "label": 1,
+          "score": 0.9761443692396387
+        },
+        {
+          "id": "v6c-ro-3-direct",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.9705012803820027
+        },
+        {
+          "id": "v6c-ro-3-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 0,
+          "score": 0.0004649935428240083
+        },
+        {
+          "id": "v6c-ro-3-fiction",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 0,
+          "score": 0.04423076781015936
+        },
+        {
+          "id": "v6c-ro-3-retraction",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.9952213737685692
+        },
+        {
+          "id": "v6c-ro-3-switch",
+          "language": "ro",
+          "family": "v6c-ro-3",
+          "label": 1,
+          "score": 0.9474652697462012
+        },
+        {
+          "id": "v6c-ro-4-direct",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.9964210187439048
+        },
+        {
+          "id": "v6c-ro-4-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 0,
+          "score": 0.04692116477180869
+        },
+        {
+          "id": "v6c-ro-4-fiction",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 0,
+          "score": 0.11011216275820089
+        },
+        {
+          "id": "v6c-ro-4-retraction",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.9993880718776896
+        },
+        {
+          "id": "v6c-ro-4-switch",
+          "language": "ro",
+          "family": "v6c-ro-4",
+          "label": 1,
+          "score": 0.993988199123216
+        },
+        {
+          "id": "v6c-ro-5-direct",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.9985556967430864
+        },
+        {
+          "id": "v6c-ro-5-ordinary",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 0,
+          "score": 0.028712189503539536
+        },
+        {
+          "id": "v6c-ro-5-fiction",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 0,
+          "score": 0.10806165277279955
+        },
+        {
+          "id": "v6c-ro-5-retraction",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.9995622522435903
+        },
+        {
+          "id": "v6c-ro-5-switch",
+          "language": "ro",
+          "family": "v6c-ro-5",
+          "label": 1,
+          "score": 0.9888126332869742
+        },
+        {
+          "id": "v6c-uk-0-direct",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.951195221960259
+        },
+        {
+          "id": "v6c-uk-0-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 0,
+          "score": 0.01214781469456205
+        },
+        {
+          "id": "v6c-uk-0-fiction",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 0,
+          "score": 0.007906322844352562
+        },
+        {
+          "id": "v6c-uk-0-retraction",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.9873327710730232
+        },
+        {
+          "id": "v6c-uk-0-switch",
+          "language": "uk",
+          "family": "v6c-uk-0",
+          "label": 1,
+          "score": 0.9360719374357257
+        },
+        {
+          "id": "v6c-uk-1-direct",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.8989578930037008
+        },
+        {
+          "id": "v6c-uk-1-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 0,
+          "score": 0.22424716532706404
+        },
+        {
+          "id": "v6c-uk-1-fiction",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 0,
+          "score": 0.001354369884513338
+        },
+        {
+          "id": "v6c-uk-1-retraction",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.9825725408655968
+        },
+        {
+          "id": "v6c-uk-1-switch",
+          "language": "uk",
+          "family": "v6c-uk-1",
+          "label": 1,
+          "score": 0.9688871262521748
+        },
+        {
+          "id": "v6c-uk-2-direct",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.997936909704082
+        },
+        {
+          "id": "v6c-uk-2-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 0,
+          "score": 7.15895368444312e-06
+        },
+        {
+          "id": "v6c-uk-2-fiction",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 0,
+          "score": 0.04024609829170758
+        },
+        {
+          "id": "v6c-uk-2-retraction",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.9969658064182026
+        },
+        {
+          "id": "v6c-uk-2-switch",
+          "language": "uk",
+          "family": "v6c-uk-2",
+          "label": 1,
+          "score": 0.9348864263087627
+        },
+        {
+          "id": "v6c-uk-3-direct",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.9981475048327553
+        },
+        {
+          "id": "v6c-uk-3-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 0,
+          "score": 2.703404936758292e-05
+        },
+        {
+          "id": "v6c-uk-3-fiction",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 0,
+          "score": 0.08490799692696104
+        },
+        {
+          "id": "v6c-uk-3-retraction",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.9983876592950536
+        },
+        {
+          "id": "v6c-uk-3-switch",
+          "language": "uk",
+          "family": "v6c-uk-3",
+          "label": 1,
+          "score": 0.9706392582051374
+        },
+        {
+          "id": "v6c-uk-4-direct",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.9990565272852054
+        },
+        {
+          "id": "v6c-uk-4-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 0,
+          "score": 0.00197930227326991
+        },
+        {
+          "id": "v6c-uk-4-fiction",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 0,
+          "score": 0.14819203904888287
+        },
+        {
+          "id": "v6c-uk-4-retraction",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.9991157995378616
+        },
+        {
+          "id": "v6c-uk-4-switch",
+          "language": "uk",
+          "family": "v6c-uk-4",
+          "label": 1,
+          "score": 0.9898553912597005
+        },
+        {
+          "id": "v6c-uk-5-direct",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.9988115465365645
+        },
+        {
+          "id": "v6c-uk-5-ordinary",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 0,
+          "score": 0.021377637915008334
+        },
+        {
+          "id": "v6c-uk-5-fiction",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 0,
+          "score": 0.08304914266415792
+        },
+        {
+          "id": "v6c-uk-5-retraction",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.998697310149001
+        },
+        {
+          "id": "v6c-uk-5-switch",
+          "language": "uk",
+          "family": "v6c-uk-5",
+          "label": 1,
+          "score": 0.9690377994064543
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "82e2e352c87d9f92743cb6b9c648250c20407be480a029298a07add459d76981",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.12825664470316386,
+              "1": 0.32248197533694556
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "557ddacd728aba2583b4a56521f22a3166629186560460e4821403ef02b5688e"
+          },
+          "test_cases": 30,
+          "covered": 29,
+          "singleton": 29,
+          "wrong_singletons": 0
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "82e2e352c87d9f92743cb6b9c648250c20407be480a029298a07add459d76981",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.06029425705140547,
+              "1": 0.6827182054434018
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "e70a555fba0762878f229cc5c8087ad1b373cf9cabbbb43d4be9aaf0c5e71535"
+          },
+          "test_cases": 30,
+          "covered": 26,
+          "singleton": 26,
+          "wrong_singletons": 0
+        }
+      }
+    }
+  },
+  "promotion_gate_passed": true
+}

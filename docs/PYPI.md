@@ -1,15 +1,17 @@
 # RoGuard — Romanian and Ukrainian interaction testing and guardrails
 
-RoGuard 5 provides a local bilingual laboratory for fictional AI interactions, source-linked permissions, minimum necessary disclosure, decision consistency and useful-task preservation. It includes an optional semantic text classifier and the existing declared-contract checks.
+RoGuard 6 provides a local bilingual laboratory for fictional AI interactions, source-linked permissions, minimum necessary disclosure, decision consistency and useful-task preservation. It includes an optional semantic text classifier and the existing declared-contract checks.
 
 ## Install and open
 
 ```sh
 pip install --upgrade roguard-child-safety
-roguard-studio --lab --open
+roguard-studio --reliability --open
 ```
 
 The core package has no runtime dependencies and supports Python 3.9–3.14. The browser and CLI simulate actions; they do not contact guardians or execute external tools. A separately configured Python gateway can call trusted host callbacks after live policy and approval checks.
+
+V6 also adds authenticated tenant APIs, encrypted durable permissions and one-attempt queued execution, metadata-only monitoring/OpenTelemetry, overlapping long-context analysis, and permission-aware repair. Optional extras: `gateway`, `observability`, `adapted`. [Integration guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/RELIABILITY.md).
 
 ## What you can do
 
@@ -26,14 +28,14 @@ roguard-lab compare --language ro
 roguard-lab suite --fail-on-failure
 ```
 
-For the stronger optional text classifier, use Python 3.10+ (tested on 3.12):
+For the new adapted text classifier, use Python 3.10+ (tested on 3.12):
 
 ```sh
-pip install --upgrade 'roguard-child-safety[semantic]'
+pip install --upgrade 'roguard-child-safety[adapted]'
 roguard-model fetch
-roguard-studio --conversation --open --backend semantic
+roguard-studio --conversation --open --backend adapted
 ```
 
-The pinned model download is approximately 1.2 GB; subsequent inference is local. V5 does not change the v4 classifiers. Their synthetic results do not establish real-world child-language accuracy. Laboratory reference scores demonstrate controlled software behavior, not AI reasoning or human benefit. Provenance, coverage, costs and authority are host declarations; callback code is trusted, not sandboxed. Reduced scenario exports contain their input text.
+The pinned model download is approximately 1.2 GB; subsequent inference is local. V6 adds a LoRA-adapted encoder and calibrated abstention while retaining older backends. Its final test contains only six synthetic phrase families per language; no real-world child-language accuracy is established. Laboratory reference scores demonstrate controlled software behavior, not AI reasoning or human benefit. Provenance, coverage, costs and authority are host declarations; callback code is trusted, not sandboxed. Reduced scenario exports contain their input text.
 
 [GitHub and full README](https://github.com/xyz-rafael-xyz/roguard-child-safety) · [Interaction guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/INTERACTION_LAB.md) · [v5 evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V5_RELEASE.md) · [Classifier evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V4_RELEASE.md)

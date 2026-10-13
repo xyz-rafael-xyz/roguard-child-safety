@@ -16,7 +16,7 @@ def repair_demo(language='ro'):
 def main():
     p=argparse.ArgumentParser(description='RoGuard reliability workflows; local by default');sub=p.add_subparsers(dest='command',required=True)
     d=sub.add_parser('repair-demo');d.add_argument('--language',choices=['ro','uk'],default='ro')
-    l=sub.add_parser('long');l.add_argument('input',type=Path);l.add_argument('--backend',choices=['fast','semantic','hybrid'],default='fast');l.add_argument('--model-path',type=Path)
+    l=sub.add_parser('long');l.add_argument('input',type=Path);l.add_argument('--backend',choices=['fast','semantic','hybrid','adapted'],default='fast');l.add_argument('--model-path',type=Path)
     c=sub.add_parser('calibrate');c.add_argument('input',type=Path);c.add_argument('--output',type=Path,required=True)
     m=sub.add_parser('monitor');m.add_argument('database',type=Path);m.add_argument('--tenant',required=True);m.add_argument('--baseline',type=Path)
     i=sub.add_parser('init');i.add_argument('--directory',type=Path,required=True)

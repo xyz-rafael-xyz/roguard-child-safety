@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
-      - run: python -m pip install -e '.[test]'
+      - run: python -m pip install -e '.[test,gateway,observability]'
       - run: python -m unittest discover -s tests -v
       - run: python scripts/verify_public_tree.py
       - run: python -m compileall -q src training eval
@@ -36,6 +36,8 @@ jobs:
       - run: roguard-lab demo --language ro --fail-on-failure > /dev/null
       - run: roguard-lab demo --language uk --fail-on-failure > /dev/null
       - run: roguard-lab suite --fail-on-failure > /dev/null
+      - run: roguard-ops repair-demo --language ro > /dev/null
+      - run: roguard-ops repair-demo --language uk > /dev/null
       - run: roguard-lab compare --language uk > /dev/null
       - run: roguard-lab consistency examples/lab_surface_conversations.json > /dev/null
       - run: roguard-conversation examples/conversation_ro.json > /dev/null

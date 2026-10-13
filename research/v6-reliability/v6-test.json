@@ -1,0 +1,1559 @@
+{
+  "source_commit": "b3720b9b5242f6fadde79c1ddc3362fa3aba5e68",
+  "freeze": {
+    "head.json": "871618e4acfd2f1e8e369f0c343b5f29d8e8f41938501c31fcef3d0adc6e7e42",
+    "development.json": "2cf5be33241b08050a90b200468b3c9b22ccc67c73527904378d760f53a6ba45",
+    "adapter/adapter_model.safetensors": "308539a27f5317b608f544cb8989afeddd03281afe214493f180c5a869435d69",
+    "adapter/README.md": "78c5bab37752baa2bc3d440bb95617d18abfcf3a289f0300f71880cbbce76073",
+    "adapter/adapter_config.json": "5f3af90b1c07036887358a7f08053bb960f6fb27fa9946b87d8353920f83dc4c"
+  },
+  "test_digest": "f653899631ecb651c78772a94ca3fb8f5332a388210b0ca0b1f69b30df76bf61",
+  "calibration_digest": "8ea65441a4ca9e3aa24366d463896ee77ea829f84f0eca7d6f3fd3f35151be4e",
+  "synthetic_only": true,
+  "independent_language_validation": false,
+  "models": {
+    "v4_semantic": {
+      "metrics": {
+        "ro": {
+          "recall": 0.6333333333333333,
+          "fpr": 0.05,
+          "balanced_accuracy": 0.7916666666666666,
+          "tp": 19,
+          "fp": 1,
+          "positives": 30,
+          "negatives": 20,
+          "cutoff": 0.5000000000000001
+        },
+        "uk": {
+          "recall": 0.6333333333333333,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.8166666666666667,
+          "tp": 19,
+          "fp": 0,
+          "positives": 30,
+          "negatives": 20,
+          "cutoff": 0.5000000000000001
+        }
+      },
+      "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+      "rows": [
+        {
+          "id": "v6-ro-20-direct",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.9173039015066451
+        },
+        {
+          "id": "v6-ro-20-ordinary",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 0,
+          "score": 0.0001933952367154399
+        },
+        {
+          "id": "v6-ro-20-fiction",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 0,
+          "score": 0.055245703370406206
+        },
+        {
+          "id": "v6-ro-20-retraction",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.9287248649782373
+        },
+        {
+          "id": "v6-ro-20-switch",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.01316724248395962
+        },
+        {
+          "id": "v6-ro-21-direct",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.9564632065855342
+        },
+        {
+          "id": "v6-ro-21-ordinary",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 0,
+          "score": 0.03500436720160742
+        },
+        {
+          "id": "v6-ro-21-fiction",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 0,
+          "score": 0.10674767425248344
+        },
+        {
+          "id": "v6-ro-21-retraction",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.9714299907029869
+        },
+        {
+          "id": "v6-ro-21-switch",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.06963121918271287
+        },
+        {
+          "id": "v6-ro-22-direct",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.9505396234982753
+        },
+        {
+          "id": "v6-ro-22-ordinary",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 0,
+          "score": 0.0003296924946518618
+        },
+        {
+          "id": "v6-ro-22-fiction",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 0,
+          "score": 0.13699052460067623
+        },
+        {
+          "id": "v6-ro-22-retraction",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.9548549489659258
+        },
+        {
+          "id": "v6-ro-22-switch",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.018553110478340674
+        },
+        {
+          "id": "v6-ro-23-direct",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.33197400817211803
+        },
+        {
+          "id": "v6-ro-23-ordinary",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 0,
+          "score": 0.00407825522075339
+        },
+        {
+          "id": "v6-ro-23-fiction",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 0,
+          "score": 0.03434005477933017
+        },
+        {
+          "id": "v6-ro-23-retraction",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.776793164161019
+        },
+        {
+          "id": "v6-ro-23-switch",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.012460776534581362
+        },
+        {
+          "id": "v6-ro-24-direct",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.8989420781787001
+        },
+        {
+          "id": "v6-ro-24-ordinary",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 0,
+          "score": 0.0005512014033511202
+        },
+        {
+          "id": "v6-ro-24-fiction",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 0,
+          "score": 0.1470771367637349
+        },
+        {
+          "id": "v6-ro-24-retraction",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.9300591593350408
+        },
+        {
+          "id": "v6-ro-24-switch",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.04705447144011455
+        },
+        {
+          "id": "v6-ro-25-direct",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.9980252032362713
+        },
+        {
+          "id": "v6-ro-25-ordinary",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 0,
+          "score": 0.01802452933339672
+        },
+        {
+          "id": "v6-ro-25-fiction",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 0,
+          "score": 0.6770842718095725
+        },
+        {
+          "id": "v6-ro-25-retraction",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.9952567585223894
+        },
+        {
+          "id": "v6-ro-25-switch",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.20413425115556696
+        },
+        {
+          "id": "v6-ro-26-direct",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.6891110304708494
+        },
+        {
+          "id": "v6-ro-26-ordinary",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 0,
+          "score": 0.0012620897721016538
+        },
+        {
+          "id": "v6-ro-26-fiction",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 0,
+          "score": 0.061768870662993115
+        },
+        {
+          "id": "v6-ro-26-retraction",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.9103994075685613
+        },
+        {
+          "id": "v6-ro-26-switch",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.027118260460510208
+        },
+        {
+          "id": "v6-ro-27-direct",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.9965964864426616
+        },
+        {
+          "id": "v6-ro-27-ordinary",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 0,
+          "score": 0.02073399933642583
+        },
+        {
+          "id": "v6-ro-27-fiction",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 0,
+          "score": 0.2633257345104017
+        },
+        {
+          "id": "v6-ro-27-retraction",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.9911063087630696
+        },
+        {
+          "id": "v6-ro-27-switch",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.05740921056571386
+        },
+        {
+          "id": "v6-ro-28-direct",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.8699260876760261
+        },
+        {
+          "id": "v6-ro-28-ordinary",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 0,
+          "score": 0.04511153923430213
+        },
+        {
+          "id": "v6-ro-28-fiction",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 0,
+          "score": 0.09373290828962193
+        },
+        {
+          "id": "v6-ro-28-retraction",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.9596605475937786
+        },
+        {
+          "id": "v6-ro-28-switch",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.03858384777288251
+        },
+        {
+          "id": "v6-ro-29-direct",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.996369821237214
+        },
+        {
+          "id": "v6-ro-29-ordinary",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 0,
+          "score": 0.006992918458661728
+        },
+        {
+          "id": "v6-ro-29-fiction",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 0,
+          "score": 0.47878328284450855
+        },
+        {
+          "id": "v6-ro-29-retraction",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.9936224859050649
+        },
+        {
+          "id": "v6-ro-29-switch",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.13744578786397396
+        },
+        {
+          "id": "v6-uk-20-direct",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.6008876865836612
+        },
+        {
+          "id": "v6-uk-20-ordinary",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 0,
+          "score": 6.109845271505842e-05
+        },
+        {
+          "id": "v6-uk-20-fiction",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 0,
+          "score": 0.049498938572411236
+        },
+        {
+          "id": "v6-uk-20-retraction",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.8284084038051073
+        },
+        {
+          "id": "v6-uk-20-switch",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.0039335468135872
+        },
+        {
+          "id": "v6-uk-21-direct",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.9785898745222951
+        },
+        {
+          "id": "v6-uk-21-ordinary",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 0,
+          "score": 0.0019062878167631942
+        },
+        {
+          "id": "v6-uk-21-fiction",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 0,
+          "score": 0.19556616469135626
+        },
+        {
+          "id": "v6-uk-21-retraction",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.9822563640538091
+        },
+        {
+          "id": "v6-uk-21-switch",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.015019427766058841
+        },
+        {
+          "id": "v6-uk-22-direct",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.6389975385856191
+        },
+        {
+          "id": "v6-uk-22-ordinary",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 0,
+          "score": 0.0035445495158104986
+        },
+        {
+          "id": "v6-uk-22-fiction",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 0,
+          "score": 0.04713640133645518
+        },
+        {
+          "id": "v6-uk-22-retraction",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.8647755415897115
+        },
+        {
+          "id": "v6-uk-22-switch",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.0089280352452618
+        },
+        {
+          "id": "v6-uk-23-direct",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.8659254556185271
+        },
+        {
+          "id": "v6-uk-23-ordinary",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 0,
+          "score": 0.00870807785557407
+        },
+        {
+          "id": "v6-uk-23-fiction",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 0,
+          "score": 0.08758431130435607
+        },
+        {
+          "id": "v6-uk-23-retraction",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.9350548325769518
+        },
+        {
+          "id": "v6-uk-23-switch",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.01731758476170207
+        },
+        {
+          "id": "v6-uk-24-direct",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.7503020002613401
+        },
+        {
+          "id": "v6-uk-24-ordinary",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 0,
+          "score": 0.0013376611299929723
+        },
+        {
+          "id": "v6-uk-24-fiction",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 0,
+          "score": 0.03916050380673794
+        },
+        {
+          "id": "v6-uk-24-retraction",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.8578796245854823
+        },
+        {
+          "id": "v6-uk-24-switch",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.005582961947623577
+        },
+        {
+          "id": "v6-uk-25-direct",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.9961707741375262
+        },
+        {
+          "id": "v6-uk-25-ordinary",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 0,
+          "score": 0.005562978480538942
+        },
+        {
+          "id": "v6-uk-25-fiction",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 0,
+          "score": 0.4183223496326786
+        },
+        {
+          "id": "v6-uk-25-retraction",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.9917341239153785
+        },
+        {
+          "id": "v6-uk-25-switch",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.032843463478698355
+        },
+        {
+          "id": "v6-uk-26-direct",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.3190590747750825
+        },
+        {
+          "id": "v6-uk-26-ordinary",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 0,
+          "score": 0.0008419436906072147
+        },
+        {
+          "id": "v6-uk-26-fiction",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 0,
+          "score": 0.01536222285242567
+        },
+        {
+          "id": "v6-uk-26-retraction",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.7207067537632278
+        },
+        {
+          "id": "v6-uk-26-switch",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.0034437275046843886
+        },
+        {
+          "id": "v6-uk-27-direct",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.9889364510308112
+        },
+        {
+          "id": "v6-uk-27-ordinary",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 0,
+          "score": 0.14386595977782096
+        },
+        {
+          "id": "v6-uk-27-fiction",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 0,
+          "score": 0.15397906977870832
+        },
+        {
+          "id": "v6-uk-27-retraction",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.9823132477809307
+        },
+        {
+          "id": "v6-uk-27-switch",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.04323092603651276
+        },
+        {
+          "id": "v6-uk-28-direct",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.9465804445751111
+        },
+        {
+          "id": "v6-uk-28-ordinary",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 0,
+          "score": 0.006896851827857605
+        },
+        {
+          "id": "v6-uk-28-fiction",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 0,
+          "score": 0.13026659146630587
+        },
+        {
+          "id": "v6-uk-28-retraction",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.9647752994088291
+        },
+        {
+          "id": "v6-uk-28-switch",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.006602230492671167
+        },
+        {
+          "id": "v6-uk-29-direct",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.9556665664807213
+        },
+        {
+          "id": "v6-uk-29-ordinary",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 0,
+          "score": 0.006671912417838022
+        },
+        {
+          "id": "v6-uk-29-fiction",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 0,
+          "score": 0.2387514601792541
+        },
+        {
+          "id": "v6-uk-29-retraction",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.9617418373209484
+        },
+        {
+          "id": "v6-uk-29-switch",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.018123714772426774
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.390097999773499,
+              "1": 0.9900685712877576
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "62ea7c38f8e8b77c76164ca4269b9e5ed9269985fc10459ca5cf646e0abeade2"
+          },
+          "test_cases": 50,
+          "covered": 48,
+          "singleton": 27,
+          "wrong_singletons": 2
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "9f018c1480c984414a73179e7b93732319d6acc37f800d4feeee2116fd6b1565",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.21032191704030911,
+              "1": 0.9970832350676625
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "ec899e2092af5c51eefd85ee0a6cbbcd709e4454924abc89ea79bc4977a4ad39"
+          },
+          "test_cases": 50,
+          "covered": 48,
+          "singleton": 26,
+          "wrong_singletons": 2
+        }
+      }
+    },
+    "v6_adapter": {
+      "metrics": {
+        "ro": {
+          "recall": 1.0,
+          "fpr": 0.1,
+          "balanced_accuracy": 0.95,
+          "tp": 30,
+          "fp": 2,
+          "positives": 30,
+          "negatives": 20,
+          "cutoff": 0.22000000000000003
+        },
+        "uk": {
+          "recall": 0.9666666666666667,
+          "fpr": 0.0,
+          "balanced_accuracy": 0.9833333333333334,
+          "tp": 29,
+          "fp": 0,
+          "positives": 30,
+          "negatives": 20,
+          "cutoff": 0.6400000000000001
+        }
+      },
+      "model_id": "cbbd213695b3ee263f555ea5d4ecb9824c4504a5d687ed4d3823b0eb867b3a83",
+      "rows": [
+        {
+          "id": "v6-ro-20-direct",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.9900625788432923
+        },
+        {
+          "id": "v6-ro-20-ordinary",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 0,
+          "score": 7.334501480051685e-06
+        },
+        {
+          "id": "v6-ro-20-fiction",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 0,
+          "score": 0.006047865146828788
+        },
+        {
+          "id": "v6-ro-20-retraction",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.9957063753841496
+        },
+        {
+          "id": "v6-ro-20-switch",
+          "language": "ro",
+          "family": "v6-ro-20",
+          "label": 1,
+          "score": 0.9065485341151547
+        },
+        {
+          "id": "v6-ro-21-direct",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.9995382149100925
+        },
+        {
+          "id": "v6-ro-21-ordinary",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 0,
+          "score": 0.01301016560694742
+        },
+        {
+          "id": "v6-ro-21-fiction",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 0,
+          "score": 0.012677448726629468
+        },
+        {
+          "id": "v6-ro-21-retraction",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.9996690246632485
+        },
+        {
+          "id": "v6-ro-21-switch",
+          "language": "ro",
+          "family": "v6-ro-21",
+          "label": 1,
+          "score": 0.9914264682977706
+        },
+        {
+          "id": "v6-ro-22-direct",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.9992053336398657
+        },
+        {
+          "id": "v6-ro-22-ordinary",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 0,
+          "score": 1.3364546725576537e-05
+        },
+        {
+          "id": "v6-ro-22-fiction",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 0,
+          "score": 0.07709516688581684
+        },
+        {
+          "id": "v6-ro-22-retraction",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.9995086275678422
+        },
+        {
+          "id": "v6-ro-22-switch",
+          "language": "ro",
+          "family": "v6-ro-22",
+          "label": 1,
+          "score": 0.8978748395018248
+        },
+        {
+          "id": "v6-ro-23-direct",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.8139174830496001
+        },
+        {
+          "id": "v6-ro-23-ordinary",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 0,
+          "score": 0.0008007724240022281
+        },
+        {
+          "id": "v6-ro-23-fiction",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 0,
+          "score": 0.007393711137685727
+        },
+        {
+          "id": "v6-ro-23-retraction",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.9945456488941998
+        },
+        {
+          "id": "v6-ro-23-switch",
+          "language": "ro",
+          "family": "v6-ro-23",
+          "label": 1,
+          "score": 0.9510842129922011
+        },
+        {
+          "id": "v6-ro-24-direct",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.9965347623890829
+        },
+        {
+          "id": "v6-ro-24-ordinary",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 0,
+          "score": 1.3221328210379697e-06
+        },
+        {
+          "id": "v6-ro-24-fiction",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 0,
+          "score": 0.02165521602829976
+        },
+        {
+          "id": "v6-ro-24-retraction",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.9986618782973338
+        },
+        {
+          "id": "v6-ro-24-switch",
+          "language": "ro",
+          "family": "v6-ro-24",
+          "label": 1,
+          "score": 0.970642178285551
+        },
+        {
+          "id": "v6-ro-25-direct",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.9999962021571328
+        },
+        {
+          "id": "v6-ro-25-ordinary",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 0,
+          "score": 0.0016494724826429255
+        },
+        {
+          "id": "v6-ro-25-fiction",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 0,
+          "score": 0.5218400441531832
+        },
+        {
+          "id": "v6-ro-25-retraction",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.9999820214078478
+        },
+        {
+          "id": "v6-ro-25-switch",
+          "language": "ro",
+          "family": "v6-ro-25",
+          "label": 1,
+          "score": 0.9966438954483596
+        },
+        {
+          "id": "v6-ro-26-direct",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.9908839742915938
+        },
+        {
+          "id": "v6-ro-26-ordinary",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 0,
+          "score": 2.3521607011593866e-05
+        },
+        {
+          "id": "v6-ro-26-fiction",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 0,
+          "score": 0.013435406280511661
+        },
+        {
+          "id": "v6-ro-26-retraction",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.999437705596793
+        },
+        {
+          "id": "v6-ro-26-switch",
+          "language": "ro",
+          "family": "v6-ro-26",
+          "label": 1,
+          "score": 0.9783486160883725
+        },
+        {
+          "id": "v6-ro-27-direct",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.9999510114336562
+        },
+        {
+          "id": "v6-ro-27-ordinary",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 0,
+          "score": 0.004533003754300451
+        },
+        {
+          "id": "v6-ro-27-fiction",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 0,
+          "score": 0.08206601130914382
+        },
+        {
+          "id": "v6-ro-27-retraction",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.9998122933878506
+        },
+        {
+          "id": "v6-ro-27-switch",
+          "language": "ro",
+          "family": "v6-ro-27",
+          "label": 1,
+          "score": 0.9762026007850488
+        },
+        {
+          "id": "v6-ro-28-direct",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.9983298817847707
+        },
+        {
+          "id": "v6-ro-28-ordinary",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 0,
+          "score": 0.015431323044832513
+        },
+        {
+          "id": "v6-ro-28-fiction",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 0,
+          "score": 0.019832078248645524
+        },
+        {
+          "id": "v6-ro-28-retraction",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.9997314072141207
+        },
+        {
+          "id": "v6-ro-28-switch",
+          "language": "ro",
+          "family": "v6-ro-28",
+          "label": 1,
+          "score": 0.9828078687429949
+        },
+        {
+          "id": "v6-ro-29-direct",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.9999629650918951
+        },
+        {
+          "id": "v6-ro-29-ordinary",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 0,
+          "score": 0.0016453214715796071
+        },
+        {
+          "id": "v6-ro-29-fiction",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 0,
+          "score": 0.2359393683350396
+        },
+        {
+          "id": "v6-ro-29-retraction",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.9999724643238965
+        },
+        {
+          "id": "v6-ro-29-switch",
+          "language": "ro",
+          "family": "v6-ro-29",
+          "label": 1,
+          "score": 0.994985579708039
+        },
+        {
+          "id": "v6-uk-20-direct",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.6277081210024437
+        },
+        {
+          "id": "v6-uk-20-ordinary",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 0,
+          "score": 3.4675847934993367e-07
+        },
+        {
+          "id": "v6-uk-20-fiction",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 0,
+          "score": 0.0040796976153033345
+        },
+        {
+          "id": "v6-uk-20-retraction",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.9617760395604591
+        },
+        {
+          "id": "v6-uk-20-switch",
+          "language": "uk",
+          "family": "v6-uk-20",
+          "label": 1,
+          "score": 0.6990980637199156
+        },
+        {
+          "id": "v6-uk-21-direct",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.9996899181903313
+        },
+        {
+          "id": "v6-uk-21-ordinary",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 0,
+          "score": 0.00012923297066339806
+        },
+        {
+          "id": "v6-uk-21-fiction",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 0,
+          "score": 0.11724137384724358
+        },
+        {
+          "id": "v6-uk-21-retraction",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.9998471722646489
+        },
+        {
+          "id": "v6-uk-21-switch",
+          "language": "uk",
+          "family": "v6-uk-21",
+          "label": 1,
+          "score": 0.9775353496205234
+        },
+        {
+          "id": "v6-uk-22-direct",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.9877868930807674
+        },
+        {
+          "id": "v6-uk-22-ordinary",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 0,
+          "score": 0.0003414574224065255
+        },
+        {
+          "id": "v6-uk-22-fiction",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 0,
+          "score": 0.04440179616601809
+        },
+        {
+          "id": "v6-uk-22-retraction",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.9983612802351426
+        },
+        {
+          "id": "v6-uk-22-switch",
+          "language": "uk",
+          "family": "v6-uk-22",
+          "label": 1,
+          "score": 0.9384540136230349
+        },
+        {
+          "id": "v6-uk-23-direct",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.9945383078547526
+        },
+        {
+          "id": "v6-uk-23-ordinary",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 0,
+          "score": 0.00020368368447079314
+        },
+        {
+          "id": "v6-uk-23-fiction",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 0,
+          "score": 0.03144146247278784
+        },
+        {
+          "id": "v6-uk-23-retraction",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.9990155285142779
+        },
+        {
+          "id": "v6-uk-23-switch",
+          "language": "uk",
+          "family": "v6-uk-23",
+          "label": 1,
+          "score": 0.9768127422621098
+        },
+        {
+          "id": "v6-uk-24-direct",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.9786075080576028
+        },
+        {
+          "id": "v6-uk-24-ordinary",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 0,
+          "score": 1.2148476000807319e-05
+        },
+        {
+          "id": "v6-uk-24-fiction",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 0,
+          "score": 0.008218329510973649
+        },
+        {
+          "id": "v6-uk-24-retraction",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.9954853348631146
+        },
+        {
+          "id": "v6-uk-24-switch",
+          "language": "uk",
+          "family": "v6-uk-24",
+          "label": 1,
+          "score": 0.9248975729844844
+        },
+        {
+          "id": "v6-uk-25-direct",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.9999789783275346
+        },
+        {
+          "id": "v6-uk-25-ordinary",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 0,
+          "score": 0.00032824224256184395
+        },
+        {
+          "id": "v6-uk-25-fiction",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 0,
+          "score": 0.388536168346423
+        },
+        {
+          "id": "v6-uk-25-retraction",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.9998991615776256
+        },
+        {
+          "id": "v6-uk-25-switch",
+          "language": "uk",
+          "family": "v6-uk-25",
+          "label": 1,
+          "score": 0.9862564627072076
+        },
+        {
+          "id": "v6-uk-26-direct",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.7941316977168855
+        },
+        {
+          "id": "v6-uk-26-ordinary",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 0,
+          "score": 0.00019540656210696085
+        },
+        {
+          "id": "v6-uk-26-fiction",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 0,
+          "score": 0.0025555899818367317
+        },
+        {
+          "id": "v6-uk-26-retraction",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.9840807426489759
+        },
+        {
+          "id": "v6-uk-26-switch",
+          "language": "uk",
+          "family": "v6-uk-26",
+          "label": 1,
+          "score": 0.820744796056896
+        },
+        {
+          "id": "v6-uk-27-direct",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.9999613865986234
+        },
+        {
+          "id": "v6-uk-27-ordinary",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 0,
+          "score": 0.11080785857929841
+        },
+        {
+          "id": "v6-uk-27-fiction",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 0,
+          "score": 0.2902787604563052
+        },
+        {
+          "id": "v6-uk-27-retraction",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.9998950995779728
+        },
+        {
+          "id": "v6-uk-27-switch",
+          "language": "uk",
+          "family": "v6-uk-27",
+          "label": 1,
+          "score": 0.9959904051446401
+        },
+        {
+          "id": "v6-uk-28-direct",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.9998795158263849
+        },
+        {
+          "id": "v6-uk-28-ordinary",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 0,
+          "score": 0.0011491657806829273
+        },
+        {
+          "id": "v6-uk-28-fiction",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 0,
+          "score": 0.2965027163766253
+        },
+        {
+          "id": "v6-uk-28-retraction",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.9998679140005662
+        },
+        {
+          "id": "v6-uk-28-switch",
+          "language": "uk",
+          "family": "v6-uk-28",
+          "label": 1,
+          "score": 0.9757670328714614
+        },
+        {
+          "id": "v6-uk-29-direct",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.9990298022189561
+        },
+        {
+          "id": "v6-uk-29-ordinary",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 0,
+          "score": 0.006577660887731128
+        },
+        {
+          "id": "v6-uk-29-fiction",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 0,
+          "score": 0.206669778332132
+        },
+        {
+          "id": "v6-uk-29-retraction",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.9993897879732704
+        },
+        {
+          "id": "v6-uk-29-switch",
+          "language": "uk",
+          "family": "v6-uk-29",
+          "label": 1,
+          "score": 0.9771083566710662
+        }
+      ],
+      "calibration": {
+        "ro": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "cbbd213695b3ee263f555ea5d4ecb9824c4504a5d687ed4d3823b0eb867b3a83",
+            "language": "ro",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.4107555339072868,
+              "1": 0.40181536455208466
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "600571d2b2f4d3f728419a705081d5d3d2ed35aec4a06d9194afeaef00571423"
+          },
+          "test_cases": 50,
+          "covered": 49,
+          "singleton": 49,
+          "wrong_singletons": 0
+        },
+        "uk": {
+          "artifact": {
+            "schema": "roguard-conformal-v1",
+            "model_id": "cbbd213695b3ee263f555ea5d4ecb9824c4504a5d687ed4d3823b0eb867b3a83",
+            "language": "uk",
+            "alpha": 0.1,
+            "thresholds": {
+              "0": 0.2861061316644793,
+              "1": 0.48725704083611143
+            },
+            "counts": {
+              "0": 12,
+              "1": 18
+            },
+            "calibration_digest": "1bcb9e2cb178b47d06acdf8743b7e0e253b8e861ba7d15af92d036bec1f355d8"
+          },
+          "test_cases": 50,
+          "covered": 47,
+          "singleton": 47,
+          "wrong_singletons": 0
+        }
+      }
+    }
+  },
+  "promotion_gate_passed": false
+}

@@ -38,3 +38,7 @@ V4 connects a trained bilingual conversation advisory to independent declared ac
 ## Version 5 interaction laboratory
 
 The connected workflow adds branching replay, bounded counterexample reduction, immutable source unions, live scoped permission checks, single-use host approvals, exact minimum-disclosure proposals and utility/violation comparisons. The [release report](V5_RELEASE.md) distinguishes controlled reference behavior from model accuracy and cites adjacent auditing, information-flow and privacy-engineering work. No individual component is claimed to be invented here; the contribution is the implemented combination and inspectable bilingual study artifacts.
+
+## V6 reliability extension
+
+The [v6 report](V6_RELEASE.md) adds registered LoRA iterations, model-bound selective decisions, actual-model integration comparisons, durable authorization boundaries, metadata-only monitoring and permission-aware repair. LoRA, conformal prediction, observability and durable job handling are established methods. The contribution is their inspectable connection to this bilingual child-focused workflow. Limited synthetic evidence supports the stated comparisons; regional leadership, authentic-child accuracy and a generic first-of-kind claim remain unestablished.

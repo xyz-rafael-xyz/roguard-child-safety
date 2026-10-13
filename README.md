@@ -4,9 +4,11 @@
 
 **[Open the earlier contract-workflow video](media/roguard-demo.mp4)** · [Read the transcript](docs/DEMO_VIDEO.md)
 
-**RoGuard 5.0 adds a bilingual interaction laboratory:** replay branching scenarios, find the first failure, reduce it to a smaller example, track permissions through summaries and memory, and select the minimum permitted information for a task. It measures useful assistance preserved alongside unauthorized proposals and actions stopped. [Workspace and integration guide](docs/INTERACTION_LAB.md) · [v5 results and limits](docs/V5_RELEASE.md).
+**RoGuard 6.0 adds an adapted language model and durable application controls:** authenticated tenant APIs, encrypted permission state, queued execution, metadata-only monitoring, long-conversation analysis and permission-aware repair. [Setup and integration](docs/RELIABILITY.md) · [v6 experiments and limits](docs/V6_RELEASE.md).
 
-The new laboratory's controlled reference results are software tests, not language-model accuracy. The unchanged optional v4 semantic classifier reached 96.7% Romanian and 96.2% Ukrainian balanced accuracy on 200 correlated synthetic conversations; those results do not establish authentic-child accuracy. [Classifier results](docs/V4_RELEASE.md).
+The new optional `adapted` backend passed its registered improvement gate after three training iterations. Its final fresh test contains only six synthetic phrase families per language: 18/18 signals recovered and 0/12 false alerts at fixed cutoffs in each language. The calibrated API abstained on 1/30 Romanian and 4/30 Ukrainian cases, with no wrong decided cases on that small test. **This does not establish real-world child-language accuracy.** Earlier failed candidates and actual-model comparison failures remain visible in the release record. The lightweight default is unchanged.
+
+Open the new local workflows with `roguard-studio --reliability --open`. The v5 interaction laboratory remains available, including:
 
 | New workflow | Use |
 |---|---|
@@ -66,6 +68,16 @@ pip install --upgrade 'roguard-child-safety[semantic]'
 roguard-model fetch
 roguard-studio --conversation --open --backend semantic
 ```
+
+For the new adapted encoder and calibrated decisions (Python 3.10+, verified on 3.12):
+
+```sh
+pip install --upgrade 'roguard-child-safety[adapted]'
+roguard-model fetch
+roguard-studio --conversation --open --backend adapted
+```
+
+For an authenticated application service, see [the three-command setup](docs/RELIABILITY.md#authenticated-service). The optional `gateway` and `observability` extras keep the core install small.
 
 The model download is about 1.2 GB. Subsequent inference is offline; no conversation is sent to the model host. The fast and semantic backends have different measured accuracy. The [guide](docs/CONVERSATION_WORKSPACE.md) covers batch input, report comparison and Python integration.
 

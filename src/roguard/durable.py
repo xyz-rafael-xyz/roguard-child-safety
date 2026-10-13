@@ -73,8 +73,9 @@ class DurableGateway:
             rev,state,ledger=self._load(db,tenant,session)
             try:report=repair_proposal(ledger,**request);report['durable_revision']=rev;return report
             finally:ledger.close()
-    def enqueue(self,tenant,session,tool,artifact_ids):
+    def enqueue(self,tenant,session,tool,artifact_ids,*,request_id=None):
         identifier(tool);ids=identifiers(artifact_ids)
+        if request_id is not None:identifier(request_id,'request ID')
         binding=self.bindings.get(tenant,{}).get(tool)
         if binding is None:raise ValueError('Unknown tenant tool')
         with self._tx() as db:
@@ -83,8 +84,13 @@ class DurableGateway:
                 check=ledger.check(ids,binding.purpose,binding.recipient,binding.operation)
                 if check['decision']!='ALLOW':raise ValueError('Ineligible job')
                 if db.execute('SELECT COUNT(*) FROM jobs WHERE tenant=?',(tenant,)).fetchone()[0]>=1000:raise ValueError('Tenant job limit; delete completed sessions')
-                job=secrets.token_hex(16)
-                db.execute('INSERT INTO jobs VALUES(?,?,?,?,?,?,?)',(tenant,job,session,rev,'PENDING',self.clock(),self._pack(dict(tool=tool,artifact_ids=ids,binding_version=self.binding_version,scope=[binding.purpose,binding.recipient,binding.operation]))))
+                job=request_id or secrets.token_hex(16)
+                existing=db.execute('SELECT session,payload FROM jobs WHERE tenant=? AND id=?',(tenant,job)).fetchone()
+                if existing:
+                    prior=self._unpack(existing[1])
+                    if existing[0]!=session or prior['tool']!=tool or prior['artifact_ids']!=list(ids):raise ValueError('Request ID conflict')
+                    return {'job_id':job,'status':'EXISTING','revision':rev}
+                db.execute('INSERT INTO jobs VALUES(?,?,?,?,?,?,?)',(tenant,job,session,rev,'PENDING',ledger.clock,self._pack(dict(tool=tool,artifact_ids=ids,binding_version=self.binding_version,scope=[binding.purpose,binding.recipient,binding.operation]))))
             finally:ledger.close()
         return {'job_id':job,'status':'PENDING','revision':rev}
     def _job(self,db,tenant,job):

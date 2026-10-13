@@ -1,6 +1,6 @@
 # PyPI distribution and release process
 
-The PyPI distribution is `roguard-child-safety`; the import package and commands remain `roguard` and `roguard-*`. Version 5.0.0 adds the interaction laboratory and permission-aware execution SDK; see [the v5 report](V5_RELEASE.md). The original PyPI setup was introduced in version 3.0.2.
+The PyPI distribution is `roguard-child-safety`; the import package and commands remain `roguard` and `roguard-*`. Version 6.0.0 adds adaptation and durable reliability workflows; see [the v6 report](V6_RELEASE.md). The original PyPI setup was introduced in version 3.0.2.
 
 The release workflow builds a source archive and wheel from a matching `vX.Y.Z` tag, validates their metadata and a clean installation, publishes them to PyPI with [Trusted Publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/), and only then creates the GitHub release with both versioned and stable-name assets. The PyPI job alone receives `id-token: write`; no long-lived package token is stored in GitHub.
 

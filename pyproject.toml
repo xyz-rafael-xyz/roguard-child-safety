@@ -68,6 +68,7 @@ roguard-v1-author-check = "roguard.v1_author_check:main"
 roguard-message-screen = "roguard.message_model:main"
 
 [project.optional-dependencies]
+adapted = ["torch>=2.6,<3", "transformers>=4.57,<5", "numpy>=1.26,<3", "peft>=0.13,<1"]
 gateway = ["cryptography>=44,<51", "uvicorn>=0.30,<1"]
 observability = ["opentelemetry-sdk>=1.30,<2", "opentelemetry-exporter-otlp-proto-http>=1.30,<2"]
 semantic = ["torch>=2.6,<3", "transformers>=4.57,<5", "numpy>=1.26,<3"]
@@ -80,7 +81,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
+roguard = ["v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

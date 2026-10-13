@@ -60,7 +60,7 @@ class GatewayApp:
             started=time.perf_counter();result=(analyze_conversation(data,self.scorer) if path.endswith('/analyze') else analyze_long_conversation(data,self.scorer))
             if self.monitor:
                 decision=result['signal']['decision'] if 'signal' in result else result['decision']
-                self.monitor.record(tenant=tenant,language=data['language'],decision=decision,latency_ms=(time.perf_counter()-started)*1000,model_id='v4-'+getattr(self.scorer,'backend','fast'),policy_version='v6')
+                self.monitor.record(tenant=tenant,language=data['language'],decision=decision,latency_ms=(time.perf_counter()-started)*1000,model_id=getattr(self.scorer,'backend','fast')+'_'+str(getattr(self.scorer,'head_sha256',None) or 'bundled')[:16],policy_version='v6')
             return result
         routes={'/v1/session/create':g.create,'/v1/session/mutate':g.mutate,'/v1/session/erase':g.erase,'/v1/repair':g.plan,'/v1/job/enqueue':g.enqueue,'/v1/job/approve':g.approve,'/v1/job/cancel':g.cancel,'/v1/job/status':g.status,'/v1/job/execute':g.execute}
         if path in routes:return routes[path](tenant=tenant,**data)
@@ -71,7 +71,7 @@ class GatewayApp:
 
 def main():
     p=argparse.ArgumentParser(description='Authenticated local gateway; reverse-proxy TLS required for network deployments')
-    p.add_argument('--key-file',type=Path);p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid'],default='fast');p.add_argument('--model-path',type=Path)
+    p.add_argument('--key-file',type=Path);p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid','adapted'],default='fast');p.add_argument('--model-path',type=Path)
     a=p.parse_args()
     from .durable import DurableGateway
     from .observability import Monitor

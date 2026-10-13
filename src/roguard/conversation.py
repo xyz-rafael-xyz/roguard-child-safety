@@ -33,7 +33,7 @@ def configuration():
 class ConversationScorer:
     """Owns cached weights, never a persistent cache of messages or embeddings."""
     def __init__(self, backend='fast', base_path=None, device='cpu'):
-        if backend not in ('fast','semantic','hybrid'):
+        if backend not in ('fast','semantic','hybrid','adapted'):
             raise ValueError('Unknown backend')
         self.backend=backend
         self.encoder=None
@@ -46,6 +46,10 @@ class ConversationScorer:
         self.config=configuration()
         self.head=json.loads(resources.read_text('roguard','conversation-head.json')) if self.encoder else None
         self.head_sha256=hashlib.sha256(resources.read_binary('roguard','conversation-head.json')).hexdigest() if self.encoder else None
+        if backend=='adapted':
+            from .adapted import load_adapted,ADAPTER_SHA256
+            self.head,self.model_id,self.calibrators=load_adapted(self.encoder)
+            self.head_sha256=ADAPTER_SHA256
 
     def scores(self, texts, language):
         # The legacy message API has a 2000-character limit; the conversation
@@ -55,10 +59,11 @@ class ConversationScorer:
         if self.encoder is None:return lexical
         from .semantic import head_scores
         semantic=head_scores(self.encoder.encode(texts),self.head).tolist()
-        weight=1.0 if self.backend=='semantic' else self.config['semantic_weight']
+        weight=1.0 if self.backend in ('semantic','adapted') else self.config['semantic_weight']
         return [weight*s+(1-weight)*c for s,c in zip(semantic,lexical)]
 
     def thresholds(self, language):
+        if self.backend=='adapted':return {'cutoff':self.head['cutoffs'][language],'abstain_margin':.08}
         section='fast' if self.backend=='fast' else self.backend
         return self.config[section][language]
 
@@ -137,6 +142,9 @@ def analyze_conversation(payload, scorer=None):
             decision=('INSUFFICIENT_EVIDENCE' if abs(score-cutoff)<=margin else
                       'REVIEW_SUPPORT_SIGNAL' if score>=cutoff else 'NO_MODEL_SIGNAL')
             if decision=='INSUFFICIENT_EVIDENCE':reasons.append('NEAR_DEVELOPMENT_THRESHOLD')
+            if getattr(scorer,'calibrators',None):
+                calibrated=scorer.calibrators[language].predict(score,model_id=scorer.model_id,language=language)
+                decision=calibrated['decision'];reasons=['CALIBRATED_SET_NOT_SINGLETON'] if len(calibrated['prediction_set'])!=1 else []
             # Turn ablation is an inspectable sensitivity probe, not a causal explanation.
             indices=[i for i,t in enumerate(turns) if t['role']=='minor']
             variants=[render([{**t,'text':''} if i==removed else t for i,t in enumerate(turns)]) for removed in indices]
@@ -161,6 +169,7 @@ def analyze_conversation(payload, scorer=None):
         'next_step':'HUMAN_REVIEW' if decision!='NO_MODEL_SIGNAL' else 'NO_MODEL_SIGNAL_DOES_NOT_CLOSE_CONCERN',
         'authority_from_model':False,'external_action_taken':False,'text_in_report':False,
         'real_world_accuracy_established':False,'language_verified':False}
+    if 'calibrated' in locals():report['calibration']=calibrated
     report['action_review']=action_review(report['declared_contract'],report['uncertainty_audit'])
     report['trace']=[{'step':'interpretation','source':'model_advisory','decision':decision},
                      {'step':'proposed_action','source':'declared_facts_only',
@@ -212,6 +221,8 @@ def analyze_batch(payloads, scorer=None):
     class RequestScorer:
         backend=scorer.backend
         head_sha256=getattr(scorer,'head_sha256',None)
+        calibrators=getattr(scorer,'calibrators',None)
+        model_id=getattr(scorer,'model_id',None)
         def thresholds(self,language):return scorer.thresholds(language)
         def scores(self,texts,language):
             if all((language,text) in cached for text in texts):
@@ -246,7 +257,7 @@ def compare_reports(before,after):
 def main():
     p=argparse.ArgumentParser(description='Review a local conversation; never sends or stores its text')
     p.add_argument('input',nargs='?',type=Path);p.add_argument('--jsonl',action='store_true')
-    p.add_argument('--backend',choices=['fast','semantic','hybrid'],default='fast')
+    p.add_argument('--backend',choices=['fast','semantic','hybrid','adapted'],default='fast')
     p.add_argument('--model-path',type=Path);p.add_argument('--device',choices=['cpu','mps','cuda'],default='cpu')
     args=p.parse_args()
     try:

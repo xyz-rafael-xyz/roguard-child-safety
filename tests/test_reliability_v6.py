@@ -124,3 +124,30 @@ class AdditionalReliabilityTests(unittest.TestCase):
         span=exporter.get_finished_spans()[0]
         self.assertEqual(set(span.attributes),{'roguard.language','roguard.decision','roguard.latency_ms','roguard.model_id','roguard.policy_version','roguard.dataset_id'})
         self.assertEqual(span.events,());m.close();provider.shutdown()
+
+@unittest.skipIf(Fernet is None,'gateway extra not installed')
+class ConcurrencyTests(unittest.TestCase):
+    setUp=GatewayTests.setUp
+    tearDown=GatewayTests.tearDown
+    job=GatewayTests.job
+    def test_fractional_wall_clock_immediate_execution(self):
+        self.clock[0]=100.75
+        self.assertEqual(self.g.execute("a",self.job())["status"],"EXECUTED")
+
+    def test_concurrent_execution_invokes_once(self):
+        from concurrent.futures import ThreadPoolExecutor
+        j=self.job()
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            results=list(executor.map(lambda _:self.g.execute('a',j),range(2)))
+        self.assertEqual(len(self.calls),1)
+        self.assertTrue(all(r['status'] in ('EXECUTED','EXECUTION_UNCERTAIN') for r in results))
+    def test_request_id_deduplicates_enqueue(self):
+        one=self.g.enqueue('a','s','send',['item'],request_id='request1')
+        two=self.g.enqueue('a','s','send',['item'],request_id='request1')
+        self.assertEqual(one['job_id'],two['job_id']);self.assertEqual(two['status'],'EXISTING')
+    def test_encrypted_session_cannot_be_swapped(self):
+        self.g.create('b','s')
+        with self.g._tx() as db:
+            blob=db.execute("SELECT state FROM sessions WHERE tenant='a'").fetchone()[0]
+            db.execute("UPDATE sessions SET state=? WHERE tenant='b'",(blob,))
+        with self.assertRaises(ValueError):self.g.mutate('b','s','source',dict(artifact_id='x',value='fiction'))

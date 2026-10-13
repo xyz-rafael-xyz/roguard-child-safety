@@ -167,7 +167,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Open a local, read-only RoGuard decision workspace")
     parser.add_argument("--port", type=int, default=0, help="Loopback port; 0 chooses a free port")
     parser.add_argument("--open", action="store_true", help="Open the local page in your browser")
-    parser.add_argument("--backend", choices=["fast", "semantic", "hybrid"], default="fast")
+    parser.add_argument("--backend", choices=["fast", "semantic", "hybrid", "adapted"], default="fast")
     parser.add_argument("--model-path")
     parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cpu")
     view = parser.add_mutually_exclusive_group()
