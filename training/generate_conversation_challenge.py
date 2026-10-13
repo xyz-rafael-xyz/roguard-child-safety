@@ -13,8 +13,9 @@ MODEL='mlx-community/Qwen3-4B-Instruct-2507-4bit'
 REVISION='50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b'
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--limit',type=int,default=16)
     args=p.parse_args()
+    if not 1<=args.limit<=16:raise ValueError('Invalid request limit')
     if args.output.exists():raise ValueError('Preserve previous generation')
     from mlx_lm import load,generate
     from mlx_lm.sample_utils import make_sampler
@@ -23,6 +24,7 @@ def main():
     rows=[];failures=[];responses=[]
     for language,language_name in [('ro','Romanian'),('uk','Ukrainian')]:
         for index,scene in enumerate(SCENES):
+            if len(responses)>=args.limit:break
             prompt=(f'Write only a valid JSON array of 4 objects. Each object must have keys personal and fiction. '
                 f'Each value is an array of 2 or 3 short messages, each with role (minor or assistant) and text. '
                 f'Write native {language_name}. Create original, entirely invented low-detail conversations about {scene}. '
@@ -32,7 +34,14 @@ def main():
                 'Do not include real cases, names, places, identifiers, violence, sexual material, threats or descriptions of abuse. '
                 'Do not include analysis or markdown. End each conversation with a minor message. Avoid English words.')
             formatted=tokenizer.apply_chat_template([{'role':'user','content':prompt}],tokenize=False,add_generation_prompt=True)
-            response=generate(model,tokenizer,prompt=formatted,max_tokens=2200,sampler=make_sampler(temp=.7),verbose=False)
+            response=generate(model,tokenizer,prompt=formatted,max_tokens=4096,sampler=make_sampler(temp=.7),verbose=False)
+            with args.output.with_suffix('.raw.jsonl').open('a',encoding='utf-8') as raw_stream:
+                raw_stream.write(json.dumps({'language':language,'scene':index,'response':response},ensure_ascii=False)+'\n')
+            response=response.strip()
+            if response.startswith('```json') and response.endswith('```'):
+                response=response[7:-3].strip()
+            elif response.startswith('```') and response.endswith('```'):
+                response=response[3:-3].strip()
             responses.append({'language':language,'scene':index,'sha256':hashlib.sha256(response.encode()).hexdigest()})
             try:
                 pairs=json.loads(response)
