@@ -14,7 +14,9 @@ class GatewayApp:
             if not isinstance(token,str) or len(token)<32 or set(principal)!={'tenant','role'} or principal['role'] not in ('reader','operator','admin'):raise ValueError('Invalid credentials')
             identifier(principal['tenant']);self.credentials.append((hashlib.sha256(token.encode()).digest(),dict(principal)))
         if not self.credentials:raise ValueError('Credentials required')
-        self.limit=asyncio.Semaphore(max_concurrency)
+        if type(max_concurrency) is not int or not 1<=max_concurrency<=64:raise ValueError('Invalid concurrency limit')
+        self.max_concurrency=max_concurrency
+        self.limit=None  # Python 3.9 needs construction inside the serving event loop.
     async def __call__(self,scope,receive,send):
         if scope['type']=='lifespan':
             while True:
@@ -48,6 +50,7 @@ class GatewayApp:
             path=scope['path'];role=principal['role'];tenant=principal['tenant']
             if path in ('/v1/session/create','/v1/session/mutate','/v1/job/approve','/v1/session/erase','/v1/metrics/erase','/v1/job/execute') and role!='admin':return await reply(403,{'error':'ADMIN_REQUIRED'})
             if path in ('/v1/job/enqueue','/v1/job/cancel') and role=='reader':return await reply(403,{'error':'OPERATOR_REQUIRED'})
+            if self.limit is None:self.limit=asyncio.Semaphore(self.max_concurrency)
             if self.limit.locked():return await reply(429,{'error':'CAPACITY_REACHED'})
             async with self.limit:
                 result=await asyncio.to_thread(self.route,path,tenant,data)
