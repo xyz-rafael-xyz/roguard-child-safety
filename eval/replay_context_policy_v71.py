@@ -3,17 +3,18 @@
 The original model outputs are preserved. Case IDs, prefix indices and original
 turn lengths must match before replay. This is regression, not a new model test.
 """
-import hashlib,json
+import argparse,hashlib,json
 from pathlib import Path
 from roguard.context import analyze_context,render
 
 
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--prefix',default='candidate09');parser.add_argument('--include-finals',action='store_true');args=parser.parse_args()
  root=Path('research/v7-1-context')
  from training.context_factorial_final_v7 import generate as factorial
  from training.context_session_probe_v7 import generate as session
- for suite in ('regression','fresh','stress','session'):
-  source=root/f'candidate08-{suite}.json';old=json.loads(source.read_text());destination=root/f'candidate09-{suite}-replay.json'
+ for suite in ('regression','fresh','stress','session')+(('final2','final3') if args.include_finals else ()):
+  source=root/('candidate09-final2-regression.json' if suite=='final2' else 'candidate09-final3.json' if suite=='final3' else f'candidate08-{suite}.json');old=json.loads(source.read_text());destination=root/f'{args.prefix}-{suite}-replay.json'
   if destination.exists():raise ValueError('Do not overwrite regression evidence')
   rows=[r for r in factorial() if r['surface']=='original'] if suite=='regression' else session() if suite=='session' else [json.loads(line) for line in (root/f'{suite}-test.jsonl').read_text().splitlines()]
   prior={o['case_id']:o for o in old['outputs']};cells={};outputs=[]

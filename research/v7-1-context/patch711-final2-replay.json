@@ -1,0 +1,2430 @@
+{
+  "synthetic_only": true,
+  "method": "policy replay on saved model prefix predictions",
+  "source": "candidate09-final2-regression.json",
+  "source_sha256": "ffca590bb8c5b43be56efb815c23dfbfa328cc210f8cf161a6cc56ee721f45d8",
+  "policy_sha256": "1ab7449cb63a9b8c3ee96fdbbf78a5e8780668527e1cc13c1913c5df7485cae0",
+  "rules_sha256": "c37522fba3444c50b577b86135018f169c4056dc41ad5aff9a5a3b7db6290f42",
+  "cells": {
+    "ro/benign": {
+      "count": 7,
+      "review": 0
+    },
+    "uk/benign": {
+      "count": 7,
+      "review": 0
+    },
+    "ro/quoted": {
+      "count": 1,
+      "review": 1
+    },
+    "uk/quoted": {
+      "count": 1,
+      "review": 0
+    },
+    "ro/personal": {
+      "count": 11,
+      "review": 11
+    },
+    "uk/personal": {
+      "count": 11,
+      "review": 11
+    },
+    "ro/other_concern": {
+      "count": 1,
+      "review": 1
+    },
+    "uk/other_concern": {
+      "count": 1,
+      "review": 1
+    }
+  },
+  "outputs": [
+    {
+      "case_id": "final2-ro-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 54,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 54,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 42,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "CORRECTION",
+              "ORDINARY",
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 33,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "QUOTED",
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 60,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 48,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "OTHER_PERSON",
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 52,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 46,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-4",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 61,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-4",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 61,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-5",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 67,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": null,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [
+          0
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-5",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 51,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-6",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 46,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-6",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 47,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-7",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 57,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-7",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 59,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-8",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 54,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-8",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 61,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-9",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 56,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-9",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 59,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "OTHER_PERSON",
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "The context is unresolved; a reviewer should inspect the conversation.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [
+          0
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-10",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 55,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-10",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 48,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-11",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 63,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-11",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 67,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-12",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 82,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-12",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 74,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-13",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 88,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-13",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 96,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-14",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 70,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-14",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 78,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-ro-15",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 81,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-uk-15",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 76,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-ro-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 38,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 101,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 1,
+            "rule_signals": [
+              "PERSONAL_CONTEXT_CONTRADICTS_QUOTATION"
+            ],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-uk-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 34,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 108,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 1,
+            "rule_signals": [
+              "PERSONAL_CONTEXT_CONTRADICTS_QUOTATION"
+            ],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-ro-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 32,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 72,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-uk-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 28,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 66,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": null,
+            "rule_signals": [],
+            "mention_set": [
+              0,
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [
+          1
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-ro-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 41,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "UNCERTAIN",
+            "frame_set": [
+              "UNCERTAIN"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 79,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "UNCERTAIN",
+            "frame_set": [
+              "UNCERTAIN"
+            ],
+            "mention": 0,
+            "rule_signals": [
+              "EXPLICIT_SUPPORT_REQUEST"
+            ],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-uk-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 43,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "UNCERTAIN",
+            "frame_set": [
+              "UNCERTAIN"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 86,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "UNCERTAIN",
+            "frame_set": [
+              "UNCERTAIN"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should examine the ambiguity without assuming the statement is true or false.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [
+          1
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-ro-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 39,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 93,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "final2-shift-uk-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 34,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          },
+          {
+            "turn_index": 1,
+            "context_turn_indices": [
+              0
+            ],
+            "candidate_reference": {
+              "turn_index": 1,
+              "start": 0,
+              "end": 104,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          1
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    }
+  ]
+}

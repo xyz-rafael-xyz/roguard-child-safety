@@ -4,7 +4,7 @@ RoGuard 7.1 provides a local bilingual laboratory for fictional AI interactions,
 
 V7 adds an experimental, jointly trained conversation-context model, turn-reference review, separate concern-mention predictions, and permission-aware extractive tutoring proposals. [Context workflow and measured limitations](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/CONTEXT.md).
 
-Version 7.1 retrains and recalibrates the joint context model, reduces synthetic Romanian/Ukrainian benign review requests, and adds separately reported language signals and clearer uncertainty handling. Errors remain, including frame-classification errors. [Measured improvements and limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_1_RELEASE.md).
+Patch 7.1.1 also corrects negated support/solitude matches in the bounded language rules. Version 7.1 retrains and recalibrates the joint context model, reduces synthetic Romanian/Ukrainian benign review requests, and adds separately reported language signals and clearer uncertainty handling. Errors remain, including frame-classification errors. [Measured improvements and limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_1_RELEASE.md).
 
 ## Install and open
 

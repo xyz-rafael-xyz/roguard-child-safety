@@ -120,7 +120,7 @@ class ContextArtifactTests(unittest.TestCase):
     def test_packaged_artifacts_match_the_frozen_release(self):
         import hashlib
         from importlib import resources
-        manifest=json.loads(Path('research/v7-1-context/release-freeze.json').read_text())
+        manifest=json.loads(Path('research/v7-1-context/release-freeze-7.1.1.json').read_text())
         for backend in ('character','semantic','joint'):
             data=resources.read_binary('roguard','context-'+backend+'.json.gz')
             self.assertEqual(hashlib.sha256(data).hexdigest(),manifest[backend+'.json.gz'])

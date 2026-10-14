@@ -1,0 +1,1333 @@
+{
+  "synthetic_only": true,
+  "method": "policy replay on saved model prefix predictions",
+  "source": "candidate08-stress.json",
+  "source_sha256": "234dcd0d9ef3e60ac8bab6584443da90863fa3218de1bc5845355605765dd8fe",
+  "policy_sha256": "1ab7449cb63a9b8c3ee96fdbbf78a5e8780668527e1cc13c1913c5df7485cae0",
+  "rules_sha256": "c37522fba3444c50b577b86135018f169c4056dc41ad5aff9a5a3b7db6290f42",
+  "cells": {
+    "ro/personal": {
+      "count": 7,
+      "review": 7
+    },
+    "uk/personal": {
+      "count": 7,
+      "review": 7
+    },
+    "ro/other_concern": {
+      "count": 1,
+      "review": 1
+    },
+    "uk/other_concern": {
+      "count": 1,
+      "review": 1
+    },
+    "ro/benign": {
+      "count": 4,
+      "review": 1
+    },
+    "uk/benign": {
+      "count": 4,
+      "review": 0
+    }
+  },
+  "outputs": [
+    {
+      "case_id": "stress-ro-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 60,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-0",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 40,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 66,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "OTHER_PERSON",
+              "QUOTED"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "The context is unresolved; a reviewer should inspect the conversation.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [
+          0
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-1",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 67,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 66,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-2",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 77,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "OTHER_PERSON",
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": true,
+            "review_kind": "MODEL_UNCERTAINTY",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "The context is unresolved; a reviewer should inspect the conversation.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [
+          0
+        ],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 50,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-3",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 59,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-4",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 53,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-4",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 70,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-5",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 51,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [
+              "PROLONGED_UNMET_FOOD_AND_CARE"
+            ],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-5",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 51,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [
+              "PROLONGED_UNMET_FOOD_AND_CARE"
+            ],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-6",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 69,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-6",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 56,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "OTHER_PERSON",
+            "frame_set": [
+              "OTHER_PERSON"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-7",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 66,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-7",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 57,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-8",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 43,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 1,
+            "rule_signals": [],
+            "mention_set": [
+              1
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": true,
+            "review_kind": "CONCERN_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "A reviewer should check whether this describes a current personal concern.",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [
+          0
+        ],
+        "unresolved_turn_indices": [],
+        "decision": "REVIEW",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-8",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 34,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_CURRENT",
+            "frame_set": [
+              "SELF_CURRENT"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-9",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 47,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-9",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 44,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "OTHER_PERSON",
+              "SELF_CURRENT",
+              "SELF_PAST"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-10",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 43,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "SELF_PAST",
+            "frame_set": [
+              "SELF_PAST"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-10",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 42,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": null,
+            "frame_set": [
+              "ORDINARY",
+              "SELF_CURRENT",
+              "SELF_PAST"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": true,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-ro-11",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "ro",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 54,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "ORDINARY",
+            "frame_set": [
+              "ORDINARY"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    },
+    {
+      "case_id": "stress-uk-11",
+      "report": {
+        "schema_version": "7.0-experimental",
+        "language": "uk",
+        "backend": "joint",
+        "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+        "evidence": [
+          {
+            "turn_index": 0,
+            "context_turn_indices": [],
+            "candidate_reference": {
+              "turn_index": 0,
+              "start": 0,
+              "end": 54,
+              "offset_unit": "unicode_code_points"
+            },
+            "frame": "QUOTED",
+            "frame_set": [
+              "QUOTED"
+            ],
+            "mention": 0,
+            "rule_signals": [],
+            "mention_set": [
+              0
+            ],
+            "supported": true,
+            "frame_undecided": false,
+            "review_recommended": false,
+            "review_kind": "NO_REVIEW_SIGNAL",
+            "reason": "MODEL_PROPOSAL",
+            "review_question": "",
+            "verified": false,
+            "causal_attribution": false
+          }
+        ],
+        "review_turn_indices": [],
+        "unresolved_turn_indices": [],
+        "decision": "NO_REVIEW_SIGNAL",
+        "earlier_signals_retained": true,
+        "authority_from_model": false,
+        "external_action_taken": false,
+        "real_world_accuracy_established": false,
+        "text_in_report": false,
+        "limits": [
+          "Synthetic training and calibration",
+          "Whole-turn candidate references, not verified span extraction",
+          "Corrections never automatically dismiss earlier concerns",
+          "No claim that an unflagged conversation is safe"
+        ]
+      }
+    }
+  ]
+}

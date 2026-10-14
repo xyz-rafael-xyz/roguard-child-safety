@@ -45,3 +45,20 @@ class ContextTransitionSignalTests(unittest.TestCase):
         self.assertEqual(explicit_signals('Am nevoie de sprijin pentru sentimentele mele.', 'ro','SELF_CURRENT'),['EXPLICIT_SUPPORT_REQUEST'])
         self.assertEqual(explicit_signals('Мені потрібна підтримка через мої переживання.', 'uk','SELF_CURRENT'),['EXPLICIT_SUPPORT_REQUEST'])
         self.assertEqual(explicit_signals('Am nevoie de sprijin pentru tema mea.', 'ro','SELF_CURRENT'),[])
+
+class NegatedSignalTests(unittest.TestCase):
+    def test_negated_support_does_not_become_an_affirmative_rule_signal(self):
+        for lang,text in (('ro','Nu am nevoie de sprijin.'),('ro','N-am nevoie de sprijin.'),('ro','Nu   am nevoie de sprijin.'),('ro','Nu cred că am nevoie de sprijin.'),('uk','Мені не потрібна підтримка.'),('uk','Не думаю, що мені потрібна підтримка.')):
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+        for lang,text in (('ro','Nu mi-e bine. Am nevoie de sprijin.'),('ro','Nu mereu, dar am nevoie de sprijin.'),('uk','Не все гаразд. Мені потрібна підтримка.')):
+            self.assertIn('EXPLICIT_SUPPORT_REQUEST',explicit_signals(text,lang,'SELF_CURRENT',0))
+
+    def test_negated_solitude_and_unrelated_nobody_are_not_absent_care(self):
+        for lang,text in (('ro','Nu am mâncat de ieri, dar nu sunt singur.'),('ro','Nu am mâncat de ieri, dar nu mai sunt singură.'),('ro','Nu am mâncat de ieri; nu este nimeni în pericol.'),('uk','Я не їв від учора, але я не сам.'),('uk','Я не їв від учора; немає нікого злого поруч.')):
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+        for lang,text in (('ro','Nu am mâncat de ieri și sunt singur.'),('uk','Я не їв від учора і я сам.'),('ro','Nu am mâncat de ieri și nu este niciun adult acasă.')):
+            self.assertIn('PROLONGED_UNMET_FOOD_AND_CARE',explicit_signals(text,lang,'SELF_CURRENT',0))
+
+    def test_negated_exit_from_fiction_cannot_override_quotation(self):
+        self.assertEqual(explicit_signals('Nu oprim ficțiunea. Personajul vorbește despre mine.', 'ro','QUOTED',1),[])
+        self.assertEqual(explicit_signals('Не зупинимо вигадану історію. Особисто я читаю репліку.', 'uk','QUOTED',1),[])

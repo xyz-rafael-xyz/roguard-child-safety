@@ -2,6 +2,12 @@
 
 This update targets the optional **joint context model**. It does not retrain the older `adapted` conversation backend or the character/semantic comparison models. The decision-logic and bounded-language-rule fixes apply to all context backends. All language evidence below is synthetic and authored within the project; it does not establish near-perfect performance on real child messages or independent translation quality.
 
+## 7.1.1 negation correction
+
+A final rule audit after 7.1.0 publication found that Romanian negated support and solitude statements could match affirmative rules. Version **7.1.1** adds conservative clause-level negation checks in both languages, whitespace normalization, and tighter absent-care wording. Negated exits from fiction cannot trigger the quotation-conflict rule. This corrects **rule-derived** alerts; model predictions remain independent and may still request review.
+
+Patch verification: **402 tests run: 388 passed, 14 skipped**; fresh-wheel negation and affirmative phrase checks passed. The model weights and calibration are unchanged. All six existing decision suites were replayed on their saved prefix predictions with **identical counts** to 7.1.0. Added tests cover negated support, negative belief wording, negated solitude, unrelated “nobody” statements, affirmative contrasts, and negated fiction exits. The new policy freeze is `release-freeze-7.1.1.json`; the original freeze is preserved. Final3 was fresh for the 7.1.0 evaluation; the patch replay is regression evidence.
+
 ## What changed
 
 - Added ordinary task-help, theatre-writing, hobbies, scope-only introductions, correction/quotation contrasts and emotional-support examples in Romanian and Ukrainian.
