@@ -63,7 +63,7 @@ These counts were the same in Romanian and Ukrainian. Retaining the correction c
 
 ## Integration and usability verification
 
-The regression suite covers source restrictions, absent grants, revocation of derived summaries, malformed/oversized input, model mismatch, disabled endpoints, authentication, metadata-only monitoring and browser request boundaries. The local suite passed 387 tests with 14 optional/historical tests skipped. Browser checks exercised Romanian and Ukrainian results, reference navigation, clearing stale exports, and a 390-pixel mobile layout without overflow or browser errors. The release wheel was built, validated and installed outside the checkout, including actual bilingual joint-model inference.
+The regression suite covers source restrictions, absent grants, revocation of derived summaries, malformed/oversized input, model mismatch, disabled endpoints, authentication, metadata-only monitoring and browser request boundaries. The local suite ran 387 tests: 373 passed and 14 optional/historical tests were skipped. Browser checks exercised Romanian and Ukrainian results, reference navigation, clearing stale exports, and a 390-pixel mobile layout without overflow or browser errors. The release wheel was built, validated and installed outside the checkout, including actual bilingual joint-model inference.
 
 The tutoring example produces a permitted learning-only proposal, excludes an unpermitted personal source, and blocks the derived summary after source revocation. This verifies a declared-policy integration. It does not validate inferred authority or semantic sufficiency.
 
