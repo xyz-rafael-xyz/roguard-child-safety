@@ -1,0 +1,1278 @@
+{
+  "suite": "stress",
+  "synthetic_only": true,
+  "independent_native_review": false,
+  "model_sha256": "63670f942e242899032e6e5b2f474f1aa6d7ae61e22d7cd73777c9709d533795",
+  "cells": {
+    "ro/personal": {
+      "count": 7,
+      "review": 7
+    },
+    "uk/personal": {
+      "count": 7,
+      "review": 6
+    },
+    "ro/other_concern": {
+      "count": 1,
+      "review": 1
+    },
+    "uk/other_concern": {
+      "count": 1,
+      "review": 1
+    },
+    "ro/benign": {
+      "count": 4,
+      "review": 1
+    },
+    "uk/benign": {
+      "count": 4,
+      "review": 1
+    }
+  },
+  "outputs": [
+    {
+      "case_id": "stress-ro-0",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 60,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-0",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 40,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-1",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 66,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-1",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 67,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-2",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 66,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-2",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 77,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-3",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 50,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-3",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 59,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-4",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 53,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-4",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 70,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-5",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [],
+        "label": null,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 51,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": null,
+          "mention_set": [],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-5",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 51,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-6",
+      "language": "ro",
+      "expected_frame": "OTHER_PERSON",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 69,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-6",
+      "language": "uk",
+      "expected_frame": "OTHER_PERSON",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 56,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-7",
+      "language": "ro",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 66,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check who the statement concerns; the speaker may be reporting another person.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-7",
+      "language": "uk",
+      "expected_frame": "SELF_CURRENT",
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON",
+          "SELF_CURRENT",
+          "UNCERTAIN"
+        ],
+        "label": null,
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 57,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "OTHER_PERSON",
+            "SELF_CURRENT",
+            "UNCERTAIN"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "The context is unresolved; a reviewer should inspect the conversation.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-8",
+      "language": "ro",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 43,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-8",
+      "language": "uk",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 34,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-9",
+      "language": "ro",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY"
+        ],
+        "label": "ORDINARY",
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 47,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-9",
+      "language": "uk",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 44,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-10",
+      "language": "ro",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_PAST"
+        ],
+        "label": "SELF_PAST",
+        "argmax": "SELF_PAST"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 43,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-10",
+      "language": "uk",
+      "expected_frame": "ORDINARY",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_PAST"
+        ],
+        "label": "SELF_PAST",
+        "argmax": "SELF_PAST"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 42,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-ro-11",
+      "language": "ro",
+      "expected_frame": "QUOTED",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY"
+        ],
+        "label": "ORDINARY",
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 54,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "stress-uk-11",
+      "language": "uk",
+      "expected_frame": "QUOTED",
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "QUOTED"
+        ],
+        "label": "QUOTED",
+        "argmax": "QUOTED"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 54,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 0,
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "ro": {
+      "frame_macro_f1": 0.21714285714285717,
+      "signal_macro_f1": 0.8991596638655461
+    },
+    "uk": {
+      "frame_macro_f1": 0.4,
+      "signal_macro_f1": 0.8125
+    }
+  }
+}

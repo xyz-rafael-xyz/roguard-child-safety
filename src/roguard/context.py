@@ -9,6 +9,7 @@ import json
 import math
 from pathlib import Path
 import unicodedata
+from .context_signals import explicit_signals
 
 LABELS = ('SELF_CURRENT','SELF_PAST','OTHER_PERSON','QUOTED','CORRECTION','UNCERTAIN','ORDINARY')
 QUESTIONS = {
@@ -125,16 +126,28 @@ def analyze_context(payload,model=None):
     for i,prediction in zip(indices,predictions):
         frame=prediction['heads'].get('frame',{});signal=prediction['heads'].get('signal',{})
         label=frame.get('label');mentioned=signal.get('label')
-        uncertain=not prediction['supported'] or mentioned is None or (mentioned==1 and (label is None or label in ('CORRECTION','UNCERTAIN')))
-        needs_review=uncertain or (mentioned==1 and label in ('SELF_CURRENT','SELF_PAST','OTHER_PERSON'))
+        uncertain=not prediction['supported'] or mentioned is None or (mentioned==1 and (label is None or label in ('CORRECTION','UNCERTAIN','ORDINARY')))
+        rule_signals=explicit_signals(turns[i]['text'],payload['language'],label,mentioned)
+        needs_review=bool(rule_signals) or uncertain or (mentioned==1 and label in ('SELF_CURRENT','SELF_PAST','OTHER_PERSON'))
         if needs_review:review_refs.append(i)
         if uncertain:unresolved.append(i)
+        question=''
+        if needs_review:
+            if rule_signals:
+                question='A bounded language rule found an explicit support/unmet-needs statement or conflicting personal context; a reviewer should check its meaning and context.'
+            elif mentioned is None:
+                question='The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.'
+            elif mentioned==1 and label=='ORDINARY':
+                question='The concern and frame predictions disagree; a reviewer should inspect the conversation.'
+            else:
+                question=QUESTIONS.get(label,'The context is unresolved; a reviewer should inspect the conversation.')
         evidence.append({'turn_index':i,'context_turn_indices':list(range(i)),
             'candidate_reference':{'turn_index':i,'start':0,'end':len(turns[i]['text']),'offset_unit':'unicode_code_points'},
             'frame':label,'frame_set':frame.get('prediction_set',[]),'mention':mentioned,
-            'mention_set':signal.get('prediction_set',[]),'supported':prediction['supported'],
-            'frame_undecided':label is None,'review_recommended':needs_review,'reason':prediction.get('reason','MODEL_PROPOSAL'),
-            'review_question':QUESTIONS.get(label,'The context is unresolved; a reviewer should inspect the conversation.'),
+            'rule_signals':rule_signals,'mention_set':signal.get('prediction_set',[]),'supported':prediction['supported'],
+            'frame_undecided':label is None,'review_recommended':needs_review,
+            'review_kind':'MODEL_UNCERTAINTY' if uncertain else 'CONCERN_SIGNAL' if needs_review else 'NO_REVIEW_SIGNAL','reason':prediction.get('reason','MODEL_PROPOSAL'),
+            'review_question':question,
             'verified':False,'causal_attribution':False})
     return {'schema_version':'7.0-experimental','language':payload['language'],'backend':model.backend,
         'model_sha256':model.identity,'evidence':evidence,'review_turn_indices':review_refs,'unresolved_turn_indices':unresolved,

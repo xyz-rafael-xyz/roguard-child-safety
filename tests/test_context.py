@@ -120,7 +120,48 @@ class ContextArtifactTests(unittest.TestCase):
     def test_packaged_artifacts_match_the_frozen_release(self):
         import hashlib
         from importlib import resources
-        manifest=json.loads(Path('research/v7-context/candidate-freeze.json').read_text())
+        manifest=json.loads(Path('research/v7-1-context/release-freeze.json').read_text())
         for backend in ('character','semantic','joint'):
             data=resources.read_binary('roguard','context-'+backend+'.json.gz')
             self.assertEqual(hashlib.sha256(data).hexdigest(),manifest[backend+'.json.gz'])
+        for name in ('context.py','context_signals.py','context.js'):
+            self.assertEqual(hashlib.sha256(resources.read_binary('roguard',name)).hexdigest(),manifest[name])
+
+class ContextReviewReasonTests(unittest.TestCase):
+    def test_abstention_is_distinct_from_detected_concern(self):
+        class Proposal(Stub):
+            def predict(self,texts,language):
+                return [{'supported':True,'heads':{'frame':{'label':'SELF_CURRENT','prediction_set':['SELF_CURRENT']},'signal':{'label':label,'prediction_set':[] if label is None else [label]}}} for label in (0,None,1)]
+        result=analyze_context({'language':'uk','turns':[{'role':'minor','text':'Приклад'}]*3},Proposal())
+        self.assertEqual(result['review_turn_indices'],[1,2])
+        self.assertEqual(result['unresolved_turn_indices'],[1])
+        self.assertEqual([r['review_kind'] for r in result['evidence']],['NO_REVIEW_SIGNAL','MODEL_UNCERTAINTY','CONCERN_SIGNAL'])
+        self.assertEqual(result['evidence'][0]['review_question'],'')
+        self.assertIn('without assuming harm',result['evidence'][1]['review_question'])
+
+class ContextConditionalCalibrationTests(unittest.TestCase):
+    def test_class_conditional_set_cannot_override_probability_winner(self):
+        import math
+        model=ContextModel('character')
+        head=model.spec['heads']['signal']
+        head['weights']=[[0.0]*len(head['weights'][0])]
+        head['quantiles']={'ro':[0.95,0.05],'uk':[0.95,0.05]}
+        for probability,label in ((0.1,0),(0.9,None),(0.99,1)):
+            head['intercept']=[math.log(probability/(1-probability))]
+            result=model.predict(['FOCUS minor: Exemplu fictiv.'],'ro')[0]['heads']['signal']
+            self.assertEqual(result['label'],label)
+            if probability==0.9:
+                self.assertEqual(result['prediction_set'],[0])
+                self.assertEqual(result['argmax'],1)
+
+class ContextHeadDisagreementTests(unittest.TestCase):
+    def test_positive_mention_with_ordinary_frame_requires_review(self):
+        class Disagree(Stub):
+            def predict(self,texts,language):
+                return [{'supported':True,'heads':{'frame':{'label':'ORDINARY','prediction_set':['ORDINARY']},'signal':{'label':v,'prediction_set':[v]}}} for v in (0,1)]
+        report=analyze_context({'language':'ro','turns':[{'role':'minor','text':'Exemplu fictiv.'}]*2},Disagree())
+        self.assertEqual(report['review_turn_indices'],[1])
+        self.assertEqual(report['unresolved_turn_indices'],[1])
+        self.assertEqual(report['evidence'][1]['review_kind'],'MODEL_UNCERTAINTY')
+        self.assertIn('disagree',report['evidence'][1]['review_question'])
+        self.assertEqual(report['evidence'][0]['review_question'],'')

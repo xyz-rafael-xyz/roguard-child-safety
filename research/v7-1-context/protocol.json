@@ -1,0 +1,72 @@
+{
+  "scope": "joint context backend, not the legacy adapted conversation backend",
+  "selection": "Two epochs; maximize worst language/task development macro F1, then sum; calibration remains separate",
+  "initial_artifact_sha256": "093aa794ab1badf99071236fd6caf176c63d7ad3a5da312cf3591ade8cb36af2",
+  "training_seed": 710,
+  "learning_rate": 5e-05,
+  "mention_loss_weight": 1.0,
+  "previous_mention_loss_weight": 0.25,
+  "candidate02_training_exposures": 8292,
+  "regression": "Previous v7 factorial and session cases are already inspected",
+  "fresh": "New held-out benign topics and explicit topic transitions; concern phrases and frame wrappers reuse historical v7 held-out vocabulary",
+  "stress": "New direct concern and benign examples, same author; no fitting",
+  "release_requirement": "Reduce benign review requests in both languages without fewer personal-concern review requests on the paired workload; disclose every remaining error and any frame tradeoff",
+  "real_world_accuracy_established": false,
+  "independent_native_review": false,
+  "candidate03": {
+    "initial": "candidate-02/joint.json.gz",
+    "epochs": 1,
+    "learning_rate": 2e-05,
+    "training_exposures": 11068,
+    "change": "Additional scope-only negatives and correction-versus-quotation contrasts with separate train/dev/cal wording",
+    "reason": "Candidate02 reduced Romanian false alerts but increased Ukrainian false alerts and missed three Ukrainian corrections; rejected"
+  },
+  "candidate04": {
+    "initial": "candidate-03/joint.json.gz",
+    "epochs": 1,
+    "learning_rate": 2e-05,
+    "max_train": 6000,
+    "sampling_seed": 711,
+    "change": "Additional emotional-support phrases and third-person/quotation contrasts",
+    "reason": "Candidate03 reduced alerts but missed one Romanian third-person concern; rejected"
+  },
+  "candidate05": {
+    "initial": "candidate-04/joint.json.gz",
+    "weights_unchanged": true,
+    "method": "95% label-conditional split-conformal mention calibration",
+    "rationale": "Increase calibration coverage target and avoid mixing negative/positive class residuals; no test inputs used",
+    "frame_calibration": "unchanged",
+    "disposition": "Rejected: new-topic test missed 1 RO and 3 UK personal concerns; direct stress test missed 1 UK unmet-needs concern. Original fresh/stress sets are now regression evidence."
+  },
+  "candidate06": {
+    "initial": "candidate-04/joint.json.gz",
+    "epochs": 1,
+    "learning_rate": 2e-05,
+    "max_train": 8000,
+    "sampling_seed": 711,
+    "change": "Explicit fictional-to-personal topic shifts, direct concerns and benign hunger/solitude/game contrasts",
+    "final_test": "final2-test.jsonl, frozen before training"
+  },
+  "candidate07": {
+    "initial": "candidate-06/joint.json.gz",
+    "method": "same 95% label-conditional mention calibration as candidate05, on expanded calibration partition",
+    "policy_fix": "Positive mention + ORDINARY frame now requests review as model disagreement",
+    "final_test": "final2 remains unopened until regression acceptance",
+    "disposition": "Rejected: 1 UK topic-shift concern and 1 unmet-needs statement per language still missed"
+  },
+  "candidate08": {
+    "model": "candidate-07/joint.json.gz",
+    "weights_unchanged": true,
+    "change": "Bounded language rules add review evidence for explicit support requests or conjunction of prolonged lack of food and absent care; known quotation frames excluded; original model outputs retained",
+    "runtime_sha256": "79ccd211ed81e8aa5e04fc28d013c5a152554b899e7b0fc7c96333cb2bfc7c3c",
+    "rules_sha256": "b556ff171cf2d02f5bf51e309349285c77b9b12700b4f4b18e275d72bf4a4c04"
+  },
+  "candidate09": {
+    "model": "candidate-07/joint.json.gz",
+    "changes": "Emotional support qualifiers and positive-concern/explicit exit-from-fiction/personal-context conflict rule",
+    "final2_status": "regression after candidate08 failures",
+    "final3_status": "24-case frozen decision spot check, same project author",
+    "runtime_sha256": "1ab7449cb63a9b8c3ee96fdbbf78a5e8780668527e1cc13c1913c5df7485cae0",
+    "rules_sha256": "01de83e2e3f5a11bde8231c7c99add6f5aef34865a12dd81f875aacd738fd586"
+  }
+}

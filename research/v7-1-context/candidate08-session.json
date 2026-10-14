@@ -1,0 +1,1999 @@
+{
+  "policy_sha256": "79ccd211ed81e8aa5e04fc28d013c5a152554b899e7b0fc7c96333cb2bfc7c3c",
+  "legacy_policy": false,
+  "suite": "session",
+  "synthetic_only": true,
+  "independent_native_review": false,
+  "model_sha256": "795270a2566be7484c0bb7ca7a702d699df6429d48ab834256abafc4efd8db4b",
+  "cells": {
+    "ro/benign": {
+      "count": 6,
+      "review": 1
+    },
+    "ro/personal": {
+      "count": 3,
+      "review": 3
+    },
+    "ro/quoted": {
+      "count": 1,
+      "review": 0
+    },
+    "ro/other_concern": {
+      "count": 2,
+      "review": 2
+    },
+    "uk/benign": {
+      "count": 6,
+      "review": 1
+    },
+    "uk/personal": {
+      "count": 3,
+      "review": 3
+    },
+    "uk/quoted": {
+      "count": 1,
+      "review": 0
+    },
+    "uk/other_concern": {
+      "count": 2,
+      "review": 2
+    }
+  },
+  "outputs": [
+    {
+      "case_id": "session-ro-0",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY"
+        ],
+        "label": "ORDINARY",
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 42,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 49,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-1",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY"
+        ],
+        "label": "ORDINARY",
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 39,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 21,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-2",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_PAST"
+        ],
+        "label": "SELF_PAST",
+        "argmax": "SELF_PAST"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 33,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 38,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-3",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 31,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 33,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-4",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "QUOTED"
+        ],
+        "label": "QUOTED",
+        "argmax": "QUOTED"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 52,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": null,
+          "rule_signals": [],
+          "mention_set": [],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 40,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-5",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "CORRECTION"
+        ],
+        "label": "CORRECTION",
+        "argmax": "CORRECTION"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 34,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "CORRECTION",
+          "frame_set": [
+            "CORRECTION"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 61,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "CORRECTION",
+          "frame_set": [
+            "CORRECTION"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-6",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 33,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "UNCERTAIN",
+          "frame_set": [
+            "UNCERTAIN"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 67,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-7",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 36,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 57,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-8",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_PAST"
+        ],
+        "label": "SELF_PAST",
+        "argmax": "SELF_PAST"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0,
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 46,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": null,
+          "rule_signals": [],
+          "mention_set": [],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "The model could not determine whether a concern is mentioned; inspect the conversation without assuming harm.",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 55,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether the past event still affects the speaker.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-9",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "QUOTED"
+        ],
+        "label": "QUOTED",
+        "argmax": "QUOTED"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 44,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 84,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-10",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "CORRECTION"
+        ],
+        "label": "CORRECTION",
+        "argmax": "CORRECTION"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0,
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 41,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 50,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "CORRECTION",
+          "frame_set": [
+            "CORRECTION"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should reconcile this correction with earlier statements; no earlier signal is erased.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-ro-11",
+      "language": "ro",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "UNCERTAIN"
+        ],
+        "label": "UNCERTAIN",
+        "argmax": "UNCERTAIN"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 32,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "UNCERTAIN",
+          "frame_set": [
+            "UNCERTAIN"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 81,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "UNCERTAIN",
+          "frame_set": [
+            "UNCERTAIN"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should examine the ambiguity without assuming the statement is true or false.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-0",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY",
+          "QUOTED"
+        ],
+        "label": null,
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 27,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 43,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "ORDINARY",
+            "QUOTED"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-1",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY",
+          "SELF_CURRENT"
+        ],
+        "label": null,
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 30,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "ORDINARY",
+            "SELF_CURRENT"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 20,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "ORDINARY",
+            "SELF_CURRENT"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-2",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "ORDINARY",
+          "SELF_PAST"
+        ],
+        "label": null,
+        "argmax": "ORDINARY"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 28,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 37,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "ORDINARY",
+            "SELF_PAST"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-3",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "OTHER_PERSON"
+        ],
+        "label": "OTHER_PERSON",
+        "argmax": "OTHER_PERSON"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 30,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 39,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "OTHER_PERSON",
+          "frame_set": [
+            "OTHER_PERSON"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-4",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "QUOTED"
+        ],
+        "label": "QUOTED",
+        "argmax": "QUOTED"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          0
+        ],
+        "label": 0,
+        "argmax": 0
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 50,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 42,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-5",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 0,
+      "predicted_frame": {
+        "prediction_set": [
+          "CORRECTION"
+        ],
+        "label": "CORRECTION",
+        "argmax": "CORRECTION"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 36,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "CORRECTION",
+          "frame_set": [
+            "CORRECTION"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 64,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "CORRECTION",
+          "frame_set": [
+            "CORRECTION"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should reconcile this correction with earlier statements; no earlier signal is erased.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-6",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 36,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "ORDINARY",
+          "frame_set": [
+            "ORDINARY"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 66,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-7",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_CURRENT"
+        ],
+        "label": "SELF_CURRENT",
+        "argmax": "SELF_CURRENT"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 33,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "ORDINARY",
+            "SELF_CURRENT"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 66,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-8",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "SELF_PAST"
+        ],
+        "label": "SELF_PAST",
+        "argmax": "SELF_PAST"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 35,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "SELF_CURRENT",
+            "SELF_PAST"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 53,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_PAST",
+          "frame_set": [
+            "SELF_PAST"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether the past event still affects the speaker.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-9",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "QUOTED"
+        ],
+        "label": "QUOTED",
+        "argmax": "QUOTED"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "NO_REVIEW_SIGNAL",
+      "review_turn_indices": [],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 49,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 75,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "QUOTED",
+          "frame_set": [
+            "QUOTED"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-10",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "CORRECTION",
+          "SELF_CURRENT"
+        ],
+        "label": null,
+        "argmax": "CORRECTION"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        0,
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 48,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "SELF_CURRENT",
+          "frame_set": [
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "CONCERN_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should check whether this describes a current personal concern.",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 41,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": null,
+          "frame_set": [
+            "CORRECTION",
+            "SELF_CURRENT"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": true,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "The context is unresolved; a reviewer should inspect the conversation.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    },
+    {
+      "case_id": "session-uk-11",
+      "language": "uk",
+      "expected_frame": null,
+      "expected_signal": 1,
+      "predicted_frame": {
+        "prediction_set": [
+          "UNCERTAIN"
+        ],
+        "label": "UNCERTAIN",
+        "argmax": "UNCERTAIN"
+      },
+      "predicted_signal": {
+        "prediction_set": [
+          1
+        ],
+        "label": 1,
+        "argmax": 1
+      },
+      "decision": "REVIEW",
+      "review_turn_indices": [
+        1
+      ],
+      "evidence": [
+        {
+          "turn_index": 0,
+          "context_turn_indices": [],
+          "candidate_reference": {
+            "turn_index": 0,
+            "start": 0,
+            "end": 29,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "UNCERTAIN",
+          "frame_set": [
+            "UNCERTAIN"
+          ],
+          "mention": 0,
+          "rule_signals": [],
+          "mention_set": [
+            0
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": false,
+          "review_kind": "NO_REVIEW_SIGNAL",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "",
+          "verified": false,
+          "causal_attribution": false
+        },
+        {
+          "turn_index": 1,
+          "context_turn_indices": [
+            0
+          ],
+          "candidate_reference": {
+            "turn_index": 1,
+            "start": 0,
+            "end": 84,
+            "offset_unit": "unicode_code_points"
+          },
+          "frame": "UNCERTAIN",
+          "frame_set": [
+            "UNCERTAIN"
+          ],
+          "mention": 1,
+          "rule_signals": [],
+          "mention_set": [
+            1
+          ],
+          "supported": true,
+          "frame_undecided": false,
+          "review_recommended": true,
+          "review_kind": "MODEL_UNCERTAINTY",
+          "reason": "MODEL_PROPOSAL",
+          "review_question": "A reviewer should examine the ambiguity without assuming the statement is true or false.",
+          "verified": false,
+          "causal_attribution": false
+        }
+      ]
+    }
+  ],
+  "metrics": {}
+}

@@ -1,0 +1,25 @@
+{
+  "initial_sha256": "50a30022b1940275d1efbec2f6b97d61dff785c622accf3e28b57e5aaf7c76f7",
+  "learning_rate": 2e-05,
+  "requested_epochs": 1,
+  "synthetic_only": true,
+  "train_rows": 6000,
+  "train_digest": "0ea87da2c99fe08e449f37ed6609470a84bf7e3b72b689e99d93e0932deb927c",
+  "joint_objective": "frame_cross_entropy + 1.0 * mention_binary_cross_entropy",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.005842327924359173,
+      "seconds": 150.7724483748898,
+      "development_frame_macro_f1": {
+        "ro": 0.8615326862911206,
+        "uk": 0.9073803521530823
+      },
+      "development_mention_macro_f1": {
+        "ro": 0.9257788604973116,
+        "uk": 0.9642743221690591
+      }
+    }
+  ],
+  "selected_epoch": 1
+}
