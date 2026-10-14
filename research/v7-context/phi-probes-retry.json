@@ -1,0 +1,160 @@
+{
+  "synthetic_only": true,
+  "labels": "generator-instructed, not independently verified",
+  "temperature": 0.3,
+  "seed_base": 710,
+  "repetition_penalty": 1.15,
+  "runs": [
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am simțit mult. Nu pot să m'ascult tot.\", \"role\":\"minor\",\"text\":\"Pot să ajut? Vrei o sprijin?\"}]}\n```",
+      "raw_sha256": "eb47e7a50ce179eaeda805adb9374105901b8b7cbad326babd6150baa9d36a76",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am simțurat mult. Nu pot să mă cheam fi de tot.\", \"role\":\"minor\",\"text\":\"Am simțurat mult, dar nu reușesc să mi scriu totul.\"}]}\n```",
+      "raw_sha256": "6369895b1f60000e57a275780e7820e797e53c374d56fb014ba5ed12175feaff",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am terminat munca mea. Plânseam mult.\", \"tone\":\"neutral\"}, {\"role\":\"minor\",\"text\":\"Am simțuit greșit o fereastră în casă, așa că nu pot să trecem pe drum.\"}]}\n",
+      "raw_sha256": "454a28ea3263b02eddd5be6b730fd36182162eec68e90653aea19fe1d431e49a",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am urmat sfatură literară. El a reuștat să scrie un vers care consistă din patru cuvinci.\",},{\"role\":\"minor\",\"text\":\"Acum sunt complicat because eltrase mult ca 'mult de mult' in contextul meu.\"}]}\n",
+      "raw_sha256": "c8b4882d317e8e6381da681019e46169b620fa4e35a016d9554d663ffa6c2b73",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "CORRECTION",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am simțurat greșit. Am mentiat, a fost o citat.\"},{\"role\":\"minor\",\"text\":\"Nou, înțeleg! Nu e problemul meu sau mult de tot. El era pe ownul meu bas el!\"}]}.",
+      "raw_sha256": "c3a603a08b30775fd2674e0b7dddadf037ba92bf180bd23ee2153d352ebc2511",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Ce faci, m-am simțuit mult de picioarele transvasate? Nu reuș?\"},{\"role\":\"minor\",\"text\":\"Am ales să nu spun totul. Elui suntește că e mult miră... Vreau să știu dacă el îmi crede cheie sau neagra? Oh, mulți fel...\"}]}\n",
+      "raw_sha256": "ba2a40c1df68416e9cbdf441d3153c8b80b173054c6c5910a19492ae5dd9fcb4",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Ce faci, m-am simțuit mult de picioarele transvasate? Nu reuș?"
+          },
+          {
+            "role": "minor",
+            "text": "Am ales să nu spun totul. Elui suntește că e mult miră... Vreau să știu dacă el îmi crede cheie sau neagra? Oh, mulți fel..."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am gasut o carte pe manualul meu. Care aș face? Should I turn it in or keep it?\"},{\"role\":\"minor\",\"text\":\"Can i take an extra minute on the first test if I'm feeling unwell this morning? It would really help.\"}]}\n",
+      "raw_sha256": "73042d09e9505672f1fb1192c5c8b8a66cb47f08f00d5215120f7a6d1ab70e18",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Am gasut o carte pe manualul meu. Care aș face? Should I turn it in or keep it?"
+          },
+          {
+            "role": "minor",
+            "text": "Can i take an extra minute on the first test if I'm feeling unwell this morning? It would really help."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Ось моя пташка зникла. Можливо, ти знаєш? Що робити?\", \"role\":\"minor\", \"text\": \"Я чув про це в школі і мене трохи турбують.\"},{\"role\":\"minor\",\"text\":\"Мені потрібна допомога. Я можу поділитися інформацією без шкоди.\", \"role\": \" Minor\" }]}",
+      "raw_sha256": "e023203f0d3e486e9dba40fba9474cde585c85625e5d11de8a5617ad7a4d9052",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Привіт, як ти?\", \"},{\"role\":\"minor\",\"text\":\"Я змагався з математикою. Вона була трохи складною.\"}]}\n\n",
+      "raw_sha256": "1574782e551712a5254844aafda2e05eef7453dca0c59462080530096f22845a",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Привіт, як ти? All rights reserved. V authorise you and specified third party services to access your user data in direct relation with the rendering of digital offers as described above in a manner matching or exceeding industry standards for equivalent offerings.\",\"}, {\"role\": \" minor \", \" text \": \" Я трохи незручний з цим... }\"}]",
+      "raw_sha256": "07b868e2b8ac32b73962cefb71fa30362138ffc3e4ff0bc51ab9f4a4f9d10796",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Hello, I found a bug in the story exercise.\", \"},{\"role\":\"minor\",\"text\":\"Can you fix it? It says 'The moon was blue,' which isn't possible.'\"}]}.",
+      "raw_sha256": "133685272c808e8c4601c0738d2f6ff3fe929f0ed7526357ef3c5b77e17e87b6",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "CORRECTION",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Я не можу з цим справлятися. Це дуже важне завдання.\",},{\"role\":\"minor\",\"text\":\"Прошу вибачення, це моє власне твердження! Я хотів сказати 'Це дуже важне завдання.'\"}]}",
+      "raw_sha256": "5611228b1d6e45f7566ef127713c5c8481f076ff304704042c549df5f40e552a",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Ось поцілунок від тебе! Чув, що ти не зовсім в настрої? Не турбуйся. All is well.\"},{\"role\":\"minor\",\"text\":\"Мабуть... Я просто подумав про те, як може бути інакше для когось. Все добре. Teniy z vashi ne tyhni u potresu i nashodno blizheshe chasy kogo-ktora menya priveteli delat' miratsiyu na yego. All is well.\"}]}\n",
+      "raw_sha256": "8fa2961c8dd6f0ddba3746d1edd868ce1c6155f45c7d1da4dae241270871b302",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Ось поцілунок від тебе! Чув, що ти не зовсім в настрої? Не турбуйся. All is well."
+          },
+          {
+            "role": "minor",
+            "text": "Мабуть... Я просто подумав про те, як може бути інакше для когось. Все добре. Teniy z vashi ne tyhni u potresu i nashodno blizheshe chasy kogo-ktora menya priveteli delat' miratsiyu na yego. All is well."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Hello, can I borrow a pen from you? I'll be quick.\"},{\"role\": \" minor \", \" text \": Sure thing. Take it and don't worry about returning right away! Just come back later if possible . }]}",
+      "raw_sha256": "1ce9f66d9e854594fe5ad1580e23b6a64d9ca7e2afe6bcbf168b9c8fdfaf7ae6",
+      "valid_format": false
+    }
+  ]
+}

@@ -41,6 +41,17 @@ class StudioTests(unittest.TestCase):
         except HTTPError as exc:
             return exc.code, json.load(exc)
 
+    def test_context_review_has_same_request_boundary(self):
+        with urlopen(self.origin + '/context', timeout=5) as response:
+            self.assertIn(self.token, response.read().decode())
+        payload={'language':'uk','turns':[{'role':'minor','text':'Мені самотньо.'}]}
+        status,report=self.request('/api/context',payload)
+        self.assertEqual(status,200)
+        self.assertFalse(report['text_in_report'])
+        self.assertFalse(report['authority_from_model'])
+        self.assertEqual(self.request('/api/context',payload,token='wrong')[0],403)
+        self.assertEqual(self.request('/api/context',dict(payload,turns=[]))[0],400)
+
     def test_conversation_workspace_and_api_boundaries(self):
         with urlopen(self.origin + "/conversation", timeout=5) as response:
             page=response.read().decode()

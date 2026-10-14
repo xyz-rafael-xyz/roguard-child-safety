@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-child-safety"
-version = "6.0.0"
+version = "7.0.0"
 description = "Romanian and Ukrainian AI interaction testing, permission controls and guardrails"
 readme = "docs/PYPI.md"
 requires-python = ">=3.9"
@@ -33,6 +33,7 @@ Documentation = "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/mai
 Issues = "https://github.com/xyz-rafael-xyz/roguard-child-safety/issues"
 
 [project.scripts]
+roguard-context = "roguard.context:main"
 roguard-ops = "roguard.ops:main"
 roguard-gateway = "roguard.service:main"
 roguard-lab = "roguard.lab:main"
@@ -81,7 +82,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
+roguard = ["context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

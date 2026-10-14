@@ -108,3 +108,7 @@ Install `roguard-child-safety[observability]` and pass a host-configured OpenTel
 `ChatTarget(endpoint, model, api_key=...)` is an explicit chat-completions adapter; HTTPS is required outside loopback and redirects are rejected. It sends observation content to the chosen endpoint, so use fictional scenarios or properly authorized content. There is no default endpoint or credential discovery. `run_scenario(..., target_factory=lambda: ChatTarget(...))` retains errors and invalid output in its metrics. Model code cannot grant permissions.
 
 The local comparison runner `python -m eval.compare_local_targets_v6 --model NAME=CACHED_MODEL_DIRECTORY --output NEW.json` requires the `mlx` extra and an Apple GPU. It records model file hashes, two stochastic repeats and per-language results. The host minimum-disclosure proposal is visible to the model; this measures following a supplied plan and completing a task, not independently inferring policy. Both initial and revised-contract runs are retained. It is a comparison of these configurations, not a market-wide leaderboard.
+
+## V7 context review integration
+
+The optional `/v1/analyze-context` endpoint accepts the bounded context payload when `GatewayApp` is constructed with an explicit `context_model`. It uses the same authenticated reader role and request limits. Configure `--context-backend joint` on the gateway CLI after installing the adapted extra and pinned model. [Full setup, interpretation limits and tutoring example](CONTEXT.md). Model outputs never grant source permissions.

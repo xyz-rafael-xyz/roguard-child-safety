@@ -39,6 +39,8 @@ jobs:
         run: |
           python -m venv "$RUNNER_TEMP/roguard-release-test"
           "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_ro.json --backend character > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_uk.json --backend character > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_uk.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-lab" demo --language ro --fail-on-failure > /dev/null

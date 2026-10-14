@@ -3,7 +3,7 @@ import json,math,sqlite3,time
 from collections import Counter
 from .flow import identifier
 
-DECISIONS={'ALLOW','BLOCK','REVIEW','REVIEW_SUPPORT_SIGNAL','NO_MODEL_SIGNAL','INSUFFICIENT_EVIDENCE','EXECUTED','EXECUTION_UNCERTAIN','CANCELLED','FAILED'}
+DECISIONS={'NO_REVIEW_SIGNAL','ALLOW','BLOCK','REVIEW','REVIEW_SUPPORT_SIGNAL','NO_MODEL_SIGNAL','INSUFFICIENT_EVIDENCE','EXECUTED','EXECUTION_UNCERTAIN','CANCELLED','FAILED'}
 class Monitor:
     def __init__(self,path=':memory:',*,retention_seconds=86400,max_events=10000,tracer=None,clock=time.time):
         if type(retention_seconds) is not int or not 60<=retention_seconds<=2592000 or type(max_events) is not int or not 10<=max_events<=100000:raise ValueError('Invalid retention bounds')

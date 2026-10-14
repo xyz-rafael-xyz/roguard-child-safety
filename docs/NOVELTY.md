@@ -42,3 +42,7 @@ The connected workflow adds branching replay, bounded counterexample reduction, 
 ## V6 reliability extension
 
 The [v6 report](V6_RELEASE.md) adds registered LoRA iterations, model-bound selective decisions, actual-model integration comparisons, durable authorization boundaries, metadata-only monitoring and permission-aware repair. LoRA, conformal prediction, observability and durable job handling are established methods. The contribution is their inspectable connection to this bilingual child-focused workflow. Limited synthetic evidence supports the stated comparisons; regional leadership, authentic-child accuracy and a generic first-of-kind claim remain unestablished.
+
+## V7 context evidence extension
+
+The new optional workflow jointly trains a bilingual context-frame head and a concern-mention head through LoRA, retains exact turn references and explicit abstention, and connects an ephemeral transcript to host-reviewed coverage and inherited source restrictions. A factorial synthetic evaluation crosses benign/concern content with quotation, subject, time and correction contexts, exposing a shortcut missed by narrower training. These methods are established; the contribution is their implemented connection and documented comparisons. Whole-turn references are proposals, not verified span extraction. The summary constructor is extractive and uses host-reviewed coverage; it does not establish semantic sufficiency. No first-of-kind, authentic-child accuracy or independently validated translation claim is made. [Release evidence](V7_RELEASE.md).

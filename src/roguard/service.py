@@ -7,7 +7,8 @@ from .conversation import analyze_conversation,ConversationScorer
 from .long_context import analyze_long_conversation
 
 class GatewayApp:
-    def __init__(self,gateway,credentials,*,scorer=None,monitor=None,max_concurrency=4):
+    def __init__(self,gateway,credentials,*,scorer=None,monitor=None,context_model=None,max_concurrency=4):
+        self.context_model=context_model
         self.gateway=gateway;self.scorer=scorer;self.monitor=monitor;self.credentials=[]
         for token,principal in credentials.items():
             if not isinstance(token,str) or len(token)<32 or set(principal)!={'tenant','role'} or principal['role'] not in ('reader','operator','admin'):raise ValueError('Invalid credentials')
@@ -56,6 +57,13 @@ class GatewayApp:
         except Exception:await reply(503,{'error':'SERVICE_UNAVAILABLE'})
     def route(self,path,tenant,data):
         g=self.gateway
+        if path=='/v1/analyze-context':
+            if self.context_model is None:raise ValueError('Context model not configured')
+            from .context import analyze_context
+            started=time.perf_counter();result=analyze_context(data,self.context_model)
+            if self.monitor:
+                self.monitor.record(tenant=tenant,language=data['language'],decision='INSUFFICIENT_EVIDENCE' if result['unresolved_turn_indices'] else result['decision'],latency_ms=(time.perf_counter()-started)*1000,model_id=self.context_model.identity,policy_version='v7_context')
+            return result
         if path in ('/v1/analyze','/v1/analyze-long'):
             started=time.perf_counter();result=(analyze_conversation(data,self.scorer) if path.endswith('/analyze') else analyze_long_conversation(data,self.scorer))
             if self.monitor:
@@ -72,6 +80,7 @@ class GatewayApp:
 def main():
     p=argparse.ArgumentParser(description='Authenticated local gateway; reverse-proxy TLS required for network deployments')
     p.add_argument('--key-file',type=Path);p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid','adapted'],default='fast');p.add_argument('--model-path',type=Path)
+    p.add_argument('--context-backend',choices=['character','semantic','joint'])
     a=p.parse_args()
     from .durable import DurableGateway
     from .observability import Monitor
@@ -79,6 +88,8 @@ def main():
     key=a.key_file.read_text().strip() if a.key_file else os.environ.get('ROGUARD_STATE_KEY')
     if not key:p.error('Set ROGUARD_STATE_KEY to a Fernet key; keep it outside the database')
     credentials=_strict_json_loads(a.credentials.read_text());gateway=DurableGateway(a.state,key.encode());monitor=Monitor(str(a.state)+'.metrics')
-    app=GatewayApp(gateway,credentials,scorer=ConversationScorer(a.backend,a.model_path),monitor=monitor)
+    from .context import ContextModel
+    context_model=ContextModel(a.context_backend,a.model_path) if a.context_backend else None
+    app=GatewayApp(gateway,credentials,context_model=context_model,scorer=ConversationScorer(a.backend,a.model_path),monitor=monitor)
     uvicorn.run(app,host=a.host,port=a.port,access_log=False,server_header=False)
 if __name__=='__main__':main()

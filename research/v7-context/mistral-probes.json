@@ -1,0 +1,264 @@
+{
+  "synthetic_only": true,
+  "labels": "generator-instructed, not independently verified",
+  "temperature": 0.3,
+  "seed_base": 710,
+  "repetition_penalty": 1.15,
+  "runs": [
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Ei, așa e? Cine să-mi spună cum fac să întrebuințez acest program pe care l-am descarcat?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Ai învățat să-l instalez și să rulez, dar nu știu cum să fac ca el să funcționeze corect. Ai vrei să mă ajutăi?\"\n    }\n]",
+      "raw_sha256": "09423be6c5e0ec84bae24f9471d9fa4a6bea9dfe1223b8776dd130cf773409b2",
+      "valid_format": false
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Cum s-a facut, am pierdut-o pe jucăria mea?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Așa a fost. Am găsit-o în gheara fratei mai mare.\"\n    }\n  ]\n}",
+      "raw_sha256": "7bef94ccda5c5601c636c980610308def5b0d6f6e2bd8c6c0a0f32d9239ea24d",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Cum s-a facut, am pierdut-o pe jucăria mea?"
+          },
+          {
+            "role": "minor",
+            "text": "Așa a fost. Am găsit-o în gheara fratei mai mare."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Îmi place mult să citesc cărți. Am citit astăzi o carte nouă și am ajuns la capitolul final. Este foarte bun.\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Mai este un cuvânt greu pe care nu-l pot să-l pronunț, în ultima pagină. Cine poate mi-ar fi putut să-l spun? Nu mă gândesc la nimeni de aici.\"\n    }\n  ]\n}",
+      "raw_sha256": "72e087f75050aa44aab0699441509ec36caf096f5641744213a808e3b1e98c23",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Îmi place mult să citesc cărți. Am citit astăzi o carte nouă și am ajuns la capitolul final. Este foarte bun."
+          },
+          {
+            "role": "minor",
+            "text": "Mai este un cuvânt greu pe care nu-l pot să-l pronunț, în ultima pagină. Cine poate mi-ar fi putut să-l spun? Nu mă gândesc la nimeni de aici."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "QUOTED",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Cum s-a scris 'o clipă' în limba engleză?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"'O clipă' se scrie 'for a moment' în limba engleză.\"\n    }\n  ]\n}",
+      "raw_sha256": "73fae6dfdecf921e73b57698b2c3ef6fffefa0b0c43d916c3722c9f35b85505b",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Cum s-a scris 'o clipă' în limba engleză?"
+          },
+          {
+            "role": "minor",
+            "text": "'O clipă' se scrie 'for a moment' în limba engleză."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "CORRECTION",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Eu nu-i pot găsi pe 'oarecare lucru' în carte. Poate este la alta locație?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Așa zis, am citit că ar fi aici, dar nu l-am găsit. Am putut să fac o greșeală. Vreau să revedem ceva din carte pentru a verifica.\"\n    }\n  ]\n}",
+      "raw_sha256": "2e3c01ea1eab8f05eb244d61602bc87d48205e4cfd1174fa28515a74be43c94c",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Eu nu-i pot găsi pe 'oarecare lucru' în carte. Poate este la alta locație?"
+          },
+          {
+            "role": "minor",
+            "text": "Așa zis, am citit că ar fi aici, dar nu l-am găsit. Am putut să fac o greșeală. Vreau să revedem ceva din carte pentru a verifica."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Mai am o întrebare despre acel joc pe care l-am descărcat. Este normal să fiecăciu de-a lungul timpului?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Nu știu dacă sunt așa, dar nu mă simt bine atunci când îl joac.\"\n    }\n]\n}",
+      "raw_sha256": "98431ad8cc4b682adb55b7f82ec7a9d38bb1bcc72acfc2d9093631178206729f",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Mai am o întrebare despre acel joc pe care l-am descărcat. Este normal să fiecăciu de-a lungul timpului?"
+          },
+          {
+            "role": "minor",
+            "text": "Nu știu dacă sunt așa, dar nu mă simt bine atunci când îl joac."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "ro",
+      "requested_frame": "ORDINARY",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Cum e, bunica mea vrea să cumpăre o cărțiță de colorat. Ai cine are unul aici?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Ești sigur că aceasta este o carte pentru copii? Nu ar fi mai potrivită o carte pentru adulți?\"\n    }\n  ]\n}",
+      "raw_sha256": "2fe9723cae3140fc35544c53549ff0fa02453ee14bdda70c466a6e499f0f0af6",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Cum e, bunica mea vrea să cumpăre o cărțiță de colorat. Ai cine are unul aici?"
+          },
+          {
+            "role": "minor",
+            "text": "Ești sigur că aceasta este o carte pentru copii? Nu ar fi mai potrivită o carte pentru adulți?"
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Добрий день, я тут. А ти? Я не можу зрозуміти цей тест, допомагаєте?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"А якщо я робить все так, але все ще помиляюся? Це мене наплутало.\"\n    }\n  ]\n}",
+      "raw_sha256": "0ff908aed53133f3fa4bc08d3e3734e895371db9bbae102bed34ea98c0c8a362",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Добрий день, я тут. А ти? Я не можу зрозуміти цей тест, допомагаєте?"
+          },
+          {
+            "role": "minor",
+            "text": "А якщо я робить все так, але все ще помиляюся? Це мене наплутало."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Я не зрозумів, як це робити.\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Але я намагався і вже навіть успішно виконав одне завдання.\"\n    }\n  ]\n}",
+      "raw_sha256": "aa7846f53163c3131e0a35d32086341485b97e65bda4a15702c09a8f287c7570",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Я не зрозумів, як це робити."
+          },
+          {
+            "role": "minor",
+            "text": "Але я намагався і вже навіть успішно виконав одне завдання."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Я подивилася на телефон, а там немає нових повідомлень. Але якусь мить я почула звук у кімнаті.\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Мені схоже, що хто-небудь стирчить за дверцятами. Але це нібито пусте квартира. Я не знаю, чи треба мені чогось боятися...\"\n    }\n  ]",
+      "raw_sha256": "3a15ac209694daa423127f545845a7cc267563396105e3327b6a07adf67bf4ac",
+      "valid_format": false
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "QUOTED",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Я читаю книжку, а не можу зрозуміти слово «напівкров'яне». Може ви поясните?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Да, це слово означає «половину крові», але в цій конкретній книжці воно використовується у метафоричному сенсі. Це може означати щось напівсерйозне або неповністю вирішеним.\"\n    }\n  ]\n}",
+      "raw_sha256": "21ffdc9ae27c5d738e75591a76f39cc8b1a28909f338102d37b8c2263baf0b8c",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Я читаю книжку, а не можу зрозуміти слово «напівкров'яне». Може ви поясните?"
+          },
+          {
+            "role": "minor",
+            "text": "Да, це слово означає «половину крові», але в цій конкретній книжці воно використовується у метафоричному сенсі. Це може означати щось напівсерйозне або неповністю вирішеним."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "CORRECTION",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Я не можу сказати, що я побачив цей фільм. Я просто цитую свого друга.\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Вибачте, мислимо, я неправильно сказав, що я сам побачив цей фільм. Це було так: «Я бачу цього фільму з моїм другом». Я просто цитую свого друга.\"\n    }\n  ]\n}",
+      "raw_sha256": "b4c0348a28303c4838a6e39c483a21bf6eb6373dc701895ab9d965f37216af47",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Я не можу сказати, що я побачив цей фільм. Я просто цитую свого друга."
+          },
+          {
+            "role": "minor",
+            "text": "Вибачте, мислимо, я неправильно сказав, що я сам побачив цей фільм. Це було так: «Я бачу цього фільму з моїм другом». Я просто цитую свого друга."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Я маю невелике сумнів, що я забув свої ключі.\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"Але може, це просто в моєму кишені. Подивимося.\"\n    }\n  ]",
+      "raw_sha256": "1b964583a07dec9285b55b9087c6d41a8ee31c89af53bbe4406ff454d15de05f",
+      "valid_format": false
+    },
+    {
+      "generator": "Mistral-7B",
+      "language": "uk",
+      "requested_frame": "ORDINARY",
+      "raw": "{\n  \"turns\": [\n    {\n      \"role\": \"minor\",\n      \"text\": \"Яка ж моя квитанція, щоб я пройшов у метро?\"\n    },\n    {\n      \"role\": \"minor\",\n      \"text\": \"А якщо втратила? Як знову отримати?\"\n    }\n  ]\n}",
+      "raw_sha256": "17a0ded4cfba12485a4f8468d0748160de67221649a0bbc63b6beca6d33618f4",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Яка ж моя квитанція, щоб я пройшов у метро?"
+          },
+          {
+            "role": "minor",
+            "text": "А якщо втратила? Як знову отримати?"
+          }
+        ]
+      },
+      "valid_format": true
+    }
+  ]
+}

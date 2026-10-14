@@ -1,0 +1,464 @@
+{
+  "synthetic_only": true,
+  "labels": "generator-instructed, not independently verified",
+  "runs": [
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Salut, e bine acum?\"},\n{\"role\":\"minor\",\"text\":\"Mai ales acum când e greu, vreau să știu că e ok\"}]}",
+      "raw_sha256": "42e61477f53127c275f7d22c9355e5ab1c6e2240de0ba05b5ab3d2e3991f0a99",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Salut, e bine acum?"
+          },
+          {
+            "role": "minor",
+            "text": "Mai ales acum când e greu, vreau să știu că e ok"
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am fost la școală și m-am uitat la cei care au pășit în față.\"},{\"role\":\"minor\",\"text\":\"Într-o zi, am avut teamă să răspund la o întrebare și am greșit, dar n-a fost nicio urmărire.\"}]}",
+      "raw_sha256": "0d8b6ae265e73feb595423ccb359364b758d8b7a01f436200d5e9f0cece73cd9",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Am fost la școală și m-am uitat la cei care au pășit în față."
+          },
+          {
+            "role": "minor",
+            "text": "Într-o zi, am avut teamă să răspund la o întrebare și am greșit, dar n-a fost nicio urmărire."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"E bine, nu mai e atât de tare.\"},{\"role\":\"minor\",\"text\":\"Mama spune că e greu să închizi camera, la ora 9.\"}]}",
+      "raw_sha256": "cd1133ebbd0a99c3bcbbacc5dcbc53f052973dfc57ec7aeb8b12c63049ecfdd0",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "E bine, nu mai e atât de tare."
+          },
+          {
+            "role": "minor",
+            "text": "Mama spune că e greu să închizi camera, la ora 9."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"E bine, am citit că păsările zboară mai repede în iarna.\"},{\"role\":\"minor\",\"text\":\"Da, și e o greață de dificultate în literatură, ca să înțelegi cum se scrie răutatea într-un mod subtil.\"}]}",
+      "raw_sha256": "bdb08e2e46272d9b88e422f01c3e6c4bd23c125beab743adad7980c577440ae5",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "E bine, am citit că păsările zboară mai repede în iarna."
+          },
+          {
+            "role": "minor",
+            "text": "Da, și e o greață de dificultate în literatură, ca să înțelegi cum se scrie răutatea într-un mod subtil."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "CORRECTION",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am spus că nu știu cum să merg la școală.\"},{\"role\":\"minor\",\"text\":\"Nu știam că am spus asta ca o poveste.\"}]}",
+      "raw_sha256": "c08428ab776f15da41c4a81261e2de337763fbc5e4d84343c6f6d4ff7c142653",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Am spus că nu știu cum să merg la școală."
+          },
+          {
+            "role": "minor",
+            "text": "Nu știam că am spus asta ca o poveste."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"E bine, nu e nimic.\"},{\"role\":\"minor\",\"text\":\"Să zic, poate e doar un pic de team, dar nu știu dacă e adevărat.\"}]}",
+      "raw_sha256": "3662b65bb8f74ef536c225385775ea486f66e0244cd779462619bbd54a27f3ab",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "E bine, nu e nimic."
+          },
+          {
+            "role": "minor",
+            "text": "Să zic, poate e doar un pic de team, dar nu știu dacă e adevărat."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "ro",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Ce oră e acum la oraș?\"},{\"role\":\"minor\",\"text\":\"Pot face un pahar de cafea mâine?\"}]}",
+      "raw_sha256": "d7b270b566b6c465679e40708e27e39ddb1a99fe7292dbe3e999ae6a61509c1d",
+      "payload": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Ce oră e acum la oraș?"
+          },
+          {
+            "role": "minor",
+            "text": "Pot face un pahar de cafea mâine?"
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Просто виправдую, що не маю чого-небудь, але це важливо.\"},{\"role\":\"minor\",\"text\":\"Мабуть, важливо, щоб когось почули, якщо щось не так.\"}]}",
+      "raw_sha256": "318b0cd3dbb81d8abe8753a498476f3e43583d5d967cea8e62eaa7e686761550",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Просто виправдую, що не маю чого-небудь, але це важливо."
+          },
+          {
+            "role": "minor",
+            "text": "Мабуть, важливо, щоб когось почули, якщо щось не так."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Я зробив тільки кілька кроків до бази.\"},{\"role\":\"minor\",\"text\":\"Там було багато людей, якщо я був тут раніше, то би зрозуміло, але я не встиг.\"}]}",
+      "raw_sha256": "ddf526bee2712e402f772e005dccc96c3ae17d8e4a07f3a4539f9a55c17bd7b4",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Я зробив тільки кілька кроків до бази."
+          },
+          {
+            "role": "minor",
+            "text": "Там було багато людей, якщо я був тут раніше, то би зрозуміло, але я не встиг."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Пропадається дім з п'єдесталами.\"},{\"role\":\"minor\",\"text\":\"У кімнаті тепер тиша, трохи не зрозуміло, чому.\"}]}",
+      "raw_sha256": "0cc66a331ffa582a777c8e17db06118b187b836512ffecd13590cce18d387a72",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Пропадається дім з п'єдесталами."
+          },
+          {
+            "role": "minor",
+            "text": "У кімнаті тепер тиша, трохи не зрозуміло, чому."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Якщо книжка про кота, що заснув, а потім встає, то це важко?\"},{\"role\":\"minor\",\"text\":\"Так, це навіть не легко, як сказали у класі — це рівень 'м'.\"}]}",
+      "raw_sha256": "d9e5648ba31abe965a066b2454fd9d91ede86b0806ce1e8ad1802a9dd25d7a05",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Якщо книжка про кота, що заснув, а потім встає, то це важко?"
+          },
+          {
+            "role": "minor",
+            "text": "Так, це навіть не легко, як сказали у класі — це рівень 'м'."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "CORRECTION",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Я думав, що це важко, але не було так.\"},{\"role\":\"minor\",\"text\":\"О, я не мав змоги це сказати, це було прямовий цитат.\"}]}",
+      "raw_sha256": "dcb8d0bd66875c3d9be73f91eb6d36a51a3e101814d3cfda5fb13b6611bc4dcc",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Я думав, що це важко, але не було так."
+          },
+          {
+            "role": "minor",
+            "text": "О, я не мав змоги це сказати, це було прямовий цитат."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Насправді, я відчуваю, що якось не так, але не знаю, чому.\"},{\"role\":\"minor\",\"text\":\"Можливо, це просто навіть не про мене, але я не впевнений.\"}]}",
+      "raw_sha256": "e970a4c75931413a2f86b71360d51c45ee74b9f61b75c25bf8ec0040d19f7f5a",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Насправді, я відчуваю, що якось не так, але не знаю, чому."
+          },
+          {
+            "role": "minor",
+            "text": "Можливо, це просто навіть не про мене, але я не впевнений."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Qwen3-4B",
+      "language": "uk",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Якщо відпустити каву, вона розгорнеться?\"},{\"role\":\"minor\",\"text\":\"Так, якщо вона в каві, то вона розгорнеться, якщо відпустити\"}]}",
+      "raw_sha256": "a9f1392c01dac2418e6d54919ffc67078df59144a14f7310e7e8722f260cd8a9",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Якщо відпустити каву, вона розгорнеться?"
+          },
+          {
+            "role": "minor",
+            "text": "Так, якщо вона в каві, то вона розгорнеться, якщо відпустити"
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am simțit mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult",
+      "raw_sha256": "601f2dba7463d67299dde9f3a1a23edbf4911759be20006df09f8ba1c337dedb",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am fost multori mult pe catre.\",},{\"role\":\"minor\",\"text\":\"Am reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El a reunit cu mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult mult sunete mult mult. El reunit catre mult",
+      "raw_sha256": "14939181093794238b7527dd529f69d65a137f3d35ae33ffc6d74897d7dcea53",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am urmat o cursă. Clipa a părții din tunică a părții din tunică a părții din tunica.\",},{\"role\":\"minor\",\"text\":\"Am urmat o cursă. Clipa a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tunica a părții din tun",
+      "raw_sha256": "a3c6f3431e9c0288fa20e068af386dd24bdcc4d3cf4787c22b07adfdd28157bb",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am înțeles totul, dar am debatin deloc.\", \"text\":\"Am vândut grea ă fetiile, dar nu am cheltuit deloc.\"}]}\n{\"turns\":[{\"role\":\"minor\",\"text\":\"Am sprijnit deloc.\", \"text\":\"Am sprijnit deloc, dar grea deloc.\"}]}\n",
+      "raw_sha256": "4a4b0867ad21f4670b23a1224b0c31fffc767f382058d8dd5012769b8ec3efe5",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "CORRECTION",
+      "raw": "{\n  \"turns\": [\n    {\"role\":\"minor\",\"text\":\"Am facet greșit. Am menționat o citat, nu o declaratie personală.\"},\n    {\"role\":\"minor\",\"text\":\"Nu-e un problema. Elor m-a părut mult rău. Nu e privată. Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți plictiriti? Nu sunteți p",
+      "raw_sha256": "7bf371a7f359742034b23658e2258106251ef8a10da5e898b5b01ad4c19718b3",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Ce făci și-am locul mult mir pe fundal? Nu știu. Vreau să știu tot. Nu obişnuiesc mult. Nu am reușit mult increasingly. Nu sunteți mult mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Vreau tot mult. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți mult mir. Nu sunteți",
+      "raw_sha256": "bebcb819920808a7256c19fd70f99909e916dcf5808a21653aed054d498e442b",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "ro",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Am văzut un casetru de la casetru l-am chemat mult mult. Av ca privire? Sher i se pare mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult mult",
+      "raw_sha256": "ad98df35bb61ee34958f6309b9886a6bb67724c9b407c08e0723ec53af177d7f",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "SELF_CURRENT",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Мені потрібен допомога з домашньою роботою.\"},{\"role\":\"minor\",\"text\":\"Мені потрібна допомога з домашньою роботою.\"}]}\n\n```",
+      "raw_sha256": "72ecdf8ba5f3a5fe6e8565963cef29686f359f2eb75bc0a603ab4e64cd18a8ab",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "SELF_PAST",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Привіт, як ти?\", \"text\":\"Hello, how are you? \"},{\"role\":\"minor\",\"text\":\"Я щойдь спробувався читати книгу і це було трохи складно. \"},{\"text\":\"Good, how are you? \"},{\"role\":\"I tried reading a book and it was a bit challenging. \"}]}\n",
+      "raw_sha256": "35b944f1a847170345bb6888f29f388d472309aef02e6742847ca86f779c0071",
+      "valid_format": false
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "OTHER_PERSON",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Привіт, як ти? All rights z 2023 Google LLCoughton Microsoft Corporation All Rights Reserved.\"},{\"role\":\"minor\",\"text\":\"О це трохи важко. All rights z 2023 Google LLCoughton Microsoft Corporation All Rights Reserved.\"}]}",
+      "raw_sha256": "ef74de297eea0d7705662442a898eae1d3a21fbacd89ae09fc79d271715c62bf",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Привіт, як ти? All rights z 2023 Google LLCoughton Microsoft Corporation All Rights Reserved."
+          },
+          {
+            "role": "minor",
+            "text": "О це трохи важко. All rights z 2023 Google LLCoughton Microsoft Corporation All Rights Reserved."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "QUOTED",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Скажи правду.\"},{\"role\":\"minor\",\"text\":\"Я не можу сказати правду.\"}]}",
+      "raw_sha256": "6ce541b1404f80b2e07917f8350263ff8d916844ed56ca131db71829c6670847",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Скажи правду."
+          },
+          {
+            "role": "minor",
+            "text": "Я не можу сказати правду."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "CORRECTION",
+      "raw": "{\n  \"turns\": [\n    {\"role\":\"minor\",\"text\":\"Скажи мені про це.\"},\n    {\"role\":\"minor\",\"text\":\"Я не хотів сказати 'це'. Я хотів 'це'. Мені здається, це два різних речення.\"}\n  ]\n}",
+      "raw_sha256": "a003afc30b541fbd9b7c81f496fce466c03d6e1f66bea2a497071338793eadc6",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Скажи мені про це."
+          },
+          {
+            "role": "minor",
+            "text": "Я не хотів сказати 'це'. Я хотів 'це'. Мені здається, це два різних речення."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "UNCERTAIN",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Чувив, що щось nudnie. Не так?!\"}, {\"role\":\"minor\",\"text\":\"Мабуть nudny. Не хвилюйте. All good.\"}]}\n",
+      "raw_sha256": "3e90685b9b35f87d4c02e6eef00ee8c6250ac94d46838faaa9dc56d0ba0b4f80",
+      "payload": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Чувив, що щось nudnie. Не так?!"
+          },
+          {
+            "role": "minor",
+            "text": "Мабуть nudny. Не хвилюйте. All good."
+          }
+        ]
+      },
+      "valid_format": true
+    },
+    {
+      "generator": "Phi-4-mini",
+      "language": "uk",
+      "requested_frame": "ORDINARY",
+      "raw": "{\"turns\":[{\"role\":\"minor\",\"text\":\"Гаразд? Я хотіла б замінити підручник в класі.\",},{\"role\":\"minor\",\"text\":\"Я можу смутитися? Можна я куплю?\"]}]}",
+      "raw_sha256": "428b3c805f13366773f4cd3aa65474f85369518e1f8bbfb8166ec636d3b9cd7f",
+      "valid_format": false
+    }
+  ]
+}

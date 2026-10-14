@@ -13,6 +13,8 @@
 
 **[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
 
+**New in RoGuard 7: conversation evidence review.** An optional jointly trained Romanian/Ukrainian model proposes current/past, other-person, quotation, correction and uncertainty interpretations, with turn references and a separate concern-mention prediction. A local review screen, authenticated analysis endpoint and tutoring integration connect those proposals to source-linked permissions. **Experimental: synthetic evidence only, with remaining Ukrainian and calibration errors.** [Try the workflow](docs/CONTEXT.md) · [Training iterations and results](docs/V7_RELEASE.md).
+
 **RoGuard 6.0 adds an adapted language model and durable application controls:** authenticated tenant APIs, encrypted permission state, queued execution, metadata-only monitoring, long-conversation analysis and permission-aware repair. [Setup and integration](docs/RELIABILITY.md) · [v6 experiments and limits](docs/V6_RELEASE.md).
 
 The new optional `adapted` backend passed its registered improvement gate after three training iterations. Its final fresh test contains only six synthetic phrase families per language: 18/18 signals recovered and 0/12 false alerts at fixed cutoffs in each language. The calibrated API abstained on 1/30 Romanian and 4/30 Ukrainian cases, with no wrong decided cases on that small test. **This does not establish real-world child-language accuracy.** Earlier failed candidates and actual-model comparison failures remain visible in the release record. The lightweight default is unchanged.
@@ -85,6 +87,14 @@ pip install --upgrade 'roguard-child-safety[adapted]'
 roguard-model fetch
 roguard-studio --conversation --open --backend adapted
 ```
+
+For the **new contextual evidence workspace**, using the same `adapted` installation and pinned model:
+
+```sh
+roguard-studio --context --context-backend joint --open
+```
+
+It proposes interpretations and reviewer questions; it does not verify disclosures or authorize sharing. [Python tutoring integration and API](docs/CONTEXT.md).
 
 For an authenticated application service, see [the three-command setup](docs/RELIABILITY.md#authenticated-service). The optional `gateway` and `observability` extras keep the core install small.
 

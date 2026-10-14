@@ -21,7 +21,7 @@ from .v2_audit import audit_v2_contract
 from .conversation import analyze_conversation, analyze_batch, compare_reports, ConversationScorer
 
 MAX_REQUEST_BYTES = 1_048_576
-ASSETS = {"/reliability": ("reliability.html", "text/html; charset=utf-8"), "/reliability.js": ("reliability.js", "text/javascript; charset=utf-8"),"/lab": ("lab.html", "text/html; charset=utf-8"),
+ASSETS = {"/context": ("context.html", "text/html; charset=utf-8"), "/context.js": ("context.js", "text/javascript; charset=utf-8"),"/reliability": ("reliability.html", "text/html; charset=utf-8"), "/reliability.js": ("reliability.js", "text/javascript; charset=utf-8"),"/lab": ("lab.html", "text/html; charset=utf-8"),
           "/lab.js": ("lab.js", "text/javascript; charset=utf-8"),
           "/lab.css": ("lab.css", "text/css; charset=utf-8"),"/conversation": ("conversation.html", "text/html; charset=utf-8"),
           "/conversation.js": ("conversation.js", "text/javascript; charset=utf-8"),
@@ -38,11 +38,13 @@ SECURITY_HEADERS = {
 }
 
 
-def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu") -> HTTPServer:
+def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu", context_backend="character") -> HTTPServer:
     """Create an ephemeral loopback service; caller owns serve_forever/shutdown."""
     if type(port) is not int or not 0 <= port <= 65535:
         raise ValueError("port must be from 0 to 65535")
     scorer = ConversationScorer(backend, model_path, device)
+    from .context import ContextModel, analyze_context
+    context_model = ContextModel(context_backend, model_path, device)
     token = secrets.token_hex(32)
 
     class Handler(BaseHTTPRequestHandler):
@@ -85,7 +87,7 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                     not hmac.compare_digest(self.headers.get("X-RoGuard-Token", ""), token)):
                 self._json(403, {"error": "Forbidden request"})
                 return
-            if self.path not in {"/api/assess", "/api/explore", "/api/contrast",
+            if self.path not in {"/api/context", "/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
                                  "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports",
                                  "/api/lab", "/api/lab/compare", "/api/lab/consistency", "/api/lab/scenario", "/api/long", "/api/repair-demo"}:
@@ -107,7 +109,9 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu")
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/long":
+                if self.path == "/api/context":
+                    result = analyze_context(payload, context_model)
+                elif self.path == "/api/long":
                     from .long_context import analyze_long_conversation
                     result = analyze_long_conversation(payload, scorer)
                 elif self.path == "/api/repair-demo":
@@ -171,16 +175,20 @@ def main() -> None:
     parser.add_argument("--model-path")
     parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cpu")
     view = parser.add_mutually_exclusive_group()
+    view.add_argument("--context", action="store_true")
+    parser.add_argument("--context-backend", choices=["character", "semantic", "joint"], default=None)
     view.add_argument("--conversation", action="store_true")
     view.add_argument("--lab", action="store_true")
     view.add_argument("--reliability", action="store_true")
     args = parser.parse_args()
     try:
-        server = make_server(args.port, backend=args.backend, model_path=args.model_path, device=args.device)
+        server = make_server(args.port, backend=args.backend, model_path=args.model_path, device=args.device, context_backend=args.context_backend or ("joint" if args.context else "character"))
     except (OSError, ValueError, ImportError) as exc:
         parser.error(str(exc))
     url = f"http://127.0.0.1:{server.server_port}/"
-    if args.conversation:
+    if args.context:
+        url += "context"
+    elif args.conversation:
         url += "conversation"
     elif args.lab:
         url += "lab"

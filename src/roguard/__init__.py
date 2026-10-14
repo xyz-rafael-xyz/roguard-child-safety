@@ -24,7 +24,7 @@ from .policy import (BoundaryCard, DisclosureEvidenceCard, GateCard, PermissionC
                      check_routing, check_support_contract)
 
 def __getattr__(name):
-    modules={"DurableGateway":"durable", "GatewayApp":"service", "Monitor":"observability", "CalibratedDecisions":"uncertainty", "FeatureSupport":"uncertainty", "analyze_calibrated_conversation":"uncertainty", "analyze_long_conversation":"long_context", "repair_proposal":"repair", "ChatTarget":"targets"}
+    modules={"ContextModel":"context", "ContextSession":"context_session", "analyze_context":"context", "compare_context":"context", "DurableGateway":"durable", "GatewayApp":"service", "Monitor":"observability", "CalibratedDecisions":"uncertainty", "FeatureSupport":"uncertainty", "analyze_calibrated_conversation":"uncertainty", "analyze_long_conversation":"long_context", "repair_proposal":"repair", "ChatTarget":"targets"}
     if name in modules:
         from importlib import import_module
         return getattr(import_module("."+modules[name], __name__), name)

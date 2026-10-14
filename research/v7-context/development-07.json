@@ -1,0 +1,27 @@
+{
+  "synthetic_only": true,
+  "train_rows": 5088,
+  "train_digest": "0920ccbf62e11cafca3afcfaa052b0477dfc78e29c8f99f7c979eaf1a09f23fe",
+  "joint_objective": "frame_cross_entropy + 0.25 * mention_binary_cross_entropy",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.15538655786855637,
+      "seconds": 121.36530491709709,
+      "development_frame_macro_f1": {
+        "ro": 0.8509132080889518,
+        "uk": 0.8450793488858803
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.018517649142431078,
+      "seconds": 120.56086558289826,
+      "development_frame_macro_f1": {
+        "ro": 0.8682840243063753,
+        "uk": 0.8409579051751702
+      }
+    }
+  ],
+  "selected_epoch": 1
+}
