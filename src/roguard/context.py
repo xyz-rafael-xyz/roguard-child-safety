@@ -7,6 +7,7 @@ import hashlib
 from importlib import resources
 import json
 import math
+import re
 from pathlib import Path
 import unicodedata
 from .context_signals import explicit_signals
@@ -86,7 +87,9 @@ class ContextModel:
             self.features={name:(i,idf) for i,(name,idf) in enumerate(self.spec['features'])}
 
     def _features(self,text):
-        counts=Counter(text.lower()[i:i+n] for n in range(2,6) for i in range(len(text)-n+1))
+        # Match the fitted sklearn character analyzer, including whitespace runs.
+        text=re.sub(r'\s\s+', ' ', unicodedata.normalize('NFC',text).lower())
+        counts=Counter(text[i:i+n] for n in range(2,6) for i in range(len(text)-n+1))
         values={self.features[s][0]:(1+math.log(n))*self.features[s][1] for s,n in counts.items() if s in self.features}
         norm=math.sqrt(sum(v*v for v in values.values()))
         return {i:v/norm for i,v in values.items()} if norm else {}

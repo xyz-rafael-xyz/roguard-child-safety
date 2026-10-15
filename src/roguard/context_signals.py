@@ -7,15 +7,20 @@ import re
 import unicodedata
 
 
-def _affirmed(pattern, text, language, local=False):
+def _affirmed(pattern, text, language, local=False, denial_only=False):
     """Conservative clause-level negation guard for affirmative rule evidence."""
     boundaries = r"[.!?;:]|\b(?:dar|insa|totusi)\b" if language=='ro' else r"[.!?;:]|\b(?:але|проте|однак)\b"
+    scope_boundaries = boundaries
+    denial = (r"\b(?:nu (?:este|e) adevarat|(?:este|e) fals|neg|resping (?:ideea|afirmatia))\b"
+              if language=='ro' else
+              r"\b(?:неправда|неправдиво|хибно|заперечую)\b")
     if local:
         boundaries += r",|\b(?:si|iar)\b" if language=='ro' else r",|\b(?:і|й|та)\b"
     negation = r"\bnu\b|\bn-" if language=='ro' else r"\bне\b"
     for match in re.finditer(pattern, text):
         prefix = re.split(boundaries, text[:match.start()])[-1]
-        if not re.search(negation, prefix):
+        scope_prefix = re.split(scope_boundaries, text[:match.start()])[-1]
+        if (denial_only or not re.search(negation, prefix)) and not re.search(denial, scope_prefix):
             return True
     return False
 
@@ -49,6 +54,6 @@ def explicit_signals(text, language, frame, mention=None):
     if _affirmed(support,text,language):
         result.append('EXPLICIT_SUPPORT_REQUEST')
     # All three independently required. No rule fires on hunger or solitude alone.
-    if re.search(no_food,text) and re.search(duration,text) and _affirmed(no_carer,text,language,local=True):
+    if _affirmed(no_food,text,language,denial_only=True) and re.search(duration,text) and _affirmed(no_carer,text,language,local=True):
         result.append('PROLONGED_UNMET_FOOD_AND_CARE')
     return result

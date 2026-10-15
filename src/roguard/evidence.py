@@ -14,6 +14,7 @@ import json
 import math
 from pathlib import Path
 import re
+import unicodedata
 from .context import validate
 
 ONTOLOGY = {
@@ -86,7 +87,7 @@ class EvidenceModel:
 
     def _features(self,text):
         # sklearn's char analyzer collapses runs of whitespace before ngrams.
-        text=re.sub(r'\s\s+',' ',text.lower())
+        text=re.sub(r'\s\s+',' ',unicodedata.normalize('NFC',text).lower())
         counts=Counter(text[i:i+n] for n in range(2,6) for i in range(len(text)-n+1))
         values={self.features[s][0]:(1+math.log(n))*self.features[s][1] for s,n in counts.items() if s in self.features}
         norm=math.sqrt(sum(v*v for v in values.values()))
@@ -257,7 +258,7 @@ def analyze_evidence(payload,model=None):
         # Exact repeated wording can propose an edge; it never establishes identity.
         reference['candidate_claim_start']=span['start']+(quoted.start(1) if quoted else 0)
         reference['candidate_claim_end']=span['start']+(quoted.end(1) if quoted else len(span['text']))
-        normalized=' '.join(claim.casefold().split())
+        normalized=' '.join(unicodedata.normalize('NFC',claim).casefold().split())
         current={k:h.get('label') for k,h in p['attributes'].items()}
         for previous,key in zip(out,claim_keys):
             earlier={k:h.get('label') for k,h in previous['attributes'].items()}

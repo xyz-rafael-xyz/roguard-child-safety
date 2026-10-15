@@ -62,3 +62,36 @@ class NegatedSignalTests(unittest.TestCase):
     def test_negated_exit_from_fiction_cannot_override_quotation(self):
         self.assertEqual(explicit_signals('Nu oprim ficțiunea. Personajul vorbește despre mine.', 'ro','QUOTED',1),[])
         self.assertEqual(explicit_signals('Не зупинимо вигадану історію. Особисто я читаю репліку.', 'uk','QUOTED',1),[])
+
+
+class DeniedClaimSignalTests(unittest.TestCase):
+    def test_denial_of_food_claim_is_not_asserted_deprivation(self):
+        cases=[('ro','Nu este adevărat că nu am mâncat de trei zile. Sunt singur acasă.'),
+               ('ro','Este fals că nu am mâncat de ieri. Sunt singură acasă.'),
+               ('uk','Неправда, що я не їв кілька днів. Я сам удома.'),
+               ('uk','Заперечую, що я не їла від учора. Я сама вдома.')]
+        for lang,text in cases:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+
+    def test_explicit_denial_scopes_support_and_care_claims(self):
+        cases=[('ro','Este fals că am nevoie de sprijin.'),
+               ('ro','Resping ideea că am nevoie de sprijin.'),
+               ('uk','Неправда, що мені потрібна підтримка.'),
+               ('uk','Заперечую, що мені потрібна підтримка.'),
+               ('ro','Nu am mâncat de ieri. Este fals că sunt singur.'),
+               ('uk','Я не їв від учора. Неправда, що я сам.')]
+        for lang,text in cases:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+
+    def test_denial_does_not_leak_into_later_affirmed_clause(self):
+        cases=[('ro','Este fals că am terminat tema. Am nevoie de sprijin.'),
+               ('ro','Nu este adevărat, dar am nevoie de sprijin.'),
+               ('uk','Це неправда. Мені потрібна підтримка.'),
+               ('uk','Це неправда, але мені потрібна підтримка.')]
+        for lang,text in cases:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['EXPLICIT_SUPPORT_REQUEST'],text)
+        for lang,text in [('ro','Nu am mâncat de ieri și sunt singur.'),
+                          ('uk','Я не їв від учора і я сам.'),
+                          ('ro','Nu știu ce să fac, nu am mâncat de ieri și sunt singur.'),
+                          ('uk','Не знаю, що робити, я не їв від учора і я сам.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['PROLONGED_UNMET_FOOD_AND_CARE'])

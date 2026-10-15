@@ -27,6 +27,19 @@ class EvidenceTests(unittest.TestCase):
         self.assertNotIn('simt',json.dumps(report));self.assertFalse(report['external_action_taken'])
         self.assertTrue(all(not e['verified'] for e in report['evidence']))
 
+    def test_canonically_equivalent_bilingual_text_keeps_same_predictions(self):
+        import unicodedata
+        from roguard.evidence import EvidenceModel
+        model=EvidenceModel()
+        for language,text in [('ro','Îmi este teamă și aș vrea să mă asculte cineva.'),
+                              ('uk','Мій друг почувається самотнім і хоче з кимось поговорити.')]:
+            decomposed=unicodedata.normalize('NFD',text)
+            self.assertNotEqual(text,decomposed)
+            self.assertEqual(model.predict([text],language),model.predict([decomposed],language))
+            report=analyze_evidence({'language':language,'turns':[{'role':'minor','text':decomposed}]},model)
+            ref=report['evidence'][0]['reference']
+            self.assertEqual(decomposed[ref['start']:ref['end']],decomposed)
+
     def test_bounds(self):
         with self.assertRaises(ValueError):units({'language':'ro','turns':[{'role':'minor','text':'a\n'*49}]})
 
@@ -107,6 +120,19 @@ class GraphTests(unittest.TestCase):
         for e in report['evidence']:
             r=e['reference'];self.assertEqual(p['turns'][r['turn_index']]['text'][r['candidate_claim_start']:r['candidate_claim_end']],'Mă simt singur')
         self.assertIn('t0_s0',report['review_ids'])
+
+    def test_canonical_claim_equivalence_preserves_original_offsets(self):
+        import unicodedata
+        claim='Îmi este teamă.'
+        other=unicodedata.normalize('NFD',claim)
+        payload={'language':'ro','turns':[{'role':'minor','text':'«'+claim+'»'},
+                                        {'role':'minor','text':'«'+other+'»'}]}
+        report=analyze_evidence(payload,Stub())
+        self.assertEqual(report['candidate_edges'][0]['relation'],'REPEATED_ASSERTION')
+        self.assertFalse(report['candidate_edges'][0]['verified'])
+        for unit,original in zip(report['evidence'],(claim,other)):
+            ref=unit['reference']
+            self.assertEqual(payload['turns'][ref['turn_index']]['text'][ref['candidate_claim_start']:ref['candidate_claim_end']],original)
 
     def test_model_disagreement_cannot_create_verified_fact(self):
         a=prediction(subject=None)

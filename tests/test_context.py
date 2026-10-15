@@ -23,6 +23,16 @@ class ContextTests(unittest.TestCase):
         self.assertFalse(result['authority_from_model'])
         self.assertNotIn(payload['turns'][0]['text'],json.dumps(result,ensure_ascii=False))
 
+    def test_character_predictions_are_canonically_invariant(self):
+        import unicodedata
+        model=ContextModel('character')
+        for lang,text in [('ro','FOCUS minor: Îmi este teamă și vreau sprijin.'),
+                          ('uk','FOCUS minor: Мій друг потребує підтримки.')]:
+            self.assertEqual(model.predict([text],lang),
+                             model.predict([unicodedata.normalize('NFD',text)],lang))
+            self.assertEqual(model.predict([text],lang),
+                             model.predict([text.replace(' ','  ')],lang))
+
     def test_malformed_and_oversized_input_rejected(self):
         base={'language':'uk','turns':[{'role':'minor','text':'Приклад'}]}
         for payload in ({},dict(base,language='en'),dict(base,turns=[]),dict(base,turns=base['turns']*13),dict(base,turns=[{'role':'minor','text':'x'*2001}]),dict(base,turns=[{'role':'minor','text':'x'*2000}]*4),dict(base,turns=[{'role':[],'text':'x'}]),dict(base,authority=True)):
@@ -124,8 +134,11 @@ class ContextArtifactTests(unittest.TestCase):
         for backend in ('character','semantic','joint'):
             data=resources.read_binary('roguard','context-'+backend+'.json.gz')
             self.assertEqual(hashlib.sha256(data).hexdigest(),manifest[backend+'.json.gz'])
-        for name in ('context.py','context_signals.py','context.js'):
+        for name in ('context.js',):
             self.assertEqual(hashlib.sha256(resources.read_binary('roguard',name)).hexdigest(),manifest[name])
+        normalization=json.loads(Path('research/v8-stabilization/normalization-freeze.json').read_text())
+        for name,digest in normalization['files'].items():
+            self.assertEqual(hashlib.sha256(resources.read_binary('roguard',name)).hexdigest(),digest)
 
 class ContextReviewReasonTests(unittest.TestCase):
     def test_abstention_is_distinct_from_detected_concern(self):
