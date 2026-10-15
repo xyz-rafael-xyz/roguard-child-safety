@@ -65,11 +65,28 @@ A **synthetic abstract card** is an invented description of annotation fields or
 
 ## Install and try it
 
-Install or upgrade to the **latest PyPI release** in one command (Python 3.9–3.14):
+Install or upgrade to the **latest stable PyPI release** in one command (Python 3.9–3.14):
 
 ```sh
 pip install --upgrade roguard-child-safety
 ```
+
+**Want the v8 preview?** Stable installs currently select 7.1.1. Version
+8.0.0rc1 is available on PyPI and GitHub, but pip excludes prereleases by default.
+Opt in to the latest available preview with:
+
+```sh
+pip install --upgrade --pre roguard-child-safety
+roguard-studio --evidence --open
+```
+
+The preview's new interpretation model still has missed concerns and false
+alerts; passing software tests does not establish classifier accuracy. See the
+[measured v8 results](docs/V8_PREVIEW.md) and
+[stabilization work](docs/V8_STABILIZATION.md). For its optional semantic model,
+use `pip install --upgrade --pre 'roguard-child-safety[adapted]'`, then
+`roguard-model fetch` and `roguard-studio --evidence --evidence-backend guarded --open`.
+Guarded mode preserves the older model's review signals and can add false alerts.
 
 Open the new local interaction laboratory:
 
@@ -148,9 +165,9 @@ For the **reviewed v1 contract rules**, run `roguard-v1-contract examples/v1_can
 
 ## What the research shows
 
-The [v4 conversation study](docs/V4_RELEASE.md) is the current text-model evaluation. Its second frozen semantic model found 59/60 Romanian and 57/60 Ukrainian positives, with 2/40 and 1/40 false alerts. An uncertainty band left 3/100 and 5/100 cases unresolved; among decided cases, each language had one missed positive and one false alert. The test has only 20 phrase families per language, with shared forms. Earlier v4 candidates and the new fast/hybrid alternatives are reported alongside it. These results do not validate the older studies below, whose historical failures remain unchanged.
+The [v4 conversation study](docs/V4_RELEASE.md) is an earlier text-model evaluation. More recent results appear in the [v7.1 study](docs/V7_1_RELEASE.md) and [v8 preview study](docs/V8_PREVIEW.md). Its second frozen semantic model found 59/60 Romanian and 57/60 Ukrainian positives, with 2/40 and 1/40 false alerts. An uncertainty band left 3/100 and 5/100 cases unresolved; among decided cases, each language had one missed positive and one false alert. The test has only 20 phrase families per language, with shared forms. Earlier v4 candidates and the new fast/hybrid alternatives are reported alongside it. These results do not validate the older studies below, whose historical failures remain unchanged.
 
-**The mixed-input result is not six-category text understanding.** Four categories in the 72/72 workflow received typed facts; D1 and S1 used a frozen model on abstract-card text. The same text-only model scored 55/72 and missed every A1 positive. A separate frozen Romanian D1/S1 model scored 47/48 on one abstract wording surface and 23/48 on another. This sensitivity is why no trained adapter is offered for live screening.
+**The mixed-input result is not six-category text understanding.** Four categories in the 72/72 workflow received typed facts; D1 and S1 used a frozen model on abstract-card text. The same text-only model scored 55/72 and missed every A1 positive. A separate frozen Romanian D1/S1 model scored 47/48 on one abstract wording surface and 23/48 on another. Those historical abstract-card results do not validate live screening. The newer optional adapted backends have separate synthetic evaluations and remain advisory.
 
 | Study on synthetic abstract cards | Complete pairs | Descriptive 95% Wilson interval | Interpretation |
 |---|---:|---:|---|

@@ -1,0 +1,10 @@
+{
+  "purpose": "Reduce missed concerns and unnecessary review before stable promotion",
+  "starting_release": "8.0.0rc1",
+  "synthetic_only": true,
+  "first_experiment": "Train a direct review-decision head on frozen adapted features, rather than deriving every review from a Cartesian product of uncertain attribute sets.",
+  "selection": "Train only on existing training rows; choose regularization and per-language review cutoffs on development. Require at least 99 percent review recall in both formal and conversational development groups before minimizing worst-group benign review rate.",
+  "existing_tests": "All previously inspected v8 controlled and prose cases are regressions, not fresh validation.",
+  "promotion_target": "At least 99 percent concern review recall and at most 5 percent benign review rate in each language on declared evaluation sets, with no loss on explicit serious-concern regressions; separate unseen evaluation before a stable accuracy claim.",
+  "limits": "Synthetic results cannot establish zero errors, authentic-child accuracy, or independent language quality. Stable/latest status is conditional on evidence, not a version-label edit."
+}

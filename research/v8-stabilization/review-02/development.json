@@ -1,0 +1,131 @@
+{
+  "selection_partition": "development",
+  "synthetic_only": true,
+  "candidates": [
+    {
+      "width": 64,
+      "iterations": 21,
+      "thresholds": {
+        "ro": 6.370083838191931e-07,
+        "uk": 8.517989044776186e-06
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1369,
+          "recall": 1.0,
+          "false_review_rate": 0.9688605803255484
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 245,
+          "missed": 2,
+          "false_reviews": 125,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.5102040816326531
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1207,
+          "recall": 1.0,
+          "false_review_rate": 0.854210898796886
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 225,
+          "missed": 1,
+          "false_reviews": 88,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.39111111111111113
+        }
+      }
+    },
+    {
+      "width": 128,
+      "iterations": 25,
+      "thresholds": {
+        "ro": 5.296030849422095e-07,
+        "uk": 4.222692496114178e-06
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1314,
+          "recall": 1.0,
+          "false_review_rate": 0.9299363057324841
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 245,
+          "missed": 2,
+          "false_reviews": 125,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.5102040816326531
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1204,
+          "recall": 1.0,
+          "false_review_rate": 0.8520877565463553
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 225,
+          "missed": 1,
+          "false_reviews": 98,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.43555555555555553
+        }
+      }
+    }
+  ],
+  "selected_width": 128,
+  "calibration_audit": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 1325,
+      "recall": 1.0,
+      "false_review_rate": 0.9559884559884559
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 246,
+      "missed": 0,
+      "false_reviews": 176,
+      "recall": 1.0,
+      "false_review_rate": 0.7154471544715447
+    },
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 1292,
+      "recall": 1.0,
+      "false_review_rate": 0.9321789321789322
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 225,
+      "missed": 0,
+      "false_reviews": 137,
+      "recall": 1.0,
+      "false_review_rate": 0.6088888888888889
+    }
+  },
+  "input_sha256": {
+    "train": "ad8abd20534de2a8ffa6eea77c0f29dfffc8715358c436c51a97f2d6d0f4a126",
+    "dev": "0d7b1edb9f96e3b048850b6a55f42e642cf305f86d6d0d1a55d9f42624cec7c6",
+    "cal": "c2aaeae935f18547fd48ae97da03a64dd85e899c97e2b18fb7978273cf85aa38"
+  },
+  "encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78"
+}
