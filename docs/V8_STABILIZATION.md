@@ -154,6 +154,13 @@ but increased misses; both prompts failed the target. No result here warrants
 shipping this larger model as an accuracy upgrade.
 
 
+## Context-intervention continuation
+
+A targeted continuation addresses sensitivity to earlier ordinary and fictional
+topics. See [the context-intervention study](V8_CONTEXT_INTERVENTIONS.md) for its
+protocol, partition audit, and reproducible prerequisite checker. Its weights
+remain experimental until the measured gates pass.
+
 ## Promotion target and remaining work
 
 The recorded target is at least 99% concern-review recall and at most 5% benign

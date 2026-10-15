@@ -43,6 +43,7 @@ def main():
     parser.add_argument('--initial-review', type=Path)
     parser.add_argument('--contrasts', action='store_true')
     parser.add_argument('--short-contrasts', action='store_true')
+    parser.add_argument('--context-interventions', action='store_true')
     parser.add_argument('--balance-short', action='store_true')
     parser.add_argument('--learning-rate',type=float,default=1e-4)
     parser.add_argument('--label-smoothing',type=float,default=0.0)
@@ -62,6 +63,9 @@ def main():
     if args.short_contrasts:
         from training.short_review_contrasts_v8 import generate as short_generate
         train += short_generate()
+    if args.context_interventions:
+        from training.context_interventions_v8 import generate as interventions
+        train += interventions()
     # Reuse exact declared development/calibration samples from the prior study.
     rows = {'train': train}
     for split in ('dev', 'cal'):
@@ -86,7 +90,7 @@ def main():
     with torch.no_grad():
         head.weight.copy_(torch.tensor([old['weights']], device=args.device))
         head.bias.copy_(torch.tensor([old['intercept']], device=args.device))
-    features = {}; targets = {}; record = {'synthetic_only': True, 'selection_partition': 'development', 'learning_rate': args.learning_rate, 'label_smoothing': args.label_smoothing, 'additional_authored_contrasts': args.contrasts, 'short_contrasts': args.short_contrasts, 'balance_short': args.balance_short, 'initial_encoder_sha256': hashlib.sha256(initial.read_bytes()).hexdigest(), 'initial_review_sha256': hashlib.sha256(args.initial_review.read_bytes()).hexdigest() if args.initial_review else None, 'epochs': [], 'excluded_overlength': {}}
+    features = {}; targets = {}; record = {'synthetic_only': True, 'selection_partition': 'development', 'learning_rate': args.learning_rate, 'label_smoothing': args.label_smoothing, 'additional_authored_contrasts': args.contrasts, 'short_contrasts': args.short_contrasts, 'context_interventions': args.context_interventions, 'balance_short': args.balance_short, 'initial_encoder_sha256': hashlib.sha256(initial.read_bytes()).hexdigest(), 'initial_review_sha256': hashlib.sha256(args.initial_review.read_bytes()).hexdigest() if args.initial_review else None, 'epochs': [], 'excluded_overlength': {}}
     for split, rs in rows.items():
         kept = []; tokens = []
         for r in rs:
@@ -127,6 +131,9 @@ def main():
             for start in range(0,len(rows[split]),16):
                 result.extend(torch.sigmoid(forward(split,list(range(start,min(start+16,len(rows[split])))))).cpu().tolist())
         return np.array(result)
+    def save_scores(split, scores, thresholds):
+        predictions=[{'case_id':r['case_id'],'language':r['language'],'score':float(p),'gold':int(y),'predicted':int(p>=thresholds[r['language']])} for r,y,p in zip(rows[split],targets[split],scores)]
+        (args.output/(split+'-predictions.jsonl')).write_text(''.join(json.dumps(p)+'\n' for p in predictions))
     params = [v for v in model.parameters() if v.requires_grad] + list(head.parameters())
     opt = torch.optim.AdamW(params, lr=args.learning_rate)
     best = None
@@ -147,6 +154,7 @@ def main():
         rank=(max(v['false_review_rate'] for v in metrics.values()),sum(v['false_review_rate'] for v in metrics.values()))
         if best is None or rank<best:
             best=rank;record['selected_epoch']=epoch;chosen_thresholds=thresholds
+            save_scores('dev',scores,thresholds)
             artifact={'format':'roguard-direct-review-experiment-v1','representation':'context_plus_focus','weights':head.weight.detach().cpu()[0].tolist(),'intercept':float(head.bias.detach().cpu()[0]),'thresholds':thresholds,'lora':{'rank':4,'alpha':8,'tensors':{k:v.detach().cpu().tolist() for k,v in get_peft_model_state_dict(model).items()}}}
             (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
         (args.output/'development.json').write_text(json.dumps(record,indent=2)+'\n')
@@ -154,7 +162,9 @@ def main():
     set_peft_model_state_dict(model,{k:torch.tensor(v,dtype=torch.float32) for k,v in chosen['lora']['tensors'].items()})
     with torch.no_grad():
         head.weight.copy_(torch.tensor([chosen['weights']],device=args.device));head.bias.copy_(torch.tensor([chosen['intercept']],device=args.device))
-    record['calibration_audit']=group_metrics(rows['cal'],targets['cal'],score('cal'),chosen_thresholds)
+    calibration_scores=score('cal')
+    save_scores('cal',calibration_scores,chosen_thresholds)
+    record['calibration_audit']=group_metrics(rows['cal'],targets['cal'],calibration_scores,chosen_thresholds)
     record['artifact_sha256']=hashlib.sha256((args.output/'review.json.gz').read_bytes()).hexdigest()
     (args.output/'development.json').write_text(json.dumps(record,indent=2)+'\n')
     print('FINISHED',json.dumps(record['calibration_audit']),flush=True)

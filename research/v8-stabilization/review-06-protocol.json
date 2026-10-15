@@ -1,0 +1,27 @@
+{
+  "initial": "review-04",
+  "epochs": 2,
+  "structured_rows": 4000,
+  "conversational_rows": 4000,
+  "authored_scope_contrasts": true,
+  "context_interventions": {
+    "rows": 3200,
+    "unique_normalized_inputs": 3200,
+    "by_language": {
+      "ro": 1600,
+      "uk": 1600
+    },
+    "synthetic_only": true,
+    "source": "training-only text, authored reset phrases; development error class motivated the intervention",
+    "independent_review": false,
+    "script_sha256": "33a78f97443586331989074d9d22b0cb424432ff1d0ff513d479641a6f6bab72"
+  },
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.05,
+  "balance_short": false,
+  "selection": "same per-language formal/conversational development recall >=99%, minimize worst false-review rate; calibration after selection",
+  "fresh_probe_used": false,
+  "prior_calibration_scores_inspected": true,
+  "calibration_status": "regression audit after previous studies; fresh probe required before promotion",
+  "promotion_target_unchanged": true
+}
