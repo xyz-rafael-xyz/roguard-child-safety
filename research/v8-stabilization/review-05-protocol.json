@@ -1,0 +1,21 @@
+{
+  "purpose": "Improve short-message and scope transfer while preserving long-input behavior",
+  "initial_candidate": "review-04 development-selected checkpoint, once training completes",
+  "training_rows_requested": {
+    "structured_rehearsal": 4000,
+    "conversational_rehearsal": 4000,
+    "authored_scope_contrasts": 4200,
+    "short_scope_contrasts_before_deduplication": 2520
+  },
+  "epochs": 1,
+  "learning_rate": 3e-05,
+  "label_smoothing": 0.05,
+  "weighting": "Equal total training-loss weight for each language x short-single-turn/other x binary-target group. Short means one turn of at most 12 whitespace-delimited words.",
+  "partition_protection": "Remove normalized input overlap against both current training and every recorded prior-training input; preserve transitive history for later continuations",
+  "selection": "Same fixed >=99 percent review recall target in each language and formal/conversational development group; minimize worst-group false review; calibration after fitting",
+  "promotion_target_unchanged": true,
+  "fresh_contrast_probe_used_for_selection": false,
+  "short_training_source": "Development error classes, not independent validation",
+  "synthetic_only": true,
+  "independent_language_review": false
+}

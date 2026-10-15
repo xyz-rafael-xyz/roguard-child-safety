@@ -1,0 +1,11 @@
+{
+  "purpose": "Test whether short and longer inputs require separate decision cutoffs after review-05 training",
+  "candidate": "review-05, fixed one-epoch checkpoint",
+  "registered_before_review05_results": true,
+  "runtime_grouping": "Language and focal-message whitespace word count <=12 or >12; no labels, source metadata or dataset family at inference",
+  "threshold_fit": "For each language/length group, use the development positive-score 1st percentile order statistic, with the same 1e-4 numerical margin. Fall back to the language cutoff if fewer than 100 positive development examples.",
+  "evaluation": "Report original language-only and length-conditioned decisions on development and calibration, including formal/conversational groups. No training, no evaluation-set threshold tuning.",
+  "promotion_target_unchanged": true,
+  "fresh_contrast_probe_used": false,
+  "synthetic_only": true
+}

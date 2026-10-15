@@ -72,6 +72,64 @@ must not be compared directly with the clear-concern-only denominator in older
 reports. High recall alone is insufficient when benign-review workload is this
 large. The heads are retained as research artifacts, not shipped classifiers.
 
+### Encoder adaptation and scope contrasts
+
+The next pass updates the encoder's LoRA weights and direct review head together.
+An initial completed epoch supplies initialization only; its overlapping split
+scores are diagnostic. The corrected continuation (`review-04`) trains for two
+epochs on 20,199 unique inputs, including 4,200 generated scope contrasts. It uses
+a lower learning rate and label smoothing, selecting the second epoch on
+4,845 development inputs before auditing 4,846 calibration inputs.
+
+| Selected continuation / calibration group | Required reviews missed | Benign messages flagged |
+|---|---:|---:|
+| Romanian formal | 0/614 | 405/1386 |
+| Romanian conversational | 0/216 | 124/243 |
+| Ukrainian formal | 0/614 | 342/1386 |
+| Ukrainian conversational | 1/164 | 32/223 |
+
+This improves several diagnostic counts but still exceeds the false-review
+target. The bundled classifiers therefore retain their released weights.
+
+A further continuation (`review-05`) adds 2,520 generated short-message contrasts
+and balances training loss across language, short/long input and review target.
+Its 14,688 unique training inputs are accompanied by a transitive 22,687-input
+training history. Both development and calibration have zero exact normalized
+input overlap with that history. The phrases were authored from development error
+classes; these data do not establish independent linguistic review or semantic
+family separation. Protocols, selected rows, scripts, hashes and metrics are
+retained under `research/v8-stabilization/`.
+
+The short-message continuation's calibration audit is:
+
+| Group | Required reviews missed | Benign messages flagged |
+|---|---:|---:|
+| Romanian formal | 0/614 | 256/1386 |
+| Romanian conversational | 0/216 | 51/243 |
+| Ukrainian formal | 0/614 | 1030/1386 |
+| Ukrainian conversational | 2/164 | 171/223 |
+
+The Romanian counts improve, while Ukrainian behavior regresses. This checkpoint
+is not promoted. A predeclared length-conditioned calibration comparison uses
+only development positives to set cutoffs for focal messages of at most 12 words
+versus longer messages, separately by language. Calibration labels are used only
+to audit the resulting decisions, and the fresh contrast probe stays unopened.
+
+The length-conditioned calibration result also fails the target:
+
+| Calibration group | Required reviews missed | Benign messages flagged |
+|---|---:|---:|
+| Romanian formal | 0/614 | 247/1386 |
+| Romanian conversational | 0/216 | 43/243 |
+| Ukrainian formal | 10/614 | 311/1386 |
+| Ukrainian conversational | 4/164 | 162/223 |
+
+Lower false-review counts here come with additional Ukrainian misses. Neither
+the adapted weights nor the length-conditioned cutoffs enter the release.
+Exported inference reproduces the training script's development/calibration
+counts for the original language cutoffs. All four encoder passes and the
+calibration comparison are complete; the fresh contrast probe remains unused.
+
 ### Local instruction-model comparison
 
 A cached Qwen3-4B-Instruct-2507 4-bit model is evaluated on 200 development cases:
@@ -127,3 +185,18 @@ with `PYTHONPATH=src:.`. The script refuses to overwrite its output.
 The instruction comparison accepts `--base`, `--output`, and `--policy-version 1`
 or `2`. Feature caches are excluded from Git. None of these scripts reads the new
 contrast probe for fitting or selection.
+
+The encoder continuations and calibration audit are reproducible separately:
+
+```sh
+# Requires the retained review-03 checkpoint and local training dependencies.
+PYTHONPATH=src:. python -m training.adapt_review_v8 --base "$BASE_MODEL" --device cpu --output /tmp/review04 --epochs 2 --initial-review research/v8-stabilization/review-03/review.json.gz --contrasts --learning-rate 0.00003 --label-smoothing 0.05
+PYTHONPATH=src:. python -m training.adapt_review_v8 --base "$BASE_MODEL" --device cpu --output /tmp/review05 --epochs 1 --initial-review /tmp/review04/review.json.gz --contrasts --short-contrasts --balance-short --structured-rows 4000 --conversational-rows 4000 --learning-rate 0.00003 --label-smoothing 0.05
+PYTHONPATH=src:. python -m training.evaluate_review_v8 --base "$BASE_MODEL" --device cpu --artifact /tmp/review05/review.json.gz --data /tmp/review05/dev.jsonl.gz --output /tmp/review05-scores/dev
+PYTHONPATH=src:. python -m training.evaluate_review_v8 --base "$BASE_MODEL" --device cpu --artifact /tmp/review05/review.json.gz --data /tmp/review05/cal.jsonl.gz --output /tmp/review05-scores/cal
+PYTHONPATH=src:. python -m training.calibrate_review_length_v8 --candidate /tmp/review05 --scores /tmp/review05-scores --output /tmp/review05-length
+```
+
+Recorded runs used Apple MPS, not CPU; numerical differences are possible.
+Per-run script snapshots and environment records preserve the implementation
+used at training time. The current script also records transitive training history.

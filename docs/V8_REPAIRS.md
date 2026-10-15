@@ -1,8 +1,8 @@
 # v8 input and interpretation repairs
 
-These repairs address reproduced runtime errors. The separate encoder training
-study continues under `research/v8-stabilization/review-05`; it does not change
-the bundled model until evaluation supports a replacement.
+These repairs address reproduced runtime errors. Four encoder training passes and a separate calibration comparison are
+recorded under `research/v8-stabilization/`. Their results do not support replacing
+the bundled model; see [the measured studies](V8_STABILIZATION.md).
 
 ## Equivalent text must produce equivalent predictions
 
@@ -65,7 +65,12 @@ retains the first partition's ownership. Its 20,199 training inputs, 4,845
 development inputs and 4,846 calibration inputs have zero pairwise normalized
 input overlap. This does not establish independent authorship or semantic-family
 independence. The first completed encoder pass is only an initialization; the
-corrected continuation supplies the selection and validation results.
+corrected continuation supplies the selection and validation results. Later
+continuations also preserve transitive training history and exclude every recorded
+prior-training input from evaluation. The short-message continuation has 14,688
+current training inputs and 22,687 historical inputs, with zero development or
+calibration overlap against either set. Exact deduplication does not remove
+shared templates or establish unseen linguistic families.
 
 ## UTF-8 input on Windows
 

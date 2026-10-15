@@ -1,0 +1,20 @@
+{
+  "purpose": "Improve scope transfer without shared normalized evaluation inputs",
+  "starting_checkpoint": "research/v8-stabilization/review-03/review.json.gz",
+  "starting_checkpoint_sha256": "79061bbc61e08be9317e253813e2d88aed42c1c0c7e3fc5d398cacbfcd7b832c",
+  "starting_checkpoint_completed_epochs": 1,
+  "historical_overlap": "Five ordinary inputs shared in review-03 train/dev/cal; old scores diagnostic only",
+  "training": {
+    "unique_inputs": 20199,
+    "new_authored_contrast_rows": 4200,
+    "continued_epochs": 2,
+    "learning_rate": 3e-05,
+    "label_smoothing": 0.05
+  },
+  "selection": "Same per-language formal/conversational development recall target >=99 percent; minimize worst-group false-review rate; final calibration audit after epoch selection",
+  "threshold_numerical_guard": "Multiply the selected development cutoff by 1-1e-4 to tolerate small exported float32/float64 inference drift; this is not a statistical coverage guarantee",
+  "promotion_target_unchanged": true,
+  "fresh_contrast_probe_used_for_selection": false,
+  "independent_language_review": false,
+  "split_audit": "partition-audit.json"
+}

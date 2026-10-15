@@ -1,0 +1,56 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "initial_encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.020570281150909024,
+      "seconds": 827.9958111250307,
+      "thresholds": {
+        "ro": 2.441194624225318e-07,
+        "uk": 3.794284793912084e-06
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 590,
+          "recall": 1.0,
+          "false_review_rate": 0.4175513092710545
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 245,
+          "missed": 2,
+          "false_reviews": 49,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.2
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 308,
+          "recall": 1.0,
+          "false_review_rate": 0.21797593772116064
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 225,
+          "missed": 1,
+          "false_reviews": 35,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.15555555555555556
+        }
+      }
+    }
+  ],
+  "excluded_overlength": {
+    "train": 0,
+    "dev": 0,
+    "cal": 0
+  },
+  "selected_epoch": 1
+}

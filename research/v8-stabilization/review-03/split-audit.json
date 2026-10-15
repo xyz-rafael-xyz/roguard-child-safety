@@ -1,0 +1,47 @@
+{
+  "synthetic_only": true,
+  "split_counts": {
+    "train": {
+      "rows": 16000,
+      "unique_inputs": 15999,
+      "groups": {
+        "ro_training_only_authored_paraphrases_v8": 1300,
+        "uk_training_only_authored_paraphrases_v8": 1310,
+        "uk_training_scope_separation_v8": 1320,
+        "ro_training_scope_separation_v8": 1320,
+        "uk_controlled_composition_v8": 1418,
+        "ro_controlled_composition_v8": 1332,
+        "ro_v7_training_frame_projection": 4406,
+        "uk_v7_training_frame_projection": 3594
+      },
+      "sha256": "ba6853e4dce134f5e818030c63642b6da2a3ba9f1acaf047510c5c43e8901cab"
+    },
+    "dev": {
+      "rows": 4850,
+      "unique_inputs": 4850,
+      "groups": {
+        "ro_controlled_composition_v8": 2000,
+        "uk_controlled_composition_v8": 2000,
+        "ro_v7_training_frame_projection": 461,
+        "uk_v7_training_frame_projection": 389
+      },
+      "sha256": "0d7b1edb9f96e3b048850b6a55f42e642cf305f86d6d0d1a55d9f42624cec7c6"
+    },
+    "cal": {
+      "rows": 4851,
+      "unique_inputs": 4851,
+      "groups": {
+        "ro_controlled_composition_v8": 2000,
+        "uk_controlled_composition_v8": 2000,
+        "ro_v7_training_frame_projection": 462,
+        "uk_v7_training_frame_projection": 389
+      },
+      "sha256": "c2aaeae935f18547fd48ae97da03a64dd85e899c97e2b18fb7978273cf85aa38"
+    }
+  },
+  "exact_overlap": {
+    "train_dev": 5,
+    "train_cal": 5,
+    "dev_cal": 5
+  }
+}
