@@ -1,0 +1,21 @@
+{
+  "candidate": "research/v8-stabilization/review-06",
+  "language_scope": "both",
+  "artifact_sha256": "1f9fe7fd0aae5dee4f800af5dee8445edbae729c454e89f10971295b263d2577",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 237/1413; maximum 5%",
+    "development/ro_conversational: false reviews 14/242; maximum 5%",
+    "calibration/ro_formal: false reviews 308/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 79/243; maximum 5%",
+    "calibration/uk_formal: false reviews 277/1386; maximum 5%",
+    "calibration/uk_conversational: missed 4/164; maximum 1%",
+    "calibration/uk_conversational: false reviews 20/223; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions"
+  ],
+  "counts_are_synthetic": true
+}

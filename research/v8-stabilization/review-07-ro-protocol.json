@@ -1,0 +1,18 @@
+{
+  "conditional_execution": "if the selected review06 Romanian checkpoint still misses development prerequisites",
+  "initialization": "Romanian checkpoint selected by the predeclared review06 development-only language rule",
+  "train_language": "ro",
+  "epochs": 1,
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.05,
+  "structured_rows_requested_before_language_filter": 3000,
+  "conversational_rows_requested_before_language_filter": 3000,
+  "contrasts": true,
+  "context_interventions": true,
+  "hesitancy_contrasts": true,
+  "selection": "Romanian formal/conversational development groups only; fixed >=99% recall and minimize worst false review. Compare against selected review06 Romanian checkpoint on development before any final candidate calibration audit.",
+  "ukrainian_checkpoint": "frozen review06 development selection; Romanian training cannot overwrite it",
+  "fresh_probe_used": false,
+  "existing_calibration_is_regression": true,
+  "promotion_target_unchanged": true
+}

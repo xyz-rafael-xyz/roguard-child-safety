@@ -1,0 +1,15 @@
+{
+  "initial": "review07-ro selected checkpoint",
+  "train_language": "ro",
+  "epochs": 1,
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.05,
+  "structured_rows_requested_before_language_filter": 2500,
+  "conversational_rows_requested_before_language_filter": 2500,
+  "hesitancy_contrasts": true,
+  "selection": "fixed >=99% recall on each Romanian development group; minimize worst false-review rate; compare against review07-ro on development only",
+  "ukrainian_weights": "untouched, separately selected",
+  "calibration_is_regression": true,
+  "fresh_probe_used": false,
+  "promotion_target_unchanged": true
+}

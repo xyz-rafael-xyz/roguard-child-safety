@@ -1,0 +1,65 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.05,
+  "additional_authored_contrasts": true,
+  "short_contrasts": false,
+  "context_interventions": true,
+  "balance_short": false,
+  "initial_encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78",
+  "initial_review_sha256": "ae20bc1e10892545266e4778cb35cb495250ae41e3fcb5a529c26e5534f82fec",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.12486750807855036,
+      "seconds": 789.7157225830015,
+      "thresholds": {
+        "ro": 0.04736102944202721,
+        "uk": 0.21477555515617133
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 237,
+          "recall": 0.9982964224872232,
+          "false_review_rate": 0.16772823779193205
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 14,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.05785123966942149
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 38,
+          "recall": 1.0,
+          "false_review_rate": 0.02689313517338995
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.013452914798206279
+        }
+      }
+    }
+  ],
+  "excluded_overlength": {
+    "train": 0,
+    "dev": 0,
+    "cal": 0
+  },
+  "training_history_unique_inputs": 23399,
+  "training_history_sha256": "1f7e95b8e4efe61b9affcda5319fd8e9aa0c2d8331aa05c17eb084e59f347965",
+  "selected_epoch": 1
+}

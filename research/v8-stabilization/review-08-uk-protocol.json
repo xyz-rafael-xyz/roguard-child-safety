@@ -1,0 +1,17 @@
+{
+  "initial": "review06 Ukrainian epoch1 development selection",
+  "train_language": "uk",
+  "epochs": 1,
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.05,
+  "structured_rows_requested_before_language_filter": 3000,
+  "conversational_rows_requested_before_language_filter": 3000,
+  "contrasts": true,
+  "context_interventions": true,
+  "uk_scope_contrasts": true,
+  "selection": "Ukrainian formal/conversational development >=99% recall, minimize worst false-review rate; compare to review06 selected Ukrainian on development only before final audit",
+  "romanian_checkpoint": "separate review07-ro or development-selected predecessor; never overwritten by Ukrainian training",
+  "calibration_is_regression": true,
+  "fresh_probe_used": false,
+  "promotion_targets_unchanged": true
+}

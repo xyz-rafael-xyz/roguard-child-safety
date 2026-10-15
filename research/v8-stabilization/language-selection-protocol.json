@@ -1,0 +1,12 @@
+{
+  "purpose": "Avoid sacrificing one language when the shared checkpoint improves the other",
+  "registered_before_epoch2_results": true,
+  "candidates": [
+    "review-06/epoch-1-review.json.gz",
+    "review-06 epoch-2 checkpoint if retained"
+  ],
+  "selection": "For each declared language, choose the epoch with lowest worst formal/conversational false-review rate among epochs meeting >=99% development recall in both groups. Break ties by summed false-review rate, then earlier epoch. No calibration inputs or results enter selection.",
+  "runtime_selector": "declared language only",
+  "not_automatic_stable_release": true,
+  "fresh_probe_used": false
+}

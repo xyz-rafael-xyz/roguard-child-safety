@@ -1,0 +1,61 @@
+{
+  "selection_partition": "development",
+  "calibration_used_for_selection": false,
+  "runtime_selector": "declared language",
+  "retained_epochs": [
+    1
+  ],
+  "unretained_epochs": [
+    2
+  ],
+  "languages": {
+    "ro": {
+      "epoch": 1,
+      "path": "research/v8-stabilization/review-06/epoch-1-review.json.gz",
+      "sha256": "1f9fe7fd0aae5dee4f800af5dee8445edbae729c454e89f10971295b263d2577",
+      "threshold": 0.04736102944202721,
+      "development": {
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 237,
+          "recall": 0.9982964224872232,
+          "false_review_rate": 0.16772823779193205
+        },
+        "conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 14,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.05785123966942149
+        }
+      }
+    },
+    "uk": {
+      "epoch": 1,
+      "path": "research/v8-stabilization/review-06/epoch-1-review.json.gz",
+      "sha256": "1f9fe7fd0aae5dee4f800af5dee8445edbae729c454e89f10971295b263d2577",
+      "threshold": 0.21477555515617133,
+      "development": {
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 38,
+          "recall": 1.0,
+          "false_review_rate": 0.02689313517338995
+        },
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.013452914798206279
+        }
+      }
+    }
+  }
+}

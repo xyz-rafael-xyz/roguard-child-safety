@@ -44,6 +44,9 @@ def main():
     parser.add_argument('--contrasts', action='store_true')
     parser.add_argument('--short-contrasts', action='store_true')
     parser.add_argument('--context-interventions', action='store_true')
+    parser.add_argument('--hesitancy-contrasts', action='store_true')
+    parser.add_argument('--uk-scope-contrasts', action='store_true')
+    parser.add_argument('--train-language', choices=('ro','uk'))
     parser.add_argument('--balance-short', action='store_true')
     parser.add_argument('--learning-rate',type=float,default=1e-4)
     parser.add_argument('--label-smoothing',type=float,default=0.0)
@@ -66,6 +69,14 @@ def main():
     if args.context_interventions:
         from training.context_interventions_v8 import generate as interventions
         train += interventions()
+    if args.hesitancy_contrasts:
+        from training.disclosure_hesitancy_v8 import generate as hesitancy
+        train += hesitancy()
+    if args.uk_scope_contrasts:
+        from training.uk_scope_contrasts_v8 import generate as uk_scope
+        train += uk_scope()
+    if args.train_language:
+        train=[r for r in train if r['language']==args.train_language]
     # Reuse exact declared development/calibration samples from the prior study.
     rows = {'train': train}
     for split in ('dev', 'cal'):
@@ -90,7 +101,7 @@ def main():
     with torch.no_grad():
         head.weight.copy_(torch.tensor([old['weights']], device=args.device))
         head.bias.copy_(torch.tensor([old['intercept']], device=args.device))
-    features = {}; targets = {}; record = {'synthetic_only': True, 'selection_partition': 'development', 'learning_rate': args.learning_rate, 'label_smoothing': args.label_smoothing, 'additional_authored_contrasts': args.contrasts, 'short_contrasts': args.short_contrasts, 'context_interventions': args.context_interventions, 'balance_short': args.balance_short, 'initial_encoder_sha256': hashlib.sha256(initial.read_bytes()).hexdigest(), 'initial_review_sha256': hashlib.sha256(args.initial_review.read_bytes()).hexdigest() if args.initial_review else None, 'epochs': [], 'excluded_overlength': {}}
+    features = {}; targets = {}; record = {'synthetic_only': True, 'selection_partition': 'development', 'learning_rate': args.learning_rate, 'label_smoothing': args.label_smoothing, 'additional_authored_contrasts': args.contrasts, 'short_contrasts': args.short_contrasts, 'context_interventions': args.context_interventions, 'hesitancy_contrasts': args.hesitancy_contrasts, 'uk_scope_contrasts': args.uk_scope_contrasts, 'train_language': args.train_language, 'balance_short': args.balance_short, 'initial_encoder_sha256': hashlib.sha256(initial.read_bytes()).hexdigest(), 'initial_review_sha256': hashlib.sha256(args.initial_review.read_bytes()).hexdigest() if args.initial_review else None, 'epochs': [], 'excluded_overlength': {}}
     for split, rs in rows.items():
         kept = []; tokens = []
         for r in rs:
@@ -151,12 +162,15 @@ def main():
         metrics=group_metrics(rows['dev'],targets['dev'],scores,thresholds)
         entry={'epoch':epoch,'loss':sum(losses)/len(losses),'seconds':time.monotonic()-start,'thresholds':thresholds,'development':metrics}
         record['epochs'].append(entry);print(json.dumps(entry),flush=True)
-        rank=(max(v['false_review_rate'] for v in metrics.values()),sum(v['false_review_rate'] for v in metrics.values()))
+        selected_metrics=[v for k,v in metrics.items() if args.train_language is None or k.startswith(args.train_language+'_')]
+        rank=(max(v['false_review_rate'] for v in selected_metrics),sum(v['false_review_rate'] for v in selected_metrics))
+        artifact={'format':'roguard-direct-review-experiment-v1','representation':'context_plus_focus','weights':head.weight.detach().cpu()[0].tolist(),'intercept':float(head.bias.detach().cpu()[0]),'thresholds':thresholds,'lora':{'rank':4,'alpha':8,'tensors':{k:v.detach().cpu().tolist() for k,v in get_peft_model_state_dict(model).items()}}}
+        compressed=gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0)
+        (args.output/f'epoch-{epoch}-review.json.gz').write_bytes(compressed)
         if best is None or rank<best:
             best=rank;record['selected_epoch']=epoch;chosen_thresholds=thresholds
             save_scores('dev',scores,thresholds)
-            artifact={'format':'roguard-direct-review-experiment-v1','representation':'context_plus_focus','weights':head.weight.detach().cpu()[0].tolist(),'intercept':float(head.bias.detach().cpu()[0]),'thresholds':thresholds,'lora':{'rank':4,'alpha':8,'tensors':{k:v.detach().cpu().tolist() for k,v in get_peft_model_state_dict(model).items()}}}
-            (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
+            (args.output/'review.json.gz').write_bytes(compressed)
         (args.output/'development.json').write_text(json.dumps(record,indent=2)+'\n')
     chosen=json.loads(gzip.decompress((args.output/'review.json.gz').read_bytes()))
     set_peft_model_state_dict(model,{k:torch.tensor(v,dtype=torch.float32) for k,v in chosen['lora']['tensors'].items()})
