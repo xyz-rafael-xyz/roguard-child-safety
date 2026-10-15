@@ -39,6 +39,8 @@ jobs:
         run: |
           python -m venv "$RUNNER_TEMP/roguard-release-test"
           "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-evidence" examples/evidence_ro.json > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-evidence" examples/evidence_uk.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_ro.json --backend character > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_uk.json --backend character > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null
@@ -80,12 +82,16 @@ jobs:
         with:
           name: python-distributions
           path: dist
-      - name: Publish release with stable source URLs
+      - name: Publish stable release or explicit prerelease
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          cp dist/roguard_child_safety-*.tar.gz dist/roguard-child-safety-latest.tar.gz
-          cp dist/roguard_child_safety-*.tar.gz dist/roguard-local-latest.tar.gz
-          gh release create "$RELEASE_TAG" dist/roguard-child-safety-latest.tar.gz dist/roguard-local-latest.tar.gz dist/roguard_child_safety-*.whl --title "RoGuard ${RELEASE_TAG#v}" --generate-notes
+          if [[ "$RELEASE_TAG" =~ (a|b|rc|dev)[0-9]+$ ]]; then
+            gh release create "$RELEASE_TAG" dist/roguard_child_safety-* --prerelease --latest=false --title "RoGuard ${RELEASE_TAG#v} (experimental preview)" --generate-notes
+          else
+            cp dist/roguard_child_safety-*.tar.gz dist/roguard-child-safety-latest.tar.gz
+            cp dist/roguard_child_safety-*.tar.gz dist/roguard-local-latest.tar.gz
+            gh release create "$RELEASE_TAG" dist/roguard-child-safety-latest.tar.gz dist/roguard-local-latest.tar.gz dist/roguard_child_safety-*.whl --title "RoGuard ${RELEASE_TAG#v}" --generate-notes
+          fi

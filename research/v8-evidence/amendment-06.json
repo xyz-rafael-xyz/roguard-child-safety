@@ -1,0 +1,6 @@
+{
+  "reason": "An unresolved attribute could have a singleton class-conditional set excluding argmax; the action envelope then silently resolved a contradiction.",
+  "fix": "Include valid argmax in effective action hypotheses when unresolved and excluded from a nonempty prediction set; retain original calibrated set unchanged.",
+  "provenance": "Found after confirmation-05 results. Replaying saved predictions is regression validation, not a fresh test.",
+  "no_training_changes": true
+}

@@ -7,8 +7,8 @@ from .conversation import analyze_conversation,ConversationScorer
 from .long_context import analyze_long_conversation
 
 class GatewayApp:
-    def __init__(self,gateway,credentials,*,scorer=None,monitor=None,context_model=None,max_concurrency=4):
-        self.context_model=context_model
+    def __init__(self,gateway,credentials,*,scorer=None,monitor=None,context_model=None,evidence_model=None,max_concurrency=4):
+        self.context_model=context_model;self.evidence_model=evidence_model
         self.gateway=gateway;self.scorer=scorer;self.monitor=monitor;self.credentials=[]
         for token,principal in credentials.items():
             if not isinstance(token,str) or len(token)<32 or set(principal)!={'tenant','role'} or principal['role'] not in ('reader','operator','admin'):raise ValueError('Invalid credentials')
@@ -60,6 +60,10 @@ class GatewayApp:
         except Exception:await reply(503,{'error':'SERVICE_UNAVAILABLE'})
     def route(self,path,tenant,data):
         g=self.gateway
+        if path=='/v1/analyze-evidence':
+            if self.evidence_model is None:raise ValueError('Evidence model not configured')
+            from .evidence import analyze_evidence
+            return analyze_evidence(data,self.evidence_model)
         if path=='/v1/analyze-context':
             if self.context_model is None:raise ValueError('Context model not configured')
             from .context import analyze_context
@@ -83,6 +87,7 @@ class GatewayApp:
 def main():
     p=argparse.ArgumentParser(description='Authenticated local gateway; reverse-proxy TLS required for network deployments')
     p.add_argument('--key-file',type=Path);p.add_argument('--state',type=Path,required=True);p.add_argument('--credentials',type=Path,required=True);p.add_argument('--host',default='127.0.0.1');p.add_argument('--port',type=int,default=8780);p.add_argument('--backend',choices=['fast','semantic','hybrid','adapted'],default='fast');p.add_argument('--model-path',type=Path)
+    p.add_argument('--evidence-backend',choices=['character','semantic','guarded'],default='character');p.add_argument('--evidence',action='store_true');p.add_argument('--evidence-cascade',action='store_true')
     p.add_argument('--context-backend',choices=['character','semantic','joint'])
     a=p.parse_args()
     from .durable import DurableGateway
@@ -93,6 +98,9 @@ def main():
     credentials=_strict_json_loads(a.credentials.read_text());gateway=DurableGateway(a.state,key.encode());monitor=Monitor(str(a.state)+'.metrics')
     from .context import ContextModel
     context_model=ContextModel(a.context_backend,a.model_path) if a.context_backend else None
-    app=GatewayApp(gateway,credentials,context_model=context_model,scorer=ConversationScorer(a.backend,a.model_path),monitor=monitor)
+    from .evidence import EvidenceModel,EvidenceCascade,load_evidence_model
+    if a.evidence_cascade and a.evidence_backend!='character':p.error('Cascade requires character primary')
+    evidence_model=EvidenceCascade(load_evidence_model(a.evidence_backend,base_path=a.model_path),challenger=EvidenceModel('semantic',base_path=a.model_path) if a.evidence_cascade else None) if a.evidence or a.evidence_cascade else None
+    app=GatewayApp(gateway,credentials,evidence_model=evidence_model,context_model=context_model,scorer=ConversationScorer(a.backend,a.model_path),monitor=monitor)
     uvicorn.run(app,host=a.host,port=a.port,access_log=False,server_header=False)
 if __name__=='__main__':main()

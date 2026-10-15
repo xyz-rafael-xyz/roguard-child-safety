@@ -1,0 +1,9 @@
+{
+ "test_predictions_inspected": false,
+ "decision_policy": "Enumerate finite attribute hypotheses and propose an action only when stable; otherwise request review while preserving task assistance",
+ "reason": "An unresolved attribute need not change the appropriate response. Current/past ambiguity and fictional timing should not automatically create an extra alert.",
+ "reviewer_questions": "Rank unresolved attributes by worst remaining number of possible actions; host reviewer only, no automatic child questioning",
+ "scope": "Conditional symbolic guarantee; does not validate model hypothesis coverage or real-world safety",
+ "prose_diagnostic": "48 separately authored fictional cases, frozen before evaluation",
+ "promotion": "Compare against released v7 joint focus-turn routing; a high review workload or weaker recall blocks claiming a generally superior replacement"
+}

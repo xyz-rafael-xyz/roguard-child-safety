@@ -1,0 +1,8 @@
+{
+ "reason": "Development-only inspection showed poor unseen-phrase transfer with one training wrapper per attribute. Add authored training-only paraphrases and a contextual challenger.",
+ "test_predictions_inspected": false,
+ "additional_training": "20,000 paraphrases; contextual candidate also adds 20,000 scope-separated conversations",
+ "candidate_03": "Frozen multilingual encoder, prefix plus focal paragraph, six independently trained heads",
+ "selection": "Same development worst-language/task macro-F1 criterion; whole-conversation and focal paragraph features; compare contextual candidate with paragraph candidate",
+ "limitations": "Paraphrases authored within project; no independent language review or real-child language validation"
+}

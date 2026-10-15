@@ -24,7 +24,7 @@ from .policy import (BoundaryCard, DisclosureEvidenceCard, GateCard, PermissionC
                      check_routing, check_support_contract)
 
 def __getattr__(name):
-    modules={"ContextModel":"context", "ContextSession":"context_session", "analyze_context":"context", "compare_context":"context", "DurableGateway":"durable", "GatewayApp":"service", "Monitor":"observability", "CalibratedDecisions":"uncertainty", "FeatureSupport":"uncertainty", "analyze_calibrated_conversation":"uncertainty", "analyze_long_conversation":"long_context", "repair_proposal":"repair", "ChatTarget":"targets"}
+    modules={"GuardedEvidence":"evidence", "load_evidence_model":"evidence", "EvidenceModel":"evidence", "EvidenceCascade":"evidence", "EvidenceState":"evidence", "EvidenceSession":"evidence", "analyze_evidence":"evidence", "ContextModel":"context", "ContextSession":"context_session", "analyze_context":"context", "compare_context":"context", "DurableGateway":"durable", "GatewayApp":"service", "Monitor":"observability", "CalibratedDecisions":"uncertainty", "FeatureSupport":"uncertainty", "analyze_calibrated_conversation":"uncertainty", "analyze_long_conversation":"long_context", "repair_proposal":"repair", "ChatTarget":"targets"}
     if name in modules:
         from importlib import import_module
         return getattr(import_module("."+modules[name], __name__), name)
@@ -54,6 +54,7 @@ def __getattr__(name):
 
 
 __all__ = [
+    "GuardedEvidence", "load_evidence_model", "EvidenceModel", "EvidenceCascade", "EvidenceState", "EvidenceSession", "analyze_evidence",
     "DurableGateway", "GatewayApp", "Monitor", "CalibratedDecisions", "FeatureSupport", "analyze_calibrated_conversation", "analyze_long_conversation", "repair_proposal", "ChatTarget",
     "FlowLedger", "ToolBinding", "ToolGateway", "minimize_disclosure", "run_scenario", "minimize_failure",
     "ReferenceTarget", "recorded_factory", "evaluate_consistency", "conversation_consistency", "summarize_runs", "tradeoff_frontier",

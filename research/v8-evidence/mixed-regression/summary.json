@@ -1,0 +1,282 @@
+{
+  "synthetic_only": true,
+  "split": "test",
+  "models": {
+    "character": "056a9c581f5606d771e67ccb8b2191a0fc38751a4adcc57aa211728850111bf4",
+    "semantic": "b7969b2e7005b6e4483ab64e3e94546b55ed85e24968fa701f2362f278dba304"
+  },
+  "results": {
+    "character": {
+      "ro": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.5772001129447487,
+            "decided": 1921,
+            "decided_errors": 183
+          },
+          "time": {
+            "argmax_macro_f1": 0.8417590092099166,
+            "decided": 1625,
+            "decided_errors": 27
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.5538495116433093,
+            "decided": 2301,
+            "decided_errors": 973
+          },
+          "source": {
+            "argmax_macro_f1": 0.5772001129447487,
+            "decided": 1921,
+            "decided_errors": 183
+          },
+          "relation": {
+            "argmax_macro_f1": 0.9562985495800759,
+            "decided": 3215,
+            "decided_errors": 0
+          },
+          "concern": {
+            "argmax_macro_f1": 0.6781200202134606,
+            "decided": 3576,
+            "decided_errors": 888
+          }
+        },
+        "joint_argmax_exact": 715,
+        "benign": 2727,
+        "benign_review": 771,
+        "concern": 386,
+        "concern_review": 314,
+        "action_exact": 2654,
+        "challenger_units": 0
+      },
+      "uk": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.7377448615678298,
+            "decided": 3012,
+            "decided_errors": 777
+          },
+          "time": {
+            "argmax_macro_f1": 0.5273395637870313,
+            "decided": 2243,
+            "decided_errors": 891
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.5409108633036191,
+            "decided": 1887,
+            "decided_errors": 208
+          },
+          "source": {
+            "argmax_macro_f1": 0.7377448615678298,
+            "decided": 3012,
+            "decided_errors": 777
+          },
+          "relation": {
+            "argmax_macro_f1": 1.0,
+            "decided": 2891,
+            "decided_errors": 0
+          },
+          "concern": {
+            "argmax_macro_f1": 0.9003901204513313,
+            "decided": 3675,
+            "decided_errors": 130
+          }
+        },
+        "joint_argmax_exact": 657,
+        "benign": 2727,
+        "benign_review": 1407,
+        "concern": 386,
+        "concern_review": 369,
+        "action_exact": 2182,
+        "challenger_units": 0
+      },
+      "assertion_pairs": {
+        "pairs": 1334,
+        "both_argmax_correct": 0
+      },
+      "batch_seconds": 1.5725264160428196
+    },
+    "semantic": {
+      "ro": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.9243811686996558,
+            "decided": 3492,
+            "decided_errors": 194
+          },
+          "time": {
+            "argmax_macro_f1": 0.8546766854169717,
+            "decided": 2778,
+            "decided_errors": 327
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.7364580784555788,
+            "decided": 41,
+            "decided_errors": 0
+          },
+          "source": {
+            "argmax_macro_f1": 0.9259223852869285,
+            "decided": 3482,
+            "decided_errors": 188
+          },
+          "relation": {
+            "argmax_macro_f1": 1.0,
+            "decided": 3170,
+            "decided_errors": 0
+          },
+          "concern": {
+            "argmax_macro_f1": 0.9700819500410683,
+            "decided": 3865,
+            "decided_errors": 24
+          }
+        },
+        "joint_argmax_exact": 2207,
+        "benign": 2727,
+        "benign_review": 752,
+        "concern": 386,
+        "concern_review": 386,
+        "action_exact": 2840,
+        "challenger_units": 0
+      },
+      "uk": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.7898280253480138,
+            "decided": 3521,
+            "decided_errors": 666
+          },
+          "time": {
+            "argmax_macro_f1": 0.8154241798956557,
+            "decided": 2887,
+            "decided_errors": 73
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.8415821208125546,
+            "decided": 1315,
+            "decided_errors": 0
+          },
+          "source": {
+            "argmax_macro_f1": 0.7888981459108324,
+            "decided": 3513,
+            "decided_errors": 664
+          },
+          "relation": {
+            "argmax_macro_f1": 0.9707772823214527,
+            "decided": 3431,
+            "decided_errors": 8
+          },
+          "concern": {
+            "argmax_macro_f1": 0.9675039443488238,
+            "decided": 3631,
+            "decided_errors": 116
+          }
+        },
+        "joint_argmax_exact": 2000,
+        "benign": 2727,
+        "benign_review": 564,
+        "concern": 386,
+        "concern_review": 292,
+        "action_exact": 2820,
+        "challenger_units": 0
+      },
+      "assertion_pairs": {
+        "pairs": 1334,
+        "both_argmax_correct": 507
+      },
+      "batch_seconds": 119.26474425010383
+    },
+    "cascade": {
+      "ro": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.5772001129447487,
+            "decided": 3091,
+            "decided_errors": 81
+          },
+          "time": {
+            "argmax_macro_f1": 0.8417590092099166,
+            "decided": 1639,
+            "decided_errors": 27
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.5538495116433093,
+            "decided": 2313,
+            "decided_errors": 973
+          },
+          "source": {
+            "argmax_macro_f1": 0.5772001129447487,
+            "decided": 3094,
+            "decided_errors": 80
+          },
+          "relation": {
+            "argmax_macro_f1": 0.9562985495800759,
+            "decided": 3215,
+            "decided_errors": 0
+          },
+          "concern": {
+            "argmax_macro_f1": 0.6781200202134606,
+            "decided": 3144,
+            "decided_errors": 150
+          }
+        },
+        "joint_argmax_exact": 715,
+        "benign": 2727,
+        "benign_review": 898,
+        "concern": 386,
+        "concern_review": 386,
+        "action_exact": 2672,
+        "challenger_units": 3728
+      },
+      "uk": {
+        "n": 4000,
+        "attributes": {
+          "subject": {
+            "argmax_macro_f1": 0.7377448615678298,
+            "decided": 2472,
+            "decided_errors": 174
+          },
+          "time": {
+            "argmax_macro_f1": 0.5273395637870313,
+            "decided": 1767,
+            "decided_errors": 420
+          },
+          "assertion": {
+            "argmax_macro_f1": 0.5409108633036191,
+            "decided": 1895,
+            "decided_errors": 200
+          },
+          "source": {
+            "argmax_macro_f1": 0.7377448615678298,
+            "decided": 2471,
+            "decided_errors": 175
+          },
+          "relation": {
+            "argmax_macro_f1": 1.0,
+            "decided": 3650,
+            "decided_errors": 7
+          },
+          "concern": {
+            "argmax_macro_f1": 0.9003901204513313,
+            "decided": 3569,
+            "decided_errors": 84
+          }
+        },
+        "joint_argmax_exact": 657,
+        "benign": 2727,
+        "benign_review": 1416,
+        "concern": 386,
+        "concern_review": 386,
+        "action_exact": 2175,
+        "challenger_units": 3328
+      },
+      "assertion_pairs": {
+        "pairs": 1334,
+        "both_argmax_correct": 0
+      }
+    }
+  }
+}

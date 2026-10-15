@@ -1,0 +1,14 @@
+{
+  "version": "8-experimental",
+  "purpose": "Factorized evidence hypotheses, conservative model cascade, host-reviewed revisions and action proposals",
+  "synthetic_only": true,
+  "independent_native_review": false,
+  "splits": {"train": 20000, "dev": 4000, "cal": 4000, "test": 8000},
+  "selection": "Choose regularization using development worst-language attribute macro-F1; never tune against final test",
+  "calibration": "Separate language/task/class conditional split conformal, nominal alpha 0.05; no authentic-language coverage claim",
+  "candidates": ["character TF-IDF linear heads", "frozen multilingual encoder linear heads"],
+  "cascade": "Escalate unresolved lexical attributes to optional semantic challenger; preserve disagreements; no guarantee challenger is superior",
+  "release_gate": "New workflow remains explicitly experimental unless held-out gains and review workload justify promotion; do not replace existing defaults based on training fit",
+  "metrics": ["per-language per-attribute macro-F1", "joint exact match", "selective coverage and errors", "review workload", "concern routing", "latency", "counterfactual consistency"],
+  "limits": ["Factorial combinations share wording and are not independent observations", "Whole-unit spans are candidate references", "Source and subject are correlated in first controlled study", "No autonomous guardian notification", "No real-world accuracy claim"]
+}

@@ -1,0 +1,8 @@
+{
+ "reason": "The first held-out controlled study improved review workload, but the separate prose diagnostic showed regressions versus v7. Do not promote it as a superior replacement.",
+ "iteration": "Adapt the multilingual encoder with six heads, mixing structured training rows with existing v7 conversational training rows. Initialize LoRA from v7 and heads from semantic-03.",
+ "selection": "Development-only worst language/task score across structured and conversational development sets; two epochs, fixed seed and learning rate",
+ "evaluation": "The original 8,000 rows and 48 prose cases are now regression sets, not fresh validation of this iteration.",
+ "native_projection_limit": "v7 frames project to coarse subject/time/source defaults; correction frames excluded; the projection is synthetic supervision, not reviewer-verified event annotation.",
+ "promotion": "Keep existing stable defaults. New workflow remains experimental unless independent prospective comparisons support a broader claim."
+}

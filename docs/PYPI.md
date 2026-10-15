@@ -6,6 +6,23 @@ V7 adds an experimental, jointly trained conversation-context model, turn-refere
 
 Patch 7.1.1 also corrects negated support/solitude matches in the bounded language rules. Version 7.1 retrains and recalibrates the joint context model, reduces synthetic Romanian/Ukrainian benign review requests, and adds separately reported language signals and clearer uncertainty handling. Errors remain, including frame-classification errors. [Measured improvements and limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_1_RELEASE.md).
 
+## Version 8 experimental preview
+
+The optional evidence workspace adds six interpretation attributes, bounded
+contextual modeling, a conservative model cascade, candidate statement links,
+host-reviewed revisions, exact action uncertainty analysis, and permission-aware
+response proposals. It is a research preview, not a validated replacement for the
+stable v7 model. Existing defaults remain available.
+
+```sh
+pip install --upgrade --pre roguard-child-safety
+roguard-studio --evidence --open
+```
+
+For the optional adapted semantic evidence model, install the `adapted` extra,
+run `roguard-model fetch`, and use `--evidence-backend guarded` to retain the released model’s review signals. Models are
+experimental and trained on fictional data. [Preview results and limitations](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V8_PREVIEW.md).
+
 ## Install and open
 
 ```sh

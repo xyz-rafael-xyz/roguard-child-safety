@@ -592,3 +592,21 @@ Later private, preregistered metadata studies continued the same transfer audit.
 ## V6 adaptation and reliability
 
 See [the v6 release study](docs/V6_RELEASE.md) for three registered adaptation iterations, all fresh-test results, calibrated abstentions, a consumed v4 regression check, two actual local-model comparisons and the controlled repair test. These task-specific results must not be pooled with older abstract-card benchmarks into a single accuracy number.
+
+## Version 8 experimental evidence workflow
+
+The [v8 study report](docs/V8_PREVIEW.md) records seven fitted configurations,
+75,984 distinct controlled fictional inputs, separate training/development/
+calibration partitions, an 8,000-case initial test subsequently used for
+regression, and three small prose probes. Continued LoRA adaptation improves
+some interpretation measures but does not establish generally higher accuracy.
+A guarded workflow preserves released context review signals alongside the new
+factorized interpretations. Its current 64-case regression reviews 32/32
+concerns with 8/32 benign reviews, compared with 28/32 and 8/32 for released v7.
+The larger controlled replay still has high false-review workload. Neither
+comparison is independent validation on authentic child language.
+
+Separately, 4,800 permission/coverage simulations and 46,305 finite-hypothesis
+audits pass. These verify declared software behavior, not language accuracy.
+Raw experiments, amendments, failures, model hashes and replays are retained in
+[`research/v8-evidence`](research/v8-evidence).

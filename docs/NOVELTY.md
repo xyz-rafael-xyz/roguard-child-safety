@@ -46,3 +46,28 @@ The [v6 report](V6_RELEASE.md) adds registered LoRA iterations, model-bound sele
 ## V7 context evidence extension
 
 The new optional workflow jointly trains a bilingual context-frame head and a concern-mention head through LoRA, retains exact turn references and explicit abstention, and connects an ephemeral transcript to host-reviewed coverage and inherited source restrictions. A factorial synthetic evaluation crosses benign/concern content with quotation, subject, time and correction contexts, exposing a shortcut missed by narrower training. These methods are established; the contribution is their implemented connection and documented comparisons. Whole-turn references are proposals, not verified span extraction. The summary constructor is extractive and uses host-reviewed coverage; it does not establish semantic sufficiency. No first-of-kind, authentic-child accuracy or independently validated translation claim is made. [Release evidence](V7_RELEASE.md).
+
+## V8 factorized evidence preview
+
+The experimental workflow separates six interpretation attributes and enumerates
+which response actions remain possible across their prediction sets. It returns
+witnesses and ranks reviewer questions by remaining action ambiguity. An
+append-only evidence ledger supports explicit host-reviewed revisions; derived
+response artifacts inherit complete source-turn permissions even when the model
+references only a paragraph. A session connects those interpretations to response
+proposals that retain declared task assistance and recheck live permission.
+
+Factorized classification, LoRA, prediction sets, finite enumeration and
+information-flow restrictions are established techniques. The contribution here
+is the implemented connection and its inspectable bilingual evaluation. Neither
+an attribute prediction nor a candidate claim boundary establishes truth or
+consent. The initial cascade regressed on prose; mixed conversational adaptation
+is evaluated separately and the stable defaults remain unchanged.
+[Study and limitations](V8_PREVIEW.md) · [API](EVIDENCE.md).
+
+The guarded v8 mode retains released context review signals even when new
+attributes propose continuation. This is a conservative union, with an explicit
+review-workload cost rather than a claim of calibrated fusion. Session-only
+prefix memoization avoids repeated interpretation, while host revisions retain
+source restrictions. The release report distinguishes fresh probes from later
+regressions and policy replays.

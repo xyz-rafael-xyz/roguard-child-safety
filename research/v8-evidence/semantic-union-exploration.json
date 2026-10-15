@@ -1,0 +1,93 @@
+{
+  "exploratory_regression_only": true,
+  "results": {
+    "ro": {
+      "n": 4000,
+      "attributes": {
+        "subject": {
+          "argmax_macro_f1": 0.9243811686996558,
+          "decided": 2350,
+          "decided_errors": 91
+        },
+        "time": {
+          "argmax_macro_f1": 0.8546766854169717,
+          "decided": 2281,
+          "decided_errors": 309
+        },
+        "assertion": {
+          "argmax_macro_f1": 0.7364580784555788,
+          "decided": 28,
+          "decided_errors": 0
+        },
+        "source": {
+          "argmax_macro_f1": 0.9259223852869285,
+          "decided": 2344,
+          "decided_errors": 86
+        },
+        "relation": {
+          "argmax_macro_f1": 1.0,
+          "decided": 3125,
+          "decided_errors": 0
+        },
+        "concern": {
+          "argmax_macro_f1": 0.9700819500410683,
+          "decided": 3879,
+          "decided_errors": 29
+        }
+      },
+      "joint_argmax_exact": 2207,
+      "benign": 2727,
+      "benign_review": 886,
+      "concern": 386,
+      "concern_review": 386,
+      "action_exact": 2706,
+      "challenger_units": 0
+    },
+    "uk": {
+      "n": 4000,
+      "attributes": {
+        "subject": {
+          "argmax_macro_f1": 0.7898280253480138,
+          "decided": 2712,
+          "decided_errors": 312
+        },
+        "time": {
+          "argmax_macro_f1": 0.8154241798956557,
+          "decided": 2457,
+          "decided_errors": 37
+        },
+        "assertion": {
+          "argmax_macro_f1": 0.8415821208125546,
+          "decided": 1120,
+          "decided_errors": 0
+        },
+        "source": {
+          "argmax_macro_f1": 0.7888981459108324,
+          "decided": 2703,
+          "decided_errors": 307
+        },
+        "relation": {
+          "argmax_macro_f1": 0.9707772823214527,
+          "decided": 3306,
+          "decided_errors": 0
+        },
+        "concern": {
+          "argmax_macro_f1": 0.9675039443488238,
+          "decided": 3520,
+          "decided_errors": 26
+        }
+      },
+      "joint_argmax_exact": 2000,
+      "benign": 2727,
+      "benign_review": 637,
+      "concern": 386,
+      "concern_review": 360,
+      "action_exact": 2870,
+      "challenger_units": 0
+    },
+    "assertion_pairs": {
+      "pairs": 1334,
+      "both_argmax_correct": 507
+    }
+  }
+}
