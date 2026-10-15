@@ -32,3 +32,21 @@ class ReviewPartitionTests(unittest.TestCase):
         b['turns'].insert(0,{'role':'minor','text':'Vorbesc despre un personaj.'});b['focus']=1
         cleaned,_=isolate_partitions({'train':[a],'dev':[b],'cal':[]})
         self.assertEqual(len(cleaned['dev']),1)
+
+
+class HistoricalTrainingTests(unittest.TestCase):
+    def test_warm_start_history_cannot_reenter_evaluation(self):
+        history=[row('old','Învăț adunarea.')]
+        partitions={'train':[row('new','Desenez.')],
+                    'dev':[row('leak','Învăț adunarea.'),row('clean','O altă temă.')],
+                    'cal':[row('leak-cal','Învăț adunarea.')]}
+        cleaned,removed=isolate_partitions(partitions,history)
+        self.assertEqual([r['case_id'] for r in cleaned['dev']],['clean'])
+        self.assertEqual(removed['cal'],['leak-cal'])
+
+    def test_rehearsal_of_prior_training_is_allowed_but_relabeling_is_not(self):
+        history=[row('old','Un text.')]
+        cleaned,_=isolate_partitions({'train':[row('repeat','Un text.')],'dev':[],'cal':[]},history)
+        self.assertEqual(len(cleaned['train']),1)
+        with self.assertRaisesRegex(ValueError,'training history'):
+            isolate_partitions({'train':[row('changed','Un text.','1')],'dev':[],'cal':[]},history)

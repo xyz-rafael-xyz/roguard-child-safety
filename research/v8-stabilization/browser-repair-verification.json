@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "scope": "local browser regression against current source",
+  "checks": [
+    "Language switches preserve entered messages and roles",
+    "Language switches clear stale results and disable export",
+    "Control labels follow selected language",
+    "Explicit example button loads localized sample",
+    "Source selection preserves original emoji and decomposed Unicode",
+    "No browser page errors"
+  ],
+  "javascript_sha256": "66781a22379c9ef470f4b20e3a7d43f1b40b65c68d0e68a10142d8d2def6be01",
+  "reproduce": "scripts/check_evidence_browser.cjs with Playwright and a local Studio server"
+}

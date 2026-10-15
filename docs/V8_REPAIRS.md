@@ -81,6 +81,11 @@ The Ukrainian evidence interface no longer labels an affirmed statement as
 system verified it. The Romanian label is also explicit about assertion, and the
 role selector's accessible label follows the selected language.
 
+Switching language now preserves the entered conversation and roles, clears stale
+results, and updates control labels. Only the explicit example button replaces
+messages with the selected language's sample. A local browser regression verifies
+these behaviors and exact source selection with emoji and decomposed accents.
+
 ## Verification and reproduction
 
 The full Python suite ran 440 tests: 426 passed and 14 historical private-artifact
