@@ -63,6 +63,22 @@ The CLI can count A1 words locally when text is supplied; the cap still comes fr
 
 A **synthetic abstract card** is an invented description of annotation fields or policy facts, with no real or realistic child statement. A **complete one-fact pair** is a positive card and its minimally changed negative, both classified correctly. Those pairs measure an invented-card task, not accuracy on children's messages. When a professional has reporting duties, this software does not determine or replace them; follow applicable law, organizational policy, and qualified human judgment.
 
+## Why v8 is still a prerelease
+
+Version **8.0.0rc2** is published; **7.1.1** remains the stable installation.
+The remaining v8 gate is model accuracy. Further language-specific training
+improved some development results but did not meet the registered targets:
+at least 99% concern recall and at most 5% benign false reviews in each
+Romanian/Ukrainian formal/conversational group. The latest Romanian candidate's
+calibration false-review rates are 17.6% formal and 18.9% conversational;
+the latest Ukrainian candidate's calibration recall is 90.4% and 95.7%.
+These experimental weights are not included in the published runtime.
+
+Stable promotion requires passing those targets, then checking the reserved fresh
+evaluation and the integrated runtime. All current measurements use synthetic
+inputs. Passing software CI does not establish model accuracy.
+[Training results and release checks](docs/V8_CONTEXT_INTERVENTIONS.md).
+
 ## Install and try it
 
 Install or upgrade to the **latest stable PyPI release** in one command (Python 3.9–3.14):

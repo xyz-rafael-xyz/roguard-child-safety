@@ -1,0 +1,41 @@
+{
+  "retrospective_only": true,
+  "deployment_threshold_selected": false,
+  "largest_threshold_preserving_99_percent_recall_in_every_group": 0.11552667617797852,
+  "metrics": {
+    "dev_formal": {
+      "positive": 587,
+      "negative": 1413,
+      "missed": 1,
+      "false_reviews": 86
+    },
+    "dev_conversational": {
+      "positive": 216,
+      "negative": 242,
+      "missed": 2,
+      "false_reviews": 0
+    },
+    "cal_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 244
+    },
+    "cal_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 46
+    }
+  },
+  "single_threshold_can_meet_targets_on_inspected_rows": false,
+  "candidate": "research/v8-stabilization/review-09-ro",
+  "language": "ro",
+  "input_sha256": {
+    "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+    "dev-predictions.jsonl": "d8393510835af4afef0b124dfeaf5547b6cc9223fd62e4961842f5dd58acf177",
+    "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+    "cal-predictions.jsonl": "6d38cfd3fcc43f652579001655366abb7698a4ec1955264930d30d30917210d6"
+  },
+  "limitation": "Inspected synthetic regression data; not fresh evaluation or real-world accuracy."
+}

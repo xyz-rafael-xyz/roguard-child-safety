@@ -118,3 +118,46 @@ material throughout this work.
 
 The full software suite passed 455 tests: 441 passed and 14 private-artifact tests
 were skipped. These software results do not substitute for classifier evaluation.
+
+## Completed language continuations and threshold feasibility
+
+Both registered continuations finished. The following numbers are for each
+candidate's intended language only; neither replaces the published runtime.
+
+| Candidate / group | Development misses / positives | Development false reviews / negatives | Calibration misses / positives | Calibration false reviews / negatives |
+|---|---:|---:|---:|---:|
+| review-08-uk / Ukrainian formal | 1/587 | 28/1413 | 59/614 | 127/1386 |
+| review-08-uk / Ukrainian conversational | 1/164 | 3/223 | 7/164 | 11/223 |
+| review-09-ro / Romanian formal | 1/587 | 86/1413 | 0/614 | 244/1386 |
+| review-09-ro / Romanian conversational | 2/216 | 0/242 | 0/216 | 46/243 |
+
+Ukrainian development results qualified for selection over review-06 before
+calibration was inspected. Calibration then exposed a recall regression; this
+candidate is rejected for release. Romanian conversational false reviews fell
+from 71/243 in review-07 to 46/243, but remain above the target. Its formal false
+reviews changed only from 247/1386 to 244/1386. This does not justify promotion.
+
+The retrospective `training.audit_review_threshold_v8` diagnostic checks whether
+any single threshold per language can satisfy the targets simultaneously on the
+inspected development and calibration groups. It finds the highest threshold
+consistent with at most floor(positives/100) misses in every group. Any higher
+threshold violates recall; any lower threshold cannot reduce false reviews.
+Tied scores use the runtime convention `score >= threshold`.
+
+Neither candidate has a feasible threshold. For Romanian, the limiting threshold
+is 0.1155266762, with the same false reviews as the table. For Ukrainian, restoring
+99% recall requires a threshold no higher than 0.0215834733 and produces 699/1386
+formal and 165/223 conversational calibration false reviews. These calculations
+use inspected labels and are **diagnostics, not fitted deployment thresholds or
+fresh accuracy estimates**. Each candidate directory contains hashes, per-case
+scores, `promotion-check.json`, and `threshold-feasibility.json`.
+
+The reserved 48-case contrast probe remains unevaluated. The next model change
+must improve separation of personal support, ordinary tasks, and assertion scope;
+changing only a cutoff cannot repair these candidates. Stable promotion still
+requires the registered group targets, fresh evaluation, and integrated runtime
+checks. No additional reviewer input is required to continue this engineering work.
+
+After the threshold diagnostic was added, the full software suite ran 458 tests:
+444 passed and 14 private-artifact tests were skipped. The three added tests cover
+tied scores, the exact 1% miss allowance across groups, and invalid inputs.

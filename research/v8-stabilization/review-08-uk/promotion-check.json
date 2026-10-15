@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v8-stabilization/review-08-uk",
+  "language_scope": "uk",
+  "artifact_sha256": "af9a0d435994dfe48f7aa23a9fbbddbdffc9162a325e86d4b84336f9f0af0f65",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "calibration/uk_formal: missed 59/614; maximum 1%",
+    "calibration/uk_formal: false reviews 127/1386; maximum 5%",
+    "calibration/uk_conversational: missed 7/164; maximum 1%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}
