@@ -23,6 +23,11 @@ For the optional adapted semantic evidence model, install the `adapted` extra,
 run `roguard-model fetch`, and use `--evidence-backend guarded` to retain the released model’s review signals. Models are
 experimental and trained on fictional data. [Preview results and limitations](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V8_PREVIEW.md).
 
+Preview 8.0.0rc2 fixes Unicode and whitespace consistency, UTF-8 file input on
+Windows, bounded denial and pet-food rules, assertion labels, and preservation of
+entered conversations when switching language. These are runtime repairs; the
+bundled experimental model weights are unchanged. [Repair measurements](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V8_REPAIRS.md).
+
 ## Install and open
 
 ```sh

@@ -111,3 +111,22 @@ class FoodRecipientScopeTests(unittest.TestCase):
                           ('ro','Nu am mâncat de ieri și sunt singur. Am hrană pentru pisici.'),
                           ('uk','Я не їв від учора і я сам. Маю їжу для кота.')]:
             self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['PROLONGED_UNMET_FOOD_AND_CARE'],text)
+
+
+class IntroducedDenialScopeTests(unittest.TestCase):
+    def test_colon_does_not_turn_denied_claim_into_an_affirmation(self):
+        for lang,text in [('ro','Nu este adevărat: nu am mâncat de ieri și sunt singur.'),
+                          ('ro','Această afirmație este falsă: nu am mâncat de ieri și sunt singur.'),
+                          ('ro','Nu este adevărată această descriere: am nevoie de sprijin.'),
+                          ('uk','Це неправда: я не їв від учора і я сам.'),
+                          ('uk','Цей опис не відповідає дійсності: я не їв від учора і я сам.'),
+                          ('uk','Це твердження неправдиве: мені потрібна підтримка.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+
+    def test_neutral_introduction_does_not_suppress_actual_concern(self):
+        for lang,text in [('ro','Îți spun: nu am mâncat de ieri și sunt singur.'),
+                          ('uk','Розповідаю: я не їв від учора і я сам.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['PROLONGED_UNMET_FOOD_AND_CARE'])
+        for lang,text in [('ro','Pe scurt: am nevoie de sprijin.'),
+                          ('uk','Якщо коротко: мені потрібна підтримка.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['EXPLICIT_SUPPORT_REQUEST'])

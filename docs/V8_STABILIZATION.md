@@ -1,6 +1,6 @@
 # v8 stabilization status
 
-Version **8.0.0rc1 remains a prerelease**. It is published on PyPI and GitHub;
+Version **8.0.0rc2 remains a prerelease**. It is published on PyPI and GitHub;
 installation is working. The reason it is not the default stable download is
 remaining classifier error, not an unsuccessful package upload.
 
@@ -16,7 +16,8 @@ backend; see [the evidence workspace guide](EVIDENCE.md).
 
 The publishing workflow now calls the same CI workflow at the release commit
 and waits for it before building or publishing. This includes the Python
-3.9–3.14 unit matrix and the Python 3.9/3.12/3.14 installed-wheel matrix. Previously,
+3.9–3.14 unit matrix and the Python 3.9/3.12/3.14 installed-wheel matrix, plus Windows UTF-8 input
+checks on Python 3.9 and 3.14. Previously,
 CI and publication could proceed independently after a tag push. GitHub documents
 this [same-commit reusable-workflow mechanism](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows).
 

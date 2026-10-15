@@ -72,7 +72,7 @@ pip install --upgrade roguard-child-safety
 ```
 
 **Want the v8 preview?** Stable installs currently select 7.1.1. Version
-8.0.0rc1 is available on PyPI and GitHub, but pip excludes prereleases by default.
+8.0.0rc2 is available on PyPI and GitHub, but pip excludes prereleases by default.
 Opt in to the latest available preview with:
 
 ```sh

@@ -10,10 +10,11 @@ import unicodedata
 def _affirmed(pattern, text, language, local=False, denial_only=False, excluded_suffix=None):
     """Conservative clause-level negation guard for affirmative rule evidence."""
     boundaries = r"[.!?;:]|\b(?:dar|insa|totusi)\b" if language=='ro' else r"[.!?;:]|\b(?:але|проте|однак)\b"
-    scope_boundaries = boundaries
-    denial = (r"\b(?:nu (?:este|e) adevarat|(?:este|e) fals|neg|resping (?:ideea|afirmatia))\b"
+    # A colon can introduce the denied claim; it must not end denial scope.
+    scope_boundaries = boundaries.replace("[.!?;:]", "[.!?;]")
+    denial = (r"\b(?:nu (?:este|e) adevarata?|(?:este|e) (?:falsa?|neadevarata?)|nu corespunde realitatii|neg|resping (?:ideea|afirmatia))\b"
               if language=='ro' else
-              r"\b(?:неправда|неправдиво|хибно|заперечую)\b")
+              r"\b(?:неправда|неправдив(?:ий|е|а|о)|не відповідає дійсності|хибно|заперечую|спростовую|відкидаю (?:цей |такий )?опис)\b")
     if local:
         boundaries += r",|\b(?:si|iar)\b" if language=='ro' else r",|\b(?:і|й|та)\b"
     negation = r"\bnu\b|\bn-" if language=='ro' else r"\bне\b"

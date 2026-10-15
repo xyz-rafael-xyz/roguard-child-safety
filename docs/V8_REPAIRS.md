@@ -1,7 +1,7 @@
 # v8 input and interpretation repairs
 
 These repairs address reproduced runtime errors. The separate encoder training
-study continues under `research/v8-stabilization/review-04`; it does not change
+study continues under `research/v8-stabilization/review-05`; it does not change
 the bundled model until evaluation supports a replacement.
 
 ## Equivalent text must produce equivalent predictions
@@ -37,7 +37,9 @@ The full record is `research/v8-stabilization/surface-regression.json`.
 The bounded support and basic-needs rules could flag statements explicitly
 introduced as false. Repairs recognize Romanian and Ukrainian denial scopes and
 apply them to the food-absence condition as well as the support/care conditions.
-A later affirmative sentence or contrast clause can still produce its own signal.
+A colon introducing a denied claim retains the denial scope, including Romanian
+adjective agreement and Ukrainian denial variants. A later affirmative sentence
+or contrast clause can still produce its own signal.
 Negation inside an affirmed concern, such as having no food, remains intact.
 
 Regression tests cover explicit denials of support, food and care claims, later
@@ -88,7 +90,7 @@ these behaviors and exact source selection with emoji and decomposed accents.
 
 ## Verification and reproduction
 
-The full Python suite ran 440 tests: 426 passed and 14 historical private-artifact
+The full Python suite ran 444 tests: 430 passed and 14 historical private-artifact
 tests were skipped. The evidence JavaScript passes Node's syntax check. Runtime
 hashes are recorded in `research/v8-stabilization/normalization-freeze.json`;
 historical release freezes are retained unchanged.
