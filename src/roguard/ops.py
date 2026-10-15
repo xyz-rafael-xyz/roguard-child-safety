@@ -23,7 +23,7 @@ def main():
     a=p.parse_args()
     def read(path):
         if path.stat().st_size>2000000:raise ValueError('Input too large')
-        return _strict_json_loads(path.read_text())
+        return _strict_json_loads(path.read_text(encoding='utf-8'))
     try:
         if a.command=='repair-demo':result=repair_demo(a.language)
         elif a.command=='long':

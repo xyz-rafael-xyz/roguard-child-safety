@@ -95,3 +95,19 @@ class DeniedClaimSignalTests(unittest.TestCase):
                           ('ro','Nu știu ce să fac, nu am mâncat de ieri și sunt singur.'),
                           ('uk','Не знаю, що робити, я не їв від учора і я сам.')]:
             self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['PROLONGED_UNMET_FOOD_AND_CARE'])
+
+
+class FoodRecipientScopeTests(unittest.TestCase):
+    def test_lack_of_pet_food_is_not_personal_food_deprivation(self):
+        for lang,text in [('ro','Nu am hrană pentru pești de ieri și sunt singur în cameră.'),
+                          ('ro','Nu mai am mâncare pentru pisici de două zile și sunt singură.'),
+                          ('uk','У мене немає їжі для рибок від учора і я сам у кімнаті.'),
+                          ('uk','У мене закінчилася їжа для кота кілька днів тому і я сама.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),[],text)
+
+    def test_personal_deprivation_is_retained_even_when_pets_are_mentioned(self):
+        for lang,text in [('ro','Nu am hrană pentru mine de ieri și sunt singur.'),
+                          ('uk','У мене немає їжі для мене від учора і я сам.'),
+                          ('ro','Nu am mâncat de ieri și sunt singur. Am hrană pentru pisici.'),
+                          ('uk','Я не їв від учора і я сам. Маю їжу для кота.')]:
+            self.assertEqual(explicit_signals(text,lang,'SELF_CURRENT',0),['PROLONGED_UNMET_FOOD_AND_CARE'],text)

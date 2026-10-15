@@ -177,7 +177,7 @@ def main():
     from .cli import _strict_json_loads
     try:
         if a.input.stat().st_size>64000:raise ValueError('Input too large')
-        result=analyze_context(_strict_json_loads(a.input.read_text()),ContextModel(a.backend,a.model_path,a.device))
+        result=analyze_context(_strict_json_loads(a.input.read_text(encoding='utf-8')),ContextModel(a.backend,a.model_path,a.device))
     except (ValueError,OSError,ImportError):p.error('Invalid input or missing model/dependencies; see docs/CONTEXT.md')
     print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

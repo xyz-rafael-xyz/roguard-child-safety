@@ -130,3 +130,19 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import zipfile; archive = zipfile.ZipFile("ro-review.zip"); assert "taxonomy/taxonomy_ro.md" in archive.namelist()'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -m roguard.review_bundle --root "$GITHUB_WORKSPACE" --language uk --candidate-v1 --output "$RUNNER_TEMP/uk-v1-review.zip" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'import zipfile; archive = zipfile.ZipFile("uk-v1-review.zip"); assert "taxonomy/taxonomy_uk_v1_candidate.md" in archive.namelist()'
+
+  windows-unicode-install:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.14']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build and install package
+        run: python -m pip install .
+      - name: Verify installed bilingual CLIs with legacy encoding
+        working-directory: ${{ runner.temp }}
+        run: python "$env:GITHUB_WORKSPACE/scripts/smoke_unicode_install.py"

@@ -93,9 +93,9 @@ def main():
     from .durable import DurableGateway
     from .observability import Monitor
     import uvicorn
-    key=a.key_file.read_text().strip() if a.key_file else os.environ.get('ROGUARD_STATE_KEY')
+    key=a.key_file.read_text(encoding='utf-8').strip() if a.key_file else os.environ.get('ROGUARD_STATE_KEY')
     if not key:p.error('Set ROGUARD_STATE_KEY to a Fernet key; keep it outside the database')
-    credentials=_strict_json_loads(a.credentials.read_text());gateway=DurableGateway(a.state,key.encode());monitor=Monitor(str(a.state)+'.metrics')
+    credentials=_strict_json_loads(a.credentials.read_text(encoding='utf-8'));gateway=DurableGateway(a.state,key.encode());monitor=Monitor(str(a.state)+'.metrics')
     from .context import ContextModel
     context_model=ContextModel(a.context_backend,a.model_path) if a.context_backend else None
     from .evidence import EvidenceModel,EvidenceCascade,load_evidence_model

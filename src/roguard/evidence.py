@@ -430,7 +430,7 @@ def main():
     from .cli import _strict_json_loads
     try:
         if a.input.stat().st_size>64000:raise ValueError('Input too large')
-        payload=_strict_json_loads(a.input.read_text());validate(payload)
+        payload=_strict_json_loads(a.input.read_text(encoding='utf-8'));validate(payload)
         if a.cascade and a.backend!='character':raise ValueError('Cascade uses the character primary; omit --backend semantic')
         challenger=EvidenceModel('semantic',base_path=a.model_path,device=a.device) if a.cascade else None
         primary=load_evidence_model(a.backend,base_path=a.model_path,device=a.device)

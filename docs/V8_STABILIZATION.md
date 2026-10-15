@@ -62,6 +62,10 @@ Neither met the registered maximum 5% benign-review target:
 | Nonlinear / Ukrainian formal | 0/614 | 1292/1386 |
 | Nonlinear / Ukrainian conversational | 0/164 | 137/225 |
 
+A later [partition audit and repair](V8_REPAIRS.md#evaluation-partition-isolation)
+identified shared ordinary-prefix inputs in these early splits. The historical
+counts remain diagnostic; corrected continuation uses disjoint normalized inputs.
+
 These positive labels include uncertain and retracted concerns, so their counts
 must not be compared directly with the clear-concern-only denominator in older
 reports. High recall alone is insufficient when benign-review workload is this

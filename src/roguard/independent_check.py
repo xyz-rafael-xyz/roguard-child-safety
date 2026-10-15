@@ -17,8 +17,8 @@ def check_independent_batch(root: Path, batch: str) -> dict:
     rows = load_approved(root, [batch])
     if any(row["origin"] != INDEPENDENT_ORIGIN for row in rows):
         raise ValueError("Batch is not an independently authored abstract batch")
-    provenance = json.loads((root / f"data/synthetic/{batch}.provenance.json").read_text())
-    review = json.loads((root / f"data/synthetic/{batch}.review.json").read_text())
+    provenance = json.loads((root / f"data/synthetic/{batch}.provenance.json").read_text(encoding='utf-8'))
+    review = json.loads((root / f"data/synthetic/{batch}.review.json").read_text(encoding='utf-8'))
     return {
         "batch": batch, "language": rows[0]["language"],
         "category": provenance["category"], "cards": len(rows), "pairs": len(rows) // 2,
