@@ -1,5 +1,5 @@
 {
-  "model": "/Users/rafael/.cache/huggingface/hub/models--mlx-community--Qwen3-4B-Instruct-2507-4bit/snapshots/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
   "seed": 8104,
   "train_rows": 2400,
   "valid_rows": 160,
@@ -21,5 +21,7 @@
   "thresholds": "fixed 0.5 on normalized label-token scores for pilot; invalid top token counted as error",
   "promotion": ">=99% recall and <=5% false review per language and kind; fresh and runtime checks also required",
   "pilot_steps": 200,
-  "continuation": "May extend training if development improves; record every examined checkpoint"
+  "continuation": "May extend training if development improves; record every examined checkpoint",
+  "model_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "public_record_note": "Local cache prefix omitted; actual model is pinned by revision and environment file hashes. Reproduce with --model pointing to that snapshot."
 }

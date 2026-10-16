@@ -1,8 +1,16 @@
 import unittest
-from roguard.review_evaluation import evaluate, triage
+from roguard.review_evaluation import evaluate, triage, target_failures
 
 
 class ReviewEvaluationTests(unittest.TestCase):
+    def test_release_targets_require_every_group(self):
+        self.assertEqual(len(target_failures({'groups':{}})),4)
+        groups={name:dict(positive=100,negative=100,missed_or_abstained_concerns=1,false_review_or_abstained_benign=5)
+                for name in ('ro_formal','ro_conversational','uk_formal','uk_conversational')}
+        self.assertEqual(target_failures({'groups':groups}),[])
+        groups['uk_formal']['missed_or_abstained_concerns']=2
+        self.assertEqual(len(target_failures({'groups':groups})),1)
+
     def setUp(self):
         self.rows=[dict(case_id='a',language='ro',gold=1,pair_group='pair'),dict(case_id='b',language='ro',gold=0,pair_group='pair')]
 

@@ -82,14 +82,16 @@ def main():
     lengths = []
     for name, rows, chat in [('train', chosen, True), ('valid', valid, True), ('screen', screen, False)]:
         raw = ''.join(json.dumps({'messages': messages(r, True)} if chat else r, ensure_ascii=False)+'\n' for r in rows)
-        path = a.output/(name+'.jsonl'); path.write_text(raw)
+        path = a.output/(name+'.jsonl'); path.write_text(raw, encoding='utf-8')
         hashes[path.name] = hashlib.sha256(raw.encode()).hexdigest()
         if chat:
             lengths.extend(len(tok.apply_chat_template(messages(r, True), tokenize=True, return_dict=False)) for r in rows)
-    (a.output/'training-inputs.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in chosen))
+    (a.output/'training-inputs.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in chosen), encoding='utf-8')
     if max(lengths) > 1024:
         raise ValueError('Input would be truncated')
-    protocol = dict(model=a.base, seed=8104, train_rows=len(chosen), valid_rows=len(valid), screen_rows=len(screen),
+    base_path = Path(a.base)
+    model_id = base_path.parent.parent.name.removeprefix('models--').replace('--', '/', 1)
+    protocol = dict(model=model_id, model_revision=base_path.name, seed=8104, train_rows=len(chosen), valid_rows=len(valid), screen_rows=len(screen),
         policy=POLICY_V2, sha256=hashes, max_tokens=max(lengths), synthetic_only=True,
         annotated_family_overlap=sorted(tf & df), missing_family_labels=sum(not r.get('family') for r in chosen),
         family_independence_claim=False, calibration_status='previously inspected regression, never gradient training',
@@ -97,14 +99,14 @@ def main():
         thresholds='fixed 0.5 on normalized label-token scores for pilot; invalid top token counted as error',
         promotion='>=99% recall and <=5% false review per language and kind; fresh and runtime checks also required',
         pilot_steps=200, continuation='May extend training if development improves; record every examined checkpoint')
-    (a.output/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
-    config = dict(model=a.base, train=True, data=str(a.output), seed=8104, fine_tune_type='lora', num_layers=8,
+    (a.output/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n', encoding='utf-8')
+    config = dict(model=model_id, train=True, data=str(a.output), seed=8104, fine_tune_type='lora', num_layers=8,
         batch_size=2, iters=200, val_batches=8, learning_rate=0.00005, steps_per_report=10,
         steps_per_eval=100, adapter_path=str(a.output/'adapters'), save_every=100,
         max_seq_length=1024, grad_checkpoint=True, grad_accumulation_steps=2,
         lora_parameters=dict(rank=8, dropout=0.0, scale=16.0), mask_prompt=True)
     # JSON is a valid YAML subset and avoids a new preparation dependency.
-    (a.output/'config.json').write_text(json.dumps(config, indent=2)+'\n')
+    (a.output/'config.json').write_text(json.dumps(config, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(protocol, indent=2))
 
 

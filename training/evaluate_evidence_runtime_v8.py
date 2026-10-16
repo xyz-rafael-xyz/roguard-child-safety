@@ -15,7 +15,7 @@ def main():
     p.add_argument('--backend',choices=('character','semantic','guarded'),default='character')
     p.add_argument('--base');p.add_argument('--device',default='cpu');a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=False)
-    rows=[json.loads(l) for l in a.data.read_text().splitlines()]
+    rows=[json.loads(l) for l in a.data.read_text(encoding='utf-8').splitlines()]
     model=load_evidence_model(a.backend,a.base,a.device)
     expected=[];predictions=[];start=time.monotonic()
     for r in rows:
@@ -34,8 +34,8 @@ def main():
                   input_sha256=hashlib.sha256(a.data.read_bytes()).hexdigest(),
                   task='focal-turn review request; unresolved attribute proposals can request review')
     for name,data in [('expected',expected),('predictions',predictions)]:
-        (a.output/(name+'.jsonl')).write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in data))
-    (a.output/'metrics.json').write_text(json.dumps(result,indent=2)+'\n')
+        (a.output/(name+'.jsonl')).write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in data), encoding='utf-8')
+    (a.output/'metrics.json').write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')
     print(json.dumps(result,indent=2))
 
 if __name__=='__main__':main()

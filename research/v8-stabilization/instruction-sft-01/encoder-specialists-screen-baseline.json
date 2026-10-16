@@ -1,0 +1,87 @@
+{
+  "groups": {
+    "uk_conversational": {
+      "total": 100,
+      "positive": 50,
+      "negative": 50,
+      "decided": 100,
+      "abstained": 0,
+      "correct_decided": 100,
+      "missed_or_abstained_concerns": 0,
+      "false_review_or_abstained_benign": 0,
+      "direct_misses": 0,
+      "direct_false_reviews": 0,
+      "coverage": 1.0,
+      "decided_accuracy": 1.0,
+      "strict_accuracy": 1.0,
+      "concern_recall_including_abstentions": 1.0,
+      "benign_review_or_abstention_rate": 0.0
+    },
+    "ro_conversational": {
+      "total": 100,
+      "positive": 50,
+      "negative": 50,
+      "decided": 100,
+      "abstained": 0,
+      "correct_decided": 100,
+      "missed_or_abstained_concerns": 0,
+      "false_review_or_abstained_benign": 0,
+      "direct_misses": 0,
+      "direct_false_reviews": 0,
+      "coverage": 1.0,
+      "decided_accuracy": 1.0,
+      "strict_accuracy": 1.0,
+      "concern_recall_including_abstentions": 1.0,
+      "benign_review_or_abstention_rate": 0.0
+    },
+    "uk_formal": {
+      "total": 100,
+      "positive": 50,
+      "negative": 50,
+      "decided": 100,
+      "abstained": 0,
+      "correct_decided": 97,
+      "missed_or_abstained_concerns": 1,
+      "false_review_or_abstained_benign": 2,
+      "direct_misses": 1,
+      "direct_false_reviews": 2,
+      "coverage": 1.0,
+      "decided_accuracy": 0.97,
+      "strict_accuracy": 0.97,
+      "concern_recall_including_abstentions": 0.98,
+      "benign_review_or_abstention_rate": 0.04
+    },
+    "ro_formal": {
+      "total": 100,
+      "positive": 50,
+      "negative": 50,
+      "decided": 100,
+      "abstained": 0,
+      "correct_decided": 98,
+      "missed_or_abstained_concerns": 0,
+      "false_review_or_abstained_benign": 2,
+      "direct_misses": 0,
+      "direct_false_reviews": 2,
+      "coverage": 1.0,
+      "decided_accuracy": 0.98,
+      "strict_accuracy": 0.98,
+      "concern_recall_including_abstentions": 1.0,
+      "benign_review_or_abstention_rate": 0.04
+    }
+  },
+  "invariance": {
+    "groups": 0,
+    "inconsistent": 0,
+    "fully_correct": 0
+  },
+  "paired_scenarios": {
+    "groups": 0,
+    "fully_correct": 0
+  },
+  "caveat": "These metrics describe the supplied labeled inputs, not real-world safety.",
+  "source_hashes": {
+    "research/v8-stabilization/review-09-ro/dev-predictions.jsonl": "d8393510835af4afef0b124dfeaf5547b6cc9223fd62e4961842f5dd58acf177",
+    "research/v8-stabilization/review-08-uk/dev-predictions.jsonl": "4f349932cea1dfcb6c37622ee571dcd9fab3617ebe10d7fe2e87db1e1f470191"
+  },
+  "limitation": "Development-selected experimental encoder specialists; both fail calibration gates and are not deployed."
+}

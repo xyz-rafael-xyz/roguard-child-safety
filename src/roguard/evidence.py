@@ -458,6 +458,6 @@ def main():
         primary=load_evidence_model(a.backend,base_path=a.model_path,device=a.device)
         report=analyze_evidence(payload,EvidenceCascade(primary,challenger))
     except (ValueError,OSError,ImportError) as e:p.error(str(e))
-    print(json.dumps(report,ensure_ascii=False,indent=2))
+    print(json.dumps(report,ensure_ascii=True,indent=2))
 
 if __name__=='__main__':main()

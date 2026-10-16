@@ -59,7 +59,9 @@ def evaluate(expected, predictions):
         key = row['case_id']
         if key not in truth or key in predicted:
             raise ValueError('Unknown or duplicate prediction ID')
-        value = row.get('predicted')
+        if 'predicted' not in row:
+            raise ValueError('Missing predicted field; use explicit null for abstention')
+        value = row['predicted']
         if value is not None and (type(value) is not int or value not in (0, 1)):
             raise ValueError('Prediction must be integer 0, 1 or null')
         if 'language' in row and row['language'] != truth[key]['language']:
@@ -104,16 +106,38 @@ def evaluate(expected, predictions):
         caveat='These metrics describe the supplied labeled inputs, not real-world safety.')
 
 
+def target_failures(report):
+    """Observed-count prerequisites only; no claim of fresh/stable readiness."""
+    failures = []
+    for name in ('ro_formal', 'ro_conversational', 'uk_formal', 'uk_conversational'):
+        m = report.get('groups', {}).get(name)
+        if not m or not m['positive'] or not m['negative']:
+            failures.append(name+': both classes must be represented')
+            continue
+        if m['missed_or_abstained_concerns']*100 > m['positive']:
+            failures.append(name+': concern recall below 99% including abstentions')
+        if m['false_review_or_abstained_benign']*100 > 5*m['negative']:
+            failures.append(name+': benign review/abstention rate above 5%')
+    return failures
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--expected',type=Path,required=True)
     p.add_argument('--predictions',type=Path,required=True)
     p.add_argument('--output',type=Path)
+    p.add_argument('--require-targets',action='store_true',help='Exit nonzero unless every language/kind meets observed 99%% recall and 5%% false-review targets, counting abstentions')
     a=p.parse_args()
-    result=evaluate([json.loads(l) for l in a.expected.read_text().splitlines()],
-                    [json.loads(l) for l in a.predictions.read_text().splitlines()])
+    result=evaluate([json.loads(l) for l in a.expected.read_text(encoding='utf-8').splitlines()],
+                    [json.loads(l) for l in a.predictions.read_text(encoding='utf-8').splitlines()])
+    result['target_failures']=target_failures(result)
+    result['observed_targets_pass']=not result['target_failures']
+    result['stable_release_ready']=False
+    result['additional_checks']=['independent fresh evaluation', 'integrated runtime and serious-concern regressions']
     raw=json.dumps(result,indent=2)+'\n'
-    if a.output:a.output.write_text(raw)
+    if a.output:a.output.write_text(raw, encoding='utf-8')
     print(raw,end='')
+    if a.require_targets and result['target_failures']:
+        raise SystemExit(1)
 
 if __name__=='__main__':main()

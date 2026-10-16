@@ -17,6 +17,22 @@ class Stub:
     def predict(self,texts,language):self.calls+=len(texts);return [deepcopy(self.p) for _ in texts]
 
 class EvidenceTests(unittest.TestCase):
+    def test_localized_summary_survives_legacy_stdout_encoding(self):
+        import os
+        from pathlib import Path
+        import subprocess
+        import sys
+        import tempfile
+        for language,text in [('ro','Mă simt singur.'),('uk','Мені самотньо.')]:
+            with tempfile.TemporaryDirectory() as directory:
+                path=Path(directory)/'input.json'
+                path.write_text(json.dumps({'language':language,'turns':[{'role':'minor','text':text}]},ensure_ascii=False),encoding='utf-8')
+                result=subprocess.run([sys.executable,'-m','roguard.evidence',str(path)],
+                    env=dict(os.environ,PYTHONIOENCODING='cp1252'),capture_output=True,check=True)
+                report=json.loads(result.stdout.decode('ascii'))
+                self.assertEqual(report['language'],language)
+                self.assertTrue(report['evidence'][0]['interpretation_summary']['label'])
+
     def test_explanation_distinguishes_uncertainty_and_no_signal(self):
         for language in ('ro', 'uk'):
             payload={'language':language,'turns':[{'role':'minor','text':'example'}]}

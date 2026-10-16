@@ -20,7 +20,10 @@ screen, not an independent test.
 
 The local experiment adapts the last eight layers of the cached Qwen3-4B-Instruct
 2507 quantized model with rank-eight LoRA. The registered pilot uses 200 steps,
-batch size two, gradient accumulation two, and assistant-only loss. Maximum
+batch size two, gradient accumulation two, and assistant-only loss. In this
+trainer, 200 iterations represent 400 example presentations and 100 optimizer
+updates, not a full pass over the 2,400-row training set. Validation loss uses
+eight batches per check; the classification screen evaluates all 400 selected cases. Maximum
 prepared sequence length is 582 tokens, below the 1,024-token limit. No real
 children's messages are used. The frozen legacy 48-case probe is not used.
 
@@ -69,7 +72,9 @@ Prediction rows:
 ```
 
 `predicted` must be integer `0`, integer `1`, or `null` for unresolved output.
-Missing, unknown and duplicate case IDs are rejected. The report includes:
+Missing, unknown and duplicate case IDs are rejected. Add `--require-targets`
+to exit nonzero unless all four language/kind groups meet the observed-count
+accuracy targets. This is a prerequisite check, not automatic stable promotion. The report includes:
 
 - Concern recall counting abstentions as unresolved concerns.
 - Benign review-or-abstention rate and direct false reviews separately.
@@ -112,3 +117,7 @@ identifies the base as a 4B causal instruction model under Apache-2.0. This stud
 uses its separately pinned MLX quantization and the locally recorded
 [MLX-LM](https://github.com/ml-explore/mlx-lm) version. General upstream benchmark
 results are not evidence of Romanian/Ukrainian child-safety accuracy.
+
+Studio displays the interpretation summary before expandable attribute details;
+source-fragment links remain available. Reports and the new evaluation CLI use
+UTF-8 explicitly for Romanian and Ukrainian text across platforms.

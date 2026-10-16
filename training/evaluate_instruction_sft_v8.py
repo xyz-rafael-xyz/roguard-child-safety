@@ -23,7 +23,7 @@ def main():
     if any(len(v) != 1 for v in ids):
         raise ValueError('Labels must be single tokens')
     ids = [v[0] for v in ids]
-    rows = [json.loads(line) for line in a.data.read_text().splitlines()]
+    rows = [json.loads(line) for line in a.data.read_text(encoding='utf-8').splitlines()]
     tokenized = [tok.apply_chat_template(messages(r), tokenize=True, add_generation_prompt=True, return_dict=False) for r in rows]
     if not tokenized or any(len(t) > 1024 for t in tokenized):
         raise ValueError('Empty evaluation or input exceeds context limit')
@@ -41,7 +41,7 @@ def main():
     expected = [dict(case_id=r['case_id'], language=r['language'], gold=target(r),
         kind='conversational' if r.get('source') == 'v7_training_frame_projection' else 'formal',
         invariant_group=r.get('invariant_group'), pair_group=r.get('pair_group')) for r in rows]
-    (a.output/'expected.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in expected))
+    (a.output/'expected.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in expected), encoding='utf-8')
     started = time.monotonic()
     with (a.output/'predictions.jsonl').open('w') as out:
         for i, row in enumerate(rows):
@@ -82,14 +82,14 @@ def main():
             if (i+1) % 25 == 0:
                 print(i+1, json.dumps(metrics), flush=True)
     result = dict(metrics=metrics, seconds=time.monotonic()-started, synthetic_only=True,
-        base=a.base, adapter=str(a.adapter) if a.adapter else None,
+        base=Path(a.base).parent.parent.name, base_revision=Path(a.base).name, adapter=str(a.adapter) if a.adapter else None,
         data_sha256=hashlib.sha256(a.data.read_bytes()).hexdigest(),
         threshold=.5, invalid_outputs_counted_as_errors=True, cached_prefix_tokens=common, cache_check_max_error=cache_check_max_error)
     if a.adapter:
         result['adapter_hashes'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in a.adapter.glob('*') if p.is_file()}
     from roguard.review_evaluation import evaluate
-    result['strict_evaluation'] = evaluate(expected, [json.loads(l) for l in (a.output/'predictions.jsonl').read_text().splitlines()])
-    (a.output/'metrics.json').write_text(json.dumps(result, indent=2)+'\n')
+    result['strict_evaluation'] = evaluate(expected, [json.loads(l) for l in (a.output/'predictions.jsonl').read_text(encoding='utf-8').splitlines()])
+    (a.output/'metrics.json').write_text(json.dumps(result, indent=2)+'\n', encoding='utf-8')
     print('FINISHED', json.dumps(result), flush=True)
 
 

@@ -77,9 +77,9 @@ def main():
               'test_policy':'Freeze before predictions; no test-driven training or selection', 'splits':{}}
     for split,rows in generate().items():
         raw=''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows)
-        (a.output/(split+'.jsonl')).write_text(raw)
+        (a.output/(split+'.jsonl')).write_text(raw, encoding='utf-8')
         manifest['splits'][split]=dict(rows=len(rows),families=sorted({r['family'] for r in rows}),sha256=hashlib.sha256(raw.encode()).hexdigest())
-    (a.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    (a.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n', encoding='utf-8')
     print(json.dumps(manifest,indent=2))
 
 if __name__=='__main__': main()
