@@ -1,0 +1,136 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 15,
+      "false_reviews": 3,
+      "invalid": 0
+    },
+    "ro_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 10,
+      "false_reviews": 0,
+      "invalid": 0
+    },
+    "uk_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 15,
+      "false_reviews": 1,
+      "invalid": 0
+    },
+    "ro_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 16,
+      "false_reviews": 1,
+      "invalid": 0
+    }
+  },
+  "seconds": 161.05355304200202,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": "research/v8-stabilization/instruction-sft-02/adapters",
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 186,
+  "cache_check_max_error": 7.12275505065918e-06,
+  "scoring_format": "supervised_label_position_v2",
+  "input_normalization": "NFC",
+  "floating_compute_dtype": "float32",
+  "batch_size": 4,
+  "row_timing": "amortized batch inference, excluding verification",
+  "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf",
+  "adapter_hashes": {
+    "adapters.safetensors": "7d599d431064b58fb283c82bfd0c0e85b2b1c74d3e5c298ea1cfb6877fdd6e16",
+    "adapter_config.json": "e372c520beae776d0efdb2f82d3517b84801ec57b37a9feffa83964c80d72586",
+    "0000200_adapters.safetensors": "7d599d431064b58fb283c82bfd0c0e85b2b1c74d3e5c298ea1cfb6877fdd6e16",
+    "0000100_adapters.safetensors": "7632a1b26bf20a4fcf48a2df5b49d378de96c495f8bc60edaee91d88937d3d90"
+  },
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 82,
+        "missed_or_abstained_concerns": 15,
+        "false_review_or_abstained_benign": 3,
+        "direct_misses": 15,
+        "direct_false_reviews": 3,
+        "coverage": 1.0,
+        "decided_accuracy": 0.82,
+        "strict_accuracy": 0.82,
+        "concern_recall_including_abstentions": 0.7,
+        "benign_review_or_abstention_rate": 0.06
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 90,
+        "missed_or_abstained_concerns": 10,
+        "false_review_or_abstained_benign": 0,
+        "direct_misses": 10,
+        "direct_false_reviews": 0,
+        "coverage": 1.0,
+        "decided_accuracy": 0.9,
+        "strict_accuracy": 0.9,
+        "concern_recall_including_abstentions": 0.8,
+        "benign_review_or_abstention_rate": 0.0
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 84,
+        "missed_or_abstained_concerns": 15,
+        "false_review_or_abstained_benign": 1,
+        "direct_misses": 15,
+        "direct_false_reviews": 1,
+        "coverage": 1.0,
+        "decided_accuracy": 0.84,
+        "strict_accuracy": 0.84,
+        "concern_recall_including_abstentions": 0.7,
+        "benign_review_or_abstention_rate": 0.02
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 83,
+        "missed_or_abstained_concerns": 16,
+        "false_review_or_abstained_benign": 1,
+        "direct_misses": 16,
+        "direct_false_reviews": 1,
+        "coverage": 1.0,
+        "decided_accuracy": 0.83,
+        "strict_accuracy": 0.83,
+        "concern_recall_including_abstentions": 0.6799999999999999,
+        "benign_review_or_abstention_rate": 0.02
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 3,
+      "fully_correct": 3
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

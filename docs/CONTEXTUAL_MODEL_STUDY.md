@@ -204,3 +204,35 @@ input strings for references. None of the 400 screen inputs changes under NFC.
 A 16-row batch check found no decision differences between batch size four and
 recorded sequential scoring; the largest score difference was 0.0000132. This is
 an implementation check, not a universal equivalence or speed guarantee.
+
+## Completed class-token continuation
+
+The 800-example continuation finished all 200 optimizer updates. Validation loss
+was 0.431 initially, 0.391 at step 100, and 0.410 at step 200. Its best observed
+checkpoint on the 400-case screen was step 100: 350/400 correct (87.5%), compared
+with 341/400 (85.25%) for the unadapted model using the same compact policy.
+Step 200 regressed to 339/400 (84.75%). These are inspected synthetic development
+results, not independent final-test or real-world accuracy estimates.
+
+| Checkpoint | RO formal miss / false | RO conversational miss / false | UK formal miss / false | UK conversational miss / false |
+|---|---:|---:|---:|---:|
+| Step 100 | 1 / 15 | 3 / 3 | 3 / 14 | 4 / 7 |
+| Step 200 | 16 / 1 | 10 / 0 | 15 / 1 | 15 / 3 |
+
+Each entry uses 50 positive and 50 negative cases. Neither checkpoint qualifies.
+Retrospective threshold checks also cannot satisfy both targets on these rows;
+no deployment threshold was selected from them. On paired-family development,
+step 100 has RO 2/48 misses and 22/36 false reviews, and UK 0/48 misses and 12/36
+false reviews. Step 200 has RO 6/48 misses and 10/36 false reviews, and UK 5/48
+misses and 10/36 false reviews. Neither solves any complete seven-condition
+paired scenario. The new adapters therefore remain research artifacts.
+
+`training.analyze_instruction_errors_v8` checks prediction coverage and reports
+errors by annotated context without printing messages. Its slices overlap and
+are not independent statistical tests. The exported step-200 adapter restores
+all 112 arrays exactly; training results, predictions, and export hashes are
+retained with the study.
+
+The installed-package Unicode smoke check also exercises `roguard-evaluate-review`
+with bilingual identifiers and verifies that an unresolved benign prediction
+returns a failing target-gate exit status.

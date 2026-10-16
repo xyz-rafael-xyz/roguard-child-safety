@@ -34,6 +34,27 @@ def main():
                 actual=json.loads(result.stdout)
                 if actual!=reference:
                     raise AssertionError('Installed CLI differs from Unicode API input: '+command+'/'+language)
+        expected=[];predictions=[]
+        for language in ('ro','uk'):
+            for kind in ('formal','conversational'):
+                for gold in (0,1):
+                    case_id='ș-ї-'+language+'-'+kind+'-'+str(gold)
+                    expected.append(dict(case_id=case_id,language=language,kind=kind,gold=gold))
+                    predictions.append(dict(case_id=case_id,language=language,predicted=gold))
+        expected_path=Path(directory)/'expected.jsonl'
+        prediction_path=Path(directory)/'predictions.jsonl'
+        report_path=Path(directory)/'report.json'
+        for path,rows in ((expected_path,expected),(prediction_path,predictions)):
+            path.write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in rows),encoding='utf-8')
+        command=[str(executable_dir/('roguard-evaluate-review'+suffix)),
+                 '--expected',str(expected_path),'--predictions',str(prediction_path),
+                 '--output',str(report_path),'--require-targets']
+        subprocess.run(command,env=environment,capture_output=True,check=True)
+        predictions[0]['predicted']=None
+        prediction_path.write_text(''.join(json.dumps(row,ensure_ascii=False)+'\n' for row in predictions),encoding='utf-8')
+        failed=subprocess.run(command,env=environment,capture_output=True)
+        if failed.returncode!=1:
+            raise AssertionError('Installed evaluator did not reject an unresolved benign case')
     print('Installed Romanian and Ukrainian CLIs preserve UTF-8 inputs under legacy output encoding')
 
 if __name__=='__main__':main()
