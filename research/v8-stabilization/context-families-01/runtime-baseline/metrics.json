@@ -1,0 +1,53 @@
+{
+  "groups": {
+    "ro_formal": {
+      "total": 84,
+      "positive": 48,
+      "negative": 36,
+      "decided": 84,
+      "abstained": 0,
+      "correct_decided": 66,
+      "missed_or_abstained_concerns": 9,
+      "false_review_or_abstained_benign": 9,
+      "direct_misses": 9,
+      "direct_false_reviews": 9,
+      "coverage": 1.0,
+      "decided_accuracy": 0.7857142857142857,
+      "strict_accuracy": 0.7857142857142857,
+      "concern_recall_including_abstentions": 0.8125,
+      "benign_review_or_abstention_rate": 0.25
+    },
+    "uk_formal": {
+      "total": 84,
+      "positive": 48,
+      "negative": 36,
+      "decided": 84,
+      "abstained": 0,
+      "correct_decided": 66,
+      "missed_or_abstained_concerns": 0,
+      "false_review_or_abstained_benign": 18,
+      "direct_misses": 0,
+      "direct_false_reviews": 18,
+      "coverage": 1.0,
+      "decided_accuracy": 0.7857142857142857,
+      "strict_accuracy": 0.7857142857142857,
+      "concern_recall_including_abstentions": 1.0,
+      "benign_review_or_abstention_rate": 0.5
+    }
+  },
+  "invariance": {
+    "groups": 56,
+    "inconsistent": 0,
+    "fully_correct": 44
+  },
+  "paired_scenarios": {
+    "groups": 8,
+    "fully_correct": 0
+  },
+  "caveat": "These metrics describe the supplied labeled inputs, not real-world safety.",
+  "seconds": 0.07446054206229746,
+  "backend": "character",
+  "model_identity": "056a9c581f5606d771e67ccb8b2191a0fc38751a4adcc57aa211728850111bf4",
+  "input_sha256": "e42466faeb0de9a6fc503783da9c72dbefcf241d974f16f15c2ba071d352ff3e",
+  "task": "focal-turn review request; unresolved attribute proposals can request review"
+}

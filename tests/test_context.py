@@ -137,7 +137,10 @@ class ContextArtifactTests(unittest.TestCase):
         for name in ('context.js',):
             self.assertEqual(hashlib.sha256(resources.read_binary('roguard',name)).hexdigest(),manifest[name])
         normalization=json.loads(Path('research/v8-stabilization/normalization-freeze.json').read_text())
-        for name,digest in normalization['files'].items():
+        successor=json.loads(Path('research/v8-stabilization/explanation-freeze.json').read_text())
+        self.assertEqual(successor['previous_evidence_sha256'],normalization['files']['evidence.py'])
+        current=dict(normalization['files']);current.update(successor['files'])
+        for name,digest in current.items():
             self.assertEqual(hashlib.sha256(resources.read_binary('roguard',name)).hexdigest(),digest)
 
 class ContextReviewReasonTests(unittest.TestCase):

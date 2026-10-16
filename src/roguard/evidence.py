@@ -236,6 +236,26 @@ def disposition(attributes):
     return action,reason
 
 
+def interpretation_summary(prediction, action, envelope, language):
+    """Explain the proposal without inventing evidence or permission."""
+    unclear = not prediction['supported'] or not envelope['stable']
+    status = ('clarification_needed' if unclear else
+              'no_signal_detected' if action == 'CONTINUE' else 'review_requested')
+    labels = {
+        'ro': {'clarification_needed': 'Interpretare neclară; este necesară verificarea.',
+               'no_signal_detected': 'Nu a fost detectat un semnal; siguranța nu este confirmată.',
+               'review_requested': 'Semnal propus pentru verificare umană.'},
+        'uk': {'clarification_needed': 'Тлумачення неясне; потрібна перевірка.',
+               'no_signal_detected': 'Сигнал не виявлено; це не підтверджує безпеку.',
+               'review_requested': 'Запропоновано сигнал для перевірки людиною.'},
+    }
+    return {'status': status, 'label': labels[language][status],
+            'unresolved_attributes': [k for k, h in prediction['attributes'].items() if h.get('label') is None],
+            'possible_actions': envelope['possible_actions'],
+            'review_floor_applied': action != 'CONTINUE' and envelope['possible_actions'] == ['CONTINUE'],
+            'verified': False, 'permits_notification': False}
+
+
 def analyze_evidence(payload,model=None):
     spans=units(payload);model=model or EvidenceCascade()
     from .context import render
@@ -271,9 +291,11 @@ def analyze_evidence(payload,model=None):
             # Multiple plausible targets stay explicit. This never supersedes them.
             subject=p['attributes'].get('subject',{}).get('label')
             links=[e['id'] for e in out if subject is not None and e['attributes'].get('subject',{}).get('label')==subject]
+        envelope=decision_envelope(p['attributes'])
         out.append(dict(id=span['id'],reference=reference,attributes=p['attributes'],
                         supported=p['supported'],reason=reason,model_reason=p['reason'],
-                        action_envelope=decision_envelope(p['attributes']),
+                        action_envelope=envelope,
+                        interpretation_summary=interpretation_summary(p,action,envelope,payload['language']),
                         proposed_action=action,attribute_action=attribute_action,review_floor=floor,candidate_revision_targets=links,
                         challenger_used=p.get('challenger_used',False),disagreements=p.get('disagreements',[]),
                         verified=False))

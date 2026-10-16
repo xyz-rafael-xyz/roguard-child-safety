@@ -1,0 +1,42 @@
+{
+  "synthetic_only": true,
+  "independently_reviewed": false,
+  "family_isolation_scope": "within this benchmark only",
+  "test_policy": "Freeze before predictions; no test-driven training or selection",
+  "splits": {
+    "train": {
+      "rows": 336,
+      "families": [
+        "friend_conflict",
+        "home_arguments",
+        "night_worry",
+        "online_insults",
+        "performance_pressure",
+        "public_mockery",
+        "team_exclusion",
+        "unheard_at_home"
+      ],
+      "sha256": "277cfb6393fdb2ec3ef3a5e53fb4ed99ab97fe67ffad4f8530d1dfeb73c37084"
+    },
+    "dev": {
+      "rows": 168,
+      "families": [
+        "bereavement",
+        "moving_school",
+        "separation_worry",
+        "sports_failure"
+      ],
+      "sha256": "e42466faeb0de9a6fc503783da9c72dbefcf241d974f16f15c2ba071d352ff3e"
+    },
+    "test": {
+      "rows": 168,
+      "families": [
+        "broken_confidence",
+        "caregiving_burden",
+        "public_embarrassment",
+        "sibling_illness"
+      ],
+      "sha256": "3786bfdc01a0421668df04eae8263488d4cb744bffb54192d647daf48d4fa40d"
+    }
+  }
+}

@@ -17,6 +17,19 @@ class Stub:
     def predict(self,texts,language):self.calls+=len(texts);return [deepcopy(self.p) for _ in texts]
 
 class EvidenceTests(unittest.TestCase):
+    def test_explanation_distinguishes_uncertainty_and_no_signal(self):
+        for language in ('ro', 'uk'):
+            payload={'language':language,'turns':[{'role':'minor','text':'example'}]}
+            for p,status in [(prediction(concern=None),'clarification_needed'),
+                             (prediction(concern='0'),'no_signal_detected'),
+                             (prediction(),'review_requested')]:
+                report=analyze_evidence(payload,Stub(p))
+                summary=report['evidence'][0]['interpretation_summary']
+                self.assertEqual(summary['status'],status)
+                self.assertFalse(summary['permits_notification'])
+                self.assertFalse(summary['verified'])
+                self.assertEqual('concern' in summary['unresolved_attributes'],status=='clarification_needed')
+
     def test_original_offsets_and_no_plaintext(self):
         text='  Ma\u0306 simt singur.  \n   Altă propoziție. '
         p={'language':'ro','turns':[{'role':'minor','text':text}]}

@@ -1,0 +1,25 @@
+{
+  "model": "/Users/rafael/.cache/huggingface/hub/models--mlx-community--Qwen3-4B-Instruct-2507-4bit/snapshots/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "train": true,
+  "data": "research/v8-stabilization/instruction-sft-01",
+  "seed": 8104,
+  "fine_tune_type": "lora",
+  "num_layers": 8,
+  "batch_size": 2,
+  "iters": 200,
+  "val_batches": 8,
+  "learning_rate": 5e-05,
+  "steps_per_report": 10,
+  "steps_per_eval": 100,
+  "adapter_path": "research/v8-stabilization/instruction-sft-01/adapters",
+  "save_every": 100,
+  "max_seq_length": 1024,
+  "grad_checkpoint": true,
+  "grad_accumulation_steps": 2,
+  "lora_parameters": {
+    "rank": 8,
+    "dropout": 0.0,
+    "scale": 16.0
+  },
+  "mask_prompt": true
+}
