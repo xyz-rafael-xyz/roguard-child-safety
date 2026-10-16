@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-child-safety"
-version = "8.0.0rc2"
+version = "9.0.0a1"
 description = "Romanian and Ukrainian AI interaction testing, permission controls and guardrails"
 readme = "docs/PYPI.md"
 requires-python = ">=3.9"
@@ -33,6 +33,7 @@ Documentation = "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/mai
 Issues = "https://github.com/xyz-rafael-xyz/roguard-child-safety/issues"
 
 [project.scripts]
+roguard-assure = "roguard.assurance:main"
 roguard-evaluate-review = "roguard.review_evaluation:main"
 roguard-evidence = "roguard.evidence:main"
 roguard-context = "roguard.context:main"

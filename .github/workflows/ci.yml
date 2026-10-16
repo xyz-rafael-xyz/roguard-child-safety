@@ -17,6 +17,7 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python scripts/verify_public_tree.py
       - run: python -m compileall -q src training eval
+      - run: python -m eval.run_assurance_v9 --cases 250 --seed 9101 --output "$RUNNER_TEMP/assurance-audit.json"
       - run: python training/validate_generated.py --batch batch-0035
       - run: python training/validate_generated.py --batch batch-0036
       - run: python training/validate_generated.py --batch batch-0037
@@ -99,6 +100,9 @@ jobs:
           "$RUNNER_TEMP/roguard-wheel-venv/bin/python" -c 'from importlib import resources; from roguard.studio import make_server; assert b"Decision Studio" in resources.read_binary("roguard", "studio.html"); server = make_server(); server.server_close()'
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-evidence" "$GITHUB_WORKSPACE/examples/evidence_ro.json" > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-evidence" "$GITHUB_WORKSPACE/examples/evidence_uk.json" > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-assure" "$GITHUB_WORKSPACE/examples/assurance_ro.json" > assurance.json
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-assure" assurance.json --verify > /dev/null
+          "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-assure" "$GITHUB_WORKSPACE/examples/evidence_uk.json" --conversation > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-context" "$GITHUB_WORKSPACE/examples/context_ro.json" --backend character > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-context" "$GITHUB_WORKSPACE/examples/context_uk.json" --backend character > /dev/null
           "$RUNNER_TEMP/roguard-wheel-venv/bin/roguard-explore" "$GITHUB_WORKSPACE/examples/proposed_use_ro.json" > /dev/null

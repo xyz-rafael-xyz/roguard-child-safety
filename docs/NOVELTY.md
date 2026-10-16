@@ -71,3 +71,17 @@ review-workload cost rather than a claim of calibrated fusion. Session-only
 prefix memoization avoids repeated interpretation, while host revisions retain
 source restrictions. The release report distinguishes fresh probes from later
 regressions and policy replays.
+
+## V9 decision-assurance alpha
+
+V9 preserves explicit joint interpretations, unions model disagreement without
+inventing cross-model attribute combinations, and computes an optimal adaptive
+clarification tree under declared reviewer costs. Recomputable certificates bind
+input, source context, model digests and the finite policy table; clarification
+answers cite their parent certificate and out-of-set answers request new review.
+The existing evidence API is connected without removing review floors.
+
+These are established methods combined in a new repository workflow. Two seeded
+structural audits cover 20,000 cases; the full results, exact scope and primary
+references are in [V9 assurance](V9_ASSURANCE.md). No new language-model accuracy,
+cryptographic attestation, real-world benefit, or priority claim follows.

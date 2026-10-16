@@ -45,6 +45,9 @@ jobs:
           "$RUNNER_TEMP/roguard-release-test/bin/python" -m pip install dist/roguard_child_safety-*.tar.gz
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-evidence" examples/evidence_ro.json > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-evidence" examples/evidence_uk.json > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-assure" examples/assurance_ro.json > "$RUNNER_TEMP/assurance.json"
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-assure" "$RUNNER_TEMP/assurance.json" --verify > /dev/null
+          "$RUNNER_TEMP/roguard-release-test/bin/roguard-assure" examples/evidence_uk.json --conversation > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_ro.json --backend character > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-context" examples/context_uk.json --backend character > /dev/null
           "$RUNNER_TEMP/roguard-release-test/bin/roguard-message-screen" examples/message_screen_ro.json > /dev/null

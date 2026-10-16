@@ -1,5 +1,12 @@
 # Release gates against the project requirements
 
+**V9 alpha update:** `9.0.0a1` adds the [decision-assurance workflow](V9_ASSURANCE.md).
+Its exact symbolic tests and package checks do not close the language-model gates.
+Stable 7.1.1 remains the default stable installation; v9 is an explicit preview.
+The [v9 acceptance plan](V9_PLAN.md) retains the existing accuracy, fresh-evaluation
+and integrated-runtime requirements. The historical records below remain scoped
+to their stated releases.
+
 RoGuard Local v1.0.0 is a source and wheel release of the offline declared-contract and evaluation toolkit. Its version does not close the separate research text-model validation gates in the table below; no trained adapter is part of the wheel. See [v1.0 release scope](V1_RELEASE.md).
 
 This is a status record, not a claim of completion. It separates the **working declared-contract tool** from the **unvalidated language classifier**. This repository began as a public source snapshot and has since received public toolkit fixes. Trained weights and the historical Git record remain in a private research archive; see [Public release](PUBLIC_RELEASE.md). Any public model-weight release or package registration is a separate step. The [v2.0 release](V2_RELEASE.md) adds exact field-level symbolic uncertainty and question ranking; it does not change the open child-language accuracy gate below.

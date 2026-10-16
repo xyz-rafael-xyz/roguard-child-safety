@@ -1,0 +1,86 @@
+{
+  "seed": 9001,
+  "results": {
+    "cases": 10000,
+    "world_paths_checked": 88868,
+    "leaf_errors": 0,
+    "cost_errors": 0,
+    "worse_than_greedy": 0,
+    "strictly_better_than_greedy": 1663,
+    "optimal_cost_sum": 34042,
+    "greedy_cost_sum": 36862,
+    "max_states_evaluated": 128
+  },
+  "seconds": 7.459186332998797,
+  "improvement_example": {
+    "problem": {
+      "language": "uk",
+      "hypotheses": [
+        {
+          "subject": "SELF",
+          "time": "PAST",
+          "assertion": "AFFIRMED",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "1"
+        },
+        {
+          "subject": "FICTIONAL",
+          "time": "CURRENT",
+          "assertion": "UNCERTAIN",
+          "source": "FICTION",
+          "relation": "RETRACTS",
+          "concern": "0"
+        },
+        {
+          "subject": "SELF",
+          "time": "CURRENT",
+          "assertion": "UNCERTAIN",
+          "source": "FICTION",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "SELF",
+          "time": "PAST",
+          "assertion": "RETRACTED",
+          "source": "REPORTED",
+          "relation": "RETRACTS",
+          "concern": "1"
+        },
+        {
+          "subject": "OTHER",
+          "time": "HYPOTHETICAL",
+          "assertion": "RETRACTED",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "SELF",
+          "time": "CURRENT",
+          "assertion": "NEGATED",
+          "source": "DIRECT",
+          "relation": "NEW",
+          "concern": "1"
+        }
+      ],
+      "context_digest": "9be64273c3d6b3e3e1ee249d87e766e971fb8ac1b1f3722997d0451510272cbc",
+      "question_costs": {
+        "subject": 2,
+        "time": 4,
+        "assertion": 4,
+        "source": 2,
+        "relation": 3,
+        "concern": 2
+      }
+    },
+    "optimal": 6,
+    "greedy": 7,
+    "certificate_digest": "70a8246f9d4f4324f4e0b45a2aee3053b39a05c5178ba78b9f099a9a3b56912a"
+  },
+  "language_model_evaluated": false,
+  "generated_world_coverage_verified": false,
+  "baseline": "Cost-aware one-step action-ambiguity greedy selection; deterministic field-name ties",
+  "limitation": "Synthetic policy-world simulation with caller-supplied costs, not reviewer study or classifier accuracy."
+}

@@ -1,0 +1,142 @@
+{
+  "seed": 9109,
+  "results": {
+    "cases": 10000,
+    "world_paths_checked": 89718,
+    "leaf_errors": 0,
+    "cost_errors": 0,
+    "worse_than_greedy": 0,
+    "strictly_better_than_greedy": 1675,
+    "optimal_cost_sum": 34447,
+    "greedy_cost_sum": 37345,
+    "max_states_evaluated": 127
+  },
+  "seconds": 7.553443584125489,
+  "improvement_example": {
+    "problem": {
+      "language": "ro",
+      "hypotheses": [
+        {
+          "subject": "OTHER",
+          "time": "HYPOTHETICAL",
+          "assertion": "UNCERTAIN",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "1"
+        },
+        {
+          "subject": "SELF",
+          "time": "CURRENT",
+          "assertion": "RETRACTED",
+          "source": "DIRECT",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "SELF",
+          "time": "CURRENT",
+          "assertion": "NEGATED",
+          "source": "FICTION",
+          "relation": "NEW",
+          "concern": "1"
+        },
+        {
+          "subject": "OTHER",
+          "time": "CURRENT",
+          "assertion": "RETRACTED",
+          "source": "FICTION",
+          "relation": "RETRACTS",
+          "concern": "0"
+        },
+        {
+          "subject": "FICTIONAL",
+          "time": "HYPOTHETICAL",
+          "assertion": "AFFIRMED",
+          "source": "FICTION",
+          "relation": "NEW",
+          "concern": "1"
+        },
+        {
+          "subject": "OTHER",
+          "time": "CURRENT",
+          "assertion": "UNCERTAIN",
+          "source": "REPORTED",
+          "relation": "RETRACTS",
+          "concern": "1"
+        },
+        {
+          "subject": "OTHER",
+          "time": "HYPOTHETICAL",
+          "assertion": "NEGATED",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "1"
+        },
+        {
+          "subject": "SELF",
+          "time": "CURRENT",
+          "assertion": "AFFIRMED",
+          "source": "REPORTED",
+          "relation": "RETRACTS",
+          "concern": "0"
+        },
+        {
+          "subject": "OTHER",
+          "time": "PAST",
+          "assertion": "RETRACTED",
+          "source": "FICTION",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "SELF",
+          "time": "PAST",
+          "assertion": "RETRACTED",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "FICTIONAL",
+          "time": "CURRENT",
+          "assertion": "AFFIRMED",
+          "source": "REPORTED",
+          "relation": "NEW",
+          "concern": "0"
+        },
+        {
+          "subject": "OTHER",
+          "time": "CURRENT",
+          "assertion": "NEGATED",
+          "source": "DIRECT",
+          "relation": "RETRACTS",
+          "concern": "1"
+        },
+        {
+          "subject": "OTHER",
+          "time": "HYPOTHETICAL",
+          "assertion": "AFFIRMED",
+          "source": "DIRECT",
+          "relation": "NEW",
+          "concern": "0"
+        }
+      ],
+      "context_digest": "89292fd498465df4600631a5a9be131f51397f06eab9824894d08b5946e3a7f6",
+      "question_costs": {
+        "subject": 5,
+        "time": 3,
+        "assertion": 4,
+        "source": 3,
+        "relation": 5,
+        "concern": 2
+      }
+    },
+    "optimal": 7,
+    "greedy": 9,
+    "certificate_digest": "28107d4b36ac169b41f4a02ae34ca074ef870960315922d89f61508b60e51d6c"
+  },
+  "language_model_evaluated": false,
+  "generated_world_coverage_verified": false,
+  "baseline": "Cost-aware one-step action-ambiguity greedy selection; deterministic field-name ties",
+  "limitation": "Synthetic policy-world simulation with caller-supplied costs, not reviewer study or classifier accuracy."
+}

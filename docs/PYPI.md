@@ -6,7 +6,19 @@ V7 adds an experimental, jointly trained conversation-context model, turn-refere
 
 Patch 7.1.1 also corrects negated support/solitude matches in the bounded language rules. Version 7.1 retrains and recalibrates the joint context model, reduces synthetic Romanian/Ukrainian benign review requests, and adds separately reported language signals and clearer uncertainty handling. Errors remain, including frame-classification errors. [Measured improvements and limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_1_RELEASE.md).
 
-## Version 8 experimental preview
+## Version 9 alpha: decision assurance
+
+V9 adds correlated hypothesis preservation, optimal adaptive clarification under
+explicit reviewer costs, recomputable context/model/policy-bound certificates,
+and guarded reviewer-answer handling. `roguard-assure` works locally without new
+runtime dependencies. It integrates the existing experimental evidence model;
+it does not establish a new language-accuracy result or authorize actions.
+[Usage and measured limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_ASSURANCE.md).
+
+Stable installation still selects 7.1.1. Use `pip install --upgrade --pre
+roguard-child-safety` to opt into available experimental releases.
+
+## Retained version 8 experimental workspace
 
 The optional evidence workspace adds six interpretation attributes, bounded
 contextual modeling, a conservative model cascade, candidate statement links,

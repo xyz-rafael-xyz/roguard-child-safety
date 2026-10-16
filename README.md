@@ -15,6 +15,13 @@
 
 **[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
 
+**RoGuard 9 alpha: decision assurance.** Preserve joint interpretations across
+models, compute an optimal adaptive reviewer-question plan, and verify reports
+bound to their context, models and policy. Includes a local CLI, Romanian/Ukrainian
+reviewer labels and actual evidence-model integration. This is a new experimental
+workflow; the language-model accuracy gates remain open. [V9 scope, usage and
+measurements](docs/V9_ASSURANCE.md).
+
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
 
 **RoGuard 7.1 reduces Romanian and Ukrainian false alerts.** The latest patch, **7.1.1**, also fixes negated phrase matches in the bounded language rules. The joint context model was retrained and recalibrated, with explicit topic-shift checks, separate rule evidence and clearer uncertainty labels. On the original synthetic regression set, benign review requests fell from 20/126 to 1/126 in Romanian and 29/126 to 2/126 in Ukrainian, while retaining all 90 checked non-quoted concerns per language. Remaining errors and all rejected candidates are documented; these are not real-world accuracy claims. [Full results and limits](docs/V7_1_RELEASE.md).
@@ -91,16 +98,15 @@ Install or upgrade to the **latest stable PyPI release** in one command (Python 
 pip install --upgrade roguard-child-safety
 ```
 
-**Want the v8 preview?** Stable installs currently select 7.1.1. Version
-8.0.0rc2 is available on PyPI and GitHub, but pip excludes prereleases by default.
-Opt in to the latest available preview with:
+**Want the latest experimental preview?** Stable installs currently select
+7.1.1. Pip excludes prereleases by default. Opt in with:
 
 ```sh
 pip install --upgrade --pre roguard-child-safety
 roguard-studio --evidence --open
 ```
 
-The preview's new interpretation model still has missed concerns and false
+The experimental interpretation model still has missed concerns and false
 alerts; passing software tests does not establish classifier accuracy. See the
 [measured v8 results](docs/V8_PREVIEW.md) and
 [stabilization work](docs/V8_STABILIZATION.md). For its optional semantic model,

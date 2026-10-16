@@ -34,6 +34,18 @@ def main():
                 actual=json.loads(result.stdout)
                 if actual!=reference:
                     raise AssertionError('Installed CLI differs from Unicode API input: '+command+'/'+language)
+            assurance=subprocess.run([str(executable_dir/('roguard-assure'+suffix)),str(path),'--conversation'],
+                                     env=environment,capture_output=True,check=True)
+            report=json.loads(assurance.stdout)
+            if not report['entries'] or report['permits_external_action']:
+                raise AssertionError('Invalid installed assurance response')
+            from roguard.assurance import verify
+            for entry in report['entries']:
+                verify(entry['certificate'])
+            certificate_path=Path(directory)/(language+'-certificate.json')
+            certificate_path.write_text(json.dumps(report['entries'][0]['certificate']),encoding='utf-8')
+            subprocess.run([str(executable_dir/('roguard-assure'+suffix)),str(certificate_path),'--verify'],
+                           env=environment,capture_output=True,check=True)
         expected=[];predictions=[]
         for language in ('ro','uk'):
             for kind in ('formal','conversational'):
