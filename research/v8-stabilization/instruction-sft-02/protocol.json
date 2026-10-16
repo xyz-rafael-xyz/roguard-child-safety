@@ -1,0 +1,31 @@
+{
+  "synthetic_only": true,
+  "initial_checkpoint": "instruction-sft-01 step 200",
+  "initial_adapter_sha256": "10869302e4a4b44c8446cbc2b408d4cbb31626034d82ba88249a0cebcdd0a295",
+  "training_rows": 800,
+  "family_original_rows": 112,
+  "max_tokens": 394,
+  "iterations": 200,
+  "example_presentations": 800,
+  "optimizer_updates": 200,
+  "changes": [
+    "one full pass over 800 balanced inputs",
+    "112 original paired-family training examples",
+    "compact explicit support/scope policy",
+    "class-token-only loss rather than full assistant suffix loss"
+  ],
+  "fixed_threshold": 0.5,
+  "selection": "existing 400-case development screen plus family development; no reserved tests",
+  "promotion_targets_unchanged": true,
+  "confounding": "Prompt and training data change together; compare to unadapted model using the same compact prompt.",
+  "file_sha256": {
+    "train.jsonl": "9c1e7eba36c6bca4b9b75b7e27b1ce3f0cf926ca7a755bdfeb6a2c0c4a0d16ba",
+    "config.json": "e372c520beae776d0efdb2f82d3517b84801ec57b37a9feffa83964c80d72586",
+    "policy.txt": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf",
+    "training-inputs.jsonl": "328da142df804842bef87f9d39dea099750b314788c58cec4ecf937540fc9259",
+    "valid.jsonl": "91b67a0bcc529e309fc8e0216cafbfa5a9a30a35aa31fbf8d8e784a5eea53e87"
+  },
+  "training_objective": "Full-vocabulary cross entropy at the single supervised class-token position; template and padding tokens excluded",
+  "trainer": "training.train_instruction_labels_v8",
+  "scoring": "supervised_label_position_v2 with compact policy and float32 evaluation"
+}

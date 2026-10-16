@@ -121,3 +121,56 @@ results are not evidence of Romanian/Ukrainian child-safety accuracy.
 Studio displays the interpretation summary before expandable attribute details;
 source-fragment links remain available. Reports and the new evaluation CLI use
 UTF-8 explicitly for Romanian and Ukrainian text across platforms.
+
+## Scoring correction and targeted continuation
+
+The cached tokenizer inserts an empty reasoning block before completed assistant
+answers. The first evaluator mistakenly scored immediately after the generation
+header. That position was not the supervised class-token position for the adapter.
+The bare-prefix baseline and the initial adapted family run are retained with a
+correction record and are not used for the matched comparison.
+
+The corrected scorer derives a common prefix from two constant completions, `0`
+and `1`, and requires that they differ at exactly one known class token. It does
+not use the gold label to construct the prompt. Float16 cached inference differed
+from full inference by about 0.003 on a diagnostic row; float32 arithmetic reduced
+the discrepancy to about 0.000004 on the two-row check. Packed base weights remain
+quantized. Each run retains its own cache/full check and precision metadata.
+
+The corrected float32 step-200 pilot screen has 339/400 correct decisions:
+
+| Group | Missed concerns / 50 | False reviews / 50 |
+|---|---:|---:|
+| Romanian formal | 19 | 3 |
+| Romanian conversational | 5 | 1 |
+| Ukrainian formal | 16 | 5 |
+| Ukrainian conversational | 5 | 7 |
+
+On family development, the same checkpoint misses 0/48 concern variants in each
+language but falsely reviews 12/36 benign variants in each. Explicit denials
+remain a major error source. These results fail the promotion criteria.
+
+A registered continuation, `instruction-sft-02`, uses 800 balanced training rows,
+including 112 original paired-family rows, a compact policy, and one complete
+training pass. Its custom loss supervises only the class-token position. Template
+markers, end markers and padded tokens no longer dilute the classification loss.
+It computes vocabulary logits only at the supervised position rather than at
+every input position. Prompt and data both change, so its matched comparison must
+use an unadapted model with the same compact policy. The final test remains unused.
+
+## Reproduce the adapter
+
+Research adapters contain only LoRA deltas in a bounded JSON format, with model
+identity and revision. They do not include base weights or executable objects.
+The step-200 export was restored and all 112 arrays matched exactly. These are
+experimental study artifacts, not approved runtime replacements.
+
+```sh
+python -m training.archive_instruction_adapter_v8 restore \
+  --input research/v8-stabilization/instruction-sft-01/step200-adapter.json.gz \
+  --output /tmp/roguard-study-adapter
+```
+
+Use the pinned local base snapshot and the recorded MLX environment. For the
+second study, pass its `policy.txt` to `evaluate_instruction_sft_v8 --policy-file`.
+The training runner is `training.train_instruction_labels_v8 --config ... --base ...`.

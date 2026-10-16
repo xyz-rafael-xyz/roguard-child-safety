@@ -1,0 +1,26 @@
+{
+  "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+  "train": true,
+  "data": "research/v8-stabilization/instruction-sft-02",
+  "seed": 8106,
+  "fine_tune_type": "lora",
+  "num_layers": 8,
+  "batch_size": 4,
+  "iters": 200,
+  "val_batches": 8,
+  "learning_rate": 3e-05,
+  "steps_per_report": 10,
+  "steps_per_eval": 100,
+  "adapter_path": "research/v8-stabilization/instruction-sft-02/adapters",
+  "save_every": 100,
+  "max_seq_length": 512,
+  "grad_checkpoint": true,
+  "grad_accumulation_steps": 1,
+  "lora_parameters": {
+    "rank": 8,
+    "dropout": 0.0,
+    "scale": 16.0
+  },
+  "mask_prompt": true,
+  "resume_adapter_file": "research/v8-stabilization/instruction-sft-01/adapters/adapters.safetensors"
+}

@@ -1,0 +1,78 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 0,
+      "negative": 1,
+      "missed": 0,
+      "false_reviews": 0,
+      "invalid": 0
+    },
+    "ro_conversational": {
+      "positive": 1,
+      "negative": 0,
+      "missed": 1,
+      "false_reviews": 0,
+      "invalid": 0
+    }
+  },
+  "seconds": 3.155149291967973,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": null,
+  "data_sha256": "868b210f01452fc50a2f16baf969fbdff1f7f274436719ad1fd7cae2ab99e93e",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 384,
+  "cache_check_max_error": 4.0084123611450195e-06,
+  "scoring_format": "supervised_label_position_v2",
+  "floating_compute_dtype": "float32",
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 1,
+        "positive": 0,
+        "negative": 1,
+        "decided": 1,
+        "abstained": 0,
+        "correct_decided": 1,
+        "missed_or_abstained_concerns": 0,
+        "false_review_or_abstained_benign": 0,
+        "direct_misses": 0,
+        "direct_false_reviews": 0,
+        "coverage": 1.0,
+        "decided_accuracy": 1.0,
+        "strict_accuracy": 1.0,
+        "concern_recall_including_abstentions": null,
+        "benign_review_or_abstention_rate": 0.0
+      },
+      "ro_conversational": {
+        "total": 1,
+        "positive": 1,
+        "negative": 0,
+        "decided": 1,
+        "abstained": 0,
+        "correct_decided": 0,
+        "missed_or_abstained_concerns": 1,
+        "false_review_or_abstained_benign": 0,
+        "direct_misses": 1,
+        "direct_false_reviews": 0,
+        "coverage": 1.0,
+        "decided_accuracy": 0.0,
+        "strict_accuracy": 0.0,
+        "concern_recall_including_abstentions": 0.0,
+        "benign_review_or_abstention_rate": null
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 0,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

@@ -14,9 +14,9 @@ def target(row):
     return int(disposition({k: {'label': v} for k, v in row['attributes'].items()})[0] != 'CONTINUE')
 
 
-def messages(row, answer=False):
+def messages(row, answer=False, policy=POLICY_V2):
     payload = json.dumps({'prior_turns': row['turns'][:row['focus']], 'focal_message': row['turns'][row['focus']]}, ensure_ascii=False)
-    result = [{'role': 'system', 'content': POLICY_V2}, {'role': 'user', 'content': payload}]
+    result = [{'role': 'system', 'content': policy}, {'role': 'user', 'content': payload}]
     if answer:
         result.append({'role': 'assistant', 'content': str(target(row))})
     return result

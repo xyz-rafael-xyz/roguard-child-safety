@@ -1,0 +1,132 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 5,
+      "false_reviews": 7,
+      "invalid": 0
+    },
+    "ro_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 5,
+      "false_reviews": 1,
+      "invalid": 0
+    },
+    "uk_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 16,
+      "false_reviews": 5,
+      "invalid": 0
+    },
+    "ro_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 19,
+      "false_reviews": 3,
+      "invalid": 0
+    }
+  },
+  "seconds": 143.973560790997,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": "research/v8-stabilization/instruction-sft-01/adapters",
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 374,
+  "cache_check_max_error": 1.2516975402832031e-06,
+  "scoring_format": "supervised_label_position_v2",
+  "floating_compute_dtype": "float32",
+  "adapter_hashes": {
+    "adapters.safetensors": "10869302e4a4b44c8446cbc2b408d4cbb31626034d82ba88249a0cebcdd0a295",
+    "adapter_config.json": "ae19c074f54a421110283907c46069e833127b6fff8a9f3ec96787d4fc3bdbcd",
+    "0000200_adapters.safetensors": "10869302e4a4b44c8446cbc2b408d4cbb31626034d82ba88249a0cebcdd0a295",
+    "0000100_adapters.safetensors": "baa05c163905223b14b0bdfc227bfa9ddbcab8ceafee405a167fdcbf734b1377"
+  },
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 88,
+        "missed_or_abstained_concerns": 5,
+        "false_review_or_abstained_benign": 7,
+        "direct_misses": 5,
+        "direct_false_reviews": 7,
+        "coverage": 1.0,
+        "decided_accuracy": 0.88,
+        "strict_accuracy": 0.88,
+        "concern_recall_including_abstentions": 0.9,
+        "benign_review_or_abstention_rate": 0.14
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 94,
+        "missed_or_abstained_concerns": 5,
+        "false_review_or_abstained_benign": 1,
+        "direct_misses": 5,
+        "direct_false_reviews": 1,
+        "coverage": 1.0,
+        "decided_accuracy": 0.94,
+        "strict_accuracy": 0.94,
+        "concern_recall_including_abstentions": 0.9,
+        "benign_review_or_abstention_rate": 0.02
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 79,
+        "missed_or_abstained_concerns": 16,
+        "false_review_or_abstained_benign": 5,
+        "direct_misses": 16,
+        "direct_false_reviews": 5,
+        "coverage": 1.0,
+        "decided_accuracy": 0.79,
+        "strict_accuracy": 0.79,
+        "concern_recall_including_abstentions": 0.6799999999999999,
+        "benign_review_or_abstention_rate": 0.1
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 78,
+        "missed_or_abstained_concerns": 19,
+        "false_review_or_abstained_benign": 3,
+        "direct_misses": 19,
+        "direct_false_reviews": 3,
+        "coverage": 1.0,
+        "decided_accuracy": 0.78,
+        "strict_accuracy": 0.78,
+        "concern_recall_including_abstentions": 0.62,
+        "benign_review_or_abstention_rate": 0.06
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 3,
+      "fully_correct": 2
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

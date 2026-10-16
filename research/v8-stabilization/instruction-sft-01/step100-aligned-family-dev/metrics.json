@@ -1,0 +1,81 @@
+{
+  "metrics": {
+    "ro_formal": {
+      "positive": 48,
+      "negative": 36,
+      "missed": 0,
+      "false_reviews": 14,
+      "invalid": 0
+    },
+    "uk_formal": {
+      "positive": 48,
+      "negative": 36,
+      "missed": 0,
+      "false_reviews": 12,
+      "invalid": 0
+    }
+  },
+  "seconds": 123.7843494580593,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": "research/v8-stabilization/instruction-sft-01/checkpoint-100",
+  "data_sha256": "e42466faeb0de9a6fc503783da9c72dbefcf241d974f16f15c2ba071d352ff3e",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 374,
+  "cache_check_max_error": 0.0,
+  "scoring_format": "supervised_label_position_v2",
+  "adapter_hashes": {
+    "adapters.safetensors": "baa05c163905223b14b0bdfc227bfa9ddbcab8ceafee405a167fdcbf734b1377",
+    "adapter_config.json": "ae19c074f54a421110283907c46069e833127b6fff8a9f3ec96787d4fc3bdbcd"
+  },
+  "strict_evaluation": {
+    "groups": {
+      "ro_formal": {
+        "total": 84,
+        "positive": 48,
+        "negative": 36,
+        "decided": 84,
+        "abstained": 0,
+        "correct_decided": 70,
+        "missed_or_abstained_concerns": 0,
+        "false_review_or_abstained_benign": 14,
+        "direct_misses": 0,
+        "direct_false_reviews": 14,
+        "coverage": 1.0,
+        "decided_accuracy": 0.8333333333333334,
+        "strict_accuracy": 0.8333333333333334,
+        "concern_recall_including_abstentions": 1.0,
+        "benign_review_or_abstention_rate": 0.3888888888888889
+      },
+      "uk_formal": {
+        "total": 84,
+        "positive": 48,
+        "negative": 36,
+        "decided": 84,
+        "abstained": 0,
+        "correct_decided": 72,
+        "missed_or_abstained_concerns": 0,
+        "false_review_or_abstained_benign": 12,
+        "direct_misses": 0,
+        "direct_false_reviews": 12,
+        "coverage": 1.0,
+        "decided_accuracy": 0.8571428571428571,
+        "strict_accuracy": 0.8571428571428571,
+        "concern_recall_including_abstentions": 1.0,
+        "benign_review_or_abstention_rate": 0.3333333333333333
+      }
+    },
+    "invariance": {
+      "groups": 56,
+      "inconsistent": 1,
+      "fully_correct": 47
+    },
+    "paired_scenarios": {
+      "groups": 8,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

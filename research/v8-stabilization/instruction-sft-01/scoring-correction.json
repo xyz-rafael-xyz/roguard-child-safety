@@ -1,0 +1,14 @@
+{
+  "issue": "Cached chat template inserts empty think tags before supervised labels; original scorer inspected the generation-header position instead.",
+  "fix": "Derive prefix from two constant label completions; require exactly one differing token matching the class IDs. Gold labels are not read to build prompts.",
+  "invalidated": [
+    "unadapted-cached-screen",
+    "step100-family-dev"
+  ],
+  "required_reruns": [
+    "unadapted aligned screen",
+    "adapted aligned screen",
+    "adapted aligned family development"
+  ],
+  "reserved_tests_used": false
+}

@@ -8,10 +8,36 @@ from pathlib import Path
 from training.prepare_instruction_sft_v8 import messages, target
 
 
+def completion_prefix(tokenizer, prompt_messages, label_ids):
+    """Find the actual supervised label position, independent of the gold label.
+
+    Some templates inject fixed assistant scaffolding even for empty reasoning.
+    A generation header alone is then not the prefix preceding the class token.
+    """
+    options = [tokenizer.apply_chat_template(prompt_messages+[
+        {'role': 'assistant', 'content': str(label)}], tokenize=True, return_dict=False)
+        for label in (0, 1)]
+    if len(options[0]) != len(options[1]):
+        raise ValueError('Labels do not share a token-aligned template')
+    changed = [i for i, (a, b) in enumerate(zip(*options)) if a != b]
+    if len(changed) != 1:
+        raise ValueError('Template must differ at exactly one label token')
+    index = changed[0]
+    if [tokens[index] for tokens in options] != label_ids:
+        raise ValueError('Template label token differs from standalone label')
+    return options[0][:index]
+
+
+def classifier_tokens(tokenizer, row, label_ids, policy=None):
+    prompt = messages(row) if policy is None else messages(row, policy=policy)
+    return completion_prefix(tokenizer, prompt, label_ids)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--base', required=True)
     p.add_argument('--adapter', type=Path)
+    p.add_argument('--policy-file', type=Path)
     p.add_argument('--data', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
@@ -19,12 +45,14 @@ def main():
     import mlx.core as mx
     from mlx_lm import load
     model, tok = load(a.base, adapter_path=str(a.adapter) if a.adapter else None)
+    model.set_dtype(mx.float32)  # Keep packed integer weights; stabilize cache/full arithmetic.
     ids = [tok.encode(str(i), add_special_tokens=False) for i in (0, 1)]
     if any(len(v) != 1 for v in ids):
         raise ValueError('Labels must be single tokens')
     ids = [v[0] for v in ids]
     rows = [json.loads(line) for line in a.data.read_text(encoding='utf-8').splitlines()]
-    tokenized = [tok.apply_chat_template(messages(r), tokenize=True, add_generation_prompt=True, return_dict=False) for r in rows]
+    policy = a.policy_file.read_text(encoding='utf-8') if a.policy_file else None
+    tokenized = [classifier_tokens(tok, r, ids, policy) for r in rows]
     if not tokenized or any(len(t) > 1024 for t in tokenized):
         raise ValueError('Empty evaluation or input exceeds context limit')
     common = 0
@@ -65,7 +93,7 @@ def main():
                 error = abs(score-float(full_pair[1].item()))
                 cache_check_max_error = max(cache_check_max_error, error)
                 if error > .001 or int(mx.argmax(full).item()) != int(top.item()):
-                    raise ValueError('Cached inference differs from full prompt')
+                    raise ValueError(f'Cached inference differs: probability error={error}; cached top={int(top.item())}; full top={int(mx.argmax(full).item())}')
             valid = int(top.item()) in ids
             predicted = int(score >= .5) if valid else None
             gold = target(row)
@@ -84,7 +112,8 @@ def main():
     result = dict(metrics=metrics, seconds=time.monotonic()-started, synthetic_only=True,
         base=Path(a.base).parent.parent.name, base_revision=Path(a.base).name, adapter=str(a.adapter) if a.adapter else None,
         data_sha256=hashlib.sha256(a.data.read_bytes()).hexdigest(),
-        threshold=.5, invalid_outputs_counted_as_errors=True, cached_prefix_tokens=common, cache_check_max_error=cache_check_max_error)
+        threshold=.5, invalid_outputs_counted_as_errors=True, cached_prefix_tokens=common, cache_check_max_error=cache_check_max_error,
+        scoring_format='supervised_label_position_v2', floating_compute_dtype='float32', policy_sha256=hashlib.sha256((policy or messages(rows[0])[0]['content']).encode()).hexdigest())
     if a.adapter:
         result['adapter_hashes'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in a.adapter.glob('*') if p.is_file()}
     from roguard.review_evaluation import evaluate
