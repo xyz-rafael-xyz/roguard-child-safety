@@ -1,0 +1,130 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 7,
+      "false_reviews": 21,
+      "invalid": 0
+    },
+    "ro_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 15,
+      "false_reviews": 9,
+      "invalid": 0
+    },
+    "uk_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 4,
+      "false_reviews": 31,
+      "invalid": 0
+    },
+    "ro_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 2,
+      "false_reviews": 35,
+      "invalid": 0
+    }
+  },
+  "seconds": 163.59132333402522,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": null,
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 347,
+  "cache_check_max_error": 5.707144737243652e-06,
+  "scoring_format": "supervised_label_position_v2",
+  "input_normalization": "NFC",
+  "floating_compute_dtype": "float32",
+  "batch_size": 4,
+  "row_timing": "amortized batch inference, excluding verification",
+  "policy_sha256": "f6b5e702e6e50b5043bbdff0c43e5f63286593586cfcdc99122fbbb6804b9e40",
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 72,
+        "missed_or_abstained_concerns": 7,
+        "false_review_or_abstained_benign": 21,
+        "direct_misses": 7,
+        "direct_false_reviews": 21,
+        "coverage": 1.0,
+        "decided_accuracy": 0.72,
+        "strict_accuracy": 0.72,
+        "concern_recall_including_abstentions": 0.86,
+        "benign_review_or_abstention_rate": 0.42
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 76,
+        "missed_or_abstained_concerns": 15,
+        "false_review_or_abstained_benign": 9,
+        "direct_misses": 15,
+        "direct_false_reviews": 9,
+        "coverage": 1.0,
+        "decided_accuracy": 0.76,
+        "strict_accuracy": 0.76,
+        "concern_recall_including_abstentions": 0.7,
+        "benign_review_or_abstention_rate": 0.18
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 65,
+        "missed_or_abstained_concerns": 4,
+        "false_review_or_abstained_benign": 31,
+        "direct_misses": 4,
+        "direct_false_reviews": 31,
+        "coverage": 1.0,
+        "decided_accuracy": 0.65,
+        "strict_accuracy": 0.65,
+        "concern_recall_including_abstentions": 0.92,
+        "benign_review_or_abstention_rate": 0.62
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 63,
+        "missed_or_abstained_concerns": 2,
+        "false_review_or_abstained_benign": 35,
+        "direct_misses": 2,
+        "direct_false_reviews": 35,
+        "coverage": 1.0,
+        "decided_accuracy": 0.63,
+        "strict_accuracy": 0.63,
+        "concern_recall_including_abstentions": 0.96,
+        "benign_review_or_abstention_rate": 0.7
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 3,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

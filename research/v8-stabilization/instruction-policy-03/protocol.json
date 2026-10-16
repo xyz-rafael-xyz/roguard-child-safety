@@ -1,0 +1,14 @@
+{
+  "synthetic_only": true,
+  "training_updates": 0,
+  "reason": "Align prompt with existing ordered _complete_action policy: retractions precede the fiction exemption, and source/subject conflict requires review. Existing labels and thresholds unchanged.",
+  "fixed_threshold": 0.5,
+  "checkpoints": [
+    "unadapted",
+    "instruction-sft-02 step100"
+  ],
+  "development_data": "instruction-sft-01/screen.jsonl",
+  "reserved_tests_used": false,
+  "policy_sha256": "f6b5e702e6e50b5043bbdff0c43e5f63286593586cfcdc99122fbbb6804b9e40",
+  "confounding": "Inference prompt changes; comparison requires both unadapted and adapted model with this same policy."
+}

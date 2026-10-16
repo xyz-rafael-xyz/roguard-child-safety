@@ -1,0 +1,134 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 19,
+      "false_reviews": 11,
+      "invalid": 0
+    },
+    "ro_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 19,
+      "false_reviews": 4,
+      "invalid": 0
+    },
+    "uk_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 11,
+      "false_reviews": 10,
+      "invalid": 0
+    },
+    "ro_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 6,
+      "false_reviews": 24,
+      "invalid": 0
+    }
+  },
+  "seconds": 165.95084345783107,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": "research/v8-stabilization/instruction-sft-02/checkpoint-100",
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 347,
+  "cache_check_max_error": 7.569789886474609e-06,
+  "scoring_format": "supervised_label_position_v2",
+  "input_normalization": "NFC",
+  "floating_compute_dtype": "float32",
+  "batch_size": 4,
+  "row_timing": "amortized batch inference, excluding verification",
+  "policy_sha256": "f6b5e702e6e50b5043bbdff0c43e5f63286593586cfcdc99122fbbb6804b9e40",
+  "adapter_hashes": {
+    "adapters.safetensors": "7632a1b26bf20a4fcf48a2df5b49d378de96c495f8bc60edaee91d88937d3d90",
+    "adapter_config.json": "e372c520beae776d0efdb2f82d3517b84801ec57b37a9feffa83964c80d72586"
+  },
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 70,
+        "missed_or_abstained_concerns": 19,
+        "false_review_or_abstained_benign": 11,
+        "direct_misses": 19,
+        "direct_false_reviews": 11,
+        "coverage": 1.0,
+        "decided_accuracy": 0.7,
+        "strict_accuracy": 0.7,
+        "concern_recall_including_abstentions": 0.62,
+        "benign_review_or_abstention_rate": 0.22
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 77,
+        "missed_or_abstained_concerns": 19,
+        "false_review_or_abstained_benign": 4,
+        "direct_misses": 19,
+        "direct_false_reviews": 4,
+        "coverage": 1.0,
+        "decided_accuracy": 0.77,
+        "strict_accuracy": 0.77,
+        "concern_recall_including_abstentions": 0.62,
+        "benign_review_or_abstention_rate": 0.08
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 79,
+        "missed_or_abstained_concerns": 11,
+        "false_review_or_abstained_benign": 10,
+        "direct_misses": 11,
+        "direct_false_reviews": 10,
+        "coverage": 1.0,
+        "decided_accuracy": 0.79,
+        "strict_accuracy": 0.79,
+        "concern_recall_including_abstentions": 0.78,
+        "benign_review_or_abstention_rate": 0.2
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 70,
+        "missed_or_abstained_concerns": 6,
+        "false_review_or_abstained_benign": 24,
+        "direct_misses": 6,
+        "direct_false_reviews": 24,
+        "coverage": 1.0,
+        "decided_accuracy": 0.7,
+        "strict_accuracy": 0.7,
+        "concern_recall_including_abstentions": 0.88,
+        "benign_review_or_abstention_rate": 0.48
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 3,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

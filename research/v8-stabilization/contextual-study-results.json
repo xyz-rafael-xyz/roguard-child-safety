@@ -1,0 +1,108 @@
+{
+  "synthetic_development_only": true,
+  "runtime_candidate_selected": null,
+  "stable_release_ready": false,
+  "reserved_probes_predicted": false,
+  "software_tests": {
+    "passed": 468,
+    "skipped_private_artifacts": 14
+  },
+  "evaluations": [
+    {
+      "study": "instruction-sft-01",
+      "evaluation": "unadapted-f32-screen",
+      "cases": 400,
+      "correct": 300,
+      "strict_accuracy": 0.75,
+      "metrics_sha256": "1c20e9420cf917ee3a36d5f90baca834e486d3a98575f35d6845644f76c2ee18",
+      "policy_sha256": null
+    },
+    {
+      "study": "instruction-sft-01",
+      "evaluation": "step200-f32-screen",
+      "cases": 400,
+      "correct": 339,
+      "strict_accuracy": 0.8475,
+      "metrics_sha256": "0dbdca6c3b8159a2418114f4c70ecfe5be58b77ff24c46fb8e0a332daa21d36a",
+      "policy_sha256": null
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "unadapted-compact-screen",
+      "cases": 400,
+      "correct": 341,
+      "strict_accuracy": 0.8525,
+      "metrics_sha256": "cb8ebcd1e6d53bf0a23a7084a8074b4450f1548003322c352a530cb58e55a707",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "step100-screen",
+      "cases": 400,
+      "correct": 350,
+      "strict_accuracy": 0.875,
+      "metrics_sha256": "39bb7db29a6aa0a15e1bcffd40c5cb7cb01be59c42d858869add9222216f4a54",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "step200-screen",
+      "cases": 400,
+      "correct": 339,
+      "strict_accuracy": 0.8475,
+      "metrics_sha256": "447acbc6edd85ad8230e5bde16aaaba1a1105ce634be9656fee8642c966fa7fd",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "step100-family-dev",
+      "cases": 168,
+      "correct": 132,
+      "strict_accuracy": 0.7857142857142857,
+      "metrics_sha256": "64f03cfb552c28981e91bb1578ff8e13b4791ae0b41e970fbe091c7a97702710",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "step200-family-dev",
+      "cases": 168,
+      "correct": 137,
+      "strict_accuracy": 0.8154761904761905,
+      "metrics_sha256": "3da27638a9c07831987f5973b69e54ce30f052a9d634de1c2ae07f2390df1a2a",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-sft-02",
+      "evaluation": "step200-robustness-dev",
+      "cases": 278,
+      "correct": 225,
+      "strict_accuracy": 0.8093525179856115,
+      "metrics_sha256": "b6406fe1072369e4081fd31f3ffa5fea859ef36d22db07f7e95dd51150c2991f",
+      "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf"
+    },
+    {
+      "study": "instruction-policy-03",
+      "evaluation": "unadapted-screen",
+      "cases": 400,
+      "correct": 276,
+      "strict_accuracy": 0.69,
+      "metrics_sha256": "ebf0e7a0f91a3721104320b4875f7b8c0a196b2bf8b9592d1da41a44cf1d7fab",
+      "policy_sha256": "f6b5e702e6e50b5043bbdff0c43e5f63286593586cfcdc99122fbbb6804b9e40"
+    },
+    {
+      "study": "instruction-policy-03",
+      "evaluation": "step100-screen",
+      "cases": 400,
+      "correct": 296,
+      "strict_accuracy": 0.74,
+      "metrics_sha256": "af00d31ce56eedeebd09954a5cc44d1b473467e8e1450f0448b608245e59e213",
+      "policy_sha256": "f6b5e702e6e50b5043bbdff0c43e5f63286593586cfcdc99122fbbb6804b9e40"
+    }
+  ],
+  "limitations": [
+    "Development rows have been inspected and used for model selection.",
+    "Prompt variants require matched baselines.",
+    "Authored variants are correlated, not independent child messages.",
+    "No new real-world accuracy claim or stable release."
+  ]
+}

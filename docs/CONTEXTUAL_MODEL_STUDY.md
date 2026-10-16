@@ -236,3 +236,26 @@ retained with the study.
 The installed-package Unicode smoke check also exercises `roguard-evaluate-review`
 with bilingual identifiers and verifies that an unresolved benign prediction
 returns a failing target-gate exit status.
+
+On the 278-row authored robustness development set, step 200 misses 12/90 RO
+concerns and falsely reviews 22/64 RO benign variants; UK counts are 6/72 and
+13/52. Eleven of 56 invariance groups disagree across variants. These correlated
+perturbations reveal remaining weaknesses; they do not represent natural child
+language prevalence.
+
+A subsequent inference-only check, `instruction-policy-03`, addresses a prompt
+mismatch discovered by inspecting the existing ordered decision policy. The
+compact prompt described fictional content as exempt, while `_complete_action`
+requests review for retracted concerns before applying the fiction exemption.
+The new prompt states this order and source/subject conflicts explicitly. It
+changes neither gold labels nor thresholds and compares both an unadapted model
+and the step-100 adapter under the same new prompt. It is a development diagnostic,
+not a change to the deployed policy.
+
+The policy-aligned prompt scored 276/400 (69%) unadapted and 296/400 (74%)
+with the step-100 adapter. Both regress relative to the compact-policy runs.
+Policy consistency alone did not improve observed classification. Neither this
+prompt nor these research adapters is selected for deployment. The legacy
+48-case probe and reserved family tests remain unpredicted. Full calibration and
+integrated candidate promotion were not run for these failing development
+candidates. The overall stable-release accuracy objective remains unmet.
