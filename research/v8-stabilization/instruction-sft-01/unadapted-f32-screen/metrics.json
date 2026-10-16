@@ -1,0 +1,126 @@
+{
+  "metrics": {
+    "uk_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 10,
+      "false_reviews": 6,
+      "invalid": 1
+    },
+    "ro_conversational": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 24,
+      "false_reviews": 1,
+      "invalid": 11
+    },
+    "uk_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 23,
+      "false_reviews": 2,
+      "invalid": 0
+    },
+    "ro_formal": {
+      "positive": 50,
+      "negative": 50,
+      "missed": 34,
+      "false_reviews": 0,
+      "invalid": 1
+    }
+  },
+  "seconds": 351.66975700017065,
+  "synthetic_only": true,
+  "base": "models--mlx-community--Qwen3-4B-Instruct-2507-4bit",
+  "base_revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+  "adapter": null,
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "threshold": 0.5,
+  "invalid_outputs_counted_as_errors": true,
+  "cached_prefix_tokens": 374,
+  "cache_check_max_error": 8.195638656616211e-07,
+  "scoring_format": "supervised_label_position_v2",
+  "floating_compute_dtype": "float32",
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 99,
+        "abstained": 1,
+        "correct_decided": 84,
+        "missed_or_abstained_concerns": 10,
+        "false_review_or_abstained_benign": 6,
+        "direct_misses": 9,
+        "direct_false_reviews": 6,
+        "coverage": 0.99,
+        "decided_accuracy": 0.8484848484848485,
+        "strict_accuracy": 0.84,
+        "concern_recall_including_abstentions": 0.8,
+        "benign_review_or_abstention_rate": 0.12
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 89,
+        "abstained": 11,
+        "correct_decided": 75,
+        "missed_or_abstained_concerns": 24,
+        "false_review_or_abstained_benign": 1,
+        "direct_misses": 13,
+        "direct_false_reviews": 1,
+        "coverage": 0.89,
+        "decided_accuracy": 0.8426966292134831,
+        "strict_accuracy": 0.75,
+        "concern_recall_including_abstentions": 0.52,
+        "benign_review_or_abstention_rate": 0.02
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 75,
+        "missed_or_abstained_concerns": 23,
+        "false_review_or_abstained_benign": 2,
+        "direct_misses": 23,
+        "direct_false_reviews": 2,
+        "coverage": 1.0,
+        "decided_accuracy": 0.75,
+        "strict_accuracy": 0.75,
+        "concern_recall_including_abstentions": 0.54,
+        "benign_review_or_abstention_rate": 0.04
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 99,
+        "abstained": 1,
+        "correct_decided": 66,
+        "missed_or_abstained_concerns": 34,
+        "false_review_or_abstained_benign": 0,
+        "direct_misses": 33,
+        "direct_false_reviews": 0,
+        "coverage": 0.99,
+        "decided_accuracy": 0.6666666666666666,
+        "strict_accuracy": 0.66,
+        "concern_recall_including_abstentions": 0.31999999999999995,
+        "benign_review_or_abstention_rate": 0.0
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 3,
+      "fully_correct": 1
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  }
+}

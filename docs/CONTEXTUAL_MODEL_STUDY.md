@@ -137,7 +137,9 @@ from full inference by about 0.003 on a diagnostic row; float32 arithmetic reduc
 the discrepancy to about 0.000004 on the two-row check. Packed base weights remain
 quantized. Each run retains its own cache/full check and precision metadata.
 
-The corrected float32 step-200 pilot screen has 339/400 correct decisions:
+The matched unadapted float32 model has 300/400 correct decisions (75%).
+The corrected float32 step-200 pilot has 339/400 (84.75%), a 9.75 percentage-point
+improvement on this development screen. It still fails the release targets:
 
 | Group | Missed concerns / 50 | False reviews / 50 |
 |---|---:|---:|
@@ -174,3 +176,31 @@ python -m training.archive_instruction_adapter_v8 restore \
 Use the pinned local base snapshot and the recorded MLX environment. For the
 second study, pass its `policy.txt` to `evaluate_instruction_sft_v8 --policy-file`.
 The training runner is `training.train_instruction_labels_v8 --config ... --base ...`.
+
+## Additional isolation and robustness checks
+
+The 400-case screen has only 50 positives per language/kind group. It ranks and
+diagnoses candidates; the definitive observed-count gate uses the full existing
+development/calibration groups. A single miss on a small screen is not treated
+as proof that a model must fail the larger registered gate.
+
+An automated audit found two repeated benign focal strings in the original
+family test, despite zero full-context overlap. The original is preserved.
+`test-lexical-v2.jsonl` replaces those topic-reset questions with different benign
+questions, before any final-test predictions. Its 168 rows have zero normalized
+full-context or focal-text overlap with the 3,102-row union of both instruction
+studies' recorded training pools. This is exact isolation, not proof of semantic
+independence or absence from upstream pretraining.
+
+A separate development challenge contains 278 rows covering lowercase text,
+missing Romanian diacritics, limited authored typing errors, an English discourse
+marker, and an English ordinary-task turn before native-language messages. Its
+545 training-side counterparts remain separate and were not included in the
+running second study. These are controlled perturbations, not a representative
+sample of informal child language.
+
+Instruction prompts now canonicalize Unicode to NFC while preserving original
+input strings for references. None of the 400 screen inputs changes under NFC.
+A 16-row batch check found no decision differences between batch size four and
+recorded sequential scoring; the largest score difference was 0.0000132. This is
+an implementation check, not a universal equivalence or speed guarantee.

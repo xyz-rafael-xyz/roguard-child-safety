@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 import random
+import unicodedata
 from pathlib import Path
 from training.probe_instruction_v8 import POLICY_V2
 from training.review_data_v8 import input_key
@@ -15,7 +16,8 @@ def target(row):
 
 
 def messages(row, answer=False, policy=POLICY_V2):
-    payload = json.dumps({'prior_turns': row['turns'][:row['focus']], 'focal_message': row['turns'][row['focus']]}, ensure_ascii=False)
+    turns = [dict(turn, text=unicodedata.normalize('NFC', turn['text'])) for turn in row['turns'][:row['focus']+1]]
+    payload = json.dumps({'prior_turns': turns[:row['focus']], 'focal_message': turns[row['focus']]}, ensure_ascii=False)
     result = [{'role': 'system', 'content': policy}, {'role': 'user', 'content': payload}]
     if answer:
         result.append({'role': 'assistant', 'content': str(target(row))})

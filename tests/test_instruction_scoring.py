@@ -38,3 +38,14 @@ class LabelDatasetTests(unittest.TestCase):
             self.assertEqual(tokens,[90,91,92,93,11])
             self.assertEqual(tokens[offset:],[11])
             self.assertNotIn(99,tokens)
+
+class PromptNormalizationTests(unittest.TestCase):
+    def test_canonical_unicode_does_not_change_prompt_or_original(self):
+        import unicodedata
+        from training.prepare_instruction_sft_v8 import messages
+        for text in ('Mă simt singur.','Мій друг хоче поговорити.'):
+            decomposed=unicodedata.normalize('NFD',text)
+            row={'turns':[{'role':'minor','text':decomposed}],'focus':0}
+            normalized={'turns':[{'role':'minor','text':text}],'focus':0}
+            self.assertEqual(messages(row),messages(normalized))
+            self.assertEqual(row['turns'][0]['text'],decomposed)

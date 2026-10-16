@@ -1,0 +1,29 @@
+{
+  "checkpoints": [
+    100,
+    200
+  ],
+  "screen_role": "Rank and diagnose candidates; not the definitive release gate, because each screen group has only 50 positives.",
+  "sources": {
+    "screen": {
+      "path": "research/v8-stabilization/instruction-sft-01/screen.jsonl",
+      "sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87"
+    },
+    "family_dev": {
+      "path": "research/v8-stabilization/context-families-01/dev.jsonl",
+      "sha256": "e42466faeb0de9a6fc503783da9c72dbefcf241d974f16f15c2ba071d352ff3e"
+    },
+    "robustness_dev": {
+      "path": "research/v8-stabilization/context-robustness-01/dev.jsonl",
+      "sha256": "b2cf27e0214d50f2c98ed4d337f9fc6ca169dcb6c24be8e936fc856d52c5cde1"
+    }
+  },
+  "threshold": 0.5,
+  "input_normalization": "NFC",
+  "scoring": "supervised_label_position_v2",
+  "floating_compute_dtype": "float32",
+  "batch_size": 4,
+  "policy_sha256": "e009c8afa2d4f9352912254ebba3bcaea6ab3956b11b072586b9c3e4d757ecdf",
+  "final_gate": "Full existing development/calibration groups at >=99% recall and <=5% false reviews, then fresh frozen probes and integrated runtime checks",
+  "reserved_tests_predicted": false
+}
