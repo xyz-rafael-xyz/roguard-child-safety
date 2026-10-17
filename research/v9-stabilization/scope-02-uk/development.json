@@ -1,0 +1,183 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.02,
+  "additional_authored_contrasts": false,
+  "short_contrasts": false,
+  "context_interventions": false,
+  "hesitancy_contrasts": false,
+  "uk_scope_contrasts": false,
+  "train_language": "uk",
+  "balance_short": false,
+  "initial_encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78",
+  "initial_review_sha256": "af9a0d435994dfe48f7aa23a9fbbddbdffc9162a325e86d4b84336f9f0af0f65",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.8108249645412698,
+      "seconds": 342.411240916932,
+      "thresholds": {
+        "ro": 0.018069410340674222,
+        "uk": 0.1636304525256157
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 348,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.24628450106157113
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 23,
+          "recall": 1.0,
+          "false_review_rate": 0.09504132231404959
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 141,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.09978768577494693
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 12,
+          "recall": 1.0,
+          "false_review_rate": 0.053811659192825115
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.5069584805263947,
+      "seconds": 337.44550154195167,
+      "thresholds": {
+        "ro": 0.00542389466939494,
+        "uk": 0.42912670808136466
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 622,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.44019815994338285
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 1,
+          "false_reviews": 88,
+          "recall": 0.9953703703703703,
+          "false_review_rate": 0.36363636363636365
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 126,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.08917197452229299
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 11,
+          "recall": 1.0,
+          "false_review_rate": 0.04932735426008968
+        }
+      }
+    }
+  ],
+  "excluded_overlength": {
+    "train": 0,
+    "dev": 0,
+    "cal": 0
+  },
+  "scope_curriculum": true,
+  "training_history_unique_inputs": 31295,
+  "training_history_sha256": "a9c5220fad0a2c4911f35267b871ce0a6525fa60b0b77299c287fcba50368236",
+  "auxiliary_supervision": {
+    "weight": 1.0,
+    "classes": {
+      "subject": [
+        "SELF",
+        "OTHER",
+        "FICTIONAL"
+      ],
+      "time": [
+        "CURRENT",
+        "PAST",
+        "HYPOTHETICAL"
+      ],
+      "assertion": [
+        "AFFIRMED",
+        "NEGATED",
+        "UNCERTAIN",
+        "RETRACTED"
+      ],
+      "source": [
+        "DIRECT",
+        "REPORTED",
+        "FICTION"
+      ],
+      "relation": [
+        "NEW",
+        "RETRACTS"
+      ],
+      "concern": [
+        "0",
+        "1"
+      ]
+    },
+    "loss": "mean six-task cross entropy",
+    "inference_uses_auxiliary_heads": false
+  },
+  "selected_epoch": 2,
+  "calibration_audit": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 521,
+      "recall": 1.0,
+      "false_review_rate": 0.3759018759018759
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 131,
+      "recall": 1.0,
+      "false_review_rate": 0.5390946502057613
+    },
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 26,
+      "false_reviews": 135,
+      "recall": 0.9576547231270358,
+      "false_review_rate": 0.09740259740259741
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 14,
+      "false_reviews": 6,
+      "recall": 0.9146341463414634,
+      "false_review_rate": 0.026905829596412557
+    }
+  },
+  "artifact_sha256": "4adb95779d1970cedd640539014fdd43a26a9adfb7fb318a2394e661806a6a2c"
+}

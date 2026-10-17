@@ -46,6 +46,7 @@ def main():
     parser.add_argument('--context-interventions', action='store_true')
     parser.add_argument('--hesitancy-contrasts', action='store_true')
     parser.add_argument('--uk-scope-contrasts', action='store_true')
+    parser.add_argument('--scope-curriculum', action='store_true')
     parser.add_argument('--train-language', choices=('ro','uk'))
     parser.add_argument('--balance-short', action='store_true')
     parser.add_argument('--learning-rate',type=float,default=1e-4)
@@ -75,6 +76,9 @@ def main():
     if args.uk_scope_contrasts:
         from training.uk_scope_contrasts_v8 import generate as uk_scope
         train += uk_scope()
+    if args.scope_curriculum:
+        from training.scope_curriculum_v9 import generate as scope_curriculum
+        train += scope_curriculum()
     if args.train_language:
         train=[r for r in train if r['language']==args.train_language]
     # Reuse exact declared development/calibration samples from the prior study.
@@ -102,6 +106,7 @@ def main():
         head.weight.copy_(torch.tensor([old['weights']], device=args.device))
         head.bias.copy_(torch.tensor([old['intercept']], device=args.device))
     features = {}; targets = {}; record = {'synthetic_only': True, 'selection_partition': 'development', 'learning_rate': args.learning_rate, 'label_smoothing': args.label_smoothing, 'additional_authored_contrasts': args.contrasts, 'short_contrasts': args.short_contrasts, 'context_interventions': args.context_interventions, 'hesitancy_contrasts': args.hesitancy_contrasts, 'uk_scope_contrasts': args.uk_scope_contrasts, 'train_language': args.train_language, 'balance_short': args.balance_short, 'initial_encoder_sha256': hashlib.sha256(initial.read_bytes()).hexdigest(), 'initial_review_sha256': hashlib.sha256(args.initial_review.read_bytes()).hexdigest() if args.initial_review else None, 'epochs': [], 'excluded_overlength': {}}
+    record['scope_curriculum'] = args.scope_curriculum
     for split, rs in rows.items():
         kept = []; tokens = []
         for r in rs:

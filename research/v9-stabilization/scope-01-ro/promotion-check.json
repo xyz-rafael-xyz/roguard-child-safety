@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/scope-01-ro",
+  "language_scope": "ro",
+  "artifact_sha256": "4e955328d365087d7c1d5d8b05b4e914eefb804e520bd31b5804f0f667413d82",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 115/1413; maximum 5%",
+    "calibration/ro_formal: false reviews 241/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 39/243; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

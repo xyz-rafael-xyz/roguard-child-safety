@@ -1,0 +1,15 @@
+{
+  "script_sha256": "0be0f6b7133cb36e27cef3b0d33704138b976cd5fee2c76471719fbdbc37e0de",
+  "candidate_weight_grid": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "space": "clipped probability logits",
+  "selection": "Development only, threshold preserves >=99% recall in each group; minimize worst false review rate, then sum, then candidate weight.",
+  "calibration": "Inspected regression only; never select weights using calibration.",
+  "scope_02_results_available_at_freeze": false,
+  "fresh_probes_used": false
+}

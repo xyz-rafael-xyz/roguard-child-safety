@@ -1,0 +1,19 @@
+{
+  "candidate": "research/v9-stabilization/scope-02-uk",
+  "language_scope": "uk",
+  "artifact_sha256": "4adb95779d1970cedd640539014fdd43a26a9adfb7fb318a2394e661806a6a2c",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/uk_formal: false reviews 126/1413; maximum 5%",
+    "calibration/uk_formal: missed 26/614; maximum 1%",
+    "calibration/uk_formal: false reviews 135/1386; maximum 5%",
+    "calibration/uk_conversational: missed 14/164; maximum 1%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

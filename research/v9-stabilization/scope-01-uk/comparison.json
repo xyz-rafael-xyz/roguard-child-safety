@@ -1,0 +1,79 @@
+{
+  "language": "uk",
+  "synthetic_regression_only": true,
+  "stable_release_ready": false,
+  "splits": {
+    "dev": {
+      "groups": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 423,
+          "baseline_missed": 1,
+          "baseline_false_reviews": 28,
+          "fixed": 1,
+          "regressed": 395
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 27,
+          "baseline_missed": 1,
+          "baseline_false_reviews": 3,
+          "fixed": 1,
+          "regressed": 25
+        }
+      },
+      "target_failures": [
+        "uk_formal: false reviews 423/1413; maximum 5%",
+        "uk_conversational: false reviews 27/223; maximum 5%"
+      ],
+      "baseline_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "4f349932cea1dfcb6c37622ee571dcd9fab3617ebe10d7fe2e87db1e1f470191"
+      },
+      "candidate_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "b6edae213283a0390053bffdd5856fddf0112904f76a8ea687be425767699249"
+      }
+    },
+    "cal": {
+      "groups": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 4,
+          "false_reviews": 504,
+          "baseline_missed": 59,
+          "baseline_false_reviews": 127,
+          "fixed": 55,
+          "regressed": 377
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 91,
+          "baseline_missed": 7,
+          "baseline_false_reviews": 11,
+          "fixed": 7,
+          "regressed": 80
+        }
+      },
+      "target_failures": [
+        "uk_formal: false reviews 504/1386; maximum 5%",
+        "uk_conversational: false reviews 91/223; maximum 5%"
+      ],
+      "baseline_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "7164f8cd8ec6149ac85e0c082d055940872e1189597dbf62abf929c369e5a68f"
+      },
+      "candidate_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "d0a75f0eca18c368cf1113ad1a6bc71c7cbea54d381cdc3df20326bad39cfe15"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "synthetic_only": true,
+  "independent_language_review": false,
+  "motivation": "Denied concerns cause false reviews; irrelevant fictional priors suppress later personal concerns. New training-only scope paraphrases and balanced assertion/subject crosses.",
+  "initial": {
+    "ro": "review-09-ro",
+    "uk": "review-08-uk"
+  },
+  "epochs": 2,
+  "learning_rate": 2e-05,
+  "label_smoothing": 0.02,
+  "structured_rows": 3000,
+  "conversational_rows": 3000,
+  "scope_rows": 3456,
+  "scope_sha256": "f9be8d66aa9d43fc72ed895c8f65f2ebd15ab65b873b01554425fc3013bb3a3e",
+  "selection": "Development only, same >=99% per-group recall threshold and minimum worst false-review rate; calibration is an inspected regression audit, never an independent final evaluation.",
+  "targets": {
+    "recall": 0.99,
+    "max_false_review_rate": 0.05
+  },
+  "reserved_probes_used": false,
+  "promotion": "No runtime promotion until all language groups, fresh probes, and integrated checks pass."
+}
