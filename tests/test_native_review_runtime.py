@@ -63,6 +63,16 @@ def test_tampered_artifact_and_unregistered_tokenizer_are_rejected(assets):
         runtime.NativeReviewModel(**assets)
 
 
+def test_invalid_prefix_is_rejected_before_copying_caller_objects():
+    class MustNotCopy:
+        def __deepcopy__(self, memo):
+            raise AssertionError('Invalid text must be rejected before copying')
+    with pytest.raises(ValueError, match='characters'):
+        runtime.prepare_input(payload(MustNotCopy()))
+    with pytest.raises(ValueError, match='12 turns'):
+        runtime.prepare_input(dict(language='ro', turns=payload()['turns']*13))
+
+
 def test_verified_tokenizer_snapshot_does_not_follow_later_cache_changes(assets, monkeypatch):
     model = runtime.NativeReviewModel(**assets)
     (assets['base']/'vocab.txt').write_text('changed after verification')

@@ -1,0 +1,86 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "learning_rate": 3e-05,
+  "label_smoothing": 0.02,
+  "additional_authored_contrasts": false,
+  "short_contrasts": false,
+  "context_interventions": false,
+  "hesitancy_contrasts": false,
+  "uk_scope_contrasts": false,
+  "train_language": "uk",
+  "balance_short": false,
+  "initial_encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78",
+  "initial_review_sha256": "db4cbf3596e3bd30e77651f1e271062bd7a71149bcfb7b46b94625f32fecd576",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.06037511131331577,
+      "seconds": 663.6453506669495,
+      "thresholds": {
+        "ro": 0.017638947668485342,
+        "uk": 0.9217082545459271
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 117,
+          "recall": 1.0,
+          "false_review_rate": 0.08280254777070063
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 3,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.012396694214876033
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 35,
+          "recall": 0.9948892674616695,
+          "false_review_rate": 0.024769992922859165
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 1,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.004484304932735426
+        }
+      }
+    }
+  ],
+  "excluded_overlength": {
+    "train": 0,
+    "dev": 0,
+    "cal": 0
+  },
+  "scope_curriculum": false,
+  "operator_contrasts": false,
+  "natural_contrasts": true,
+  "temporal_contrasts": true,
+  "pooling_learning_rate": 0.001,
+  "adapter_capacity": {
+    "rank": 16,
+    "alpha": 32,
+    "targets": [
+      "Wqkv",
+      "Wo",
+      "Wi"
+    ],
+    "initial_function_preserved": true
+  },
+  "replay_rows_requested": 8000,
+  "replay_rows_selected": 8000,
+  "replay_sampling": "round robin language/source/review target, seed 904",
+  "training_history_unique_inputs": 32303,
+  "training_history_sha256": "5f5304c6dcb5da583023e58f022652a67c5e8af2b0684fae4b81f654e1640f30",
+  "selected_epoch": 1
+}

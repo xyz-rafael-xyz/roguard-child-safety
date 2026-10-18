@@ -14,5 +14,6 @@
   },
   "accuracy_gate": "Each language and formal/conversational stratum: concern recall >=99%, false review rate <=5%, abstentions count as errors.",
   "qualification": "Parity can pass while accuracy fails. Neither is itself a stable release approval.",
-  "installation": "Wheel built offline with isolated packaging tools and installed with --no-deps --no-index into a fresh target. Runtime imports must resolve inside that target. Torch dependencies use the existing pinned research environment."
+  "installation": "Wheel built offline with isolated packaging tools and installed with --no-deps --no-index into a fresh target. Runtime imports must resolve inside that target. Torch dependencies use the existing pinned research environment.",
+  "input_validation": "Reject malformed/oversized selected prefixes before copying. Future turns remain excluded."
 }

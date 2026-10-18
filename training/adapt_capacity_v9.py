@@ -56,7 +56,10 @@ def main():
     parser.add_argument('--balance-short', action='store_true')
     parser.add_argument('--learning-rate',type=float,default=1e-4)
     parser.add_argument('--label-smoothing',type=float,default=0.0)
+    parser.add_argument('--mps-cache-interval',type=int,default=0)
     args = parser.parse_args()
+    if args.mps_cache_interval < 0:
+        raise ValueError('Cache interval cannot be negative')
     args.output.mkdir(exist_ok=False)
     torch.set_num_threads(4); torch.manual_seed(870)
     rng = random.Random(870)
@@ -200,6 +203,8 @@ def main():
         with torch.no_grad():
             for start in range(0,len(rows[split]),16):
                 result.extend(torch.sigmoid(forward(split,list(range(start,min(start+16,len(rows[split])))))).cpu().tolist())
+                if args.device == 'mps' and args.mps_cache_interval and (start//16+1)%args.mps_cache_interval == 0:
+                    torch.mps.empty_cache()
         return np.array(result)
     def save_scores(split, scores, thresholds):
         predictions=[{'case_id':r['case_id'],'language':r['language'],'score':float(p),'gold':int(y),'predicted':int(p>=thresholds[r['language']])} for r,y,p in zip(rows[split],targets[split],scores)]
@@ -217,6 +222,8 @@ def main():
             target=target*(1-args.label_smoothing)+.5*args.label_smoothing
             loss=(torch.nn.functional.binary_cross_entropy_with_logits(logits,target,reduction='none')*torch.tensor(weights[ix],device=args.device)).mean()
             loss.backward();torch.nn.utils.clip_grad_norm_(params,1);opt.step();losses.append(float(loss.detach().cpu()))
+            if args.device == 'mps' and args.mps_cache_interval and (offset//8+1)%args.mps_cache_interval == 0:
+                torch.mps.empty_cache()
             if offset%800==0:print('epoch',epoch,'row',offset,'of',len(order),'loss',losses[-1],flush=True)
         scores=score('dev'); thresholds=thresholds_for(rows['dev'],targets['dev'],scores)
         metrics=group_metrics(rows['dev'],targets['dev'],scores,thresholds)

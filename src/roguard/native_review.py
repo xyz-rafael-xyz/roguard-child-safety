@@ -60,8 +60,13 @@ def prepare_input(payload, focus=None):
         focus = len(turns)-1
     if type(focus) is not int or not 0 <= focus < len(turns):
         raise ValueError('Invalid focal turn index')
-    prefix = dict(language=payload['language'], turns=deepcopy(turns[:focus+1]))
-    checked = validate(prefix)
+    if focus >= 12:
+        raise ValueError('Selected prefix exceeds 12 turns')
+    prefix = dict(language=payload['language'], turns=turns[:focus+1])
+    validate(prefix)
+    # Validate the bounded, plain-data shape before copying caller objects.
+    prefix = deepcopy(prefix)
+    checked = prefix['turns']
     if checked[-1]['role'] != 'minor':
         raise ValueError('Focal turn must be a minor message')
     normalize = lambda value: normalize_semantic_text(value).translate(str.maketrans('şţŞŢ', 'șțȘȚ'))
