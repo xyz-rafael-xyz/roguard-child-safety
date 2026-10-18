@@ -90,3 +90,42 @@ differences no larger than 0.001. That replay has not completed yet.
 
 See [the stabilization record](V9_STABILIZATION.md) for training results,
 qualification requirements and the limits of the synthetic evaluations.
+
+## Turn interpretations into a clarification plan
+
+The source checkout also provides a deterministic bridge to v9's review planner:
+
+```python
+from roguard.interpreter_assurance import plan_review, verify_review_plan
+
+conversation = {
+    "language": "ro",
+    "turns": [{"role": "minor", "text": "Poți explica această temă?"}],
+}
+reports = [model.predict(conversation)]
+expected_models = [model.identity]  # From the host's configured model.
+plan = plan_review(conversation, reports, expected_model_identities=expected_models)
+verify_review_plan(plan, conversation, reports, expected_model_identities=expected_models)
+print(plan["certificate"]["status"])
+```
+
+For several configured models, supply one report and expected identity per model.
+The planner retains complete joint interpretations; it does not create mixed
+interpretations by combining fields from different models. If their proposed
+actions differ, the certificate contains a clarification tree with Romanian or
+Ukrainian questions. An invalid model output retains all 432 possible attribute
+combinations. A caller can supply question costs through `question_costs`.
+
+Reports must match the selected conversation prefix, focal turn, model identity
+and interpreter contract. Missing or repeated models are rejected. Conditional
+probabilities do not establish hypothesis coverage. Hosts must authenticate
+inference services and reviewers themselves: hashes bind content but do not
+prove who produced it. A determined action is conditional on the supplied
+interpretations, not confirmation that they are true. Neither planning nor
+answering a question grants notification or other external-action permission.
+
+The bridge is also available as `python -m roguard.interpreter_assurance --help`.
+Eleven focused tests pass, including binding verification, abstention handling,
+correlation preservation and stale-report rejection. Testing against actual
+installed neural outputs is queued after the interpreter replay; those results
+are not yet available.
