@@ -1,6 +1,6 @@
 import pytest
 np=pytest.importorskip('numpy')
-from training.native_fields_v9 import policy_mass,FIELDS,SIZES,WORLD_INDICES,WORLD_ACTIONS
+from training.native_fields_v9 import policy_mass,FIELDS,SIZES,WORLD_INDICES,WORLD_ACTIONS,fit_couplings
 from roguard.native_fields import factorized_review_mass
 
 
@@ -27,3 +27,30 @@ def test_analytic_batch_and_runtime_match_exhaustive_random_marginals():
     np.testing.assert_allclose(policy_mass(values),reference,atol=2e-15,rtol=0)
     actual=[factorized_review_mass({f:p[i].tolist() for f,p in zip(FIELDS,values)}) for i in range(50)]
     np.testing.assert_allclose(actual,reference,atol=2e-15,rtol=0)
+
+
+def test_pair_coupled_closed_form_matches_complete_world_distribution():
+    rng=np.random.default_rng(946)
+    values=[rng.dirichlet(np.ones(size),size=50) for size in SIZES]
+    coupling={'scope':np.exp(rng.normal(size=(3,3))).tolist(),
+              'assertion_relation':np.exp(rng.normal(size=(4,2))).tolist()}
+    reference=np.zeros(50);normalizer=np.zeros(50)
+    for world,action in zip(WORLD_INDICES,WORLD_ACTIONS):
+        labels=dict(zip(FIELDS,world));mass=np.ones(50)
+        for p,index in zip(values,world):mass*=p[:,index]
+        mass*=coupling['scope'][labels['subject']][labels['source']]
+        mass*=coupling['assertion_relation'][labels['assertion']][labels['relation']]
+        reference+=action*mass;normalizer+=mass
+    reference/=normalizer
+    np.testing.assert_allclose(policy_mass(values,coupling),reference,atol=2e-15,rtol=0)
+    actual=[factorized_review_mass({f:p[i].tolist() for f,p in zip(FIELDS,values)},couplings=coupling) for i in range(50)]
+    np.testing.assert_allclose(actual,reference,atol=2e-15,rtol=0)
+
+
+def test_training_coupling_smoothing_preserves_unseen_pairs():
+    from roguard.evidence import ONTOLOGY
+    rows=[]
+    for world in WORLD_INDICES[:20]:
+        rows.append({'attributes':{f:ONTOLOGY[f][i] for f,i in zip(FIELDS,world)}})
+    tables=fit_couplings(rows,[1.]*len(rows))
+    assert all(np.isfinite(matrix).all() and (np.asarray(matrix)>0).all() for matrix in tables.values())

@@ -13,7 +13,7 @@ def spec():
     return dict(format='roguard-native-fields-experiment-v1',language='ro',hidden=0,dimensions=1536,
         native_artifact_sha256='a'*64,mean=[0.]*1536,scale=[1.]*1536,weights=dict(weight=[[0.]*1536 for _ in range(n)],bias=[0.]*n),
         threshold=.5,fields=list(ONTOLOGY),sizes=[len(v) for v in ONTOLOGY.values()],
-        distribution='independent categorical fields; uncalibrated',policy_digest=policy_digest())
+        distribution='independent categorical fields; uncalibrated',policy_digest=policy_digest(),couplings=None)
 
 
 def load(tmp_path,monkeypatch,value):
@@ -41,7 +41,8 @@ def test_prefix_binding_and_context_abstention(tmp_path,monkeypatch):
 @pytest.mark.parametrize('change',[lambda v:v.update(policy_digest='0'*64),
     lambda v:v['weights'].update(bias=[True]*17),lambda v:v['scale'].__setitem__(0,0),
     lambda v:v['weights']['weight'][0].pop(),lambda v:v.update(threshold=float('nan')),
-    lambda v:v['weights']['weight'][0].__setitem__(0,1e100),lambda v:v['scale'].__setitem__(0,1e-100)])
+    lambda v:v['weights']['weight'][0].__setitem__(0,1e100),lambda v:v['scale'].__setitem__(0,1e-100),
+    lambda v:v.update(distribution='pair-coupled categorical fields; uncalibrated',couplings={'scope':[[1]*3]*3,'assertion_relation':[[0]*2]*4})])
 def test_invalid_artifact_rejected_before_model_loading(tmp_path,monkeypatch,change):
     value=spec();change(value)
     with pytest.raises(ValueError):load(tmp_path,monkeypatch,value)

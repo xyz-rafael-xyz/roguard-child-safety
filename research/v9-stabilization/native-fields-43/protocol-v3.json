@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-18T19:37:05.741488+00:00",
+  "status": "Before native-fields neural feature extraction, pair-potential fitting on real training rows, or head optimization.",
+  "motivation": "Training-label audit found subject/source always aligned and assertion/retraction relation paired. Independent marginal decoding can assign extra mass to cross-combinations absent in training. Preserve soft learned dependence without declaring unseen combinations impossible.",
+  "method": "For subject x source(3x3) and assertion x relation(4x2), fit training-only likelihood-ratio potentials P(pair)/(P(left)P(right)). Counts use the same equal formal/conversational x binary-class total mass as head training, with total weight equal training-row count and one pseudocount in every cell. All potentials remain strictly positive.",
+  "candidates": "At each of the same8architecture/epoch checkpoints, compare independent decoding and pair-coupled decoding. Optimization/data/seed unchanged;16decoder candidates. Rank unchanged99/5eligibility,worstFP,sumFP,unweighted head loss,smallerarchitecture,earlierepoch,independentdecoder as final tie. No calibration input to potentials or selection.",
+  "distribution": "Product of the two normalized pair distributions, concern head, and time head. Remaining factors are still assumed independent. No full learned joint coverage or calibration claim. Export chosen potentials with weights and policy digest.",
+  "runtime": "Use the same closed-form policy mass, verified against exhaustive432world enumeration on50seeded random marginal/potential problems within2e-15. Retain all432states with positive potentials; only numerical head zero probabilities can have zero mass. Raw field probabilities and interpretation refer to pre-coupling heads, explicitly marked; report normalized pair probabilities separately.",
+  "checks": "9runtime tests and5mathematical/coupling tests pass. Selected-model installed replay and fresh evaluation still required.",
+  "stable_release_ready": false,
+  "reserved_probes_used": false
+}

@@ -7,7 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from training.native_fields_v9 import FIELDS,SIZES,targets,network,probabilities,policy_mass
+from training.native_fields_v9 import FIELDS,SIZES,targets,network,probabilities,policy_mass,fit_couplings
 from training.review_fusion_v9 import threshold,metrics,strata
 from roguard.evidence import disposition
 from roguard.assurance import policy_digest
@@ -59,6 +59,7 @@ def main():
         groups=[(strata(r),int(v)) for r,v in zip(rows,binary)];frequencies=Counter(groups)
         if len(frequencies)!=4:raise ValueError('Training needs all four source/class groups')
         weights=torch.tensor([1/frequencies[g] for g in groups],dtype=torch.float64)
+        learned_couplings=fit_couplings(rows,[len(rows)/(4*frequencies[g]) for g in groups])
         xt=torch.from_numpy(x);yt=torch.from_numpy(y);trials=[];best=None
         for hidden in (0,256):
             torch.manual_seed(943+hidden)
@@ -73,19 +74,22 @@ def main():
                     if not torch.isfinite(loss):raise ValueError('Nonfinite head training loss')
                     loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),1);optimizer.step()
                 if epoch%5:continue
-                p,scores=infer(model,dx);limit=threshold(dev,db,scores);counts=metrics(dev,db,scores,limit)
+                p,_=infer(model,dx)
                 ce=float(np.mean([-np.log(np.maximum(v[np.arange(len(dev)),dy[:,i]],1e-30)).mean() for i,v in enumerate(p)]))
-                rank=[int(not all(c['passes'] for c in counts.values())),max(c['false_review_rate'] for c in counts.values()),
-                      sum(c['false_review_rate'] for c in counts.values()),ce,hidden,epoch]
-                entry=dict(hidden=hidden,epoch=epoch,threshold=float(limit),metrics=counts,unweighted_field_loss=ce,rank=rank)
-                trials.append(entry);print(json.dumps(entry),flush=True)
-                if best is None or rank<best['rank']:
-                    best=entry
-                    spec=dict(format='roguard-native-fields-experiment-v1',language=a.language,hidden=hidden,dimensions=x.shape[1],
-                        native_artifact_sha256=sha(parent/'review.json.gz'),mean=mean.tolist(),scale=scale.tolist(),
-                        weights={k:v.detach().tolist() for k,v in model.state_dict().items()},threshold=float(limit),
-                        fields=FIELDS,sizes=SIZES,distribution='independent categorical fields; uncalibrated',policy_digest=policy_digest())
-                    (study/'selected-heads.json.gz').write_bytes(gzip.compress(json.dumps(spec,separators=(',',':')).encode(),mtime=0))
+                for mode,couplings in (('independent',None),('pair-coupled',learned_couplings)):
+                    scores=policy_mass(p,couplings);limit=threshold(dev,db,scores);counts=metrics(dev,db,scores,limit)
+                    rank=[int(not all(c['passes'] for c in counts.values())),max(c['false_review_rate'] for c in counts.values()),
+                          sum(c['false_review_rate'] for c in counts.values()),ce,hidden,epoch,int(couplings is not None)]
+                    entry=dict(hidden=hidden,epoch=epoch,coupling_mode=mode,threshold=float(limit),metrics=counts,unweighted_field_loss=ce,rank=rank)
+                    trials.append(entry);print(json.dumps(entry),flush=True)
+                    if best is None or rank<best['rank']:
+                        best=entry
+                        spec=dict(format='roguard-native-fields-experiment-v1',language=a.language,hidden=hidden,dimensions=x.shape[1],
+                            native_artifact_sha256=sha(parent/'review.json.gz'),mean=mean.tolist(),scale=scale.tolist(),
+                            weights={k:v.detach().tolist() for k,v in model.state_dict().items()},threshold=float(limit),
+                            fields=FIELDS,sizes=SIZES,distribution=('independent' if couplings is None else 'pair-coupled')+' categorical fields; uncalibrated',
+                            policy_digest=policy_digest(),couplings=couplings)
+                        (study/'selected-heads.json.gz').write_bytes(gzip.compress(json.dumps(spec,separators=(',',':')).encode(),mtime=0))
         record=dict(created_utc=datetime.now(timezone.utc).isoformat(),source_sha256=source_hashes,trials=trials,selected=best,
             artifact_sha256=sha(study/'selected-heads.json.gz'),native_artifact_sha256=sha(parent/'review.json.gz'),
             data_hashes={s:sha(parent/(s+'.jsonl.gz')) for s in ('train','dev')},
@@ -102,7 +106,7 @@ def main():
     model.load_state_dict({k:torch.tensor(v,dtype=torch.float32) for k,v in spec['weights'].items()},strict=True)
     split='dev' if a.stage=='fit' else 'cal';rows,x,y,binary=load(split)
     x=np.ascontiguousarray((x-np.asarray(spec['mean'],dtype=np.float32))/np.asarray(spec['scale'],dtype=np.float32),dtype=np.float32)
-    p,scores=infer(model,x);counts=metrics(rows,binary,scores,spec['threshold'])
+    p,_=infer(model,x);scores=policy_mass(p,spec['couplings']);counts=metrics(rows,binary,scores,spec['threshold'])
     if a.stage=='fit' and counts!=record['selected']['metrics']:raise ValueError('Exported head decisions changed')
     predictions(study/(split+'-predictions.jsonl'),rows,binary,p,scores,spec['threshold'])
     if a.stage=='audit':

@@ -641,3 +641,20 @@ shapes and finite values before loading the pinned encoder. Overlength inputs
 abstain. Its marginal argmax interpretation is diagnostic; the binary proposal
 integrates the field distributions. Six runtime unit tests pass, but actual
 fitted-model installed inference is still required.
+
+The third pre-fit native-fields amendment compares independent decoding with
+soft pair coupling. Training labels consistently align subject with source, and
+assertion with retraction relation. Separate marginal decoding can add mass to
+cross-combinations not observed in those labels. The new option estimates two
+positive likelihood-ratio tables from training counts only, with one pseudocount
+per cell and the same balanced source/class weighting. It never hard-excludes
+unseen pairs. At each unchanged head checkpoint, development selects between
+the two decoding options under the original recall/false-review limits.
+
+The resulting distribution contains two learned pair factors, plus the concern
+and time heads; independence is still assumed between those factors. Raw head
+probabilities and head-argmax interpretations are distinguished from the
+normalized pair probabilities in runtime reports. The coupled policy formula
+matches exhaustive enumeration on 50 seeded random factor problems within
+2e-15. A 16-candidate fit/export/reload/calibration smoke test passed on artificial
+feature fixtures. This is implementation evidence, not message accuracy.

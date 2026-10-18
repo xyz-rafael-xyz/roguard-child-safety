@@ -21,8 +21,32 @@ def _number(v):
     return type(v) in (int,float) and -3.4028234663852886e38<=v<=3.4028234663852886e38 and math.isfinite(v)
 
 
-def factorized_review_mass(values):
-    """Closed form of the binary policy under independent categorical fields.
+def _check_couplings(value):
+    if value is None:return
+    shapes={'scope':(3,3),'assertion_relation':(4,2)}
+    if not isinstance(value,dict) or set(value)!=set(shapes):raise ValueError('Invalid coupling inventory')
+    for name,(rows,columns) in shapes.items():
+        matrix=value[name]
+        if (not isinstance(matrix,list) or len(matrix)!=rows
+                or any(not isinstance(row,list) or len(row)!=columns for row in matrix)
+                or any(not _number(v) or v<=0 for row in matrix for v in row)):
+            raise ValueError('Invalid coupling table')
+
+
+def pair_probabilities(values,couplings):
+    _check_couplings(couplings)
+    if couplings is None:return None
+    result={}
+    for name,left,right in (('scope','subject','source'),('assertion_relation','assertion','relation')):
+        matrix=[[x*y*couplings[name][i][j] for j,y in enumerate(values[right])] for i,x in enumerate(values[left])]
+        total=sum(sum(row) for row in matrix)
+        if not math.isfinite(total) or total<=0:raise ValueError('Invalid coupled normalization')
+        result[name]=[[v/total for v in row] for row in matrix]
+    return result
+
+
+def factorized_review_mass(values,*,couplings=None):
+    """Closed form of the binary policy under the declared categorical factors.
 
     Time affects the action subtype, but not the binary need for review. The
     complete 432-world policy is checked against this expression in tests.
@@ -33,6 +57,14 @@ def factorized_review_mass(values):
         if (not isinstance(p,list) or len(p)!=size or any(not _number(v) or not 0<=v<=1 for v in p)
                 or abs(sum(p)-1)>1e-6):raise ValueError('Invalid categorical probabilities')
     def p(field,label):return values[field][ONTOLOGY[field].index(label)]
+    if couplings is not None:
+        pairs=pair_probabilities(values,couplings);scope=pairs['scope'];ar=pairs['assertion_relation']
+        sf=ONTOLOGY['subject'].index('FICTIONAL');fi=ONTOLOGY['source'].index('FICTION')
+        neg=ONTOLOGY['assertion'].index('NEGATED');ret=ONTOLOGY['assertion'].index('RETRACTED');new=ONTOLOGY['relation'].index('NEW')
+        mismatch=sum(scope[i][j] for i in range(3) for j in range(3) if (i==sf)!=(j==fi))
+        real=sum(scope[i][j] for i in range(3) for j in range(3) if i!=sf and j!=fi)
+        fiction_review=1-sum(ar[i][new] for i in range(4) if i!=ret)
+        return max(0.,min(1.,p('concern','1')*(mismatch+scope[sf][fi]*fiction_review+real*(1-ar[neg][new]))))
     fictional=p('subject','FICTIONAL');fiction=p('source','FICTION')
     negated=p('assertion','NEGATED');retracted=p('assertion','RETRACTED');retracts=p('relation','RETRACTS')
     mismatch=fictional*(1-fiction)+(1-fictional)*fiction
@@ -99,12 +131,13 @@ class NativeFieldsModel:
         with gzip.GzipFile(fileobj=io.BytesIO(raw)) as stream:unpacked=stream.read(32_000_001)
         if len(unpacked)>32_000_000:raise ValueError('Native head artifact is too large')
         spec=json.loads(unpacked)
-        required={'format','language','hidden','dimensions','native_artifact_sha256','mean','scale','weights','threshold','fields','sizes','distribution','policy_digest'}
+        required={'format','language','hidden','dimensions','native_artifact_sha256','mean','scale','weights','threshold','fields','sizes','distribution','policy_digest','couplings'}
         if (not isinstance(spec,dict) or set(spec)!=required or spec['format']!='roguard-native-fields-experiment-v1'
                 or spec['language'] not in ('ro','uk') or type(spec['hidden']) is not int or spec['hidden'] not in (0,256)
                 or type(spec['dimensions']) is not int or spec['dimensions']!=1536 or spec['fields']!=list(FIELDS)
-                or spec['sizes']!=list(SIZES) or spec['distribution']!='independent categorical fields; uncalibrated'
+                or spec['sizes']!=list(SIZES) or spec['distribution']!=('independent categorical fields; uncalibrated' if spec['couplings'] is None else 'pair-coupled categorical fields; uncalibrated')
                 or spec['policy_digest']!=policy_digest()):raise ValueError('Unsupported native head contract')
+        _check_couplings(spec['couplings'])
         for name in ('mean','scale'):
             if not isinstance(spec[name],list) or len(spec[name])!=1536 or any(not _number(v) for v in spec[name]):
                 raise ValueError('Invalid feature normalization')
@@ -139,14 +172,18 @@ class NativeFieldsModel:
         if len(values)!=len(payloads):raise ValueError('Incomplete semantic head output')
         results=[]
         for p,(_,focus,identity) in zip(values,prepared):
-            score=None if p is None else factorized_review_mass(p)
+            score=None if p is None else factorized_review_mass(p,couplings=self._spec['couplings'])
             predicted=None if score is None else int(score>=self._spec['threshold'])
             interpretation=None if p is None else {f:ONTOLOGY[f][max(range(len(p[f])),key=p[f].__getitem__)] for f in FIELDS}
             results.append(dict(format='roguard-native-fields-v1',language=self._spec['language'],focus=focus,input_digest=identity,
                 model_identity=self.identity,native_model_identity=self._native.identity,policy_digest=self._spec['policy_digest'],
                 predicted=predicted,score=score,interpretation=interpretation,field_probabilities=p,
+                interpretation_is_head_argmax=True,
                 decision='clarify' if predicted is None else 'review' if predicted else 'no_signal',
                 reason='NATIVE_CONTEXT_LIMIT' if predicted is None else 'NATIVE_FIELDS_REVIEW_PROPOSAL',review_requested=predicted!=0,
-                probabilities_are_calibrated=False,field_independence_assumed=True,text_in_report=False,
+                pair_probabilities=None if p is None else pair_probabilities(p,self._spec['couplings']),
+                distribution=self._spec['distribution'],
+                probabilities_are_calibrated=False,field_independence_assumed=self._spec['couplings'] is None,
+                factor_independence_assumed=True,text_in_report=False,
                 establishes_safety=False,permits_external_action=False,permits_notification=False))
         return results
