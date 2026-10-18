@@ -1,0 +1,18 @@
+{
+  "format": "roguard-installed-native-protocol-v1",
+  "created_utc": "2026-10-18T16:50:29.963069+00:00",
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "purpose": "Validate native22 checkpoints through an isolated locally built and installed wheel, after full21 completes.",
+  "runtime": "CPU float32; batches8; same frozen preprocessing and shared language threshold as training.",
+  "populations": "All per-language native22 development and calibration rows; no fresh probes.",
+  "parity_gate": {
+    "maximum_absolute_score_error": 0.0001,
+    "decision_disagreements": 0,
+    "abstentions": 0
+  },
+  "accuracy_gate": "Each language and formal/conversational stratum: concern recall >=99%, false review rate <=5%, abstentions count as errors.",
+  "qualification": "Parity can pass while accuracy fails. Neither is itself a stable release approval.",
+  "installation": "Wheel built offline with isolated packaging tools and installed with --no-deps --no-index into a fresh target. Runtime imports must resolve inside that target. Torch dependencies use the existing pinned research environment."
+}
