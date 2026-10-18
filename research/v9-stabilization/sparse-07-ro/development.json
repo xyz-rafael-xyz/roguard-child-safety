@@ -1,0 +1,128 @@
+{
+  "language": "ro",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "candidates": [
+    {
+      "C": 1.0,
+      "mode": "direct",
+      "threshold": 0.07820474052504221,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 627
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 80
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "mode": "policy",
+      "threshold": 0.11943044334886864,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 964
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 81
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "direct",
+      "threshold": 0.011995548252827297,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 638
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 74
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "policy",
+      "threshold": 0.022498556263286718,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 1004
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 97
+        }
+      }
+    }
+  ],
+  "training_rows": 19882,
+  "curriculum": "natural",
+  "selected": {
+    "C": 1.0,
+    "mode": "direct",
+    "threshold": 0.07820474052504221,
+    "development": {
+      "ro_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 627
+      },
+      "ro_conversational": {
+        "positive": 216,
+        "negative": 242,
+        "missed": 0,
+        "false_reviews": 80
+      }
+    }
+  },
+  "artifact_sha256": "ab3964fc3cf324a6db5d11c9f5b81a5d36899e98c9e40377f70ce4ef0fbf520e",
+  "calibration": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 34,
+      "false_reviews": 646
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 149
+    }
+  },
+  "failures": [
+    "dev/ro_formal: false reviews 627/1413; maximum 5%",
+    "dev/ro_conversational: false reviews 80/242; maximum 5%",
+    "cal/ro_formal: missed 34/614; maximum 1%",
+    "cal/ro_formal: false reviews 646/1386; maximum 5%",
+    "cal/ro_conversational: false reviews 149/243; maximum 5%"
+  ]
+}

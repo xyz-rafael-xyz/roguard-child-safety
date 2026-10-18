@@ -607,7 +607,223 @@
         "cal/uk_conversational: missed 6/164; maximum 1%"
       ],
       "fitted_configurations": 4
+    },
+    "sparse-07-ro": {
+      "language": "ro",
+      "training_rows": 19882,
+      "fitted_configurations": 4,
+      "artifact_sha256": "ab3964fc3cf324a6db5d11c9f5b81a5d36899e98c9e40377f70ce4ef0fbf520e",
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 627
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 80
+        }
+      },
+      "calibration": {
+        "ro_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 34,
+          "false_reviews": 646
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 149
+        }
+      },
+      "prerequisites_pass": false,
+      "selected_mixture_weight": 0,
+      "mixture_development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 86
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 0
+        }
+      },
+      "mixture_calibration": {
+        "ro_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 244
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 46
+        }
+      },
+      "mixture_failures": [
+        "dev/ro_formal: false reviews 86/1413; maximum 5%",
+        "cal/ro_formal: false reviews 244/1386; maximum 5%",
+        "cal/ro_conversational: false reviews 46/243; maximum 5%"
+      ]
+    },
+    "sparse-07-uk": {
+      "language": "uk",
+      "training_rows": 18349,
+      "fitted_configurations": 4,
+      "artifact_sha256": "b82e8eaade26806819d1f6f3699e8f86f34f0c00ed5d8f4d6c596def28bf79c7",
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 791
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 84
+        }
+      },
+      "calibration": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 721
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 110
+        }
+      },
+      "prerequisites_pass": false,
+      "selected_mixture_weight": 0.25,
+      "mixture_development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 21
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3
+        }
+      },
+      "mixture_calibration": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 61,
+          "false_reviews": 94
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 6,
+          "false_reviews": 9
+        }
+      },
+      "mixture_failures": [
+        "cal/uk_formal: missed 61/614; maximum 1%",
+        "cal/uk_formal: false reviews 94/1386; maximum 5%",
+        "cal/uk_conversational: missed 6/164; maximum 1%"
+      ]
+    },
+    "replay-04-uk": {
+      "language": "uk",
+      "training_rows": 9296,
+      "completed_epochs": 2,
+      "selected_epoch": 1,
+      "artifact_sha256": "db4cbf3596e3bd30e77651f1e271062bd7a71149bcfb7b46b94625f32fecd576",
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 49,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.03467799009200283
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.013452914798206279
+        }
+      },
+      "calibration": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 2,
+          "false_reviews": 59,
+          "recall": 0.996742671009772,
+          "false_review_rate": 0.04256854256854257
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 8,
+          "false_reviews": 6,
+          "recall": 0.9512195121951219,
+          "false_review_rate": 0.026905829596412557
+        }
+      },
+      "prerequisites_pass": false,
+      "selected_mixture_weight": 0,
+      "mixture_development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 28
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3
+        }
+      },
+      "mixture_calibration": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 59,
+          "false_reviews": 127
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 7,
+          "false_reviews": 11
+        }
+      },
+      "mixture_failures": [
+        "cal/uk_formal: missed 59/614; maximum 1%",
+        "cal/uk_formal: false reviews 127/1386; maximum 5%",
+        "cal/uk_conversational: missed 7/164; maximum 1%"
+      ]
     }
   },
-  "training_presentations": 71092
+  "training_presentations": 89684
 }

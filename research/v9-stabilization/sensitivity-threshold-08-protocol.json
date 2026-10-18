@@ -1,0 +1,16 @@
+{
+  "experiment": "sensitivity-threshold-08",
+  "hypothesis": "Use the development false-review budget to select the lowest allowed threshold, increasing sensitivity while retaining both group targets.",
+  "selection": "For each language, threshold is the maximum of the strict nextafter boundary above the largest disallowed negative score in each development group. No calibration input selects the threshold.",
+  "targets": {
+    "recall": 0.99,
+    "max_false_review_rate": 0.05
+  },
+  "candidate_scope": [
+    "replay-04-ro",
+    "replay-04-uk"
+  ],
+  "calibration": "known regression evidence; this strategy is motivated by observed calibration misses and is not independent validation",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

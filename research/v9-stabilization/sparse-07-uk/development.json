@@ -1,0 +1,127 @@
+{
+  "language": "uk",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "candidates": [
+    {
+      "C": 1.0,
+      "mode": "direct",
+      "threshold": 0.005827947863785604,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 941
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 158
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "mode": "policy",
+      "threshold": 0.14532590081872776,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 791
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 84
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "direct",
+      "threshold": 2.549991289174247e-05,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 988
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 170
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "policy",
+      "threshold": 0.05350785745959071,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 819
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 69
+        }
+      }
+    }
+  ],
+  "training_rows": 18349,
+  "curriculum": "natural",
+  "selected": {
+    "C": 1.0,
+    "mode": "policy",
+    "threshold": 0.14532590081872776,
+    "development": {
+      "uk_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 791
+      },
+      "uk_conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 0,
+        "false_reviews": 84
+      }
+    }
+  },
+  "artifact_sha256": "b82e8eaade26806819d1f6f3699e8f86f34f0c00ed5d8f4d6c596def28bf79c7",
+  "calibration": {
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 721
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 0,
+      "false_reviews": 110
+    }
+  },
+  "failures": [
+    "dev/uk_formal: false reviews 791/1413; maximum 5%",
+    "dev/uk_conversational: false reviews 84/223; maximum 5%",
+    "cal/uk_formal: false reviews 721/1386; maximum 5%",
+    "cal/uk_conversational: false reviews 110/223; maximum 5%"
+  ]
+}

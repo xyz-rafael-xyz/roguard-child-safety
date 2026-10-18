@@ -1,0 +1,40 @@
+{
+  "language": "uk",
+  "threshold": 0.09950803220272066,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "metrics": {
+    "dev": {
+      "uk_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 3,
+        "false_reviews": 70
+      },
+      "uk_conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 1,
+        "false_reviews": 3
+      }
+    },
+    "cal": {
+      "uk_formal": {
+        "positive": 614,
+        "negative": 1386,
+        "missed": 0,
+        "false_reviews": 117
+      },
+      "uk_conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 4,
+        "false_reviews": 9
+      }
+    }
+  },
+  "failures": [
+    "cal/uk_formal: false reviews 117/1386; maximum 5%",
+    "cal/uk_conversational: missed 4/164; maximum 1%"
+  ]
+}

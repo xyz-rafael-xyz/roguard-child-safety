@@ -1,0 +1,41 @@
+{
+  "language": "ro",
+  "threshold": 0.24611774086952212,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "metrics": {
+    "dev": {
+      "ro_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 2,
+        "false_reviews": 70
+      },
+      "ro_conversational": {
+        "positive": 216,
+        "negative": 242,
+        "missed": 13,
+        "false_reviews": 1
+      }
+    },
+    "cal": {
+      "ro_formal": {
+        "positive": 614,
+        "negative": 1386,
+        "missed": 0,
+        "false_reviews": 242
+      },
+      "ro_conversational": {
+        "positive": 216,
+        "negative": 243,
+        "missed": 0,
+        "false_reviews": 43
+      }
+    }
+  },
+  "failures": [
+    "dev/ro_conversational: missed 13/216; maximum 1%",
+    "cal/ro_formal: false reviews 242/1386; maximum 5%",
+    "cal/ro_conversational: false reviews 43/243; maximum 5%"
+  ]
+}

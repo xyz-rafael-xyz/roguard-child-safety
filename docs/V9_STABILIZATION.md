@@ -148,7 +148,12 @@ predecessor was revised before training to add fictional-current examples.
 Romanian completed two epochs. Its calibration false reviews remain 274/1,386
 formal and 69/243 conversational, with no missed positive cases in either group.
 The development-selected mixture rejects this candidate in favor of the
-original Romanian model. Ukrainian results are recorded separately when complete.
+original Romanian model. Ukrainian also completed two epochs. Its selected first
+epoch meets both formal calibration targets: misses 2/614 (previously 59/614)
+and false reviews 59/1,386 (previously 127/1,386). On identical formal inputs it
+fixes 131 errors and introduces 6. Conversational calibration still fails recall:
+misses 8/164, false reviews 6/223. The development-selected score mixture chooses
+the predecessor; the standalone improvement does not qualify the overall model.
 
 `sparse-05` tests a different representation: separately fitted character and
 word features for the current message, plus word features for preceding context.
@@ -178,3 +183,19 @@ stable-release accuracy claim follows from the number of training examples.
 Software verification for this round: 471 tests passed and 14 skipped in the
 sandbox. The 12 Studio tests initially could not bind a localhost socket; all
 12 passed when rerun with that access (483 passing tests in total).
+
+The `sparse-07` control repeats lexical fitting with the natural-06-v2 content.
+The Romanian mixture selects the original encoder (zero lexical weight). The
+Ukrainian mixture selects 25% lexical weight and has the same development
+counts as sparse-05; calibration formal false reviews decrease from 96 to 94,
+while formal misses remain 61/614. Neither passes. Both JSON exports reproduce
+their saved development scores exactly. CI for commit `db6fa46` passed all
+11 jobs, including the Python 3.9–3.14 matrix and Windows installation checks.
+
+A separate `sensitivity-threshold-08` diagnostic chooses the lowest threshold
+allowed by the 5% development false-review budget in both groups. Calibration
+does not choose this cutoff, although its previously observed misses motivated
+the experiment. Ukrainian then misses 4/164 conversational cases instead of 8,
+but formal false reviews rise to 117/1,386. Romanian also fails. These results
+rule out this simple cutoff adjustment as a sufficient repair. The diagnostic
+is reproducible with `training.select_sensitivity_threshold_v9`.

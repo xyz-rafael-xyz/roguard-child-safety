@@ -59,11 +59,16 @@ def main():
     parser.add_argument('--baseline', type=Path, required=True)
     parser.add_argument('--language', choices=('ro', 'uk'), required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--curriculum', choices=('operators', 'natural'), default='operators')
     args = parser.parse_args()
     args.output.mkdir(exist_ok=False)
     threadpool_limits(2)
     history = read(args.baseline/'training-history.jsonl.gz')
-    train = history + generate()
+    if args.curriculum == 'natural':
+        from training.natural_contrasts_v9 import generate as new_content
+        train = history + new_content()
+    else:
+        train = history + generate()
     train = list({input_key(r): r for r in train if r['language'] == args.language}.values())
     rows = {'train': train}
     for split in ('dev', 'cal'):
@@ -87,7 +92,8 @@ def main():
             vocabulary=v.vocabulary_, idf=v.idf_.tolist()))
     x = {s: hstack(b).tocsr() for s,b in blocks.items()}
     record = dict(language=args.language, synthetic_only=True, reserved_probes_used=False,
-        stable_release_ready=False, selection_partition='development', candidates=[], training_rows=len(train))
+        stable_release_ready=False, selection_partition='development', candidates=[], training_rows=len(train),
+        curriculum=args.curriculum)
     best = None
     for c in (1., 10.):
         heads = {}
