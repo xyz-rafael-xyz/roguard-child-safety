@@ -1,0 +1,60 @@
+{
+  "created_utc": "2026-10-18T15:52:21.477870+00:00",
+  "synthetic_only": true,
+  "candidate": "research/v9-stabilization/capacity-15-low-uk",
+  "language": "uk",
+  "source_hashes": {
+    "review.json.gz": "3f178efaed8ff665e640d56f2765d68b2014ae960f89aa055d2a9b0e0da98fe8",
+    "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+    "dev-predictions.jsonl": "4eaf5d722e19cebb1a11557802c21fb7034d92fa2345b0455de2e174e20d607b",
+    "training-history.jsonl.gz": "df36bbc71cb9acdab2faf20b92b0e8641bae8c3efaa2c71ef1f63e873a74ae4d"
+  },
+  "thresholds": {
+    "ro": 0.013625374846346676,
+    "uk": 0.07771538197994234
+  },
+  "original_thresholds": {
+    "ro": 0.013625374846346676,
+    "uk": 0.4245736963927746
+  },
+  "development": {
+    "ro_formal": {
+      "positive": 587,
+      "negative": 1413,
+      "missed": 1,
+      "false_reviews": 100,
+      "recall": 0.9982964224872232,
+      "false_review_rate": 0.07077140835102619
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 242,
+      "missed": 2,
+      "false_reviews": 11,
+      "recall": 0.9907407407407407,
+      "false_review_rate": 0.045454545454545456
+    },
+    "uk_formal": {
+      "positive": 587,
+      "negative": 1413,
+      "missed": 0,
+      "false_reviews": 42,
+      "recall": 1.0,
+      "false_review_rate": 0.029723991507430998
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 1,
+      "false_reviews": 1,
+      "recall": 0.9939024390243902,
+      "false_review_rate": 0.004484304932735426
+    }
+  },
+  "development_failures": [],
+  "method": "Lowest shared threshold allowing at most 3% false reviews separately in each development stratum. The 2 percentage-point headroom is a heuristic, not a statistical guarantee.",
+  "model_selection": "Parent selected checkpoint remains fixed. No calibration scores used for threshold selection.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "source_sha256": "655de76c01f673ddfd7b426872d8702668b369c4966010eef0817bc8ef678b71"
+}

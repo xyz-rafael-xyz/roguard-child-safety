@@ -1,0 +1,45 @@
+{
+  "tokenizer_preflight_only": true,
+  "model_weights_loaded": false,
+  "reserved_probes_used": false,
+  "groups": {
+    "ro": {
+      "dev": {
+        "rows": 2458,
+        "maximum_tokens": 143,
+        "overlength": 0
+      },
+      "cal": {
+        "rows": 2459,
+        "maximum_tokens": 119,
+        "overlength": 0
+      },
+      "train": {
+        "rows": 22768,
+        "maximum_tokens": 131,
+        "overlength": 0
+      }
+    },
+    "uk": {
+      "dev": {
+        "rows": 2387,
+        "maximum_tokens": 151,
+        "overlength": 0
+      },
+      "cal": {
+        "rows": 2387,
+        "maximum_tokens": 145,
+        "overlength": 0
+      },
+      "train": {
+        "rows": 20217,
+        "maximum_tokens": 134,
+        "overlength": 0
+      }
+    }
+  },
+  "created_utc": "2026-10-18T15:48:54.981325+00:00",
+  "base_manifest_sha256": "9489e95fe5ec6a9fe67901c786e644489a0246855a9b6258b8bdcb251c946927",
+  "source_freeze_sha256": "378513bd5eff5f3d0c3b747dc11bb868a3d532948236530a7829e19eab7300b4",
+  "scope": "All eligible unique training inputs after normalization/exclusion plus complete development/calibration. Tokenizer pair lengths without padding or truncation. No inference."
+}
