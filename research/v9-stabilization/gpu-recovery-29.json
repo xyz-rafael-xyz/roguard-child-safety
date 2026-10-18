@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-18T16:27:07.687723+00:00",
+  "change": "Retry interrupted final capacity trial before native22; tighter MPS watermarks in retry and upcoming native22 processes, no math/data changes. Native scheduler waits for retry completion instead of only the interrupted original status.",
+  "environment": {
+    "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "1.0",
+    "PYTORCH_MPS_LOW_WATERMARK_RATIO": "0.7"
+  },
+  "initial_trial": {
+    "recorded_utc": "2026-10-18T16:27:07.687723+00:00",
+    "study": "capacity-15-high-uk",
+    "attempt": 1,
+    "exit_code": -15,
+    "last_reported_epoch": 1,
+    "last_reported_row": 5600,
+    "completed_checkpoint": false,
+    "reason": "No progress for several minutes; sampled stack waited in Metal command-buffer completion during a finite-loss check. Terminated only this training process; no user applications stopped.",
+    "gpu_probe_after_restart": {
+      "result": 1240.0,
+      "seconds": 1.367,
+      "responsive": true
+    },
+    "retry": "Same frozen numerical/data protocol, new process, lower MPS allocator watermarks1.0/0.7. Memory-pressure mitigation is not a proven root-cause diagnosis.",
+    "environment_reference": "Installed torch/include/ATen/mps/MPSAllocator.h documents allocator high/low watermark behavior.",
+    "reserved_predictions_used": false
+  }
+}

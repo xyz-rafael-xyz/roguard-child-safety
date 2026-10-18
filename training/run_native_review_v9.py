@@ -20,7 +20,15 @@ def main():
         if path.exists():
             jobs=json.loads(path.read_text())['jobs']
             if len(jobs)==4:
-                if time.time()>datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:break
+                completion=jobs[-1]
+                if completion['exit_code']!=0:
+                    retry=root/'capacity-15-high-uk-retry.json'
+                    if not retry.exists():
+                        time.sleep(10);continue
+                    completion=json.loads(retry.read_text())
+                    if 'finished_utc' not in completion:
+                        time.sleep(10);continue
+                if time.time()>datetime.fromisoformat(completion['finished_utc']).timestamp()+15:break
         time.sleep(10)
     for path,digest in json.loads((root/'native-full-22-source-freeze.json').read_text()).items():
         if hashlib.sha256(Path(path).read_bytes()).hexdigest()!=digest:raise ValueError('Frozen source changed: '+path)
