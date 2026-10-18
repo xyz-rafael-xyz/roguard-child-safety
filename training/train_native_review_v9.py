@@ -65,6 +65,7 @@ def main():
     from training.natural_contrasts_v9 import generate as natural
     from training.temporal_contrasts_v9 import generate as temporal
     from training.focus_boundary_contrasts_v9 import generate as focus_boundaries
+    from training.time_scope_contrasts_v9 import generate as time_scopes
     from training.check_review_candidate_v8 import inspect
     language = args.language
     model_id, revision, weight_name, weight_hash = BASES[language]
@@ -81,7 +82,7 @@ def main():
     rng = np.random.default_rng(922)
     root = Path('research/v8-stabilization')
     history = root/('review-09-ro' if language=='ro' else 'review-08-uk')/'training-history.jsonl.gz'
-    pool = [r for r in read(history)+natural()+temporal()+focus_boundaries() if r['language']==language]
+    pool = [r for r in read(history)+natural()+temporal()+focus_boundaries()+time_scopes() if r['language']==language]
     rows = {split: [r for r in read(root/'review-09-ro'/(split+'.jsonl.gz')) if r['language']==language] for split in ('dev','cal')}
     evaluation_keys = {texts(r) for split in rows.values() for r in split}
     seen = {}; excluded = []; train = []
@@ -138,6 +139,7 @@ def main():
     record=dict(synthetic_only=True,selection_partition='development',base=model_id,revision=revision,train_language=language,
                 training_rows=len(train),epochs=[],learning_rate=2e-5,full_parameter_training=True,
                 focus_boundary_training_rows=sum(r.get('source')=='focus_boundary_contrasts_v9' for r in train),
+                time_scope_training_rows=sum(r.get('source')=='time_scope_contrasts_v9' for r in train),
                 trainable_parameters=sum(p.numel() for p in model.parameters()),
                 sampling='Equal expected mass for each formal/conversational x binary-label stratum; replacement; seed922.',
                 base_weights_sha256=weight_hash)

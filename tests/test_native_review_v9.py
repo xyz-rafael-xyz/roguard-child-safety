@@ -35,3 +35,21 @@ def test_new_focus_families_preserve_the_current_frame_and_distinguish_task_diff
             assert target(row) == 0
         else:
             assert target(row) == 1
+
+
+def test_time_variants_preserve_review_target_and_training_family():
+    from collections import defaultdict
+    from training.focus_boundary_contrasts_v9 import generate as focus
+    from training.time_scope_contrasts_v9 import generate
+    from training.prepare_instruction_sft_v8 import target
+    from training.review_data_v8 import input_key
+    rows = generate()
+    assert len({input_key(r) for r in rows}) == len(rows)
+    families = {r['family'] for r in focus()}
+    times = defaultdict(set)
+    for row in rows:
+        assert row['family'] in families
+        assert target(row) == int(row['attributes']['concern'])
+        assert row['turns'][row['focus']]['role'] == 'minor'
+        times[row['family']].add(row['attributes']['time'])
+    assert all(values == {'CURRENT', 'PAST'} for values in times.values())
