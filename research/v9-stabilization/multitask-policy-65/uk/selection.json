@@ -1,0 +1,118 @@
+{
+  "created_utc": "2026-10-18T22:10:20.682964+00:00",
+  "selected": {
+    "mode": "independent",
+    "threshold": 0.4019619988427825,
+    "metrics": {
+      "formal": {
+        "rows": 2000,
+        "positive": 587,
+        "negative": 1413,
+        "missed": 3,
+        "false_reviews": 165,
+        "abstentions": 0,
+        "recall": 0.9948892674616695,
+        "false_review_rate": 0.11677282377919321,
+        "passes": false
+      },
+      "conversational": {
+        "rows": 387,
+        "positive": 164,
+        "negative": 223,
+        "missed": 1,
+        "false_reviews": 8,
+        "abstentions": 0,
+        "recall": 0.9939024390243902,
+        "false_review_rate": 0.03587443946188341,
+        "passes": true
+      }
+    },
+    "rank": [
+      1,
+      0.11677282377919321,
+      0.1526472632410766,
+      0
+    ]
+  },
+  "trials": [
+    {
+      "mode": "independent",
+      "threshold": 0.4019619988427825,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 165,
+          "abstentions": 0,
+          "recall": 0.9948892674616695,
+          "false_review_rate": 0.11677282377919321,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 8,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.03587443946188341,
+          "passes": true
+        }
+      },
+      "rank": [
+        1,
+        0.11677282377919321,
+        0.1526472632410766,
+        0
+      ]
+    },
+    {
+      "mode": "pair-coupled",
+      "threshold": 0.06566404622811325,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 210,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.14861995753715498,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 13,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.05829596412556054,
+          "passes": false
+        }
+      },
+      "rank": [
+        1,
+        0.14861995753715498,
+        0.20691592166271552,
+        1
+      ]
+    }
+  ],
+  "artifact_sha256": "632fa32e09f9a52bbe3b9a3d4740bc874ef34d3cb8e258d23e6382d7f8decc87",
+  "parent_selection_sha256": "a917ed730b3a66c87841d2200b46b3bd5af8095dd09034e387e06d4f06230d3c",
+  "parent_heads_sha256": "632fa32e09f9a52bbe3b9a3d4740bc874ef34d3cb8e258d23e6382d7f8decc87",
+  "parent_development_predictions_sha256": "38ff16ec84cba98e8c31a2ac68c1ff354099f5b764925651e097e568b79a8946",
+  "data_hashes": {
+    "train": "101d1d712d2a070582cdf0d6cc45c97dc4e8cc8b41aaf0c4c07021afa717fdd8",
+    "dev": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626"
+  },
+  "calibration_used_for_selection": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

@@ -807,6 +807,17 @@ from study54. Selection uses development counts; study62 checks the existing
 wheel. Study63 can open reserved inputs only if both languages pass. This is a
 multitask training comparison, not a claim of a new general learning algorithm.
 
+Study62 confirms exact decision parity for both direct-review models, but neither
+passes accuracy. Romanian calibration has 14/614 formal misses and 241/1,386
+false reviews, plus 0/216 conversational misses and 25/243 false reviews.
+Ukrainian selection retains the initial checkpoint: its later checkpoints have
+an all-review cutoff under the original fixed numerical-margin rule. Calibration
+has 0/614 formal misses and 1,365/1,386 false reviews, plus 3/164 conversational
+misses and 165/223 false reviews. Study63 remains unopened. Before study66 starts,
+a recorded amendment replaces the absolute threshold margin with the highest
+score-gap midpoint preserving the same recall budget. Actual installed decision
+parity remains mandatory; a midpoint is not an assumed device-error bound.
+
 Policy continuation27 completed its training, but its first checkpoint-selection
 attempt stopped before neural inference because the decoder's output parent
 directory was absent. The selector now creates that directory. Recovery60 pins
@@ -828,6 +839,10 @@ and no conversational errors. Calibration still fails: 12/614 formal misses
 with 99/1,386 false reviews, and 0/216 conversational misses with 36/243 false
 reviews. This is cached research inference; it has not qualified a deployed
 semantic model.
+
+Study65's Ukrainian auxiliary path reproduces study54's selected representation:
+calibration has 13/614 formal misses and 284/1,386 false reviews, and 2/164
+conversational misses with 40/223 false reviews. It also fails qualification.
 
 Study66 targets two observed regression gaps: denial wording and a later turn
 clarifying that a statement belongs to fiction. Each language receives 5,184

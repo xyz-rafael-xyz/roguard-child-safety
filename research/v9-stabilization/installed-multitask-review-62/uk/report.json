@@ -1,0 +1,87 @@
+{
+  "format": "roguard-installed-native-replay-v1",
+  "device": "cpu",
+  "synthetic_only": true,
+  "language": "uk",
+  "selection_sha256": "a917ed730b3a66c87841d2200b46b3bd5af8095dd09034e387e06d4f06230d3c",
+  "installed_version": "9.0.0a1",
+  "installed_module": "/private/var/folders/0j/b_fb5kn50zx3fc59m6lpkz8h0000gn/T/roguard-multitask-review-61-pcrpz8m5/installed/roguard/native_review.py",
+  "runtime_source_sha256": "38a9c8b866680265d485b1ea49c0652d82b57d5cc58f00f38291fc2fa0b0de83",
+  "wheel_sha256": "bf3c1c274790687fca6994f38ecf831373f7bc844835f3ec03865c3a140da18a",
+  "artifact_sha256": "3874025bbc91d3bb52a88e6c6bf9b1da9208498f4514d18abb3b4576a741d7f2",
+  "splits": {
+    "dev": {
+      "rows": 2387,
+      "input_sha256": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+      "reference_sha256": "38ff16ec84cba98e8c31a2ac68c1ff354099f5b764925651e097e568b79a8946",
+      "seconds": 60.641683207824826,
+      "abstentions": 0,
+      "max_score_error": 3.8743019104003906e-07,
+      "decision_disagreements": 0,
+      "counts": {
+        "formal": {
+          "abstentions": 0,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 1295,
+          "recall": 0.9982964224872232,
+          "false_review_rate": 0.916489738145789,
+          "passes": false
+        },
+        "conversational": {
+          "abstentions": 0,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 127,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.5695067264573991,
+          "passes": false
+        }
+      },
+      "parity_pass": true,
+      "accuracy_gates_pass": false
+    },
+    "cal": {
+      "rows": 2387,
+      "input_sha256": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+      "reference_sha256": "421ab17bc2f9c404a2ec06899061ebf95cbb3a334d96dca465f53a57bcc4082a",
+      "seconds": 54.55391966714524,
+      "abstentions": 0,
+      "max_score_error": 2.980232238769531e-07,
+      "decision_disagreements": 0,
+      "counts": {
+        "formal": {
+          "abstentions": 0,
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 1365,
+          "recall": 1.0,
+          "false_review_rate": 0.9848484848484849,
+          "passes": false
+        },
+        "conversational": {
+          "abstentions": 0,
+          "positive": 164,
+          "negative": 223,
+          "missed": 3,
+          "false_reviews": 165,
+          "recall": 0.9817073170731707,
+          "false_review_rate": 0.7399103139013453,
+          "passes": false
+        }
+      },
+      "parity_pass": true,
+      "accuracy_gates_pass": false
+    }
+  },
+  "maximum_score_tolerance": 0.0001,
+  "permitted_decision_disagreements": 0,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "complete": true,
+  "parity_pass": true,
+  "accuracy_gates_pass": false
+}
