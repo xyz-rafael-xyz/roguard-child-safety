@@ -346,3 +346,23 @@ then passed with socket access. Fourteen optional historical-artifact tests
 remain skipped. The pinned Gemma base files and training-library versions are
 recorded in `gemma4-base-manifest.json`; a reusable archive verifier compares
 every restored adapter tensor and its configuration against the source.
+
+`interpreter-full-21` will select the completed structured candidate with the
+lowest loss on that shared validation set and evaluate every existing
+development/calibration row. The 400-case screen is not treated as the final
+accuracy estimate. Passing this regression still requires the reserved fresh
+probes and integrated-runtime checks.
+
+`native-full-22` prepares a different capacity test: update all parameters of
+the pinned [Romanian BERT](https://huggingface.co/dumitrescustefan/bert-base-romanian-cased-v1)
+and [Ukrainian RoBERTa](https://huggingface.co/youscan/ukr-roberta-base) separately,
+using the language-specific historical training pool plus new contrasts.
+The Ukrainian base weights were downloaded and checked against their pinned
+SHA-256. Loading uses `weights_only=True`; selected outputs use safetensors.
+Three epochs, balanced sampling, optimizer settings and development selection
+are frozen before training. Romanian cedilla letters are canonicalized to the
+comma forms required by that base's model card. No language-specific accuracy
+result is claimed yet; upstream model cards do not establish child-safety
+performance. Full checkpoints remain local until a candidate warrants
+distribution. A manifest binds each selected checkpoint, and all development
+scores must replay after reloading it before calibration is evaluated.
