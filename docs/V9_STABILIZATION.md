@@ -864,3 +864,7 @@ decisions are compared with the same rule applied to actual installed study67
 neural outputs. Both decision and interpretation parity must be exact, and the
 same per-language/per-group accuracy gates apply. This separates semantic
 interpretation errors from errors introduced by integrating marginal scores.
+Study70 performs actual installed categorical inference on the reserved probes
+only if both study69 language reports pass all of those checks. It runs before
+interpreter recovery to preserve serial model execution. A failed qualification
+skips reserved inference and leaves the probes unopened.
