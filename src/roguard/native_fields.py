@@ -16,7 +16,9 @@ FIELDS=tuple(ONTOLOGY)
 SIZES=tuple(len(ONTOLOGY[f]) for f in FIELDS)
 
 
-def _number(v):return type(v) in (int,float) and math.isfinite(v)
+def _number(v):
+    # All fitted tensors use float32; reject overflow before loading the encoder.
+    return type(v) in (int,float) and -3.4028234663852886e38<=v<=3.4028234663852886e38 and math.isfinite(v)
 
 
 def factorized_review_mass(values):
@@ -106,7 +108,7 @@ class NativeFieldsModel:
         for name in ('mean','scale'):
             if not isinstance(spec[name],list) or len(spec[name])!=1536 or any(not _number(v) for v in spec[name]):
                 raise ValueError('Invalid feature normalization')
-        if (any(v<=0 for v in spec['scale']) or not _number(spec['threshold']) or not 0<=spec['threshold']<=1
+        if (any(v<1e-6 for v in spec['scale']) or not _number(spec['threshold']) or not 0<=spec['threshold']<=1
                 or not isinstance(spec['weights'],dict)):raise ValueError('Invalid head parameters')
         shapes=({'weight':(sum(SIZES),1536),'bias':(sum(SIZES),)} if spec['hidden']==0 else
                 {'0.weight':(256,1536),'0.bias':(256,),'3.weight':(sum(SIZES),256),'3.bias':(sum(SIZES),)})

@@ -40,7 +40,8 @@ def test_prefix_binding_and_context_abstention(tmp_path,monkeypatch):
 
 @pytest.mark.parametrize('change',[lambda v:v.update(policy_digest='0'*64),
     lambda v:v['weights'].update(bias=[True]*17),lambda v:v['scale'].__setitem__(0,0),
-    lambda v:v['weights']['weight'][0].pop(),lambda v:v.update(threshold=float('nan'))])
+    lambda v:v['weights']['weight'][0].pop(),lambda v:v.update(threshold=float('nan')),
+    lambda v:v['weights']['weight'][0].__setitem__(0,1e100),lambda v:v['scale'].__setitem__(0,1e-100)])
 def test_invalid_artifact_rejected_before_model_loading(tmp_path,monkeypatch,change):
     value=spec();change(value)
     with pytest.raises(ValueError):load(tmp_path,monkeypatch,value)
