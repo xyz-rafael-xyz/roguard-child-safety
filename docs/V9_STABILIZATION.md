@@ -868,3 +868,16 @@ Study70 performs actual installed categorical inference on the reserved probes
 only if both study69 language reports pass all of those checks. It runs before
 interpreter recovery to preserve serial model execution. A failed qualification
 skips reserved inference and leaves the probes unopened.
+
+Study71 isolates a Romanian checkpoint-selection tradeoff observed during
+study66 development. All three checkpoints pass the review gates, but the final
+checkpoint lowers mean semantic loss from 0.26681 to 0.21425 while increasing
+formal false reviews from 29 to 45 (both below the allowed limit). Study66 keeps
+the initial checkpoint under its original ranking. Study71 repeats the same
+Romanian training data, initialization and seed, choosing lower semantic loss
+among checkpoints that already pass both review gates. Failed checkpoints cannot
+outrank a passing one. It also retains raw intermediate checkpoints locally for
+reproducibility. Study72 repeats actual installed Romanian inference; Ukrainian
+qualification reuses study66/67 without claiming another training run. Study73
+opens reserved inputs only if both language candidates qualify. Calibration is
+still reused regression evidence.

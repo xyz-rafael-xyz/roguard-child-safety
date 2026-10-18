@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-18T22:23:39.163040+00:00",
+  "language": "ro",
+  "rationale": "All66Romanian checkpoints pass DEV99/5. FinalfieldNLL.21425 improves overinitial.26681, but66selectsinitialfor29versus45formalfalse reviews. Test selecting semantic quality among already-passing checkpoints.",
+  "training": "Exact66Romanian data, seed966, initialization61, oneepoch, batch8, last4layers and6headCE. No newlanguage data or calibration observations used for this selection change.",
+  "selection": "PassingbothDEVgroups always outranksfailure. Amongpassingcheckpoints minimizeunweighted6fieldNLL, thenworst/totalfalse-reviewrate andearlierstep. Failedcandidatesretain66rank. Retainrawencoderandheadcheckpointsforreproducibility.",
+  "uk": "Reuse66Ukrainian selectedmodel andactualinstalled67evidence; do not claim an additional Ukrainian training run.",
+  "runtime": "Actualinstalled72fullRODEV/CAL, pairedwithUK67. Conditional73actualreservedinference onlyifbothlanguagecandidatespass unchangedgates.",
+  "reserved": "Same fixedprobes; allrecipesfrozenbeforeanyreserved predictions. Relatedsyntheticobservations,notpopulationaccuracy.",
+  "calibration_is_reused_regression_evidence": true,
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "deadline_reserve_seconds": 5100
+}
