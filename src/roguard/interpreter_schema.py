@@ -36,6 +36,8 @@ def aligned_tokens(tokenizer, prompt, values):
 
 
 def chat(turns):
-    normalized = [dict(t, text=unicodedata.normalize('NFC', t['text'])) for t in turns]
+    # JSON object insertion order is not part of the conversation's meaning or
+    # input digest. Keep prompt bytes independent of caller key order.
+    normalized = [{'role': t['role'], 'text': unicodedata.normalize('NFC', t['text'])} for t in turns]
     payload = json.dumps({'prior_turns': normalized[:-1], 'focal_message': normalized[-1]}, ensure_ascii=False)
     return [{'role': 'system', 'content': POLICY}, {'role': 'user', 'content': payload}]

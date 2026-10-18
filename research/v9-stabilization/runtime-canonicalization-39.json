@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-10-18T18:21:55.565296+00:00",
+  "issue": "Caller insertion order of role/text keys changed prompt serialization while sorted-key input digests stayed equal.",
+  "fix": "Canonical role,text message keys before NFC chat serialization; contract digest now explicitly binds this serialization.",
+  "new_contract_digest": "f94113a2706a7f4586e6d7cdc46543c59b2ded1ef08096a4a57b0ae31585f791",
+  "populations": {
+    "research/v9-stabilization/interpreter-14/train.jsonl": {
+      "rows": 2000,
+      "input_sha256": "b106147a8e41eb738a671874611311d388de3cc5ceed7847c2f6008397aa8192",
+      "all_prompts_identical": true,
+      "prompts_sha256": "bfaa86230a6da8d2f827960ca6d975093627bfb5c22076df1ef96910a281d367"
+    },
+    "research/v9-stabilization/interpreter-14/valid.jsonl": {
+      "rows": 80,
+      "input_sha256": "57201d798546e549feaf039bce7fe86dda94d96b6c834eaf6e8bd4cdff5f1dde",
+      "all_prompts_identical": true,
+      "prompts_sha256": "0b0b22a523407d178011916d78b3f5be464cc6d07e95e52f4c08d6d42c8c8d3a"
+    },
+    "research/v9-stabilization/interpreter-policy-27/train.jsonl": {
+      "rows": 1024,
+      "input_sha256": "bcb1c03e11e6caf8c169be929ee7ccf9a2430f75cdab46e2adb0ca7d6f46b49b",
+      "all_prompts_identical": true,
+      "prompts_sha256": "b951e9f03c0b14dcd67207a0ef584ff2e20f41ac09c4f772323ce28f93d82eec"
+    },
+    "research/v9-stabilization/interpreter-policy-27/valid.jsonl": {
+      "rows": 80,
+      "input_sha256": "57201d798546e549feaf039bce7fe86dda94d96b6c834eaf6e8bd4cdff5f1dde",
+      "all_prompts_identical": true,
+      "prompts_sha256": "0b0b22a523407d178011916d78b3f5be464cc6d07e95e52f4c08d6d42c8c8d3a"
+    },
+    "research/v8-stabilization/review-09-ro/dev.jsonl.gz": {
+      "rows": 4845,
+      "input_sha256": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+      "all_prompts_identical": true,
+      "prompts_sha256": "159a839cf64ea065b47a73d05cce4c3f8d049637fefec314a14a87a39bc8c7d9"
+    },
+    "research/v8-stabilization/review-09-ro/cal.jsonl.gz": {
+      "rows": 4846,
+      "input_sha256": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+      "all_prompts_identical": true,
+      "prompts_sha256": "c9167b517f80a92c9ce7d2f55bd2b687769c4e6dfd4464ffdc7a74ecb571df1b"
+    },
+    "research/v8-stabilization/instruction-sft-01/screen.jsonl": {
+      "rows": 400,
+      "input_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+      "all_prompts_identical": true,
+      "prompts_sha256": "c36470c5fe8122b646addca6319e49a064522861088bbdae9231d3486a117f40"
+    }
+  },
+  "training_code_or_data_changed": false,
+  "reserved_inputs_used": false,
+  "neural_inference_run": false,
+  "stable_release_ready": false,
+  "previous_contract_digest": "08c844dacec8af5b90030d2f6bb170706f959cb20a21a79405a43be8a5516a00",
+  "affected_pending_replays": [
+    30,
+    37,
+    38
+  ],
+  "amended_before_installed_neural_replay": true
+}

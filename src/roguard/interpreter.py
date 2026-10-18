@@ -22,6 +22,7 @@ from .interpreter_schema import FIELDS, POLICY, aligned_tokens, chat
 _INFERENCE_LOCK = threading.RLock()
 CONTRACT_DIGEST = hashlib.sha256(json.dumps(dict(fields=FIELDS, ontology=ONTOLOGY,
     policy=POLICY,
+    serialization='selected-prefix; canonical role,text keys; NFC text; prior_turns then focal_message; ensure_ascii=False',
     decoder='conditional-greedy-full-vocabulary-validity-float32-v1'),
     sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 

@@ -154,3 +154,11 @@ fusion result or accuracy improvement is claimed yet. Twelve focused tests pass,
 including exact feature/scoring compatibility with the frozen research code.
 Any completed artifact remains experimental until its separate accuracy and
 actual-runtime requirements pass.
+
+Message-object key order is canonicalized before prompt construction. Reordering
+`role` and `text` therefore cannot change the prompt while retaining the same
+input digest. The interpretation contract includes this serialization rule.
+All 13,275 row presentations in the frozen training/evaluation populations
+retained byte-identical prompts after this fix; this check did not run neural
+inference. The correction and updated pending-replay hashes are recorded in
+[`runtime-canonicalization-39.json`](../research/v9-stabilization/runtime-canonicalization-39.json).

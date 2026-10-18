@@ -66,6 +66,13 @@ def test_future_content_cannot_change_interpretation_or_digest(engine):
     assert not a['permits_external_action'] and not a['permits_notification']
 
 
+def test_message_key_order_cannot_change_prompt_or_input_binding(engine):
+    a = payload()
+    b = dict(language=a['language'], turns=[{'text': t['text'], 'role': t['role']} for t in a['turns']])
+    assert chat(a['turns']) == chat(b['turns'])
+    assert engine['model'].predict(a) == engine['model'].predict(b)
+
+
 @pytest.mark.parametrize('concern', ['0', '1'])
 def test_invalid_full_vocabulary_token_is_always_an_abstention(engine, concern):
     engine['result'] = decoded(concern, valid=False)
