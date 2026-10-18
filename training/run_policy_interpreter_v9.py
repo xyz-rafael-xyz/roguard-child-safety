@@ -28,6 +28,18 @@ def main():
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                     break
         time.sleep(10)
+    # Native-head extraction and installed replay now run first. Keep all
+    # substantial model loads serialized even though the head fitting is small.
+    while time.time() < deadline:
+        previous = root/'installed-native-fields-45/run-status.json'
+        if previous.exists():
+            previous_status = json.loads(previous.read_text())
+            if ('finished_utc' in previous_status and time.time() >
+                    datetime.fromisoformat(previous_status['finished_utc']).timestamp()+15):
+                break
+        time.sleep(10)
+    else:
+        raise TimeoutError('Authorized work window ended')
     for path, digest in json.loads((study/'source-freeze.json').read_text()).items():
         if hashlib.sha256(Path(path).read_bytes()).hexdigest() != digest:
             raise ValueError('Frozen source changed: '+path)

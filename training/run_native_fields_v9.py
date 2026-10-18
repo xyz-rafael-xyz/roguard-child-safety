@@ -1,4 +1,4 @@
-"""Run the frozen interpretation-head fallback after installed neural replay."""
+"""Run frozen interpretation heads after adaptive decoding, before continuation."""
 import argparse
 from datetime import datetime,timezone
 import hashlib
@@ -15,33 +15,33 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--ro-base',required=True);p.add_argument('--uk-base',required=True);a=p.parse_args()
     root=Path('research/v9-stabilization');study=root/'native-fields-43'
     deadline=datetime.fromisoformat(json.loads((root/'work-window.json').read_text())['deadline_utc'].replace('Z','+00:00')).timestamp()
-    def wait(name):
+    def wait_for_decoding():
         while time.time()<deadline:
-            path=root/name/'run-status.json'
+            path=root/'policy-decode-16/run-status.json'
             if path.exists():
                 try:value=json.loads(path.read_text())
                 except json.JSONDecodeError:time.sleep(1);continue
-                if 'finished_utc' in value and time.time()>datetime.fromisoformat(value['finished_utc']).timestamp()+15:return value
+                jobs=value.get('jobs',[])
+                if jobs and (len(jobs)==2 or jobs[-1]['exit_code']!=0 or value.get('adapted_skipped')):
+                    if time.time()>datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:return value
             time.sleep(10)
         raise TimeoutError('Authorized work window ended')
-    wait('installed-interpreter-30');wait('review-fusion-36')
+    wait_for_decoding()
     for path,expected in json.loads((study/'source-freeze.json').read_text()).items():
         if hashlib.sha256(Path(path).read_bytes()).hexdigest()!=expected:raise ValueError('Frozen native-field source changed: '+path)
     status=dict(jobs=[],stable_release_ready=False,reserved_probes_used=False)
     def save():
         temp=study/'run-status.tmp';temp.write_text(json.dumps(status,indent=2)+'\n');temp.replace(study/'run-status.json')
-    fusion=[root/'review-fusion-36'/language/'audit.json' for language in ('ro','uk')]
-    if all(p.exists() and json.loads(p.read_text()).get('counts_pass') is True for p in fusion):
-        status['skipped']='Fusion accuracy qualifies for the reserved path; prioritize that verification.'
-    elif deadline-time.time()<3600:
+    if deadline-time.time()<3600:
         status['skipped']='Less than one hour remains; preserve time for active qualification and final reporting.'
     else:
         logs=Path(tempfile.gettempdir())/'roguard-v9-window';logs.mkdir(exist_ok=True)
         env=dict(os.environ,PYTORCH_MPS_HIGH_WATERMARK_RATIO='.7',PYTORCH_MPS_LOW_WATERMARK_RATIO='.4',
                  TOKENIZERS_PARALLELISM='false',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
         for language,base in (('ro',a.ro_base),('uk',a.uk_base)):
-            report=root/'installed-native-29'/language/'report.json'
-            if not report.exists() or json.loads(report.read_text()).get('parity_pass') is not True:
+            report=root/('native-full-22-'+language)/'development.json'
+            if (not report.exists() or not 0<=json.loads(report.read_text()).get(
+                    'selected_checkpoint_dev_replay_max_error',float('inf'))<=1e-5):
                 status.setdefault('skipped_languages',[]).append(language);continue
             for stage,command in (
                 ('features-fit',['training.extract_native_fields_v9','--stage','fit','--base',base]),

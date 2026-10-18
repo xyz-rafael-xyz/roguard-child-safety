@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-18T20:06:23.210753+00:00",
+  "reason": "Both native22 models fail calibration. Run the already frozen small-head comparison sooner to leave time for diagnosis and repair, instead of waiting for a full language-model evaluation.",
+  "order": [
+    "native22 complete",
+    "policy16",
+    "native-fields43",
+    "installed-native-fields45",
+    "policy27",
+    "full21",
+    "installed29",
+    "installed30"
+  ],
+  "changed": "Scheduling only.43 requires completed original checkpoint replay before extraction; its extraction checks parent logits itself. Full installed45 parity and accuracy remain mandatory before reserved46. Installed29 still runs later.43 no longer skips if fusion36 eventually qualifies.",
+  "unchanged": "All training inputs, feature definitions, architectures, optimization, selection rules, thresholds, calibration and reserved gates remain frozen.",
+  "information_available": "Both native22 calibration results had been observed before this scheduling amendment. No43 feature extraction or head fitting had started. No reserved neural predictions exist.",
+  "safety": "Read-only process checks verified no children, zero-byte logs and no started-job status for both coordinators before replacing the idle wrappers. Active policy16 inference was not interrupted.",
+  "stable_release_ready": false
+}

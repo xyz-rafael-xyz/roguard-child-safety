@@ -588,7 +588,7 @@ family independence, pretraining independence or real-world accuracy. Sources
 and results are in `reserved-input-identities-40.json` and the
 `reserved-token-overlap-41-*-v2.json` records.
 
-### Completed native Romanian run
+### Completed native language runs
 
 Native-22 Romanian completed three epochs and selected epoch 2.5 using the
 frozen development rule. Reloaded development scores match exactly. Calibration
@@ -596,8 +596,16 @@ misses 0/614 formal and 0/216 conversational concerns, but produces 241/1,386
 formal false reviews (17.39%) and 7/243 conversational false reviews (2.88%).
 It fails the formal false-review requirement. The development-only threshold-34
 comparison finds no eligible alternative and retains the original artifact.
-These results do not qualify the model for stable release. Ukrainian training
-and the structured interpretation comparison remain in progress.
+These results do not qualify the model for stable release.
+
+Ukrainian completed three epochs and selected epoch 1.5. Development passes both
+strata: 5/587 formal and 1/164 conversational concerns missed, with 6/1,413 and
+2/223 false reviews respectively. Reloaded scores match exactly. Calibration
+passes formal counts (4/614 missed, 4/1,386 false reviews) but misses 26/164
+conversational concerns, with 2/223 false reviews. The threshold-34 comparison
+retains the original artifact and does not repair that failure. The difference
+between development and calibration is a remaining generalization gap; neither
+native candidate qualifies for stable release. Structured alternatives continue.
 
 The policy, full-regression and installed-interpreter coordinators now record
 terminal setup failures atomically, preserving earlier job history. Dependent
@@ -615,7 +623,7 @@ probes would still not establish real-world population accuracy.
 
 ### Native interpretation-head fallback
 
-`native-fields-43` is a predeclared fallback if the fusion comparison still fails.
+`native-fields-43` is a predeclared alternative to the fusion comparison.
 It reuses each frozen native encoder and trains six small categorical heads on
 the existing training labels. Features combine the final CLS representation and
 the focal message's mean token representation. The model learns subject, time,
@@ -627,9 +635,11 @@ A fixed linear/256-unit comparison uses development-only checkpoint selection,
 then reloads exported weights before the separate calibration audit. Native
 encoder selection already used development; this is not untouched end-to-end
 validation. The original 99% recall and 5% false-review limits remain unchanged.
-The fallback waits until the installed-runtime queue finishes and runs only if
-the fusion accuracy requirements remain unmet and enough work-window time
-remains. Tokenizer preflight covers all 44,105 training inputs without truncation.
+It was initially queued after fusion. Once both native classifiers failed
+calibration, a scheduling-only amendment moved head fitting and its installed
+replay ahead of the language-model continuation. This leaves more time to act
+on the result. Training and selection settings are unchanged, and substantial
+model loads remain sequential. Tokenizer preflight covers all 44,105 training inputs without truncation.
 No fitted-head accuracy or stable-release eligibility is claimed yet.
 
 Before fitting native-fields-43, a second amendment binds exported heads to the
