@@ -841,3 +841,11 @@ Both tokenizer overlap audits find zero exact training/reserved input overlap,
 which does not establish semantic independence or real-world accuracy. Study67
 requires actual installed CPU replay; study68 remains conditional on both
 languages passing the unchanged accuracy and parity gates.
+
+Study69 predeclares a fixed categorical comparison on study66's selected
+checkpoint: take each head's highest-scoring label and apply the existing
+policy. It introduces no threshold fit or new checkpoint choice. Research
+decisions are compared with the same rule applied to actual installed study67
+neural outputs. Both decision and interpretation parity must be exact, and the
+same per-language/per-group accuracy gates apply. This separates semantic
+interpretation errors from errors introduced by integrating marginal scores.

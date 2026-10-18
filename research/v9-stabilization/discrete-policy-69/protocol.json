@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-18T22:12:10.420554+00:00",
+  "comparison": "Fixed argmax of each native semantic field followed by existing disposition policy, using66selected encoder. No probability threshold or additional tuning.",
+  "motivation": "On61Romanian calibration, categorical policy has only2formal misses but many recognizable negation/fiction false alerts;66targets these semantic confusions. Compare whether corrected interpretations suffice without integrating independent marginal uncertainty.",
+  "frozen_before_scope66_predictions": true,
+  "parent_checkpoint_selection": "Unchanged66development selection;69does not choose a different checkpoint.",
+  "evaluation": "Full DEV/CAL research field outputs, followed by pure-policy replay of actual installed67neural outputs from the isolated67wheel. Zero decision and interpretation changes, zero abstentions and field error<=1e-4. Same99%recall/5%false reviews in both groups and languages.",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

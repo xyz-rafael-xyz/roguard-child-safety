@@ -88,3 +88,23 @@ semantic or combined bundles to their respective loaders. For a direct binary
 from `assets`. The same `load_bundle` Python API returns a model supporting
 `predict` and `predict_many` in all three cases. This chooses the runtime declared
 by the pinned manifest; it does not choose a model or certify its accuracy.
+
+## Fixed categorical policy comparison
+
+The source checkout also provides `DiscreteFieldsModel` for an explicitly
+selected native semantic model. It applies the declared policy directly to the
+highest-scoring label in each field, instead of using a probability-mass cutoff:
+
+```python
+from roguard.discrete_fields import DiscreteFieldsModel
+from roguard.native_field_bundle import load_bundle
+
+model = DiscreteFieldsModel(load_bundle("bundle/bundle.json", expected_sha256=trusted_bundle_digest))
+proposal = model.predict(conversation)
+```
+
+This is a separate experimental decision path with a distinct model identity.
+It preserves context-limit abstentions and validates the source report's input,
+model, policy and field bindings. It does not authenticate the report producer.
+Study69 compares both languages against the unchanged accuracy gates and checks
+the policy on actual installed neural outputs; it is not an approved default.
