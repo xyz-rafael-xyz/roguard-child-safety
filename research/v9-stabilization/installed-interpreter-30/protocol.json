@@ -1,0 +1,20 @@
+{
+  "format": "roguard-installed-interpreter-protocol-v1",
+  "created_utc": "2026-10-18T17:03:06.904862+00:00",
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "selection": "Use exactly the full21 selected archive, chosen by shared validation loss; no runtime-based model selection.",
+  "population": "The existing400-case development screen. Reused validation examples, not fresh accuracy evidence.",
+  "installation": "Locally built wheel installed into isolated target; every runtime import must come from that target.",
+  "parity_gate": {
+    "decision_changes": 0,
+    "interpretation_changes": 0,
+    "validity_changes": 0,
+    "unexpected_context_abstentions": 0,
+    "maximum_conditional_probability_error": 0.001
+  },
+  "precision": "Pinned quantized4B base with float32 adapter/activation path; strict six-field greedy conditional decoding, global-vocabulary top token must be allowed for each field.",
+  "input_scope": "Selected prefix only; NFC exactly as training; no semantic casing normalization or silent truncation.",
+  "execution": "After installed-native-29 finishes; serialized with GPU training; bounded by the original12-hour deadline."
+}

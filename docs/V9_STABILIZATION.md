@@ -473,3 +473,10 @@ replays every native development/calibration case on CPU. Parity requires zero
 changed decisions, zero abstentions and maximum score error at most 0.0001.
 Accuracy requirements are checked separately, including counting abstentions
 as errors. This phase has no result yet and publishes no wheel or release.
+
+The [structured interpreter API](INTERPRETER_RUNTIME.md) is also implemented
+for explicit local adapters, with the frozen training prompt, conditional
+decoding and full-vocabulary validity check. Its separate
+`installed-interpreter-30` replay will compare all 400 screen interpretations,
+validity flags and decisions with the selected research adapter. Unit tests
+pass, but the neural runtime replay remains pending.
