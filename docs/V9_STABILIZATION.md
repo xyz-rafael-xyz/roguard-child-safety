@@ -556,3 +556,27 @@ Four focused tests passed for feature provenance, invalid probability rejection,
 connected fold grouping and abstention handling. A separate NumPy numerical
 smoke check converged at all four predeclared regularization strengths. The
 CPU-only runner waits for complete neural predictions and loads no neural model.
+
+### Reserved input identity audit (studies40–41)
+
+The three reserved files contain 384 rows, but only **233 distinct raw selected
+conversation prefixes** and **176 distinct normalized inputs** in combination.
+Their binary labels do not conflict on repeated inputs. Within-file duplicates
+and overlaps between files mean these are not 384 independent observations.
+The earlier overlap audit reported cross-file intersections, not the total
+number of unique inputs; subtracting that intersection alone would overcount.
+
+The actual Romanian tokenizer maps its 192 reserved rows to **56 distinct token
+inputs** across the three files. None overlaps the 23,328 token inputs in its
+training history. The shared interpreter has 176 distinct reserved token inputs
+and zero overlaps with its 2,980-row transitive training history. Neither history
+has conflicting binary targets for identical token inputs. The Ukrainian native
+audit remains pending until its training history is materialized.
+
+These checks load verified tokenizers only, without neural inference or message
+text in their reports. The interpreter identity excludes the declared language
+because that field is not in its prompt; v2 audit files correct the initial
+language-scoped identity. Exact token non-overlap does not establish semantic
+family independence, pretraining independence or real-world accuracy. Sources
+and results are in `reserved-input-identities-40.json` and the
+`reserved-token-overlap-41-*-v2.json` records.
