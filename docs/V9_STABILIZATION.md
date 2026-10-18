@@ -276,3 +276,30 @@ The supervised transfer trials remain separate, unmeasured experiments.
 The NLI queue's pre-training dependency handling was corrected to continue when
 an earlier adapted comparison is explicitly skipped; training settings did not
 change, and the runner source hash was refreshed before it started training.
+
+`attention-12-ro` completed both epochs and selected the first. Calibration has
+no missed concerns but 262/1,386 formal and 50/243 conversational false reviews;
+it does not qualify. Its second epoch worsened development false reviews.
+
+### Execution corrections before structured training
+
+The Gemma 12B screen was interrupted for performance diagnosis, first with the
+generic scorer and then with bounded final-token projection. Both partial sets
+are explicitly marked interrupted; neither is a completed accuracy benchmark.
+Float32 scoring often took approximately 30–35 seconds per example on this
+16 GB M1 Pro. Lower-precision probes changed scores; float16 changed important
+classifications. Those results do not justify a numerical shortcut.
+
+The actual `interpreter-14` training configuration is therefore **v3: Gemma 3
+4B in float32**, selected before any interpreter training. The same 2,000
+training inputs, 80 validation inputs, class-token loss and 400-case comparison
+remain. The adaptive policy comparison uses that same 4B base. Earlier 12B
+configurations are retained as superseded plans. The trainer now handles the
+actual `language_model` wrapper, and the bounded adapter archive recognizes the
+pinned wrapper names and dimensions for both bases. Final-token projection is
+checked against the complete model output path before scoring continues.
+
+`kernel-19` is a separate CPU-only control: four nonlinear RBF decision heads
+on existing semantic feature caches, with input-identity checks and the exact
+current development/calibration populations. Even a passing cached result would
+require independent encoder replay. No reserved probe is used.

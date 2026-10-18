@@ -1,0 +1,10 @@
+{
+  "prior_attempt": "gemma12-screen-13",
+  "reason": "about 35 seconds per case; full vocabulary output over every prompt token and unbounded MLX allocation cache",
+  "change": "Gemma-specific final-token projection; 512 MiB allocator cache; full-path equivalence verified on first two cases",
+  "floating_compute_dtype": "float32 unchanged",
+  "dataset": "same fixed 400 development cases",
+  "started_before_interpreter_training": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

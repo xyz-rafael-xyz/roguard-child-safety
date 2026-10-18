@@ -8,6 +8,7 @@ import time
 from training.semantic_interpreter_v9 import FIELDS,aligned_tokens,chat
 from training.prepare_instruction_sft_v8 import target
 from roguard.evidence import ONTOLOGY,disposition
+from training.gemma_projection_v9 import language_model,last_logits
 
 
 def main():
@@ -31,14 +32,14 @@ def main():
         common+=1
     common=min(common,min(p[0] for t,p in prepared)-1)
     prefix=make_prompt_cache(model)
-    if common:mx.eval(model(mx.array([prepared[0][0][:common]]),cache=prefix))
+    if common:mx.eval(language_model(model).model(mx.array([prepared[0][0][:common]]),cache=prefix))
     expected=[dict(case_id=r['case_id'],language=r['language'],gold=target(r),kind='conversational' if r.get('source')=='v7_training_frame_projection' else 'formal') for r in rows]
     predictions=[];field_correct={f:0 for f in FIELDS};start=time.monotonic();max_error=0.
     with (a.output/'predictions.jsonl').open('w') as out:
         for i,(row,(template,positions)) in enumerate(zip(rows,prepared)):
             tokens=list(template);cache=deepcopy(prefix);cursor=common;values={};probabilities={};valid=True
             for field,position in zip(FIELDS,positions):
-                logits=model(mx.array([tokens[cursor:position]]),cache=cache)[0,-1].astype(mx.float32)
+                logits=last_logits(model,mx.array([tokens[cursor:position]]),cache=cache)[0,-1].astype(mx.float32)
                 allowed=ids[:len(ONTOLOGY[field])];probs=mx.softmax(logits[mx.array(allowed)]);top=mx.argmax(logits)
                 mx.eval(probs,top)
                 if i<2:

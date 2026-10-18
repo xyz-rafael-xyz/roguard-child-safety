@@ -1,0 +1,11 @@
+{
+  "before_training": true,
+  "changes": [
+    "unwrap actual Gemma language_model wrapper for class-token loss",
+    "preserve actual language_model prefix in adapter archive",
+    "bound vocabulary projection to the evaluated token; verify against complete model output"
+  ],
+  "training_configuration": "config-v2.json unchanged",
+  "float_dtype": "float32 unchanged",
+  "accuracy_targets_changed": false
+}

@@ -1,0 +1,21 @@
+{
+  "method": "four RBF support-vector heads on cached semantic context+focus features",
+  "parameters": {
+    "C": [
+      1,
+      10
+    ],
+    "gamma": [
+      0.01,
+      0.05
+    ]
+  },
+  "selection": "development per-language cutoff keeps >=99% concern recall in both kinds; minimize maximum then summed false-review rates",
+  "training_source": "review-01 training inputs, normalized duplicates removed; no overlap with current development/calibration",
+  "evaluation_population": "exact current review-09-ro development/calibration rows",
+  "encoder": "semantic-05 frozen encoder; source artifact and cache-input identities verified",
+  "promotion_requires": "independent fresh encoder replay plus remaining frozen probes/runtime checks",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

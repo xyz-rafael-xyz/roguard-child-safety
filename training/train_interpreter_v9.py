@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 from training.semantic_interpreter_v9 import aligned_tokens, answer, chat
+from training.gemma_projection_v9 import language_model, project
 
 
 class InterpretationDataset:
@@ -46,9 +47,8 @@ def main():
         is_digit=mx.any(batch[:,:,None]==mx.array(digit_ids)[None,None,:],axis=-1)
         eligible=is_digit & (slots>=lengths[:,0,None]) & (slots<lengths[:,1,None])
         positions=mx.sort(mx.where(eligible,slots,batch.shape[1]),axis=1)[:,:6]
-        hidden=model.model(batch[:,:-1])[indices,positions-1,:]
-        tied=getattr(model,'tie_word_embeddings',getattr(model.args,'tie_word_embeddings',False))
-        logits=model.model.embed_tokens.as_linear(hidden) if tied else model.lm_head(hidden)
+        hidden=language_model(model).model(batch[:,:-1])[indices,positions-1,:]
+        logits=project(model,hidden)
         labels=batch[indices,positions]
         value=nn.losses.cross_entropy(logits.astype(mx.float32),labels,reduction='mean')
         return value,mx.array(batch.shape[0]*6)

@@ -1143,7 +1143,51 @@
         "time": 0.6575
       },
       "prerequisites_pass": false
+    },
+    "attention-12-ro": {
+      "language": "ro",
+      "training_rows": 10880,
+      "completed_epochs": 2,
+      "selected_epoch": 1,
+      "artifact_sha256": "fc0d1be7c2f293199371ca2c4ef2eace434bdd09c880387ceac078be26654352",
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 112,
+          "recall": 0.9982964224872232,
+          "false_review_rate": 0.07926397735314933
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 4,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.01652892561983471
+        }
+      },
+      "calibration": {
+        "ro_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 262,
+          "recall": 1.0,
+          "false_review_rate": 0.18903318903318903
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 50,
+          "recall": 1.0,
+          "false_review_rate": 0.205761316872428
+        }
+      },
+      "prerequisites_pass": false
     }
   },
-  "training_presentations": 148124
+  "training_presentations": 169884
 }

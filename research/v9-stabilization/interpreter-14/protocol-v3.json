@@ -1,0 +1,13 @@
+{
+  "before_training": true,
+  "actual_config": "config-v3.json",
+  "model": "mlx-community/gemma-3-text-4b-it-4bit",
+  "revision": "4f665a4c50ecfe4ecdc34056ab52fe3e3c4abf9e",
+  "reason": "12B float32 took about 30\u201335 seconds per screen case on this 16 GB M1 Pro; float16 changed classifications; keep float32 and use the completed 4B baseline model",
+  "training_rows": 2000,
+  "epochs_equivalent": 1,
+  "selection": "minimum loss on same full 80-example validation at each checkpoint",
+  "comparison": "unadapted and adapted 4B, same structured policy and 400 development cases",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

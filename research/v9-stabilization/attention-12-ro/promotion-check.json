@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/attention-12-ro",
+  "language_scope": "ro",
+  "artifact_sha256": "fc0d1be7c2f293199371ca2c4ef2eace434bdd09c880387ceac078be26654352",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 112/1413; maximum 5%",
+    "calibration/ro_formal: false reviews 262/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 50/243; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

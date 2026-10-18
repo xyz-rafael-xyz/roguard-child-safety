@@ -12,6 +12,7 @@ from roguard.review_evaluation import evaluate
 from training.policy_decode_v9 import decode
 from training.prepare_instruction_sft_v8 import target
 from training.semantic_interpreter_v9 import FIELDS, aligned_tokens, chat
+from training.gemma_projection_v9 import language_model, last_logits
 
 
 def main():
@@ -43,7 +44,7 @@ def main():
     common = min(common, min(p[0] for _, p in prepared)-1)
     common_cache = make_prompt_cache(model)
     if common:
-        mx.eval(model(mx.array([prepared[0][0][:common]]), cache=common_cache))
+        mx.eval(language_model(model).model(mx.array([prepared[0][0][:common]]), cache=common_cache))
     expected = [dict(case_id=r['case_id'], language=r['language'], gold=target(r),
                      kind='conversational' if r.get('source') == 'v7_training_frame_projection' else 'formal') for r in rows]
     a.output.mkdir(exist_ok=False)
@@ -66,7 +67,7 @@ def main():
                     cache_pool.move_to_end(parent)
                 else:
                     cache, offset = deepcopy(common_cache), common
-                logits = model(mx.array([tokens[offset:position]]), cache=cache)[0, -1].astype(mx.float32)
+                logits = last_logits(model, mx.array([tokens[offset:position]]), cache=cache)[0, -1].astype(mx.float32)
                 allowed = ids[:len(ONTOLOGY[field])]
                 probabilities = mx.softmax(logits[mx.array(allowed)])
                 top = mx.argmax(logits)

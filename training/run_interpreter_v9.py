@@ -24,7 +24,7 @@ def main():
         if hashlib.sha256(Path(path).read_bytes()).hexdigest()!=digest:raise ValueError('Frozen source changed: '+path)
     screen='research/v8-stabilization/instruction-sft-01/screen.jsonl'
     jobs=[('baseline',[sys.executable,'-m','training.evaluate_interpreter_v9','--base',a.base,'--data',screen,'--output',str(study/'baseline')]),
-          ('train',[sys.executable,'-m','training.train_interpreter_v9','--base',a.base,'--config',str(study/'config-v2.json')]),
+          ('train',[sys.executable,'-m','training.train_interpreter_v9','--base',a.base,'--config',str(study/'config-v3.json')]),
           ('adapted',[sys.executable,'-m','training.evaluate_interpreter_v9','--base',a.base,'--adapter',str(study/'selected-adapter'),'--data',screen,'--output',str(study/'adapted')]),
           ('archive',[sys.executable,'-m','training.archive_interpreter_v9','export','--input',str(study/'selected-adapter'),'--output',str(study/'selected-adapter.json.gz')])]
     logs=Path(tempfile.gettempdir())/'roguard-v9-window';logs.mkdir(exist_ok=True)
