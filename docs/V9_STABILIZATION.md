@@ -941,3 +941,18 @@ versus the cached single-message reference's 217.05 seconds (15.54% less time).
 This is not a controlled hardware benchmark or a production-runtime speed claim.
 The full research evaluation consequently uses batches of up to four equal-layout
 inputs. The installed interpreter remains separately checked.
+
+The first full batched run encountered severe resource pressure: only 32 cases
+completed over several minutes. Its partial outputs and selection are preserved
+in `interpreter-full-21/attempt-1`. A memory amendment changes the redundant
+uncached probe to run the full-context transformer and project only the final
+hidden state, avoiding a vocabulary-sized tensor at every context position.
+The actual decoder is unchanged. Adoption still requires a new complete 400-case
+comparison against the unchanged single-message reference. The original screen
+and source freezes are retained under `interpreter-batch-64/attempt-1` and the
+corresponding pre-amendment freeze files.
+
+The amended 400-case screen passed with the same prediction-file SHA-256 as
+the first batch screen, again zero decision/interpretation/validity changes and
+zero abstentions. Observed time was 175.86 seconds. The bounded uncached probe
+agreed within 0.000007332. Full evaluation restarted with this checked source.

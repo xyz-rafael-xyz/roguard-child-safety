@@ -49,6 +49,29 @@ def test_nonfinite_probabilities_rejected():
     with pytest.raises(ValueError):compare([old],[new])
 
 
+def test_uncached_probe_keeps_full_context_but_projects_one_position():
+    np=pytest.importorskip('numpy')
+    from training.gemma_projection_v9 import last_logits
+    seen=[]
+    weights=np.arange(35).reshape(5,7)
+    class Transformer:
+        def __init__(self):
+            self.embed_tokens=SimpleNamespace(as_linear=self.project)
+        def __call__(self,tokens,cache=None):
+            assert cache is None
+            seen.append(tokens.shape)
+            return np.repeat(np.cumsum(tokens,axis=1)[...,None],5,axis=-1)
+        def project(self,hidden):
+            assert hidden.shape[1]==1
+            return hidden@weights
+    model=SimpleNamespace(model_type='gemma3_text',model=Transformer(),tie_word_embeddings=True)
+    tokens=np.arange(24).reshape(2,12)
+    actual=last_logits(model,tokens)
+    reference=np.repeat(np.cumsum(tokens,axis=1)[...,None],5,axis=-1)@weights
+    assert seen==[(2,12)]
+    np.testing.assert_array_equal(actual,reference[:,-1:,:])
+
+
 def test_installed_mlx_cache_repetition_keeps_rows_separate():
     mx=pytest.importorskip('mlx.core')
     from mlx_lm.models.cache import KVCache, RotatingKVCache

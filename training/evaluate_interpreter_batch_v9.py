@@ -75,7 +75,10 @@ def main():
                 vectors=p.tolist();tops=top.tolist()
                 for j,i in enumerate(indices):
                     if i<2:
-                        full=model(mx.array([tokens[j][:position]]))[0,-1].astype(mx.float32)
+                        # The 400-case gate compares against full-model single decoding.
+                        # This additional probe needs uncached full context, not
+                        # a vocabulary-sized projection at every input position.
+                        full=last_logits(model,mx.array([tokens[j][:position]]))[0,-1].astype(mx.float32)
                         check=mx.softmax(full[mx.array(allowed)]);mx.eval(check)
                         error=float(mx.max(mx.abs(check-p[j])).item());maximum_error=max(maximum_error,error)
                         if error>.001 or int(mx.argmax(full).item())!=tops[j]:
@@ -103,7 +106,7 @@ def main():
         data_sha256=hashlib.sha256(args.data.read_bytes()).hexdigest(),seconds=time.monotonic()-start,
         adapter_sha256=hashlib.sha256((args.adapter/'adapters.safetensors').read_bytes()).hexdigest(),
         field_accuracy={field:value/len(rows) for field,value in correct.items()},strict_evaluation=evaluate(expected,predictions),
-        cached_prefix_tokens=common,cache_check_max_error=maximum_error,batch_size=args.batch_size,batches=len(batches),
+        cached_prefix_tokens=common,cache_check_max_error=maximum_error,uncached_probe='full-context-last-token-projection',batch_size=args.batch_size,batches=len(batches),
         mean_batch_size=len(rows)/len(batches),conditional_probabilities_are_not_calibrated=True,reserved_probes_used=False)
     for name,values in [('expected',expected),('predictions',predictions)]:
         (args.output/(name+'.jsonl')).write_text(''.join(json.dumps(v)+'\n' for v in values))
