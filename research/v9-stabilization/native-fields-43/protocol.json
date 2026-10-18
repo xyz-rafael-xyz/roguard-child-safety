@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-18T19:08:31.323546+00:00",
+  "status": "Predeclared before feature extraction or head fitting; no accuracy result.",
+  "motivation": "NativeRO development false reviews concentrate in negated concern content. Learn assertion and other policy-relevant fields explicitly from a fixed native representation rather than relying only on its binary head.",
+  "parents": "Original selected native22 encoder for each language, unchanged weights. Native22 used development for encoder selection, so this is not independent end-to-end validation. Existing nativeRO calibration has already been observed; it is regression evidence, not a fresh final test.",
+  "features": "Concatenate last-layer CLS and arithmetic mean over non-special focal-sequence token states, identified by the fast tokenizer sequence IDs.1536 dimensions. Same verified native assets, input normalization, context/focal pair, right padding32, batch8, no truncation. Check native logit replay on dev/cal. No message, ID, source-kind or gold field is a predictive feature.",
+  "data": "Reuse exact native22 train/dev/cal populations and labels; no new examples and no reserved inputs. Train-only normalization, standard deviation floor1e-6. Full training and development inputs extracted first; calibration extraction occurs only after a selection.json exists.",
+  "heads": "Two fixed models: linear1536-to17; and1536-to256 GELU dropout0.1 to17. Six categorical softmax heads. CPU float32 AdamWlr0.001 weight_decay0.01,20epochs,batch256,gradient clip1. Equal expected formal/conversational x binary-class mass via weighted replacement each epoch. Seed943+hidden_width. Unweighted mean of six cross-entropies.",
+  "selection": "Evaluate epochs5,10,15,20 for each architecture. Enumerate all432 worlds under the independent categorical distribution to integrate review mass exactly. Threshold from development to meet99% concern recall per stratum. Rank passing unchanged99/5gates first, lowest worst false-review rate, summed false-review rate, unweighted field loss, smaller architecture, earlier epoch. Persist selected JSON weights before calibration. Reload and require identical development counts.",
+  "calibration": "One audit of selected exported heads using separately extracted calibration representations. Both dev and cal strata must pass unchanged99/5. No calibration-driven threshold or architecture changes. Probabilities are factorized and uncalibrated, not learned joint coverage.",
+  "scheduling": "After installed30 and fusion36 finish. Skip if both fusion36 languages qualify, prioritizing their reserved path. Require installed29 native parity. Do not begin with less than one hour left in the authorized window. Serial neural loads, bounded MPS cache; no concurrent GPU training.",
+  "deployment": "Experimental only until an actual installed semantic-head runtime, reserved actual-runtime probes and product/release checks pass. This study does not change the default.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

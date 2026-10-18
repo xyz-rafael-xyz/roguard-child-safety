@@ -612,3 +612,22 @@ process. The final step combines these newly generated installed-runtime reports
 Each reserved set is evaluated separately by language, with abstentions counted
 as errors and duplicate inputs reported explicitly. Passing these small synthetic
 probes would still not establish real-world population accuracy.
+
+### Native interpretation-head fallback
+
+`native-fields-43` is a predeclared fallback if the fusion comparison still fails.
+It reuses each frozen native encoder and trains six small categorical heads on
+the existing training labels. Features combine the final CLS representation and
+the focal message's mean token representation. The model learns subject, time,
+assertion, source, retraction relation and concern content separately. Review
+mass is integrated over all 432 combinations under an explicitly factorized,
+uncalibrated distribution. It is not a learned joint prediction set.
+
+A fixed linear/256-unit comparison uses development-only checkpoint selection,
+then reloads exported weights before the separate calibration audit. Native
+encoder selection already used development; this is not untouched end-to-end
+validation. The original 99% recall and 5% false-review limits remain unchanged.
+The fallback waits until the installed-runtime queue finishes and runs only if
+the fusion accuracy requirements remain unmet and enough work-window time
+remains. Tokenizer preflight covers all 44,105 training inputs without truncation.
+No fitted-head accuracy or stable-release eligibility is claimed yet.
