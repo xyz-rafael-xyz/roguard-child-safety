@@ -318,3 +318,31 @@ schema digits will not by itself establish better language understanding.
 The initial structured LoRA state passes a separate bounded archive round-trip:
 all 112 tensors (3,506,176 parameters) are exactly preserved. That verifies
 serialization, not a trained model's accuracy.
+
+### Coverage, diagnostics and CI
+
+`interpreter-20` is a frozen 4,096-row training comparison using the same pinned
+4B base, prompt, adapter architecture and learning rate. Its sampling explicitly
+includes negation, uncertainty, retraction, past and hypothetical statements in
+both languages. It has 157 Romanian and 139 Ukrainian retraction examples,
+compared with 41 and 11 in interpreter-14. The existing validation set is reused
+for checkpoint selection. The study is queued; it has no accuracy result yet.
+An audit of the 38,771-row historical-plus-contrast training pool found no
+identical normalized inputs with conflicting six-field labels. This checks
+internal consistency, not independent correctness of synthetic annotations.
+
+The structured diagnostic recomputes the decision from the decoded attributes
+and preserves strict schema abstentions. For incorrect interpretations it lists
+all inclusion-minimal sets of gold field corrections that would repair the
+policy action. These are offline diagnostics, never substituted predictions or
+"corrected accuracy." Paired counts compare with the 345/400 binary reference.
+Three tests cover interacting scope corrections and inconsistent decisions.
+
+CI now uses pytest instead of unittest discovery so function-based decoder and
+diagnostic tests actually run alongside the existing unittest classes. The
+corrected matrix passed in run `39134478139`. Locally, 486 tests passed in the
+main run; 12 loopback-server tests initially hit the sandbox restriction and
+then passed with socket access. Fourteen optional historical-artifact tests
+remain skipped. The pinned Gemma base files and training-library versions are
+recorded in `gemma4-base-manifest.json`; a reusable archive verifier compares
+every restored adapter tensor and its configuration against the source.
