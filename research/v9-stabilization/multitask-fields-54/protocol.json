@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-18T20:52:36.252810+00:00",
+  "study": 54,
+  "goal": "Joint six-field semantic adaptation of original Romanian and Ukrainian encoders.",
+  "training": {
+    "encoder_layers": 2,
+    "epochs": 1,
+    "batch_size": 8,
+    "encoder_lr": 1e-05,
+    "head_lr": 0.0001,
+    "seed": 954,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "gradient_clip": 1,
+    "warmup_fraction": 0.05,
+    "groups": "Equal source/class sampling across formal, conversational, authored augmentation.",
+    "loss": "Equal six categorical cross-entropies",
+    "added_synthetic_rows": 10368
+  },
+  "selection": "Development at initial, halfway and final steps; independent and training-fitted pair couplings; unchanged 99% recall / 5% false-review gates, then worst and total false reviews, field loss, earlier step and independent tie break.",
+  "numerical_margin": "Choose a gap with at least 1e-4 margin without discarding required positive decisions; fallback threshold zero remains subject to false-review gate.",
+  "evaluation": "Persist selection before calibration; actual installed CPU full development/calibration replay; reserved predictions only if both languages qualify.",
+  "design_evidence": "Prior studies 43, 47 and 51 development and aggregate calibration failures informed this new training design. Calibration is regression evidence, not a fresh blind test.",
+  "synthetic_language_review": "New compositions authored programmatically, not independently reviewed; not real child messages.",
+  "reserved_analyst_blind": false,
+  "reserved_predictions_produced": false,
+  "stable_release_ready": false,
+  "deadline_reserve_seconds": 6000
+}

@@ -34,6 +34,16 @@ def main():
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                     break
         time.sleep(10)
+    while time.time() < deadline:
+        path = root/'multitask-fields-54/run-status.json'
+        if path.exists():
+            previous = json.loads(path.read_text())
+            if ('finished_utc' in previous and time.time() >
+                    datetime.fromisoformat(previous['finished_utc']).timestamp()+15):
+                break
+        time.sleep(10)
+    else:
+        raise TimeoutError('Authorized work window ended')
     for path, expected in json.loads((study/'source-freeze.json').read_text()).items():
         if digest(Path(path)) != expected:
             raise ValueError('Frozen source changed: '+path)
