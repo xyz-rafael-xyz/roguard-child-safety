@@ -75,6 +75,7 @@ def main():
         env = dict(os.environ, PYTHONPATH=str(installed), HF_HUB_OFFLINE='1',
                    TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
         entry = dict(name='reserved', started_utc=datetime.now(timezone.utc).isoformat())
+        status['reserved_evaluation_attempted'] = True; save()
         print('START reserved-joint-field-fusion-59', flush=True)
         with (working/'evaluation.log').open('w') as log:
             try:
@@ -83,7 +84,8 @@ def main():
             except subprocess.TimeoutExpired: entry.update(exit_code=-1, timed_out=True)
         entry['finished_utc'] = datetime.now(timezone.utc).isoformat()
         status['jobs'].append(entry)
-        status['reserved_probes_used'] = (study/'results/predictions.jsonl').exists()
+        status['reserved_probes_used'] = (study/'results/selection.json').exists()
+        status['reserved_predictions_complete'] = (study/'results/predictions.jsonl').exists()
         print(json.dumps(entry), flush=True)
     status['finished_utc'] = datetime.now(timezone.utc).isoformat(); save()
 

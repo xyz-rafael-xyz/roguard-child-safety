@@ -122,12 +122,15 @@ def main():
             plan_path = working / 'reserved-plan.json'
             plan_path.write_text(json.dumps(plan, indent=2)+'\n')
             status['reserved_plan_sha256'] = digest(plan_path); save()
+            status['reserved_evaluation_attempted'] = True; save()
             run('reserved', [args.torch_python, str(root / 'training/verify_reserved_native_fields_v9.py'),
                 '--plan', str(plan_path), '--plan-sha256', digest(plan_path), '--installed-root', str(installed),
                 '--probe-root', str(research.parent / 'v8-stabilization'),
                 '--output', str(research / 'reserved-joint-fields-56/results')], working,
                 dict(os.environ, PYTHONPATH=str(installed), TOKENIZERS_PARALLELISM='false',
                      HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1'))
+            status['reserved_probes_used'] = (research / 'reserved-joint-fields-56/results/selection.json').exists()
+            status['reserved_predictions_complete'] = (research / 'reserved-joint-fields-56/results/predictions.jsonl').exists()
         else:
             status['reserved_skipped'] = 'Both installed candidates must pass unchanged accuracy and parity gates.'
     status['finished_utc'] = datetime.now(timezone.utc).isoformat()
