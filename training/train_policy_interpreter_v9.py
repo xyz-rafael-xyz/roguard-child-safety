@@ -2,6 +2,7 @@
 import argparse
 import json
 import hashlib
+import shutil
 from pathlib import Path
 from training.semantic_interpreter_v9 import aligned_tokens, answer, chat
 from training.gemma_projection_v9 import language_model, project
@@ -98,7 +99,13 @@ def main():
             snapshot.mkdir(parents=True,exist_ok=False)
             (snapshot/'adapter_config.json').write_text(json.dumps(architecture,indent=2)+'\n')
             weights=snapshot/'adapters.safetensors'
-            mx.save_safetensors(str(weights),dict(tree_flatten(model.trainable_parameters())))
+            parameters=dict(tree_flatten(model.trainable_parameters()))
+            if info['iteration']==0:
+                if any(not bool(mx.array_equal(parameters[k],saved[k]).item()) for k in saved):
+                    raise ValueError('Initial validation changed parent parameters')
+                shutil.copyfile(initial,weights)
+            else:
+                mx.save_safetensors(str(weights),parameters)
             self.record.setdefault('validation_checkpoints',[]).append(dict(iteration=info['iteration'],
                 val_loss=info['val_loss'],path=str(snapshot),sha256=hashlib.sha256(weights.read_bytes()).hexdigest()))
             if info['val_loss']<self.best:
