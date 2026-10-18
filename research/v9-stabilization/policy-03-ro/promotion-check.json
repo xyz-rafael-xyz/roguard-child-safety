@@ -1,0 +1,19 @@
+{
+  "candidate": "research/v9-stabilization/policy-03-ro",
+  "language_scope": "ro",
+  "artifact_sha256": "b4e0757f3834eec4f5761f625fa51e7aca108f831d8e384274d658e4199334a3",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 415/1413; maximum 5%",
+    "development/ro_conversational: false reviews 37/242; maximum 5%",
+    "calibration/ro_formal: false reviews 599/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 89/243; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

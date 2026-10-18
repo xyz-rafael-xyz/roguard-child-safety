@@ -1,0 +1,127 @@
+{
+  "language": "ro",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "candidates": [
+    {
+      "C": 1.0,
+      "mode": "direct",
+      "threshold": 0.059019346585929014,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 656
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 89
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "mode": "policy",
+      "threshold": 0.1074123244889038,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 986
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 96
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "direct",
+      "threshold": 0.0052976496278948956,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 703
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 101
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "policy",
+      "threshold": 0.029952299236488573,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 980
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 92
+        }
+      }
+    }
+  ],
+  "training_rows": 18658,
+  "selected": {
+    "C": 1.0,
+    "mode": "direct",
+    "threshold": 0.059019346585929014,
+    "development": {
+      "ro_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 656
+      },
+      "ro_conversational": {
+        "positive": 216,
+        "negative": 242,
+        "missed": 0,
+        "false_reviews": 89
+      }
+    }
+  },
+  "artifact_sha256": "1095adf423dac514324b1ec16bf98f33d867f6ecf5ee136406df203b98810baf",
+  "calibration": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 27,
+      "false_reviews": 695
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 152
+    }
+  },
+  "failures": [
+    "dev/ro_formal: false reviews 656/1413; maximum 5%",
+    "dev/ro_conversational: false reviews 89/242; maximum 5%",
+    "cal/ro_formal: missed 27/614; maximum 1%",
+    "cal/ro_formal: false reviews 695/1386; maximum 5%",
+    "cal/ro_conversational: false reviews 152/243; maximum 5%"
+  ]
+}

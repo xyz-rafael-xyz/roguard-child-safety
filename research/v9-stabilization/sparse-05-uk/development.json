@@ -1,0 +1,126 @@
+{
+  "language": "uk",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "selection_partition": "development",
+  "candidates": [
+    {
+      "C": 1.0,
+      "mode": "direct",
+      "threshold": 0.0049105035484566595,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 1000
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 161
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "mode": "policy",
+      "threshold": 0.13255894087562237,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 854
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 81
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "direct",
+      "threshold": 3.326540564975837e-05,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 1073
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 185
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "mode": "policy",
+      "threshold": 0.05595791289890844,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 874
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 69
+        }
+      }
+    }
+  ],
+  "training_rows": 18385,
+  "selected": {
+    "C": 1.0,
+    "mode": "policy",
+    "threshold": 0.13255894087562237,
+    "development": {
+      "uk_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 854
+      },
+      "uk_conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 0,
+        "false_reviews": 81
+      }
+    }
+  },
+  "artifact_sha256": "d6610018c96d88308ff544af0e6f642482476645a002c5b86187cc99dedce181",
+  "calibration": {
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 849
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 0,
+      "false_reviews": 113
+    }
+  },
+  "failures": [
+    "dev/uk_formal: false reviews 854/1413; maximum 5%",
+    "dev/uk_conversational: false reviews 81/223; maximum 5%",
+    "cal/uk_formal: false reviews 849/1386; maximum 5%",
+    "cal/uk_conversational: false reviews 113/223; maximum 5%"
+  ]
+}

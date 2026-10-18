@@ -1,0 +1,22 @@
+{
+  "experiment": "sparse-05",
+  "languages": [
+    "ro",
+    "uk"
+  ],
+  "training": "all original specialist training history plus operator contrasts v2, exact deduplication and zero evaluation overlap",
+  "features": "separate focus character 2-5, focus word 1-3, prior word 1-2 TFIDF; vocabularies fit on training only",
+  "C": [
+    1,
+    10
+  ],
+  "heads": "direct binary plus six interpretation heads; policy probability assumes independent marginals",
+  "selection": "development only; 99% recall per group, minimize maximum then sum false-review rates",
+  "calibration": "already inspected regression only",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "targets": {
+    "recall": 0.99,
+    "max_false_review_rate": 0.05
+  }
+}

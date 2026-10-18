@@ -1,0 +1,229 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "learning_rate": 1e-05,
+  "label_smoothing": 0.02,
+  "additional_authored_contrasts": false,
+  "short_contrasts": false,
+  "context_interventions": false,
+  "hesitancy_contrasts": false,
+  "uk_scope_contrasts": false,
+  "train_language": "ro",
+  "balance_short": false,
+  "initial_encoder_sha256": "6738e48960cc729b4dfd7cb30b2985de53ca86f039780738c0873673d4265e78",
+  "head_learning_rate": 0.0005,
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.23848379607878478,
+      "seconds": 364.6090891249478,
+      "thresholds": {
+        "ro": 0.00046968518327339555,
+        "uk": 0.0006915119518933352
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 961,
+          "recall": 1.0,
+          "false_review_rate": 0.6801132342533617
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 45,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.1859504132231405
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 705,
+          "recall": 1.0,
+          "false_review_rate": 0.4989384288747346
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 47,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.21076233183856502
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.11014896745677867,
+      "seconds": 358.66268870886415,
+      "thresholds": {
+        "ro": 0.0022840739459730683,
+        "uk": 0.0038787158992141485
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 825,
+          "recall": 1.0,
+          "false_review_rate": 0.583864118895966
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 50,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.2066115702479339
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 496,
+          "recall": 1.0,
+          "false_review_rate": 0.3510261854210899
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 47,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.21076233183856502
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.09040638471472692,
+      "seconds": 359.0691068749875,
+      "thresholds": {
+        "ro": 0.021920036634989083,
+        "uk": 0.01371345890806988
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 415,
+          "recall": 1.0,
+          "false_review_rate": 0.2937013446567587
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 37,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.15289256198347106
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 329,
+          "recall": 1.0,
+          "false_review_rate": 0.23283793347487616
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 50,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.2242152466367713
+        }
+      }
+    }
+  ],
+  "excluded_overlength": {
+    "train": 0,
+    "dev": 0,
+    "cal": 0
+  },
+  "scope_curriculum": true,
+  "history_includes_conservative_predecessor_union": true,
+  "training_history_unique_inputs": 37312,
+  "training_history_sha256": "2d1e87fbc1fc523c005e359bcbe00bbae404735473d463886d6dae3c93f0856f",
+  "auxiliary_supervision": {
+    "weight": 1.0,
+    "classes": {
+      "subject": [
+        "SELF",
+        "OTHER",
+        "FICTIONAL"
+      ],
+      "time": [
+        "CURRENT",
+        "PAST",
+        "HYPOTHETICAL"
+      ],
+      "assertion": [
+        "AFFIRMED",
+        "NEGATED",
+        "UNCERTAIN",
+        "RETRACTED"
+      ],
+      "source": [
+        "DIRECT",
+        "REPORTED",
+        "FICTION"
+      ],
+      "relation": [
+        "NEW",
+        "RETRACTS"
+      ],
+      "concern": [
+        "0",
+        "1"
+      ]
+    },
+    "loss": "mean six-task cross entropy",
+    "inference_uses_auxiliary_heads": true,
+    "head_initialization": "trained semantic heads",
+    "probability_assumption": "independent marginals"
+  },
+  "selected_epoch": 3,
+  "calibration_audit": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 599,
+      "recall": 1.0,
+      "false_review_rate": 0.43217893217893216
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 1,
+      "false_reviews": 89,
+      "recall": 0.9953703703703703,
+      "false_review_rate": 0.3662551440329218
+    },
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 4,
+      "false_reviews": 453,
+      "recall": 0.993485342019544,
+      "false_review_rate": 0.3268398268398268
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 0,
+      "false_reviews": 65,
+      "recall": 1.0,
+      "false_review_rate": 0.2914798206278027
+    }
+  },
+  "artifact_sha256": "b4e0757f3834eec4f5761f625fa51e7aca108f831d8e384274d658e4199334a3"
+}

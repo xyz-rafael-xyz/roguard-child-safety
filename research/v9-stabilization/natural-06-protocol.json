@@ -1,0 +1,22 @@
+{
+  "experiment": "natural-06",
+  "synthetic_only": true,
+  "new_rows": {
+    "ro": 1368,
+    "uk": 684
+  },
+  "new_content_families_per_language": 36,
+  "training": "new authored natural content and matched scope frames, original strong specialist plus 8000 replay rows",
+  "initial": {
+    "ro": "review-09-ro",
+    "uk": "review-08-uk"
+  },
+  "epochs": 2,
+  "learning_rate": 1e-05,
+  "label_smoothing": 0.02,
+  "selection": "fixed development only, same 99% recall and 5% false reviews targets",
+  "calibration": "inspected regression audit, not independent validation",
+  "reserved_probes_used": false,
+  "independent_language_review": false,
+  "motivation": "Broaden emotional-support and benign content instead of expanding only old content in new wrappers. Romanian includes diacritic-free variants."
+}

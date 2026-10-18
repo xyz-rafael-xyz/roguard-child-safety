@@ -18,7 +18,20 @@ def main():
     for r in rows:r.setdefault('focus',len(r['turns'])-1)
     encoder=SemanticEncoder(a.base,a.device);model=get_peft_model(encoder.model,LoraConfig(r=4,lora_alpha=8,lora_dropout=.05,target_modules=['Wqkv']));set_peft_model_state_dict(model,{k:torch.tensor(v,dtype=torch.float32) for k,v in spec['lora']['tensors'].items()});encoder.model=model.to(a.device).eval()
     full=semantic_features([render(r['turns'][:r['focus']+1]) for r in rows],encoder,a.output/'context-features.npz');focus=semantic_features([r['turns'][r['focus']]['text'] for r in rows],encoder,a.output/'focus-features.npz')
-    logits=np.concatenate([full,focus],axis=1)@np.array(spec['weights'])+spec['intercept'];scores=1/(1+np.exp(-np.clip(logits,-700,700)));truth=np.array([r['review'] if 'review' in r else int(labels([r])[0]) for r in rows]);thresholds=spec['thresholds']
+    features=np.concatenate([full,focus],axis=1)
+    if spec.get('format')=='roguard-policy-review-experiment-v1':
+        from training.policy_probability_v9 import review_mass
+        probabilities={}
+        for task,head in spec['heads'].items():
+            logits=features@np.asarray(head['weights']).T+np.asarray(head['intercept'])
+            values=np.exp(logits-logits.max(axis=1,keepdims=True))
+            values=values/values.sum(axis=1,keepdims=True)
+            probabilities[task]={label:values[:,i] for i,label in enumerate(head['classes'])}
+        scores=np.clip(review_mass(probabilities),1e-6,1-1e-6)
+    else:
+        logits=features@np.array(spec['weights'])+spec['intercept']
+        scores=1/(1+np.exp(-np.clip(logits,-700,700)))
+    truth=np.array([r['review'] if 'review' in r else int(labels([r])[0]) for r in rows]);thresholds=spec['thresholds']
     predictions=[{'case_id':r['case_id'],'language':r['language'],'score':float(s),'gold':int(y),'predicted':int(s>=thresholds[r['language']])} for r,s,y in zip(rows,scores,truth)]
     (a.output/'predictions.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in predictions))
     metrics={}

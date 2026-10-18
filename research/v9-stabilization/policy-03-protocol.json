@@ -1,0 +1,22 @@
+{
+  "experiment": "policy-03",
+  "initial": "semantic-05 coherent six heads and encoder",
+  "selection": "Development only; fixed >=99% recall per group; minimize worst false review rate then sum. Calibration is inspected regression, never fresh evidence.",
+  "epochs": 3,
+  "encoder_learning_rate": 1e-05,
+  "head_learning_rate": 0.0005,
+  "loss": "binary cross entropy of differentiable policy review mass plus mean six-task cross entropy",
+  "label_smoothing": 0.02,
+  "auxiliary_weight": 1,
+  "structured_rows": 3000,
+  "conversational_rows": 3000,
+  "scope_curriculum": true,
+  "independence_assumption": "Product of interpretation marginals is a modelling approximation, not calibrated confidence.",
+  "history": "Conservative union of semantic-05 selected training and predecessor review history.",
+  "targets": {
+    "recall": 0.99,
+    "max_false_review_rate": 0.05
+  },
+  "reserved_probes_used": false,
+  "runtime_promotion": false
+}

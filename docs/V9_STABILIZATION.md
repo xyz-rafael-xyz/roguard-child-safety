@@ -129,3 +129,52 @@ Local verification: the full software suite passed 480 tests with 14 skips
 for private artifacts. The subsequently added mixture-selection test and the
 comparison test both passed in the focused run. These software checks do not
 turn the failed model gates into passes.
+
+## Further retries: policy probabilities, replay and lexical scope
+
+`policy-03-ro` trains six interpretation heads and derives a review score by
+summing the relevant policy worlds under an independent-marginals assumption.
+This is an approximation, not a calibrated probability of a child's situation.
+Its arithmetic matches exhaustive enumeration of all 432 policy worlds in the
+tests. Three training epochs still produce too many false reviews: the selected
+model has 599/1,386 formal and 89/243 conversational calibration false reviews.
+Correct policy arithmetic does not compensate for incorrect interpretations.
+
+`replay-04` returns to the original language specialists, replaying 8,000
+historical training inputs per language alongside 1,296 new operator contrasts.
+The contrasts distinguish denial, double negation and shifts between fictional
+and personal scope. The **v2 protocol** is the protocol actually used; its
+predecessor was revised before training to add fictional-current examples.
+Romanian completed two epochs. Its calibration false reviews remain 274/1,386
+formal and 69/243 conversational, with no missed positive cases in either group.
+The development-selected mixture rejects this candidate in favor of the
+original Romanian model. Ukrainian results are recorded separately when complete.
+
+`sparse-05` tests a different representation: separately fitted character and
+word features for the current message, plus word features for preceding context.
+It trains binary and six interpretation heads on historical training inputs and
+the operator contrasts. Four alternatives per language (two regularization
+values and direct versus policy-derived scores) are selected using development
+data only. Neither selected model meets the gates. A 25% lexical-score mixture
+reduces Ukrainian formal development false reviews to 21/1,413, but calibration
+still has 61/614 misses and 96/1,386 false reviews. Romanian's corresponding
+mixture also fails. Reloading the JSON exports reproduces every development
+score exactly in both languages; the problem is model quality, not serialization.
+
+The next prepared retry, `natural-06`, adds 36 new fictional content families per
+language: 24 emotional-support situations and 12 benign everyday requests. It
+crosses these with denial, affirmation, reported speech and fictional speakers;
+Romanian also includes variants without diacritics. Its **v2 protocol**, frozen
+before training, adds reported and fictional denial contrasts to avoid teaching
+denial only in the first person. There are 2,520 Romanian and 1,260 Ukrainian
+combinations, not that many independent situations. None exactly overlaps the
+existing development or calibration inputs. These machine-authored examples
+have not received independent language review.
+
+All these retries use already inspected calibration data as regression evidence.
+No reserved probe has been evaluated, no failed candidate is installed, and no
+stable-release accuracy claim follows from the number of training examples.
+
+Software verification for this round: 471 tests passed and 14 skipped in the
+sandbox. The 12 Studio tests initially could not bind a localhost socket; all
+12 passed when rerun with that access (483 passing tests in total).

@@ -1,0 +1,28 @@
+{
+  "experiment": "replay-04",
+  "initial": {
+    "ro": "review-09-ro",
+    "uk": "review-08-uk"
+  },
+  "epochs": 2,
+  "learning_rate": 1e-05,
+  "label_smoothing": 0.02,
+  "new_structured_rows": 0,
+  "new_conversational_rows": 0,
+  "replay_rows_per_language": 8000,
+  "replay_selection": "Deterministic round-robin source and review target from historical training only, seed 904.",
+  "operator_contrasts": true,
+  "scope_curriculum": false,
+  "operator_rows_per_language": 1296,
+  "motivation": "Preserve earlier training diversity while teaching common denial/double-negation operators and explicit real-scope reset after fictional topics. Operator vocabulary is intentionally informed by inspected regression failures.",
+  "selection": "Development only, same >=99% group recall threshold; minimize worst false-review rate then sum.",
+  "calibration": "Already inspected regression data, not independent validation.",
+  "reserved_probes_used": false,
+  "targets": {
+    "recall": 0.99,
+    "max_false_review_rate": 0.05
+  },
+  "no_runtime_promotion_before_all_gates": true,
+  "pre_training_revision": "Added matched fictional-current scope as well as switches away from fiction, before any replay-04 training or scoring.",
+  "supersedes_protocol_sha256": "5347ac23266ab4b71c19258c2de1801b69f02c7707d16d1b52dbec4c88c8e407"
+}
