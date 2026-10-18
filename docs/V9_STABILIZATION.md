@@ -933,3 +933,11 @@ updated checkpoints ranked worse on the fixed 80-case validation population.
 The replay has 371/400 correct review decisions and no invalid outputs, with
 remaining errors in all four language/style groups. This does not meet the
 release gates. Full evaluation retains interpreter14 under the fixed tie-break.
+
+Study64 passed the actual 400-case decoder comparison: zero changed decisions,
+interpretations or validity flags, zero abstentions, and maximum conditional
+probability difference 0.000027925. Observed decoding time was 183.31 seconds
+versus the cached single-message reference's 217.05 seconds (15.54% less time).
+This is not a controlled hardware benchmark or a production-runtime speed claim.
+The full research evaluation consequently uses batches of up to four equal-layout
+inputs. The installed interpreter remains separately checked.
