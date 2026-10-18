@@ -881,3 +881,32 @@ reproducibility. Study72 repeats actual installed Romanian inference; Ukrainian
 qualification reuses study66/67 without claiming another training run. Study73
 opens reserved inputs only if both language candidates qualify. Calibration is
 still reused regression evidence.
+
+### Completed scope and selection experiments (2026-10-18)
+
+Study66 retained its initial checkpoint in both languages. Actual installed
+CPU replay in study67 preserved every decision, but calibration accuracy failed.
+The categorical alternative in study69 also reproduced installed decisions and
+interpretations exactly without meeting the accuracy gates. Study70 consequently
+skipped reserved inference.
+
+| Candidate | Language | Formal misses / concerns | Formal false reviews / negatives | Conversational misses / concerns | Conversational false reviews / negatives |
+| --- | --- | --- | --- | --- | --- |
+| Scope repair66 | RO | 13 / 614 | 93 / 1,386 | 0 / 216 | 36 / 243 |
+| Scope repair66 | UK | 13 / 614 | 284 / 1,386 | 2 / 164 | 40 / 223 |
+| Categorical69 | RO | 2 / 614 | 169 / 1,386 | 0 / 216 | 45 / 243 |
+| Categorical69 | UK | 24 / 614 | 252 / 1,386 | 3 / 164 | 39 / 223 |
+| Semantic selection71 | RO | 41 / 614 | 1 / 1,386 | 0 / 216 | 32 / 243 |
+| Native expert fusion75 | RO | 21 / 614 | 7 / 1,386 | 0 / 216 | 6 / 243 |
+| Native expert fusion75 | UK | 1 / 614 | 120 / 1,386 | 5 / 164 | 38 / 223 |
+
+Study71 selected the final Romanian checkpoint: lower semantic loss did not
+guarantee better review decisions on calibration. Study75 fits a small classifier
+on cached direct-classifier and semantic-head outputs, using connected development
+folds and four predeclared regularization values. It uses no message text, case IDs
+or evaluation-group labels as features. Its Romanian conversational result passes
+the count gates, but formal recall fails; Ukrainian results also fail. Base models
+were already selected using development data, so the folds do not constitute an
+independent evaluation of the whole model. No installed composite runtime has
+qualified this native-expert combination. All rows above are reused synthetic
+regression evidence, not estimates of real-world child-safety performance.
