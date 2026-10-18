@@ -9,5 +9,15 @@
   "reserved_raw_dataset_opened": false,
   "training_status": "All currently queued training datasets and the optional policy27 curriculum were frozen before this source inspection. No examples were added or changed using the exposed probe wording.",
   "interpretation": "These remain unscored model holdouts for the frozen candidates, but should not be described as analyst-blind. No independent annotation claim is made.",
-  "restriction": "Do not author further training examples from exposed reserved wording or tune model choices using reserved results. Any subsequent adaptive round needs a separate fresh qualification set."
+  "restriction": "Do not author further training examples from exposed reserved wording or tune model choices using reserved results. Any subsequent adaptive round needs a separate fresh qualification set.",
+  "subsequent_access": [
+    {
+      "recorded_utc": "2026-10-18T17:32:00+00:00",
+      "event": "Reserved raw files read programmatically for input-overlap and schema checks; no model predictions or message display. See reserved-overlap-33.json."
+    },
+    {
+      "recorded_utc": "2026-10-18T17:50:12.153451+00:00",
+      "event": "Contrast generator displayed again while inspecting existing probe tooling. Schemas of raw probe files inspected without displaying messages. No reserved predictions or training changes."
+    }
+  ]
 }

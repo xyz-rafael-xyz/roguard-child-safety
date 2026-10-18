@@ -518,3 +518,19 @@ the original on a tie. The selection record is written before calibration
 predictions are opened. This headroom is a heuristic, not a coverage guarantee.
 A passing cached-score result would still need installed inference replay and
 fresh actual-runtime evaluation. No threshold result is available yet.
+
+### Reserved installed-runtime check prepared (study35)
+
+The native holdout verifier is prepared but has not scored reserved inputs.
+It requires passing installed development and calibration reports for both
+languages before opening held-out messages. Each reserved set and language is
+checked separately against the unchanged99% recall and5% false-review limits;
+abstentions count as errors. Combined totals deduplicate exact inputs, since the
+original family and lexical probes overlap. These small authored sets are not
+independent observations or an estimate of real-world safety.
+
+Six tests cover strict gate boundaries, abstentions, duplicate disagreement,
+future-turn exclusion from input identity, missing strata and misleading pass
+flags. The protocol and source hashes are in `reserved-runtime-35`. This
+verifier currently accepts the original native22 artifacts; an alternative
+threshold needs a separate installed replay with its own artifact identity.
