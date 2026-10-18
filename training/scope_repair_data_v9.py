@@ -6,7 +6,7 @@ from training.joint_semantic_data_v9 import CONTENT, TIME
 ASSERTIONS = {
     'ro': {
         'AFFIRMED': ['Susțin cele spuse.', 'Da, confirm ce am spus.', 'Consider adevărat ceea ce am relatat.',
-                     'Nu neg cele relatate.', 'Rămân la cele spuse.', 'Este adevărat ce am descris.'],
+                     'Nu neg cele relatate; le confirm.', 'Rămân la cele spuse.', 'Este adevărat ce am descris.'],
         'NEGATED': ['Neg veridicitatea celor relatate.', 'De fapt, neg cele spuse.',
                     'Nu confirm ce am spus; lucrurile nu sunt așa.', 'Dezmint cele relatate.',
                     'Spusele acestea nu sunt adevărate.', 'Neg că descrierea ar fi adevărată.'],
@@ -19,7 +19,7 @@ ASSERTIONS = {
     },
     'uk': {
         'AFFIRMED': ['Підтверджую сказане.', 'Так, усе сказане є правдою.', 'Я підтверджую свій опис.',
-                     'Не заперечую сказаного.', 'Дотримуюся своїх слів.', 'Описане мною є правдою.'],
+                     'Не заперечую сказаного, а підтверджую його.', 'Дотримуюся своїх слів.', 'Описане мною є правдою.'],
         'NEGATED': ['Заперечую правдивість сказаного.', 'Насправді я заперечую сказане.',
                     'Не підтверджую сказаного: усе було не так.', 'Спростовую цей опис.',
                     'Ці слова не відповідають дійсності.', 'Заперечую, що цей опис правдивий.'],
