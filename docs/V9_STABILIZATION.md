@@ -326,7 +326,9 @@ serialization, not a trained model's accuracy.
 includes negation, uncertainty, retraction, past and hypothetical statements in
 both languages. It has 157 Romanian and 139 Ukrainian retraction examples,
 compared with 41 and 11 in interpreter-14. The existing validation set is reused
-for checkpoint selection. The study is queued; it has no accuracy result yet.
+for checkpoint selection. The study was subsequently deferred before fitting
+in favor of the shorter policy-weighted continuation described below; it has
+no accuracy result.
 An audit of the 38,771-row historical-plus-contrast training pool found no
 identical normalized inputs with conflicting six-field labels. This checks
 internal consistency, not independent correctness of synthetic annotations.
@@ -408,3 +410,66 @@ Epoch 2 increased Romanian development false reviews and was rejected.
 Calibration misses no Romanian concerns, but falsely reviews 244/1,386 formal
 and 54/243 conversational benign cases. It fails the unchanged 5% false-review
 requirements. The other capacity settings remain separate pending comparisons.
+
+### Further capacity results and the remaining execution queue
+
+The low-rate Ukrainian capacity trial selected epoch 1. Calibration misses
+1/614 formal and 16/164 conversational concerns, with 41/1,386 and 0/223
+false reviews respectively. The high-rate Romanian trial also selected epoch 1:
+it misses no Romanian concerns but produces 241/1,386 formal and 50/243
+conversational false reviews. Both fail. A separate development-only threshold
+margin experiment reduces the Ukrainian conversational misses to 6/164, but
+formal false reviews increase to 70/1,386 (5.05%); it also fails. Calibration
+feedback remains diagnostic evidence, not a fresh final test.
+
+The high-rate Ukrainian run encountered a Metal command-buffer stall. A second
+attempt reached epoch 2 before another stall. Both partial attempts are retained
+and explicitly marked incomplete. Attempt 3 uses the same data, seed, batch
+sizes and optimization settings, with tighter MPS memory watermarks and periodic
+release of unused cache. No completed result is claimed for it yet.
+
+Native-22 now includes 1,120 time-scope training variants, 560 per language,
+within the same 48 content families as focus-23. Its training populations are
+23,328 Romanian and 20,777 Ukrainian inputs. Before fitting, selection was
+amended to inspect six development checkpoints at half-epoch intervals. All
+inputs pass a no-truncation preflight. Base manifests pin tokenizer files as
+well as weights; unregistered tokenizer or adapter overrides are rejected.
+
+The queued structured continuation, `interpreter-policy-27`, starts from the
+exact selected interpreter-14 adapter. Its 1,024 training rows combine replay,
+focus-boundary and time-scope examples. Field weights depend on how many
+alternative labels would change the policy decision with other gold fields
+held fixed. This is training-only supervision. Validation remains the same
+unweighted six-field loss on the same 80 rows, and the initial loss must
+reproduce interpreter-14 before training. The initial adapter remains eligible
+if continuation does not improve validation. This combines curriculum, loss
+weighting and a lower learning rate; it does not isolate their causal effects.
+
+Full-21 will choose between completed, archive-verified studies 14 and 27 using
+that shared validation loss. The binary-only Gemma comparison and supervised
+NLI comparisons remain separate experiments. Reserved neural probes remain
+unscored. During code inspection, some reserved probe generator wording became
+visible after the training datasets were frozen; these probes must not be
+described as analyst-blind. The access is recorded in
+[the probe audit](../research/v9-stabilization/reserved-probe-access-audit.json).
+
+### Runtime readiness checks
+
+The installed character evidence path scores 303/400 on the same development
+screen. Interpreter-14 fixes 85 of its errors and introduces 17, for a net gain
+of 68 correct decisions. This compares that particular evidence path, not the
+whole stable v7.1.1 product. Complete character-path development and calibration
+predictions are retained under `runtime-reference-28` for paired comparisons.
+
+An explicit local native-checkpoint runtime now binds metadata, selected
+weights and tokenizer files by hash. It excludes future turns, rejects invalid
+prefixes before copying, serializes inference, and distinguishes overlength
+abstention from a negative decision. These runtime checks do not approve the
+model's accuracy or authorize guardian notifications.
+
+`installed-native-29` is queued after the neural experiments. It builds and
+installs a local wheel, verifies that imports come from that installation, and
+replays every native development/calibration case on CPU. Parity requires zero
+changed decisions, zero abstentions and maximum score error at most 0.0001.
+Accuracy requirements are checked separately, including counting abstentions
+as errors. This phase has no result yet and publishes no wheel or release.
