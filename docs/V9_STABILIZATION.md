@@ -409,7 +409,7 @@ The first capacity trial, `capacity-15-low-ro`, completed and selected epoch 1.
 Epoch 2 increased Romanian development false reviews and was rejected.
 Calibration misses no Romanian concerns, but falsely reviews 244/1,386 formal
 and 54/243 conversational benign cases. It fails the unchanged 5% false-review
-requirements. The other capacity settings remain separate pending comparisons.
+requirements. The remaining capacity results are summarized below.
 
 ### Further capacity results and the remaining execution queue
 
@@ -426,7 +426,14 @@ The high-rate Ukrainian run encountered a Metal command-buffer stall. A second
 attempt reached epoch 2 before another stall. Both partial attempts are retained
 and explicitly marked incomplete. Attempt 3 uses the same data, seed, batch
 sizes and optimization settings, with tighter MPS memory watermarks and periodic
-release of unused cache. No completed result is claimed for it yet.
+release of unused cache. Attempt 3 completed both epochs and calibration. Its
+selected epoch-1 archive is byte-identical to the completed checkpoint from
+attempt 2, and the logged training losses match. Calibration has 0/614 formal
+misses but 76/1,386 false reviews (5.48%); conversational results have 9/164
+misses (94.51% recall) and 3/223 false reviews. It fails both applicable accuracy
+requirements. The development-selected mixture chooses this candidate alone
+and therefore does not repair those failures. All four capacity trials are
+now complete; none qualifies.
 
 Native-22 now includes 1,120 time-scope training variants, 560 per language,
 within the same 48 content families as focus-23. Its training populations are
@@ -434,6 +441,10 @@ within the same 48 content families as focus-23. Its training populations are
 amended to inspect six development checkpoints at half-epoch intervals. All
 inputs pass a no-truncation preflight. Base manifests pin tokenizer files as
 well as weights; unregistered tokenizer or adapter overrides are rejected.
+Its v6 pre-fit amendment uses right padding to multiples of 32 and periodic
+MPS cache release to bound execution memory. Shape changes can alter rounding
+and seeded dropout draws; no bit-identical comparison with the unrun earlier
+recipe is claimed. Installed-runtime replay uses the same padding contract.
 
 The queued structured continuation, `interpreter-policy-27`, starts from the
 exact selected interpreter-14 adapter. Its 1,024 training rows combine replay,
