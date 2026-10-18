@@ -39,6 +39,13 @@ def main():
     logs.mkdir(exist_ok=True)
     status = dict(stable_release_ready=False, reserved_probes_used=False, jobs=[])
 
+    def save(terminal=False):
+        if terminal:
+            status['finished_utc'] = datetime.now(timezone.utc).isoformat()
+        temporary = study/'run-status.tmp'
+        temporary.write_text(json.dumps(status, indent=2)+'\n')
+        temporary.replace(study/'run-status.json')
+
     def run(name, command, cwd, env=None):
         remaining = deadline-time.time()
         if remaining <= 0:
@@ -53,19 +60,19 @@ def main():
                 entry.update(exit_code=-1, timed_out=True)
         entry['finished_utc'] = datetime.now(timezone.utc).isoformat()
         status['jobs'].append(entry)
-        temporary = study/'run-status.tmp'
-        temporary.write_text(json.dumps(status, indent=2)+'\n')
-        temporary.replace(study/'run-status.json')
+        save()
         print('FINISHED', json.dumps(entry), flush=True)
         return entry['exit_code'] == 0
 
     if not run('build', [a.builder_python, '-m', 'build', '--wheel', '--no-isolation', '--outdir', str(wheels)], root):
+        save(terminal=True)
         return
     artifacts = list(wheels.glob('*.whl'))
     if len(artifacts) != 1:
         raise ValueError('Expected exactly one built wheel')
     wheel = artifacts[0]
     if not run('install', [a.builder_python, '-m', 'pip', 'install', '--no-deps', '--no-index', '--target', str(installed), str(wheel)], working):
+        save(terminal=True)
         return
     env = dict(os.environ, PYTHONPATH=str(installed), TOKENIZERS_PARALLELISM='false',
                HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
@@ -78,8 +85,7 @@ def main():
         run(language, [a.torch_python, str(root/'training/verify_native_runtime_v9.py'),
             '--candidate', str(candidate), '--base', base, '--manifest', str(research/'native-full-22-base-manifest.json'),
             '--installed-root', str(installed), '--wheel', str(wheel), '--output', str(study/language)], working, env)
-    status['finished_utc'] = datetime.now(timezone.utc).isoformat()
-    (study/'run-status.json').write_text(json.dumps(status, indent=2)+'\n')
+    save(terminal=True)
 
 
 if __name__ == '__main__':
