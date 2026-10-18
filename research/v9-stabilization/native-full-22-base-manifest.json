@@ -1,0 +1,63 @@
+{
+  "models": {
+    "ro": {
+      "model": "dumitrescustefan/bert-base-romanian-cased-v1",
+      "revision": "37fb0ffb4bc4f7c4cde429626775685fb18f234f",
+      "files": {
+        "config.json": {
+          "bytes": 385,
+          "sha256": "53d69f53eb2fa0a9e95ae77508ad527dc1ce658a74968a565fbae5cc29495542"
+        },
+        "model.safetensors": {
+          "bytes": 500364136,
+          "sha256": "c2471091c9b2613f671fc46f71023b10d8d3dee5e1b1fe2c6c4d3fce1b4b8508"
+        },
+        "tokenizer_config.json": {
+          "bytes": 29,
+          "sha256": "adac4eb1158c23ecf85b5215105c1d0bcc42e34d6a9f82d637018f4b7f0b1aa2"
+        },
+        "vocab.txt": {
+          "bytes": 397396,
+          "sha256": "1c8630d8abddcb7d36a51f32a25b72084dd12439bb223ee25cca7e81643acef9"
+        }
+      }
+    },
+    "uk": {
+      "model": "youscan/ukr-roberta-base",
+      "revision": "8149bde480a6df9014aa934c3f8af30858dea5a6",
+      "files": {
+        "config.json": {
+          "bytes": 481,
+          "sha256": "f22e9a0554bd14026b5c55c4dcb71da0080f81378d6f35607d0f7ef2374d8fff"
+        },
+        "merges.txt": {
+          "bytes": 1402699,
+          "sha256": "8f3fb1c5e4a3a34bb1a78d127c106715945a0f429678a101a79b63af49fb09ba"
+        },
+        "pytorch_model.bin": {
+          "bytes": 506539003,
+          "sha256": "6fb0e970bd7bf5ae18d0cdb2104ac0533dcf58248c410e05217f11f77a9c7b18"
+        },
+        "special_tokens_map.json": {
+          "bytes": 150,
+          "sha256": "7638f5bbbe86ef6d604ef28ad3647dc690d6d117c81c0d63e885416be8da1150"
+        },
+        "tokenizer_config.json": {
+          "bytes": 16,
+          "sha256": "166192c1eddba8386458140c441b2ac5cd6160249337bf8c72af8541215b5979"
+        },
+        "vocab.json": {
+          "bytes": 1860598,
+          "sha256": "e931648423c321602d85da5530dc9cdb872e70e17389cf6b919324a14f9e84b6"
+        }
+      }
+    }
+  },
+  "environment": {
+    "torch": "2.14.0",
+    "transformers": "4.57.6",
+    "numpy": "2.5.3",
+    "safetensors": "0.8.0"
+  },
+  "scope": "Exact local base and tokenizer bytes for native-full-22; no model was loaded for this fingerprint."
+}

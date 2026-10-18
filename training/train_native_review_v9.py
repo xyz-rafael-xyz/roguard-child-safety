@@ -70,6 +70,13 @@ def main():
     model_id, revision, weight_name, weight_hash = BASES[language]
     if args.base.name != revision or digest(args.base/weight_name) != weight_hash:
         raise ValueError('Pinned base weight identity mismatch')
+    base_manifest_path=Path('research/v9-stabilization/native-full-22-base-manifest.json')
+    base_manifest=json.loads(base_manifest_path.read_text())['models'][language]
+    if base_manifest['model']!=model_id or base_manifest['revision']!=revision:
+        raise ValueError('Base manifest identity mismatch')
+    for name,expected in base_manifest['files'].items():
+        if digest(args.base/name)!=expected['sha256']:
+            raise ValueError('Pinned base/tokenizer file differs: '+name)
     torch.set_num_threads(4); torch.manual_seed(922)
     rng = np.random.default_rng(922)
     root = Path('research/v8-stabilization')
@@ -134,6 +141,7 @@ def main():
                 trainable_parameters=sum(p.numel() for p in model.parameters()),
                 sampling='Equal expected mass for each formal/conversational x binary-label stratum; replacement; seed922.',
                 base_weights_sha256=weight_hash)
+    record['base_manifest_sha256']=digest(base_manifest_path)
     best=None;visited=set()
     for epoch in range(1,4):
         order=rng.choice(len(train),size=len(train),replace=True,p=weights).tolist();visited.update(order)
@@ -163,6 +171,7 @@ def main():
             save_file({k:v.detach().cpu().contiguous() for k,v in model.state_dict().items()},str(checkpoint))
             artifact=dict(format='roguard-native-full-review-experiment-v1',base=model_id,revision=revision,
                           language=language,thresholds=thresholds,checkpoint_sha256=digest(checkpoint),
+                          base_manifest_sha256=digest(base_manifest_path),
                           preprocessing='NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; context/focal pair; max512, no truncation.')
             (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
             save_scores('dev',scores,thresholds)
