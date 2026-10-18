@@ -495,3 +495,26 @@ decoding and full-vocabulary validity check. Its separate
 `installed-interpreter-30` replay will compare all 400 screen interpretations,
 validity flags and decisions with the selected research adapter. Unit tests
 pass, but the neural runtime replay remains pending.
+
+### Reserved-input audit and threshold comparison
+
+The [reserved-input audit](../research/v9-stabilization/reserved-overlap-33.json)
+finds no exact normalized input overlap, focal overlap, or reserved focal text
+inside any training turn for the actual Romanian native training history and
+the structured continuation's transitive history. It reads reserved inputs
+programmatically to compute hashes and counts; it displays no message text and
+runs no predictions. The Ukrainian native history will be checked when its
+actual training input file exists. This establishes neither semantic independence
+nor independent annotation. The original and lexical-reset family probes share
+96 complete inputs, so they must not be pooled as independent observations.
+
+Before native calibration results, `native-threshold-34` declares a separate
+development-only cutoff comparison on each fixed selected checkpoint. Its
+alternative allows at most 1% development false reviews in each stratum, with
+an absolute 0.0001 numerical guard. Eligible original/margin settings must still
+meet the unchanged 99% recall and 5% false-review requirements. Selection first
+maximizes the worst stratum's recall, then minimizes false reviews, preferring
+the original on a tie. The selection record is written before calibration
+predictions are opened. This headroom is a heuristic, not a coverage guarantee.
+A passing cached-score result would still need installed inference replay and
+fresh actual-runtime evaluation. No threshold result is available yet.

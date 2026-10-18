@@ -1,0 +1,78 @@
+{
+  "recorded_utc": "2026-10-18T17:32:18.546621+00:00",
+  "training_histories": {
+    "research/v9-stabilization/native-full-22-ro/training-history.jsonl.gz": {
+      "rows": 23328,
+      "sha256": "7e42db1be10a7d84037d21ed0a0e565170082800edbae46aea128eeaea234c62",
+      "languages": [
+        "ro"
+      ],
+      "probes": {
+        "contrast": {
+          "probe_rows_in_language_scope": 24,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        },
+        "families_original": {
+          "probe_rows_in_language_scope": 84,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        },
+        "families_lexical_v2": {
+          "probe_rows_in_language_scope": 84,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        }
+      }
+    },
+    "research/v9-stabilization/interpreter-policy-27/training-history.jsonl.gz": {
+      "rows": 2980,
+      "sha256": "ec314d7d976905a32b3caaf980a17da0df39009eafe852f42d7b14658261cd7d",
+      "languages": [
+        "ro",
+        "uk"
+      ],
+      "probes": {
+        "contrast": {
+          "probe_rows_in_language_scope": 48,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        },
+        "families_original": {
+          "probe_rows_in_language_scope": 168,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        },
+        "families_lexical_v2": {
+          "probe_rows_in_language_scope": 168,
+          "exact_normalized_input_overlap": 0,
+          "focal_overlap": 0,
+          "focal_seen_in_any_training_turn": 0
+        }
+      }
+    }
+  },
+  "reserved_input_hashes": {
+    "contrast": "7bf47bd773d5aceed684ad0aaeced6b85dc7d1602acfe17312a47073fe77e42f",
+    "families_original": "3786bfdc01a0421668df04eae8263488d4cb744bffb54192d647daf48d4fa40d",
+    "families_lexical_v2": "290cbb6dd7ccdccdf9c4371e4569b49831fbcb8eff5822d1dba5104819669b38"
+  },
+  "exact_input_overlap_between_probe_sets": {
+    "contrast / families_original": 0,
+    "contrast / families_lexical_v2": 0,
+    "families_lexical_v2 / families_original": 96
+  },
+  "raw_datasets_read_programmatically": true,
+  "message_text_displayed_or_saved": false,
+  "reserved_predictions_produced": false,
+  "training_data_or_selection_changed": false,
+  "scope": "Exact normalized input and focal overlap only; not semantic/family independence or independent annotation.",
+  "analyst_blind": false,
+  "source_visibility_record": "research/v9-stabilization/reserved-probe-access-audit.json",
+  "stable_release_ready": false
+}

@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-18T17:35:04.413179+00:00",
+  "parent": "native-full-22 selected checkpoint per language; no retraining or checkpoint reselection",
+  "method": "Alternative shared-language threshold: for each development stratum sort benign scores descending; take score at floor(0.01*N), add an absolute0.0001 guard, and use the maximum across strata. Reject if the guarded threshold exceeds1. This reserves heuristic false-review headroom; not a statistical guarantee.",
+  "selection": "Use development only. Eligible variants meet original99% concern recall and5% false review per stratum. Rank eligible original and margin variants by highest minimum stratum recall, then lowest maximum false-review rate, then lowest summed false-review rate, then prefer original. If neither eligible, retain original and record failure. Persist selection before opening calibration predictions.",
+  "motivation": "Earlier3% development false-review budget in threshold25 exceeded5% on calibration. Predeclare a more conservative1% budget for the new native bases before their calibration results exist.",
+  "accuracy_requirements_unchanged": true,
+  "runtime_requirement": "Any selected new threshold needs installed inference replay and fresh actual-runtime evaluation; cached MPS scores alone cannot approve release.",
+  "reserved_predictions_used": false,
+  "training_data_changed": false,
+  "stable_release_ready": false
+}
