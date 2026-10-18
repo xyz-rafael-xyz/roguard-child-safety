@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-18T15:45:04.577129+00:00",
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "counts": {
+    "train": 2000,
+    "valid": 80
+  },
+  "max_tokens": 517,
+  "comparison": "Same 2000 training rows, 80 validation rows, seed, 4B base, rank, adapter layers, learning rate and optimizer updates as interpreter-14. Direct binary task has a different prompt and one supervised token; this compares task formulations, not an isolated architecture change.",
+  "selection": "Minimum complete 80-row validation binary cross-entropy; losses are not comparable to six-field interpreter losses.",
+  "screen": "Existing 400-row development screen includes the 80 validation rows and is not independent evidence.",
+  "prompt": "Exact POLICY_V2 used by the unadapted gemma-screen-11 binary reference.",
+  "archive_task": "Binary review 0/1. The shared interpreter-named archive format stores generic LoRA tensors; its name does not describe this adapter task. Use evaluate_gemma_review_v9 with this policy, never the six-field decoder.",
+  "gate": "Full development and calibration prerequisites required before any reserved probe or release; no automatic release from this pilot."
+}

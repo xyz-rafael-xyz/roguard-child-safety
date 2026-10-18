@@ -20,10 +20,11 @@ def main():
     while True:
         if time.time() >= deadline:
             raise TimeoutError('Authorized work window ended')
-        previous = root/'nli-transfer-18-run-status.json'
+        previous = root/'binary-24/run-status.json'
         if previous.exists():
-            jobs = json.loads(previous.read_text())['jobs']
-            if jobs and (len(jobs) == 2 or jobs[-1]['exit_code'] != 0):
+            previous_status = json.loads(previous.read_text())
+            jobs = previous_status['jobs']
+            if jobs and (previous_status.get('complete', False) or jobs[-1]['exit_code'] != 0):
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                     break
         time.sleep(10)
