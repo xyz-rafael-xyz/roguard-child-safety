@@ -1,4 +1,8 @@
-# V9 multilingual encoder study
+# Historical model experiment v9: multilingual encoder study
+
+This page preserves the earlier numbered model experiment. The current product
+9.0 work is described in the [acceptance plan](V9_PLAN.md) and
+[stabilization record](V9_STABILIZATION.md).
 
 **Status:** full-weight fitting was interrupted before test inference because of local memory pressure. See the prospective [v9a amendment](V9A_AMENDMENT.md). The original fixed procedure below remains for audit.
 

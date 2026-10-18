@@ -366,3 +366,37 @@ result is claimed yet; upstream model cards do not establish child-safety
 performance. Full checkpoints remain local until a candidate warrants
 distribution. A manifest binds each selected checkpoint, and all development
 scores must replay after reloading it before calibration is evaluated.
+
+### Completed structured interpretation pilot
+
+Interpreter-14 completed all 2,000 training steps. The selected state at step
+1,999 has validation loss 0.2084; the final state is slightly worse at 0.2088.
+On the 400-case development screen it scores **371/400 (92.75%)**, versus
+345/400 (86.25%) for the unadapted binary reference. There are no invalid
+outputs. Paired comparison finds 38 corrected reference errors and 12 new
+errors. This screen includes the 80 examples used for checkpoint selection;
+it is development evidence, not an independent final test.
+
+| Group | Missed concerns | False reviews |
+|---|---:|---:|
+| Romanian formal | 1/50 | 8/50 |
+| Romanian conversational | 6/50 | 0/50 |
+| Ukrainian formal | 2/50 | 7/50 |
+| Ukrainian conversational | 1/50 | 4/50 |
+
+The candidate does not meet the release requirements. Of the 29 policy errors,
+16 can be repaired by correcting concern recognition, 12 by correcting the
+subject/source interpretation, and one by correcting assertion. These are
+diagnostic gold-label interventions, not repaired model predictions. The
+trained archive restores all 112 tensors exactly. The capacity comparisons
+started after this run completed.
+
+Before native-22 training, its documented v2 amendment adds `focus-23`:
+3,360 training-only variants from 48 new fictional content families. They cover
+ordinary task difficulty, real/fiction switches, unrelated topic changes, and
+source/time clarifications. The generator reads no evaluation files; the
+resulting inputs have no normalized overlap with the existing development or
+calibration partitions. Evaluation messages and labels remain unchanged.
+These are machine-authored, correlated variants with no new independent
+language review. Native-22's optimizer, selection rule and evaluation remain
+as declared; its original protocol is retained alongside the amendment.

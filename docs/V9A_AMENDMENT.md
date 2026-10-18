@@ -1,4 +1,8 @@
-# V9a pretest amendment: pair-trained encoder adapter
+# Historical model experiment v9a: pair-trained encoder adapter
+
+This page preserves an amendment to the earlier numbered model experiment.
+Current product 9.0 qualification is tracked in the
+[stabilization record](V9_STABILIZATION.md).
 
 The original [v9 protocol](V9_PROTOCOL.md) registered full-weight fine-tuning. On this 16 GB Mac, that fit completed epoch 1 (0/48 exact development pairs) and 180/216 steps of epoch 2 before it was interrupted under memory pressure: the process occupied roughly 11 GB and the machine had under 200 MB free with heavy swapping. The partial weights and development predictions remain local under `checkpoints/ro-mmbert-v9`; there is no v9 test inference or selected final checkpoint. This is a resource failure and a poor first development result, not a passed study. The interruption happened before any model opened batch 0019. Original commits retain the fixed plan.
 

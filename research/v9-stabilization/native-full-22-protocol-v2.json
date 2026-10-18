@@ -1,0 +1,65 @@
+{
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "purpose": "Compare full-parameter native-language encoders against adapter-based focal-message classifiers.",
+  "models": {
+    "ro": {
+      "model": "dumitrescustefan/bert-base-romanian-cased-v1",
+      "revision": "37fb0ffb4bc4f7c4cde429626775685fb18f234f",
+      "weight_file": "model.safetensors",
+      "weight_sha256": "c2471091c9b2613f671fc46f71023b10d8d3dee5e1b1fe2c6c4d3fce1b4b8508",
+      "source": "https://huggingface.co/dumitrescustefan/bert-base-romanian-cased-v1"
+    },
+    "uk": {
+      "model": "youscan/ukr-roberta-base",
+      "revision": "8149bde480a6df9014aa934c3f8af30858dea5a6",
+      "weight_file": "pytorch_model.bin",
+      "weight_sha256": "6fb0e970bd7bf5ae18d0cdb2104ac0533dcf58248c410e05217f11f77a9c7b18",
+      "source": "https://huggingface.co/youscan/ukr-roberta-base"
+    }
+  },
+  "training": {
+    "epochs": 3,
+    "batch_size": 8,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.05,
+    "label_smoothing": 0.02,
+    "gradient_clip": 1,
+    "seed": 922,
+    "sampling": "Equal expected mass for formal/conversational x binary class, replacement, one eligible-pool-size draw per epoch."
+  },
+  "selection": "Per-language development thresholds ensure observed >=99% concern recall in both groups; select epoch minimizing worst then summed false-review rate. Earlier epoch breaks ties.",
+  "data": "All language-specific historical training rows plus natural/temporal contrasts; original complete language-specific development/calibration rows. Exact normalized overlaps are excluded from training only and recorded.",
+  "preprocessing": "Context/focal tokenizer pair; canonical semantic normalization and Romanian cedilla-to-comma mapping; no truncation beyond512.",
+  "artifact": "Full selected model in local safetensors; public JSON manifest binds its SHA-256. Reload all tensors and reproduce every selected development score before calibration.",
+  "scope": "Synthetic regression only; upstream pretraining results do not establish child-safety accuracy.",
+  "amended_utc": "2026-10-18T15:07:50.938699+00:00",
+  "amendment": "Before any native22 training, add focus_boundary_contrasts_v9 training-only families. Optimizer, selection and evaluation rules unchanged.",
+  "additional_training": {
+    "synthetic_only": true,
+    "reserved_probes_used": false,
+    "rows": 3360,
+    "families": 48,
+    "languages": {
+      "ro": 2016,
+      "uk": 1344
+    },
+    "variants": {
+      "plain": 120,
+      "quoted_self": 120,
+      "clarify_current": 240,
+      "clarify_reported": 240,
+      "clarify_fictional": 240,
+      "clarify_past": 240,
+      "real_after_fiction": 720,
+      "fiction_after_real": 720,
+      "topic_switch": 720
+    },
+    "training_only": true,
+    "independently_reviewed": false,
+    "purpose": "New ordinary-task difficulty, explicit real/fiction switches and source/time clarification patterns after interpreter14development diagnosis. No evaluation messages copied or relabeled.",
+    "data_sha256": "aebe89d992ac012b9d7c885f6d1b0b50f9cf1c02d970f1849de12745bb3af2a1"
+  }
+}

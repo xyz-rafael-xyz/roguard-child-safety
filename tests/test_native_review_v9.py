@@ -15,3 +15,21 @@ def test_native_preprocessing_canonicalizes_cedilla_and_excludes_future_turns():
     context, focal = texts(row)
     assert focal == 'Știu să citesc.'
     assert 'Future' not in context
+
+
+def test_new_focus_families_preserve_the_current_frame_and_distinguish_task_difficulty():
+    from training.focus_boundary_contrasts_v9 import generate
+    from training.prepare_instruction_sft_v8 import target
+    from training.review_data_v8 import input_key
+    rows = generate()
+    assert len({input_key(r) for r in rows}) == len(rows)
+    assert {r['language'] for r in rows} == {'ro','uk'}
+    for row in rows:
+        assert row['focus'] == len(row['turns'])-1
+        assert row['fictional'] is True
+        if row['attributes']['concern'] == '0':
+            assert target(row) == 0
+        elif row['variant'] in ('fiction_after_real','clarify_fictional'):
+            assert target(row) == 0
+        else:
+            assert target(row) == 1
