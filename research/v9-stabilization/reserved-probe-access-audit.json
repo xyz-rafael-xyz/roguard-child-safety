@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-10-18T16:08:20.892592+00:00",
+  "event": "During release-path schema inspection, source code for the contrast-probe generator and lexical-reset generator was displayed. This exposed contrast wording and lexical-reset wording to the development agent.",
+  "files": [
+    "training/review_probe_v8.py",
+    "training/freeze_lexical_probe_v8.py"
+  ],
+  "reserved_model_predictions_produced": false,
+  "reserved_raw_dataset_opened": false,
+  "training_status": "All currently queued training datasets and the optional policy27 curriculum were frozen before this source inspection. No examples were added or changed using the exposed probe wording.",
+  "interpretation": "These remain unscored model holdouts for the frozen candidates, but should not be described as analyst-blind. No independent annotation claim is made.",
+  "restriction": "Do not author further training examples from exposed reserved wording or tune model choices using reserved results. Any subsequent adaptive round needs a separate fresh qualification set."
+}
