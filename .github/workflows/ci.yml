@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e '.[test,gateway,observability]'
-      - run: python -m unittest discover -s tests -v
+      - run: python -m pytest tests -q
       - run: python scripts/verify_public_tree.py
       - run: python -m compileall -q src training eval
       - run: python -m eval.run_assurance_v9 --cases 250 --seed 9101 --output "$RUNNER_TEMP/assurance-audit.json"
