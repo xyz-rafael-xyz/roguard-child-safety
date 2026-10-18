@@ -458,7 +458,11 @@ weighting and a lower learning rate; it does not isolate their causal effects.
 
 Full-21 will choose between completed, archive-verified studies 14 and 27 using
 that shared validation loss. The binary-only Gemma comparison and supervised
-NLI comparisons remain separate experiments. Reserved neural probes remain
+NLI comparisons are deferred before fitting under the
+[qualification-priority schedule](../research/v9-stabilization/qualification-priority-32.json).
+Measured training times require reserving time for full regression and installed
+runtime replay within the original work window. Their recipes and data remain
+available; neither has a fitted-model accuracy result. Reserved neural probes remain
 unscored. During code inspection, some reserved probe generator wording became
 visible after the training datasets were frozen; these probes must not be
 described as analyst-blind. The access is recorded in

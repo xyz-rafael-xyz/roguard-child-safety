@@ -1,4 +1,4 @@
-"""Run the policy-sensitive continuation after the binary task comparison."""
+"""Run the policy-sensitive continuation after adaptive policy decoding."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -20,11 +20,11 @@ def main():
     while True:
         if time.time() >= deadline:
             raise TimeoutError('Authorized work window ended')
-        previous = root/'binary-24/run-status.json'
+        previous = root/'policy-decode-16/run-status.json'
         if previous.exists():
             previous_status = json.loads(previous.read_text())
             jobs = previous_status['jobs']
-            if jobs and (previous_status.get('complete', False) or jobs[-1]['exit_code'] != 0):
+            if jobs and (len(jobs) == 2 or jobs[-1]['exit_code'] != 0 or previous_status.get('adapted_skipped')):
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                     break
         time.sleep(10)

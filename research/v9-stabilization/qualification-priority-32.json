@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-18T17:24:49.556693+00:00",
+  "kind": "execution-order-only",
+  "reason": "Preserve time for complete regression, installed runtime replay, fresh qualification and release work in the original12-hour window. Interpreter14 measured74.74minutes for2000steps; binary24 has the same2000step budget. Native full-parameter training is materially slower than the earlier adapter pilot.",
+  "priority_order": [
+    "native-full-22",
+    "policy-decode-16",
+    "interpreter-policy-27",
+    "interpreter-full-21",
+    "installed-native-29",
+    "installed-interpreter-30"
+  ],
+  "deferred_before_fitting": [
+    "nli-transfer-18",
+    "binary-24"
+  ],
+  "unchanged": [
+    "all training data",
+    "all numerical training recipes",
+    "checkpoint selection",
+    "accuracy requirements"
+  ],
+  "resume_rule": "Consider deferred comparisons only after the priority qualification path, when enough original-window time remains to complete their necessary evaluation.",
+  "stable_release_ready": false,
+  "reserved_probes_used": false
+}
