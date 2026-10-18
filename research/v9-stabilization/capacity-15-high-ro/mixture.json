@@ -1,0 +1,189 @@
+{
+  "synthetic_regression_only": true,
+  "stable_release_ready": false,
+  "language": "ro",
+  "baseline": "research/v8-stabilization/review-09-ro",
+  "candidate": "research/v9-stabilization/capacity-15-high-ro",
+  "input_sha256": {
+    "dev": {
+      "baseline": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "d8393510835af4afef0b124dfeaf5547b6cc9223fd62e4961842f5dd58acf177"
+      },
+      "candidate": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "d35850b505d156f3b91133e1b58087c316195ccc94fac89946212ce579d1dc3b"
+      }
+    },
+    "cal": {
+      "baseline": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "6d38cfd3fcc43f652579001655366abb7698a4ec1955264930d30d30917210d6"
+      },
+      "candidate": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "f371357441a9e0b2de7dc8b78b43311bcbef641e2dd7f4a460db8bbd6a197856"
+      }
+    }
+  },
+  "selection_partition": "development",
+  "candidates": [
+    {
+      "candidate_weight": 0,
+      "logit_threshold": -2.0354909876577145,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 86
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 0
+        }
+      },
+      "rank": [
+        0.06086341118188252,
+        0.06086341118188252,
+        0
+      ]
+    },
+    {
+      "candidate_weight": 0.25,
+      "logit_threshold": -1.6972504882433073,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 73
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 0
+        }
+      },
+      "rank": [
+        0.051663128096249115,
+        0.051663128096249115,
+        0.25
+      ]
+    },
+    {
+      "candidate_weight": 0.5,
+      "logit_threshold": -1.3590099888289,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 64
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 1
+        }
+      },
+      "rank": [
+        0.04529370134465676,
+        0.04942593274961544,
+        0.5
+      ]
+    },
+    {
+      "candidate_weight": 0.75,
+      "logit_threshold": -1.1220012736886456,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 61
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 2
+        }
+      },
+      "rank": [
+        0.043170559094125975,
+        0.05143502190404333,
+        0.75
+      ]
+    },
+    {
+      "candidate_weight": 1,
+      "logit_threshold": -1.9501271809471863,
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 73
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 4
+        }
+      },
+      "rank": [
+        0.051663128096249115,
+        0.06819205371608383,
+        1
+      ]
+    }
+  ],
+  "selected": {
+    "candidate_weight": 0.75,
+    "logit_threshold": -1.1220012736886456,
+    "development": {
+      "ro_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 1,
+        "false_reviews": 61
+      },
+      "ro_conversational": {
+        "positive": 216,
+        "negative": 242,
+        "missed": 2,
+        "false_reviews": 2
+      }
+    },
+    "rank": [
+      0.043170559094125975,
+      0.05143502190404333,
+      0.75
+    ]
+  },
+  "calibration": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 241
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 46
+    }
+  },
+  "failures": [
+    "cal/ro_formal: false reviews 241/1386; maximum 5%",
+    "cal/ro_conversational: false reviews 46/243; maximum 5%"
+  ],
+  "prerequisites_pass": false
+}
