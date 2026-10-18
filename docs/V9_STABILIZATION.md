@@ -623,6 +623,15 @@ probes would still not establish real-world population accuracy.
 
 ### Native interpretation-head fallback
 
+The completed adaptive-decoding comparison (`policy-decode-16`) uses the same
+400-example development screen as interpreter-14. The unadapted base abstains
+on every case because its full-vocabulary predictions fail the label contract.
+The adapted model decides all cases and gets 376/400 correct, compared with
+371/400 for greedy six-field decoding. It averages 3.5475 conditional queries.
+This is a reused-screen comparison, not a fresh accuracy estimate or controlled
+latency benchmark. It still misses concerns in every stratum and exceeds the
+5% false-review limit in three strata, so it does not qualify for release.
+
 `native-fields-43` is a predeclared alternative to the fusion comparison.
 It reuses each frozen native encoder and trains six small categorical heads on
 the existing training labels. Features combine the final CLS representation and
