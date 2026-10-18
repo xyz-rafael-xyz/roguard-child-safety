@@ -820,3 +820,24 @@ to preserve decisions, field labels and validity exactly, with conditional
 probabilities within 0.001, and lower observed decoding time. Otherwise evaluation
 uses the original decoder. This is a numerical/runtime comparison, not new
 accuracy evidence or a controlled latency benchmark.
+
+Study65 evaluates the auxiliary semantic heads of study61's fixed selected
+encoder, independently of its direct binary head. Its Romanian development
+selection passes both groups: 5/587 formal misses with 30/1,413 false reviews,
+and no conversational errors. Calibration still fails: 12/614 formal misses
+with 99/1,386 false reviews, and 0/216 conversational misses with 36/243 false
+reviews. This is cached research inference; it has not qualified a deployed
+semantic model.
+
+Study66 targets two observed regression gaps: denial wording and a later turn
+clarifying that a statement belongs to fiction. Each language receives 5,184
+new authored compositions and 6,144 deterministically sampled training replay
+rows. Affirmation, denial, uncertainty and retraction all occur with both concern
+labels and all subject/time groups. Training starts from study61's selected
+encoder and auxiliary heads, adapting the final four layers and semantic heads.
+The calibration diagnosis informed this repair; calibration is therefore reused
+regression evidence. No exact evaluation sentence was copied into the new data.
+Both tokenizer overlap audits find zero exact training/reserved input overlap,
+which does not establish semantic independence or real-world accuracy. Study67
+requires actual installed CPU replay; study68 remains conditional on both
+languages passing the unchanged accuracy and parity gates.

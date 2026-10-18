@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-18T22:00:11.383796+00:00",
+  "rationale": "Study65 Romanian calibration argmax-policy errors include152formal false alerts with NEGATED predicted AFFIRMED and32conversational false alerts with FICTION predicted DIRECT. New authored denial variants and later fiction clarifications target these gaps.",
+  "observed_evaluation_use": "Calibration has informed repair design and is reused regression evidence, not an untouched test. One Romanian conversational calibration example was inspected to diagnose later fiction clarification; no exact evaluation sentence was copied into training.",
+  "training": {
+    "parent": "Study61 development-selected encoder and auxiliary heads",
+    "epochs": 1,
+    "batch_size": 8,
+    "last_encoder_layers": 4,
+    "encoder_learning_rate": 1e-05,
+    "heads_learning_rate": 0.0001,
+    "seed": 966,
+    "old_training_replay": 6144,
+    "new_authored_compositions": 5184,
+    "sampling": "Equal mass across formal/conversational/augmented times binary policy class",
+    "loss": "Mean six-field categorical cross-entropy"
+  },
+  "selection": "Initial/half/final on unchangeddevelopment99%recall/5%false-review gates; independent or training-onlypair potentials; persist selection before calibration audit.",
+  "evaluation": "Full installed CPU DEV/CAL replay67; reserved68only if bothlanguages pass unchanged accuracy and parity. No reserved neural predictions have been produced.",
+  "synthetic_only": true,
+  "independently_reviewed": false,
+  "stable_release_ready": false,
+  "deadline_reserve_seconds": 5400
+}
