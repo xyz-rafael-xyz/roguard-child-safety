@@ -1,0 +1,13 @@
+{
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "selection": "Choose completed interpreter-14 or interpreter-20 by lowest selected full 80-row validation loss; earlier study breaks ties.",
+  "purpose": "Full development/calibration regression, not a fresh final evaluation.",
+  "groups": "Romanian/Ukrainian by formal/conversational; unchanged 99% recall and <=5% false-review/abstention requirements.",
+  "source_partitions": {
+    "dev": "research/v8-stabilization/review-09-ro/dev.jsonl.gz",
+    "cal": "research/v8-stabilization/review-09-ro/cal.jsonl.gz"
+  },
+  "next_if_pass": "Reserved fresh probes, integrated runtime and installation checks before any stable release."
+}
