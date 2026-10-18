@@ -55,6 +55,7 @@ These files are not included in the ordinary package installation.
 Use a source checkout with its optional native runtime dependencies installed:
 
 ```sh
+python -m pip install -e '.[semantic]'
 python -m roguard.native_field_bundle --bundle bundle/bundle.json --sha256 TRUSTED_BUNDLE_SHA256 --input conversation.json
 ```
 
@@ -77,3 +78,13 @@ untrusted download and immediately accepting that same download does not
 establish trust. A correct hash establishes identity; it does not establish
 accuracy. See [stabilization results](V9_STABILIZATION.md) for the accuracy and
 installed-runtime evidence attached to each candidate.
+
+## Shared interface for binary, semantic and combined models
+
+`python -m roguard.model_bundle` accepts the same options and dispatches checked
+semantic or combined bundles to their respective loaders. For a direct binary
+`NativeReviewModel`, use `format: "roguard-native-review-bundle-v1"`, replace
+`heads_sha256` with the trusted descriptor's `artifact_sha256`, and omit `heads`
+from `assets`. The same `load_bundle` Python API returns a model supporting
+`predict` and `predict_many` in all three cases. This chooses the runtime declared
+by the pinned manifest; it does not choose a model or certify its accuracy.

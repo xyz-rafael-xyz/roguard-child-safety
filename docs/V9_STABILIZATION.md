@@ -783,3 +783,18 @@ training hash separately because their training pools differ. Study58 replays
 the selected mixer over the actual installed component outputs. These steps
 require no additional encoder training or reserved predictions. Their results
 are pending; they do not alter study54's selected standalone model.
+
+Study61 tests a direct binary review objective alongside the mean of the six
+semantic losses. It starts from study54's development-selected representation,
+reuses study22's binary classifier/pooler, and trains the final four encoder
+layers plus both sets of heads for one epoch. The training pool is unchanged
+from study54. Selection uses development counts; study62 checks the existing
+`NativeReviewModel` against the selected research checkpoint through an isolated
+wheel. Study63 can open reserved inputs only if both languages pass. This is a
+multitask training comparison, not a claim of a new general learning algorithm.
+
+Policy continuation27 completed its training, but its first checkpoint-selection
+attempt stopped before neural inference because the decoder's output parent
+directory was absent. The selector now creates that directory. Recovery60 pins
+the completed training and checkpoint bytes and resumes selection and evaluation
+without repeating training. The original attempt remains in its evidence record.
