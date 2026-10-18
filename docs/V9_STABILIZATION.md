@@ -631,3 +631,13 @@ The fallback waits until the installed-runtime queue finishes and runs only if
 the fusion accuracy requirements remain unmet and enough work-window time
 remains. Tokenizer preflight covers all 44,105 training inputs without truncation.
 No fitted-head accuracy or stable-release eligibility is claimed yet.
+
+Before fitting native-fields-43, a second amendment binds exported heads to the
+complete policy-table digest and uses an equivalent closed-form binary policy
+calculation. It matches exhaustive enumeration on all 432 deterministic worlds,
+uniform marginals and 50 seeded random marginal distributions (maximum allowed
+difference 2e-15). The explicit `NativeFieldsModel` runtime validates head tensor
+shapes and finite values before loading the pinned encoder. Overlength inputs
+abstain. Its marginal argmax interpretation is diagnostic; the binary proposal
+integrates the field distributions. Six runtime unit tests pass, but actual
+fitted-model installed inference is still required.

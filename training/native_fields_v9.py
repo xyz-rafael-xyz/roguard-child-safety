@@ -24,12 +24,13 @@ def policy_mass(probabilities):
         if (p.shape!=(rows,size) or not np.isfinite(p).all() or (p<0).any() or (p>1).any()
                 or not np.allclose(p.sum(axis=1),1,atol=1e-6,rtol=0)):
             raise ValueError('Invalid field probabilities')
-    result=np.zeros(rows,dtype=np.float64)
-    for world,action in zip(WORLD_INDICES,WORLD_ACTIONS):
-        if action:
-            mass=np.ones(rows,dtype=np.float64)
-            for p,index in zip(values,world):mass*=p[:,index]
-            result+=mass
+    def p(field,label):return values[FIELDS.index(field)][:,ONTOLOGY[field].index(label)]
+    fictional=p('subject','FICTIONAL');fiction=p('source','FICTION')
+    negated=p('assertion','NEGATED');retracted=p('assertion','RETRACTED');retracts=p('relation','RETRACTS')
+    mismatch=fictional*(1-fiction)+(1-fictional)*fiction
+    fiction_review=retracted+retracts-retracted*retracts
+    real_review=1-(1-retracts)*negated
+    result=p('concern','1')*(mismatch+fictional*fiction*fiction_review+(1-fictional)*(1-fiction)*real_review)
     if not np.isfinite(result).all() or (result < -1e-6).any() or (result > 1+1e-6).any():
         raise ValueError('Invalid integrated policy mass')
     return np.clip(result,0,1)

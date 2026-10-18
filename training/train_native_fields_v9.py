@@ -10,6 +10,7 @@ from pathlib import Path
 from training.native_fields_v9 import FIELDS,SIZES,targets,network,probabilities,policy_mass
 from training.review_fusion_v9 import threshold,metrics,strata
 from roguard.evidence import disposition
+from roguard.assurance import policy_digest
 
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -83,7 +84,7 @@ def main():
                     spec=dict(format='roguard-native-fields-experiment-v1',language=a.language,hidden=hidden,dimensions=x.shape[1],
                         native_artifact_sha256=sha(parent/'review.json.gz'),mean=mean.tolist(),scale=scale.tolist(),
                         weights={k:v.detach().tolist() for k,v in model.state_dict().items()},threshold=float(limit),
-                        fields=FIELDS,sizes=SIZES,distribution='independent categorical fields; uncalibrated')
+                        fields=FIELDS,sizes=SIZES,distribution='independent categorical fields; uncalibrated',policy_digest=policy_digest())
                     (study/'selected-heads.json.gz').write_bytes(gzip.compress(json.dumps(spec,separators=(',',':')).encode(),mtime=0))
         record=dict(created_utc=datetime.now(timezone.utc).isoformat(),source_sha256=source_hashes,trials=trials,selected=best,
             artifact_sha256=sha(study/'selected-heads.json.gz'),native_artifact_sha256=sha(parent/'review.json.gz'),
