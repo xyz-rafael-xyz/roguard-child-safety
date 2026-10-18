@@ -129,3 +129,28 @@ Eleven focused tests pass, including binding verification, abstention handling,
 correlation preservation and stale-report rejection. Testing against actual
 installed neural outputs is queued after the interpreter replay; those results
 are not yet available.
+
+## Experimental native/interpreter fusion
+
+`roguard.review_fusion.ReviewFusion` consumes a native review report and a
+structured interpreter report for the same selected conversation prefix. The
+fitted artifact specifies both component identities, its feature contract,
+coefficients and threshold. The class performs no neural inference or download.
+
+```python
+from roguard.review_fusion import ReviewFusion
+
+fusion = ReviewFusion(fusion_artifact_path, expected_artifact_sha256=fusion_sha256)
+combined = fusion.predict(conversation, native_report, interpreter_report)
+```
+
+Obtain the artifact hash from trusted host configuration. An upstream abstention
+remains an abstention. Component reports must come from the configured inference
+services; matching hashes do not authenticate their producer. The combined
+score is not a calibrated safety probability and grants no permissions.
+
+The fit and installed composite replay are queued as studies36 and38. No fitted
+fusion result or accuracy improvement is claimed yet. Twelve focused tests pass,
+including exact feature/scoring compatibility with the frozen research code.
+Any completed artifact remains experimental until its separate accuracy and
+actual-runtime requirements pass.
