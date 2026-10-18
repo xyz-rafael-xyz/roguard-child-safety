@@ -1,0 +1,6082 @@
+{
+  "synthetic_only": true,
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 0,
+        "abstained": 100,
+        "correct_decided": 0,
+        "missed_or_abstained_concerns": 50,
+        "false_review_or_abstained_benign": 50,
+        "direct_misses": 0,
+        "direct_false_reviews": 0,
+        "coverage": 0.0,
+        "decided_accuracy": null,
+        "strict_accuracy": 0.0,
+        "concern_recall_including_abstentions": 0.0,
+        "benign_review_or_abstention_rate": 1.0
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 0,
+        "abstained": 100,
+        "correct_decided": 0,
+        "missed_or_abstained_concerns": 50,
+        "false_review_or_abstained_benign": 50,
+        "direct_misses": 0,
+        "direct_false_reviews": 0,
+        "coverage": 0.0,
+        "decided_accuracy": null,
+        "strict_accuracy": 0.0,
+        "concern_recall_including_abstentions": 0.0,
+        "benign_review_or_abstention_rate": 1.0
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 0,
+        "abstained": 100,
+        "correct_decided": 0,
+        "missed_or_abstained_concerns": 50,
+        "false_review_or_abstained_benign": 50,
+        "direct_misses": 0,
+        "direct_false_reviews": 0,
+        "coverage": 0.0,
+        "decided_accuracy": null,
+        "strict_accuracy": 0.0,
+        "concern_recall_including_abstentions": 0.0,
+        "benign_review_or_abstention_rate": 1.0
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 0,
+        "abstained": 100,
+        "correct_decided": 0,
+        "missed_or_abstained_concerns": 50,
+        "false_review_or_abstained_benign": 50,
+        "direct_misses": 0,
+        "direct_false_reviews": 0,
+        "coverage": 0.0,
+        "decided_accuracy": null,
+        "strict_accuracy": 0.0,
+        "concern_recall_including_abstentions": 0.0,
+        "benign_review_or_abstention_rate": 1.0
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 0,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  },
+  "target_failures": [
+    "ro_formal: concern recall below 99% including abstentions",
+    "ro_formal: benign review/abstention rate above 5%",
+    "ro_conversational: concern recall below 99% including abstentions",
+    "ro_conversational: benign review/abstention rate above 5%",
+    "uk_formal: concern recall below 99% including abstentions",
+    "uk_formal: benign review/abstention rate above 5%",
+    "uk_conversational: concern recall below 99% including abstentions",
+    "uk_conversational: benign review/abstention rate above 5%"
+  ],
+  "field_confusions": {
+    "concern": {
+      "0 -> 1": 87,
+      "1 -> 1": 259,
+      "0 -> 0": 54
+    },
+    "subject": {
+      "SELF -> SELF": 213,
+      "OTHER -> OTHER": 67,
+      "FICTIONAL -> SELF": 47,
+      "OTHER -> FICTIONAL": 11,
+      "FICTIONAL -> FICTIONAL": 38,
+      "OTHER -> SELF": 16,
+      "SELF -> OTHER": 1,
+      "SELF -> FICTIONAL": 4,
+      "FICTIONAL -> OTHER": 3
+    },
+    "source": {
+      "DIRECT -> DIRECT": 203,
+      "REPORTED -> REPORTED": 88,
+      "FICTION -> FICTION": 58,
+      "REPORTED -> DIRECT": 5,
+      "FICTION -> DIRECT": 30,
+      "DIRECT -> FICTION": 10,
+      "DIRECT -> REPORTED": 5,
+      "REPORTED -> FICTION": 1
+    },
+    "assertion": {
+      "AFFIRMED -> UNCERTAIN": 47,
+      "AFFIRMED -> NEGATED": 69,
+      "RETRACTED -> RETRACTED": 34,
+      "UNCERTAIN -> UNCERTAIN": 57,
+      "AFFIRMED -> AFFIRMED": 72,
+      "UNCERTAIN -> NEGATED": 26,
+      "AFFIRMED -> RETRACTED": 32,
+      "NEGATED -> NEGATED": 24,
+      "NEGATED -> RETRACTED": 19,
+      "UNCERTAIN -> AFFIRMED": 8,
+      "UNCERTAIN -> RETRACTED": 9,
+      "RETRACTED -> NEGATED": 2,
+      "RETRACTED -> AFFIRMED": 1
+    },
+    "relation": {
+      "NEW -> NEW": 98,
+      "NEW -> RETRACTS": 265,
+      "RETRACTS -> RETRACTS": 37
+    },
+    "time": {
+      "PAST -> PAST": 74,
+      "CURRENT -> CURRENT": 252,
+      "HYPOTHETICAL -> CURRENT": 55,
+      "HYPOTHETICAL -> HYPOTHETICAL": 5,
+      "PAST -> CURRENT": 10,
+      "HYPOTHETICAL -> PAST": 3,
+      "PAST -> HYPOTHETICAL": 1
+    }
+  },
+  "minimal_policy_repairs": {
+    "concern": 87,
+    "subject + relation": 7,
+    "assertion + relation": 30,
+    "subject + assertion + relation": 11,
+    "relation": 30,
+    "source + assertion + relation": 5,
+    "subject + source": 1,
+    "subject": 1,
+    "subject + source + relation": 4,
+    "subject + source + assertion + relation": 3,
+    "assertion": 2,
+    "subject + assertion": 2
+  },
+  "paired_reference_transitions": {
+    "correct -> incorrect": 345,
+    "incorrect -> incorrect": 55
+  },
+  "errors": [
+    {
+      "case_id": "native-dev-benign-uk-1-1-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-15-1-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-28-0-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-24-0-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-30-0-2-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-28-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-13-2-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-27-0-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-31-0-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-78",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-3-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-24-1-2-1-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-13-2-2-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-uk-67",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-30-0-1-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-3-2-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-21",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-2-5-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-15-3-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-30-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-0-2-plain-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-26-0-0-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-14-0-2-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-1-2-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-29-1-2-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-3-1-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-94",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-uk-39",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-26-1-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-31-2-1-1-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-3-0-lower-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-1-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-30-1-2-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-31-2-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-2-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-102",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-20",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-26-1-2-1-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-0-3-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-24-1-0-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-5-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-29-0-2-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-1-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-26-1-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-24-2-0-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-6-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-88",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-28-0-1-0-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-14-3-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-28-0-0-2-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-uk-2-2-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-28",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-13-5-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-2-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-1-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-27-1-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-31-1-1-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-91",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-28-0-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-0-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-23",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-21",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-28-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-28-1-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-26-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-24-0-2-0-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-5-2-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-25-0-1-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-25-2-2-2-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-31-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-3-2-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-dev-ro-20",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-120",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-0-0-0",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-6-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-29-1-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-1-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-uk-45",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-1-0-plain-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-138",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-24-1-0-1-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-27-2-1-1-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-28-1-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-29-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-30-0-2-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-29-0-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-31-2-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-31-2-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-27-1-2-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-0-3-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-3-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-0-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-24",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-30-0-0-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-29-2-2-3-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-0-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-27-1-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-20",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-2-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-0-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-27-2-1-3-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-27-2-0-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-5-0-original-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-24-1-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-uk-78",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-11",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-149",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-30-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-26-0-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-5-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-30-0-2-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-82",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-25-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-26-0-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-30-2-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-30-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-31-0-0-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-25-0-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-31-0-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-31-1-2-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-29-1-1-3-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-1-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-3",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-30-1-1-3-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-25-2-2-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-27-0-1-3-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-5-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-31-0-0-1-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-29-0-0-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-25-0-0-3-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-27-0-0-3-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-31-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-13-0-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-0-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-29-1-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-2-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-138",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-29-1-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-26-2-0-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-3-2-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-6-2-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-30-1-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-87",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-uk-128",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-0-2-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-5-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-29-1-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-6-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-25-1-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-26-2-1-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-3-2-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-0-2-lower-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-29-1-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-3-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-5-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-25-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-14-5-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-31-1-2-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-90",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-26-0-1-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-dev-uk-47",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-22",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-13-3-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-28-0-2-3-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-28-0-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-97",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-28-2-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-29-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-31-2-2-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-26-1-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-2-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-28-1-0-3-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-24-2-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-99",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-30-0-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-24-2-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-13-0-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-31-2-2-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-26-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-2-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-3-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-1-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-0-2-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-1-3-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-27-1-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-24-1-1-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-1-2-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-29-1-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-27-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-130",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-30-2-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-1-3-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-3-0-plain-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-3-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-29-2-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-28-0-2-3-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-30-2-0-2-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-6-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-126",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-1-0-lower-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-26-1-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-26-2-2-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-dev-uk-43",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-5-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-6-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-25-1-1-3-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-28-1-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-31-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-30-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-133",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-1-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-4",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-27-1-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-28-0-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-2-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-1-2-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-26-1-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-14-2-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-29-1-1-0-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-26-0-2-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "source",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-31-0-2-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-24-1-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-27-1-1-1-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-30-2-0-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-0-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-5-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-25-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-25-1-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-27-1-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-0-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-5-2-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-26-1-0-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-13-2-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-3-0-0-2-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-28-1-1-0-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-29-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-29-0-1-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-28-2-1-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-dev-ro-17",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-18",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-14-3-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-uk-76",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-25-1-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-82",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-13-2-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-31-1-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-1-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-48",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-24-2-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-dev-ro-15",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-27-1-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-31-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-83",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-31-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-5-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-26-2-0-1-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-31-1-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-136",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-24-2-2-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-31-0-0-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-29-2-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-27-2-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-31-0-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-52",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-140",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-29-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-14-1-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-27-0-0-1-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-uk-113",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-25-2-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-28-1-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-ro-3",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-26-0-2-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-3-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-28-1-2-0-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-13-1-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-6-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-34",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-30-0-0-2-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-31-0-1-2-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-ro-70",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-1-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-25-0-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-130",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-1-2-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-66",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-uk-118",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-3-5-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-12-1-1-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-30-2-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-30-0-0-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-31-1-2-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-0-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-29-2-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-0-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-27-1-0-3-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-uk-142",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-27-0-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-27-1-0-3-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-30-1-2-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-26-2-1-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-13-31-2-0-2-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "source",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-12-29-2-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-dev-uk-26",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-12-26-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-30-0-0-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-26-1-2-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-25-1-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-5-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-0-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-27",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-29-1-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-27-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-repair-dev-ro-62",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-27-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-31-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-25-0-2-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-1-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-24-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-uk-46",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-3-3-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-0-6-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-23",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-24-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-0-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-31-0-2-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-2-0-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-1-2-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-0-2-original-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-24-2-1-1-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-dev-ro-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "source",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-24-2-1-3-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-14-5-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-27-1-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-ro-66",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-29-1-0-0-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-24-0-0-1-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-30-1-2-1-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-29-0-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-15-5-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-25-1-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-30-1-2-1-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-29-0-0-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-14-5-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-1-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-dev-uk-31",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-29-2-0-0-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-30-0-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-12-2-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-28-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-14-27-1-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-13-24-0-2-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-1-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-29-2-2-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-ro-25",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-14-0-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-3-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-uk-98",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-12-26-2-2-0-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-15-25-0-0-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-15-1-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-transfer-dev-uk-30",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-30-2-0-1-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-dev-ro-55",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-ro-21",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-13-25-1-1-1-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-uk-13-1-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-v71-dev-uk-110",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-ro-35",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-support-dev-ro-18",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-14-30-1-0-3-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-27-0-0-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-1-6-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-6-0-0",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-uk-12-0-1-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-29-0-2-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-14-26-0-2-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-0-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-25-2-2-2-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject",
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-14-31-1-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-dev-uk-74",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-12-26-2-0-1-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-15-5-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-ro-13-2-2-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-27-1-0-1-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-uk-13-27-1-2-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "dev-ro-15-24-0-2-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-ro-15-25-2-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-dev-ro-70",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-ro-12-5-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "assertion",
+        "relation"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-0-3-0-0",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-27-2-1-3-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "dev-uk-15-25-2-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [
+        "relation"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-dev-benign-ro-2-6-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    },
+    {
+      "case_id": "native-dev-benign-uk-3-6-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": null,
+      "invalid_schema": true,
+      "differing_fields": [],
+      "minimal_policy_repairs": []
+    }
+  ],
+  "stable_release_ready": false,
+  "caveat": "Gold-label repairs are offline diagnostics, never corrected accuracy. Repairs may overlap; schema validity remains a separate error.",
+  "input_sha256": {
+    "research/v8-stabilization/instruction-sft-01/screen.jsonl": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+    "research/v9-stabilization/interpreter-14/baseline/predictions.jsonl": "e10b8c88a1f539425b671d4947572df47471cd64ef5c444b4019d730c5004890",
+    "research/v9-stabilization/gemma-screen-11/predictions.jsonl": "617123ce32f547fa9ff1a5f06f59326c21d1c03c5eaba4566af78c1da72a0cd5"
+  }
+}
