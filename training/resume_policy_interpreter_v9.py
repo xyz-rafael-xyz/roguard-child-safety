@@ -19,7 +19,7 @@ def main():
     deadline = datetime.fromisoformat(json.loads((root/'work-window.json').read_text())[
         'deadline_utc'].replace('Z', '+00:00')).timestamp()-5100
     while time.time() < deadline:
-        previous = root/'reserved-joint-field-fusion-59/run-status.json'
+        previous = root/'multitask-review-61/run-status.json'
         if previous.exists():
             status = json.loads(previous.read_text())
             if ('finished_utc' in status and time.time() >

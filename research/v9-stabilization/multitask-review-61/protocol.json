@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-18T21:26:16.451665+00:00",
+  "rationale": "Study54 halfway Romanian development has99.1%recall but13.6%formal false reviews. Test direct binary review supervision jointly with six semantic objectives.",
+  "warm_start": "Study54 development-selected encoder and auxiliary heads; study22 binary classifier/pooler. No checkpoint is selected using calibration.",
+  "training": {
+    "seed": 961,
+    "epochs": 1,
+    "batch_size": 8,
+    "last_encoder_layers": 4,
+    "encoder_learning_rate": 1e-05,
+    "decision_and_auxiliary_learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1,
+    "warmup_fraction": 0.05,
+    "loss": "Binary cross-entropy plus mean of six categorical cross-entropies.",
+    "sampling": "Equal mass over six training source/class groups."
+  },
+  "selection": "Initial,halfway,final development checkpoints: unchanged99%recall/5%false-review gates, then worst and total false review rates, auxiliary field loss, earlier step. Numerical gap>=1e-4 without excluding required positives.",
+  "inference": "Existing NativeReviewModel binary head. Auxiliary semantic heads regularize training and are separately reported; they do not supply a claimed calibrated risk score.",
+  "evaluation": "Persist selection before regression calibration. Actual installed full DEV/CAL CPU replay; reserved63only if both languages qualify.",
+  "synthetic_only": true,
+  "reserved_predictions_produced": false,
+  "calibration_is_reused_regression_evidence": true,
+  "stable_release_ready": false,
+  "deadline_reserve_seconds": 6000
+}
