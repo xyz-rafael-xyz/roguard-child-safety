@@ -910,3 +910,9 @@ were already selected using development data, so the folds do not constitute an
 independent evaluation of the whole model. No installed composite runtime has
 qualified this native-expert combination. All rows above are reused synthetic
 regression evidence, not estimates of real-world child-safety performance.
+
+Installed study72 reproduced study71 Romanian decisions exactly, with zero
+abstentions; accuracy remained below the required gates. Study73 skipped reserved
+inference. The complete repository test suite after the pipeline additions passed
+743 tests and 129 subtests, with 23 optional tests skipped. Software test success
+does not close the model-accuracy gates.
