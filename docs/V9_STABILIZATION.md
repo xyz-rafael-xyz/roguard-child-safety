@@ -770,7 +770,17 @@ retains the 99% concern-recall and 5% false-review gates for each language and
 register, followed by full installed CPU replay. Study56 may run reserved neural
 inference only if both installed candidates pass. Previous calibration failures
 informed this design; calibration remains regression evidence rather than a
-fresh blind test. Results are pending.
+fresh blind test. Both languages completed training and installed CPU replay.
+Runtime parity passes, but calibration accuracy does not:
+
+| Language / register | Missed concerns | False reviews |
+| --- | ---: | ---: |
+| Romanian formal | 27 / 614 | 279 / 1,386 |
+| Romanian conversational | 0 / 216 | 39 / 243 |
+| Ukrainian formal | 13 / 614 | 284 / 1,386 |
+| Ukrainian conversational | 2 / 164 | 40 / 223 |
+
+Study56 therefore produced no reserved predictions.
 
 A [single-model local bundle interface](NATIVE_FIELDS_RUNTIME.md) reduces loading
 to one manifest and its trusted digest. This is an explicit candidate interface,
@@ -781,8 +791,12 @@ with study54's joint semantic representation. It reuses the study51 field-wise
 mixture method, selects only on development data, and checks each parent's
 training hash separately because their training pools differ. Study58 replays
 the selected mixer over the actual installed component outputs. These steps
-require no additional encoder training or reserved predictions. Their results
-are pending; they do not alter study54's selected standalone model.
+require no additional encoder training or reserved predictions. Runtime parity
+passes, but the combined models also fail calibration. Romanian formal counts
+are 7/614 misses and 220/1,386 false reviews; conversational counts are 0/216 and
+10/243. Ukrainian counts are 116/614 and 165/1,386 formal, and 36/164 and 32/223
+conversational. Study59 therefore produced no reserved predictions. These
+comparisons do not alter study54's selected standalone model.
 
 Study61 tests a direct binary review objective alongside the mean of the six
 semantic losses. It starts from study54's development-selected representation,
@@ -798,3 +812,11 @@ attempt stopped before neural inference because the decoder's output parent
 directory was absent. The selector now creates that directory. Recovery60 pins
 the completed training and checkpoint bytes and resumes selection and evaluation
 without repeating training. The original attempt remains in its evidence record.
+
+Study64 tests a faster decoder before full interpreter evaluation. It batches
+only identical token layouts and repeats the common prefix cache without sharing
+mutable state between messages. Adoption requires all 400 existing screen cases
+to preserve decisions, field labels and validity exactly, with conditional
+probabilities within 0.001, and lower observed decoding time. Otherwise evaluation
+uses the original decoder. This is a numerical/runtime comparison, not new
+accuracy evidence or a controlled latency benchmark.
