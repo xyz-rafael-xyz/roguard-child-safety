@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-18T22:27:46.618728+00:00",
+  "rationale": "UK22direct classifier has lowformalfalse alerts butmissesconversationalconcerns; native semantic modelsrecovermoreconcerns butaddfalsealerts. Test complementary nativeexperts without another encodertrainingrun.",
+  "parents": {
+    "ro": [
+      "native-full-22-ro",
+      "semantic-selection-71/ro"
+    ],
+    "uk": [
+      "native-full-22-uk",
+      "scope-repair-66/uk"
+    ]
+  },
+  "features": "Directbinaryscore/logit; sixnativefieldmarginals; theirargmaxonehots; directscoretimesmarginals. Reuse36arithmeticfeaturebuilder, buttheseareunconditionalnativeheadmarginals, notinterpreterconditionaldecodings. No text,caseidentity orstratumfeatures.",
+  "selection": "Same5connectedgroupfolds and4ridgepenalties as36, balanced4stratafit. Select byunchangedOOF99/5gates andfalse-reviewranking. Recall-preservinggapmidpoint. FitselectedpenaltyonallDEV, thenauditCALafterpersistedselection.",
+  "limits": "BaseencodersalreadyusedDEVforselection; OOFisnotindependentbase-modelvalidation. CALisreusedregressionevidence. Noinstalledcompositeorreservedclaimbeforeseparateverification.",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
