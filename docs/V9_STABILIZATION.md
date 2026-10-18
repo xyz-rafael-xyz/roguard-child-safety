@@ -392,7 +392,7 @@ trained archive restores all 112 tensors exactly. The capacity comparisons
 started after this run completed.
 
 Before native-22 training, its documented v2 amendment adds `focus-23`:
-3,360 training-only variants from 48 new fictional content families. They cover
+4,214 training-only variants from 48 new fictional content families. They cover
 ordinary task difficulty, real/fiction switches, unrelated topic changes, and
 source/time clarifications. The generator reads no evaluation files; the
 resulting inputs have no normalized overlap with the existing development or
@@ -400,3 +400,5 @@ calibration partitions. Evaluation messages and labels remain unchanged.
 These are machine-authored, correlated variants with no new independent
 language review. Native-22's optimizer, selection rule and evaluation remain
 as declared; its original protocol is retained alongside the amendment.
+Before training, gender-specific reporting frames were corrected and authored
+feminine forms were added. These share the masculine forms' content-family IDs.

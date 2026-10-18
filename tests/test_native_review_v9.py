@@ -24,6 +24,8 @@ def test_new_focus_families_preserve_the_current_frame_and_distinguish_task_diff
     rows = generate()
     assert len({input_key(r) for r in rows}) == len(rows)
     assert {r['language'] for r in rows} == {'ro','uk'}
+    assert any('veselă' in t['text'] for r in rows for t in r['turns'])
+    assert any('веселою' in t['text'] for r in rows for t in r['turns'])
     for row in rows:
         assert row['focus'] == len(row['turns'])-1
         assert row['fictional'] is True

@@ -73,7 +73,7 @@ FRAMES = {
         new='Schimb subiectul. {text}',
         current='În mesajul anterior vorbeam despre propria mea situație din prezent.',
         reported='Cuvintele acelea sunt ale unei cunoștințe care vorbește despre sine.',
-        fictional='Replica aceea îi aparține unui erou imaginar creat de mine.',
+        fictional='Replica aceea îi aparține unui personaj imaginar creat de mine.',
         past='Acele cuvinte se referă la viața mea de acum multe luni.',
         acknowledge='Poți continua.'),
     'uk': dict(quote='Ось мої власні слова: «{text}»',
@@ -81,10 +81,25 @@ FRAMES = {
         real='Тепер залишаю історію осторонь і говорю про власне життя: {text}',
         new='Зміню тему. {text}',
         current='У попередньому повідомленні йшлося про мою власну теперішню ситуацію.',
-        reported='Це слова знайомої, яка говорить про свій власний досвід.',
-        fictional='Цю репліку говорить вигаданий герой, якого я придумав.',
+        reported='Це слова іншої людини про її власний досвід.',
+        fictional='Цю репліку промовляє вигаданий персонаж із моєї історії.',
         past='Ті слова стосуються мого життя багато місяців тому.',
         acknowledge='Можеш продовжити.'),
+}
+
+FEMININE = {
+    'ro': {
+        CONTENT['ro'][0][5]: 'Nu sunt convinsă că am pus virgula unde trebuie.',
+        CONTENT['ro'][1][0]: 'Deși toți cred că sunt veselă, mă simt singură aproape mereu.',
+        CONTENT['ro'][1][4]: 'Mi-e frică să rămân singură cu persoana care mă amenință.',
+        CONTENT['ro'][1][8]: 'Mă simt respinsă de ceilalți și asta mă doare.',
+    },
+    'uk': {
+        CONTENT['uk'][0][5]: 'Не впевнена, чи поставила кому в потрібному місці.',
+        CONTENT['uk'][0][6]: 'Заплуталася в останньому запитанні вікторини.',
+        CONTENT['uk'][1][0]: 'Хоч усі вважають мене веселою, майже завжди почуваюся самотньо.',
+        CONTENT['uk'][1][8]: 'Почуваюся відкинутою іншими, і це боляче.',
+    },
 }
 
 
@@ -114,9 +129,16 @@ def generate():
                         for i,text in enumerate(texts):
                             if i and with_assistant:turns.append(dict(role='assistant',text=f['acknowledge']))
                             turns.append(dict(role='minor',text=text))
-                        forms=[turns,[dict(t,text=t['text'].lower()) for t in turns]]
-                        if language=='ro':
-                            forms.append([dict(t,text=''.join(c for c in unicodedata.normalize('NFD',t['text']) if not unicodedata.combining(c))) for t in turns])
+                        feminine=[]
+                        for turn in turns:
+                            text=turn['text']
+                            for before,after in FEMININE[language].items():text=text.replace(before,after)
+                            feminine.append(dict(turn,text=text))
+                        forms=[]
+                        for surface in (turns,feminine):
+                            forms.extend([surface,[dict(t,text=t['text'].lower()) for t in surface]])
+                            if language=='ro':
+                                forms.append([dict(t,text=''.join(c for c in unicodedata.normalize('NFD',t['text']) if not unicodedata.combining(c))) for t in surface])
                         for form in forms:
                             attrs=dict(concern=str(concern),subject='SELF',source='DIRECT',assertion='AFFIRMED',relation='NEW',time='CURRENT')
                             attrs.update(changes)
