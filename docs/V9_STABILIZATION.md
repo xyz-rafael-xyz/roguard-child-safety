@@ -603,3 +603,12 @@ The policy, full-regression and installed-interpreter coordinators now record
 terminal setup failures atomically, preserving earlier job history. Dependent
 jobs can finish or skip explicitly instead of waiting indefinitely. Private
 exception messages are kept out of public status records.
+
+The reserved fusion check (`reserved-fusion-42`) is prepared but has not run.
+It requires both fusion models to pass their original development and calibration
+limits, and all installed components to reproduce their research outputs. A
+hashed selection plan is then checked before each serial native/interpreter
+process. The final step combines these newly generated installed-runtime reports.
+Each reserved set is evaluated separately by language, with abstentions counted
+as errors and duplicate inputs reported explicitly. Passing these small synthetic
+probes would still not establish real-world population accuracy.
