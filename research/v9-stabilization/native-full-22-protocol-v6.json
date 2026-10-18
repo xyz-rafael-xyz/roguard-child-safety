@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-18T17:06:55.788605+00:00",
+  "amendment": "Bound native MPS graph shapes and unused buffer cache before first fit.",
+  "previous": "native-full-22-protocol-v5.json",
+  "training_started": false,
+  "changes": {
+    "right_padding_multiple": 32,
+    "mps_cache_release_interval_batches": 25,
+    "mps_high_watermark_ratio": 0.7,
+    "mps_low_watermark_ratio": 0.4
+  },
+  "reason": "Repeated Metal command-buffer waits in the separate mmBERT capacity study under shared-memory pressure. Reducing dynamic padding shapes is a prospective mitigation; the exact driver cause is not proven.",
+  "numerical_note": "Padding is masked and no tokens are truncated. Shapes can change rounding and seeded dropout draws; this is a new pre-fit execution configuration, not claimed bit-identical to the unrun v5 recipe.",
+  "unchanged": [
+    "all training/dev/cal input bytes",
+    "labels",
+    "seed",
+    "learning rate",
+    "optimizer",
+    "batch size",
+    "epoch count",
+    "selection rule",
+    "accuracy requirements"
+  ],
+  "runtime": "Uses the same shared padding/preprocessing contract; installed CPU replay remains required.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

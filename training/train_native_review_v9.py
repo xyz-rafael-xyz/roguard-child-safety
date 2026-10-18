@@ -82,7 +82,7 @@ def main():
     base_manifest=json.loads(base_manifest_path.read_text())['models'][language]
     if base_manifest['model']!=model_id or base_manifest['revision']!=revision:
         raise ValueError('Base manifest identity mismatch')
-    from roguard.native_assets import reject_native_overrides
+    from roguard.native_assets import reject_native_overrides, PADDING_MULTIPLE, PREPROCESSING
     reject_native_overrides(args.base,base_manifest['files'])
     for name,expected in base_manifest['files'].items():
         if digest(args.base/name)!=expected['sha256']:
@@ -114,6 +114,8 @@ def main():
     (args.output/'training-history.jsonl.gz').write_bytes((args.output/'train.jsonl.gz').read_bytes())
     (args.output/'training-exclusions.json').write_text(json.dumps(excluded,indent=2)+'\n')
     tokenizer = AutoTokenizer.from_pretrained(args.base, local_files_only=True, trust_remote_code=False)
+    if tokenizer.padding_side != 'right':
+        raise ValueError('Native training requires right padding')
     model = AutoModelForSequenceClassification.from_pretrained(args.base, num_labels=2, local_files_only=True,
                 trust_remote_code=False, use_safetensors=weight_name.endswith('.safetensors'), weights_only=True).float().to(args.device)
     tokens = {}; truth = {}
@@ -124,13 +126,15 @@ def main():
             raise ValueError('Input exceeds 512 tokens; no silent truncation')
         truth[split] = np.array([target(r) for r in values])
     def batch(split, indices):
-        return {k:v.to(args.device) for k,v in tokenizer.pad([{k:v[i] for k,v in tokens[split].items()} for i in indices],return_tensors='pt').items()}
+        return {k:v.to(args.device) for k,v in tokenizer.pad([{k:v[i] for k,v in tokens[split].items()} for i in indices],return_tensors='pt',pad_to_multiple_of=PADDING_MULTIPLE).items()}
     def score(split):
         model.eval(); scores=[]
         with torch.inference_mode():
             for offset in range(0,len(rows[split]),8):
                 logits=model(**batch(split,list(range(offset,min(offset+8,len(rows[split])))))).logits.float()
                 scores.extend(torch.softmax(logits,dim=-1)[:,1].cpu().tolist())
+                if args.device == 'mps' and (offset//8+1)%25 == 0:
+                    torch.mps.empty_cache()
         if not np.isfinite(scores).all():
             raise ValueError('Nonfinite inference scores')
         return np.array(scores)
@@ -154,6 +158,8 @@ def main():
                 base_weights_sha256=weight_hash)
     record['base_manifest_sha256']=digest(base_manifest_path)
     record['validation_schedule']='Half-epoch and end-of-epoch, selected solely by development counts.'
+    record['padding_multiple']=PADDING_MULTIPLE
+    record['mps_cache_release_interval']=25
     best=None;visited=set()
     checks=checkpoint_offsets(len(train))
     for epoch in range(1,4):
@@ -166,6 +172,8 @@ def main():
             if not torch.isfinite(loss):raise ValueError('Nonfinite training loss')
             loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),1);optimizer.step();scheduler.step()
             losses.append(float(loss.detach().cpu()));visited.update(indices)
+            if args.device == 'mps' and (offset//8+1)%25 == 0:
+                torch.mps.empty_cache()
             if offset%1600==0:print('epoch',epoch,'row',offset,'of',len(train),'loss',losses[-1],flush=True)
             completed=min(offset+8,len(order))
             if completed not in checks:
@@ -189,7 +197,7 @@ def main():
                 artifact=dict(format='roguard-native-full-review-experiment-v1',base=model_id,revision=revision,
                               language=language,thresholds=thresholds,checkpoint_sha256=digest(checkpoint),
                               base_manifest_sha256=digest(base_manifest_path),
-                              preprocessing='NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; context/focal pair; max512, no truncation.')
+                              preprocessing=PREPROCESSING)
                 (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
                 save_scores('dev',scores,thresholds)
             record['unique_training_indices_seen']=len(visited)

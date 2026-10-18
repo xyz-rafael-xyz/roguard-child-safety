@@ -1,6 +1,10 @@
 """Reject unregistered files that can override a pinned native tokenizer/model."""
 from pathlib import Path
 
+PADDING_MULTIPLE = 32
+PREPROCESSING = ('NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; '
+                 'context/focal pair; max512, no truncation; right padding to multiples of32.')
+
 
 TOKENIZER_FILES = frozenset({
     'config.json', 'tokenizer_config.json', 'special_tokens_map.json',

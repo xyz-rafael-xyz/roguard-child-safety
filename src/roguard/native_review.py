@@ -13,7 +13,7 @@ import tempfile
 import threading
 
 from .context import render, validate
-from .native_assets import reject_native_overrides
+from .native_assets import reject_native_overrides, PADDING_MULTIPLE, PREPROCESSING
 from .semantic import normalize_semantic_text
 
 
@@ -26,8 +26,6 @@ BASES = {
            frozenset({'config.json', 'tokenizer_config.json', 'special_tokens_map.json',
                       'vocab.json', 'merges.txt', 'pytorch_model.bin'})),
 }
-PREPROCESSING = ('NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; '
-                 'context/focal pair; max512, no truncation.')
 WEIGHT_FILES = frozenset({'model.safetensors', 'pytorch_model.bin'})
 
 
@@ -95,6 +93,8 @@ class _TorchEngine:
             if config.model_type != model_type:
                 raise ValueError('Native model architecture differs')
             self.tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True, trust_remote_code=False)
+            if self.tokenizer.padding_side != 'right':
+                raise ValueError('Native runtime requires right padding')
             self.model = AutoModelForSequenceClassification.from_config(config, trust_remote_code=False).float()
         raw = _read(checkpoint, 700_000_000)
         if _sha(raw) != checkpoint_digest:
@@ -119,7 +119,7 @@ class _TorchEngine:
             for offset in range(0, len(valid), 8):
                 indices = valid[offset:offset+8]
                 batch = self.tokenizer.pad([{key: values[i] for key, values in encoded.items()} for i in indices],
-                                           return_tensors='pt')
+                                           return_tensors='pt', pad_to_multiple_of=PADDING_MULTIPLE)
                 batch = {key: value.to(self.device) for key, value in batch.items()}
                 logits = self.model(**batch).logits.float()
                 if tuple(logits.shape) != (len(indices), 2):

@@ -5,7 +5,7 @@
   "stable_release_ready": false,
   "reserved_probes_used": false,
   "purpose": "Validate native22 checkpoints through an isolated locally built and installed wheel, after full21 completes.",
-  "runtime": "CPU float32; batches8; same frozen preprocessing and shared language threshold as training.",
+  "runtime": "CPU float32; batches8; right padding to multiples of32; same frozen preprocessing and shared language threshold as native22-v6 training.",
   "populations": "All per-language native22 development and calibration rows; no fresh probes.",
   "parity_gate": {
     "maximum_absolute_score_error": 0.0001,
