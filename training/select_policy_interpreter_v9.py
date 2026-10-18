@@ -40,6 +40,7 @@ def main():
             prediction_path=seen[identity]
         else:
             output=study/'validation-decodes'/str(checkpoint['iteration'])
+            output.parent.mkdir(parents=True, exist_ok=True)
             command=[sys.executable,'-m','training.evaluate_interpreter_v9','--base',a.base,
                 '--adapter',str(folder),'--data',str(validation),'--output',str(output)]
             log=Path(tempfile.gettempdir())/'roguard-v9-window'/('policy27-validation-'+str(checkpoint['iteration'])+'.log')

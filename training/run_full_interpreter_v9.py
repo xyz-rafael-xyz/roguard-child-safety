@@ -35,7 +35,7 @@ def main():
                     break
         time.sleep(10)
     while time.time() < deadline:
-        path = root/'reserved-joint-field-fusion-59/run-status.json'
+        path = root/'policy-selection-recovery-60/run-status.json'
         if path.exists():
             previous = json.loads(path.read_text())
             if ('finished_utc' in previous and time.time() >
