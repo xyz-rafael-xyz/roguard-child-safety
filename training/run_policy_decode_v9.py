@@ -1,4 +1,4 @@
-"""Run the frozen adaptive-decoding comparison after capacity experiments."""
+"""Run the frozen adaptive-decoding comparison after native encoder experiments."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -16,10 +16,10 @@ def main():
     deadline = datetime.fromisoformat(json.loads((root/'work-window.json').read_text())['deadline_utc'].replace('Z', '+00:00')).timestamp()
     while True:
         if time.time() >= deadline: raise TimeoutError('Authorized work window ended')
-        path = root/'capacity-15-run-status.json'
+        path = root/'native-full-22-run-status.json'
         if path.exists():
             jobs = json.loads(path.read_text())['jobs']
-            if len(jobs) == 4 and time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
+            if len(jobs) == 2 and time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                 break
         time.sleep(10)
     for path, digest in json.loads((study/'source-freeze.json').read_text()).items():

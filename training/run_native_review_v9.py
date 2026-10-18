@@ -1,4 +1,4 @@
-"""Serialize native full-fine-tuning comparisons after the structured regression."""
+"""Serialize native full-fine-tuning comparisons after capacity experiments."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -16,10 +16,10 @@ def main():
     deadline=datetime.fromisoformat(json.loads((root/'work-window.json').read_text())['deadline_utc'].replace('Z','+00:00')).timestamp()
     while True:
         if time.time()>=deadline:raise TimeoutError('Authorized work window ended')
-        path=root/'interpreter-full-21/run-status.json'
+        path=root/'capacity-15-run-status.json'
         if path.exists():
             jobs=json.loads(path.read_text())['jobs']
-            if jobs and (len(jobs)==2 or jobs[-1]['exit_code']!=0):
+            if len(jobs)==4:
                 if time.time()>datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:break
         time.sleep(10)
     for path,digest in json.loads((root/'native-full-22-source-freeze.json').read_text()).items():
