@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-18T18:48:46.307792+00:00",
+  "amendment": "Replace shared-token-loss-only parent ranking with shared80task-aligned validation ranking before full21 starts.",
+  "motivation": "Parent14 has6binary errors on its existing80validation rows despite selected unweighted token loss0.2083954364. Select for the review decision before calibration is scored.",
+  "snapshots": "Save every already scheduled validation state: expected iterations0,255,511,767,1023,1024. No extra optimizer update or RNG draw. Retain the original token-loss-selected checkpoint and training metrics separately.",
+  "greedy_validation": "After training process exits, serially decode only the same80validation rows for each distinct new checkpoint. Initial parent predictions reuse its completed400screen subset only after exact weight identity verification. Identical weight hashes reuse predictions. No simultaneous neural models.",
+  "ranking": "First eligibility under unchanged99% recall and5% false-review gates in all four language/stratum groups. Then minimize maximum false-negative/false-review rate, mean of those eight rates, unweighted six-field validation loss, and earlier iteration. Abstentions count as errors.",
+  "full21": "Compare parent14 and task-selected27 using that same80-row ranking; earlier study breaks exact ties. Both complete400screen predictions provide the same80subset. Full development/calibration results are not selection inputs.",
+  "provenance": "All80validation rows and all400screen rows belong to full21development; zero IDs overlap calibration. NativeRO calibration already completed when this amendment was written; its scores are not selection inputs.",
+  "data_changed": false,
+  "gradient_recipe_changed": false,
+  "calibration_used_for_selection": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

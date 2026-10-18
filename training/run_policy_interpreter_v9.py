@@ -35,6 +35,7 @@ def main():
     jobs = [
         ('train', [sys.executable, '-m', 'training.train_policy_interpreter_v9', '--base', args.base,
                    '--config', str(study/'config.json')]),
+        ('validation-selection', [sys.executable, '-m', 'training.select_policy_interpreter_v9', '--base', args.base]),
         ('adapted', [sys.executable, '-m', 'training.evaluate_interpreter_v9', '--base', args.base,
                      '--adapter', str(study/'selected-adapter'), '--data', screen, '--output', str(study/'adapted')]),
         ('archive', [sys.executable, '-m', 'training.archive_interpreter_v9', 'export',
@@ -73,4 +74,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from training.coordinator_status_v9 import supervise
+    supervise(main,'research/v9-stabilization/interpreter-policy-27')

@@ -92,6 +92,15 @@ def main():
             if info['iteration']==0 and abs(info['val_loss']-config['initial_validation_loss'])>1e-5:
                 raise ValueError('Initial unweighted validation differs from frozen parent checkpoint')
             self.record['validation'].append(info)
+            # Preserve every already scheduled evaluated state for a later,
+            # serial greedy validation pass. Saving consumes no training RNG.
+            snapshot=output.parent/'validation-checkpoints'/str(info['iteration'])
+            snapshot.mkdir(parents=True,exist_ok=False)
+            (snapshot/'adapter_config.json').write_text(json.dumps(architecture,indent=2)+'\n')
+            weights=snapshot/'adapters.safetensors'
+            mx.save_safetensors(str(weights),dict(tree_flatten(model.trainable_parameters())))
+            self.record.setdefault('validation_checkpoints',[]).append(dict(iteration=info['iteration'],
+                val_loss=info['val_loss'],path=str(snapshot),sha256=hashlib.sha256(weights.read_bytes()).hexdigest()))
             if info['val_loss']<self.best:
                 self.best=info['val_loss'];self.record['selected']=info
                 # The callback runs at the exact evaluated parameter state,

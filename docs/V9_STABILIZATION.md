@@ -349,8 +349,8 @@ remain skipped. The pinned Gemma base files and training-library versions are
 recorded in `gemma4-base-manifest.json`; a reusable archive verifier compares
 every restored adapter tensor and its configuration against the source.
 
-`interpreter-full-21` will select the completed structured candidate with the
-lowest loss on that shared validation set and evaluate every existing
+`interpreter-full-21` will select the completed structured candidate using the
+shared validation decision ranking described below and evaluate every existing
 development/calibration row. The 400-case screen is not treated as the final
 accuracy estimate. Passing this regression still requires the reserved fresh
 probes and integrated-runtime checks.
@@ -363,9 +363,8 @@ The Ukrainian base weights were downloaded and checked against their pinned
 SHA-256. Loading uses `weights_only=True`; selected outputs use safetensors.
 Three epochs, balanced sampling, optimizer settings and development selection
 are frozen before training. Romanian cedilla letters are canonicalized to the
-comma forms required by that base's model card. No language-specific accuracy
-result is claimed yet; upstream model cards do not establish child-safety
-performance. Full checkpoints remain local until a candidate warrants
+comma forms required by that base's model card. The completed Romanian result is reported below; upstream model cards do not
+establish child-safety performance. Full checkpoints remain local until a candidate warrants
 distribution. A manifest binds each selected checkpoint, and all development
 scores must replay after reloading it before calibration is evaluated.
 
@@ -450,14 +449,22 @@ The queued structured continuation, `interpreter-policy-27`, starts from the
 exact selected interpreter-14 adapter. Its 1,024 training rows combine replay,
 focus-boundary and time-scope examples. Field weights depend on how many
 alternative labels would change the policy decision with other gold fields
-held fixed. This is training-only supervision. Validation remains the same
-unweighted six-field loss on the same 80 rows, and the initial loss must
-reproduce interpreter-14 before training. The initial adapter remains eligible
-if continuation does not improve validation. This combines curriculum, loss
-weighting and a lower learning rate; it does not isolate their causal effects.
+held fixed. This is training-only supervision. The initial unweighted six-field
+loss on the same 80 validation rows must reproduce interpreter-14 before training.
+A pre-fit amendment saves every scheduled validation checkpoint and decodes
+those same 80 rows after training. Selection first prefers checkpoints passing
+the unchanged recall and false-review requirements, then minimizes the worst
+class error rate across the four groups, mean class error rate, and unweighted
+loss, with earlier iteration breaking ties. Abstentions count as errors. The
+initial adapter remains eligible. The original loss-selected weights and metrics
+are retained separately. This combines curriculum, loss weighting and a lower
+learning rate; it does not isolate their causal effects.
 
 Full-21 will choose between completed, archive-verified studies 14 and 27 using
-that shared validation loss. The binary-only Gemma comparison and supervised
+that same decision ranking. This amendment precedes policy-27 fitting and
+full-21 inference; the completed native Romanian calibration is not a selection
+input. All 80 validation rows belong to development, with no calibration ID
+overlap. The binary-only Gemma comparison and supervised
 NLI comparisons are deferred before fitting under the
 [qualification-priority schedule](../research/v9-stabilization/qualification-priority-32.json).
 Measured training times require reserving time for full regression and installed
@@ -580,3 +587,19 @@ language-scoped identity. Exact token non-overlap does not establish semantic
 family independence, pretraining independence or real-world accuracy. Sources
 and results are in `reserved-input-identities-40.json` and the
 `reserved-token-overlap-41-*-v2.json` records.
+
+### Completed native Romanian run
+
+Native-22 Romanian completed three epochs and selected epoch 2.5 using the
+frozen development rule. Reloaded development scores match exactly. Calibration
+misses 0/614 formal and 0/216 conversational concerns, but produces 241/1,386
+formal false reviews (17.39%) and 7/243 conversational false reviews (2.88%).
+It fails the formal false-review requirement. The development-only threshold-34
+comparison finds no eligible alternative and retains the original artifact.
+These results do not qualify the model for stable release. Ukrainian training
+and the structured interpretation comparison remain in progress.
+
+The policy, full-regression and installed-interpreter coordinators now record
+terminal setup failures atomically, preserving earlier job history. Dependent
+jobs can finish or skip explicitly instead of waiting indefinitely. Private
+exception messages are kept out of public status records.

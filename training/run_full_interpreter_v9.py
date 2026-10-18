@@ -1,4 +1,4 @@
-"""Select by the shared validation loss, then evaluate complete regression sets."""
+"""Select by shared task-aligned validation, then evaluate complete regression sets."""
 import argparse
 from datetime import datetime, timezone
 import gzip
@@ -38,7 +38,9 @@ def main():
         if digest(Path(path)) != expected:
             raise ValueError('Frozen source changed: '+path)
     candidates = []
+    from training.interpreter_validation_v9 import summarize
     validation_hash = digest(root/'interpreter-14/valid.jsonl')
+    validation_rows = [json.loads(line) for line in (root/'interpreter-14/valid.jsonl').read_text().splitlines()]
     for number, directory in ((14, 'interpreter-14'), (27, 'interpreter-policy-27')):
         candidate = root/directory
         if digest(candidate/'valid.jsonl') != validation_hash:
@@ -57,15 +59,27 @@ def main():
                 or checked.get('source_safetensors_sha256') != digest(candidate/'selected-adapter/adapters.safetensors')):
             raise ValueError('Candidate archive verification differs')
         metrics = json.loads((candidate/'training-metrics.json').read_text())
-        if not math.isfinite(metrics['selected']['val_loss']):
+        if number == 27:
+            selected_validation = json.loads((candidate/'validation-selection.json').read_text())
+            if (selected_validation['validation_sha256'] != validation_hash
+                    or selected_validation['selected']['sha256'] != digest(candidate/'selected-adapter/adapters.safetensors')):
+                raise ValueError('Task-selected checkpoint identity differs')
+            loss = selected_validation['selected']['unweighted_validation_loss']
+        else:
+            loss = metrics['selected']['val_loss']
+        if not math.isfinite(loss):
             raise ValueError('Nonfinite selected validation loss')
-        candidates.append((metrics['selected']['val_loss'], number, candidate))
+        predictions = [json.loads(line) for line in (candidate/'adapted/predictions.jsonl').read_text().splitlines()]
+        validation = summarize(validation_rows,predictions,loss)
+        if number == 27 and validation['counts'] != selected_validation['selected']['counts']:
+            raise ValueError('Validation decisions changed between checkpoint selection and screen replay')
+        candidates.append((validation['rank'], number, candidate, validation))
     if not candidates:
         raise ValueError('No completed structured candidate')
-    loss, number, selected = min(candidates)
-    selection = dict(method='Minimum selected loss on the shared 80-row validation set; earlier study breaks ties.',
-                     candidates=[dict(study=n, validation_loss=v) for v,n,p in candidates],
-                     selected_study=number, validation_loss=loss, validation_sha256=validation_hash,
+    rank, number, selected, validation = min(candidates,key=lambda value:(value[0],value[1]))
+    selection = dict(method='Shared80 validation: pass unchanged gates, then minimize worst class error, mean class error, unweighted six-field loss; earlier study breaks ties.',
+                     candidates=[dict(study=n, **v) for r,n,p,v in candidates],
+                     selected_study=number, validation_loss=validation['unweighted_validation_loss'], selection_rank=rank, validation_sha256=validation_hash,
                      archive_sha256=digest(selected/'selected-adapter.json.gz'),
                      raw_adapter_sha256=digest(selected/'selected-adapter/adapters.safetensors'),
                      reserved_probes_used=False, stable_release_ready=False)
@@ -105,4 +119,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from training.coordinator_status_v9 import supervise
+    supervise(main,'research/v9-stabilization/interpreter-full-21')

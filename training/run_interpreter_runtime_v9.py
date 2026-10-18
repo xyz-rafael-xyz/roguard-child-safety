@@ -85,4 +85,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from training.coordinator_status_v9 import supervise
+    supervise(main,'research/v9-stabilization/installed-interpreter-30')
