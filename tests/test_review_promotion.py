@@ -37,10 +37,15 @@ class ReviewPromotionArtifactTests(unittest.TestCase):
         for split in ('train','dev','cal'):
             rows=[row(split,lang,kind,positive) for lang in ('ro','uk') for kind in ('formal','conversational') for positive in (0,1)]
             (root/(split+'.jsonl.gz')).write_bytes(gzip.compress(''.join(json.dumps(r)+'\n' for r in rows).encode(),mtime=0))
+            if split!='train':
+                predictions=[dict(case_id=r['case_id'],language=r['language'],gold=int(r['attributes']['concern']),
+                                  score=float(r['attributes']['concern']),predicted=int(r['attributes']['concern'])) for r in rows]
+                (root/(split+'-predictions.jsonl')).write_text(''.join(json.dumps(r)+'\n' for r in predictions))
         (root/'training-history.jsonl.gz').write_bytes((root/'train.jsonl.gz').read_bytes())
-        (root/'review.json.gz').write_bytes(gzip.compress(b'{}',mtime=0))
+        thresholds={'ro':.5,'uk':.5}
+        (root/'review.json.gz').write_bytes(gzip.compress(json.dumps({'thresholds':thresholds}).encode(),mtime=0))
         metrics={k:{'positive':1,'negative':1,'missed':0,'false_reviews':0} for k in GROUPS}
-        record={'artifact_sha256':hashlib.sha256((root/'review.json.gz').read_bytes()).hexdigest(),'selected_epoch':1,'epochs':[{'epoch':1,'development':metrics}],'calibration_audit':metrics}
+        record={'artifact_sha256':hashlib.sha256((root/'review.json.gz').read_bytes()).hexdigest(),'selected_epoch':1,'epochs':[{'epoch':1,'development':metrics,'thresholds':thresholds}],'calibration_audit':metrics}
         (root/'development.json').write_text(json.dumps(record))
 
     def test_language_scope_is_not_overwritten_by_denominator_audit(self):
@@ -75,3 +80,20 @@ class ReviewPromotionArtifactTests(unittest.TestCase):
             (root/'training-history.jsonl.gz').write_bytes((root/'train.jsonl.gz').read_bytes()+(root/'dev.jsonl.gz').read_bytes())
             result=inspect(root)
             self.assertIn('training history/dev: overlapping inputs',result['failures'])
+
+    def test_report_cannot_hide_wrong_predictions_or_missing_cases(self):
+        import tempfile,json
+        from pathlib import Path
+        from training.check_review_candidate_v8 import inspect
+        for corruption in ('missing','duplicate','wrong_gold','wrong_decision','hidden_error','nan'):
+            with self.subTest(corruption=corruption), tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);self.fixture(root);path=root/'cal-predictions.jsonl'
+                rows=[json.loads(l) for l in path.read_text().splitlines()]
+                if corruption=='missing':rows.pop()
+                elif corruption=='duplicate':rows.append(rows[0])
+                elif corruption=='wrong_gold':rows[0]['gold']=1
+                elif corruption=='wrong_decision':rows[0]['predicted']=1
+                elif corruption=='hidden_error':rows[0].update(score=.9,predicted=1)
+                else:rows[0]['score']=float('nan')
+                path.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+                self.assertFalse(inspect(root)['study_prerequisites_pass'])

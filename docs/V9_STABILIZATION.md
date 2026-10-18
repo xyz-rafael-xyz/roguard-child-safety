@@ -261,3 +261,10 @@ accuracy or validate Romanian transfer. See the
 [upstream model card](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7).
 
 CI for `ddb7ddf` passed, including the supported Python matrix and Windows checks.
+
+The candidate checker now recomputes error counts from every saved prediction,
+checks exact case coverage and language/gold binding, and verifies each decision
+against the selected artifact's threshold. Missing or duplicate cases, nonfinite
+scores and inconsistent reported counts fail the check. Fifteen focused tests
+pass, including adversarial report mutations. Rechecking natural-06-ro and
+attention-12-uk reproduces their existing failures without new inconsistencies.
