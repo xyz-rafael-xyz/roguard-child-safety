@@ -303,3 +303,18 @@ checked against the complete model output path before scoring continues.
 on existing semantic feature caches, with input-identity checks and the exact
 current development/calibration populations. Even a passing cached result would
 require independent encoder replay. No reserved probe is used.
+
+The kernel control completed all four settings and failed. Selected calibration
+false reviews are 946/1,386 Romanian formal, 123/243 Romanian conversational,
+685/1,386 Ukrainian formal and 79/223 Ukrainian conversational, with no missed
+concerns. This does not support replacing the trained language specialists with
+a nonlinear head on these older cached features. Exported support-vector scores
+were checked against the fitted model on all development and calibration rows.
+
+The actual 4B structured baseline completed all 400 cases but failed the strict
+schema check on every case. These are counted as abstentions/errors. Its
+unadapted **binary-prompt** reference remains 345/400; merely learning to emit
+schema digits will not by itself establish better language understanding.
+The initial structured LoRA state passes a separate bounded archive round-trip:
+all 112 tensors (3,506,176 parameters) are exactly preserved. That verifies
+serialization, not a trained model's accuracy.

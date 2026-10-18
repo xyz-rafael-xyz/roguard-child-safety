@@ -1187,6 +1187,85 @@
         }
       },
       "prerequisites_pass": false
+    },
+    "kernel-19": {
+      "training_rows": 9998,
+      "artifact_sha256": "37b7e6097fb41d4769f64a1f936e5afa4a66bdf58821ef0ea72e3bb98f8da68b",
+      "calibration": {
+        "ro_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 946,
+          "recall": 1.0,
+          "false_review_rate": 0.6825396825396826
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 123,
+          "recall": 1.0,
+          "false_review_rate": 0.5061728395061729
+        },
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 685,
+          "recall": 1.0,
+          "false_review_rate": 0.49422799422799424
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 79,
+          "recall": 1.0,
+          "false_review_rate": 0.3542600896860987
+        }
+      },
+      "export_parity": {
+        "dev": 3.004818616147986e-13,
+        "cal": 2.985389713217046e-13
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 862,
+          "recall": 1.0,
+          "false_review_rate": 0.6100495399858458
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 72,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.2975206611570248
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 605,
+          "recall": 1.0,
+          "false_review_rate": 0.4281670205237084
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 29,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.13004484304932734
+        }
+      },
+      "fitted_configurations": 4,
+      "prerequisites_pass": false,
+      "requires_fresh_encoder_replay": true
     }
   },
   "training_presentations": 169884
