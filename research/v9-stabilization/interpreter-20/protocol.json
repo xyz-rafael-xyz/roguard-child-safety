@@ -1,0 +1,83 @@
+{
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "training_rows": 4096,
+  "validation_rows": 80,
+  "max_tokens": 551,
+  "selection": "Minimum full validation class-token loss; no calibration selection.",
+  "comparison": "Same pinned 4B base, prompt, rank and learning rate as interpreter-14; broader training coverage.",
+  "counts": {
+    "ro": {
+      "concern": {
+        "1": 1442,
+        "0": 606
+      },
+      "subject": {
+        "SELF": 1185,
+        "FICTIONAL": 445,
+        "OTHER": 418
+      },
+      "source": {
+        "DIRECT": 1185,
+        "FICTION": 445,
+        "REPORTED": 418
+      },
+      "assertion": {
+        "AFFIRMED": 1275,
+        "NEGATED": 298,
+        "UNCERTAIN": 318,
+        "RETRACTED": 157
+      },
+      "relation": {
+        "NEW": 1891,
+        "RETRACTS": 157
+      },
+      "time": {
+        "PAST": 392,
+        "CURRENT": 1466,
+        "HYPOTHETICAL": 190
+      }
+    },
+    "uk": {
+      "concern": {
+        "0": 709,
+        "1": 1339
+      },
+      "subject": {
+        "OTHER": 461,
+        "SELF": 1186,
+        "FICTIONAL": 401
+      },
+      "source": {
+        "REPORTED": 461,
+        "DIRECT": 1186,
+        "FICTION": 401
+      },
+      "assertion": {
+        "AFFIRMED": 1232,
+        "NEGATED": 337,
+        "UNCERTAIN": 340,
+        "RETRACTED": 139
+      },
+      "relation": {
+        "NEW": 1909,
+        "RETRACTS": 139
+      },
+      "time": {
+        "CURRENT": 1379,
+        "PAST": 436,
+        "HYPOTHETICAL": 233
+      }
+    }
+  },
+  "source_sha256": {
+    "research/v8-stabilization/review-09-ro/training-history.jsonl.gz": "de7f851c3f5ffcdacebcd6d41c195fceaf28ab02652fa7ff121f01751af430bb",
+    "research/v8-stabilization/review-08-uk/training-history.jsonl.gz": "4576a41ef3d269c4d0dadb446514b6416856cb75a2fe5e784e978cfdee06dd20"
+  },
+  "file_sha256": {
+    "train.jsonl": "465cda833f1c0dbfa0bf74ba450ddfea7549162ac8b9ba84dd4efb9cf452d498",
+    "config.json": "7750dc98a1bb21ec32ae2861bf1a3476da767cb8e9ac2c7f65f7054adb376617",
+    "valid.jsonl": "57201d798546e549feaf039bce7fe86dda94d96b6c834eaf6e8bd4cdff5f1dde"
+  }
+}
