@@ -5,6 +5,14 @@ an alpha, not stable v9.0. The language-model promotion gates remain open. The
 existing models are retained; this release does not claim better text accuracy.
 [Acceptance plan](V9_PLAN.md) · [Previous model experiments](CONTEXTUAL_MODEL_STUDY.md).
 
+The current source checkout additionally provides an experimental local
+six-field interpreter and a report-to-planner bridge. The bridge verifies the
+conversation, focal turn, configured model identities and interpretation
+contract before constructing a joint-hypothesis plan. Invalid output preserves
+all possible interpretations. These additions are undergoing installed-runtime
+validation and are not part of the published alpha. See the
+[interpreter setup and integration guide](INTERPRETER_RUNTIME.md).
+
 ## What changes
 
 - **Joint hypotheses:** preserve combinations proposed by a model or reviewer.
