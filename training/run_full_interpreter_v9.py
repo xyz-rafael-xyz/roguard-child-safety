@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -25,10 +26,11 @@ def main():
     while True:
         if time.time() >= deadline:
             raise TimeoutError('Authorized work window ended')
-        path = root/'interpreter-20/run-status.json'
+        path = root/'interpreter-policy-27/run-status.json'
         if path.exists():
-            jobs = json.loads(path.read_text())['jobs']
-            if jobs and (len(jobs) == 4 or jobs[-1]['exit_code'] != 0):
+            previous = json.loads(path.read_text())
+            jobs = previous['jobs']
+            if jobs and (previous.get('complete', False) or jobs[-1]['exit_code'] != 0):
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15:
                     break
         time.sleep(10)
@@ -37,8 +39,8 @@ def main():
             raise ValueError('Frozen source changed: '+path)
     candidates = []
     validation_hash = digest(root/'interpreter-14/valid.jsonl')
-    for number in (14, 20):
-        candidate = root/f'interpreter-{number}'
+    for number, directory in ((14, 'interpreter-14'), (27, 'interpreter-policy-27')):
+        candidate = root/directory
         if digest(candidate/'valid.jsonl') != validation_hash:
             raise ValueError('Candidates do not share the same validation population')
         if not (candidate/'run-status.json').exists():
@@ -46,7 +48,17 @@ def main():
         jobs = json.loads((candidate/'run-status.json').read_text())['jobs']
         if not all(any(j['name'] == name and j['exit_code'] == 0 for j in jobs) for name in ('train','adapted','archive')):
             continue
+        verification = candidate/'archive-verification.json'
+        if not verification.exists():
+            continue
+        checked = json.loads(verification.read_text())
+        if (checked.get('exact_tensor_roundtrip') is not True
+                or checked.get('archive_sha256') != digest(candidate/'selected-adapter.json.gz')
+                or checked.get('source_safetensors_sha256') != digest(candidate/'selected-adapter/adapters.safetensors')):
+            raise ValueError('Candidate archive verification differs')
         metrics = json.loads((candidate/'training-metrics.json').read_text())
+        if not math.isfinite(metrics['selected']['val_loss']):
+            raise ValueError('Nonfinite selected validation loss')
         candidates.append((metrics['selected']['val_loss'], number, candidate))
     if not candidates:
         raise ValueError('No completed structured candidate')

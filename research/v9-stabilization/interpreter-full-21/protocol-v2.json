@@ -1,0 +1,15 @@
+{
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "selection": "Compare completed14 and27 using identical unweighted six-field validation loss on the same80rows. Minimum loss, earlier tie. Archive exact-roundtrip proof required.",
+  "purpose": "Full development/calibration regression, not a fresh final evaluation.",
+  "groups": "Romanian/Ukrainian by formal/conversational; unchanged 99% recall and <=5% false-review/abstention requirements.",
+  "source_partitions": {
+    "dev": "research/v8-stabilization/review-09-ro/dev.jsonl.gz",
+    "cal": "research/v8-stabilization/review-09-ro/cal.jsonl.gz"
+  },
+  "next_if_pass": "Reserved fresh probes, integrated runtime and installation checks before any stable release.",
+  "amended_utc": "2026-10-18T16:13:04.808651+00:00",
+  "amendment": "Replace unexecuted20 with27 continuation. Existing full regression rows, prediction scoring, 99%/5% gates and no-fresh-before-prerequisites rule are unchanged."
+}
