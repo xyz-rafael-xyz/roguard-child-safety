@@ -663,3 +663,18 @@ The final-layer extraction amendment avoids retaining every intermediate encoder
 state. Tiny CPU BERT and RoBERTa fixtures reproduce both final states and parent
 logits exactly. Full-checkpoint score replay remains a prerequisite during
 extraction; measured runtime memory and latency gains have not been established.
+
+`installed-native-fields-45` is queued after all fallback extraction and fitting
+processes finish. It builds and installs a fresh wheel outside the checkout,
+then replays every completed language candidate on the full development and
+calibration inputs. The check requires zero changed decisions, no unexpected
+abstentions, and score and field-probability differences no greater than 1e-4.
+Accuracy is checked separately; reproducing an inaccurate model does not qualify it.
+
+`reserved-native-fields-46` is prepared for candidates that pass those installed
+checks and the unchanged accuracy limits in both languages. A frozen plan binds
+the heads, parent encoders, selection records, installed reports and runtime
+dependencies before opening the three reserved probe files. Ten gate tests cover
+boundary counts, missed concerns, false alerts, missing strata, changed evidence,
+nonfinite parity errors and parent-model mismatches. These are software checks;
+reserved neural predictions and final release qualification are still pending.
