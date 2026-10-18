@@ -621,7 +621,7 @@ Each reserved set is evaluated separately by language, with abstentions counted
 as errors and duplicate inputs reported explicitly. Passing these small synthetic
 probes would still not establish real-world population accuracy.
 
-### Native interpretation-head fallback
+### Adaptive policy decoding
 
 The completed adaptive-decoding comparison (`policy-decode-16`) uses the same
 400-example development screen as interpreter-14. The unadapted base abstains
@@ -631,6 +631,8 @@ The adapted model decides all cases and gets 376/400 correct, compared with
 This is a reused-screen comparison, not a fresh accuracy estimate or controlled
 latency benchmark. It still misses concerns in every stratum and exceeds the
 5% false-review limit in three strata, so it does not qualify for release.
+
+### Native interpretation-head fallback
 
 `native-fields-43` is a predeclared alternative to the fusion comparison.
 It reuses each frozen native encoder and trains six small categorical heads on
