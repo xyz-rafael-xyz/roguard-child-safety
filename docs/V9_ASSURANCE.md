@@ -123,3 +123,35 @@ techniques. See [structured prediction sets](https://proceedings.iclr.cc/paper_f
 and [OPA decision logs](https://www.openpolicyagent.org/docs/management-decision-logs).
 No first-of-kind, conformal coverage, real-world accuracy or Eastern European
 market-leadership claim is made.
+
+## Localized answer choices in the source checkout
+
+The current checkout includes a display helper for Romanian and Ukrainian
+reviewers. It supplies localized questions and answer labels while retaining
+the certificate's exact branch codes and parent binding:
+
+```python
+from roguard.review_labels import question_view
+
+view = question_view(certificate)
+if view is not None:
+    print(view["prompt"])
+    print(view["note"])
+    for option in view["options"]:
+        print(option["value"], option["label"])
+    # After an authenticated reviewer chooses an answer:
+    # result = answer(certificate, {view["field"]: selected_value},
+    #                 expected_certificate_digest=view["certificate_digest"])
+```
+
+The helper verifies the certificate before displaying any options. It never
+changes a hypothesis, machine code, policy decision or certificate. Labels refer
+to what the message expresses; truth remains unverified. `UNCERTAIN` describes
+uncertainty expressed in the message. A reviewer who cannot decide should leave
+the question unanswered. Concern-content labels include denied or fictional
+content, with assertion and source handled by their separate fields.
+
+These are project-authored interface labels, not a new independent linguistic
+review. Four tests cover bilingual code coverage, exact branch/binding retention,
+unchanged certificates and tampered-input rejection. The helper is currently a
+source-checkout addition, not part of the published alpha.
