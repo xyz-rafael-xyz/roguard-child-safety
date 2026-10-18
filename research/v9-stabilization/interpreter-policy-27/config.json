@@ -1,0 +1,27 @@
+{
+  "seed": 927,
+  "model": "mlx-community/gemma-3-text-4b-it-4bit",
+  "revision": "4f665a4c50ecfe4ecdc34056ab52fe3e3c4abf9e",
+  "data": "research/v9-stabilization/interpreter-policy-27",
+  "num_layers": 8,
+  "batch_size": 1,
+  "iters": 1024,
+  "val_batches": 80,
+  "learning_rate": 1e-05,
+  "steps_per_report": 20,
+  "steps_per_eval": 256,
+  "save_every": 256,
+  "max_seq_length": 1024,
+  "grad_checkpoint": true,
+  "grad_accumulation_steps": 4,
+  "lora_parameters": {
+    "rank": 8,
+    "dropout": 0.0,
+    "scale": 16.0
+  },
+  "adapter_path": "research/v9-stabilization/interpreter-policy-27/adapters",
+  "fine_tune_type": "lora",
+  "initial_adapter": "research/v9-stabilization/interpreter-14/selected-adapter/adapters.safetensors",
+  "initial_adapter_sha256": "625047a21aec381639c84a43232011388dd5e5153f79c280ca6edf303155be53",
+  "initial_validation_loss": 0.20839543640613556
+}

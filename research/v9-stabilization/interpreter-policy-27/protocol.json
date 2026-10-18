@@ -1,0 +1,95 @@
+{
+  "created_utc": "2026-10-18T16:03:49.381092+00:00",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "training_rows": 1024,
+  "validation_rows": 80,
+  "max_tokens": 543,
+  "initialization": "Exact selected interpreter14 trained adapter, SHA256-bound; optimizer reset.",
+  "training_loss": "Per-example weighted mean of six full-vocabulary class-token cross-entropies. Field weight = 1 + 2 * fraction of alternative gold field labels that change the binary review policy while other gold fields stay fixed.",
+  "validation_loss": "Unweighted mean of all six full-vocabulary class-token cross-entropies on exactly the same 80 rows as interpreter14/20. Initial loss must reproduce parent within1e-5 before fitting.",
+  "selection": "Minimum full unweighted validation loss, earlier tie; initial adapter eligible. No calibration selection.",
+  "scope": "Tests a combined continuation recipe (training curriculum, field weighting, smaller learning rate); does not isolate the causal benefit of field weighting.",
+  "sources": {
+    "focus_boundary_contrasts_v9": 256,
+    "natural_contrasts_v9": 100,
+    "time_scope_contrasts_v9": 256,
+    "v7_training_frame_projection": 203,
+    "training_only_authored_paraphrases_v8": 39,
+    "controlled_composition_v8": 30,
+    "context_interventions_v8": 5,
+    "authored_uk_scope_contrasts_v8": 28,
+    "authored_hesitancy_contrasts_v8": 37,
+    "training_scope_separation_v8": 38,
+    "temporal_contrasts_v9": 16,
+    "authored_scope_contrasts_v8": 16
+  },
+  "counts": {
+    "ro": {
+      "concern": {
+        "1": 328,
+        "0": 184
+      },
+      "subject": {
+        "SELF": 379,
+        "FICTIONAL": 82,
+        "OTHER": 51
+      },
+      "source": {
+        "DIRECT": 379,
+        "FICTION": 82,
+        "REPORTED": 51
+      },
+      "assertion": {
+        "AFFIRMED": 407,
+        "UNCERTAIN": 43,
+        "RETRACTED": 19,
+        "NEGATED": 43
+      },
+      "relation": {
+        "NEW": 493,
+        "RETRACTS": 19
+      },
+      "time": {
+        "CURRENT": 369,
+        "PAST": 119,
+        "HYPOTHETICAL": 24
+      }
+    },
+    "uk": {
+      "concern": {
+        "1": 318,
+        "0": 194
+      },
+      "subject": {
+        "SELF": 380,
+        "FICTIONAL": 70,
+        "OTHER": 62
+      },
+      "source": {
+        "DIRECT": 380,
+        "FICTION": 70,
+        "REPORTED": 62
+      },
+      "assertion": {
+        "AFFIRMED": 415,
+        "UNCERTAIN": 37,
+        "NEGATED": 44,
+        "RETRACTED": 16
+      },
+      "relation": {
+        "NEW": 496,
+        "RETRACTS": 16
+      },
+      "time": {
+        "CURRENT": 358,
+        "PAST": 127,
+        "HYPOTHETICAL": 27
+      }
+    }
+  },
+  "queue_status": "Prepared; not started or queued yet. Schedule only if remaining work-window time permits full evaluation.",
+  "transitive_training_rows": 2980,
+  "transitive_history_sha256": "ec314d7d976905a32b3caaf980a17da0df39009eafe852f42d7b14658261cd7d"
+}
