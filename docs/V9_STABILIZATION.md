@@ -775,3 +775,11 @@ fresh blind test. Results are pending.
 A [single-model local bundle interface](NATIVE_FIELDS_RUNTIME.md) reduces loading
 to one manifest and its trusted digest. This is an explicit candidate interface,
 not an automatic model selection or a stable-release claim.
+
+Study57 is a predeclared comparison of study43's binary-adapted representation
+with study54's joint semantic representation. It reuses the study51 field-wise
+mixture method, selects only on development data, and checks each parent's
+training hash separately because their training pools differ. Study58 replays
+the selected mixer over the actual installed component outputs. These steps
+require no additional encoder training or reserved predictions. Their results
+are pending; they do not alter study54's selected standalone model.
