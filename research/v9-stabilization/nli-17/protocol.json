@@ -1,0 +1,14 @@
+{
+  "experiment": "unadapted multilingual NLI interpretation control",
+  "base": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "source": "https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "prior_use": "same pinned base previously used for abstract-card V21/V28 studies; this control evaluates focal natural-language messages",
+  "data": "fixed 400-case development screen",
+  "selection": "no tuning; argmax entailment among alternatives per field, then fixed policy",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "training_rows": 0,
+  "code_sha256": "3efed1068058a8caf2008b6881fc07779578797c1cc1a996bf262e977dc82768"
+}

@@ -238,3 +238,26 @@ The full software suite for this checkpoint passed 487 tests, with 14 skipped
 and 123 subtests passed. CI for the preceding commit `55b8cf2` is green. The
 reserved probes remain untouched. These are synthetic research results;
 no new candidate has replaced the installed runtime model.
+
+`policy-decode-16` adds adaptive integration of the structured model's
+conditional probabilities. It explores the largest unresolved branch first,
+collapses a subtree only when every ontology completion has the same review
+decision, and retains unqueried or invalid-output mass in its bounds. It never
+renormalizes away omitted branches. The bounds apply to the constrained model
+distribution, not real-world confidence. Seven tests pass, including comparisons
+with exhaustive enumeration of all 432 worlds for eight correlated distributions
+at five query budgets. Unadapted and adapted 12B comparisons on the same
+400-case development screen are queued; no accuracy result is claimed yet.
+
+`nli-17` reuses the pinned multilingual entailment base previously studied on
+abstract cards, now as an unadapted focal-message interpretation control.
+`nli-transfer-18` will fit rank-eight query/value adapters and the classifier and
+pooler on balanced historical training inputs plus the new contrasts. Two
+learning rates are frozen before training. The 887,811 trainable parameters
+pass a nonzero-gradient check and export/reload produces identical logits on a
+training input. Neither setup check establishes classification accuracy.
+The model card reports Ukrainian NLI training; it does not report RoGuard
+accuracy or validate Romanian transfer. See the
+[upstream model card](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7).
+
+CI for `ddb7ddf` passed, including the supported Python matrix and Windows checks.

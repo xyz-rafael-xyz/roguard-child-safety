@@ -1,0 +1,17 @@
+{
+  "base": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "train": "500 unique historical examples per language/kind/review class plus all natural-06 and temporal-12 contrasts",
+  "learning_rates": [
+    2e-05,
+    5e-05
+  ],
+  "epochs": 2,
+  "seed": 918,
+  "adapter": "rank8 alpha16 query/value projections, pooler and classifier; original entailment/contradiction outputs",
+  "selection": "per-language development thresholds retain >=99% recall; select epoch by smallest worst then summed false-review rate",
+  "calibration": "previously inspected regression, only score selected epoch",
+  "synthetic_only": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
