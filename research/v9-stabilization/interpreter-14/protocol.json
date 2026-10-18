@@ -1,0 +1,17 @@
+{
+  "synthetic_only": true,
+  "train_rows": 2000,
+  "valid_rows": 80,
+  "max_tokens": 542,
+  "purpose": "joint semantic interpretation; classify all six fields with class-token-only loss",
+  "comparison": "unadapted and adapted model under identical structured prompt on the fixed 400-case development screen",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "selection": "development only, followed by full regression and fresh gates",
+  "file_sha256": {
+    "train.jsonl": "b106147a8e41eb738a671874611311d388de3cc5ceed7847c2f6008397aa8192",
+    "config.json": "b5e4bbbd5e32243fca61f6a396745127ef0c366e49e3ddceda74bf712446f223",
+    "policy.txt": "e1b7cbe33b4a76aa852ee51bef43050bfabd638f311e62ee69e357a60ffb3345",
+    "valid.jsonl": "57201d798546e549feaf039bce7fe86dda94d96b6c834eaf6e8bd4cdff5f1dde"
+  }
+}

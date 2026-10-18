@@ -1,0 +1,13 @@
+{
+  "experiment": "gemma12-screen-13",
+  "model": "mlx-community/gemma-3-text-12b-it-4bit",
+  "revision": "83eda451975103fff6f11e97bf75cd0f1c61af2c",
+  "development": "research/v8-stabilization/instruction-sft-01/screen.jsonl",
+  "rows": 400,
+  "policy": "existing POLICY_V2, unchanged from Qwen comparator",
+  "selection": "development screen only before any full evaluation",
+  "scores": "complete architecture-specific output path; validate cached and uncached probabilities and top tokens",
+  "invalid_output": "counted as errors",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

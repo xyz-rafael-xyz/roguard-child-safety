@@ -1,0 +1,24 @@
+{
+  "experiment": "scope-gate-10",
+  "baselines": {
+    "ro": "review-09-ro",
+    "uk": "replay-04-uk"
+  },
+  "motivation": "Separate quotation scope from emotionally salient quoted content. Ukrainian initial candidate chosen because inspected formal regression improved; this is not independent validation.",
+  "training": "historical training plus operator and natural contrasts; scope labels force concern=1; complete dev/cal populations preserved",
+  "C": [
+    0.1,
+    1,
+    10
+  ],
+  "powers": [
+    1,
+    2,
+    4
+  ],
+  "score": "baseline_probability * scope_probability ** power",
+  "selection": "development only; 99% recall each group, minimize worst false reviews then sum",
+  "calibration": "already inspected regression",
+  "reserved_probes_used": false,
+  "runtime_changed": false
+}

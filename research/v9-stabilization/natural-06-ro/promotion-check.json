@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/natural-06-ro",
+  "language_scope": "ro",
+  "artifact_sha256": "bfd32689e4d9f16141634647736c4cbf77c2a4a777ba91c37b590ec47699c45f",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 81/1413; maximum 5%",
+    "calibration/ro_formal: false reviews 248/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 46/243; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

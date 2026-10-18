@@ -1,0 +1,30 @@
+{
+  "experiment": "capacity-15",
+  "initial": {
+    "ro": "review-09-ro",
+    "uk": "replay-04-uk"
+  },
+  "rank": 16,
+  "alpha": 32,
+  "target_modules": [
+    "Wqkv",
+    "Wo",
+    "Wi"
+  ],
+  "initialization": "copy rank-4 deltas into first four coordinates; all extra B weights zero; preserve alpha/rank=2",
+  "epochs": 2,
+  "learning_rates": [
+    1e-05,
+    3e-05
+  ],
+  "pooling_learning_rate": 0.001,
+  "replay_rows": 8000,
+  "natural_contrasts": true,
+  "temporal_contrasts": true,
+  "label_smoothing": 0.02,
+  "selection": "fixed development only; original 99% recall and 5% false-review gates",
+  "calibration": "inspected regression",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "work_window": "must finish or terminate by work-window.json deadline"
+}

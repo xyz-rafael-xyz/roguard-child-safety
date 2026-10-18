@@ -199,3 +199,42 @@ the experiment. Ukrainian then misses 4/164 conversational cases instead of 8,
 but formal false reviews rise to 117/1,386. Romanian also fails. These results
 rule out this simple cutoff adjustment as a sufficient repair. The diagnostic
 is reproducible with `training.select_sensitivity_threshold_v9`.
+
+## Twelve-hour improvement window (18–19 October 2026)
+
+The authorized window runs from 12:16:49 UTC on 18 October until 00:16:49 UTC
+on 19 October. GPU experiments run serially on the local machine and stop at
+that deadline. Experiment volume does not change the release requirements.
+
+`natural-06` completed both languages. Romanian calibration has no misses but
+248/1,386 formal and 46/243 conversational false reviews. Ukrainian has 51/614
+formal and 11/164 conversational misses, with 3/1,386 and 2/223 false reviews.
+Neither qualifies. `scope-gate-10` learns whether quoted material applies to the
+speaker separately from its content. It preserves the words outside closed
+quotes, including negation. Its Ukrainian result reduces conversational misses
+from 8 to 7/164 versus replay-04; it still fails. Romanian also fails. Reloaded
+scope exports reproduce development and calibration scores within 1e-12.
+
+`gemma-screen-11` evaluates unadapted Gemma 3 4B on the fixed 400-case development
+screen: 345 correct (86.25%), no invalid outputs. It uses the complete model
+output path and verifies cached versus uncached scoring. This result does not
+meet the release requirements. Gemma 3 12B is scheduled on the same screen.
+
+`attention-12` learns which context and current-message tokens to pool. Zero
+queries reproduce the original mean representation; masking and gradient checks
+pass. Ukrainian training completed: development qualifies, but calibration
+misses 19/164 conversational concerns. The Romanian experiment is running.
+
+Two further studies are prepared, not yet results. `interpreter-14` trains a
+12B model on 2,000 synthetic examples to predict six interpretation fields.
+Only those six class tokens contribute to the loss. Its selected checkpoint
+minimizes loss on the same 80 development examples at each checkpoint, with
+weights saved at the exact evaluated state. `capacity-15` expands the encoder's
+rank-four attention adapters to rank sixteen and adds MLP adapters. A matrix
+check verifies that this expansion preserves the initial function. Both studies
+have frozen protocols and sources before training.
+
+The full software suite for this checkpoint passed 487 tests, with 14 skipped
+and 123 subtests passed. CI for the preceding commit `55b8cf2` is green. The
+reserved probes remain untouched. These are synthetic research results;
+no new candidate has replaced the installed runtime model.

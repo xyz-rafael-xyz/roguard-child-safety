@@ -1,0 +1,220 @@
+{
+  "language": "uk",
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "reserved_probes_used": false,
+  "baseline": "research/v9-stabilization/replay-04-uk",
+  "baseline_sha256": "db4cbf3596e3bd30e77651f1e271062bd7a71149bcfb7b46b94625f32fecd576",
+  "selection_partition": "development",
+  "training_rows": 19645,
+  "candidates": [
+    {
+      "C": 0.1,
+      "power": 1,
+      "threshold": 0.20975280375194819,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 52
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3
+        }
+      }
+    },
+    {
+      "C": 0.1,
+      "power": 2,
+      "threshold": 0.056360506825973135,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 63
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3
+        }
+      }
+    },
+    {
+      "C": 0.1,
+      "power": 4,
+      "threshold": 0.0036765929087677835,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 125
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 93
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "power": 1,
+      "threshold": 0.06676761055596397,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 69
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 3
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "power": 2,
+      "threshold": 0.007158164979615722,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 183
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 96
+        }
+      }
+    },
+    {
+      "C": 1.0,
+      "power": 4,
+      "threshold": 5.235641715784631e-05,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 589
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 170
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "power": 1,
+      "threshold": 0.02645530777902055,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 87
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 7
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "power": 2,
+      "threshold": 0.000896562350113993,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 563
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 157
+        }
+      }
+    },
+    {
+      "C": 10.0,
+      "power": 4,
+      "threshold": 1.019745869642381e-06,
+      "development": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 716
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 168
+        }
+      }
+    }
+  ],
+  "selected": {
+    "C": 0.1,
+    "power": 1,
+    "threshold": 0.20975280375194819,
+    "development": {
+      "uk_formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 52
+      },
+      "uk_conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 1,
+        "false_reviews": 3
+      }
+    }
+  },
+  "artifact_sha256": "302bf14f37a1651288326aacd0a603cdbcf5e085664edcd6256de3c4291596b6",
+  "calibration": {
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 3,
+      "false_reviews": 55
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 7,
+      "false_reviews": 6
+    }
+  },
+  "failures": [
+    "cal/uk_conversational: missed 7/164; maximum 1%"
+  ]
+}

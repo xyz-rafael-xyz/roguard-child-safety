@@ -1,0 +1,76 @@
+{
+  "language": "uk",
+  "synthetic_regression_only": true,
+  "stable_release_ready": false,
+  "splits": {
+    "dev": {
+      "groups": {
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 4,
+          "false_reviews": 7,
+          "baseline_missed": 1,
+          "baseline_false_reviews": 28,
+          "fixed": 22,
+          "regressed": 4
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 2,
+          "baseline_missed": 1,
+          "baseline_false_reviews": 3,
+          "fixed": 2,
+          "regressed": 1
+        }
+      },
+      "target_failures": [],
+      "baseline_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "4f349932cea1dfcb6c37622ee571dcd9fab3617ebe10d7fe2e87db1e1f470191"
+      },
+      "candidate_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "543b1d23b5950bcfd1ba41eb0f4d59ddd68e4b9612c3f52c10f3fa682b0a4cc4"
+      }
+    },
+    "cal": {
+      "groups": {
+        "uk_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 51,
+          "false_reviews": 3,
+          "baseline_missed": 59,
+          "baseline_false_reviews": 127,
+          "fixed": 136,
+          "regressed": 4
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 11,
+          "false_reviews": 2,
+          "baseline_missed": 7,
+          "baseline_false_reviews": 11,
+          "fixed": 10,
+          "regressed": 5
+        }
+      },
+      "target_failures": [
+        "uk_formal: missed 51/614; maximum 1%",
+        "uk_conversational: missed 11/164; maximum 1%"
+      ],
+      "baseline_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "7164f8cd8ec6149ac85e0c082d055940872e1189597dbf62abf929c369e5a68f"
+      },
+      "candidate_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "1fd38a6b8ebddda78edf7d688c25c257cda2921940d8fe94c013c0c7a171fb39"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "experiment": "attention-12",
+  "initial": {
+    "ro": "review-09-ro",
+    "uk": "replay-04-uk"
+  },
+  "epochs": 2,
+  "learning_rate": 1e-05,
+  "pooling_learning_rate": 0.001,
+  "label_smoothing": 0.02,
+  "replay_rows": 8000,
+  "natural_contrasts": true,
+  "temporal_contrasts": {
+    "ro": 360,
+    "uk": 180
+  },
+  "pooling": "two zero-initialized learned queries, context and focus; initial predictions preserve mean-pooling checkpoint",
+  "selection": "fixed development only, >=99% recall per group and minimize false review rates",
+  "calibration": "inspected regression; not fresh",
+  "reserved_probes_used": false,
+  "initial_math_checks": [
+    "mean equivalence",
+    "padding invariance",
+    "nonzero gradient"
+  ],
+  "stable_release_ready": false
+}
