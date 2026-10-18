@@ -1,0 +1,703 @@
+{
+  "created_utc": "2026-10-18T20:15:20.950446+00:00",
+  "source_sha256": {
+    "native_fields_v9.py": "5bdd1ece3562d9105ae0a4895e45aa5d5faf915f8bce98bd3152ac72380ffb8e",
+    "train_native_fields_v9.py": "5d879dc28b596a26281d9f09247dd65c0ef0b43f3cdf12521010fffde9de77b3",
+    "extract_native_fields_v9.py": "b35b5fe496420d6b1143ab9f64cb19d5105904d1f771cc641b80dc8aabdd4a46"
+  },
+  "trials": [
+    {
+      "hidden": 0,
+      "epoch": 5,
+      "coupling_mode": "independent",
+      "threshold": 0.6130703694917649,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 369,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.2611464968152866,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.004484304932735426,
+          "passes": true
+        }
+      },
+      "unweighted_field_loss": 0.7789048552513123,
+      "rank": [
+        1,
+        0.2611464968152866,
+        0.26563080174802206,
+        0.7789048552513123,
+        0,
+        5,
+        0
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 5,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.32431403678646564,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 643,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.45506015569709835,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 15,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.06726457399103139,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7789048552513123,
+      "rank": [
+        1,
+        0.45506015569709835,
+        0.5223247296881297,
+        0.7789048552513123,
+        0,
+        5,
+        1
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 10,
+      "coupling_mode": "independent",
+      "threshold": 0.6586046272400098,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 194,
+          "abstentions": 0,
+          "recall": 0.9948892674616695,
+          "false_review_rate": 0.1372965322009908,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.004484304932735426,
+          "passes": true
+        }
+      },
+      "unweighted_field_loss": 0.7805488109588623,
+      "rank": [
+        1,
+        0.1372965322009908,
+        0.14178083713372625,
+        0.7805488109588623,
+        0,
+        10,
+        0
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 10,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.2888581444811405,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 4,
+          "false_reviews": 472,
+          "abstentions": 0,
+          "recall": 0.9931856899488927,
+          "false_review_rate": 0.3340410474168436,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 11,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.04932735426008968,
+          "passes": true
+        }
+      },
+      "unweighted_field_loss": 0.7805488109588623,
+      "rank": [
+        1,
+        0.3340410474168436,
+        0.38336840167693326,
+        0.7805488109588623,
+        0,
+        10,
+        1
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 15,
+      "coupling_mode": "independent",
+      "threshold": 0.5329230145155629,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 4,
+          "false_reviews": 222,
+          "abstentions": 0,
+          "recall": 0.9931856899488927,
+          "false_review_rate": 0.15711252653927812,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.004484304932735426,
+          "passes": true
+        }
+      },
+      "unweighted_field_loss": 0.7597506046295166,
+      "rank": [
+        1,
+        0.15711252653927812,
+        0.16159683147201356,
+        0.7597506046295166,
+        0,
+        15,
+        0
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 15,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.06590279546709092,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 566,
+          "abstentions": 0,
+          "recall": 0.9948892674616695,
+          "false_review_rate": 0.4005661712668082,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 15,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.06726457399103139,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7597506046295166,
+      "rank": [
+        1,
+        0.4005661712668082,
+        0.46783074525783963,
+        0.7597506046295166,
+        0,
+        15,
+        1
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 20,
+      "coupling_mode": "independent",
+      "threshold": 0.5613208832947425,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 73,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.051663128096249115,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.004484304932735426,
+          "passes": true
+        }
+      },
+      "unweighted_field_loss": 0.7843949198722839,
+      "rank": [
+        1,
+        0.051663128096249115,
+        0.05614743302898454,
+        0.7843949198722839,
+        0,
+        20,
+        0
+      ]
+    },
+    {
+      "hidden": 0,
+      "epoch": 20,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.04878530813805996,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 3,
+          "false_reviews": 449,
+          "abstentions": 0,
+          "recall": 0.9948892674616695,
+          "false_review_rate": 0.3177636234961076,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 15,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.06726457399103139,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7843949198722839,
+      "rank": [
+        1,
+        0.3177636234961076,
+        0.385028197487139,
+        0.7843949198722839,
+        0,
+        20,
+        1
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 5,
+      "coupling_mode": "independent",
+      "threshold": 0.02058068342992356,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 466,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.329794762915782,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 12,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.053811659192825115,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7082588076591492,
+      "rank": [
+        1,
+        0.329794762915782,
+        0.3836064221086071,
+        0.7082588076591492,
+        256,
+        5,
+        0
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 5,
+      "coupling_mode": "pair-coupled",
+      "threshold": 2.0627527002559977e-05,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 2,
+          "false_reviews": 1147,
+          "abstentions": 0,
+          "recall": 0.9965928449744463,
+          "false_review_rate": 0.8117480537862704,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 98,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.43946188340807174,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7082588076591492,
+      "rank": [
+        1,
+        0.8117480537862704,
+        1.2512099371943421,
+        0.7082588076591492,
+        256,
+        5,
+        1
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 10,
+      "coupling_mode": "independent",
+      "threshold": 2.6812007015479838e-05,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1242,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.8789808917197452,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 87,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.3901345291479821,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7713424563407898,
+      "rank": [
+        1,
+        0.8789808917197452,
+        1.2691154208677273,
+        0.7713424563407898,
+        256,
+        10,
+        0
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 10,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.0,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1413,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 223,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.7713424563407898,
+      "rank": [
+        1,
+        1.0,
+        2.0,
+        0.7713424563407898,
+        256,
+        10,
+        1
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 15,
+      "coupling_mode": "independent",
+      "threshold": 4.668371155705719e-07,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1351,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.9561217268223637,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 179,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.8026905829596412,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.9135589599609375,
+      "rank": [
+        1,
+        0.9561217268223637,
+        1.758812309782005,
+        0.9135589599609375,
+        256,
+        15,
+        0
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 15,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.0,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1413,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 223,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.9135589599609375,
+      "rank": [
+        1,
+        1.0,
+        2.0,
+        0.9135589599609375,
+        256,
+        15,
+        1
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 20,
+      "coupling_mode": "independent",
+      "threshold": 1.0920928955078366e-07,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1380,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.9766454352441614,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 174,
+          "abstentions": 0,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.7802690582959642,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.9390282034873962,
+      "rank": [
+        1,
+        0.9766454352441614,
+        1.7569144935401255,
+        0.9390282034873962,
+        256,
+        20,
+        0
+      ]
+    },
+    {
+      "hidden": 256,
+      "epoch": 20,
+      "coupling_mode": "pair-coupled",
+      "threshold": 0.0,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 1413,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        },
+        "conversational": {
+          "rows": 387,
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 223,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 1.0,
+          "passes": false
+        }
+      },
+      "unweighted_field_loss": 0.9390282034873962,
+      "rank": [
+        1,
+        1.0,
+        2.0,
+        0.9390282034873962,
+        256,
+        20,
+        1
+      ]
+    }
+  ],
+  "selected": {
+    "hidden": 0,
+    "epoch": 20,
+    "coupling_mode": "independent",
+    "threshold": 0.5613208832947425,
+    "metrics": {
+      "formal": {
+        "rows": 2000,
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 73,
+        "abstentions": 0,
+        "recall": 0.9914821124361158,
+        "false_review_rate": 0.051663128096249115,
+        "passes": false
+      },
+      "conversational": {
+        "rows": 387,
+        "positive": 164,
+        "negative": 223,
+        "missed": 1,
+        "false_reviews": 1,
+        "abstentions": 0,
+        "recall": 0.9939024390243902,
+        "false_review_rate": 0.004484304932735426,
+        "passes": true
+      }
+    },
+    "unweighted_field_loss": 0.7843949198722839,
+    "rank": [
+      1,
+      0.051663128096249115,
+      0.05614743302898454,
+      0.7843949198722839,
+      0,
+      20,
+      0
+    ]
+  },
+  "artifact_sha256": "89273aca663cd9b876d19375f4d8b77e9c0465dd729218752f54e296eba23ef8",
+  "native_artifact_sha256": "d3d966461ca451a46ac6daf0dca02e2f8641ee604861fe12408fc08d56b17224",
+  "data_hashes": {
+    "train": "400426dc5d59fe675229d6100df87cf5453d5e22983c36bcac674da806772253",
+    "dev": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626"
+  },
+  "feature_hashes": {
+    "train": "49463ec922164e969f9c9af07b15f7c4db7d010af4e73bc7192511fe289c8ad7",
+    "dev": "e32a09a49ee9001fd2b3c3b697cefc268c847346a1a83c69d374adc28812b460"
+  },
+  "calibration_used_for_head_selection": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

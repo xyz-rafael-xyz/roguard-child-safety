@@ -699,3 +699,24 @@ dependencies before opening the three reserved probe files. Ten gate tests cover
 boundary counts, missed concerns, false alerts, missing strata, changed evidence,
 nonfinite parity errors and parent-model mismatches. These are software checks;
 reserved neural predictions and final release qualification are still pending.
+
+### Original-encoder representation comparison
+
+The first semantic-head comparison completed without meeting the accuracy gates.
+Romanian calibration has the same 241/1,386 formal false reviews as its binary
+parent. Ukrainian calibration misses 102/614 formal and 36/164 conversational
+concerns. In Romanian development, the assertion head recognizes only 13 of 581
+explicitly negated examples; concern recognition is substantially better. The
+installed Romanian replay reproduces all decisions with score and field errors
+below 1.2e-5, so these errors are not explained by a package/runtime discrepancy.
+
+`pretrained-fields-47` tests whether the binary fine-tuning discarded useful
+interpretation features. It uses the untouched original language encoders with
+the same datasets, feature pooling, head architectures, optimization and
+development selection as study43. Its storage wrapper has an unused binary
+classifier; that classifier is not an evaluated review model. The learned six
+semantic heads produce the actual proposal. Calibration remains separate from
+head selection, while earlier calibration findings are acknowledged as available
+experiment-design information. Study48 repeats the full installed-package check.
+This comparison is queued before the language-model continuation; model loads
+remain sequential. No improvement is claimed before its results exist.

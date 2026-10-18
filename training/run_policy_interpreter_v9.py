@@ -31,7 +31,7 @@ def main():
     # Native-head extraction and installed replay now run first. Keep all
     # substantial model loads serialized even though the head fitting is small.
     while time.time() < deadline:
-        previous = root/'installed-native-fields-45/run-status.json'
+        previous = root/'pretrained-fields-47/run-status.json'
         if previous.exists():
             previous_status = json.loads(previous.read_text())
             if ('finished_utc' in previous_status and time.time() >

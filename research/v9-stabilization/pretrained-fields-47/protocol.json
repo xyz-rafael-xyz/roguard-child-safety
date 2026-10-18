@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-18T20:17:33.188686+00:00",
+  "hypothesis": "Binary fine-tuning may discard distinctions needed by separate assertion/scope heads. Compare the untouched original pretrained encoder, holding head fitting and all datasets fixed.",
+  "recipe": "Identical43 linear/256GELU heads,20epochs,AdamW.001,decay.01,batch256,balanced four source/class groups,seed943+hidden,checkpoints5/10/15/20,independent/pair-coupled decoding. Same development-only99%recall threshold and rank. No new text or labels.",
+  "encoder": "Pinned original native RO/UK base weights. AutoModelForSequenceClassification storage wrapper initialized withseed947, exported safetensors. Its random binary classifier is explicitly unused; only CLS/focal representations feed trained semantic heads.",
+  "validation": "First batch of each extraction split must reproduce full-forward logits<=1e-4. Exported head dev decisions reload exactly. Calibration features only after selection.json. Fresh isolated wheel replay in48 requires0decisionchanges/0abstentions/scoreandfielddiff<=1e-4; strict99/5accuracy separately.",
+  "scheduling": "Wait until45finishes. All47model loads and48installedreplays sequential; then27continuation. Originaldeadlineunchanged. Skip ifless30minutesremain.",
+  "evidence_available": "Native22andsemantic43 development/calibration failures observed. Romanian43 assertionargmaxcorrectlyrecognizedonly13of581formalNEGATEDexamples. Originaltrain usesdifferent authoreddenialwording fromdevelopment. No reservedneural predictions exist. Existingcalibrationisregressionevidence, notanuntouched end-to-end estimate.",
+  "reserved": "If qualifying, requires frozen actual-runtime reserved evaluation before release; no reserved inputs used for training or selection.",
+  "stable_release_ready": false,
+  "reserved_probes_used": false
+}
