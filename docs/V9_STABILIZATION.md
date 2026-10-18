@@ -720,3 +720,38 @@ head selection, while earlier calibration findings are acknowledged as available
 experiment-design information. Study48 repeats the full installed-package check.
 This comparison is queued before the language-model continuation; model loads
 remain sequential. No improvement is claimed before its results exist.
+
+The original-encoder comparison subsequently completed. Its Romanian development
+assertion head recognizes 554/581 negations, versus 13/581 for the binary-tuned
+encoder, but concern recognition is weaker. Neither language passes calibration.
+Both study48 installed replays reproduce the selected research decisions.
+
+Study45 exposed a separate numerical issue: the Ukrainian cutoff was almost
+exactly on a development score, producing one CPU/MPS decision difference.
+Centering that cutoff between neighboring development scores preserves every
+development decision and removes the difference when replaying the already
+installed neural outputs (`field-threshold-portability-50`). This is a deterministic
+cutoff repair, not fresh neural inference or an accuracy improvement. One additional
+calibration false review results. Study47 adopted cutoff centering before head
+fitting, with the original installed parity requirement retained.
+
+### Field-wise representation mixtures
+
+`field-fusion-51` selects a convex mixture separately for each semantic field,
+using development categorical loss balanced over language-register/class groups.
+The fixed native-weight grid is 0, 0.25, 0.5, 0.75 and 1. Policy integration then
+compares independent and training-fitted pair factors under the unchanged gates.
+Calibration is opened after the mixture selection is saved.
+
+Romanian development improves to 5/587 formal concerns missed and 9/1,413 false
+reviews, with 0/216 conversational misses and 3/242 false reviews. Calibration
+still fails: 65/614 formal misses and 110/1,386 formal false reviews. Ukrainian
+also fails. Both study52 installed mixers reproduce all research decisions using
+the actual bound neural field outputs from studies45/48. This checks the combined
+runtime, not fresh neural inference. Neither mixture qualifies for release.
+
+The source checkout includes `FieldReviewFusion` and `FieldReviewPipeline`. A
+pipeline runs both explicit local encoders and returns one input-bound proposal.
+Its optional bundle loader checks a trusted manifest digest, component identities
+and paths confined to the bundle directory. It never downloads implicitly.
+No qualifying default bundle is published by these experiments.

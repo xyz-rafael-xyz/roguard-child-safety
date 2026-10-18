@@ -11,6 +11,7 @@ from training.native_fields_v9 import FIELDS,SIZES,targets,network,probabilities
 from training.review_fusion_v9 import threshold,metrics,strata
 from roguard.evidence import disposition
 from roguard.assurance import policy_digest
+from training.threshold_center_v9 import center_threshold
 
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -26,7 +27,7 @@ def main():
     root=Path('research/v9-stabilization');study=root/'pretrained-fields-47'/a.language
     parent=root/'pretrained-fields-47/encoders'/a.language
     source_hashes={name:sha(Path('training')/name) for name in
-        ('native_fields_v9.py','train_pretrained_fields_v9.py','extract_pretrained_fields_v9.py')}
+        ('native_fields_v9.py','train_pretrained_fields_v9.py','extract_pretrained_fields_v9.py','threshold_center_v9.py')}
     def load(split):
         path=parent/(split+'.jsonl.gz');meta=json.loads((study/(split+'-features.json')).read_text())
         fp=study/(split+'-features.npz')
@@ -77,10 +78,11 @@ def main():
                 p,_=infer(model,dx)
                 ce=float(np.mean([-np.log(np.maximum(v[np.arange(len(dev)),dy[:,i]],1e-30)).mean() for i,v in enumerate(p)]))
                 for mode,couplings in (('independent',None),('pair-coupled',learned_couplings)):
-                    scores=policy_mass(p,couplings);limit=threshold(dev,db,scores);counts=metrics(dev,db,scores,limit)
+                    scores=policy_mass(p,couplings);limit=center_threshold(scores,threshold(dev,db,scores));counts=metrics(dev,db,scores,limit)
                     rank=[int(not all(c['passes'] for c in counts.values())),max(c['false_review_rate'] for c in counts.values()),
                           sum(c['false_review_rate'] for c in counts.values()),ce,hidden,epoch,int(couplings is not None)]
-                    entry=dict(hidden=hidden,epoch=epoch,coupling_mode=mode,threshold=float(limit),metrics=counts,unweighted_field_loss=ce,rank=rank)
+                    entry=dict(hidden=hidden,epoch=epoch,coupling_mode=mode,threshold=float(limit),metrics=counts,unweighted_field_loss=ce,rank=rank,
+                               minimum_development_threshold_distance=float(np.min(np.abs(scores-limit))))
                     trials.append(entry);print(json.dumps(entry),flush=True)
                     if best is None or rank<best['rank']:
                         best=entry

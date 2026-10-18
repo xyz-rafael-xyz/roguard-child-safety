@@ -1,0 +1,260 @@
+{
+  "created_utc": "2026-10-18T20:31:23.330414+00:00",
+  "selected": {
+    "mode": "pair-coupled",
+    "threshold": 0.7415716336100143,
+    "metrics": {
+      "formal": {
+        "rows": 2000,
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 9,
+        "abstentions": 0,
+        "recall": 0.9914821124361158,
+        "false_review_rate": 0.006369426751592357,
+        "passes": true
+      },
+      "conversational": {
+        "rows": 458,
+        "positive": 216,
+        "negative": 242,
+        "missed": 0,
+        "false_reviews": 3,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.012396694214876033,
+        "passes": true
+      }
+    },
+    "rank": [
+      0,
+      0.012396694214876033,
+      0.01876612096646839,
+      1
+    ],
+    "minimum_development_threshold_distance": 0.0018398610652179404
+  },
+  "trials": [
+    {
+      "mode": "independent",
+      "threshold": 0.7421541165433134,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 12,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.008492569002123142,
+          "passes": true
+        },
+        "conversational": {
+          "rows": 458,
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 7,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.028925619834710745,
+          "passes": true
+        }
+      },
+      "rank": [
+        0,
+        0.028925619834710745,
+        0.037418188836833885,
+        0
+      ],
+      "minimum_development_threshold_distance": 0.001256126255919754
+    },
+    {
+      "mode": "pair-coupled",
+      "threshold": 0.7415716336100143,
+      "metrics": {
+        "formal": {
+          "rows": 2000,
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 9,
+          "abstentions": 0,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.006369426751592357,
+          "passes": true
+        },
+        "conversational": {
+          "rows": 458,
+          "positive": 216,
+          "negative": 242,
+          "missed": 0,
+          "false_reviews": 3,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.012396694214876033,
+          "passes": true
+        }
+      },
+      "rank": [
+        0,
+        0.012396694214876033,
+        0.01876612096646839,
+        1
+      ],
+      "minimum_development_threshold_distance": 0.0018398610652179404
+    }
+  ],
+  "field_loss_comparisons": {
+    "subject": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.5947866496419696
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.29280352916931773
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.26766319044058073
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.2747307045762837
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 0.3504605779640986
+      }
+    ],
+    "time": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.7174135615145156
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.414299794295663
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.3943957813200586
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.41935499333001347
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 0.5553920904757034
+      }
+    ],
+    "assertion": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.3845197260912141
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.30916007466350603
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.3587240062426942
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.4706089781387272
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 1.1367754568918458
+      }
+    ],
+    "source": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.5839321937153528
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.287752118917886
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.2664924237924837
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.27668684575089214
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 0.35786870822913297
+      }
+    ],
+    "relation": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.0006300107186812869
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.004081535098698106
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.008168252339624973
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.013483895016839702
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 0.02651462853952509
+      }
+    ],
+    "concern": [
+      {
+        "native_weight": 0.0,
+        "balanced_nll": 0.15519160379965236
+      },
+      {
+        "native_weight": 0.25,
+        "balanced_nll": 0.06435294289705129
+      },
+      {
+        "native_weight": 0.5,
+        "balanced_nll": 0.04126862762964329
+      },
+      {
+        "native_weight": 0.75,
+        "balanced_nll": 0.02808015616042069
+      },
+      {
+        "native_weight": 1.0,
+        "balanced_nll": 0.04342204291223335
+      }
+    ]
+  },
+  "artifact_sha256": "2b33ce0490622e755e7cdae6a6f14aa5c1860b1807961bb5e2b4b8860b8d8a62",
+  "parent_selection_sha256": [
+    "d55b673935f165303d1574ca8899bce51dd7679da82511004473531e02220989",
+    "428ebd45f831b119031eb537b7e90efefac59d8124a32c709ec0b80da5f4b301"
+  ],
+  "parent_development_predictions_sha256": [
+    "8cb59ac12c18b38565b32640a3e95811646e9c3e7b027e14586f49d157ca2f59",
+    "e956cb6ea0fbc6bbbd85d29cce73aeb117cc7e8f6e101775af922ceff10a3b60"
+  ],
+  "data_sha256": {
+    "train": "7e42db1be10a7d84037d21ed0a0e565170082800edbae46aea128eeaea234c62",
+    "dev": "bb3b58d040c52475d82c7a4980c780333e670f24513e7bd36dedb22dae7d480a"
+  },
+  "calibration_used_for_mixture_selection": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
