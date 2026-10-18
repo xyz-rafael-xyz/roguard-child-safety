@@ -658,3 +658,8 @@ normalized pair probabilities in runtime reports. The coupled policy formula
 matches exhaustive enumeration on 50 seeded random factor problems within
 2e-15. A 16-candidate fit/export/reload/calibration smoke test passed on artificial
 feature fixtures. This is implementation evidence, not message accuracy.
+
+The final-layer extraction amendment avoids retaining every intermediate encoder
+state. Tiny CPU BERT and RoBERTa fixtures reproduce both final states and parent
+logits exactly. Full-checkpoint score replay remains a prerequisite during
+extraction; measured runtime memory and latency gains have not been established.

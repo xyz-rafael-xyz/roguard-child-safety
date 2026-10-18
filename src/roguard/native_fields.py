@@ -80,6 +80,20 @@ def _network(torch,hidden):
                                torch.nn.Dropout(.1),torch.nn.Linear(hidden,sum(SIZES)))
 
 
+def _native_states(engine,inputs,*,include_logits=False):
+    """Retain the final layer only; optional logits reproduce the native head."""
+    outputs=engine.model.base_model(**inputs,return_dict=True,output_hidden_states=False)
+    hidden=outputs.last_hidden_state.float()
+    logits=None
+    if include_logits:
+        if engine.model.config.model_type=='bert':
+            logits=engine.model.classifier(engine.model.dropout(outputs.pooler_output))
+        elif engine.model.config.model_type=='roberta':
+            logits=engine.model.classifier(hidden)
+        else:raise ValueError('Unsupported native classifier architecture')
+    return hidden,logits
+
+
 class _Engine:
     def __init__(self,native,spec):
         import numpy as np
@@ -108,8 +122,8 @@ class _Engine:
                 for j,i in enumerate(ix):
                     ids=encoded.sequence_ids(i);mask[j,:len(ids)]=[v==1 for v in ids]
                 if (mask.sum(axis=1)==0).any():raise ValueError('Focal token span is empty')
-                outputs=engine.model(**{k:v.to(engine.device) for k,v in batch.items()},output_hidden_states=True)
-                hidden=outputs.hidden_states[-1].float();focal=torch.from_numpy(mask).to(engine.device)
+                hidden,_=_native_states(engine,{k:v.to(engine.device) for k,v in batch.items()})
+                focal=torch.from_numpy(mask).to(engine.device)
                 pooled=(hidden*focal[:,:,None]).sum(dim=1)/focal.sum(dim=1)[:,None]
                 features=torch.cat((hidden[:,0,:],pooled),dim=1).cpu().numpy()
                 features=np.ascontiguousarray((features-self.mean)/self.scale,dtype=np.float32)
@@ -117,7 +131,7 @@ class _Engine:
                 logits=self.head(torch.from_numpy(features))
                 vectors=[torch.softmax(v,dim=-1).tolist() for v in torch.split(logits,SIZES,dim=-1)]
                 for j,i in enumerate(ix):result[i]={field:values[j] for field,values in zip(FIELDS,vectors)}
-                del outputs,hidden,focal,pooled
+                del hidden,focal,pooled
         if engine.device=='mps':torch.mps.empty_cache()
         return result
 

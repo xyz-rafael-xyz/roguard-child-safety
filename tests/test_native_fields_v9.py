@@ -54,3 +54,23 @@ def test_training_coupling_smoothing_preserves_unseen_pairs():
         rows.append({'attributes':{f:ONTOLOGY[f][i] for f,i in zip(FIELDS,world)}})
     tables=fit_couplings(rows,[1.]*len(rows))
     assert all(np.isfinite(matrix).all() and (np.asarray(matrix)>0).all() for matrix in tables.values())
+
+
+@pytest.mark.parametrize('architecture',['bert','roberta'])
+def test_final_layer_extraction_matches_full_tiny_architecture(architecture):
+    torch=pytest.importorskip('torch')
+    transformers=pytest.importorskip('transformers')
+    from types import SimpleNamespace
+    from roguard.native_fields import _native_states
+    config_class=transformers.BertConfig if architecture=='bert' else transformers.RobertaConfig
+    model_class=transformers.BertForSequenceClassification if architecture=='bert' else transformers.RobertaForSequenceClassification
+    torch.manual_seed(943)
+    config=config_class(vocab_size=32,hidden_size=12,num_hidden_layers=2,num_attention_heads=3,
+        intermediate_size=24,max_position_embeddings=32,num_labels=2)
+    model=model_class(config).float().eval()
+    inputs={'input_ids':torch.arange(2,10).repeat(2,1),'attention_mask':torch.ones((2,8),dtype=torch.long)}
+    with torch.inference_mode():
+        reference=model(**inputs,output_hidden_states=True)
+        hidden,logits=_native_states(SimpleNamespace(model=model),inputs,include_logits=True)
+    torch.testing.assert_close(hidden,reference.hidden_states[-1],rtol=0,atol=0)
+    torch.testing.assert_close(logits,reference.logits,rtol=0,atol=0)

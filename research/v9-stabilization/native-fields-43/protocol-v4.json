@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-18T19:44:17.961468+00:00",
+  "status": "Before native feature extraction and head fitting.",
+  "change": "Call the verified native base encoder directly with output_hidden_states=False and retain only last_hidden_state. For extraction parity, apply the unchanged BERT pooled/dropout/classifier path or RoBERTa sequence classifier path to reproduce parent logits. Runtime heads do not need parent logits.",
+  "motivation": "Avoid retaining all intermediate layer states during inference on the16GB development machine. No layer, token, normalization, weight, feature or threshold is removed or changed.",
+  "evidence": "Inspected installed Transformers4.57 implementation. Tiny randomly initialized CPU BERT and RoBERTa tests match both last hidden states and classifier logits exactly(rtol0,atol0). No pretrained model was loaded in these tests. All7math/coupling/architecture tests passed.",
+  "gate": "Actual full-checkpoint native dev/cal scores must still reproduce the parent within1e-4 with0decision changes during extraction. Actual installed-head replay remains mandatory. No measured memory or latency improvement claimed yet.",
+  "stable_release_ready": false,
+  "reserved_probes_used": false
+}

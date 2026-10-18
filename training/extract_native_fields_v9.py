@@ -19,6 +19,7 @@ def main():
     import numpy as np
     import torch
     from roguard.native_review import NativeReviewModel,_TorchEngine,prepare_input
+    from roguard.native_fields import _native_states
     from roguard.native_assets import PADDING_MULTIPLE
     torch.set_num_threads(4)
     root=Path('research/v9-stabilization');parent=root/('native-full-22-'+a.language)
@@ -48,13 +49,12 @@ def main():
                     mask[j,:len(ids)]=[v==1 for v in ids]
                 if (mask.sum(axis=1)==0).any():raise ValueError('Focal token span is empty')
                 inputs={k:v.to('mps') for k,v in batch.items()}
-                output=engine.model(**inputs,output_hidden_states=True)
-                hidden=output.hidden_states[-1].float()
+                hidden,logits=_native_states(engine,inputs,include_logits=True)
                 focal=torch.from_numpy(mask).to('mps')
                 pooled=(hidden*focal[:,:,None]).sum(dim=1)/focal.sum(dim=1)[:,None]
                 features.append(torch.cat((hidden[:,0,:],pooled),dim=1).cpu().numpy())
-                scores.extend(torch.softmax(output.logits.float(),dim=-1)[:,1].cpu().tolist())
-                del output,hidden,pooled,inputs,focal
+                scores.extend(torch.softmax(logits.float(),dim=-1)[:,1].cpu().tolist())
+                del logits,hidden,pooled,inputs,focal
                 if (offset//8+1)%25==0:torch.mps.empty_cache()
                 if (offset//8+1)%100==0:print(split,min(offset+8,len(rows)),'of',len(rows),flush=True)
         values=np.concatenate(features)
