@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-18T22:02:20.538169+00:00",
+  "reason": "Study61 final Romanian checkpoint selected an all-review numerical cutoff. Absolute probability margins can erase useful ordering near zero or one.",
+  "change": "Before66training: use the midpoint of the highest score gap retaining required99%recall separately in formal and conversational development. Do not subtract an absolute epsilon. Preserve zero-score ties and require actual installed inference to reproduce every decision.",
+  "unchanged": "Accuracy gates, training data/objective and independent-vs-pair comparison; actual installed probability tolerance and zero permitted decision changes.",
+  "tests": "Nine gap tests pass, including1e-30scores, tied boundaries, zero positives and nonfinite rejection.",
+  "existing_development_diagnostic": "Threshold unchanged for61RO and54RO/UK;65ROfalse reviews30to29withsame5misses. No revised calibration or reserved predictions evaluated."
+}

@@ -16,7 +16,7 @@ from roguard.native_review import NativeReviewModel, _TorchEngine, prepare_input
 from roguard.native_assets import PADDING_MULTIPLE
 from training.native_fields_v9 import FIELDS, SIZES, network, probabilities, targets, policy_mass, fit_couplings
 from training.review_fusion_v9 import metrics, threshold
-from training.threshold_margin_fields_v9 import margin_threshold
+from training.recall_gap_threshold_v9 import recall_gap_threshold
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -107,7 +107,7 @@ def main():
         p=infer('dev')
         loss=float(np.mean([-np.log(np.maximum(v[np.arange(len(rows['dev'])),labels['dev'][:,i]],1e-30)).mean() for i,v in enumerate(p)]))
         for mode,factors in (('independent',None),('pair-coupled',couplings)):
-            scores=policy_mass(p,factors);cutoff=margin_threshold(scores,threshold(rows['dev'],truth['dev'],scores))
+            scores=policy_mass(p,factors);cutoff=recall_gap_threshold(rows['dev'],truth['dev'],scores)
             groups=metrics(rows['dev'],truth['dev'],scores,cutoff)
             rank=[int(not all(v['passes'] for v in groups.values())),max(v['false_review_rate'] for v in groups.values()),
                   sum(v['false_review_rate'] for v in groups.values()),loss,step,int(factors is not None)]
