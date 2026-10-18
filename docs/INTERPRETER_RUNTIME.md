@@ -6,6 +6,25 @@ the stable installation or establish that the release accuracy requirements
 have been met. The current interpreter-14 result is 371/400 on a reused
 development screen; several language/stratum requirements still fail.
 
+The source-checkout components follow this data flow. The learned fusion fit
+and installed neural checks are still pending:
+
+```mermaid
+flowchart TD
+    A[Selected conversation prefix] --> B[Native language classifier]
+    A --> C[Six-field interpreter]
+    B --> D[Optional learned review fusion]
+    C --> D
+    D --> E[Review or abstention proposal]
+    C --> F[Joint-interpretation clarification planner]
+    F --> G[Romanian or Ukrainian reviewer question]
+    G --> H[Host-authenticated human review]
+    E --> H
+```
+
+The planner can combine reports from several configured interpreters. Fusion
+produces a separate review proposal; it does not rewrite their interpretations.
+
 ## What it returns
 
 `InterpreterModel.predict` proposes the focal message's concern, subject,

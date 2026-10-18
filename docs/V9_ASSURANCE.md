@@ -133,6 +133,7 @@ the certificate's exact branch codes and parent binding:
 ```python
 from roguard.review_labels import question_view
 
+print(certificate["status"])
 view = question_view(certificate)
 if view is not None:
     print(view["prompt"])
@@ -150,6 +151,10 @@ to what the message expresses; truth remains unverified. `UNCERTAIN` describes
 uncertainty expressed in the message. A reviewer who cannot decide should leave
 the question unanswered. Concern-content labels include denied or fictional
 content, with assertion and source handled by their separate fields.
+
+A `None` view means there is no available next question. Inspect the certificate
+status to distinguish `ACTION_DETERMINED` from `UNRESOLVED`; neither grants
+permission for an external action.
 
 These are project-authored interface labels, not a new independent linguistic
 review. Four tests cover bilingual code coverage, exact branch/binding retention,

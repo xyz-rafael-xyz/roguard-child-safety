@@ -1,0 +1,56 @@
+{
+  "selection_sha256": "a571a942e23b72204fe9aacbd77c2f4c45f3aceb01a4b8461b8182212cc91ded",
+  "artifact_sha256": "3c25b1ea7ecbab7f9688f1cb4e7ffd5c5c97e519fc40f160d64dcee23c433950",
+  "checkpoint_sha256": "fd66f66cc3ceb70e8f873a415f69c2f64e1fe1b4ce510443533a2db3859d4bc2",
+  "calibration": {
+    "ro_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 241,
+      "recall": 1.0,
+      "false_review_rate": 0.1738816738816739
+    },
+    "ro_conversational": {
+      "positive": 216,
+      "negative": 243,
+      "missed": 0,
+      "false_reviews": 7,
+      "recall": 1.0,
+      "false_review_rate": 0.02880658436213992
+    },
+    "uk_formal": {
+      "positive": 0,
+      "negative": 0,
+      "missed": 0,
+      "false_reviews": 0,
+      "recall": null,
+      "false_review_rate": null
+    },
+    "uk_conversational": {
+      "positive": 0,
+      "negative": 0,
+      "missed": 0,
+      "false_reviews": 0,
+      "recall": null,
+      "false_review_rate": null
+    }
+  },
+  "failures": [
+    "development/ro_formal: false reviews 258/1413; maximum 5%",
+    "calibration/ro_formal: false reviews 241/1386; maximum 5%"
+  ],
+  "calibration_source_hashes": {
+    "cal.jsonl.gz": "73cb785c71a89545043a5691565ce7830744e6929914d7b33f09b240276aab91",
+    "cal-predictions.jsonl": "84db4d3c2c5e311a7bfb4a10f5e14fc245c047b76a94f3905848c0d65f5cf3fe"
+  },
+  "predictions_sha256": "84db4d3c2c5e311a7bfb4a10f5e14fc245c047b76a94f3905848c0d65f5cf3fe",
+  "threshold_counts_pass": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "synthetic_regression_only": true,
+  "additional_requirements": [
+    "installed inference replay",
+    "fresh actual-runtime evaluation"
+  ]
+}
