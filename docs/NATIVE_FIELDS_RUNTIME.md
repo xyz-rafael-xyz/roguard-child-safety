@@ -86,8 +86,38 @@ semantic or combined bundles to their respective loaders. For a direct binary
 `NativeReviewModel`, use `format: "roguard-native-review-bundle-v1"`, replace
 `heads_sha256` with the trusted descriptor's `artifact_sha256`, and omit `heads`
 from `assets`. The same `load_bundle` Python API returns a model supporting
-`predict` and `predict_many` in all three cases. This chooses the runtime declared
+`predict` and `predict_many` in these cases. This chooses the runtime declared
 by the pinned manifest; it does not choose a model or certify its accuracy.
+
+The same command also accepts a native-classifier/interpreter combination:
+
+```json
+{
+  "format": "roguard-review-fusion-bundle-v1",
+  "fusion": {"path": "fusion.json", "sha256": "TRUSTED_FUSION_SHA256"},
+  "components": {
+    "native": {
+      "artifact": "native/review.json.gz",
+      "checkpoint": "native/selected-model.safetensors",
+      "base": "native/base",
+      "manifest": "native/base-manifest.json"
+    },
+    "interpreter": {
+      "archive": "interpreter/selected-adapter.json.gz",
+      "base": "interpreter/base"
+    }
+  }
+}
+```
+
+This combination requires Apple Silicon for the MLX interpreter and both the
+`semantic` and `mlx` optional dependencies. The pinned interpreter base files
+must already be present. Loading remains lazy, with no implicit download.
+`ReviewFusionPipeline` runs the native classifier and interpreter and passes
+their input-bound reports to the selected fusion model. It validates every
+conversation before inference, preserves focal turn indices, and rejects
+incomplete component batches. This interface does not qualify the combined model
+or change the installed default.
 
 ## Fixed categorical policy comparison
 

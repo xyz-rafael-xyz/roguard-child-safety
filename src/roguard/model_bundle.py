@@ -8,6 +8,7 @@ import sys
 from .field_pipeline import FieldReviewPipeline, _local_path
 from .native_field_bundle import load_bundle as load_fields
 from .native_review import NativeReviewModel, prepare_input
+from .review_pipeline import ReviewFusionPipeline
 
 
 def load_bundle(path, *, expected_sha256, device='cpu'):
@@ -22,6 +23,8 @@ def load_bundle(path, *, expected_sha256, device='cpu'):
         return load_fields(path,expected_sha256=expected_sha256,device=device)
     if spec.get('format')=='roguard-field-bundle-v1':
         return FieldReviewPipeline.from_bundle(path,expected_sha256=expected_sha256,device=device)
+    if spec.get('format')=='roguard-review-fusion-bundle-v1':
+        return ReviewFusionPipeline.from_bundle(path,expected_sha256=expected_sha256,device=device)
     if (set(spec)!={'format','artifact_sha256','assets'}
             or spec['format']!='roguard-native-review-bundle-v1'
             or not isinstance(spec['assets'],dict)
