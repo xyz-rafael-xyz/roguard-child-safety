@@ -1,0 +1,87 @@
+{
+  "groups": {
+    "ro_formal": {
+      "total": 2000,
+      "positive": 614,
+      "negative": 1386,
+      "decided": 2000,
+      "abstained": 0,
+      "correct_decided": 1715,
+      "missed_or_abstained_concerns": 43,
+      "false_review_or_abstained_benign": 242,
+      "direct_misses": 43,
+      "direct_false_reviews": 242,
+      "coverage": 1.0,
+      "decided_accuracy": 0.8575,
+      "strict_accuracy": 0.8575,
+      "concern_recall_including_abstentions": 0.9299674267100977,
+      "benign_review_or_abstention_rate": 0.1746031746031746
+    },
+    "uk_formal": {
+      "total": 2000,
+      "positive": 614,
+      "negative": 1386,
+      "decided": 2000,
+      "abstained": 0,
+      "correct_decided": 1544,
+      "missed_or_abstained_concerns": 5,
+      "false_review_or_abstained_benign": 451,
+      "direct_misses": 5,
+      "direct_false_reviews": 451,
+      "coverage": 1.0,
+      "decided_accuracy": 0.772,
+      "strict_accuracy": 0.772,
+      "concern_recall_including_abstentions": 0.99185667752443,
+      "benign_review_or_abstention_rate": 0.3253968253968254
+    },
+    "ro_conversational": {
+      "total": 459,
+      "positive": 216,
+      "negative": 243,
+      "decided": 459,
+      "abstained": 0,
+      "correct_decided": 354,
+      "missed_or_abstained_concerns": 77,
+      "false_review_or_abstained_benign": 28,
+      "direct_misses": 77,
+      "direct_false_reviews": 28,
+      "coverage": 1.0,
+      "decided_accuracy": 0.7712418300653595,
+      "strict_accuracy": 0.7712418300653595,
+      "concern_recall_including_abstentions": 0.6435185185185186,
+      "benign_review_or_abstention_rate": 0.11522633744855967
+    },
+    "uk_conversational": {
+      "total": 387,
+      "positive": 164,
+      "negative": 223,
+      "decided": 387,
+      "abstained": 0,
+      "correct_decided": 303,
+      "missed_or_abstained_concerns": 55,
+      "false_review_or_abstained_benign": 29,
+      "direct_misses": 55,
+      "direct_false_reviews": 29,
+      "coverage": 1.0,
+      "decided_accuracy": 0.7829457364341085,
+      "strict_accuracy": 0.7829457364341085,
+      "concern_recall_including_abstentions": 0.6646341463414633,
+      "benign_review_or_abstention_rate": 0.13004484304932734
+    }
+  },
+  "invariance": {
+    "groups": 0,
+    "inconsistent": 0,
+    "fully_correct": 0
+  },
+  "paired_scenarios": {
+    "groups": 360,
+    "fully_correct": 106
+  },
+  "caveat": "These metrics describe the supplied labeled inputs, not real-world safety.",
+  "seconds": 3.4061107500456274,
+  "backend": "character",
+  "model_identity": "056a9c581f5606d771e67ccb8b2191a0fc38751a4adcc57aa211728850111bf4",
+  "input_sha256": "7800b2ae401448ef6b460f2289fb7bda3b96bcd4ab5826809960a7a3453ac083",
+  "task": "focal-turn review request; unresolved attribute proposals can request review"
+}
