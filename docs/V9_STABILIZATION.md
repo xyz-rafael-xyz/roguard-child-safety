@@ -916,3 +916,20 @@ abstentions; accuracy remained below the required gates. Study73 skipped reserve
 inference. The complete repository test suite after the pipeline additions passed
 743 tests and 129 subtests, with 23 optional tests skipped. Software test success
 does not close the model-accuracy gates.
+
+Study76 adds a predeclared three-expert comparison using the already computed
+native classifier, semantic encoder and interpreter outputs. Separate native
+marginals and interpreter conditional probabilities remain separate features;
+same-class products measure agreement. They are not joint probabilities. The
+small classifier uses the same connected folds and four regularization choices,
+with no text or source-group labels as features. It requires no extra neural
+training or inference. Calibration remains reused regression evidence; installed
+composite parity and reserved checks would still be required before deployment.
+
+Recovery60 completed checkpoint selection, the 400-case neural screen, archive
+export and exact tensor round-trip verification. Policy continuation27 selected
+its initial checkpoint, which is the same tensor state as interpreter14; all five
+updated checkpoints ranked worse on the fixed 80-case validation population.
+The replay has 371/400 correct review decisions and no invalid outputs, with
+remaining errors in all four language/style groups. This does not meet the
+release gates. Full evaluation retains interpreter14 under the fixed tie-break.

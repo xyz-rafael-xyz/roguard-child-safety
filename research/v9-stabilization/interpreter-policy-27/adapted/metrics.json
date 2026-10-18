@@ -1,0 +1,101 @@
+{
+  "synthetic_only": true,
+  "stable_release_ready": false,
+  "base_revision": "4f665a4c50ecfe4ecdc34056ab52fe3e3c4abf9e",
+  "data_sha256": "1460246293666192a3b1e527c3f500e375feec9fac52dd847abcdcaed9e02a87",
+  "seconds": 225.1687547089532,
+  "field_accuracy": {
+    "concern": 0.8975,
+    "subject": 0.8775,
+    "source": 0.885,
+    "assertion": 0.79,
+    "relation": 0.99,
+    "time": 0.8425
+  },
+  "strict_evaluation": {
+    "groups": {
+      "uk_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 95,
+        "missed_or_abstained_concerns": 1,
+        "false_review_or_abstained_benign": 4,
+        "direct_misses": 1,
+        "direct_false_reviews": 4,
+        "coverage": 1.0,
+        "decided_accuracy": 0.95,
+        "strict_accuracy": 0.95,
+        "concern_recall_including_abstentions": 0.98,
+        "benign_review_or_abstention_rate": 0.08
+      },
+      "ro_conversational": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 94,
+        "missed_or_abstained_concerns": 6,
+        "false_review_or_abstained_benign": 0,
+        "direct_misses": 6,
+        "direct_false_reviews": 0,
+        "coverage": 1.0,
+        "decided_accuracy": 0.94,
+        "strict_accuracy": 0.94,
+        "concern_recall_including_abstentions": 0.88,
+        "benign_review_or_abstention_rate": 0.0
+      },
+      "uk_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 91,
+        "missed_or_abstained_concerns": 2,
+        "false_review_or_abstained_benign": 7,
+        "direct_misses": 2,
+        "direct_false_reviews": 7,
+        "coverage": 1.0,
+        "decided_accuracy": 0.91,
+        "strict_accuracy": 0.91,
+        "concern_recall_including_abstentions": 0.96,
+        "benign_review_or_abstention_rate": 0.14
+      },
+      "ro_formal": {
+        "total": 100,
+        "positive": 50,
+        "negative": 50,
+        "decided": 100,
+        "abstained": 0,
+        "correct_decided": 91,
+        "missed_or_abstained_concerns": 1,
+        "false_review_or_abstained_benign": 8,
+        "direct_misses": 1,
+        "direct_false_reviews": 8,
+        "coverage": 1.0,
+        "decided_accuracy": 0.91,
+        "strict_accuracy": 0.91,
+        "concern_recall_including_abstentions": 0.98,
+        "benign_review_or_abstention_rate": 0.16
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 0,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  },
+  "cached_prefix_tokens": 385,
+  "cache_check_max_error": 1.2487173080444336e-05,
+  "conditional_probabilities_are_not_calibrated": true,
+  "reserved_probes_used": false
+}

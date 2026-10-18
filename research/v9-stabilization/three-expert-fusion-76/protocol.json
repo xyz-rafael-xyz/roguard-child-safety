@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-18T22:53:10.479522+00:00",
+  "parents": {
+    "direct": "native-full-22",
+    "native_fields": {
+      "ro": "semantic-selection-71",
+      "uk": "scope-repair-66"
+    },
+    "interpreter": "interpreter-full-21 shared-validation selection"
+  },
+  "features": "Direct score/logit; separate native marginal and interpreter conditional probabilities, labels, direct-score interactions; same-class products of native and interpreter probabilities. Products express agreement, not joint probabilities.",
+  "selection": "Five connected development folds, four ridge penalties 0.1/1/10/100, equal mass per language-local formal/conversational class. Recall-gap threshold targets unchanged 99% recall; select gate eligibility then worst/total false-review rate and stronger regularization.",
+  "audit": "Freeze fit before calibration; reused synthetic calibration is regression evidence. Any interpreter abstention remains an error. No text, case ID or group label as predictive feature.",
+  "limitations": "Base models already used development and calibration informed prior repair designs; this is not independent model validation.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
