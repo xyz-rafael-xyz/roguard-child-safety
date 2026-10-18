@@ -21,7 +21,7 @@ from .v2_audit import audit_v2_contract
 from .conversation import analyze_conversation, analyze_batch, compare_reports, ConversationScorer
 
 MAX_REQUEST_BYTES = 1_048_576
-ASSETS = {"/evidence": ("evidence.html", "text/html; charset=utf-8"), "/evidence.js": ("evidence.js", "text/javascript; charset=utf-8"),"/context": ("context.html", "text/html; charset=utf-8"), "/context.js": ("context.js", "text/javascript; charset=utf-8"),"/reliability": ("reliability.html", "text/html; charset=utf-8"), "/reliability.js": ("reliability.js", "text/javascript; charset=utf-8"),"/lab": ("lab.html", "text/html; charset=utf-8"),
+ASSETS = {"/review": ("review.html", "text/html; charset=utf-8"), "/review.js": ("review.js", "text/javascript; charset=utf-8"),"/evidence": ("evidence.html", "text/html; charset=utf-8"), "/evidence.js": ("evidence.js", "text/javascript; charset=utf-8"),"/context": ("context.html", "text/html; charset=utf-8"), "/context.js": ("context.js", "text/javascript; charset=utf-8"),"/reliability": ("reliability.html", "text/html; charset=utf-8"), "/reliability.js": ("reliability.js", "text/javascript; charset=utf-8"),"/lab": ("lab.html", "text/html; charset=utf-8"),
           "/lab.js": ("lab.js", "text/javascript; charset=utf-8"),
           "/lab.css": ("lab.css", "text/css; charset=utf-8"),"/conversation": ("conversation.html", "text/html; charset=utf-8"),
           "/conversation.js": ("conversation.js", "text/javascript; charset=utf-8"),
@@ -93,7 +93,7 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu",
                     not hmac.compare_digest(self.headers.get("X-RoGuard-Token", ""), token)):
                 self._json(403, {"error": "Forbidden request"})
                 return
-            if self.path not in {"/api/evidence", "/api/context", "/api/assess", "/api/explore", "/api/contrast",
+            if self.path not in {"/api/review", "/api/evidence", "/api/context", "/api/assess", "/api/explore", "/api/contrast",
                                  "/api/v1/assess", "/api/v1/explore", "/api/v1/envelope",
                                  "/api/v2/audit", "/api/conversation", "/api/conversations", "/api/compare-reports",
                                  "/api/lab", "/api/lab/compare", "/api/lab/consistency", "/api/lab/scenario", "/api/long", "/api/repair-demo"}:
@@ -115,7 +115,10 @@ def make_server(port: int = 0, *, backend="fast", model_path=None, device="cpu",
                 return
             try:
                 payload = _strict_json_loads(self.rfile.read(size).decode("utf-8"))
-                if self.path == "/api/evidence":
+                if self.path == "/api/review":
+                    from .review_workspace import review_workspace
+                    result = review_workspace(payload)
+                elif self.path == "/api/evidence":
                     if evidence_model is None:evidence_model = EvidenceCascade()
                     result = analyze_evidence(payload, evidence_model)
                 elif self.path == "/api/context":
@@ -185,6 +188,7 @@ def main() -> None:
     parser.add_argument("--device", choices=["cpu", "mps", "cuda"], default="cpu")
     view = parser.add_mutually_exclusive_group()
     view.add_argument("--evidence", action="store_true")
+    view.add_argument("--review", action="store_true")
     parser.add_argument("--evidence-cascade", action="store_true")
     parser.add_argument("--evidence-backend", choices=["character", "semantic", "guarded"], default="character")
     view.add_argument("--context", action="store_true")
@@ -198,7 +202,9 @@ def main() -> None:
     except (OSError, ValueError, ImportError) as exc:
         parser.error(str(exc))
     url = f"http://127.0.0.1:{server.server_port}/"
-    if args.evidence:
+    if args.review:
+        url += "review"
+    elif args.evidence:
         url += "evidence"
     elif args.context:
         url += "context"

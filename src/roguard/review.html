@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ro"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RoGuard · Clarification workspace</title><link rel="stylesheet" href="/conversation.css"><script src="/review.js" defer></script></head>
+<body data-token="__ROGUARD_TOKEN__"><header><a class="brand" href="/">R <strong>RoGuard</strong></a><a href="/evidence">Evidence</a>
+<select id="language" aria-label="Language"><option value="ro">Română</option><option value="uk">Українська</option></select></header>
+<main><p class="eyebrow">ROGUARD / LOCAL REVIEW</p><h1 id="title"></h1><p class="intro" id="intro"></p>
+<div class="toolbar"><button id="example"></button><button id="restart" disabled></button><button id="export" disabled></button></div>
+<div class="workspace"><section class="editor"><h2 id="input-title"></h2><p id="scenario" class="small"></p>
+<label id="file-label" for="file"></label><input id="file" type="file" accept="application/json,.json">
+<details><summary id="advanced"></summary><label id="json-label" for="json"></label><textarea id="json" rows="12" spellcheck="false"></textarea><button id="load" class="primary"></button></details>
+<h2 id="history-title"></h2><ol id="history"></ol><p id="empty-history" class="small"></p></section>
+<section class="results"><h2 id="output-title"></h2><p id="status" role="status" aria-live="polite"></p><div id="summary"></div>
+<div id="question"></div><p id="error" class="error" role="alert" hidden></p>
+<details><summary id="certificate-label"></summary><pre id="certificate"></pre></details></section></div>
+<footer id="limits"></footer></main></body></html>

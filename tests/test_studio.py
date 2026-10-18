@@ -52,6 +52,19 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(self.request('/api/context',payload,token='wrong')[0],403)
         self.assertEqual(self.request('/api/context',dict(payload,turns=[]))[0],400)
 
+    def test_review_workspace_recomputes_without_authority(self):
+        from test_review_workspace import problem
+        for asset in ('/review','/review.js'):
+            with urlopen(self.origin+asset,timeout=5) as response:
+                self.assertTrue(response.read())
+        status,value=self.request('/api/review',dict(operation='plan',problem=problem('uk')))
+        self.assertEqual(status,200)
+        self.assertEqual(value['question']['language'],'uk')
+        self.assertFalse(value['reviewer_authenticated'])
+        self.assertFalse(value['permits_external_action'])
+        self.assertEqual(self.request('/api/review',dict(operation='plan',problem=problem()),token='wrong')[0],403)
+        self.assertEqual(self.request('/api/review',dict(operation='notify'))[0],400)
+
     def test_conversation_workspace_and_api_boundaries(self):
         with urlopen(self.origin + "/conversation", timeout=5) as response:
             page=response.read().decode()

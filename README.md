@@ -21,7 +21,7 @@ bound to their context, models and policy. Includes a local CLI, Romanian/Ukrain
 reviewer labels and actual evidence-model integration. This is a new experimental
 workflow; the language-model accuracy gates remain open. [V9 scope, usage and
 measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_STABILIZATION.md)
-track the accuracy work required before v9 becomes the default release.
+track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
 
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
 

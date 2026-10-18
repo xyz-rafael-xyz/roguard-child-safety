@@ -160,3 +160,24 @@ These are project-authored interface labels, not a new independent linguistic
 review. Four tests cover bilingual code coverage, exact branch/binding retention,
 unchanged certificates and tampered-input rejection. The helper is currently a
 source-checkout addition, not part of the published alpha.
+
+## Local clarification workspace (current source checkout)
+
+After installing this checkout with `pip install -e .`, open the local review UI:
+
+```sh
+python -m roguard.studio --review --open
+```
+
+Use the built-in fictional example, import a standalone assurance certificate,
+or paste a structured problem. The page recomputes the plan, shows Romanian or
+Ukrainian answer choices, and updates the remaining interpretations after each
+answer. You can leave a question unanswered, restart, or export the current
+certificate. Editing the input invalidates the displayed result.
+
+The example's interpretations are supplied manually, not predicted by a model.
+Import a certificate from a host integration to examine its actual hypotheses.
+The interface does not establish the truth of those hypotheses or authenticate
+the reviewer. It sends no notifications and grants no permissions. Source and
+model bindings still need to be checked by the host. The local server does not
+persist submitted data. No new language-model accuracy result is implied.
