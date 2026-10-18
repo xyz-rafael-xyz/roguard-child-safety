@@ -755,3 +755,23 @@ pipeline runs both explicit local encoders and returns one input-bound proposal.
 Its optional bundle loader checks a trusted manifest digest, component identities
 and paths confined to the bundle directory. It never downloads implicitly.
 No qualifying default bundle is published by these experiments.
+
+### Joint encoder and semantic-head training
+
+Study54 starts from the original language encoders and study47 heads, then
+jointly updates the last two encoder layers and all six heads. It adds 10,368
+authored synthetic compositions covering assertion, subject and time to the
+existing training pool. Exact tokenizer-input checks found zero overlap with
+the three reserved probes in either language. This does not establish semantic
+independence or validate the language as authentic child speech.
+
+The recipe, data hashes and selection rules were frozen before training. It
+retains the 99% concern-recall and 5% false-review gates for each language and
+register, followed by full installed CPU replay. Study56 may run reserved neural
+inference only if both installed candidates pass. Previous calibration failures
+informed this design; calibration remains regression evidence rather than a
+fresh blind test. Results are pending.
+
+A [single-model local bundle interface](NATIVE_FIELDS_RUNTIME.md) reduces loading
+to one manifest and its trusted digest. This is an explicit candidate interface,
+not an automatic model selection or a stable-release claim.
