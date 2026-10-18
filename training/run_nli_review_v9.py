@@ -18,8 +18,8 @@ def main():
         if time.time() >= deadline: raise TimeoutError('Authorized work window ended')
         path = root/'policy-decode-16/run-status.json'
         if path.exists():
-            jobs = json.loads(path.read_text())['jobs']
-            if jobs and (len(jobs) == 2 or jobs[-1]['exit_code'] != 0):
+            previous = json.loads(path.read_text()); jobs = previous['jobs']
+            if jobs and (len(jobs) == 2 or jobs[-1]['exit_code'] != 0 or previous.get('adapted_skipped')):
                 if time.time() > datetime.fromisoformat(jobs[-1]['finished_utc']).timestamp()+15: break
         time.sleep(10)
     for path, digest in json.loads((root/'nli-transfer-18-source-freeze.json').read_text()).items():

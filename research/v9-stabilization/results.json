@@ -1061,6 +1061,88 @@
       },
       "training_rows": 0,
       "prerequisites_pass": false
+    },
+    "nli-17": {
+      "training_rows": 0,
+      "development_screen": {
+        "uk_conversational": {
+          "total": 100,
+          "positive": 50,
+          "negative": 50,
+          "decided": 100,
+          "abstained": 0,
+          "correct_decided": 60,
+          "missed_or_abstained_concerns": 0,
+          "false_review_or_abstained_benign": 40,
+          "direct_misses": 0,
+          "direct_false_reviews": 40,
+          "coverage": 1.0,
+          "decided_accuracy": 0.6,
+          "strict_accuracy": 0.6,
+          "concern_recall_including_abstentions": 1.0,
+          "benign_review_or_abstention_rate": 0.8
+        },
+        "ro_conversational": {
+          "total": 100,
+          "positive": 50,
+          "negative": 50,
+          "decided": 100,
+          "abstained": 0,
+          "correct_decided": 66,
+          "missed_or_abstained_concerns": 0,
+          "false_review_or_abstained_benign": 34,
+          "direct_misses": 0,
+          "direct_false_reviews": 34,
+          "coverage": 1.0,
+          "decided_accuracy": 0.66,
+          "strict_accuracy": 0.66,
+          "concern_recall_including_abstentions": 1.0,
+          "benign_review_or_abstention_rate": 0.68
+        },
+        "uk_formal": {
+          "total": 100,
+          "positive": 50,
+          "negative": 50,
+          "decided": 100,
+          "abstained": 0,
+          "correct_decided": 54,
+          "missed_or_abstained_concerns": 0,
+          "false_review_or_abstained_benign": 46,
+          "direct_misses": 0,
+          "direct_false_reviews": 46,
+          "coverage": 1.0,
+          "decided_accuracy": 0.54,
+          "strict_accuracy": 0.54,
+          "concern_recall_including_abstentions": 1.0,
+          "benign_review_or_abstention_rate": 0.92
+        },
+        "ro_formal": {
+          "total": 100,
+          "positive": 50,
+          "negative": 50,
+          "decided": 100,
+          "abstained": 0,
+          "correct_decided": 51,
+          "missed_or_abstained_concerns": 1,
+          "false_review_or_abstained_benign": 48,
+          "direct_misses": 1,
+          "direct_false_reviews": 48,
+          "coverage": 1.0,
+          "decided_accuracy": 0.51,
+          "strict_accuracy": 0.51,
+          "concern_recall_including_abstentions": 0.98,
+          "benign_review_or_abstention_rate": 0.96
+        }
+      },
+      "field_accuracy": {
+        "concern": 0.6525,
+        "subject": 0.6225,
+        "source": 0.5225,
+        "assertion": 0.3575,
+        "relation": 0.4675,
+        "time": 0.6575
+      },
+      "prerequisites_pass": false
     }
   },
   "training_presentations": 148124

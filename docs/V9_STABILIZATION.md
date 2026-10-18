@@ -268,3 +268,11 @@ against the selected artifact's threshold. Missing or duplicate cases, nonfinite
 scores and inconsistent reported counts fail the check. Fifteen focused tests
 pass, including adversarial report mutations. Rechecking natural-06-ro and
 attention-12-uk reproduces their existing failures without new inconsistencies.
+
+The `nli-17` control completed at 231/400 correct (57.75%): it misses one
+Romanian formal concern and produces 168 false reviews across the four groups.
+This rules out using these unadapted interpretation prompts as a repair.
+The supervised transfer trials remain separate, unmeasured experiments.
+The NLI queue's pre-training dependency handling was corrected to continue when
+an earlier adapted comparison is explicitly skipped; training settings did not
+change, and the runner source hash was refreshed before it started training.
