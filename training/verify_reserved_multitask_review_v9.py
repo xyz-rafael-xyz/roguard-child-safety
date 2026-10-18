@@ -134,7 +134,7 @@ def main():
     metrics = {name: {language: counts([r for r in results if r['probe'] == name and r['language'] == language])
                       for language in ('ro', 'uk')} for name in probes}
     unique = unique_records(results)
-    report = dict(format='roguard-reserved-multitask-review-evaluation-v1', metrics=metrics,
+    report = dict(format='roguard-reserved-multitask-review-v1', metrics=metrics,
                   unique_input_counts={language: counts([r for r in unique if r['language'] == language]) for language in ('ro', 'uk')},
                   total_rows=len(results), unique_inputs=len(unique),
                   passes=all(group['passes'] for dataset in metrics.values() for group in dataset.values()),
