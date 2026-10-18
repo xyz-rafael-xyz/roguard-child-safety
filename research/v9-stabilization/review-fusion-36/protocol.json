@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-18T17:54:18.706124+00:00",
+  "status": "predeclared before native22 and full21 calibration predictions",
+  "parents": "Fixed development-selected native22 checkpoint per language plus fixed validation-selected full21 structured interpreter. No parent reselection.",
+  "training": "Previously named development set becomes fusion fitting and grouped cross-validation data. This is an additional learned component, not an independent evaluation on its fitting data.",
+  "features": "Native raw score and clipped logit; predicted conditional field probability vectors and predicted label one-hot vectors in ONTOLOGY order; native-score times each probability. No message text, source stratum, case identity, gold field or language indicator is a feature. Separate model per language.",
+  "folds": "Five deterministic SHA256 folds over connected components of same normalized focal input and supplied pair_group. No claim of semantic-family independence. Parent models already used development for selection, so fusion OOF is not fully untouched end-to-end validation.",
+  "fit": "Float64 weighted regularized logistic regression with intercept; per-fit feature mean/std, scale floor1e-8; equal formal/conversational x binary-class mass. Newton with Armijo backtracking; reject nonconvergence or nonfinite coefficients. Penalties0.1,1,10,100.",
+  "selection": "For each penalty collect out-of-fold scores. Shared language threshold is minimum stratum positive score at permitted1% misses minus1e-8; invalid structured output abstains and counts as error. Rank first by meeting unchanged99% recall and5% false-review limits in BOTH strata, then lowest worst false-review rate, lowest summed false-review rate, strongest penalty tie. Refit selected penalty on complete development inputs; retain OOF threshold.",
+  "calibration": "Persist selection, parent/input/code/protocol hashes and final coefficients before a separate process opens calibration. Score once. Both OOF development and calibration populations must meet unchanged limits. No adaptive calibration tuning.",
+  "runtime": "Any qualifying fusion remains experimental until installed composite inference parity, reserved actual-runtime checks and product integration. No default change.",
+  "execution": "Small NumPy CPU-only fit after full21 predictions exist; no neural model loaded. Does not interrupt native22, policy27 or installed runtimes.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

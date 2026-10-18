@@ -534,3 +534,25 @@ future-turn exclusion from input identity, missing strata and misleading pass
 flags. The protocol and source hashes are in `reserved-runtime-35`. This
 verifier currently accepts the original native22 artifacts; an alternative
 threshold needs a separate installed replay with its own artifact identity.
+
+### Native/structured fusion predeclared (study36)
+
+A separate lightweight experiment will combine the fixed native22 score with
+full21's predicted context fields and conditional probabilities. It uses no
+message text or gold interpretation as a feature. The existing development
+partition becomes fitting data for this additional component: five grouped
+folds keep matching focal inputs and supplied pairs together. Four fixed
+regularization strengths are compared using out-of-fold counts. The selected
+model is then fitted on the full development partition, with its threshold
+and identity recorded before calibration is opened.
+
+This is not independent end-to-end cross-validation: the parent models already
+used development for checkpoint selection. Calibration and reserved runtime
+checks remain necessary. Invalid structured output stays an abstention and an
+error. The unchanged99% recall and5% false-review limits apply separately to
+both strata and both languages. No fusion results exist yet.
+
+Four focused tests passed for feature provenance, invalid probability rejection,
+connected fold grouping and abstention handling. A separate NumPy numerical
+smoke check converged at all four predeclared regularization strengths. The
+CPU-only runner waits for complete neural predictions and loads no neural model.
