@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-18T21:38:47.757431+00:00",
+  "method": "Batch size4. Group identical class-token positions, clone and repeat the same common-prefix cache across the batch, preserve offsets and causal layout, use unchanged full-vocabulary label validity and six conditional fields.",
+  "qualification": "Complete existing400-case screen, same selected checkpoint/input bytes, zero decisions/field-label/validity differences and abstentions, maximum conditional-probability difference<=0.001. Batch/full logits also checked for two screen rows.",
+  "adoption": "Use batching only if parity passes and observed screen decoding time is lower than its cached single-message reference. Otherwise retain original evaluator. Comparison bounded to360seconds.",
+  "timing_limit": "Cached reference timing is not a controlled hardware benchmark.",
+  "new_accuracy_claim": false,
+  "reserved_predictions_produced": false,
+  "stable_release_ready": false
+}

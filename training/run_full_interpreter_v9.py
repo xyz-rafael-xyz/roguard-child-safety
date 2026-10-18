@@ -94,6 +94,11 @@ def main():
                      raw_adapter_sha256=digest(selected/'selected-adapter/adapters.safetensors'),
                      reserved_probes_used=False, stable_release_ready=False)
     (study/'selection.json').write_text(json.dumps(selection, indent=2)+'\n')
+    from training.batch_interpreter_gate_v9 import choose_decoder
+    evaluator = choose_decoder(selected, args.base, deadline)
+    selection['evaluation_backend'] = evaluator
+    selection['batch_comparison_sha256'] = digest(root/'interpreter-batch-64/report.json')
+    (study/'selection.json').write_text(json.dumps(selection, indent=2)+'\n')
     logs = Path(tempfile.gettempdir())/'roguard-v9-window'
     logs.mkdir(exist_ok=True)
     status = dict(stable_release_ready=False, reserved_probes_used=False, jobs=[])
@@ -104,9 +109,9 @@ def main():
         source = Path('research/v8-stabilization/review-09-ro')/(split+'.jsonl.gz')
         data = study/(split+'.jsonl')
         data.write_bytes(gzip.decompress(source.read_bytes()))
-        command = [sys.executable, '-m', 'training.evaluate_interpreter_v9', '--base', args.base,
+        command = [sys.executable, '-m', evaluator, '--base', args.base,
                    '--adapter', str(selected/'selected-adapter'), '--data', str(data), '--output', str(study/split)]
-        entry = dict(name=split, started_utc=datetime.now(timezone.utc).isoformat())
+        entry = dict(name=split, evaluator=evaluator, started_utc=datetime.now(timezone.utc).isoformat())
         print('START full interpreter', split, flush=True)
         with (logs/('interpreter-full-21-'+split+'.log')).open('w') as log:
             try:
