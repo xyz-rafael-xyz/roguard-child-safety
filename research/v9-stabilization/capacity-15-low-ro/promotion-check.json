@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/capacity-15-low-ro",
+  "language_scope": "ro",
+  "artifact_sha256": "574240c3f31878dd811d1f3becc5650eb19dc59de71401253fdbe2e7fbcb82a6",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/ro_formal: false reviews 119/1413; maximum 5%",
+    "calibration/ro_formal: false reviews 244/1386; maximum 5%",
+    "calibration/ro_conversational: false reviews 54/243; maximum 5%"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

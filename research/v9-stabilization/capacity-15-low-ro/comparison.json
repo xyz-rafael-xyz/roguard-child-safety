@@ -1,0 +1,78 @@
+{
+  "language": "ro",
+  "synthetic_regression_only": true,
+  "stable_release_ready": false,
+  "splits": {
+    "dev": {
+      "groups": {
+        "ro_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 119,
+          "baseline_missed": 1,
+          "baseline_false_reviews": 86,
+          "fixed": 4,
+          "regressed": 36
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 2,
+          "baseline_missed": 2,
+          "baseline_false_reviews": 0,
+          "fixed": 1,
+          "regressed": 3
+        }
+      },
+      "target_failures": [
+        "ro_formal: false reviews 119/1413; maximum 5%"
+      ],
+      "baseline_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "d8393510835af4afef0b124dfeaf5547b6cc9223fd62e4961842f5dd58acf177"
+      },
+      "candidate_sha256": {
+        "dev.jsonl.gz": "4c1dbd1e2948b6b0a9d46a48ce6d1c7bb7ac669b983ee743998cf75dc4d44996",
+        "dev-predictions.jsonl": "6d0acf316b8503efa132b278f1756cb2dafb6bd1c08b16eb1cfef002f7c03310"
+      }
+    },
+    "cal": {
+      "groups": {
+        "ro_formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 244,
+          "baseline_missed": 0,
+          "baseline_false_reviews": 244,
+          "fixed": 1,
+          "regressed": 1
+        },
+        "ro_conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 54,
+          "baseline_missed": 0,
+          "baseline_false_reviews": 46,
+          "fixed": 1,
+          "regressed": 9
+        }
+      },
+      "target_failures": [
+        "ro_formal: false reviews 244/1386; maximum 5%",
+        "ro_conversational: false reviews 54/243; maximum 5%"
+      ],
+      "baseline_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "6d38cfd3fcc43f652579001655366abb7698a4ec1955264930d30d30917210d6"
+      },
+      "candidate_sha256": {
+        "cal.jsonl.gz": "0ba8d26f5bd3e00ad418ebc00a658cc01e6fec86066e91a4b5e11961a0c3a4c5",
+        "cal-predictions.jsonl": "9f61fc9cbdb7fc412e210ad06b4779470b0d16ccff3be7f05ebd12e4a9736d45"
+      }
+    }
+  }
+}

@@ -402,3 +402,9 @@ language review. Native-22's optimizer, selection rule and evaluation remain
 as declared; its original protocol is retained alongside the amendment.
 Before training, gender-specific reporting frames were corrected and authored
 feminine forms were added. These share the masculine forms' content-family IDs.
+
+The first capacity trial, `capacity-15-low-ro`, completed and selected epoch 1.
+Epoch 2 increased Romanian development false reviews and was rejected.
+Calibration misses no Romanian concerns, but falsely reviews 244/1,386 formal
+and 54/243 conversational benign cases. It fails the unchanged 5% false-review
+requirements. The other capacity settings remain separate pending comparisons.
