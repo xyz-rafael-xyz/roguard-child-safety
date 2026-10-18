@@ -29,6 +29,11 @@ abstention; `no_signal` is not proof that a child is safe.
 
 From this repository checkout, install the optional runtime:
 
+Use Python 3.10 or newer; this runtime was exercised for packaging on Python
+3.12. Keep it in a separate environment from the `semantic`/`adapted` extras:
+the current MLX and Torch training stacks require different Transformers major
+versions. The dependency-free core package retains its separate Python support.
+
 ```sh
 python -m pip install -e '.[mlx]'
 ```

@@ -31,14 +31,16 @@ def main():
     import torch
     from peft import LoraConfig, get_peft_model, get_peft_model_state_dict, set_peft_model_state_dict
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
-    from roguard.nli_v21 import verify_base, MODEL_ID, REVISION
+    from roguard.nli_v21 import verify_base, MODEL_ID, REVISION, BASE_HASHES
+    from roguard.native_assets import reject_native_overrides, PADDING_MULTIPLE
     from training.prepare_instruction_sft_v8 import target
     from training.review_data_v8 import input_key
     from training.natural_contrasts_v9 import generate as natural
     from training.temporal_contrasts_v9 import generate as temporal
     from training.adapt_attention_v9 import thresholds_for
     from training.fit_review_v8 import group_metrics
-    verify_base(Path(a.base)); torch.manual_seed(918); torch.set_num_threads(4); rng = random.Random(918)
+    verify_base(Path(a.base)); reject_native_overrides(a.base, BASE_HASHES)
+    torch.manual_seed(918); torch.set_num_threads(4); rng = random.Random(918)
     root = Path('research/v8-stabilization'); pool = []
     for name, lang in [('review-09-ro', 'ro'), ('review-08-uk', 'uk')]:
         pool += [r for r in read(root/name/'training-history.jsonl.gz') if r['language'] == lang]
@@ -63,6 +65,7 @@ def main():
         (a.output/(split+'.jsonl.gz')).write_bytes(gzip.compress((''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in values)).encode(), mtime=0))
     (a.output/'training-history.jsonl.gz').write_bytes((a.output/'train.jsonl.gz').read_bytes())
     tokenizer = AutoTokenizer.from_pretrained(a.base, local_files_only=True, trust_remote_code=False)
+    if tokenizer.padding_side != 'right': raise ValueError('NLI transfer requires right padding')
     base = AutoModelForSequenceClassification.from_pretrained(a.base, local_files_only=True, trust_remote_code=False, use_safetensors=True).float()
     if base.config.id2label.get(0) != 'entailment' or base.config.id2label.get(2) != 'contradiction': raise ValueError('Unexpected NLI labels')
     architecture = dict(r=8, lora_alpha=16, lora_dropout=.05, target_modules=['query_proj', 'value_proj'], modules_to_save=['classifier', 'pooler'])
@@ -73,20 +76,23 @@ def main():
         if max(map(len, tokens[split]['input_ids'])) > 512: raise ValueError('Input would exceed 512 tokens')
         truth[split] = np.array([target(r) for r in values])
     def batch(split, ix):
-        return {k:v.to(a.device) for k,v in tokenizer.pad([{k:v[i] for k,v in tokens[split].items()} for i in ix], return_tensors='pt').items()}
+        return {k:v.to(a.device) for k,v in tokenizer.pad([{k:v[i] for k,v in tokens[split].items()} for i in ix], return_tensors='pt', pad_to_multiple_of=PADDING_MULTIPLE).items()}
     def score(split):
         model.eval(); values = []
         with torch.inference_mode():
             for offset in range(0, len(rows[split]), 8):
                 logits = model(**batch(split, list(range(offset, min(offset+8, len(rows[split])))))).logits.float()
                 values.extend(torch.sigmoid(logits[:, 0]-logits[:, 2]).cpu().tolist())
+                if a.device == 'mps' and (offset//8+1)%25 == 0: torch.mps.empty_cache()
+        if not np.isfinite(values).all(): raise ValueError('Nonfinite NLI inference score')
         return np.array(values)
     def save_scores(split, scores, thresholds):
         records = [dict(case_id=r['case_id'], language=r['language'], gold=int(y), score=float(s), predicted=int(s >= thresholds[r['language']])) for r,y,s in zip(rows[split], truth[split], scores)]
         (a.output/(split+'-predictions.jsonl')).write_text(''.join(json.dumps(v)+'\n' for v in records))
     optimizer = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=a.learning_rate)
     record = dict(synthetic_only=True, selection_partition='development', base=MODEL_ID, revision=REVISION,
-                  training_rows=len(train), hypothesis=HYPOTHESIS, learning_rate=a.learning_rate, epochs=[])
+                  training_rows=len(train), hypothesis=HYPOTHESIS, learning_rate=a.learning_rate, epochs=[],
+                  padding_multiple=PADDING_MULTIPLE, mps_cache_release_interval=25)
     best = None
     for epoch in range(1, a.epochs+1):
         model.train(); order = list(range(len(train))); rng.shuffle(order); losses = []; start = time.monotonic()
@@ -95,7 +101,9 @@ def main():
             logits = model(**batch('train', ix)).logits.float()
             labels = torch.tensor([0 if truth['train'][i] else 2 for i in ix], device=a.device)
             loss = torch.nn.functional.cross_entropy(logits, labels, label_smoothing=.02)
-            loss.backward(); torch.nn.utils.clip_grad_norm_(model.parameters(), 1); optimizer.step(); losses.append(float(loss.detach().cpu()))
+            if not torch.isfinite(loss): raise ValueError('Nonfinite NLI training loss')
+            loss.backward(); torch.nn.utils.clip_grad_norm_(model.parameters(), 1, error_if_nonfinite=True); optimizer.step(); losses.append(float(loss.detach().cpu()))
+            if a.device == 'mps' and (offset//8+1)%25 == 0: torch.mps.empty_cache()
             if offset % 800 == 0: print('epoch', epoch, 'row', offset, 'of', len(train), 'loss', losses[-1], flush=True)
         scores = score('dev'); thresholds = thresholds_for(rows['dev'], truth['dev'], scores)
         metrics = group_metrics(rows['dev'], truth['dev'], scores, thresholds)
@@ -103,7 +111,8 @@ def main():
         record['epochs'].append(entry); print(json.dumps(entry), flush=True)
         rank = (max(v['false_review_rate'] for v in metrics.values()), sum(v['false_review_rate'] for v in metrics.values()))
         artifact = dict(format='roguard-nli-review-experiment-v1', base=MODEL_ID, revision=REVISION, hypothesis=HYPOTHESIS,
-                        architecture=architecture, thresholds=thresholds, tensors={k:v.detach().cpu().tolist() for k,v in get_peft_model_state_dict(model).items()})
+                        architecture=architecture, thresholds=thresholds, padding_multiple=PADDING_MULTIPLE,
+                        tensors={k:v.detach().cpu().tolist() for k,v in get_peft_model_state_dict(model).items()})
         raw = gzip.compress(json.dumps(artifact, separators=(',', ':')).encode(), mtime=0)
         (a.output/f'epoch-{epoch}-review.json.gz').write_bytes(raw)
         if best is None or rank < best:

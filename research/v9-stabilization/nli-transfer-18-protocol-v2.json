@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-18T17:13:19.823357+00:00",
+  "training_started": false,
+  "amendment": "Prospective resource bounds and integrity/finite checks before NLI transfer fitting.",
+  "padding_multiple": 32,
+  "mps_cache_release_interval": 25,
+  "mps_watermarks": {
+    "high": 0.7,
+    "low": 0.4
+  },
+  "guards": [
+    "Reject unregistered tokenizer/adapter overrides",
+    "Require right padding",
+    "Reject nonfinite loss, gradient norm and scores"
+  ],
+  "numerical_note": "Padding shape may change rounding and seeded dropout draws relative to the unrun original recipe. All data, labels, seeds, optimizers, learning rates, epoch counts and selection criteria remain unchanged.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
