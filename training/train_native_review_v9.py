@@ -35,6 +35,13 @@ def read(path):
     return [json.loads(line) for line in gzip.decompress(path.read_bytes()).splitlines()]
 
 
+def checkpoint_offsets(rows, batch_size=8):
+    if type(rows) is not int or rows < 1 or type(batch_size) is not int or batch_size < 1:
+        raise ValueError('Positive row count and batch size required')
+    midpoint = min(rows, math.ceil(math.ceil(rows/batch_size)/2)*batch_size)
+    return {midpoint, rows}
+
+
 def counts(rows, truth, scores, thresholds):
     result = {}
     for language in ('ro','uk'):
@@ -144,9 +151,11 @@ def main():
                 sampling='Equal expected mass for each formal/conversational x binary-label stratum; replacement; seed922.',
                 base_weights_sha256=weight_hash)
     record['base_manifest_sha256']=digest(base_manifest_path)
+    record['validation_schedule']='Half-epoch and end-of-epoch, selected solely by development counts.'
     best=None;visited=set()
+    checks=checkpoint_offsets(len(train))
     for epoch in range(1,4):
-        order=rng.choice(len(train),size=len(train),replace=True,p=weights).tolist();visited.update(order)
+        order=rng.choice(len(train),size=len(train),replace=True,p=weights).tolist()
         model.train();losses=[];start=time.monotonic()
         for offset in range(0,len(order),8):
             indices=order[offset:offset+8];optimizer.zero_grad(set_to_none=True)
@@ -154,31 +163,36 @@ def main():
             loss=torch.nn.functional.cross_entropy(logits,torch.tensor(truth['train'][indices],device=args.device),label_smoothing=.02)
             if not torch.isfinite(loss):raise ValueError('Nonfinite training loss')
             loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),1);optimizer.step();scheduler.step()
-            losses.append(float(loss.detach().cpu()))
+            losses.append(float(loss.detach().cpu()));visited.update(indices)
             if offset%1600==0:print('epoch',epoch,'row',offset,'of',len(train),'loss',losses[-1],flush=True)
-        scores=score('dev');limits=[]
-        for native in (False,True):
-            positives=sorted(float(scores[i]) for i,r in enumerate(rows['dev']) if truth['dev'][i]==1 and (r.get('source')=='v7_training_frame_projection')==native)
-            if not positives:raise ValueError('Missing development positives')
-            limits.append(positives[int(.01*len(positives))])
-        thresholds={language:min(limits)*(1-1e-4)}
-        metrics=counts(rows['dev'],truth['dev'],scores,thresholds)
-        active=[v for k,v in metrics.items() if k.startswith(language+'_')]
-        rank=(max(v['false_review_rate'] for v in active),sum(v['false_review_rate'] for v in active))
-        entry=dict(epoch=epoch,loss=sum(losses)/len(losses),seconds=time.monotonic()-start,thresholds=thresholds,development=metrics)
-        record['epochs'].append(entry);print(json.dumps(entry),flush=True)
-        if best is None or rank<best:
-            best=rank;record['selected_epoch']=epoch;chosen_thresholds=thresholds;chosen_scores=scores.copy()
-            checkpoint=args.output/'selected-model.safetensors'
-            save_file({k:v.detach().cpu().contiguous() for k,v in model.state_dict().items()},str(checkpoint))
-            artifact=dict(format='roguard-native-full-review-experiment-v1',base=model_id,revision=revision,
-                          language=language,thresholds=thresholds,checkpoint_sha256=digest(checkpoint),
-                          base_manifest_sha256=digest(base_manifest_path),
-                          preprocessing='NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; context/focal pair; max512, no truncation.')
-            (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
-            save_scores('dev',scores,thresholds)
-        record['unique_training_indices_seen']=len(visited)
-        (args.output/'development.json').write_text(json.dumps(record,indent=2)+'\n')
+            completed=min(offset+8,len(order))
+            if completed not in checks:
+                continue
+            checkpoint_epoch=epoch if completed==len(order) else epoch-.5
+            scores=score('dev');limits=[]
+            for native in (False,True):
+                positives=sorted(float(scores[i]) for i,r in enumerate(rows['dev']) if truth['dev'][i]==1 and (r.get('source')=='v7_training_frame_projection')==native)
+                if not positives:raise ValueError('Missing development positives')
+                limits.append(positives[int(.01*len(positives))])
+            thresholds={language:min(limits)*(1-1e-4)}
+            metrics=counts(rows['dev'],truth['dev'],scores,thresholds)
+            active=[v for k,v in metrics.items() if k.startswith(language+'_')]
+            rank=(max(v['false_review_rate'] for v in active),sum(v['false_review_rate'] for v in active))
+            entry=dict(epoch=checkpoint_epoch,training_epoch=epoch,rows_completed=completed,loss=sum(losses)/len(losses),seconds=time.monotonic()-start,thresholds=thresholds,development=metrics)
+            record['epochs'].append(entry);print(json.dumps(entry),flush=True)
+            if best is None or rank<best:
+                best=rank;record['selected_epoch']=checkpoint_epoch;chosen_thresholds=thresholds;chosen_scores=scores.copy()
+                checkpoint=args.output/'selected-model.safetensors'
+                save_file({k:v.detach().cpu().contiguous() for k,v in model.state_dict().items()},str(checkpoint))
+                artifact=dict(format='roguard-native-full-review-experiment-v1',base=model_id,revision=revision,
+                              language=language,thresholds=thresholds,checkpoint_sha256=digest(checkpoint),
+                              base_manifest_sha256=digest(base_manifest_path),
+                              preprocessing='NFC, semantic whitespace/case normalization, Romanian cedilla-to-comma; context/focal pair; max512, no truncation.')
+                (args.output/'review.json.gz').write_bytes(gzip.compress(json.dumps(artifact,separators=(',',':')).encode(),mtime=0))
+                save_scores('dev',scores,thresholds)
+            record['unique_training_indices_seen']=len(visited)
+            (args.output/'development.json').write_text(json.dumps(record,indent=2)+'\n')
+            model.train()
     model.load_state_dict(load_file(str(args.output/'selected-model.safetensors')),strict=True)
     replay=score('dev');error=float(np.max(np.abs(replay-chosen_scores)))
     if error>1e-5:raise ValueError('Selected checkpoint prediction replay differs')

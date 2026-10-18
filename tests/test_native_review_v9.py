@@ -1,6 +1,14 @@
 from training.train_native_review_v9 import counts, texts
 
 
+def test_native_checkpoints_are_complete_batches_and_include_the_final_partial_batch():
+    from training.train_native_review_v9 import checkpoint_offsets
+    assert checkpoint_offsets(23328) == {11664, 23328}
+    assert checkpoint_offsets(20777) == {10392, 20777}
+    assert checkpoint_offsets(3) == {3}
+    assert checkpoint_offsets(9) == {8, 9}
+
+
 def test_native_counts_keep_absent_language_explicit_without_inventing_rates():
     rows = [dict(language='ro', source='v7_training_frame_projection'), dict(language='ro', source='synthetic')]
     result = counts(rows, [1,0], [.1,.9], {'ro': .5})
