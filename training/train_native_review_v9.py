@@ -82,6 +82,8 @@ def main():
     base_manifest=json.loads(base_manifest_path.read_text())['models'][language]
     if base_manifest['model']!=model_id or base_manifest['revision']!=revision:
         raise ValueError('Base manifest identity mismatch')
+    from roguard.native_assets import reject_native_overrides
+    reject_native_overrides(args.base,base_manifest['files'])
     for name,expected in base_manifest['files'].items():
         if digest(args.base/name)!=expected['sha256']:
             raise ValueError('Pinned base/tokenizer file differs: '+name)
