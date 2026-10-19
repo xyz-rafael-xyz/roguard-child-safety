@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-19T02:58:43.499227+00:00",
+  "purpose": "Test the repaired native85 or native95 Ukrainian score with frozen scope66 semantic fields and interpreter21 selected Gemma outputs.",
+  "inputs": "Original development/calibration only; no new neural inference for fit/audit, no reserved inference.",
+  "features": "Existing121three-expert features: native score/logit, separate semantic and decoder vectors, score interactions and same-label agreement. No text, identifiers or gold fields as features.",
+  "selection": "Five connected same-focal/pair development folds; fixed four shallow tree configurations from study78; rank unchanged OOF gate eligibility then worst/total false reviews then simpler model. Final cutoff covers all valid OOF and refit development concerns. Calibration never selects a candidate, tree or cutoff.",
+  "gates": "Original development, OOF and calibration each >=99% concern recall and <=5% false reviews per kind. Retained216-case stress must pass unchanged gates in separate actual-model inference before qualification.",
+  "run_order": "Parent85 can run immediately using cached component outputs; parent95 only after its fixed training completes. This experiment does not change current90,95or94recipes.",
+  "synthetic_only": true,
+  "independent_accuracy_evaluation": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

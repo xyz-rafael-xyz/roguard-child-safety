@@ -1219,3 +1219,15 @@ path escapes, incomplete results and unsupported claims. These are software
 checks using test doubles; the combined language dispatcher still needs an
 actual-model check with the final qualified candidates. No default model is
 selected by this addition.
+
+Study97 tests whether the repaired Ukrainian native scores improve the existing
+three-expert combination. Its first run uses study85; the same frozen recipe is
+also available for study95 after training. The other two experts remain the
+study66 semantic model and selected study21 interpreter. Five connected
+development folds choose among four existing shallow-tree configurations, with
+no text, case IDs or gold interpretation fields as predictive features. The
+final threshold covers the development and out-of-fold concern predictions.
+Calibration is audited separately. Even if those counts pass, the retained
+216-case stress set and actual installed composite still require verification.
+This study fits saved component outputs on the CPU and does not interrupt the
+running Qwen inference audit.
