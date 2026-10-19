@@ -80,7 +80,13 @@ class PairedNLIReview:
             data=_read(Path(base)/name,40_000_000)
             if _sha(data)!=expected:raise ValueError('Pinned entailment configuration/tokenizer changed: '+name)
             files[name]=data
-        self.identity=expected_sha256;self.thresholds=dict(limits);self._args=(files,Path(checkpoint),checkpoint_sha,device);self._engine=None;self._lock=threading.RLock()
+        self._identity=expected_sha256;self._thresholds=dict(limits);self._args=(files,Path(checkpoint),checkpoint_sha,device);self._engine=None;self._lock=threading.RLock()
+
+    @property
+    def identity(self):return self._identity
+
+    @property
+    def thresholds(self):return dict(self._thresholds)
 
     def predict(self,payload,*,focus=None):return self.predict_many([payload],focuses=[focus])[0]
 
@@ -96,6 +102,6 @@ class PairedNLIReview:
         results=[]
         for score,(_,language,focus,identity) in zip(scores,prepared):
             if score is not None and (type(score) not in (float,int) or not math.isfinite(score) or not 0<=score<=1):raise ValueError('Invalid entailment score')
-            predicted=None if score is None else int(score>=self.thresholds[language])
+            predicted=None if score is None else int(score>=self._thresholds[language])
             results.append(dict(format='roguard-paired-nli-review-v1',language=language,focus=focus,input_digest=identity,model_identity=self.identity,predicted=predicted,score=score,decision='clarify' if predicted is None else 'review' if predicted else 'no_signal',reason='MODEL_CONTEXT_LIMIT' if predicted is None else 'MODEL_REVIEW_PROPOSAL' if predicted else 'NO_SIGNAL_DETECTED',review_requested=predicted!=0,score_is_calibrated=False,text_in_report=False,establishes_safety=False,permits_external_action=False,permits_notification=False))
         return results

@@ -7,7 +7,7 @@ from roguard.nli_v21 import MODEL_ID,REVISION,BASE_HASHES
 
 
 def fake(scores):
-    model=object.__new__(PairedNLIReview);model.identity='f'*64;model.thresholds={'ro':.4,'uk':.6};model._lock=threading.RLock()
+    model=object.__new__(PairedNLIReview);model._identity='f'*64;model._thresholds={'ro':.4,'uk':.6};model._lock=threading.RLock()
     class Engine:
         def scores(self,premises):return scores
     model._engine=Engine();return model
@@ -49,3 +49,9 @@ def test_artifact_contract_checked_before_assets(tmp_path,change):
     spec=dict(format='roguard-paired-nli-artifact-v1',base=MODEL_ID,revision=REVISION,thresholds={'ro':.5,'uk':.5},hypothesis=HYPOTHESIS,checkpoint_sha256='a'*64,base_hashes=BASE_HASHES,score='softmax-entailment-including-neutral',preprocessing=PREPROCESSING);spec.update(change)
     raw=json.dumps(spec).encode();path=tmp_path/'artifact.json';path.write_bytes(raw)
     with pytest.raises(ValueError):PairedNLIReview(path,tmp_path/'missing',tmp_path/'missing',expected_sha256=hashlib.sha256(raw).hexdigest())
+
+
+def test_public_settings_cannot_change_pinned_prediction():
+    model=fake([.5]);settings=model.thresholds;settings['ro']=.9
+    assert model.predict(payload())['predicted']==1
+    with pytest.raises(AttributeError):model.identity='a'*64
