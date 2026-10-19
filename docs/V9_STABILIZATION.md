@@ -2429,3 +2429,21 @@ scope false reviews, with no misses. Separate calibration has no misses but
 268/1,386 formal and36/243 conversational false reviews; the exposed regression
 has10/44 false reviews. All checkpoints and the completed evidence are retained.
 This result does not replace the better fixed154/155 Romanian cascades.
+
+### Romanian cascade qualification and pinned-weight tail preflight completed
+
+Study156 completed979 contextual inferences in364 seconds, with6.25 GB peak
+MLX allocation. Conversational calibration passes with no misses and5/243 false
+reviews; exposed regression has no errors. Formal calibration has one miss and
+93/1,386 false reviews (6.71%), so the cascade still fails the unchanged5% gate.
+
+Study163 completed its16-input preflight on the pinned4B weights. The median
+full forward pass took1.447 seconds; capturing the frozen body through layer24
+took0.867 seconds; replaying the cached18-layer tail took9.91 milliseconds.
+These are component timings after capture, not end-to-end serving speedups.
+The maximum representation error versus a full pass was1.61e-5 relative.
+A diagnostic update to712,704 rank4 query/output adapter parameters reduced
+training loss from0.02525 to0.02408. Its differentiable readout matched the
+independent export within1.44e-6 logits; updated tail replay matched a full
+forward pass within1.26e-5 relative. Peak MLX allocation was6.59 GB.
+The diagnostic adapter was discarded and no accuracy estimate was made.
