@@ -1,0 +1,113 @@
+{
+  "format": "roguard-budgeted-cutoff-diagnosis-v1",
+  "created_utc": "2026-10-19T09:47:40.471848+00:00",
+  "source_sha256": "b0dfedda347b6da4050791c979f1cbf24bc6214d266b5ad6e63aee47375c6af1",
+  "input_sha256": {
+    "research/v9-stabilization/policy-entailment-121/candidate/development.json": "1e954417e9bb5f99ed4e36f09d3be692e8ac00ce4ac0f1027094f8d8a44b5c57",
+    "research/v9-stabilization/policy-entailment-121/candidate/review.json": "f2d158d79ca39a6c2b8f8c1116a71b359935670dae944566adc1c5bd0b027c14",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_dev.jsonl.gz": "bb3b58d040c52475d82c7a4980c780333e670f24513e7bd36dedb22dae7d480a",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_dev-predictions.jsonl": "836cabc398ad4e903fe2b6b2dd077382b4defff861cba623c0d65ca6736429e3",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_scope_dev.jsonl.gz": "1ac6e51fecdc6c150523c5058e622e08374009710dbf471e836b4af4e67dd381",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_scope_dev-predictions.jsonl": "4f5f629c0101acab7fe6feb1c2c07fa36e3baf8735a0e8b93af574a854e1e852",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_dev.jsonl.gz": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_dev-predictions.jsonl": "3b50cba33c0467f8bf8124c67815471b67fef893e0e34e2437487d6d5fab2f57",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_scope_dev-predictions.jsonl": "50f35fee26fd0dd76abfd62fd0b588ba0c1a887b5235db06ca6ff087643aa0dd",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_stress.jsonl.gz": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_stress-predictions.jsonl": "150e4d160ffdffeb9fef850035e4a03162c7cc0594cc2f68598bd9ca7847d580"
+  },
+  "recall_requirement": 0.99,
+  "false_review_requirement": 0.05,
+  "model_changed": false,
+  "calibration_read": false,
+  "fresh_test_read": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "results": {
+    "ro": {
+      "support_threshold": 0.0004205425357213244,
+      "revision_threshold": 0.6314635425806046,
+      "rank": [
+        0.418966737438075,
+        0.9576260579155773
+      ],
+      "metrics": {
+        "conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 47,
+          "recall": 0.9907407407407407,
+          "false_review_rate": 0.19421487603305784,
+          "passes": false
+        },
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 592,
+          "recall": 1.0,
+          "false_review_rate": 0.418966737438075,
+          "passes": false
+        },
+        "ro_scope_dev": {
+          "positive": 90,
+          "negative": 90,
+          "missed": 0,
+          "false_reviews": 31,
+          "recall": 1.0,
+          "false_review_rate": 0.34444444444444444,
+          "passes": false
+        }
+      },
+      "counts_pass": false
+    },
+    "uk": {
+      "support_threshold": 0.002716288319788873,
+      "revision_threshold": 0.589095801115036,
+      "rank": [
+        0.36666666666666664,
+        1.075633623304953
+      ],
+      "metrics": {
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 23,
+          "recall": 1.0,
+          "false_review_rate": 0.1031390134529148,
+          "passes": false
+        },
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 511,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.3616418966737438,
+          "passes": false
+        },
+        "uk_scope_dev": {
+          "positive": 90,
+          "negative": 90,
+          "missed": 0,
+          "false_reviews": 33,
+          "recall": 1.0,
+          "false_review_rate": 0.36666666666666664,
+          "passes": false
+        },
+        "uk_stress": {
+          "positive": 44,
+          "negative": 172,
+          "missed": 0,
+          "false_reviews": 42,
+          "recall": 1.0,
+          "false_review_rate": 0.2441860465116279,
+          "passes": false
+        }
+      },
+      "counts_pass": false
+    }
+  }
+}
