@@ -86,6 +86,8 @@ jobs:
           python -m pip install -e '.[test]'
           numpy==2.5.3 scipy==1.18.1 scikit-learn==1.9.1
           joblib==1.6.0 threadpoolctl==3.7.0 cloudpickle==3.1.2 narwhals==2.27.1
+      - name: Require working numerical imports before optional-dependency tests
+        run: python -c "from sklearn.linear_model import LogisticRegression; from sklearn.svm import SVC"
       - name: Verify portable scores and per-group accuracy gates
         run: >-
           python -m pytest -q
