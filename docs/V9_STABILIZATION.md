@@ -2709,3 +2709,42 @@ installed comparison180 and reserved evaluation181 are gated on successful
 preceding checks. The same clean wheel and exact runtime dependencies are used.
 The new data are authored synthetic examples, not independent human annotations
 or observed child-language performance.
+
+
+### Correcting grouped backward execution
+
+Study177 stopped during its first Romanian training epoch on a nonfinite
+gradient norm. No prior or reserved evaluation followed. Its initial replay had
+reproduced the original development scores exactly, so diagnosis used training
+inputs only.
+
+Studies182–184 isolated inconsistent gradients in the local Metal grouped-tail
+backward path when two examples shared a token length. At unchanged weights,
+three derivative calculations for one minibatch returned gradient norms of
+19,652, 84,047 and 134,158 despite identical forward loss. One parameter's reported
+derivative was 7,722.84; independent central differences put it near -0.00193.
+This is evidence about the observed grouped path, not a localization of the
+fault to a particular upstream GPU operator.
+
+The repaired trainer makes one attention-tail call per example during training,
+then combines the logits into the same complete minibatch objective. Paired and
+history-consistency losses still propagate through every example. Development
+inference retains the original grouping and batch boundaries. It changes neither
+the data, the attention context, the architecture, nor the error gates.
+
+Study185 repeated the four training-minibatch checks. The problematic minibatch's
+gradient norm was 0.54113 on all three repeats. The same parameter's derivative
+was -0.00193055, versus -0.00193308 from central differences at step0.001. A small
+CPU regression test additionally checks single-example training calls, grouped
+development calls, matching outputs, finite derivatives and propagation of
+cross-example loss into attention adapters.
+
+Study186 restarts the same two-epoch continuation from the selected165 weights,
+using the verified calculation. It keeps the study177 training/development
+populations, learning rate, weights and checkpoint-selection rule. Prior187,
+installed188 and reserved189 run only after their preceding gates pass. The
+600 reserved cases remain neurally unscored at the start of this restart.
+
+[Gradient comparison](../research/v9-stabilization/grounding-gradient-finite-difference-184/report.json)
+· [Repaired comparison](../research/v9-stabilization/grounding-gradient-repair-185/report.json)
+· [Restart protocol](../research/v9-stabilization/serial-grounding-tail-fit-186/protocol.json).

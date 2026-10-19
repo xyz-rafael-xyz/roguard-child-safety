@@ -65,10 +65,14 @@ def main():
     parser.add_argument('--download-manifest', type=Path, required=True)
     parser.add_argument('--qualified-bundle', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, required=True)
+    parser.add_argument('--prior', type=Path, required=True)
+    parser.add_argument('--installed-study', type=Path, required=True)
+    parser.add_argument('--reserved-study', type=Path, required=True)
     args = parser.parse_args()
     root = Path('research/v9-stabilization')
-    installed = root/'grounding-tail-installed-180'
-    reserved = root/'grounding-tail-reserved-181'
+    installed = args.installed_study
+    reserved = args.reserved_study
     installed_report = json.loads((installed/'actual/report.json').read_text())
     result = verify_wheels(args.qualified_wheel, args.release_wheel, args.download_manifest.read_bytes())
     payload = bundle_payload(args.qualified_bundle, result['bundle_sha256'])
@@ -80,8 +84,8 @@ def main():
             or spec['terms'] != terms):
         raise ValueError('Download inventory differs from the qualified bundle and attribution')
     require_installed_gate(installed_report, result['qualified_wheel_sha256'], result['bundle_sha256'])
-    _, bindings = candidate_bindings(root/'grounding-tail-fit-177')
-    bindings.update(qualification(root))
+    _, bindings = candidate_bindings(args.candidate)
+    bindings.update(qualification(root, args.prior))
     for study in (installed, reserved):
         for name, expected in json.loads((study/'source-freeze.json').read_text()).items():
             if digest(name) != expected:

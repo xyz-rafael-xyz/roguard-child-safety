@@ -24,9 +24,11 @@ from training.composite_tail_cache_v9 import CompositeReader
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--base', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, default=Path('research/v9-stabilization/grounding-tail-fit-177'))
+    parser.add_argument('--study', type=Path, default=Path('research/v9-stabilization/grounding-tail-prior-178'))
     args = parser.parse_args()
     root = Path('research/v9-stabilization')
-    study, candidate, cache = [root/name for name in ('grounding-tail-prior-178', 'grounding-tail-fit-177', 'shared-tail-corpus-164')]
+    study, candidate, cache = args.study, args.candidate, root/'shared-tail-corpus-164'
     for path, expected in json.loads((study/'source-freeze.json').read_text()).items():
         if digest(path) != expected:
             raise ValueError('Frozen qualification source differs: ' + path)

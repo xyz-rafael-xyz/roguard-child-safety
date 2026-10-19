@@ -16,9 +16,11 @@ from training.shared_tail_qualification_v9 import candidate_bindings
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--base', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, default=Path('research/v9-stabilization/grounding-tail-fit-177'))
+    parser.add_argument('--study', type=Path, default=Path('research/v9-stabilization/grounding-tail-prior-178'))
     args = parser.parse_args()
     root = Path('research/v9-stabilization')
-    candidate = root/'grounding-tail-fit-177'
+    candidate = args.candidate
     cache = root/'shared-tail-corpus-164'
     specs, sources = candidate_bindings(candidate)
     training = json.loads((candidate/'protocol.json').read_text())
@@ -51,10 +53,10 @@ def main():
     if len({r['row']['case_id'] for r in entries}) != len(entries):
         raise ValueError('Duplicate prior case identity')
     entries.sort(key=lambda r: (r['row']['language'], r['token_count'], r['row']['case_id']))
-    study = root/'grounding-tail-prior-178'
+    study = args.study
     study.mkdir(exist_ok=False)
     (study/'inputs.jsonl.gz').write_bytes(gzip.compress(''.join(json.dumps(r, ensure_ascii=False)+'\n' for r in entries).encode(), mtime=0))
-    protocol = dict(study=178, created_utc=datetime.now(timezone.utc).isoformat(), rows=len(entries),
+    protocol = dict(study=int(study.name.rsplit('-', 1)[1]), created_utc=datetime.now(timezone.utc).isoformat(), rows=len(entries),
         populations=['cal', 'exposed'], batch_size=1, development_batch_size=8, boundary=24, compute_dtype='float32',
         thresholds={lang: spec['threshold'] for lang, spec in specs.items()},
         full_development_replay=True, development_score_tolerance=1e-5,

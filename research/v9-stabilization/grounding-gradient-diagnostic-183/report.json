@@ -1,0 +1,6664 @@
+{
+  "steps": [
+    {
+      "step": 0,
+      "loss": 0.007432459853589535,
+      "norm": 2.034898042678833,
+      "norm64": 2.0348980465769855,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.07287298142910004
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.06990453600883484
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0683746188879013
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.057592157274484634
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.04893270134925842
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.034219324588775635
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.03346211090683937
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.03088538348674774
+        ]
+      ],
+      "cases": [
+        "focus-v9-train-ro-1744",
+        "revision123-ro-16-self-0-0-1",
+        "indirect-ro-reset-0-2-1",
+        "indirect-ro-reset-0-2-0",
+        "time-scope-v9-train-ro-14",
+        "freeform-ro-8-0",
+        "freeform-ro-8-1",
+        "contrast-train-ro-127"
+      ],
+      "pairs": [
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 1,
+      "loss": 0.0024692926090210676,
+      "norm": 69141.1171875,
+      "norm64": 69141.12073997527,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          3229.1474609375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1760.9271240234375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1502.154296875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1420.0596923828125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1190.7957763671875
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          926.5064086914062
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          911.4336547851562
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          770.0440063476562
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-7-3-0-0",
+        "transition-train-ro-1-7-3-1-0",
+        "transition-train-ro-1-7-3-2-0",
+        "transition-train-ro-1-7-3-0-1",
+        "transition-train-ro-1-7-3-1-1",
+        "transition-train-ro-1-7-3-2-1",
+        "train-ro-0-18-1-1-2-1-0-paraphrase-scope",
+        "train-ro-11-0-0-1-2-1-2"
+      ],
+      "pairs": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 2,
+      "loss": 0.005107968579977751,
+      "norm": 0.6128002405166626,
+      "norm64": 0.6128002872537345,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.040203578770160675
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.02270933985710144
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.014024447649717331
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.014021119102835655
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.011538536287844181
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_b",
+          0.010149592533707619
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.008815552107989788
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.008298156782984734
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-6-bare-1",
+        "contrast-train-ro-747",
+        "train-ro-1-9-2-2-1-1-2-paraphrase-scope",
+        "intervention-train-ro-1539",
+        "indirect-ro-0-7-denial-4-0-1"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 3,
+      "loss": 0.07219677418470383,
+      "norm": 10.503715515136719,
+      "norm64": 10.503714231249939,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.53226238489151
+        ],
+        [
+          "base.model.layers.38.self_attn.q_proj.lora_b",
+          0.30440083146095276
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.28057795763015747
+        ],
+        [
+          "base.model.layers.38.self_attn.o_proj.lora_a",
+          0.19259808957576752
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.17695572972297668
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.1630464494228363
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.16250848770141602
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.15431635081768036
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-9-3-original-0-0",
+        "referent-ro-train-9-3-original-0-1",
+        "referent-ro-train-9-3-original-1-0",
+        "referent-ro-train-9-3-original-2-0",
+        "referent-ro-train-9-3-original-1-1",
+        "referent-ro-train-9-3-original-2-1",
+        "hesitancy-train-ro-4260",
+        "train-ro-7-12-1-2-2-1-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 4,
+      "loss": 0.0004030733252875507,
+      "norm": 0.033659446984529495,
+      "norm64": 0.03365944665223581,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.0031027677468955517
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.0015095587586984038
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.0010263205040246248
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.000876506557688117
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.0005858982331119478
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.00052965700160712
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.00044576640357263386
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0004112788010388613
+        ]
+      ],
+      "cases": [
+        "train-ro-4-13-0-2-3-0-1",
+        "hesitancy-train-ro-864",
+        "revision123-ro-18-fiction-0-0-0",
+        "intervention-train-ro-112"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 5,
+      "loss": 0.00017805943207349628,
+      "norm": 51616.9921875,
+      "norm64": 51616.991325540366,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2475.548095703125
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1400.553466796875
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1027.8271484375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1025.384521484375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          795.3222045898438
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          765.9747924804688
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          661.1332397460938
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          525.2664794921875
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-10-5-0-0",
+        "transition-train-ro-1-10-5-0-1",
+        "transition-train-ro-1-10-5-1-0",
+        "transition-train-ro-1-10-5-1-1",
+        "transition-train-ro-1-10-5-2-0",
+        "transition-train-ro-1-10-5-2-1"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 6,
+      "loss": 2.9788684844970703,
+      "norm": 34707.46875,
+      "norm64": 34707.47138530954,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          872.0436401367188
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          852.5695190429688
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          847.1415405273438
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          690.3294677734375
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          659.4562377929688
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          578.7152099609375
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          551.1062622070312
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          527.966552734375
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-4-1-original-0-1",
+        "grounding-ro-train-deny-4-1-original-0-0",
+        "grounding-ro-train-deny-4-1-original-2-1",
+        "grounding-ro-train-deny-4-1-original-1-1",
+        "grounding-ro-train-deny-4-1-original-2-0",
+        "grounding-ro-train-deny-4-1-original-1-0",
+        "focus-v9-train-ro-317",
+        "hesitancy-train-ro-4363"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 7,
+      "loss": 0.00754337664693594,
+      "norm": 1.345209002494812,
+      "norm64": 1.3452090137529338,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0850791484117508
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.052523188292980194
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.037805601954460144
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.02854473702609539
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.02630654349923134
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.020678503438830376
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.019017523154616356
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.01817803457379341
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-2-0-original-0-0",
+        "grounding-ro-train-query-2-0-original-0-1",
+        "grounding-ro-train-query-2-0-original-1-0",
+        "grounding-ro-train-query-2-0-original-1-1",
+        "grounding-ro-train-query-2-0-original-2-0",
+        "grounding-ro-train-query-2-0-original-2-1",
+        "contrast-train-ro-2191",
+        "pair117-ro-train-558"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 8,
+      "loss": 3.9064230918884277,
+      "norm": 127.95262145996094,
+      "norm64": 127.95263024193606,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          5.182053089141846
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          4.869032382965088
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          3.208564281463623
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          2.6282880306243896
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.615687370300293
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          2.2498042583465576
+        ],
+        [
+          "heads.ro.last.weight",
+          1.9345279932022095
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.80156409740448
+        ]
+      ],
+      "cases": [
+        "train-ro-4-12-1-0-3-0-0",
+        "grounding-ro-train-deny-1-0-original-0-1",
+        "grounding-ro-train-deny-1-0-original-0-0",
+        "grounding-ro-train-deny-1-0-original-1-1",
+        "grounding-ro-train-deny-1-0-original-2-1",
+        "grounding-ro-train-deny-1-0-original-1-0",
+        "grounding-ro-train-deny-1-0-original-2-0",
+        "train-ro-11-1-2-1-0-1-0"
+      ],
+      "pairs": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "invariant": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "step": 9,
+      "loss": 0.002588351722806692,
+      "norm": 0.570051372051239,
+      "norm64": 0.570051354882697,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.018182143568992615
+        ],
+        [
+          "heads.ro.last.weight",
+          0.015059555880725384
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.014315975829958916
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.009813139215111732
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.009667702950537205
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.008857961744070053
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.00834029819816351
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.008230955339968204
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-20-1-original-0-0",
+        "grounding-ro-train-query-20-1-original-0-1",
+        "grounding-ro-train-query-20-1-original-1-0",
+        "grounding-ro-train-query-20-1-original-2-0",
+        "grounding-ro-train-query-20-1-original-1-1",
+        "grounding-ro-train-query-20-1-original-2-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 10,
+      "loss": 0.0012432149378582835,
+      "norm": 0.24353866279125214,
+      "norm64": 0.24353866787626535,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.010945799760520458
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.008857570588588715
+        ],
+        [
+          "heads.ro.last.weight",
+          0.008440254256129265
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.006064324639737606
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_b",
+          0.005303076468408108
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.004324374720454216
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.003790097078308463
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0036655503790825605
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-17-2-lower-0-0",
+        "grounding-ro-train-query-17-2-lower-0-1",
+        "grounding-ro-train-query-17-2-lower-1-0",
+        "grounding-ro-train-query-17-2-lower-2-0",
+        "grounding-ro-train-query-17-2-lower-1-1",
+        "grounding-ro-train-query-17-2-lower-2-1",
+        "native-train-benign-ro-8-6-5-0",
+        "morphology-ro-1-0-masculine-4-1-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 11,
+      "loss": 0.0008911995682865381,
+      "norm": 0.16965501010417938,
+      "norm64": 0.16965500976396147,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.006636245176196098
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.004617386031895876
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.004583742469549179
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.0036809316370636225
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.003383483737707138
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0031296375673264265
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.003018031595274806
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0024334893096238375
+        ]
+      ],
+      "cases": [
+        "hesitancy-train-ro-2143",
+        "focus-v9-train-ro-1712",
+        "revision123-ro-8-self-3-0-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 12,
+      "loss": 1.8749902248382568,
+      "norm": 82.19264221191406,
+      "norm64": 82.19264092913964,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          3.8180205821990967
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2.5466129779815674
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1.9455538988113403
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.8211336135864258
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.782925009727478
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          1.669891119003296
+        ],
+        [
+          "heads.ro.last.weight",
+          1.6318457126617432
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1.0543767213821411
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-1-2-original-0-1",
+        "grounding-ro-train-deny-1-2-original-0-0",
+        "grounding-ro-train-deny-1-2-original-1-1",
+        "grounding-ro-train-deny-1-2-original-1-0",
+        "grounding-ro-train-deny-1-2-original-2-1",
+        "grounding-ro-train-deny-1-2-original-2-0",
+        "indirect-ro-0-3-denial-2-1-0",
+        "pair117-ro-train-433"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "step": 13,
+      "loss": 0.00891020055860281,
+      "norm": 152171.46875,
+      "norm64": 152171.47634470058,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          7262.7119140625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          5617.94580078125
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4703.28515625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2785.92236328125
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          2518.0341796875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          2343.712890625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          2328.187255859375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          2058.64501953125
+        ]
+      ],
+      "cases": [
+        "train-ro-1-6-1-1-0-1-2",
+        "indirect-ro-0-10-denial-3-1-1",
+        "pair117-ro-train-485",
+        "indirect-ro-0-9-denial-0-1-1",
+        "train-ro-0-4-1-2-1-1-1",
+        "indirect-ro-1-9-denial-3-1-0",
+        "indirect-ro-1-9-denial-3-1-1",
+        "indirect-ro-0-8-denial-4-1-1"
+      ],
+      "pairs": [
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 14,
+      "loss": 0.0014906014548614621,
+      "norm": 0.3130485713481903,
+      "norm64": 0.3130485708706455,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.013099072501063347
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.00752317113801837
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.006963307969272137
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.005755274556577206
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.005471685901284218
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.004559812601655722
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.004423007369041443
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.003895479254424572
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-9-denial-1-0-0",
+        "referent-ro-train-0-2-original-0-0",
+        "referent-ro-train-0-2-original-0-1",
+        "referent-ro-train-0-2-original-1-0",
+        "referent-ro-train-0-2-original-2-0",
+        "referent-ro-train-0-2-original-1-1",
+        "referent-ro-train-0-2-original-2-1",
+        "indirect-ro-0-7-denial-5-1-1"
+      ],
+      "pairs": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 15,
+      "loss": 0.745668351650238,
+      "norm": 29.613828659057617,
+      "norm64": 29.613828292052254,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.0350897312164307
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.9399580955505371
+        ],
+        [
+          "heads.ro.last.weight",
+          0.9074178338050842
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.8320404887199402
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.7048836946487427
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.6827512979507446
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.5291122794151306
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          0.36429738998413086
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-3-denial-2-0-1",
+        "native-train-ro-0-2-10-original-prefix",
+        "train-ro-11-8-1-1-3-0-1",
+        "train-ro-3-16-1-2-2-1-1",
+        "time-scope-v9-train-ro-418",
+        "temporal-v9-train-ro-250",
+        "indirect-ro-0-9-denial-5-1-0",
+        "intervention-train-ro-646"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 16,
+      "loss": 0.0007168448064476252,
+      "norm": 0.2034604251384735,
+      "norm64": 0.20346043192975985,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.011317303404211998
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.005293077789247036
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.004531292710453272
+        ],
+        [
+          "heads.ro.last.weight",
+          0.00408189045265317
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0038802798371762037
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.0038333379197865725
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0026767372619360685
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.002458692528307438
+        ]
+      ],
+      "cases": [
+        "morphology-ro-1-6-masculine-4-0-0",
+        "train-ro-5-3-0-2-1-1-2",
+        "grounding-ro-train-query-14-2-original-0-0",
+        "grounding-ro-train-query-14-2-original-0-1",
+        "grounding-ro-train-query-14-2-original-1-0",
+        "grounding-ro-train-query-14-2-original-1-1",
+        "grounding-ro-train-query-14-2-original-2-0",
+        "grounding-ro-train-query-14-2-original-2-1"
+      ],
+      "pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "step": 17,
+      "loss": 2.729159116744995,
+      "norm": 73.85527801513672,
+      "norm64": 73.8552772952314,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          3.2918617725372314
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.264172315597534
+        ],
+        [
+          "heads.ro.last.weight",
+          1.9069105386734009
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.796410322189331
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.5024925470352173
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          1.4049434661865234
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.2283598184585571
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.9048941135406494
+        ]
+      ],
+      "cases": [
+        "temporal-v9-train-ro-47",
+        "grounding-ro-train-deny-6-3-lower-0-1",
+        "grounding-ro-train-deny-6-3-lower-0-0",
+        "grounding-ro-train-deny-6-3-lower-1-1",
+        "grounding-ro-train-deny-6-3-lower-2-1",
+        "grounding-ro-train-deny-6-3-lower-1-0",
+        "grounding-ro-train-deny-6-3-lower-2-0",
+        "hesitancy-train-ro-4039"
+      ],
+      "pairs": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "invariant": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "step": 18,
+      "loss": 0.6568542122840881,
+      "norm": 61.777984619140625,
+      "norm64": 61.77798305166453,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.374983072280884
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          2.279542922973633
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2.2423336505889893
+        ],
+        [
+          "heads.ro.last.weight",
+          1.7890970706939697
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.2113546133041382
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          1.1906262636184692
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.1203970909118652
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.8722888231277466
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-7-0-lower-0-1",
+        "grounding-ro-train-deny-7-0-lower-0-0",
+        "grounding-ro-train-deny-7-0-lower-1-1",
+        "grounding-ro-train-deny-7-0-lower-2-1",
+        "grounding-ro-train-deny-7-0-lower-1-0",
+        "grounding-ro-train-deny-7-0-lower-2-0",
+        "train-ro-10-3-2-0-1-0-1",
+        "train-ro-11-18-0-1-0-1-0"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 19,
+      "loss": 3.315587043762207,
+      "norm": 33613.08203125,
+      "norm64": 33613.08384231959,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1166.2470703125
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1108.63818359375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          731.9065551757812
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          715.2821655273438
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          627.9406127929688
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          605.4714965820312
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          567.05224609375
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          444.9457092285156
+        ]
+      ],
+      "cases": [
+        "contrast-train-ro-38",
+        "hesitancy-train-ro-2467",
+        "indirect-ro-0-3-fiction-4-1-1",
+        "focus-v9-train-ro-2487",
+        "indirect-ro-0-1-fiction-1-1-1",
+        "indirect-ro-1-9-fiction-1-0-0",
+        "indirect-ro-1-9-fiction-1-0-1",
+        "referent-ro-train-bare-0-lower"
+      ],
+      "pairs": [
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 20,
+      "loss": 0.0010887308744713664,
+      "norm": 0.15497322380542755,
+      "norm64": 0.15497323246574093,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.010658932849764824
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.005695919506251812
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.005651414860039949
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.0032718826550990343
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.0021721231751143932
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.0020790472626686096
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.002069795271381736
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.0019215164938941598
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-4-denial-5-1-0",
+        "natural-v9-train-ro-2460",
+        "temporal-v9-train-ro-236",
+        "morphology-ro-1-19-feminine-3-0-1",
+        "intervention-train-ro-331",
+        "indirect-ro-0-5-denial-3-1-1",
+        "train-ro-4-13-1-0-0-0-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 21,
+      "loss": 0.07822506129741669,
+      "norm": 220146.9375,
+      "norm64": 220146.93382392603,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          11715.5048828125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          4032.61572265625
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          3695.430908203125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          3630.65673828125
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          3518.70751953125
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          3241.308837890625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2950.453857421875
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2927.280517578125
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-7-2-0-0",
+        "transition-train-ro-1-7-2-0-1",
+        "transition-train-ro-1-7-2-1-0",
+        "transition-train-ro-1-7-2-1-1",
+        "transition-train-ro-1-7-2-2-0",
+        "transition-train-ro-1-7-2-2-1",
+        "temporal-v9-train-ro-341"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 22,
+      "loss": 0.16006781160831451,
+      "norm": 23.356672286987305,
+      "norm64": 23.35667271128479,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.8481777906417847
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.8043581247329712
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.789691150188446
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.6651191711425781
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.4892488121986389
+        ],
+        [
+          "heads.ro.last.weight",
+          0.4486575722694397
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.4034625291824341
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.33929377794265747
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-7-3-lower-0-1",
+        "grounding-ro-train-deny-7-3-lower-0-0",
+        "grounding-ro-train-deny-7-3-lower-1-1",
+        "grounding-ro-train-deny-7-3-lower-2-1",
+        "grounding-ro-train-deny-7-3-lower-1-0",
+        "grounding-ro-train-deny-7-3-lower-2-0"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 23,
+      "loss": 0.00155862036626786,
+      "norm": 87556.5703125,
+      "norm64": 87556.56904623292,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          1679.570068359375
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1651.6109619140625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1623.9219970703125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1332.621826171875
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          1292.3841552734375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1151.35693359375
+        ],
+        [
+          "base.model.layers.34.self_attn.o_proj.lora_b",
+          915.408447265625
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          873.6636352539062
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-3-1-lower-0-0",
+        "referent-ro-train-3-1-lower-0-1",
+        "referent-ro-train-3-1-lower-1-0",
+        "referent-ro-train-3-1-lower-2-0",
+        "referent-ro-train-3-1-lower-1-1",
+        "referent-ro-train-3-1-lower-2-1",
+        "intervention-train-ro-936"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 24,
+      "loss": 2.257235527038574,
+      "norm": 207121.625,
+      "norm64": 207121.62498806912,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          6074.98779296875
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          3586.9931640625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          3208.0771484375
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_b",
+          3011.564453125
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          2879.808837890625
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          2866.73779296875
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2865.555908203125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          2707.45849609375
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-16-0-original-0-0",
+        "grounding-ro-train-query-16-0-original-0-1",
+        "grounding-ro-train-query-16-0-original-1-0",
+        "grounding-ro-train-query-16-0-original-1-1",
+        "grounding-ro-train-query-16-0-original-2-0",
+        "grounding-ro-train-query-16-0-original-2-1",
+        "train-ro-1-23-0-1-0-1-1",
+        "train-ro-2-12-0-0-0-1-2"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 25,
+      "loss": 0.5295635461807251,
+      "norm": 81.31291961669922,
+      "norm64": 81.31292017037468,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          3.677517890930176
+        ],
+        [
+          "heads.ro.last.weight",
+          1.5693132877349854
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.422651767730713
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1.2416800260543823
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.8941971659660339
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.8739370107650757
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.8456695675849915
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.8294759392738342
+        ]
+      ],
+      "cases": [
+        "morphology-ro-1-19-feminine-4-1-0",
+        "train-ro-7-19-1-2-1-1-0",
+        "temporal-v9-train-ro-343",
+        "indirect-ro-0-11-denial-0-0-1",
+        "train-ro-5-7-1-1-0-0-0",
+        "indirect-ro-1-5-fiction-5-1-0",
+        "indirect-ro-1-5-fiction-5-1-1",
+        "indirect-ro-0-10-fiction-3-0-1"
+      ],
+      "pairs": [
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 26,
+      "loss": 0.012972664088010788,
+      "norm": 241363.46875,
+      "norm64": 241363.50672212208,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          13307.1474609375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          7075.197265625
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          5178.69970703125
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          4193.6240234375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          3010.21533203125
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          2445.549560546875
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          1922.0667724609375
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          1872.52197265625
+        ]
+      ],
+      "cases": [
+        "train-ro-8-9-2-1-1-0-0",
+        "train-ro-8-9-2-1-2-0-0",
+        "indirect-ro-0-10-denial-5-1-1",
+        "indirect-ro-0-2-denial-5-1-1",
+        "indirect-ro-0-10-denial-0-1-0",
+        "train-ro-2-0-0-0-2-0-0",
+        "train-ro-4-4-1-2-0-1-0",
+        "contrast-train-ro-533"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 27,
+      "loss": 0.6060524582862854,
+      "norm": 76.57084655761719,
+      "norm64": 76.5708342320651,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4.045388221740723
+        ],
+        [
+          "heads.ro.last.weight",
+          1.3714344501495361
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.0868024826049805
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.0369399785995483
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.9145229458808899
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.6858845353126526
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.6697046756744385
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.6534968018531799
+        ]
+      ],
+      "cases": [
+        "natural-v9-train-ro-1007",
+        "time-scope-v9-train-ro-511",
+        "morphology-ro-0-7-masculine-4-1-1",
+        "indirect-ro-1-10-fiction-2-1-0",
+        "indirect-ro-1-10-fiction-2-1-1",
+        "train-ro-0-20-2-0-2-1-1",
+        "indirect-ro-1-0-fiction-5-1-0",
+        "indirect-ro-1-0-fiction-5-1-1"
+      ],
+      "pairs": [
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 28,
+      "loss": 0.05247519537806511,
+      "norm": 9.505738258361816,
+      "norm64": 9.505738667120141,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.3997156023979187
+        ],
+        [
+          "heads.ro.last.weight",
+          0.3415515720844269
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.26047980785369873
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.18928870558738708
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.1658320128917694
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.15368886291980743
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.12392334640026093
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.11778255552053452
+        ]
+      ],
+      "cases": [
+        "pair117-ro-train-931",
+        "pair117-ro-train-1316",
+        "temporal-v9-train-ro-170",
+        "time-scope-v9-train-ro-553",
+        "native-train-ro-0-1-1-original"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 29,
+      "loss": 0.7041593790054321,
+      "norm": 89900.4296875,
+      "norm64": 89900.44350792028,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4930.01708984375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1749.5762939453125
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1521.695556640625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1409.8363037109375
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1361.5870361328125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1024.1929931640625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          829.6095581054688
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          510.8729553222656
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-3-5-0-0",
+        "transition-train-ro-1-3-5-0-1",
+        "transition-train-ro-1-3-5-1-0",
+        "transition-train-ro-1-3-5-1-1",
+        "transition-train-ro-1-3-5-2-0",
+        "transition-train-ro-1-3-5-2-1",
+        "train-ro-5-1-2-0-1-0-1"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 30,
+      "loss": 0.6774243712425232,
+      "norm": 149.3172149658203,
+      "norm64": 149.3172077307856,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          8.330550193786621
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          6.86488151550293
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.6671557426452637
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2.6396403312683105
+        ],
+        [
+          "base.model.layers.28.self_attn.q_proj.lora_b",
+          2.5151636600494385
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          2.4296746253967285
+        ],
+        [
+          "heads.ro.last.weight",
+          2.279481887817383
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          2.241673469543457
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-11-1-lower-0-0",
+        "grounding-ro-train-query-11-1-lower-0-1",
+        "grounding-ro-train-query-11-1-lower-1-0",
+        "grounding-ro-train-query-11-1-lower-2-0",
+        "grounding-ro-train-query-11-1-lower-1-1",
+        "grounding-ro-train-query-11-1-lower-2-1",
+        "morphology-ro-1-15-feminine-1-1-0",
+        "contrast-train-ro-428"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 31,
+      "loss": 0.003697988810017705,
+      "norm": 107676.046875,
+      "norm64": 107676.05493105926,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4507.30517578125
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          3917.56103515625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2142.161865234375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          2015.191650390625
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1899.526123046875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1871.1767578125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          1263.0574951171875
+        ],
+        [
+          "base.model.layers.34.self_attn.o_proj.lora_b",
+          1211.112548828125
+        ]
+      ],
+      "cases": [
+        "train-ro-0-4-1-2-0-1-2",
+        "indirect-ro-0-0-denial-4-1-0",
+        "indirect-ro-0-7-bare-1",
+        "train-ro-11-18-1-2-1-1-1",
+        "train-ro-11-18-1-2-2-1-0",
+        "indirect-ro-0-0-denial-2-1-0"
+      ],
+      "pairs": [
+        [
+          3,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 32,
+      "loss": 1.3902679681777954,
+      "norm": 71879.6015625,
+      "norm64": 71879.60023748942,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          3783.907958984375
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2204.738037109375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1884.6201171875
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          1652.99169921875
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          1115.2158203125
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          1111.4691162109375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1080.2392578125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          982.455810546875
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-6-1-original-0-1",
+        "grounding-ro-train-deny-6-1-original-0-0",
+        "grounding-ro-train-deny-6-1-original-2-1",
+        "grounding-ro-train-deny-6-1-original-1-1",
+        "grounding-ro-train-deny-6-1-original-2-0",
+        "grounding-ro-train-deny-6-1-original-1-0",
+        "train-ro-4-12-2-1-0-0-1",
+        "operators-ro-1-21-fiction-5-0-1"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 33,
+      "loss": 0.019892726093530655,
+      "norm": 42259.98828125,
+      "norm64": 42259.98463260391,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1414.1478271484375
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1261.9681396484375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1027.0950927734375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          916.1954345703125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          893.090087890625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          744.6214599609375
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          612.9981079101562
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          588.6546020507812
+        ]
+      ],
+      "cases": [
+        "train-ro-11-18-0-1-1-0-2",
+        "train-ro-6-22-2-0-2-1-1",
+        "train-ro-9-10-1-2-0-1-1-paraphrase",
+        "train-ro-5-7-0-2-0-1-2",
+        "train-ro-1-8-1-1-0-1-1",
+        "train-ro-1-8-1-1-2-1-0",
+        "hesitancy-train-ro-4711",
+        "indirect-ro-0-11-fiction-1-0-1"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 34,
+      "loss": 0.06790128350257874,
+      "norm": 6561.23046875,
+      "norm64": 6561.2308297359605,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          322.4969177246094
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          199.23971557617188
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          85.51871490478516
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          81.37425231933594
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          71.0829086303711
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          61.280548095703125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          45.74174499511719
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          44.264442443847656
+        ]
+      ],
+      "cases": [
+        "freeform-ro-20-1",
+        "freeform-ro-20-0",
+        "focus-v9-train-ro-677",
+        "train-ro-5-8-0-2-0-1-2",
+        "indirect-ro-reset-10-3-0",
+        "indirect-ro-reset-10-3-1",
+        "train-ro-3-9-1-0-2-0-0-paraphrase",
+        "indirect-ro-0-5-fiction-3-1-1"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 35,
+      "loss": 0.047482430934906006,
+      "norm": 271470.125,
+      "norm64": 271470.12543866097,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          12063.6240234375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          7624.3916015625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          4414.03271484375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          3879.477783203125
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          2947.789794921875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          2518.221923828125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          2183.28369140625
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          2077.8017578125
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-3-fiction-3-0-0",
+        "pair117-ro-train-256",
+        "indirect-ro-1-6-denial-3-0-0",
+        "indirect-ro-1-6-denial-3-0-1",
+        "train-ro-3-7-2-2-2-1-1",
+        "train-ro-11-0-1-1-2-1-2",
+        "native-v71-train-ro-161",
+        "train-ro-10-20-2-1-2-1-1"
+      ],
+      "pairs": [
+        [
+          2,
+          3
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 36,
+      "loss": 0.012076163664460182,
+      "norm": 63690.33984375,
+      "norm64": 63690.344005544524,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2195.41796875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1788.6744384765625
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1762.2158203125
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1281.4847412109375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1069.4439697265625
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          937.8232421875
+        ],
+        [
+          "base.model.layers.38.self_attn.q_proj.lora_b",
+          875.5165405273438
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          843.8690795898438
+        ]
+      ],
+      "cases": [
+        "operators-ro-1-20-fiction-4-1-0",
+        "train-ro-2-12-0-2-0-1-0",
+        "train-ro-2-12-0-2-2-1-2",
+        "focus-v9-train-ro-736",
+        "indirect-ro-0-1-denial-3-1-1",
+        "train-ro-0-5-0-2-0-1-1",
+        "train-ro-6-2-2-0-2-1-0-paraphrase",
+        "indirect-ro-0-3-denial-3-0-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 37,
+      "loss": 0.0024055575486272573,
+      "norm": 0.4595797657966614,
+      "norm64": 0.45957980970089085,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.019414886832237244
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.01614312268793583
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.01186174526810646
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.011012987233698368
+        ],
+        [
+          "heads.ro.last.weight",
+          0.010843390598893166
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.00907105766236782
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.008814373053610325
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.00801550317555666
+        ]
+      ],
+      "cases": [
+        "focus-v9-train-ro-1264",
+        "train-ro-11-13-0-2-0-1-2",
+        "train-ro-11-13-0-2-1-1-1",
+        "hesitancy-train-ro-3068"
+      ],
+      "pairs": [
+        [
+          2,
+          1
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 38,
+      "loss": 0.025583049282431602,
+      "norm": 35660.8125,
+      "norm64": 35660.810623523415,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1813.6761474609375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          985.4694213867188
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          850.624267578125
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          684.7553100585938
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          632.4114379882812
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          573.7329711914062
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          480.6943359375
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          480.65087890625
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-21-1-lower-0-0",
+        "grounding-ro-train-query-21-1-lower-0-1",
+        "grounding-ro-train-query-21-1-lower-1-0",
+        "grounding-ro-train-query-21-1-lower-1-1",
+        "grounding-ro-train-query-21-1-lower-2-0",
+        "grounding-ro-train-query-21-1-lower-2-1",
+        "contrast-train-ro-2308",
+        "train-ro-3-3-0-1-2-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 39,
+      "loss": 0.00600822176784277,
+      "norm": 45182.78125,
+      "norm64": 45182.78310213917,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1507.1956787109375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1052.7012939453125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          871.0646362304688
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          866.95556640625
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          845.8190307617188
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          815.5640258789062
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          787.2150268554688
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          757.3460693359375
+        ]
+      ],
+      "cases": [
+        "contrast-train-ro-1828",
+        "train-ro-7-19-0-1-1-0-1",
+        "contrast-train-ro-247",
+        "indirect-ro-0-10-denial-0-1-1",
+        "train-ro-8-8-0-0-2-0-1",
+        "indirect-ro-1-5-denial-0-1-1",
+        "indirect-ro-1-5-denial-0-1-0",
+        "indirect-ro-0-9-fiction-2-0-0"
+      ],
+      "pairs": [
+        [
+          6,
+          5
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 40,
+      "loss": 0.0009894573595374823,
+      "norm": 0.09080780297517776,
+      "norm64": 0.09080781346870906,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.005111219361424446
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.002826497657224536
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0019774246029555798
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.0018553576664999127
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0015761813847348094
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.00147506152279675
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.0014184232568368316
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.0011787741677835584
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-8-denial-0-1-1",
+        "indirect-ro-1-8-denial-0-1-0",
+        "temporal-v9-train-ro-287",
+        "indirect-ro-1-3-denial-4-0-0",
+        "indirect-ro-1-3-denial-4-0-1",
+        "indirect-ro-0-2-denial-2-0-0",
+        "train-ro-10-7-2-0-1-1-1",
+        "train-ro-8-0-1-1-0-0-0"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 41,
+      "loss": 0.03219446539878845,
+      "norm": 10154.27734375,
+      "norm64": 10154.27776291719,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          558.0506591796875
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          310.3094482421875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          302.7303771972656
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          179.5800018310547
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          178.74996948242188
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          121.36949157714844
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          116.9345932006836
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          109.6877212524414
+        ]
+      ],
+      "cases": [
+        "train-ro-11-3-0-0-2-1-2",
+        "train-ro-10-12-2-2-0-1-0",
+        "train-ro-2-21-0-1-2-1-2",
+        "operators-ro-1-10-fiction-3-0-1",
+        "morphology-ro-0-9-masculine-0-1-0",
+        "train-ro-7-9-1-1-0-1-1",
+        "operators-ro-1-22-fiction-0-1-1",
+        "operators-ro-1-22-fiction-0-1-0"
+      ],
+      "pairs": [
+        [
+          7,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 42,
+      "loss": 0.006383118219673634,
+      "norm": 1.2700724601745605,
+      "norm64": 1.2700725011021723,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.04852130264043808
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.03829750418663025
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.03601119667291641
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.028986947610974312
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.027339298278093338
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.027316642925143242
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.026809902861714363
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.021407077088952065
+        ]
+      ],
+      "cases": [
+        "temporal-v9-train-ro-335",
+        "hesitancy-train-ro-2469",
+        "natural-v9-train-ro-1504",
+        "train-ro-3-17-0-2-0-1-2",
+        "train-ro-3-17-0-2-1-1-0",
+        "pair117-ro-train-1258",
+        "indirect-ro-0-11-fiction-4-0-1",
+        "natural-v9-train-ro-1908"
+      ],
+      "pairs": [
+        [
+          4,
+          3
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 43,
+      "loss": 0.002019540872424841,
+      "norm": 0.26505792140960693,
+      "norm64": 0.2650579348447692,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.010559042915701866
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.009345117956399918
+        ],
+        [
+          "heads.ro.last.weight",
+          0.00748205091804266
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.006244342308491468
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.00611776253208518
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.004922646097838879
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.004189470317214727
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.003901790827512741
+        ]
+      ],
+      "cases": [
+        "train-ro-1-3-1-2-2-1-2",
+        "train-ro-8-20-1-1-0-0-2-paraphrase",
+        "time-scope-v9-train-ro-71",
+        "train-ro-3-4-0-1-0-0-1",
+        "indirect-ro-0-5-denial-5-1-1",
+        "temporal-v9-train-ro-23",
+        "morphology-ro-1-11-feminine-0-1-1",
+        "temporal-v9-train-ro-10"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 44,
+      "loss": 0.009362641721963882,
+      "norm": 2.25433087348938,
+      "norm64": 2.2543307635798318,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.097675621509552
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.08280804753303528
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.07127156853675842
+        ],
+        [
+          "heads.ro.last.weight",
+          0.06357882916927338
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.04271635413169861
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.04246843233704567
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.02981337532401085
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.027667906135320663
+        ]
+      ],
+      "cases": [
+        "morphology-ro-1-21-masculine-1-0-1",
+        "train-ro-2-7-2-0-0-1-1",
+        "indirect-ro-0-5-fiction-2-0-1",
+        "train-ro-8-12-0-1-0-1-0",
+        "focus-v9-train-ro-426",
+        "indirect-ro-0-7-denial-0-1-1",
+        "indirect-ro-0-0-denial-3-0-0",
+        "hesitancy-train-ro-805"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 45,
+      "loss": 0.019092466682195663,
+      "norm": 6.279541492462158,
+      "norm64": 6.279541410441723,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.19412429630756378
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.1915130317211151
+        ],
+        [
+          "heads.ro.last.weight",
+          0.18975110352039337
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.15413834154605865
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.14086756110191345
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.12339460104703903
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.09787428379058838
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.09514741599559784
+        ]
+      ],
+      "cases": [
+        "focus-v9-train-ro-510",
+        "indirect-ro-1-8-denial-4-0-0",
+        "indirect-ro-1-8-denial-4-0-1",
+        "indirect-ro-0-10-fiction-2-0-0",
+        "native-support-train-ro-150",
+        "indirect-ro-0-7-fiction-3-1-0"
+      ],
+      "pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 46,
+      "loss": 0.0004688749904744327,
+      "norm": 219060.96875,
+      "norm64": 219060.9791032571,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          7488.38720703125
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          6388.1142578125
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          6027.85888671875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          5057.44921875
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4597.890625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          4253.25048828125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          3999.72265625
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          2940.8583984375
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-18-2-lower-0-0",
+        "grounding-ro-train-query-18-2-lower-0-1",
+        "grounding-ro-train-query-18-2-lower-1-0",
+        "grounding-ro-train-query-18-2-lower-1-1",
+        "grounding-ro-train-query-18-2-lower-2-0",
+        "grounding-ro-train-query-18-2-lower-2-1",
+        "indirect-ro-1-5-fiction-4-0-0",
+        "indirect-ro-1-5-fiction-4-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 47,
+      "loss": 0.9810872673988342,
+      "norm": 66.64216613769531,
+      "norm64": 66.64216899758465,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          2.062978744506836
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.8802456855773926
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.8518009185791016
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.7465364933013916
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.6312255859375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1.5553747415542603
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1.299302339553833
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.9870996475219727
+        ]
+      ],
+      "cases": [
+        "revision123-ro-13-reported-2-1-0",
+        "train-ro-10-5-0-2-0-1-1",
+        "train-ro-6-22-1-0-1-0-1",
+        "native-train-ro-6-5-7-plain",
+        "train-ro-6-2-0-1-3-0-1",
+        "train-ro-1-17-1-0-2-0-2-paraphrase",
+        "indirect-ro-0-4-denial-4-0-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 48,
+      "loss": 0.00038167490856721997,
+      "norm": 0.050679899752140045,
+      "norm64": 0.05067989974907227,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0012030316283926368
+        ],
+        [
+          "heads.ro.last.weight",
+          0.001116377068683505
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0010970996227115393
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.001075976062566042
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0010570845333859324
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.0010396233992651105
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.0008760143537074327
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          0.0008316333987750113
+        ]
+      ],
+      "cases": [
+        "indirect-ro-reset-2-0-1",
+        "indirect-ro-reset-2-0-0",
+        "pair117-ro-train-251",
+        "time-scope-v9-train-ro-25",
+        "train-ro-0-8-0-0-0-0-2",
+        "indirect-ro-1-11-fiction-1-0-0",
+        "indirect-ro-1-11-fiction-1-0-1"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 49,
+      "loss": 0.0020670390222221613,
+      "norm": 21463.03125,
+      "norm64": 21463.031650255693,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          797.8272094726562
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          751.7891235351562
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          575.794921875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          539.3080444335938
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          501.3033447265625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          499.68316650390625
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          369.2230224609375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          172.22076416015625
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-0-10-2-0-1",
+        "transition-train-ro-0-10-2-1-1",
+        "transition-train-ro-0-10-2-0-0",
+        "transition-train-ro-0-10-2-1-0",
+        "transition-train-ro-0-10-2-2-1",
+        "transition-train-ro-0-10-2-2-0",
+        "morphology-ro-0-3-masculine-4-0-1",
+        "train-ro-1-5-1-1-2-1-0"
+      ],
+      "pairs": [],
+      "invariant": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 50,
+      "loss": 0.008609771728515625,
+      "norm": 2.076749086380005,
+      "norm64": 2.076749016035058,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.07737357169389725
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.07307513803243637
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.06630348414182663
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.05464869737625122
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.04789270833134651
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.043129365891218185
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.040236152708530426
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.029905233532190323
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-6-fiction-4-0-0",
+        "indirect-ro-1-6-fiction-4-0-1",
+        "indirect-ro-0-10-fiction-5-0-0",
+        "train-ro-3-4-0-0-3-1-1",
+        "train-ro-8-14-0-0-2-0-1",
+        "time-scope-v9-train-ro-96",
+        "train-ro-8-1-1-0-0-1-2",
+        "indirect-ro-0-7-fiction-2-0-0"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 51,
+      "loss": 0.021238429471850395,
+      "norm": 4.788351535797119,
+      "norm64": 4.788351589954229,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.18791483342647552
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.1521109938621521
+        ],
+        [
+          "heads.ro.last.weight",
+          0.12034003436565399
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.09594125300645828
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.0954328179359436
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.09315715730190277
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.09154098480939865
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.07895278185606003
+        ]
+      ],
+      "cases": [
+        "train-ro-5-0-1-1-0-1-2",
+        "train-ro-1-1-0-2-0-0-1",
+        "train-ro-1-1-0-2-2-0-0",
+        "indirect-ro-0-5-denial-3-0-1",
+        "train-ro-1-13-0-1-0-1-1-paraphrase",
+        "operators-ro-0-0-denial-1-0-1",
+        "indirect-ro-1-5-denial-2-1-1",
+        "indirect-ro-1-5-denial-2-1-0"
+      ],
+      "pairs": [
+        [
+          7,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 52,
+      "loss": 0.0011668000370264053,
+      "norm": 0.13786379992961884,
+      "norm64": 0.13786378340732583,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.006713306065648794
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.004882520064711571
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.00469661271199584
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0032089650630950928
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.002924606204032898
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0026742625050246716
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.002267764415591955
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0022525647655129433
+        ]
+      ],
+      "cases": [
+        "pair117-ro-train-1379",
+        "train-ro-11-23-2-2-0-1-2-paraphrase-scope",
+        "transition-train-ro-0-4-0-0-0",
+        "transition-train-ro-0-4-0-1-0",
+        "transition-train-ro-0-4-0-2-0",
+        "transition-train-ro-0-4-0-0-1",
+        "transition-train-ro-0-4-0-1-1",
+        "transition-train-ro-0-4-0-2-1"
+      ],
+      "pairs": [],
+      "invariant": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "step": 53,
+      "loss": 0.011821459047496319,
+      "norm": 1.9776875972747803,
+      "norm64": 1.9776875395707652,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.07374103367328644
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.06844808906316757
+        ],
+        [
+          "heads.ro.last.weight",
+          0.05159267038106918
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.04521388188004494
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.04347846657037735
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.030473098158836365
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.02899721823632717
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.02831348404288292
+        ]
+      ],
+      "cases": [
+        "temporal-v9-train-ro-336",
+        "train-ro-4-22-0-0-1-1-1-paraphrase-scope",
+        "train-ro-0-21-2-2-1-1-2",
+        "train-ro-2-9-1-2-0-1-2",
+        "indirect-ro-0-0-fiction-4-1-1"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 54,
+      "loss": 0.0005753048462793231,
+      "norm": 114918.1875,
+      "norm64": 114918.18296633945,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          8166.13232421875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2728.574462890625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2114.421875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1923.1859130859375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1724.369140625
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1595.9952392578125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          1473.79248046875
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          1454.46923828125
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-11-4-0-0",
+        "transition-train-ro-1-11-4-1-0",
+        "transition-train-ro-1-11-4-2-0",
+        "transition-train-ro-1-11-4-0-1",
+        "transition-train-ro-1-11-4-1-1",
+        "transition-train-ro-1-11-4-2-1",
+        "train-ro-7-6-0-1-0-1-2",
+        "train-ro-7-6-0-1-1-1-1"
+      ],
+      "pairs": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 55,
+      "loss": 0.0013470884878188372,
+      "norm": 0.15193383395671844,
+      "norm64": 0.15193383579496916,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0050725010223686695
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.004164060577750206
+        ],
+        [
+          "heads.ro.last.weight",
+          0.0037216003984212875
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.003281726036220789
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.002716807881370187
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0025672344490885735
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.0024174863938242197
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0022730750497430563
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-11-2-lower-0-0",
+        "referent-ro-train-11-2-lower-0-1",
+        "referent-ro-train-11-2-lower-1-0",
+        "referent-ro-train-11-2-lower-2-0",
+        "referent-ro-train-11-2-lower-1-1",
+        "referent-ro-train-11-2-lower-2-1",
+        "train-ro-7-23-2-1-0-0-1",
+        "train-ro-7-4-2-0-0-1-0"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 56,
+      "loss": 0.0033927252516150475,
+      "norm": 0.5995158553123474,
+      "norm64": 0.5995158246157647,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.024274611845612526
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.020716922357678413
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.01728675700724125
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.013006565161049366
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.011949012987315655
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_b",
+          0.011341841891407967
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.010800566524267197
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          0.01019124872982502
+        ]
+      ],
+      "cases": [
+        "hesitancy-train-ro-1588",
+        "native-train-benign-ro-0-6-2-2",
+        "referent-ro-train-9-2-lower-0-0",
+        "referent-ro-train-9-2-lower-0-1",
+        "referent-ro-train-9-2-lower-1-0",
+        "referent-ro-train-9-2-lower-2-0",
+        "referent-ro-train-9-2-lower-1-1",
+        "referent-ro-train-9-2-lower-2-1"
+      ],
+      "pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 57,
+      "loss": 0.00567274447530508,
+      "norm": 2.2823760509490967,
+      "norm64": 2.2823763899652416,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.08418157696723938
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0797310546040535
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.07847319543361664
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.05435829982161522
+        ],
+        [
+          "heads.ro.last.weight",
+          0.05407368391752243
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.04484383761882782
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.043259039521217346
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.03291415050625801
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-4-3-lower-0-0",
+        "referent-ro-train-4-3-lower-0-1",
+        "referent-ro-train-4-3-lower-1-0",
+        "referent-ro-train-4-3-lower-2-0",
+        "referent-ro-train-4-3-lower-1-1",
+        "referent-ro-train-4-3-lower-2-1",
+        "temporal-v9-train-ro-260"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 58,
+      "loss": 0.015719221904873848,
+      "norm": 90217.8515625,
+      "norm64": 90217.84143874653,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4058.755126953125
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          3606.977294921875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          3276.54443359375
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          2241.9521484375
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          1353.6854248046875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1342.656005859375
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          1078.5216064453125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1024.0899658203125
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-2-1-original-0-0",
+        "referent-ro-train-2-1-original-0-1",
+        "referent-ro-train-2-1-original-2-0",
+        "referent-ro-train-2-1-original-1-0",
+        "referent-ro-train-2-1-original-1-1",
+        "referent-ro-train-2-1-original-2-1",
+        "indirect-ro-1-11-denial-4-0-0",
+        "indirect-ro-1-11-denial-4-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 59,
+      "loss": 0.03812464326620102,
+      "norm": 5.427496910095215,
+      "norm64": 5.427496797152442,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.15065456926822662
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.14818976819515228
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.13795915246009827
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.12102235853672028
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.09177868068218231
+        ],
+        [
+          "heads.ro.last.weight",
+          0.09053682535886765
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.08352472633123398
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.050872839987277985
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-3-fiction-1-1-0",
+        "operators-ro-1-13-fiction-0-1-1",
+        "indirect-ro-0-4-denial-0-1-1",
+        "focus-v9-train-ro-2063",
+        "train-ro-6-18-0-0-2-1-2",
+        "train-ro-11-10-0-1-1-1-1",
+        "focus-v9-train-ro-111",
+        "train-ro-2-5-2-0-3-0-2"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 60,
+      "loss": 0.011111252009868622,
+      "norm": 44740.27734375,
+      "norm64": 44740.27979700813,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2231.560546875
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          1140.297119140625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          824.8474731445312
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          816.5865478515625
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          732.8473510742188
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          669.3890991210938
+        ],
+        [
+          "base.model.layers.34.self_attn.o_proj.lora_b",
+          583.192138671875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          565.7545166015625
+        ]
+      ],
+      "cases": [
+        "temporal-v9-train-ro-121",
+        "hesitancy-train-ro-1169",
+        "train-ro-11-20-2-0-1-0-0",
+        "train-ro-1-2-1-2-1-1-0",
+        "indirect-ro-1-0-denial-1-0-1",
+        "indirect-ro-1-0-denial-1-0-0",
+        "hesitancy-train-ro-4372",
+        "train-ro-10-23-2-1-1-1-0"
+      ],
+      "pairs": [
+        [
+          5,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 61,
+      "loss": 0.001783540123142302,
+      "norm": 0.1908845156431198,
+      "norm64": 0.19088450981930535,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.011403228156268597
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.006426543463021517
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0041741905733942986
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.003687094897031784
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0033672743011265993
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.003239606972783804
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.00318034621886909
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0025745262391865253
+        ]
+      ],
+      "cases": [
+        "train-ro-9-18-1-2-0-1-0",
+        "contrast-train-ro-564",
+        "morphology-ro-1-18-feminine-1-0-1",
+        "indirect-ro-0-11-fiction-5-0-1",
+        "indirect-ro-0-6-denial-2-1-0",
+        "indirect-ro-1-0-fiction-1-1-0",
+        "indirect-ro-1-0-fiction-1-1-1",
+        "indirect-ro-0-4-denial-0-1-0"
+      ],
+      "pairs": [
+        [
+          5,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 62,
+      "loss": 0.01892155036330223,
+      "norm": 2.422135591506958,
+      "norm64": 2.422135648285111,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.0931176170706749
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.08479161560535431
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0711512640118599
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.06242336332798004
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.05728886276483536
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.05436262488365173
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.05363362282514572
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.03815697133541107
+        ]
+      ],
+      "cases": [
+        "train-ro-3-18-2-2-1-1-2",
+        "indirect-ro-0-1-denial-4-0-0",
+        "indirect-ro-1-3-fiction-0-0-1",
+        "indirect-ro-1-3-fiction-0-0-0",
+        "train-ro-5-5-0-1-2-0-2",
+        "train-ro-3-19-0-1-2-0-1",
+        "train-ro-7-19-1-0-0-1-2",
+        "train-ro-0-17-2-1-1-1-1-paraphrase-scope"
+      ],
+      "pairs": [
+        [
+          3,
+          2
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 63,
+      "loss": 0.6113365888595581,
+      "norm": 45.67603302001953,
+      "norm64": 45.67603183985211,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          1.4733484983444214
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.2283436059951782
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.0449270009994507
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.0436506271362305
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.9290000796318054
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.7460007071495056
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.6919605731964111
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.613703727722168
+        ]
+      ],
+      "cases": [
+        "revision123-ro-7-reported-3-0-0",
+        "indirect-ro-0-8-denial-5-0-1",
+        "indirect-ro-1-2-fiction-2-1-0",
+        "indirect-ro-1-2-fiction-2-1-1",
+        "pair117-ro-train-1047",
+        "pair117-ro-train-1046",
+        "pair117-ro-train-593",
+        "contrast-train-ro-1425"
+      ],
+      "pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 64,
+      "loss": 0.015594903379678726,
+      "norm": 3.227921485900879,
+      "norm64": 3.227921712224403,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.12567810714244843
+        ],
+        [
+          "heads.ro.last.weight",
+          0.12343712896108627
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.07561518996953964
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.06998295336961746
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.06034495308995247
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.05913790687918663
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.04494635388255119
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.03898053243756294
+        ]
+      ],
+      "cases": [
+        "train-ro-9-4-0-2-1-0-1",
+        "train-ro-3-1-2-0-1-1-0",
+        "natural-v9-train-ro-108",
+        "focus-v9-train-ro-1286"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 65,
+      "loss": 0.00861053355038166,
+      "norm": 77887.6640625,
+      "norm64": 77887.67278707358,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          3947.558349609375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2518.71142578125
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          2275.064697265625
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2224.774658203125
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          1293.54150390625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1216.407958984375
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          1117.22802734375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          711.6701049804688
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-18-2-original-0-0",
+        "grounding-ro-train-query-18-2-original-0-1",
+        "grounding-ro-train-query-18-2-original-1-0",
+        "grounding-ro-train-query-18-2-original-1-1",
+        "grounding-ro-train-query-18-2-original-2-0",
+        "grounding-ro-train-query-18-2-original-2-1",
+        "indirect-ro-0-5-fiction-1-0-1",
+        "hesitancy-train-ro-4030"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 66,
+      "loss": 0.006274915765970945,
+      "norm": 38568.21875,
+      "norm64": 38568.214279692846,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1159.9686279296875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          781.45068359375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          781.2236328125
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          730.49658203125
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          598.0326538085938
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          578.5671997070312
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          517.8007202148438
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          517.5379028320312
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-2-denial-3-1-0",
+        "indirect-ro-1-2-denial-3-1-1",
+        "train-ro-0-5-0-0-0-1-2",
+        "indirect-ro-0-0-fiction-0-1-0",
+        "train-ro-0-8-2-1-0-1-1",
+        "train-ro-5-22-0-1-2-1-0",
+        "natural-v9-train-ro-1116",
+        "train-ro-9-4-1-0-0-1-2-paraphrase-scope"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 67,
+      "loss": 0.7199371457099915,
+      "norm": 43.61944580078125,
+      "norm64": 43.619446026049516,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.7400360107421875
+        ],
+        [
+          "heads.ro.last.weight",
+          1.5015883445739746
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.0425589084625244
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.9643896818161011
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.911737322807312
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.8232848644256592
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.7972519993782043
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.5552982091903687
+        ]
+      ],
+      "cases": [
+        "natural-v9-train-ro-1323",
+        "train-ro-4-16-1-1-1-1-1",
+        "hesitancy-train-ro-4432",
+        "train-ro-3-7-0-0-2-0-1-paraphrase",
+        "natural-v9-train-ro-703",
+        "intervention-train-ro-1208",
+        "natural-v9-train-ro-1613",
+        "train-ro-6-3-0-2-3-1-2-paraphrase-scope"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 68,
+      "loss": 0.37135758996009827,
+      "norm": 22522.8359375,
+      "norm64": 22522.836175798,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          901.6870727539062
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          590.256103515625
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          575.6209106445312
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          407.94049072265625
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          400.7535400390625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          395.5474548339844
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          340.6154479980469
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          276.28094482421875
+        ]
+      ],
+      "cases": [
+        "train-ro-3-20-1-2-2-0-2",
+        "train-ro-8-2-2-2-0-0-2",
+        "time-scope-v9-train-ro-496",
+        "train-ro-0-6-1-0-2-1-1",
+        "train-ro-6-16-2-2-1-1-0",
+        "native-train-benign-ro-0-0-0-1",
+        "morphology-ro-0-11-feminine-2-1-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 69,
+      "loss": 1.0335466861724854,
+      "norm": 85.92012023925781,
+      "norm64": 85.92011232089156,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          3.748809814453125
+        ],
+        [
+          "heads.ro.last.weight",
+          2.643310308456421
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2.2479910850524902
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.1780083179473877
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          1.4977010488510132
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.4905022382736206
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.4635416269302368
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          1.2523616552352905
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-23-0-lower-0-0",
+        "grounding-ro-train-query-23-0-lower-0-1",
+        "grounding-ro-train-query-23-0-lower-1-0",
+        "grounding-ro-train-query-23-0-lower-2-0",
+        "grounding-ro-train-query-23-0-lower-1-1",
+        "grounding-ro-train-query-23-0-lower-2-1",
+        "revision123-ro-3-self-3-0-0",
+        "revision123-ro-3-self-3-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 70,
+      "loss": 0.05018075555562973,
+      "norm": 6.6634721755981445,
+      "norm64": 6.663472895744076,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.18283683061599731
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.1646125465631485
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.15913216769695282
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.14860309660434723
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.13739611208438873
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.12811912596225739
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0989934504032135
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.09122569859027863
+        ]
+      ],
+      "cases": [
+        "revision123-ro-2-fiction-2-1-1",
+        "train-ro-6-22-2-0-0-1-1",
+        "train-ro-0-17-0-0-2-1-0-paraphrase",
+        "train-ro-2-23-1-0-0-1-1-paraphrase-scope",
+        "indirect-ro-0-1-fiction-0-0-0",
+        "indirect-ro-0-5-denial-1-0-1",
+        "indirect-ro-0-0-fiction-5-1-1",
+        "morphology-ro-0-0-masculine-0-1-1"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 71,
+      "loss": 0.005439978092908859,
+      "norm": 0.7004231810569763,
+      "norm64": 0.7004231565633308,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.028124703094363213
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.02522784098982811
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.016133662313222885
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.01564180478453636
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.014935934916138649
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.014600475318729877
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.010500720702111721
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.010192329995334148
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-10-3-lower-0-0",
+        "referent-ro-train-10-3-lower-0-1",
+        "referent-ro-train-10-3-lower-1-0",
+        "referent-ro-train-10-3-lower-2-0",
+        "referent-ro-train-10-3-lower-1-1",
+        "referent-ro-train-10-3-lower-2-1",
+        "indirect-ro-0-7-denial-2-1-0",
+        "indirect-ro-0-3-fiction-1-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 72,
+      "loss": 0.04445592686533928,
+      "norm": 16.05434799194336,
+      "norm64": 16.054345730770176,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.7107004523277283
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.6483657956123352
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.3985128104686737
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.3870052695274353
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.38318362832069397
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.37494558095932007
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          0.2811293303966522
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.22571448981761932
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-1-fiction-4-1-0",
+        "train-ro-5-16-2-1-1-0-2",
+        "hesitancy-train-ro-4788"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 73,
+      "loss": 0.38933178782463074,
+      "norm": 31.402822494506836,
+      "norm64": 31.402821890472122,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.7347841262817383
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1.0012216567993164
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.8966041207313538
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.7672243714332581
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.5688617825508118
+        ],
+        [
+          "heads.ro.last.weight",
+          0.4435177445411682
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.3301191031932831
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          0.2939380407333374
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-5-2-lower-0-0",
+        "grounding-ro-train-query-5-2-lower-0-1",
+        "grounding-ro-train-query-5-2-lower-1-0",
+        "grounding-ro-train-query-5-2-lower-2-0",
+        "grounding-ro-train-query-5-2-lower-1-1",
+        "grounding-ro-train-query-5-2-lower-2-1",
+        "pair117-ro-train-108",
+        "morphology-ro-0-1-masculine-0-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 74,
+      "loss": 0.2732182741165161,
+      "norm": 23.821239471435547,
+      "norm64": 23.82123874809334,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.04789400100708
+        ],
+        [
+          "heads.ro.last.weight",
+          0.8352423310279846
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.7870343327522278
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.5875899195671082
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.41171690821647644
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.3615388870239258
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.32432419061660767
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.289505273103714
+        ]
+      ],
+      "cases": [
+        "operators-ro-1-13-fiction-0-0-0",
+        "train-ro-8-15-2-1-1-1-1",
+        "train-ro-7-11-2-1-2-1-0-paraphrase-scope",
+        "operators-ro-0-10-denial-3-1-0",
+        "train-ro-7-1-1-0-2-1-1",
+        "indirect-ro-0-4-fiction-5-1-0",
+        "train-ro-5-17-1-2-1-0-2",
+        "train-ro-5-17-1-2-3-0-1"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 75,
+      "loss": 1.2987072467803955,
+      "norm": 171.38194274902344,
+      "norm64": 171.38193607207566,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          14.114163398742676
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          5.050185203552246
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4.626479148864746
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          3.8149616718292236
+        ],
+        [
+          "base.model.layers.28.self_attn.q_proj.lora_b",
+          3.1234028339385986
+        ],
+        [
+          "heads.ro.last.weight",
+          3.0780694484710693
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          2.7972824573516846
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          2.75481915473938
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-5-0-original-0-0",
+        "grounding-ro-train-query-5-0-original-0-1",
+        "grounding-ro-train-query-5-0-original-1-0",
+        "grounding-ro-train-query-5-0-original-2-0",
+        "grounding-ro-train-query-5-0-original-1-1",
+        "grounding-ro-train-query-5-0-original-2-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 76,
+      "loss": 0.8557234406471252,
+      "norm": 34.078453063964844,
+      "norm64": 34.0784575496217,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          1.2051266431808472
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.0714870691299438
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.8512607216835022
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.802384614944458
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.7391119599342346
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.718746542930603
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.5788233876228333
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.569085419178009
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-4-2-original-0-1",
+        "grounding-ro-train-deny-4-2-original-0-0",
+        "grounding-ro-train-deny-4-2-original-1-1",
+        "grounding-ro-train-deny-4-2-original-2-1",
+        "grounding-ro-train-deny-4-2-original-1-0",
+        "grounding-ro-train-deny-4-2-original-2-0",
+        "indirect-ro-0-7-denial-2-1-1",
+        "train-ro-3-11-1-1-1-1-0"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 77,
+      "loss": 0.008852733299136162,
+      "norm": 19614.72265625,
+      "norm64": 19614.7234260441,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          393.4408874511719
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_b",
+          367.9332275390625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          253.41464233398438
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          252.6492156982422
+        ],
+        [
+          "base.model.layers.38.self_attn.o_proj.lora_b",
+          252.3444061279297
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          234.12893676757812
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          228.13973999023438
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          223.09881591796875
+        ]
+      ],
+      "cases": [
+        "train-ro-2-3-2-0-0-1-1",
+        "train-ro-4-14-1-1-1-1-0",
+        "train-ro-11-22-2-1-2-1-1",
+        "operators-ro-1-17-denial-3-0-1",
+        "train-ro-7-12-0-1-2-1-1",
+        "train-ro-7-12-0-1-2-1-2"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 78,
+      "loss": 0.19755253195762634,
+      "norm": 55.12378692626953,
+      "norm64": 55.12378943635974,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.2186319828033447
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1.7907601594924927
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          1.5753251314163208
+        ],
+        [
+          "heads.ro.last.weight",
+          1.3533369302749634
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1.257194995880127
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          1.2358509302139282
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          1.173147439956665
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          1.078489899635315
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-4-0-lower-0-0",
+        "referent-ro-train-4-0-lower-0-1",
+        "referent-ro-train-4-0-lower-2-0",
+        "referent-ro-train-4-0-lower-1-0",
+        "referent-ro-train-4-0-lower-1-1",
+        "referent-ro-train-4-0-lower-2-1",
+        "natural-v9-train-ro-1553",
+        "train-ro-9-7-1-1-0-1-0"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 79,
+      "loss": 0.11884928494691849,
+      "norm": 13.910646438598633,
+      "norm64": 13.910645826832168,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.6745388507843018
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.6123248338699341
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.3331073522567749
+        ],
+        [
+          "heads.ro.last.weight",
+          0.2328944206237793
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.21843412518501282
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.17344312369823456
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.16866107285022736
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.16779279708862305
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-2-denial-2-1-1",
+        "morphology-ro-1-17-masculine-0-1-0",
+        "indirect-ro-0-8-fiction-1-0-0",
+        "temporal-v9-train-ro-291",
+        "train-ro-7-22-1-0-2-1-0-paraphrase-scope",
+        "train-ro-1-20-0-1-0-1-1",
+        "train-ro-1-20-0-1-2-1-2"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 80,
+      "loss": 0.030414247885346413,
+      "norm": 4.469691753387451,
+      "norm64": 4.469691966383282,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.27581676840782166
+        ],
+        [
+          "heads.ro.last.weight",
+          0.15087826550006866
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.12208312749862671
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.1155509203672409
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.08366833627223969
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.07882942259311676
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.06816143542528152
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          0.04867120459675789
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-1-fiction-3-1-0",
+        "indirect-ro-1-1-fiction-3-1-1",
+        "train-ro-2-22-1-1-3-0-1",
+        "train-ro-3-1-1-1-1-1-2",
+        "natural-v9-train-ro-2401",
+        "train-ro-5-14-0-0-1-0-0",
+        "train-ro-9-10-0-1-3-0-1",
+        "focus-v9-train-ro-625"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 81,
+      "loss": 0.0007564976112917066,
+      "norm": 444558.6875,
+      "norm64": 444558.7373943827,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          33775.8984375
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          2687.8330078125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          2094.16015625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1968.6353759765625
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          1784.0045166015625
+        ],
+        [
+          "base.model.layers.34.self_attn.o_proj.lora_b",
+          1736.2939453125
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1718.76513671875
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          1189.390869140625
+        ]
+      ],
+      "cases": [
+        "train-ro-3-3-0-1-1-1-2",
+        "time-scope-v9-train-ro-175",
+        "train-ro-0-18-0-2-2-1-2"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 82,
+      "loss": 0.5686903595924377,
+      "norm": 94.23572540283203,
+      "norm64": 94.23572124851697,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          3.472597599029541
+        ],
+        [
+          "heads.ro.last.weight",
+          2.4087390899658203
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          2.0522279739379883
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          2.0436999797821045
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          2.0356903076171875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.0175070762634277
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1.9054757356643677
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          1.7730712890625
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-deny-8-2-lower-0-1",
+        "grounding-ro-train-deny-8-2-lower-0-0",
+        "grounding-ro-train-deny-8-2-lower-1-1",
+        "grounding-ro-train-deny-8-2-lower-2-1",
+        "grounding-ro-train-deny-8-2-lower-1-0",
+        "grounding-ro-train-deny-8-2-lower-2-0",
+        "train-ro-6-6-2-2-1-1-0"
+      ],
+      "pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "step": 83,
+      "loss": 0.030509155243635178,
+      "norm": 9.95189380645752,
+      "norm64": 9.951894393319916,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.36846956610679626
+        ],
+        [
+          "heads.ro.last.weight",
+          0.34168505668640137
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.2895238995552063
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.2464877963066101
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.20940035581588745
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.19889086484909058
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.14519847929477692
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.12008900195360184
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-4-3-original-0-0",
+        "grounding-ro-train-query-4-3-original-0-1",
+        "grounding-ro-train-query-4-3-original-1-0",
+        "grounding-ro-train-query-4-3-original-2-0",
+        "grounding-ro-train-query-4-3-original-1-1",
+        "grounding-ro-train-query-4-3-original-2-1",
+        "operators-ro-0-3-denial-1-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 84,
+      "loss": 0.00036362881655804813,
+      "norm": 0.03569800779223442,
+      "norm64": 0.035698008909237064,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.0012990334071218967
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0007382959011010826
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.000725005695130676
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.0006216407637111843
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_b",
+          0.0005934262298978865
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.0005696159787476063
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0005251168040558696
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.00046684974222444
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-9-fiction-5-0-0",
+        "indirect-ro-1-9-fiction-5-0-1",
+        "natural-v9-train-ro-2292"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 85,
+      "loss": 0.002935346681624651,
+      "norm": 0.26778271794319153,
+      "norm64": 0.26778272235126066,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.014317282475531101
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.005419586319476366
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0054058050736784935
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.005159056279808283
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.004679080564528704
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.004506652243435383
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.004392205737531185
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.003740115789696574
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-1-0-4-0-0",
+        "transition-train-ro-1-0-4-1-0",
+        "transition-train-ro-1-0-4-2-0",
+        "transition-train-ro-1-0-4-0-1",
+        "transition-train-ro-1-0-4-1-1",
+        "transition-train-ro-1-0-4-2-1",
+        "morphology-ro-1-5-masculine-0-0-1",
+        "train-ro-1-3-2-2-1-0-1-paraphrase"
+      ],
+      "pairs": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 86,
+      "loss": 0.00030424128635786474,
+      "norm": 0.032355647534132004,
+      "norm64": 0.03235564701494211,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.0010157322976738214
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.000982916448265314
+        ],
+        [
+          "heads.ro.last.weight",
+          0.0008174478425644338
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.0007445616065524518
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.000714429363142699
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0005547829205170274
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.00047957280185073614
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.0003482739848550409
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-4-denial-1-0-0",
+        "indirect-ro-0-5-fiction-3-1-0",
+        "revision123-ro-7-fiction-0-0-0",
+        "indirect-ro-0-3-denial-0-1-1",
+        "train-ro-2-6-1-0-2-1-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 87,
+      "loss": 0.0016260978300124407,
+      "norm": 131593.390625,
+      "norm64": 131593.3753168429,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          3825.1962890625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          3511.126708984375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          2711.427490234375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2645.7236328125
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          2607.162109375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2493.483642578125
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2290.2158203125
+        ],
+        [
+          "base.model.layers.34.self_attn.o_proj.lora_b",
+          1911.275390625
+        ]
+      ],
+      "cases": [
+        "transition-train-ro-0-7-4-0-0",
+        "transition-train-ro-0-7-4-1-0",
+        "transition-train-ro-0-7-4-2-0",
+        "transition-train-ro-0-7-4-0-1",
+        "transition-train-ro-0-7-4-1-1",
+        "transition-train-ro-0-7-4-2-1",
+        "indirect-ro-1-1-fiction-2-1-0",
+        "indirect-ro-1-1-fiction-2-1-1"
+      ],
+      "pairs": [
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 88,
+      "loss": 0.002020576037466526,
+      "norm": 38784.10546875,
+      "norm64": 38784.104147079546,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          2135.832763671875
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          1773.1754150390625
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1134.6956787109375
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1061.166259765625
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          767.4909057617188
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          733.69775390625
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          623.0288696289062
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          596.903076171875
+        ]
+      ],
+      "cases": [
+        "train-ro-7-6-2-0-0-0-0",
+        "train-ro-10-12-1-0-0-1-2",
+        "grounding-ro-train-query-9-3-lower-0-0",
+        "grounding-ro-train-query-9-3-lower-0-1",
+        "grounding-ro-train-query-9-3-lower-1-0",
+        "grounding-ro-train-query-9-3-lower-1-1",
+        "grounding-ro-train-query-9-3-lower-2-0",
+        "grounding-ro-train-query-9-3-lower-2-1"
+      ],
+      "pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "step": 89,
+      "loss": 0.003142843721434474,
+      "norm": 0.7318326830863953,
+      "norm64": 0.7318326817792602,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.02656022645533085
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.024075336754322052
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.02332814782857895
+        ],
+        [
+          "heads.ro.last.weight",
+          0.020352652296423912
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.01708517223596573
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.009044824168086052
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.008139971643686295
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          0.00716405501589179
+        ]
+      ],
+      "cases": [
+        "grounding-ro-train-query-14-0-lower-0-0",
+        "grounding-ro-train-query-14-0-lower-0-1",
+        "grounding-ro-train-query-14-0-lower-1-0",
+        "grounding-ro-train-query-14-0-lower-1-1",
+        "grounding-ro-train-query-14-0-lower-2-0",
+        "grounding-ro-train-query-14-0-lower-2-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 90,
+      "loss": 0.0039888727478682995,
+      "norm": 0.9111623764038086,
+      "norm64": 0.9111623484958391,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.032723318785429
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.02960013784468174
+        ],
+        [
+          "heads.ro.last.weight",
+          0.026535483077168465
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.02523825503885746
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.02177838608622551
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.0144480736926198
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          0.014189353212714195
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_b",
+          0.010314778424799442
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-4-3-original-0-0",
+        "referent-ro-train-4-3-original-0-1",
+        "referent-ro-train-4-3-original-1-0",
+        "referent-ro-train-4-3-original-2-0",
+        "referent-ro-train-4-3-original-1-1",
+        "referent-ro-train-4-3-original-2-1",
+        "indirect-ro-0-2-fiction-2-0-1",
+        "indirect-ro-0-4-denial-3-1-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 91,
+      "loss": 0.021879512816667557,
+      "norm": 1.6056404113769531,
+      "norm64": 1.6056402991583252,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.12242963910102844
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.054130665957927704
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.05147740617394447
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.029645519331097603
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.027612140402197838
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.023957138881087303
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.020257236436009407
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.02019026130437851
+        ]
+      ],
+      "cases": [
+        "train-ro-6-11-2-0-2-1-2-paraphrase",
+        "hesitancy-train-ro-802",
+        "native-train-ro-7-1-0-original",
+        "indirect-ro-0-1-fiction-5-0-1",
+        "indirect-ro-1-3-fiction-2-0-0",
+        "indirect-ro-1-3-fiction-2-0-1",
+        "intervention-train-ro-1463",
+        "train-ro-4-2-2-1-1-0-0"
+      ],
+      "pairs": [
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 92,
+      "loss": 0.0030558297876268625,
+      "norm": 47426.6484375,
+      "norm64": 47426.648186934624,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1282.7606201171875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1258.2552490234375
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1252.9290771484375
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          1179.2830810546875
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          979.6517333984375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          908.5604248046875
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          839.4739990234375
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          612.7623901367188
+        ]
+      ],
+      "cases": [
+        "contrast-train-ro-33",
+        "hesitancy-train-ro-3091",
+        "temporal-v9-train-ro-22",
+        "indirect-ro-1-1-fiction-3-0-0",
+        "indirect-ro-1-1-fiction-3-0-1",
+        "morphology-ro-0-5-feminine-5-1-0",
+        "contrast-train-ro-1070",
+        "train-ro-8-16-2-0-0-1-1"
+      ],
+      "pairs": [
+        [
+          3,
+          4
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 93,
+      "loss": 0.0027165673673152924,
+      "norm": 0.2855229377746582,
+      "norm64": 0.2855229635629256,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.009540904313325882
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          0.007382483221590519
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.0062194885686039925
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.006205711513757706
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          0.005388629622757435
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.005042030476033688
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.004539758898317814
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          0.004302596673369408
+        ]
+      ],
+      "cases": [
+        "train-ro-11-13-2-1-0-1-2",
+        "indirect-ro-0-11-fiction-1-1-1",
+        "intervention-train-ro-929",
+        "indirect-ro-0-9-fiction-4-1-1",
+        "train-ro-9-5-1-1-2-0-1",
+        "train-ro-11-4-1-2-0-0-0",
+        "natural-v9-train-ro-213",
+        "train-ro-2-21-2-1-0-0-1-paraphrase"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 94,
+      "loss": 0.0022277256939560175,
+      "norm": 131796.96875,
+      "norm64": 131796.97002812132,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          4075.521484375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2825.43505859375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2479.449462890625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          2205.592041015625
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          2070.8291015625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          1954.374755859375
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          1926.6278076171875
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1895.58203125
+        ]
+      ],
+      "cases": [
+        "indirect-ro-0-4-fiction-0-1-0",
+        "time-scope-v9-train-ro-286",
+        "indirect-ro-0-1-fiction-4-1-1",
+        "train-ro-10-4-0-1-1-1-1",
+        "indirect-ro-1-5-fiction-2-1-0",
+        "indirect-ro-1-5-fiction-2-1-1",
+        "train-ro-5-16-1-1-2-0-2",
+        "intervention-train-ro-530"
+      ],
+      "pairs": [
+        [
+          4,
+          5
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 95,
+      "loss": 0.01920802891254425,
+      "norm": 58368.75390625,
+      "norm64": 58368.75614710202,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          2150.842041015625
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1849.33837890625
+        ],
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1052.7933349609375
+        ],
+        [
+          "base.model.layers.28.self_attn.o_proj.lora_b",
+          961.0692749023438
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          918.989501953125
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          891.7328491210938
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          829.2965698242188
+        ],
+        [
+          "base.model.layers.36.self_attn.o_proj.lora_b",
+          816.4118041992188
+        ]
+      ],
+      "cases": [
+        "train-ro-11-21-1-1-2-1-2",
+        "indirect-ro-0-8-fiction-1-0-1",
+        "operators-ro-0-11-denial-5-1-1",
+        "train-ro-2-20-0-1-1-1-0",
+        "indirect-ro-0-2-fiction-2-1-0",
+        "indirect-ro-0-7-fiction-4-1-1",
+        "indirect-ro-0-7-fiction-1-0-0",
+        "indirect-ro-0-11-denial-0-0-0"
+      ],
+      "pairs": [],
+      "invariant": []
+    },
+    {
+      "step": 96,
+      "loss": 0.9920287728309631,
+      "norm": 120.35314178466797,
+      "norm64": 120.35314513310311,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          6.228211402893066
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          6.057043075561523
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          2.8730275630950928
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          2.752638101577759
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          2.7474257946014404
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          2.186912775039673
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          1.6992701292037964
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          1.594630241394043
+        ]
+      ],
+      "cases": [
+        "operators-ro-reset-19-0-0",
+        "pair117-ro-train-742",
+        "grounding-ro-train-deny-4-2-lower-0-1",
+        "grounding-ro-train-deny-4-2-lower-0-0",
+        "grounding-ro-train-deny-4-2-lower-1-1",
+        "grounding-ro-train-deny-4-2-lower-2-1",
+        "grounding-ro-train-deny-4-2-lower-1-0",
+        "grounding-ro-train-deny-4-2-lower-2-0"
+      ],
+      "pairs": [
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "invariant": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "step": 97,
+      "loss": 0.0006767675513401628,
+      "norm": 24152.017578125,
+      "norm64": 24152.016312271422,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          855.5023193359375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          489.64849853515625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          419.0479736328125
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          404.86517333984375
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          370.8664245605469
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          363.8954772949219
+        ],
+        [
+          "base.model.layers.35.self_attn.o_proj.lora_b",
+          341.24774169921875
+        ],
+        [
+          "base.model.layers.26.self_attn.o_proj.lora_b",
+          311.37811279296875
+        ]
+      ],
+      "cases": [
+        "referent-ro-train-2-1-lower-0-0",
+        "referent-ro-train-2-1-lower-0-1",
+        "referent-ro-train-2-1-lower-1-0",
+        "referent-ro-train-2-1-lower-2-0",
+        "referent-ro-train-2-1-lower-1-1",
+        "referent-ro-train-2-1-lower-2-1",
+        "indirect-ro-1-7-fiction-3-0-0",
+        "indirect-ro-1-7-fiction-3-0-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 98,
+      "loss": 4.399753379402682e-05,
+      "norm": 55296.9609375,
+      "norm64": 55296.957950507494,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "base.model.layers.24.self_attn.o_proj.lora_b",
+          1925.3775634765625
+        ],
+        [
+          "base.model.layers.31.self_attn.o_proj.lora_b",
+          1482.7464599609375
+        ],
+        [
+          "base.model.layers.30.self_attn.o_proj.lora_b",
+          1300.8548583984375
+        ],
+        [
+          "base.model.layers.29.self_attn.o_proj.lora_b",
+          1190.0704345703125
+        ],
+        [
+          "base.model.layers.32.self_attn.o_proj.lora_b",
+          926.432373046875
+        ],
+        [
+          "base.model.layers.33.self_attn.o_proj.lora_b",
+          683.3563232421875
+        ],
+        [
+          "base.model.layers.27.self_attn.o_proj.lora_b",
+          674.7340087890625
+        ],
+        [
+          "base.model.layers.25.self_attn.o_proj.lora_b",
+          598.6825561523438
+        ]
+      ],
+      "cases": [
+        "indirect-ro-1-8-fiction-4-0-0",
+        "indirect-ro-1-8-fiction-4-0-1",
+        "referent-ro-train-11-1-lower-0-0",
+        "referent-ro-train-11-1-lower-0-1",
+        "referent-ro-train-11-1-lower-1-0",
+        "referent-ro-train-11-1-lower-2-0",
+        "referent-ro-train-11-1-lower-1-1",
+        "referent-ro-train-11-1-lower-2-1"
+      ],
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "invariant": []
+    },
+    {
+      "step": 99,
+      "loss": 0.2529371976852417,
+      "norm": 12.157574653625488,
+      "norm64": 12.157574547243016,
+      "bad_gradients": [],
+      "largest_gradients": [
+        [
+          "heads.ro.last.weight",
+          0.8953125476837158
+        ],
+        [
+          "base.model.layers.39.self_attn.q_proj.lora_b",
+          0.4008573591709137
+        ],
+        [
+          "base.model.layers.40.self_attn.q_proj.lora_b",
+          0.38011348247528076
+        ],
+        [
+          "base.model.layers.39.self_attn.o_proj.lora_a",
+          0.364859402179718
+        ],
+        [
+          "base.model.layers.41.self_attn.q_proj.lora_a",
+          0.31568366289138794
+        ],
+        [
+          "base.model.layers.40.self_attn.o_proj.lora_a",
+          0.2474578320980072
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_b",
+          0.2195223867893219
+        ],
+        [
+          "base.model.layers.41.self_attn.o_proj.lora_a",
+          0.1553114950656891
+        ]
+      ],
+      "cases": [
+        "train-ro-10-9-0-2-0-1-2-paraphrase-scope",
+        "train-ro-6-7-2-2-3-0-0",
+        "indirect-ro-0-4-fiction-1-0-0",
+        "train-ro-3-5-0-0-3-0-0",
+        "train-ro-10-14-0-2-0-1-0",
+        "pair117-ro-train-1115"
+      ],
+      "pairs": [],
+      "invariant": []
+    }
+  ],
+  "training_only": true,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "complete": true
+}

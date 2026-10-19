@@ -15,8 +15,8 @@ from training.fit_scope_entailment_v9 import metrics
 from training.shared_tail_qualification_v9 import candidate_bindings
 
 
-def qualification(root):
-    prior = root/'grounding-tail-prior-178'
+def qualification(root, prior=None):
+    prior = root/'grounding-tail-prior-178' if prior is None else Path(prior)
     freeze = prior/'source-freeze.json'
     for path, expected in json.loads(freeze.read_text()).items():
         if digest(path) != expected:
@@ -63,11 +63,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--base', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, default=Path('research/v9-stabilization/grounding-tail-fit-177'))
+    parser.add_argument('--prior', type=Path, default=Path('research/v9-stabilization/grounding-tail-prior-178'))
     args = parser.parse_args()
     root = Path('research/v9-stabilization')
-    candidate = root/'grounding-tail-fit-177'
+    candidate = args.candidate
     specs, bindings = candidate_bindings(candidate)
-    bindings.update(qualification(root))
+    bindings.update(qualification(root, args.prior))
     if args.base.name != BASE_REVISION:
         raise ValueError('Wrong base revision')
     if shutil.disk_usage(args.output.parent).free < sum(v['bytes'] for v in FILES.values())+20*1024**3:

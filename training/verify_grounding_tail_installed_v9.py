@@ -51,6 +51,9 @@ def main():
     parser.add_argument('--wheel', type=Path, required=True)
     parser.add_argument('--wheel-sha256', required=True)
     parser.add_argument('--bundle', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, default=Path('research/v9-stabilization/grounding-tail-fit-177'))
+    parser.add_argument('--prior', type=Path, default=Path('research/v9-stabilization/grounding-tail-prior-178'))
+    parser.add_argument('--study', type=Path, default=Path('research/v9-stabilization/grounding-tail-installed-180'))
     args = parser.parse_args()
     if digest(args.wheel) != args.wheel_sha256:
         raise ValueError('Wheel identity differs')
@@ -64,19 +67,19 @@ def main():
     # Ensure helper imports did not resolve the checkout's installed package.
     installed_files(args.wheel, args.installed)
     root = Path('research/v9-stabilization')
-    specs, bindings = candidate_bindings(root/'grounding-tail-fit-177')
-    bindings.update(qualification(root))
+    specs, bindings = candidate_bindings(args.candidate)
+    bindings.update(qualification(root, args.prior))
     staged = json.loads((args.bundle.parent/'staging-evidence.json').read_text())
     if staged.get('complete') is not True or staged['bundle_sha256'] != digest(args.bundle) or staged['parents'] != bindings:
         raise ValueError('Staged bundle does not belong to this qualified candidate')
-    entries = read_rows(root/'grounding-tail-prior-178/inputs.jsonl.gz')
-    study = root/'grounding-tail-installed-180'
+    entries = read_rows(args.prior/'inputs.jsonl.gz')
+    study = args.study
     study.mkdir(exist_ok=False)
     paths = [Path('training')/name for name in ('verify_grounding_tail_installed_v9.py', 'stage_grounding_tail_bundle_v9.py',
         'shared_tail_qualification_v9.py', 'fit_scope_entailment_v9.py', 'diagnose_contextual_complementarity_v9.py')]
     bindings.update({str(path): digest(path) for path in paths})
     (study/'source-freeze.json').write_text(json.dumps(bindings, indent=2)+'\n')
-    protocol = dict(study=180, wheel_sha256=args.wheel_sha256, bundle_sha256=digest(args.bundle),
+    protocol = dict(study=int(study.name.rsplit('-', 1)[1]), wheel_sha256=args.wheel_sha256, bundle_sha256=digest(args.bundle),
         installed_files=package, rows=len(entries), score_tolerance=1e-5, required_decision_changes=0,
         populations=['cal', 'exposed'], batch_size=4, source_freeze_sha256=digest(study/'source-freeze.json'),
         synthetic_only=True, independently_annotated=False, fresh_test_inferred=False, stable_release_ready=False)
@@ -113,7 +116,7 @@ def main():
             if start % 100 == 0:
                 print('INSTALLED', language, len(actual), '/', len(chosen), 'seconds', round(time.monotonic()-tick, 2), flush=True)
         (output/f'{language}-prior-predictions.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in actual))
-        expected = read_rows(root/'grounding-tail-prior-178/actual'/f'{language}-prior-predictions.jsonl')
+        expected = read_rows(args.prior/'actual'/f'{language}-prior-predictions.jsonl')
         replay = compare_replay(actual, expected, specs[language]['threshold'], protocol['score_tolerance'])
         measured = metrics(actual)
         if not all(v['passes'] for v in measured.values()):

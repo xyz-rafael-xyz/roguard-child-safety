@@ -14,7 +14,7 @@ TESTS = {
 }
 PREVIOUS = ('paired-installed-118', 'paired-nli-installed-120', 'policy-entailment-installed-122',
     'reason-entailment-installed-124', 'native-coverage-installed-126', 'native-morphology-installed-129',
-    'native-scope-operators-installed-132', 'native-full-scope-installed-134', 'native-conversational-installed-138', 'shared-tail-reserved-168', 'shared-tail-canonical-reserved-172')
+    'native-scope-operators-installed-132', 'native-full-scope-installed-134', 'native-conversational-installed-138', 'shared-tail-reserved-168', 'shared-tail-canonical-reserved-172', 'grounding-tail-reserved-181')
 
 
 def require_installed_gate(report, wheel_hash, bundle_hash):
@@ -45,9 +45,13 @@ def main():
     parser.add_argument('--installed', type=Path, required=True)
     parser.add_argument('--wheel', type=Path, required=True)
     parser.add_argument('--bundle', type=Path, required=True)
+    parser.add_argument('--candidate', type=Path, default=Path('research/v9-stabilization/grounding-tail-fit-177'))
+    parser.add_argument('--prior', type=Path, default=Path('research/v9-stabilization/grounding-tail-prior-178'))
+    parser.add_argument('--installed-study', type=Path, default=Path('research/v9-stabilization/grounding-tail-installed-180'))
+    parser.add_argument('--study', type=Path, default=Path('research/v9-stabilization/grounding-tail-reserved-181'))
     args = parser.parse_args()
     root = Path('research/v9-stabilization')
-    prior = root/'grounding-tail-installed-180'
+    prior = args.installed_study
     report_path = prior/'actual/report.json'
     report = json.loads(report_path.read_text())
     wheel_hash, bundle_hash = digest(args.wheel), digest(args.bundle)
@@ -65,8 +69,8 @@ def main():
     from training.shared_tail_qualification_v9 import candidate_bindings
     from training.stage_grounding_tail_bundle_v9 import qualification
     from training.verify_candidate_pipeline_v9 import counts
-    specs, bindings = candidate_bindings(root/'grounding-tail-fit-177')
-    bindings.update(qualification(root))
+    specs, bindings = candidate_bindings(args.candidate)
+    bindings.update(qualification(root, args.prior))
     staged = json.loads((args.bundle.parent/'staging-evidence.json').read_text())
     if staged['parents'] != bindings or staged['bundle_sha256'] != bundle_hash:
         raise ValueError('Bundle candidate identity changed')
@@ -76,7 +80,7 @@ def main():
     ledger = root/'paired-scope-117/neural-access-ledger.json'
     if ledger.exists():
         raise ValueError('Reserved117 test already has a neural-access ledger')
-    study = root/'grounding-tail-reserved-181'
+    study = args.study
     study.mkdir(exist_ok=False)
     bindings.update({str(path): digest(path) for path in (report_path, prior/'source-freeze.json', prior/'protocol.json',
         Path('training/evaluate_grounding_tail_reserved_v9.py'), Path('training/verify_candidate_pipeline_v9.py'), Path('training/verify_grounding_tail_installed_v9.py'))})
@@ -91,7 +95,7 @@ def main():
     output.mkdir()
     # Atomic global first-access record precedes opening cases and running models.
     with ledger.open('x') as stream:
-        stream.write(json.dumps(dict(study=181, selection_sha256=digest(study/'selection.json'),
+        stream.write(json.dumps(dict(study=int(study.name.rsplit('-', 1)[1]), selection_sha256=digest(study/'selection.json'),
             input_sha256=TESTS, started_utc=datetime.now(timezone.utc).isoformat()), indent=2)+'\n')
     (output/'test-access.json').write_bytes(ledger.read_bytes())
     inputs = {}
