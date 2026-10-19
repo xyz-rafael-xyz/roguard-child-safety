@@ -155,3 +155,30 @@ or an external action. It is not the default detector. Study80 verified the
 Romanian study79 artifact against 200 cached outputs from actual installed neural
 runtimes: zero changed decisions and zero score difference. Ukrainian qualification
 and reserved evaluation remain incomplete; this is not a stable v9 release.
+
+### Running the three models together
+
+The current source adds `ThreeExpertPipeline` and the unified loader format
+`roguard-three-expert-bundle-v1`. It accepts the same conversation and focus as
+other model bundles and runs the direct native model, native semantic model, and
+interpreter before combining their input-bound reports. A batch is fully checked
+before inference; missing component results cannot silently drop cases.
+
+The combined pipeline uses the `fusion` extra on Apple Silicon with Python 3.10 or later. The older
+`semantic` extra pins Transformers 4, whereas the MLX interpreter requires
+Transformers 5; install `fusion` in a separate environment, without also requesting
+`semantic` or `adapted`. This combined environment is undergoing actual-model
+verification in study84. The plain package remains available without these heavy
+optional dependencies. No model is downloaded by loading a bundle.
+
+Its manifest contains `format`, a `fusion` object (`path`, `sha256`), and
+`components`:
+
+- `native`: `artifact`, `checkpoint`, `base`, `manifest`.
+- `semantic`: `heads`, `artifact`, `checkpoint`, `base`, `manifest`.
+- `interpreter`: `archive`, `base`.
+
+All paths are relative to and confined within the manifest directory. Obtain its
+SHA-256 through trusted configuration, then use `roguard-model --bundle ...
+--sha256 ... --input ...` or `roguard.model_bundle.load_bundle(...)`. The models
+remain experimental until their complete qualification checks pass.

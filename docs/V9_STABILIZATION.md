@@ -1038,3 +1038,23 @@ and 11/1,386 formal false reviews; conversational results are 18/164 misses and
 2/223 false reviews. It therefore fails the recall gate. Neither follow-up is
 promoted. Both reuse calibration for diagnosis and introduce no new neural
 training or reserved predictions.
+
+### Continued Ukrainian training and integrated inference
+
+Study83 warm-started native22 and adapted its top four encoder layers plus
+classifier. Its 3,936 training examples combine 3,072 history rows with 864
+authored distress, benign, denial and fictional-scope contrasts. Protected
+normalized inputs are excluded; transitive training history is retained.
+Optional focus handling and unsupported MPS attention dropout were corrected
+before any optimizer step. Training uses eager attention.
+
+The selected checkpoint passes development gates but misses 16/164 conversational
+calibration concerns, compared with native22's 26/164. It is not promoted.
+Study85 adds unmet-needs and emotional-disconnection contrasts and a separate
+216-case development stress set. Original accuracy gates remain unchanged.
+
+Study84 checks actual installed inference through `ThreeExpertPipeline` against
+the existing 200-case Romanian screen. This also tests a combined Torch/MLX
+environment: the previous `semantic` and `mlx` extras have incompatible
+Transformers requirements. The separate `fusion` extra addresses this dependency
+conflict without changing either existing extra.

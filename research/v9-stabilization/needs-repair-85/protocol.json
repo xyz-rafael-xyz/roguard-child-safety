@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-19T01:09:24.463046+00:00",
+  "language": "uk",
+  "parent": "distress-repair-83/uk",
+  "training": "3072 parent-history examples + previous864 authored contrasts + new864 contrasts; deduplicate/protected exclusion;2epochs;top4layers+classifier;lr1e-5;seed985;eager attention.",
+  "development": "Original development unchanged plus216 separately authored stress examples from8 content families not used in training. Threshold covers all development concerns; rank worst false-alert rate across original groups and stress set, then total.",
+  "calibration": "Reused audit only after checkpoint selection; no original calibration phrase copied into training.",
+  "reserved_access": "Normalized input overlap exclusion only.",
+  "requirements": "Original99%recall/5%false-alert gates unchanged; stress set additionally requires zero misses and <=5%false alerts.",
+  "stable_release_ready": false
+}

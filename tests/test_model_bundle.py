@@ -20,7 +20,7 @@ def test_binary_bundle_loads_only_confined_assets(tmp_path,monkeypatch):
                    dict(expected_artifact_sha256='a'*64,device='cpu'))]
 
 
-@pytest.mark.parametrize('format',['roguard-native-field-bundle-v1','roguard-field-bundle-v1','roguard-review-fusion-bundle-v1'])
+@pytest.mark.parametrize('format',['roguard-native-field-bundle-v1','roguard-field-bundle-v1','roguard-review-fusion-bundle-v1','roguard-three-expert-bundle-v1'])
 def test_tampering_is_rejected_before_dispatch(tmp_path,monkeypatch,format):
     path,digest=manifest(tmp_path,dict(format=format));path.write_bytes(path.read_bytes()+b' ')
     monkeypatch.setattr(bundle,'load_fields',lambda *a,**kw:pytest.fail('Dispatched tampered bundle'))
