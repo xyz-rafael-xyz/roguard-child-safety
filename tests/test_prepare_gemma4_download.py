@@ -38,7 +38,7 @@ def test_split_upstream_and_release_assets_install_offline_after_fetch(tmp_path,
     model_install.install(raw, identity, tmp_path/'cache')
     assert len(list((output/'assets').iterdir())) == 2
     assert spec['bundle']['sha256'] == hashlib.sha256(bundle.read_bytes()).hexdigest()
-    assert json.loads((output/'model-profiles.json').read_text())['profiles']['test']['runtime'] == 'apple-silicon'
+    assert json.loads((output/'model-profiles.json').read_text())['profiles']['test']['runtime'] == 'apple-silicon-python312'
     assert json.loads((output/'staging-report.json').read_text())['qualifies_for_release'] is False
 
 

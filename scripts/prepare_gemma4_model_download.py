@@ -107,7 +107,7 @@ def stage(payload, output, profile_id, release_url, terms):
         filename = 'model-download-'+profile_id+'.json'
         (root/filename).write_bytes(raw)
         (root/'model-profiles.json').write_bytes(encoded(dict(profiles={profile_id: dict(
-            manifest=filename, sha256=identity, runtime='apple-silicon')})))
+            manifest=filename, sha256=identity, runtime='apple-silicon-python312')})))
         (root/'staging-report.json').write_bytes(encoded(dict(manifest_sha256=identity,
             bundle_sha256=spec['bundle']['sha256'], files=len(entries),
             upstream_bytes=sum(r['bytes'] for r in FILES.values()),

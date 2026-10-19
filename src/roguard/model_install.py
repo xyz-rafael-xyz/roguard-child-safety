@@ -162,7 +162,9 @@ def profile(name):
         raise ValueError('Invalid packaged model profile catalog')
     entry=catalog['profiles'].get(name)
     if (not isinstance(entry,dict) or set(entry)!={'manifest','sha256','runtime'}
-            or entry['runtime'] not in ('portable','apple-silicon')):raise ValueError('Unknown model profile')
+            or entry['runtime'] not in ('portable','apple-silicon','apple-silicon-python312')):raise ValueError('Unknown model profile')
+    if entry['runtime']=='apple-silicon-python312' and (platform.system()!='Darwin' or platform.machine()!='arm64' or sys.version_info<(3,12)):
+        raise ValueError('This optional model profile requires native Apple Silicon Python 3.12 or later')
     if entry['runtime']=='apple-silicon' and (platform.system()!='Darwin' or platform.machine()!='arm64' or sys.version_info<(3,10)):
         raise ValueError('This optional model profile requires native Apple Silicon Python 3.10 or later')
     name=_relative(entry['manifest'])

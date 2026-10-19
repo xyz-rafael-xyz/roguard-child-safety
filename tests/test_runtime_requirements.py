@@ -29,6 +29,22 @@ def test_mixed_composite_requires_fusion_runtime(tmp_path):
     assert runtime_extra(path,digest)=='fusion'
 
 
+def test_gemma4_uses_exact_dependencies_without_requiring_torch(tmp_path):
+    path,digest,_=bundle(tmp_path,['roguard-gemma4-tail-review-bundle-v1']*2)
+    assert runtime_extra(path,digest)=='gemma4'
+    path,digest,_=bundle(tmp_path,['roguard-gemma4-tail-review-bundle-v1','roguard-native-review-bundle-v1'])
+    assert runtime_extra(path,digest)=='fusion,gemma4'
+
+
+def test_gemma4_extra_matches_qualified_dependency_contract():
+    import ast
+    from pathlib import Path
+    from roguard.gemma4_contract import VERSIONS
+    project=(Path(__file__).resolve().parents[1]/'pyproject.toml').read_text()
+    dependencies=ast.literal_eval(next(line.split('=',1)[1].strip() for line in project.splitlines() if line.startswith('gemma4 =')))
+    assert set(dependencies)=={name+'=='+version for name,version in VERSIONS.items()}
+
+
 def test_changed_child_is_rejected_before_dependency_advice(tmp_path):
     path,digest,_=bundle(tmp_path,['roguard-native-review-bundle-v1']*2)
     (tmp_path/'uk.json').write_text('{}')

@@ -17,4 +17,6 @@ def runtime_extra(path, expected_sha256):
     bundle = LanguageReviewModel(path, expected_sha256=expected_sha256)
     extras = {single_bundle_extra(_local_path(bundle._root, entry['path']), entry['sha256'])
               for entry in bundle._entries.values()}
-    return 'semantic' if extras == {'semantic'} else 'fusion'
+    if len(extras) == 1:
+        return next(iter(extras))
+    return 'fusion,gemma4' if 'gemma4' in extras else 'fusion'

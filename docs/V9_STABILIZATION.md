@@ -2569,3 +2569,10 @@ and upstream attribution. Google's pinned model card identifies Apache-2.0;
 the pinned conversion card still contains `license: gemma`. Both original cards
 are preserved alongside the Apache license and the Google license link. No
 stable-release or real-world accuracy claim follows from these packaging tests.
+
+The `gemma4` optional dependency group pins the six versions checked by the
+runtime, without installing PyTorch. Its profile requires Apple Silicon and
+Python 3.12 or later because the qualified NumPy version requires Python 3.12.
+Unsupported systems are rejected before any model download. The base package
+keeps its Python 3.9 support. Fifty-six focused package and installer tests pass;
+the three tests requiring MLX are handled in the separate MLX environment.

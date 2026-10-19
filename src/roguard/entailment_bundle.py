@@ -10,6 +10,7 @@ FORMAT='roguard-entailment-review-bundle-v1'
 def runtime_extra(path,expected_sha256):
     spec=_read_manifest(Path(path).resolve(),expected_sha256)
     if not isinstance(spec,dict):raise ValueError('Expected model bundle object')
+    if spec.get('format') == 'roguard-gemma4-tail-review-bundle-v1':return 'gemma4'
     return 'semantic' if spec.get('format') in {FORMAT,'roguard-native-review-bundle-v1','roguard-native-field-bundle-v1'} else 'fusion'
 
 

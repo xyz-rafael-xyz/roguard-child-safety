@@ -99,3 +99,26 @@ def test_profile_reports_unsupported_runtime_before_reading_or_downloading_model
         manifest='model-download-v9.json',sha256='a'*64,runtime='apple-silicon')))))
     monkeypatch.setattr(m.platform,'system',lambda:'Linux')
     with pytest.raises(ValueError,match='Apple Silicon'):m.profile('v9')
+
+
+@pytest.mark.parametrize('system,machine,python', [('Linux','aarch64',(3,12)), ('Darwin','x86_64',(3,12)), ('Darwin','arm64',(3,11))])
+def test_gemma4_profile_rejects_incompatible_platform_before_manifest_access(tmp_path,monkeypatch,system,machine,python):
+    monkeypatch.setattr(m,'__file__',str(tmp_path/'model_install.py'))
+    (tmp_path/'model-profiles.json').write_text(json.dumps(dict(profiles=dict(v9=dict(
+        manifest='model-download-v9.json',sha256='a'*64,runtime='apple-silicon-python312')))))
+    monkeypatch.setattr(m.platform,'system',lambda:system)
+    monkeypatch.setattr(m.platform,'machine',lambda:machine)
+    monkeypatch.setattr(m.sys,'version_info',python)
+    with pytest.raises(ValueError,match='Apple Silicon Python 3.12'):m.profile('v9')
+
+
+def test_gemma4_profile_accepts_pinned_manifest_on_supported_platform(tmp_path,monkeypatch):
+    spec,_=specification();raw,identity=encoded(spec)
+    monkeypatch.setattr(m,'__file__',str(tmp_path/'model_install.py'))
+    (tmp_path/'model-download-test.json').write_bytes(raw)
+    (tmp_path/'model-profiles.json').write_text(json.dumps(dict(profiles=dict(test=dict(
+        manifest='model-download-test.json',sha256=identity,runtime='apple-silicon-python312')))))
+    monkeypatch.setattr(m.platform,'system',lambda:'Darwin')
+    monkeypatch.setattr(m.platform,'machine',lambda:'arm64')
+    monkeypatch.setattr(m.sys,'version_info',(3,12))
+    assert m.profile('test')==(raw,identity)

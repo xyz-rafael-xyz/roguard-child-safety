@@ -104,7 +104,7 @@ class _Engine:
             from mlx_lm.models.cache import make_prompt_cache
             from safetensors.numpy import load as load_tensors
         except ImportError as error:
-            raise ImportError('Gemma4 review requires Apple Silicon and the fusion extra') from error
+            raise ImportError('Gemma4 review requires Apple Silicon, Python 3.12 or later, and the gemma4 extra') from error
         for name, pinned in VERSIONS.items():
             if version(name) != pinned:
                 raise ValueError('Gemma4 qualification requires '+name+'=='+pinned)
