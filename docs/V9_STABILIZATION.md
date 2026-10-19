@@ -1102,7 +1102,7 @@ same 99% recall / 5% false-review requirements. The study has not yet reported
 qualification results.
 
 The experimental Qwen runtime accepts a pinned local bundle through
-`roguard-model --device mps`. It verifies the base inventory and complete adapter
+`python -m roguard.model_bundle --device mps`. It verifies the base inventory and complete adapter
 tensor schema, copies verified assets into a private snapshot before loading,
 and validates the whole input batch before inference. Future turns are excluded;
 outputs never grant notification or other external permissions. Study91 will
@@ -1118,3 +1118,8 @@ identifiers are excluded from predictive features. Five connected development
 folds select regularization, and development scores alone fix the final threshold.
 Invalid Qwen tokens remain abstentions. Development, out-of-fold development and
 calibration must each meet the existing count gates. Results are pending.
+
+Study93 also retains all 216 authored Ukrainian stress cases from study85. It
+evaluates the fixed Qwen and combined-model decisions without fitting on those
+cases. Passing the main calibration audit does not waive this earlier failed
+stress check.
