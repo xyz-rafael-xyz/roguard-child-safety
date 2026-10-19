@@ -1769,3 +1769,27 @@ The reserved 600-case evaluation remains uninferred because accuracy prerequisit
 failed. The prepared study128 grammatical-gender continuation follows this
 completed comparison; the original data, predictions and results remain available
 for audit.
+
+### Additional indirect-distress content prepared (study135)
+
+Study135 prepares 2,544 new training-only examples, 1,272 per language, following
+inspection of the completed study125 Romanian development scores. It tests a
+coverage hypothesis: indirect descriptions of distress may need more content
+variation as well as the scope variation already queued. Twelve new concern
+bodies per language use bodily tension, difficulty speaking, concealed distress
+or social isolation with personal context. Twelve ordinary bodies use similar
+vocabulary in schoolwork, music, drawing and general biology questions. The
+same study130 attribution and fiction contrasts appear around both kinds of
+content. Topic-change pairs retain identical prior messages. Positive labels
+request review; they are not diagnoses or findings about the truth of a message.
+
+Each language has 336 opposed pairs, 588 ordinary controls and 12 bare positive
+examples. Three generator tests verify policy consistency, paired history,
+ordinary controls and separation from all previous scope content partitions.
+Audits with the two native tokenizers and the NLI tokenizer find zero exact
+input overlaps with protected evaluation, the reserved 600 cases, inherited
+study125 training history, or the prepared study127/130 additions. The longest
+new input has 147 NLI tokens. No neural inference or training is part of this
+preparation. These are project-authored synthetic probes, not clinical evidence
+or new independent expert review. The active and queued studies128–134 remain
+unchanged; study135 has no accuracy result.
