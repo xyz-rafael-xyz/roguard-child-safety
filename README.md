@@ -23,12 +23,14 @@ workflow; the language-model accuracy gates remain open. [V9 scope, usage and
 measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_STABILIZATION.md)
 track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
 
-**Latest v9 qualification progress:** a Romanian three-model candidate passes
-its development and reused synthetic calibration count gates, with zero missed
-calibration concerns and 3.75%/2.88% formal/conversational false reviews. Its
-installed pipeline, running all three actual models, matches all 200 checked
-decisions and scores.
-Ukrainian conversational recall still fails qualification; v9 is not the default.
+**Latest v9 qualification progress:** Romanian and Ukrainian three-model
+candidates pass their development and reused synthetic calibration count gates.
+Romanian calibration has zero missed concerns and 3.75%/2.88%
+formal/conversational false reviews; Ukrainian conversational calibration has
+99.39% recall and 4.04% false reviews. The Romanian installed pipeline matches
+all 200 checked decisions and scores. Ukrainian installed-runtime and retained
+stress checks are in progress; reserved evaluation remains unopened. These are
+synthetic measurements. V9 is not yet the default release.
 [Results, follow-up experiments and limits](docs/V9_STABILIZATION.md#conservative-boosted-candidate-and-installed-runtime).
 
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).

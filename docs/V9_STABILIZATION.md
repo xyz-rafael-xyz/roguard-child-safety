@@ -1247,3 +1247,26 @@ of the same audit, requiring eight fixed saved-prefix replays to agree before
 processing the remaining inputs. Its timing covers only the remaining work.
 If study95 and its installed verification qualify, the incomplete Qwen study
 will remain paused while final bilingual qualification takes priority.
+
+Study95 completed both epochs and recovered every calibration concern, but
+increased conversational false reviews to 51/223 and retained-stress false
+reviews to 23/172. Its direct classifier fails qualification; study96 therefore
+skipped direct-model replay. Development diagnosis found low scores for
+fictional retractions after a repair corpus emphasizing affirmation and denial.
+
+The same frozen study97 combination using the completed study95 scores passes
+its development, out-of-fold and calibration count gates. Ukrainian calibration
+has 0/614 missed formal concerns with 18/1,386 false reviews, and 1/164 missed
+conversational concerns with 9/223 false reviews (99.39% recall; 4.04% false
+reviews). This is reused synthetic calibration, not an independent accuracy
+estimate. The original study97 recipe selected the tree and threshold using
+development predictions only.
+
+Study99 now checks this Ukrainian candidate through the separately installed
+wheel with all three actual models. Its fixed 200-case screen must reproduce
+the saved decisions without abstentions and with score differences at most
+0.001; the 216 retained stress cases must then pass their unchanged counts.
+The Qwen audit remains paused while this potentially qualifying candidate is
+checked. A short restart reproduced its fixed saved-prefix checks and evaluated
+31 additional inputs; those intermediate outputs remain recorded, without a
+full-audit qualification claim.

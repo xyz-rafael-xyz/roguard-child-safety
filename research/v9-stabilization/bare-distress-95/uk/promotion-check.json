@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/bare-distress-95/uk",
+  "language_scope": "uk",
+  "artifact_sha256": "0cfdf2d5fbaaed11ec0ac330ab6edba36288e0a86108a37e94277f67be3aba41",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "development/uk_conversational: false reviews 25/223; maximum 5%",
+    "calibration/uk_conversational: false reviews 51/223; maximum 5%",
+    "Authored development stress gate failed"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}
