@@ -1,0 +1,79 @@
+{
+  "study": 165,
+  "created_utc": "2026-10-19T15:02:13.955872+00:00",
+  "seed": 1165,
+  "epochs": 3,
+  "boundary": 24,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "optimizer": "AdamW, weight_decay0.01, gradient_norm_clip1",
+  "lora": {
+    "rank": 8,
+    "scale": 16.0,
+    "dropout": 0.0,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.o_proj"
+    ]
+  },
+  "heads": {
+    "ro": {
+      "path": "research/v9-stabilization/gemma4-structured-143/actual/epoch-10.safetensors",
+      "sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+      "epoch": 10,
+      "family": "gemma4-structured-143"
+    },
+    "uk": {
+      "path": "research/v9-stabilization/gemma4-structured-expanded-145/actual/epoch-10.safetensors",
+      "sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+      "epoch": 10,
+      "family": "gemma4-structured-expanded-145"
+    }
+  },
+  "head_initialization": "Separate RO143epoch10 and UK145epoch10 semantic/binary heads",
+  "objective": "Language/label balanced binaryCE + mean six-fieldCE +0.2 paired softplus margin +0.1 mean symmetric KL across seven output distributions for identical-current-message history contrasts",
+  "coupling": "Train-only language/label-balanced semantic pair potentials",
+  "selection": "Initial and every half epoch; independent per-language checkpoint, output mode and threshold using unchanged99/5 development gates, including161 transitions",
+  "validation_modes": [
+    "binary",
+    "policy",
+    "coupled_policy"
+  ],
+  "cache": "Verified164 shared-KV corpus; complete original prompt preserved; frozen earlier layers and per-layer inputs",
+  "expected_training_rows": 9681,
+  "expected_development_rows": 5709,
+  "batches": [
+    {
+      "epoch": 1,
+      "batches": 1289,
+      "cases": 9681,
+      "paired_comparisons": 1239,
+      "invariant_comparisons": 1728,
+      "maximum_cases": 8
+    },
+    {
+      "epoch": 2,
+      "batches": 1292,
+      "cases": 9681,
+      "paired_comparisons": 1238,
+      "invariant_comparisons": 1728,
+      "maximum_cases": 8
+    },
+    {
+      "epoch": 3,
+      "batches": 1298,
+      "cases": 9681,
+      "paired_comparisons": 1238,
+      "invariant_comparisons": 1728,
+      "maximum_cases": 8
+    }
+  ],
+  "corpus_source_freeze_sha256": "2e217aa6bff903514ede180bae3ea18cf3d4af236fa780dfaafaa172e59afe04",
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "production_runtime_supported": false,
+  "publication": "Requires separate frozen prior qualification, installed execution parity and reserved evaluation"
+}

@@ -2447,3 +2447,30 @@ training loss from0.02525 to0.02408. Its differentiable readout matched the
 independent export within1.44e-6 logits; updated tail replay matched a full
 forward pass within1.26e-5 relative. Peak MLX allocation was6.59 GB.
 The diagnostic adapter was discarded and no accuracy estimate was made.
+
+### Shared-attention corpus and bilingual adaptation (studies164–165)
+
+Study164 freezes 9,681 training and 5,709 development cases. It combines the
+existing contextual corpus with paired history-transition examples. Protected
+calibration, exposed regression and reserved inputs are used only for overlap
+exclusion; none enters this training cache. The complete prompt is preserved.
+A common 387-token prefix is reused, with separate immutable cache copies and
+absolute positions for each continuation. Three small-model CPU tests verify
+prefix reuse, full-sequence parity, sliding windows and invalid-cache rejection.
+Before extraction, 16 existing training references must also pass serialization
+and full-sequence parity on the pinned model. Completed chunks are hashed and
+resumable. The estimated storage ceiling is 104.1 GB, with 20 GiB disk reserve.
+
+Study165 freezes three epochs of rank8 query/output LoRA adaptation across the
+18 shared-attention layers, with separate Romanian and Ukrainian semantic heads.
+Its objective combines balanced routing and taxonomy cross-entropy, paired
+margins and consistency for identical current messages under different earlier
+topics. Complete history families stay in each minibatch. Three tests verify
+coverage, portable head parity, finite gradients and the permitted trainable
+parameters. All pass on the actual MLX CPU implementation.
+
+Checkpoint, output mode and cutoff selection use the unchanged per-group
+99% recall / 5% false-review development gates, now including the held-out
+history-transition group. Separate prior qualification, installed runtime parity
+and reserved evaluation remain required. These studies are prepared experiments;
+their preparation and numerical tests do not establish improved accuracy.

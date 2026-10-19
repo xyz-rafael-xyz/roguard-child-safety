@@ -1,0 +1,63 @@
+{
+  "study": 164,
+  "created_utc": "2026-10-19T14:51:47.857347+00:00",
+  "boundary": 24,
+  "rows": 15390,
+  "partitions": {
+    "dev": 5709,
+    "train": 9681
+  },
+  "language_partitions": {
+    "ro_dev": 2782,
+    "ro_train": 4702,
+    "uk_train": 4979,
+    "uk_dev": 2927
+  },
+  "batch_size": 4,
+  "chunk_size": 100,
+  "compute_dtype": "float32",
+  "storage": "Typed identity-bound NPZ, no pickle",
+  "reference_indices": [
+    829,
+    319,
+    310,
+    798,
+    1354,
+    373,
+    620,
+    1289,
+    5043,
+    5897,
+    5713,
+    5085,
+    5343,
+    4822,
+    4743,
+    4844
+  ],
+  "common_prefix_tokens": 387,
+  "prefix_optimization": "Immutable prompt prefix; full-sequence training-reference parity required before extraction",
+  "estimated_cache_bytes": 104097883050,
+  "protected_token_overlap": 0,
+  "training_development_overlap": 0,
+  "maximum_tokens": 542,
+  "source_input_sha256": {
+    "research/v9-stabilization/gemma4-readout-141/inputs.jsonl.gz": "3037790885b88e491da5b9ec670dd5a53b765c4b14a05bf0ab5f66529b3074f5",
+    "research/v9-stabilization/gemma4-expansion-144/inputs.jsonl.gz": "d283874cf2ac0ef5d3c3724bf7c5cc492941b208f8643ea825fa9029e79df189",
+    "research/v9-stabilization/context-transition-161/ro-train.jsonl.gz": "a9a3e5953d9eb698c690ea1c87e3779b6561decf5a9578a771b7fe35be34193b",
+    "research/v9-stabilization/context-transition-161/ro-dev.jsonl.gz": "41edd6f514a0638c67a99bb5b3c9b5457a1223a4d3bd435aa617c79bb1bc05f9",
+    "research/v9-stabilization/context-transition-161/uk-train.jsonl.gz": "72b33a8624732ea258886b66a4832d1e3e3b921ad95ec05d1ce257091ca2c9f9",
+    "research/v9-stabilization/context-transition-161/uk-dev.jsonl.gz": "6db46db96cd8c7a17d0ea973264f6ee529d6d6e3f8a8ee07c8b0cf9d9cf5f903",
+    "research/v9-stabilization/native-scope-operators-131/ro/cal.jsonl.gz": "73cb785c71a89545043a5691565ce7830744e6929914d7b33f09b240276aab91",
+    "research/v9-stabilization/native-scope-operators-131/ro/exposed.jsonl.gz": "5a0cddcba598c47350c926540ab621870ac211bbfc55fc342a8aa7a684e3d40d",
+    "research/v9-stabilization/paired-scope-117/data/ro-test.jsonl": "ff07b2e373969e0509769de7e3a907a3bf57952467ced6e153ff4abe6e0800f1",
+    "research/v9-stabilization/native-scope-operators-131/uk/cal.jsonl.gz": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+    "research/v9-stabilization/native-scope-operators-131/uk/exposed.jsonl.gz": "c82246e10ad3265b5375e0ce34cf3a78f7723e567cbb4037a2bb74fd0eb7de8f",
+    "research/v9-stabilization/paired-scope-117/data/uk-test.jsonl": "c4ea1c1b0e45a519654e7dcdf9217f9f55eb7b4315315dcfafcbc084cc8adef6"
+  },
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false
+}
