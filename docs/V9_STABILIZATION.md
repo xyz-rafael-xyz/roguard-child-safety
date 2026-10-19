@@ -1572,3 +1572,19 @@ limit. Study122 reproduced all 1,152 checked installed decisions and 40 CPU
 decisions; maximum component-score differences were 0.000013829 on Metal and
 0.000038385 on CPU. It skipped the fresh evaluation. Study123 then started the
 expanded training run.
+
+Studies125–126 prepare a conditional comparison using the selected study117
+Romanian and Ukrainian encoders with the same study123 continuation curriculum.
+Their separate tokenizer audit found 9,176 distinct Romanian and 9,933 distinct
+Ukrainian inputs, with zero overlaps against protected evaluation inputs or
+conflicting duplicate labels. Inherited training histories also have zero
+protected-input overlap. The checkpoint histories differ from the entailment
+model, so this comparison does not isolate architecture as the only variable.
+
+The comparison waits for study124 and runs only if study123 fails its prior
+accuracy gates. Each language receives two epochs with paired supervision,
+development-only checkpoint selection, and post-selection calibration and
+exposed regression audits. Study126 checks every prior split through the
+installed CPU runtime before any conditional fresh evaluation. Its gate requires
+every language-specific group and rejects missing counts, incomplete runs and
+prior fresh-test access. Three focused gate tests pass.

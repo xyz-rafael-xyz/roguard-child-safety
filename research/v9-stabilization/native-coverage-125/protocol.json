@@ -1,0 +1,19 @@
+{
+  "study": 125,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "parent": "selected117 native checkpoints; no NLI checkpoint inherited",
+  "conditional": "run only if123 fails prior accuracy gates; wait for124 completion",
+  "curriculum": "same19109-row continuation curriculum as123, partitioned by language; native-token overlap audited separately",
+  "comparison_limit": "different checkpoint histories; not a controlled architecture-only ablation",
+  "seed": 1125,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "trainable": "last four encoder blocks and classifier",
+  "objective": "cross entropy plus0.2 paired margin on complete authored pairs",
+  "selection": "initial and each half epoch; development full-positive-coverage threshold; minimize worst false-review group then sum",
+  "calibration": "audit after selection only",
+  "fresh600": "excluded from inherited history and new training; not neurally inferred by trainer",
+  "gates": "unchanged99percent recall and5percent false reviews; zero misses required on44-positive known stress",
+  "preflight": "9176RO and9933UK distinct native-token inputs; zero protected overlaps or label conflicts in either language"
+}
