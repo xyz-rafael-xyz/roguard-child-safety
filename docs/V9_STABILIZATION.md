@@ -2553,3 +2553,19 @@ commit or publication. Staging was stopped; no tensor cache entered the index
 or public history. NPZ caches are now ignored globally and rejected by the
 public-tree audit. A regression test checks nested states, reference caches and
 prior-logit caches while keeping JSON evidence trackable.
+
+### Gemma4 download staging
+
+`scripts/prepare_gemma4_model_download.py` stages a pinned download manifest
+without publishing a model or changing the default profile. The unchanged
+upstream base is downloaded from its immutable Hugging Face revision; only
+RoGuard adapters, manifests, exact dependency constraints and attribution files
+become GitHub assets. Every downloaded file retains a size and SHA256 check.
+The profile is explicitly marked as requiring Apple Silicon.
+
+Four tests cover installation across both download hosts, offline reuse,
+deduplication, changed assets, rejected base overrides, bundle/adapter identity,
+and upstream attribution. Google's pinned model card identifies Apache-2.0;
+the pinned conversion card still contains `license: gemma`. Both original cards
+are preserved alongside the Apache license and the Google license link. No
+stable-release or real-world accuracy claim follows from these packaging tests.
