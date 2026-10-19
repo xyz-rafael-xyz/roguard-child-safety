@@ -1270,3 +1270,14 @@ The Qwen audit remains paused while this potentially qualifying candidate is
 checked. A short restart reproduced its fixed saved-prefix checks and evaluated
 31 additional inputs; those intermediate outputs remain recorded, without a
 full-audit qualification claim.
+
+Study100 is conditional on all study99 checks passing. It first exercises the
+installed bilingual dispatcher on 40 existing screen inputs, interleaved across
+languages and balanced by style and label. Every decision must match the prior
+actual-model outputs, with no abstentions and score differences at most 0.001.
+Only after that integration check passes does it freeze the candidate and
+integration hashes and open the three previously reserved synthetic probes.
+Those probes must pass per language and probe, with abstentions counted as
+errors and repeated exact inputs also reported separately. If any prerequisite
+fails, the reserved inputs remain unopened. The small related probe families
+cannot establish population accuracy even if all their counts pass.
