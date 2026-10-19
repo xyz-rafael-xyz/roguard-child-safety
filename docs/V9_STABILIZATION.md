@@ -2528,3 +2528,28 @@ prevents treating another attempt as a fresh evaluation. Scores and cutoffs are
 not fitted on this test; abstentions count as errors. Its prerequisite test
 rejects missing groups, failed accuracy, changed installations and prior access.
 The evaluator has not run and the reserved cases remain neurally unscored.
+
+### Shared-attention extraction completed
+
+Study164 completed all 15,390 inputs in 2,547 seconds after its reference
+preflight. Stored states total 89.59 GB; peak MLX allocation was 6.29 GB. The
+16 training-reference comparisons passed at a maximum relative error of
+3.25e-5. No calibration or reserved cases were inferred. Study165 then started
+its initial development evaluation and adapter training.
+
+The current core suite passed 1,090 tests and 129 subtests, with 65 optional
+dependency skips. Thirteen localhost server tests initially encountered sandbox
+socket restrictions and passed when rerun with localhost access. The Gemma4
+runtime also passed its separate 13-test MLX CPU suite.
+
+An exact string-audit optimization was evaluated and rejected: exhaustive
+batch0038 comparison took 39.79 seconds; index reuse and upper-bound pruning
+took 40.20 seconds. Both reproduced every maximum and the archived audit. The
+original validator remains in place. CI now cancels superseded runs sharing
+the same workflow and ref, with all existing checks retained.
+
+A Git ignore gap for the new attention-state NPZ filenames was caught before
+commit or publication. Staging was stopped; no tensor cache entered the index
+or public history. NPZ caches are now ignored globally and rejected by the
+public-tree audit. A regression test checks nested states, reference caches and
+prior-logit caches while keeping JSON evidence trackable.

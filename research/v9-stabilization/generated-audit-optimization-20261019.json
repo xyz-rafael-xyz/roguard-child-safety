@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "recorded_utc": "2026-10-19T15:53:35.790127+00:00",
+  "rows": 96,
+  "prior_rows": 6388,
+  "exhaustive_seconds": 39.78862433298491,
+  "optimized_seconds": 40.19765479187481,
+  "exact_maxima_equal": true,
+  "full_batch0038_matches_archived_audit": true,
+  "validation_rules_changed": false,
+  "scope": "Full batch0038 character-similarity calculation; not classifier accuracy or whole-CI timing",
+  "adopted": false,
+  "reason": "No measured speed improvement; original validator retained",
+  "prototype": "def nearest_same_kind(rows: list[dict], prior: list[dict]) -> list[float]:\n    \"\"\"Exact maxima, reusing prior indexes and pruning by proven upper bounds.\n\n    SequenceMatcher is directional: the new card stays sequence a and each\n    prior card stays sequence b. Both quick ratios upper-bound the full ratio,\n    so a comparison that cannot improve the current maximum can be skipped.\n    \"\"\"\n    matchers = {}\n    for row in prior:\n        matchers.setdefault(row['source_kind'], []).append(\n            SequenceMatcher(None, '', row['text'].casefold()))\n    result = []\n    for row in rows:\n        candidates = matchers.get(row['source_kind'], [])\n        if not candidates:\n            raise ValueError('No prior card with the same source kind')\n        text, best = row['text'].casefold(), 0.0\n        # Later registered batches often supply the closest surfaces. Ordering\n        # affects pruning work only; it cannot change the exact maximum.\n        for matcher in reversed(candidates):\n            matcher.set_seq1(text)\n            if matcher.real_quick_ratio() > best and matcher.quick_ratio() > best:\n                best = max(best, matcher.ratio())\n        result.append(best)\n    return result\n\n",
+  "prototype_sha256": "eb4305a7b10f631139a3cff46a45b8665ea69b0baa022f6979398074d5e14deb"
+}

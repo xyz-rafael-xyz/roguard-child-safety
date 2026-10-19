@@ -7,7 +7,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FORBIDDEN_SUFFIXES = {".safetensors", ".bin", ".pt", ".pth", ".ckpt", ".gguf", ".ggml", ".pem", ".p12"}
+FORBIDDEN_SUFFIXES = {".safetensors", ".npz", ".bin", ".pt", ".pth", ".ckpt", ".gguf", ".ggml", ".pem", ".p12"}
 PRIVATE_PATH = re.compile(rb"/Users/" + rb"rafael" + rb"|/home/" + rb"rafael")
 CREDENTIAL = re.compile(
     rb"gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}|"
