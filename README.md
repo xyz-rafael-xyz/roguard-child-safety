@@ -29,8 +29,8 @@ Romanian calibration has zero missed concerns and 3.75%/2.88%
 formal/conversational false reviews; Ukrainian conversational calibration has
 99.39% recall and 4.04% false reviews. The Romanian installed pipeline matches
 all 200 checked decisions and scores, as does the Ukrainian pipeline. The
-Ukrainian retained stress check still misses 3/44 concerns; a further repair is
-training and reserved evaluation remains unopened. These are synthetic
+Ukrainian retained stress check still misses 3/44 concerns; further combiner repair is
+in progress and reserved evaluation remains unopened. These are synthetic
 measurements. V9 is not yet the default release.
 [Results, follow-up experiments and limits](docs/V9_STABILIZATION.md#conservative-boosted-candidate-and-installed-runtime).
 

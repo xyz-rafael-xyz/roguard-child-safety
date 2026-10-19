@@ -1,0 +1,18 @@
+{
+  "candidate": "research/v9-stabilization/scope-distillation-102/uk",
+  "language_scope": "uk",
+  "artifact_sha256": "bb5a2f82b5f0d62ce7267c6a3a247ffd24043aac3abe58b018a650371a7b8973",
+  "study_prerequisites_pass": false,
+  "failures": [
+    "calibration/uk_conversational: missed 2/164; maximum 1%",
+    "calibration/uk_conversational: false reviews 22/223; maximum 5%",
+    "Authored development stress gate failed"
+  ],
+  "stable_release_ready": false,
+  "additional_required_checks": [
+    "fresh frozen evaluation",
+    "integrated runtime accuracy and serious-concern regressions",
+    "separately passing other-language candidate"
+  ],
+  "counts_are_synthetic": true
+}

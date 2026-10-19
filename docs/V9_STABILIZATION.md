@@ -1325,3 +1325,27 @@ candidate, data and installed runtime are pinned before inference. Actual compon
 outputs are retained for diagnosis without replacing the pipeline execution path.
 This is conditional verification, not a new accuracy result. Reserved neural
 inference remains unopened.
+
+### Completed distillation and development stress repair
+
+Study102 selected epoch1 by the frozen development rule. Its original Ukrainian
+calibration results are 0/614 missed concerns and 21/1,386 false reviews for
+formal inputs, and 2/164 misses with 22/223 false reviews for conversational
+inputs. It retains all 44 known stress concerns but incorrectly reviews 19/172
+benign stress inputs. Study103 therefore skips installed qualification.
+
+Study104 combines that checkpoint with the unchanged semantic and interpreter
+models. Development and connected-fold counts pass, but conversational
+calibration has 3/164 misses and 17/223 false reviews. Study105 consequently
+skips; these candidates are not promoted and no reserved inference runs.
+
+Studies106–107 return to the earlier study97/95 combination, which passed the
+original development and calibration gates. Study106 captures each actual model's
+outputs on the already inspected stress inputs, requiring exact decision replay
+against study99. Study107 then treats this known stress population explicitly
+as development data for the combiner. It holds out entire stress content families
+across folds and retains the original connected development folds. The four
+predeclared shallow-tree configurations receive equal class/population weights;
+calibration is audited only if every development and fold group passes. These
+reused stress cases are not an independent test. Neither the thresholds nor the
+release accuracy requirements are relaxed.

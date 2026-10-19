@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-19T06:40:15.065041+00:00",
+  "purpose": "Repair earlier97/95composite using known stress as development while retaining stronger95native model.",
+  "data": "Original2387UKdevelopment rows plus216already-inspectedstressinputs. Original connectedfocal/pairfolds unchanged; allvariants of each of8stresscontentfamilies stay in onefold. Exactnormalizedinputs cannotcrossfolds. No rawtext, caseID, family orstratum predictivefeatures.",
+  "recipe": "Same121features and four shallowboostedtreeconfigs as97;100trees,lr.05,seed1107; equalweight for6population/classstrata(originalformal,originalconversational,stress x label). ChooseOOFworstfalse-reviewrate aftergates, then sum andsimplerconfig. CutoffcoversallOOFandrefitconcerns.",
+  "audit": "Audit originalCAL onlyifalloriginalDEV/OOFandstressrefit/OOFgroups pass unchanged99%recall/5%false-reviewlimits. Stress44positives thereforezero misses. Actualinstalledparityandreservedrequiredlater.",
+  "limitations": "Developmentalreadyusedbymodelselection; entirestresssetalreadyinspected. OOFstressfamilyholdout is a diagnostic only, notfreshindependentvalidation.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "independent_accuracy_evaluation": false
+}
