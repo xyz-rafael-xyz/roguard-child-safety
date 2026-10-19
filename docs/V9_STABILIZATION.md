@@ -2207,3 +2207,26 @@ Both languages still fail accuracy requirements.
 Study134 reproduced all 10,443 prior decisions using the installed CPU runtime.
 The largest score difference was 7.46e-6. Installation parity passed, but the
 reserved population was skipped because preceding accuracy gates failed.
+
+### Complete-content and attribution views prepared (study150)
+
+Study150 gives the native encoder the complete conversation in its first input
+and the focal message with closed quotations abstracted in its second. Every
+quoted word remains available in the complete view; negation and attribution
+remain visible around the quote marker in the second. The transform makes no
+review decision. Four tests cover content preservation, later-turn exclusion,
+unclosed quotations, Ukrainian attribution and Romanian normalization.
+
+This fallback starts from the pinned original pretrained encoders with a new
+binary head, using the same expanded 14,156 Romanian and 14,913 Ukrainian
+training examples. Exact two-view token audits found zero protected overlap,
+no duplicate training inputs and maximum lengths of 127/133 tokens. Reserved
+examples were tokenized only for exclusion. Full encoder training uses two
+epochs, seed1150, top learning rate2e-5 and layer decay0.9, with the existing
+paired loss and unchanged development selection requirements. Initialization,
+learning rate and input view all change, so this is not an isolated view ablation.
+
+It is queued after studies137–138 and skips when an earlier candidate should
+advance to release qualification. The new preprocessing has its own artifact
+format and requires an installed runtime check before any reserved inference.
+There is no study150 accuracy result at preparation time.

@@ -1,0 +1,37 @@
+{
+  "study": 150,
+  "created_utc": "2026-10-19T13:36:58.610398+00:00",
+  "initialization": "Original pinned pretrained encoders; new binary head; no previous task checkpoint",
+  "preprocessing": "native-full-context-quoted-focus-abstraction-v1",
+  "first_view": "Complete conversation through focus, all quote content retained",
+  "second_view": "Focal text with closed quote spans abstracted; attribution and negation remain",
+  "training_rows": {
+    "ro": 14156,
+    "uk": 14913
+  },
+  "epochs": 2,
+  "evaluation_epochs": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2
+  ],
+  "seed": 1150,
+  "full_encoder_adaptation": true,
+  "top_learning_rate": 2e-05,
+  "layer_decay": 0.9,
+  "batch_size": 8,
+  "optimizer": "AdamW",
+  "weight_decay": 0.01,
+  "warmup_fraction": 0.05,
+  "objective": "Binary CE plus0.2 paired margin softplus for opposed training pairs",
+  "selection": "Unchanged per-group99recall; minimize worst false-review rate, sum rates, then misses",
+  "calibration_used_for_selection": false,
+  "reserved_access": "Token overlap exclusion only",
+  "release_gates_unchanged": true,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "new_runtime_required_before_installed_qualification": true
+}
