@@ -41,3 +41,19 @@ also included there.
 The multilingual entailment model's pinned upstream MIT license is preserved
 unchanged in [nli-UPSTREAM-LICENSE.txt](licenses/nli-UPSTREAM-LICENSE.txt), with
 its source URL and checksum in [sources.json](licenses/sources.json).
+
+## Preparing downloadable assets
+
+Maintainers can use `scripts/prepare_portable_model_download.py` to stage a
+completed native or entailment candidate in a new local directory. It checks
+the selected artifact, checkpoint and tokenizer identities, copies the required
+upstream license records, and writes a download manifest and content-addressed
+GitHub release assets. The original pretrained weights are omitted because the
+runtime uses the selected fine-tuned checkpoint.
+
+The command performs no upload and does not change the packaged profile catalog.
+A staged candidate must still pass the accuracy and installed-runtime checks
+before publication. The
+[private staging preflight](../../research/v9-stabilization/portable-distribution-preflight-20261019.json)
+covers both portable model families; it is distribution evidence, not accuracy
+evidence. Run the script with `--help` for its required paths and release URL.
