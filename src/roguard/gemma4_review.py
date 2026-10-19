@@ -9,7 +9,7 @@ import tempfile
 import threading
 
 from .assurance import policy_digest
-from .gemma4_contract import BASE_MODEL, BASE_REVISION, FILES, IMPLEMENTATIONS, POLICY_SHA256, VERSIONS, classifier_tokens
+from .gemma4_contract import BASE_MODEL, BASE_REVISION, FILES, IMPLEMENTATIONS, POLICY_SHA256, PREFIX_TOKENS, VERSIONS, classifier_tokens
 from .interpreter import prepare_input
 from .language_bundle import _read_manifest
 from .native_fields import FIELDS, SIZES, _check_couplings, factorized_review_mass
@@ -133,24 +133,19 @@ class _Engine:
         from .gemma4_attention import capture, capture_with_prefix, replay
         mx = self.mx
         sequences = [classifier_tokens(self.tokenizer, p) for p in prefixes]
-        valid = [s for s in sequences if len(s) <= 1024]
-        common = 0
-        if valid:
-            for values in zip(*valid):
-                if len(set(values)) != 1:
-                    break
-                common += 1
-            common = min(common, min(map(len, valid))-1, self.model.base.model.window_size-1)
+        # Match the qualified extraction path, including its fixed prefix length.
+        # This prefix contains only shared prompt scaffolding, not message text.
+        common = len(PREFIX_TOKENS)
         cache = None
-        if common:
+        if any(common < len(s) <= 1024 and s[:common] == PREFIX_TOKENS for s in sequences):
             cache = self.make_cache(self.model.base)
-            mx.eval(self.model.base.model(mx.array([valid[0][:common]]), cache=cache))
+            mx.eval(self.model.base.model(mx.array([PREFIX_TOKENS]), cache=cache))
         output = []
         for sequence in sequences:
             if len(sequence) > 1024:
                 output.append(None)
                 continue
-            if common:
+            if cache is not None and len(sequence) > common and sequence[:common] == PREFIX_TOKENS:
                 state = capture_with_prefix(self.model.base, mx.array([sequence[common:]]), cache, start=24)
             else:
                 state = capture(self.model.base, mx.array([sequence]), start=24)

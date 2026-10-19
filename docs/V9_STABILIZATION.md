@@ -2501,3 +2501,14 @@ bundle test checks device selection and path containment. The wheel builds and
 a separate installed-package fixture check passes without checkout imports.
 These are runtime engineering checks; actual trained-weight installed parity
 and language accuracy remain to be measured after qualification.
+
+Study162 completed its two-epoch Ukrainian continuation. Development selection
+retained the initial checkpoint: later checkpoints increased scope false alerts.
+Its prior audit has one formal miss and no formal false alerts; conversational
+calibration has seven misses and 11/223 false alerts, and exposed regression
+has no misses but 5/44 false alerts. It does not qualify for release.
+
+The Gemma4 runtime now uses the same fixed 387-token prompt prefix as the
+qualification pipeline, with a full-input fallback when the prefix differs.
+All 13 runtime tests pass on MLX CPU, including both execution paths and
+abstention for oversized inputs. This alignment changes no trained checkpoint.
