@@ -34,9 +34,11 @@ later Ukrainian checkpoint with the same zero errors and a wider score gap.
 Its prior audit reduced Ukrainian formal misses from 23 to 9, still below the
 99% recall gate. The completed Ukrainian continuation adds separately authored
 reported-support contrasts and a disjoint development wording set; Romanian is
-retained. The new 5,022-case prior audit is running with the selection fixed.
-Installed-model comparison and the untouched reserved test follow only after
-both languages pass. The clean installed wheel
+retained. The new prior audit passed all six language/group checks: Romanian
+had zero misses and two exposed false alerts; Ukrainian had zero errors across
+all 2,475 cases. Installed-model comparison is now running across the same 5,022
+prior cases; the untouched reserved test follows only after parity passes.
+The clean installed wheel
 passes 46 runtime/installer tests. V9 remains experimental; stable installations
 select 7.1.1. Synthetic development results do not establish real-world accuracy.
 [Training method](docs/V9_SHARED_ATTENTION.md)

@@ -2852,13 +2852,23 @@ Selection retained Ukrainian epoch1.5, binary scoring, cutoff
 All 3,387 Ukrainian development cases are correct, across eight groups; its
 minimum score margin is 0.2955647892986383. Epoch2 was also error-free but had a
 smaller margin. Romanian's unchanged checkpoint retains 2,954 correct development
-cases. Together, all 6,341 cases and 14 groups pass with zero errors. Prior197 is
-now evaluating this frozen selection; no installed or reserved result is implied.
+cases. Together, all 6,341 cases and 14 groups pass with zero errors.
+
+Prior197 completed and passed every group. Romanian had zero misses and zero
+formal/conversational false reviews, with two false reviews in the 44-negative
+exposed group (4.55%). Ukrainian had zero misses and zero false reviews in all
+2,475 prior cases. The previous nine Ukrainian formal misses are resolved in
+this audit. Both development replays matched every score exactly; full-model
+reference checks passed. Installed198 is now comparing the installed wheel with
+all 5,022 prior predictions. Reserved199 remains gated on complete installed
+parity. These repeated prior populations are regression evidence, not a fresh
+estimate of generalization.
 
 [Data design](../research/v9-stabilization/reported-support-194/protocol.json)
 · [Training protocol](../research/v9-stabilization/reported-tail-fit-196/protocol.json).
 · [Completed continuation](../research/v9-stabilization/reported-tail-fit-196/actual/report.json)
 · [Prior qualification protocol](../research/v9-stabilization/reported-tail-prior-197/protocol.json).
+· [Completed prior audit](../research/v9-stabilization/reported-tail-prior-197/actual/report.json).
 
 All these populations are synthetic; no new independent human language review
 or measured real-world performance is claimed.
