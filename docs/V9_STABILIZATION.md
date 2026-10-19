@@ -2690,7 +2690,7 @@ authored synthetic contrasts without copying failed evaluation sentences:
 
 Study177 continues from each language's selected165 adapter separately, using
 14,337 training cases in total. Each language retains all its earlier training
-cases; old and new cases each receive half the weighted training loss, with
+cases; old and new cases receive equal total classification weight, with
 class balance within each half. Training is fixed at two epochs with a 5e-5
 learning rate. Earlier train-fitted semantic couplings remain fixed.
 
@@ -2748,3 +2748,36 @@ installed188 and reserved189 run only after their preceding gates pass. The
 [Gradient comparison](../research/v9-stabilization/grounding-gradient-finite-difference-184/report.json)
 · [Repaired comparison](../research/v9-stabilization/grounding-gradient-repair-185/report.json)
 · [Restart protocol](../research/v9-stabilization/serial-grounding-tail-fit-186/protocol.json).
+
+
+### Completed grounding continuation
+
+Study186 completed both predeclared epochs for each language without a further
+nonfinite-gradient stop. Every one of the 6,053 development cases is correct at
+the selected fixed checkpoint and cutoff:
+
+| Language | Development cases | Required groups | Missed concerns | False reviews |
+|---|---:|---:|---:|---:|
+| Romanian | 2,954 | 6 | 0 | 0 |
+| Ukrainian | 3,099 | 7 | 0 | 0 |
+
+Romanian selection retained epoch1.5, policy scoring, cutoff
+0.8659504636108948. Ukrainian retained epoch1, binary scoring, cutoff
+0.9970286876411156. These are score cutoffs, not calibrated safety probabilities.
+The unchanged predeclared selection rule retains the earlier checkpoint on a
+tied rank; later checkpoints did not replace those selections.
+
+The run used 14,337 distinct training inputs. The epoch loops, including
+checkpoint comparisons, took 24.8 minutes, excluding initial model loading and
+development replay. Peak MLX allocation was 4.47 GB. Both initial checkpoints
+reproduced every original development score exactly, with zero decision changes.
+The training loss declined from 0.0614 to 0.00226 in Romanian and from 0.0776 to
+0.00164 in Ukrainian across the two epochs.
+
+[Completed training report](../research/v9-stabilization/serial-grounding-tail-fit-186/actual/report.json)
+· [Frozen prior-audit protocol](../research/v9-stabilization/serial-grounding-prior-187/protocol.json).
+
+Prior187 is the next accuracy gate, followed by installed188 and reserved189.
+Those results are not implied by perfect development performance. All of these
+populations are synthetic; no new independent human language review or measured
+real-world performance is claimed.
