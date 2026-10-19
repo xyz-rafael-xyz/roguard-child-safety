@@ -1110,3 +1110,11 @@ compare the installed wheel with all 400 study88 reference outputs. This runtime
 is available for explicit experiments and does not change the default model or
 the stable release. The updated software suite passed 797 tests and 129 subtests,
 with 25 skipped; actual-model parity remains pending.
+
+Study92 preregisters a complementary-score experiment using native22 for Romanian,
+needs85 for Ukrainian, and the fixed study88 Qwen adapter. Seven features describe
+the two model scores and their agreement; text, labels, source strata and case
+identifiers are excluded from predictive features. Five connected development
+folds select regularization, and development scores alone fix the final threshold.
+Invalid Qwen tokens remain abstentions. Development, out-of-fold development and
+calibration must each meet the existing count gates. Results are pending.

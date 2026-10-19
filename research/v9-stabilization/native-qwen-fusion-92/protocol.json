@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-19T01:49:34.116974+00:00",
+  "purpose": "Test complementary native and adapted-Qwen errors without text/label features.",
+  "components": "RO native22; UK needs85; fixed selected Qwen88 with study89parity and study90full outputs.",
+  "features": "Seven native/Qwen score, logit and agreement terms only; invalid Qwen token => abstention.",
+  "selection": "Five connected same-focal/pair development folds; regularization0.1,1,10,100; rank unchanged gate eligibility then max/sum false reviews then stronger regularization. Final threshold covers all valid OOF and refit development positives. Calibration never selects model or threshold.",
+  "gates": "Development, OOF and calibration each require >=99% concern recall and <=5% benign review including abstentions per language/kind.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "independent_accuracy_evaluation": false
+}
