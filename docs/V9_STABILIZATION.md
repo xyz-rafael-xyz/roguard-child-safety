@@ -2650,3 +2650,62 @@ against their original labels after the reserved evaluation has completed.
 Nine tests reject altered code/data, extra modules, changed download metadata,
 dependency drift, command changes and unexpected installation files. The actual
 release check has not run; no stable v9 wheel is promoted by these fixture tests.
+
+
+### Grounding continuation
+
+Study170 completed the 5,022-case prior audit with the selected165 weights and
+cutoffs unchanged. Development replay reproduced every score exactly. Both
+languages recovered every positive case in this audit, but two negative groups
+missed the 5% false-review limit:
+
+| Language | Group | Missed concerns | False reviews | Gate |
+|---|---|---:|---:|---|
+| RO | Formal | 0/614 | 45/1,386 | Pass |
+| RO | Conversational | 0/216 | 2/243 | Pass |
+| RO | Exposed regression | 0/44 | 3/44 | Fail |
+| UK | Formal | 0/614 | 1/1,386 | Pass |
+| UK | Conversational | 0/164 | 12/223 | Fail |
+| UK | Exposed regression | 0/44 | 0/44 | Pass |
+
+[Complete prior results](../research/v9-stabilization/shared-tail-canonical-prior-170/actual/report.json).
+Studies171/172 did not run. The reserved117 test remains neurally unscored.
+
+The remaining Romanian patterns were explicit denial and ordinary questions
+after a concern. Ukrainian errors included personal framing without an actual
+concern and vague references to ordinary activities. Studies173/175 add newly
+authored synthetic contrasts without copying failed evaluation sentences:
+
+- 4,656 training examples and 344 separate development examples across both
+  languages. Development questions, propositions, framing phrases and histories
+  are disjoint from their new training counterparts.
+- Ordinary questions remain ordinary after a concerning history, while a
+  retraction after an actual concern remains review-worthy. A topic change does
+  not resolve or erase that earlier concern.
+- Unspecified personal framing alone does not invent a concern. A vague reference
+  can carry forward a concern when that referent actually exists in context.
+- Exact prompt-token overlap is checked against earlier training/development,
+  prior evaluation and reserved inputs. Reserved access is tokenization only;
+  these preparation steps perform no neural evaluation.
+
+Study177 continues from each language's selected165 adapter separately, using
+14,337 training cases in total. Each language retains all its earlier training
+cases; old and new cases each receive half the weighted training loss, with
+class balance within each half. Training is fixed at two epochs with a 5e-5
+learning rate. Earlier train-fitted semantic couplings remain fixed.
+
+The predeclared development selection rule minimizes the greatest fraction of
+either error budget used across all groups: `100 * missed / positives` and
+`20 * false_reviews / negatives`. Ties use summed budget utilization, then error
+count. The 99% recall and 5% false-review gates are unchanged. Checkpoints, output
+mode and threshold are selected using development only. The complete development
+population is 6,053 cases, including both new groups; prior scores are not used
+to choose a checkpoint or cutoff.
+
+The composite cache reader preserves each corpus's input identity and original
+development batch boundaries. The initial checkpoint must reproduce all earlier
+development scores before training. Qualification178 evaluates all prior cases;
+installed comparison180 and reserved evaluation181 are gated on successful
+preceding checks. The same clean wheel and exact runtime dependencies are used.
+The new data are authored synthetic examples, not independent human annotations
+or observed child-language performance.

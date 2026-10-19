@@ -6,6 +6,9 @@ from training.evaluate_shared_tail_reserved_v9 import require_installed_gate
 from training.evaluate_canonical_tail_reserved_v9 import require_installed_gate as require_canonical_installed_gate
 
 
+from training.evaluate_grounding_tail_reserved_v9 import require_installed_gate as require_grounding_installed_gate
+
+
 def good_report():
     groups = {name: dict(positive=150, negative=150, missed=1, false_reviews=7) for name in ('formal', 'conversational', 'exposed')}
     language = dict(replay=dict(decision_changes=0, score_max_error=1e-6), metrics=groups)
@@ -14,7 +17,7 @@ def good_report():
         languages=dict(ro=deepcopy(language), uk=deepcopy(language)))
 
 
-@pytest.mark.parametrize('require_installed_gate', [require_installed_gate, require_canonical_installed_gate])
+@pytest.mark.parametrize('require_installed_gate', [require_installed_gate, require_canonical_installed_gate, require_grounding_installed_gate])
 def test_reserved_gate_requires_both_languages_every_group_and_exact_installed_identity(require_installed_gate):
     report = good_report()
     require_installed_gate(report, 'a'*64, 'b'*64)

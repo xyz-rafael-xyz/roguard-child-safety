@@ -4,7 +4,13 @@ import zipfile
 
 import pytest
 
-from scripts.verify_gemma4_release import verify_wheels
+from scripts.verify_gemma4_release import verify_wheels as verify_original_wheels
+from scripts.verify_grounding_gemma4_release import verify_wheels as verify_grounding_wheels
+
+
+@pytest.fixture(params=[verify_original_wheels, verify_grounding_wheels])
+def verify_wheels(request):
+    return request.param
 
 
 def wheels(tmp_path, change=None):
@@ -35,12 +41,12 @@ def wheels(tmp_path, change=None):
     return tmp_path/'qualified.whl',tmp_path/'release.whl',download
 
 
-def test_stable_wheel_can_add_only_bound_download_files_and_version_metadata(tmp_path):
+def test_stable_wheel_can_add_only_bound_download_files_and_version_metadata(tmp_path,verify_wheels):
     result=verify_wheels(*wheels(tmp_path))
     assert result['unchanged_package_files']==2
     assert result['added_model_files']==['roguard/model-download-v9-test.json','roguard/model-profiles.json']
 
 
 @pytest.mark.parametrize('change',['code','data','extra-module','manifest','catalog','dependency','command','outside'])
-def test_unqualified_release_changes_are_rejected(tmp_path,change):
+def test_unqualified_release_changes_are_rejected(tmp_path,change,verify_wheels):
     with pytest.raises(ValueError):verify_wheels(*wheels(tmp_path,change))

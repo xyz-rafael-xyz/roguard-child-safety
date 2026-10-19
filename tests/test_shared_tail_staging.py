@@ -4,11 +4,14 @@ import zipfile
 
 import pytest
 
-from training.stage_shared_tail_bundle_v9 import review_metadata
-from training.verify_shared_tail_installed_v9 import installed_files
+from training.stage_shared_tail_bundle_v9 import review_metadata as original_metadata
+from training.stage_grounding_tail_bundle_v9 import review_metadata as grounding_metadata
+from training.verify_shared_tail_installed_v9 import installed_files as original_files
+from training.verify_grounding_tail_installed_v9 import installed_files as grounding_files
 
 
-def test_staged_metadata_is_accepted_without_loading_weights(tmp_path):
+@pytest.mark.parametrize('review_metadata', [original_metadata, grounding_metadata])
+def test_staged_metadata_is_accepted_without_loading_weights(tmp_path, review_metadata):
     from roguard.gemma4_contract import BASE_REVISION
     from roguard.gemma4_review import LORA, Gemma4ReviewModel
     spec = dict(base_revision=BASE_REVISION, boundary=24, lora=LORA, language='uk',
@@ -24,7 +27,8 @@ def test_staged_metadata_is_accepted_without_loading_weights(tmp_path):
         review_metadata(dict(spec, boundary=38))
 
 
-def test_installed_gate_rejects_wheel_changes_and_checkout_imports(tmp_path):
+@pytest.mark.parametrize('installed_files', [original_files, grounding_files])
+def test_installed_gate_rejects_wheel_changes_and_checkout_imports(tmp_path, installed_files):
     package = tmp_path/'roguard'
     package.mkdir()
     module = package/'gemma4_review.py'
