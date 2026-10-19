@@ -1697,3 +1697,24 @@ decisions. Maximum component-score differences were 0.0000025034 on Metal and
 accuracy requirements failed. The full CPU qualification branch was likewise
 unnecessary for this rejected candidate. The queued study125 native comparison
 can now proceed with the frozen continuation inputs.
+
+### Additional scope contrasts prepared (study130)
+
+The completed study123 development errors cluster in reported fiction and topic
+changes for Romanian, and denial, reported fiction and performance contexts for
+Ukrainian. Study130 therefore prepares 3,840 new training-only examples using
+study117 training content and newly authored framing. Each language contributes
+1,344 examples in opposed-label pairs and 576 ordinary requests under the same
+scope wording. The pairs cover personal attribution, denial, fictional versus
+autobiographical performance, and unrelated focal questions versus continued
+concern. Topic-change pairs retain exactly the same prior concern in both
+members; their labels describe the focal message and do not erase history.
+
+Three data tests pass. Romanian, Ukrainian and entailment tokenizer audits find
+zero overlap with protected evaluation inputs or the existing study123 and
+study127 training inputs. Maximum lengths are 80, 87 and 123 tokens respectively.
+No neural inference was performed for this preparation. The data and generator
+are frozen in
+[`scope-operators-130`](../research/v9-stabilization/scope-operators-130).
+They have not been added to the running study125 or the already frozen study128.
+This is a prepared follow-up intervention, with no accuracy result claimed.
