@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-10-19T07:40:39.426748+00:00",
+  "base": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "research_reference": "https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "rationale": "Earlier zero-shot control17 failed; this supervised transfer keeps pretrained entailment labels and trains last4blocks/pooler/head with balanced bilingual replay and paired-scope examples. No previous project weights inherited.",
+  "train": "2760 authored117rows plus512perlanguage/style/label, no test/exposed gradients; CE3way plus0.2logit pair margin; neutral mass retained in softmax score",
+  "schedule": "two epochs, lr1e-5, seed1119, half/end checks, per-language full-coverage development cutoff including scopeDEV and UKstress; minimize worst FP stratum then total",
+  "calibration_and_exposed115": "audit after selection",
+  "fresh117_test": "not inferred or used for selection",
+  "synthetic_only": true,
+  "independently_annotated": false
+}
