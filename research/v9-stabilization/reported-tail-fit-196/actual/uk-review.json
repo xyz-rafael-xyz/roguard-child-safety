@@ -1,0 +1,58 @@
+{
+  "format": "roguard-shared-tail-adapter-experiment-v1",
+  "language": "uk",
+  "base_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "base_manifest_sha256": "5ef5a6cc4a575684b3693f50f6607aa02bfb9f59213fc35500c1348b50a1652f",
+  "source_freeze_sha256": "3992d1af8a83796a24416b8a3f0535ef78b28a0479037478abcd2490cfabd0b4",
+  "boundary": 24,
+  "lora": {
+    "rank": 8,
+    "scale": 16.0,
+    "dropout": 0.0,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.o_proj"
+    ]
+  },
+  "checkpoint_sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f",
+  "mode": "binary",
+  "couplings": {
+    "scope": [
+      [
+        1.6583445498618836,
+        0.0009689459868266463,
+        0.0007763737834454161
+      ],
+      [
+        0.0009689459868266463,
+        5.65317241223169,
+        0.0026487881491757004
+      ],
+      [
+        0.0007763737834454161,
+        0.0026487881491757004,
+        4.530691163159059
+      ]
+    ],
+    "assertion_relation": [
+      [
+        1.0673645942287031,
+        0.002280993724260129
+      ],
+      [
+        1.0665966287634436,
+        0.013655125040948892
+      ],
+      [
+        1.0664390120281797,
+        0.015989544394030924
+      ],
+      [
+        0.001747705250963525,
+        15.784848018948152
+      ]
+    ]
+  },
+  "threshold": 0.6608994271813364,
+  "score_is_calibrated": false
+}

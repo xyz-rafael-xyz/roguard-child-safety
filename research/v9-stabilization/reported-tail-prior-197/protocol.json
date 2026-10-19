@@ -1,0 +1,31 @@
+{
+  "study": 197,
+  "created_utc": "2026-10-19T19:16:46.107950+00:00",
+  "rows": 5022,
+  "populations": [
+    "cal",
+    "exposed"
+  ],
+  "batch_size": 1,
+  "development_batch_size": 8,
+  "boundary": 24,
+  "compute_dtype": "float32",
+  "thresholds": {
+    "ro": 0.8659504636108948,
+    "uk": 0.6608994271813364
+  },
+  "full_development_replay": true,
+  "development_score_tolerance": 1e-05,
+  "full_forward_training_reference_relative_tolerance": 0.0001,
+  "portable_head_logit_tolerance": 0.001,
+  "qualification": "Frozen adapter and output mode; no threshold selection or fitting",
+  "batch_contract": "Development batch8 per corpus matches177; prior batch1 matches installed single-example execution",
+  "reference_use": "Same16 training references as163, evaluated with selected language adapters",
+  "calibration_used_for_selection": false,
+  "fresh_test_in_inputs": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "installed_execution_verified": false,
+  "stable_release_ready": false
+}

@@ -2839,8 +2839,26 @@ single-example backward path, and the same joint semantic and paired losses.
 Development selection uses the error-budget rank followed by zero-error score
 separation. Prior197, installed198 and reserved199 are conditional later gates.
 
+Cache extraction completed in 591 seconds, producing 2,592 states totaling
+16.12 GB. Its fixed training-reference comparisons passed, with maximum relative
+feature error 3.25e-5. Continuation196 completed both epochs: 1,343 and 1,345
+training steps. Mean training loss decreased from 0.002247 to 0.0000766; peak MLX
+allocation was 4.48 GB. The original 3,099-case Ukrainian development replay
+matched exactly before training.
+
+Selection retained Ukrainian epoch1.5, binary scoring, cutoff
+0.6608994271813364, checkpoint SHA-256
+`0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f`.
+All 3,387 Ukrainian development cases are correct, across eight groups; its
+minimum score margin is 0.2955647892986383. Epoch2 was also error-free but had a
+smaller margin. Romanian's unchanged checkpoint retains 2,954 correct development
+cases. Together, all 6,341 cases and 14 groups pass with zero errors. Prior197 is
+now evaluating this frozen selection; no installed or reserved result is implied.
+
 [Data design](../research/v9-stabilization/reported-support-194/protocol.json)
 · [Training protocol](../research/v9-stabilization/reported-tail-fit-196/protocol.json).
+· [Completed continuation](../research/v9-stabilization/reported-tail-fit-196/actual/report.json)
+· [Prior qualification protocol](../research/v9-stabilization/reported-tail-prior-197/protocol.json).
 
 All these populations are synthetic; no new independent human language review
 or measured real-world performance is claimed.

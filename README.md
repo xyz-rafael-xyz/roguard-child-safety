@@ -25,15 +25,16 @@ measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_
 track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
 
 **Latest v9 qualification progress:** continuation training now yields zero
-errors across all 6,053 synthetic development cases and all 13 language/group
+errors across all 6,341 synthetic development cases and all 14 language/group
 checks. The work adds context-grounding contrasts and a verified repair for
 inconsistent grouped training gradients. The separate 5,022-case prior audit
 passed all Romanian groups (zero misses, two false alerts), but found 23 missed
 Ukrainian formal concerns. A development-only checkpoint comparison selected a
 later Ukrainian checkpoint with the same zero errors and a wider score gap.
 Its prior audit reduced Ukrainian formal misses from 23 to 9, still below the
-99% recall gate. A Ukrainian continuation now adds separately authored reported-
-support contrasts and a disjoint development wording set; Romanian is retained.
+99% recall gate. The completed Ukrainian continuation adds separately authored
+reported-support contrasts and a disjoint development wording set; Romanian is
+retained. The new 5,022-case prior audit is running with the selection fixed.
 Installed-model comparison and the untouched reserved test follow only after
 both languages pass. The clean installed wheel
 passes 46 runtime/installer tests. V9 remains experimental; stable installations
