@@ -1751,3 +1751,21 @@ these checks perform no model inference. Study134 uses the same full installed
 CPU replay and additionally rejects reserved-test access by study132. All twelve
 shared native gate tests pass. This fallback waits for the prior experiments and
 has no training or accuracy result yet.
+
+### Completed native curriculum comparison (studies125–126)
+
+Both study125 languages selected epoch0, retaining their starting study117
+checkpoints because the broader replay curriculum did not improve the frozen
+development objective. This rejects the curriculum-only continuation as an
+accuracy improvement. Romanian calibration has zero misses, with 244/1,386
+formal and 37/243 conversational false reviews. Ukrainian calibration has zero
+misses, with 90/1,386 formal and 31/223 conversational false reviews. On exposed
+scope regression, Romanian has zero misses and 8/44 false reviews; Ukrainian
+has one miss among 44 positives and 21/44 false reviews.
+
+Study126 reproduced all 10,443 decisions across the nine prior populations on
+the installed CPU runtime. Its largest score difference was 0.0000071526.
+The reserved 600-case evaluation remains uninferred because accuracy prerequisites
+failed. The prepared study128 grammatical-gender continuation follows this
+completed comparison; the original data, predictions and results remain available
+for audit.
