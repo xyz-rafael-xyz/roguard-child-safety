@@ -2801,5 +2801,19 @@ score perturbations on those cases; it is not a calibrated uncertainty bound or
 a guarantee of generalization. New prior191, installed192 and reserved193 checks
 are required before publication. The reserved117 test remains neurally unused.
 
+The comparison completed and selected Ukrainian epoch1.5, binary scoring,
+cutoff 0.8349868063914941, checkpoint SHA-256
+`8a01dba6062e0bf9e92b1ebeaa7e818d7f677eac9d02553fff43f79cbaf64435`.
+All 3,099 Ukrainian development cases remain correct. The nearest negative and
+positive scores are 0.6942256725025439 and 0.9757479402804444, giving an additive
+margin of 0.14076113388895028; the previously selected epoch1 had a margin of
+0.0011592202905497118. Epoch2 had a smaller margin, 0.10064773505820901.
+The original epoch1 development replay matched all 3,099 scores exactly.
+Romanian retains its previous checkpoint, scoring mode and cutoff. Prior191 is
+running with these selections frozen.
+
+[Complete development comparison](../research/v9-stabilization/separated-tail-selection-190/actual/report.json)
+· [New prior protocol](../research/v9-stabilization/separated-tail-prior-191/protocol.json).
+
 All these populations are synthetic; no new independent human language review
 or measured real-world performance is claimed.
