@@ -2194,3 +2194,16 @@ approximately 0.15–0.16 milliseconds per case with native/contextual scores
 already available. This timing excludes those encoders and is not an end-to-end
 latency claim. Numerical CI now runs the sparse export and blend tests with
 their required reference dependencies explicitly installed.
+
+### Completed full encoder and installed replay (studies133–134)
+
+The Ukrainian full encoder selected epoch1: development has zero misses, with
+42/1,413 formal, 2/223 conversational, 25/90 scope and 35/172 stress false
+reviews. Calibration has zero formal misses with 238/1,386 false reviews, and
+one conversational miss with 16/223 false reviews. The exposed scope regression
+has one miss and 6/44 false reviews. Romanian retained its initial checkpoint.
+Both languages still fail accuracy requirements.
+
+Study134 reproduced all 10,443 prior decisions using the installed CPU runtime.
+The largest score difference was 7.46e-6. Installation parity passed, but the
+reserved population was skipped because preceding accuracy gates failed.
