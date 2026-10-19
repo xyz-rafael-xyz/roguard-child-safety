@@ -23,15 +23,13 @@ workflow; the language-model accuracy gates remain open. [V9 scope, usage and
 measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_STABILIZATION.md)
 track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
 
-**Latest v9 qualification progress:** the Romanian candidate and the new
-Ukrainian scope-consensus candidate pass their development and reused synthetic
-calibration count gates. Romanian calibration has zero missed concerns and
-3.75%/2.88% formal/conversational false reviews. Ukrainian conversational
-calibration has 99.39% recall and 4.93% false reviews; the repaired combination
-also recovers all 44 known stress concerns with 6/172 benign false reviews.
-Its installed-package and bilingual checks pass with exact decision and score
-parity. The frozen reserved evaluation is now running. These are synthetic measurements, and v9 is not
-yet the default release.
+**Latest v9 qualification progress:** installed-package and bilingual replay
+checks pass, but the newly opened synthetic evaluation found a generalization
+gap. Across unique inputs, Romanian missed 4/60 concerns with 1/60 false reviews;
+Ukrainian missed 2/56 concerns with 27/57 false reviews. These results fail the
+unchanged release gates. The next repair targets fiction/disclosure contrasts,
+negation and topic changes. V9 remains experimental; stable installations select
+7.1.1. Previously opened probes are now regression data, not fresh evaluation.
 [Results and limits](docs/V9_STABILIZATION.md#scope-consensus-repair-and-installed-verification).
 
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).

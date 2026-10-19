@@ -1,0 +1,116 @@
+{
+  "format": "roguard-bilingual-reserved-evaluation-v1",
+  "metrics": {
+    "contrast": {
+      "ro": {
+        "rows": 24,
+        "positive": 12,
+        "negative": 12,
+        "missed": 4,
+        "false_reviews": 1,
+        "abstentions": 0,
+        "recall": 0.6666666666666667,
+        "false_review_rate": 0.08333333333333333,
+        "passes": false
+      },
+      "uk": {
+        "rows": 24,
+        "positive": 12,
+        "negative": 12,
+        "missed": 2,
+        "false_reviews": 5,
+        "abstentions": 0,
+        "recall": 0.8333333333333334,
+        "false_review_rate": 0.4166666666666667,
+        "passes": false
+      }
+    },
+    "families_original": {
+      "ro": {
+        "rows": 84,
+        "positive": 48,
+        "negative": 36,
+        "missed": 0,
+        "false_reviews": 0,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.0,
+        "passes": true
+      },
+      "uk": {
+        "rows": 84,
+        "positive": 48,
+        "negative": 36,
+        "missed": 0,
+        "false_reviews": 18,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.5,
+        "passes": false
+      }
+    },
+    "families_lexical_v2": {
+      "ro": {
+        "rows": 84,
+        "positive": 48,
+        "negative": 36,
+        "missed": 0,
+        "false_reviews": 0,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.0,
+        "passes": true
+      },
+      "uk": {
+        "rows": 84,
+        "positive": 48,
+        "negative": 36,
+        "missed": 0,
+        "false_reviews": 18,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.5,
+        "passes": false
+      }
+    }
+  },
+  "unique_input_counts": {
+    "ro": {
+      "rows": 120,
+      "positive": 60,
+      "negative": 60,
+      "missed": 4,
+      "false_reviews": 1,
+      "abstentions": 0,
+      "recall": 0.9333333333333333,
+      "false_review_rate": 0.016666666666666666,
+      "passes": false
+    },
+    "uk": {
+      "rows": 113,
+      "positive": 56,
+      "negative": 57,
+      "missed": 2,
+      "false_reviews": 27,
+      "abstentions": 0,
+      "recall": 0.9642857142857143,
+      "false_review_rate": 0.47368421052631576,
+      "passes": false
+    }
+  },
+  "total_rows": 384,
+  "unique_inputs": 233,
+  "passes": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "analyst_blind": false,
+  "independent_observations": false,
+  "stable_release_ready": false,
+  "selection_sha256": "38f8fb3b4fa94da4c82bd973cbcef70ce92b631ca491edbaa7074b0bb2912dad",
+  "probe_sha256": {
+    "contrast": "7bf47bd773d5aceed684ad0aaeced6b85dc7d1602acfe17312a47073fe77e42f",
+    "families_original": "3786bfdc01a0421668df04eae8263488d4cb744bffb54192d647daf48d4fa40d",
+    "families_lexical_v2": "290cbb6dd7ccdccdf9c4371e4569b49831fbcb8eff5822d1dba5104819669b38"
+  },
+  "limitation": "Small related authored probes; passing counts do not establish population accuracy."
+}

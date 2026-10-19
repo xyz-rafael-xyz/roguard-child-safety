@@ -1,0 +1,42 @@
+{
+  "frozen_utc": "2026-10-19T07:33:18.994474+00:00",
+  "design": "Counterfactual paired CE plus logit-margin loss, two epochs, last4layers, lr1e-5, seed1117; paired batches preserve opposing labels; replay1536perlabel; cutoff full-coverage on originalDEV+newscopeDEV+UKstress; select worst stratum false review rate then sum; CAL and exposed115 audit only; fresh test conditional after all prior gates pass",
+  "data": {
+    "ro-train": {
+      "rows": 1380,
+      "unique_normalized_inputs": 1380,
+      "sha256": "dcc97bd6f0617fbd3e5c8b76ceeb420c471eb0c6f32b3997635af36547f5fbae"
+    },
+    "ro-dev": {
+      "rows": 180,
+      "unique_normalized_inputs": 180,
+      "sha256": "0b6be5b347817a298dcc2eeed3be383bb687e4a01d5ded3f90f30c1f21001979"
+    },
+    "ro-test": {
+      "rows": 300,
+      "unique_normalized_inputs": 300,
+      "sha256": "ff07b2e373969e0509769de7e3a907a3bf57952467ced6e153ff4abe6e0800f1"
+    },
+    "uk-train": {
+      "rows": 1380,
+      "unique_normalized_inputs": 1380,
+      "sha256": "20b0286d2dec8602f5f273ff3a388b0af3c91af7e2fac817cda24baeb4f7ef35"
+    },
+    "uk-dev": {
+      "rows": 180,
+      "unique_normalized_inputs": 180,
+      "sha256": "a636429a2634ad9b941e2da6e4c4963de593b1bf0f50e705d06829ce75c6c0ea"
+    },
+    "uk-test": {
+      "rows": 300,
+      "unique_normalized_inputs": 300,
+      "sha256": "c4ea1c1b0e45a519654e7dcdf9217f9f55eb7b4315315dcfafcbc084cc8adef6"
+    }
+  },
+  "independently_annotated": false,
+  "synthetic_only": true,
+  "exposed115_diagnosis_informed_design": true,
+  "fresh_test_used_for_selection": false,
+  "unchanged_recall_gate": 0.99,
+  "unchanged_false_review_gate": 0.05
+}

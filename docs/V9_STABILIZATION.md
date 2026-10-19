@@ -1415,3 +1415,18 @@ The identical frozen run was restarted with GPU access enabled. Its 40-example
 bilingual integration check passes exactly, and reserved access has now been
 recorded. The reserved evaluation is running; its accuracy result is not yet
 available.
+
+
+### Study115 reserved result and next repair
+
+The evaluation completed and failed. Its deduplicated inputs give Romanian
+4/60 missed concerns and 1/60 false reviews; Ukrainian 2/56 missed concerns and
+27/57 false reviews. There are no abstentions. Original and lexical-family
+probes overlap and are not independent observations. Exact runtime parity did
+not imply semantic generalization. No stable v9 promotion is authorized by
+these results.
+
+All three previously reserved probes are now exposed regression data. Study116
+replays the unchanged candidate solely to capture component diagnoses. The next
+training iteration will use broader paired scope examples and a new evaluation
+frozen before candidate selection. Original count gates remain unchanged.

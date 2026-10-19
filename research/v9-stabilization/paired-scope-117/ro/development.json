@@ -1,0 +1,67 @@
+{
+  "format": "roguard-paired-training-v1",
+  "language": "ro",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "exposed115_diagnosis_informed_design": true,
+  "exposed115_used_for_selection": false,
+  "test_used_for_selection": false,
+  "parent_artifact_sha256": "3c25b1ea7ecbab7f9688f1cb4e7ffd5c5c97e519fc40f160d64dcee23c433950",
+  "source_freeze_sha256": "98614ed06fa97ce0786b8e755418f1de4d4b40f5fe653b8c90aace67aaad0b0e",
+  "training_rows": 4452,
+  "authored_rows": 1380,
+  "epochs": [
+    {
+      "epoch": 0,
+      "threshold": 0.008750937413424253,
+      "metrics": {
+        "dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 1370,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.9695682944090588,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 458,
+            "positive": 216,
+            "negative": 242,
+            "missed": 0,
+            "false_reviews": 216,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.8925619834710744,
+            "passes": false
+          }
+        },
+        "scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 72,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.8,
+            "passes": false
+          }
+        }
+      },
+      "rank": [
+        0.9695682944090588,
+        2.6621302778801335
+      ]
+    }
+  ],
+  "learning_rate": 1e-05,
+  "seed": 1117,
+  "objective": "CE plus0.2softplus(1-positive_margin+negative_margin) on counterfactual pairs; CE on replay",
+  "trainable_parameters": 28353026,
+  "selected_epoch": 0
+}
