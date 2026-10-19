@@ -1430,3 +1430,47 @@ All three previously reserved probes are now exposed regression data. Study116
 replays the unchanged candidate solely to capture component diagnoses. The next
 training iteration will use broader paired scope examples and a new evaluation
 frozen before candidate selection. Original count gates remain unchanged.
+
+### Paired scope curriculum and entailment transfer
+
+Study116 replays the exposed study115 inputs and captures all three components.
+Both languages reproduce the previous scores and decisions exactly. This is
+failure diagnosis on known regression inputs, not another independent test.
+
+Study117 freezes 1,380 authored training rows, 180 development rows and 300 test
+rows per language. Content phrases and scope framing differ between partitions.
+Counterfactual pairs contrast fiction with real disclosure, denial with
+confirmation, fictional characters with real peers, and topic changes with
+continued concern. Cross entropy is supplemented by a logit-margin pair loss;
+3,072 historical examples per language provide replay. Each native encoder
+trains its final four blocks for two epochs. A token audit excludes all protected
+inputs and checks the new test against inherited project training history.
+
+Both candidates fail the unchanged accuracy gates. Romanian selection at epoch
+1.5 has zero calibration misses but 244/1,386 formal and 37/243 conversational
+false reviews. On the exposed probes, collapsed by the native normalized input,
+it has zero misses and 8/44 false reviews. Ukrainian calibration has zero misses
+but 90/1,386 formal and 31/223 conversational false reviews; exposed regression
+has 1/44 misses and 21/44 false reviews. Normalized counts differ from study115's
+raw-input counts because whitespace and Unicode variants collapse. Study118
+verifies the installed native runtime; its conditional fresh test cannot open
+unless both candidates qualify. The 600 new test messages remain uninferred.
+
+Study119 prepares a separate supervised transfer of the pinned multilingual
+mDeBERTa entailment encoder. The earlier study17 zero-shot control failed, so
+this is not a claim that unadapted entailment solves the task. It trains the
+final four blocks, pooler and classification head on the paired curriculum and
+512 historical examples per language/style/label group. Entailment, neutral and
+contradiction all remain in the score normalization. Development selects the
+checkpoint and cutoffs; calibration and exposed115 inputs are post-selection
+audits. No prior RoGuard checkpoint is inherited. The upstream model reports
+Ukrainian NLI training, which does not establish Romanian or RoGuard accuracy.
+[Upstream model card](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7).
+
+The separate runtime validates pinned tokenizer/configuration bytes and finite
+safetensors weights, uses only the selected conversation prefix, supports both
+language thresholds, and abstains on excessive token length. It grants no action
+or notification permission. Fifteen runtime tests pass. Study120 will verify
+actual installed inference on Metal and CPU before any conditional fresh test.
+The full suite after study118 passed 947 tests, with 30 optional tests skipped;
+the added entailment loss and gate checks have separate focused coverage.
