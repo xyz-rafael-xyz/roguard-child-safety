@@ -20,6 +20,11 @@ def load_bundle(path, *, expected_sha256, device='cpu'):
         raise ValueError('Bundle identity or size differs')
     spec=json.loads(raw)
     if not isinstance(spec,dict): raise ValueError('Expected a model bundle object')
+    if spec.get('format')=='roguard-qwen-review-bundle-v1':
+        if device!='mps':
+            raise ValueError('Qwen review requires --device mps on Apple Silicon')
+        from .qwen_review import QwenReviewModel
+        return QwenReviewModel.from_bundle(path,expected_sha256=expected_sha256)
     if spec.get('format')=='roguard-native-field-bundle-v1':
         return load_fields(path,expected_sha256=expected_sha256,device=device)
     if spec.get('format')=='roguard-field-bundle-v1':

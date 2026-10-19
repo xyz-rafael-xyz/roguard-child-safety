@@ -1094,3 +1094,19 @@ input exclusion. Checkpoints are selected by development target loss; the
 existing 400-case screen is evaluated afterward. Study89 prepares an equal-length
 batched decoder whose complete screen must match study88's single-message
 outputs before it can be adopted for larger evaluations.
+
+Study90 freezes the 9,691 original development/calibration inputs for the selected
+study88 Qwen adapter. Language thresholds use development scores only; calibration
+cannot move them. Invalid output tokens remain abstentions and count against the
+same 99% recall / 5% false-review requirements. The study has not yet reported
+qualification results.
+
+The experimental Qwen runtime accepts a pinned local bundle through
+`roguard-model --device mps`. It verifies the base inventory and complete adapter
+tensor schema, copies verified assets into a private snapshot before loading,
+and validates the whole input batch before inference. Future turns are excluded;
+outputs never grant notification or other external permissions. Study91 will
+compare the installed wheel with all 400 study88 reference outputs. This runtime
+is available for explicit experiments and does not change the default model or
+the stable release. The updated software suite passed 797 tests and 129 subtests,
+with 25 skipped; actual-model parity remains pending.
