@@ -1474,3 +1474,11 @@ or notification permission. Fifteen runtime tests pass. Study120 will verify
 actual installed inference on Metal and CPU before any conditional fresh test.
 The full suite after study118 passed 947 tests, with 30 optional tests skipped;
 the added entailment loss and gate checks have separate focused coverage.
+
+Study118 completed all nine installed native replay splits with zero changed
+classifications. The largest CPU-versus-training score difference was
+0.000007153. Its fresh test was skipped because the accuracy prerequisites
+failed. A development-only threshold-feasibility check also confirms that no
+single cutoff on either selected native checkpoint can satisfy all required
+recall and false-review limits. The fix therefore needs better learned scores,
+not merely another cutoff. Study119 is now running.

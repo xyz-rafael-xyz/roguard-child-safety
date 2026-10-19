@@ -1,0 +1,103 @@
+{
+  "ro": {
+    "selected_epoch": 1.5,
+    "highest_cutoff_meeting_99pct_recall_in_every_dev_group": 0.0024603907950222492,
+    "counts_at_highest_feasible_cutoff": {
+      "dev/formal": {
+        "rows": 2000,
+        "positive": 587,
+        "negative": 1413,
+        "missed": 0,
+        "false_reviews": 271,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.19179051663128097,
+        "passes": false
+      },
+      "dev/conversational": {
+        "rows": 458,
+        "positive": 216,
+        "negative": 242,
+        "missed": 0,
+        "false_reviews": 24,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.09917355371900827,
+        "passes": false
+      },
+      "scope_dev": {
+        "rows": 180,
+        "positive": 90,
+        "negative": 90,
+        "missed": 0,
+        "false_reviews": 23,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.25555555555555554,
+        "passes": false
+      }
+    },
+    "any_scalar_threshold_can_pass": false,
+    "paired_scope_development": {
+      "pairs": 84,
+      "both_correct": 61
+    },
+    "calibration_or_fresh_test_used": false
+  },
+  "uk": {
+    "selected_epoch": 1,
+    "highest_cutoff_meeting_99pct_recall_in_every_dev_group": 0.00029157844255678356,
+    "counts_at_highest_feasible_cutoff": {
+      "dev/formal": {
+        "rows": 2000,
+        "positive": 587,
+        "negative": 1413,
+        "missed": 0,
+        "false_reviews": 66,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.04670912951167728,
+        "passes": true
+      },
+      "dev/conversational": {
+        "rows": 387,
+        "positive": 164,
+        "negative": 223,
+        "missed": 0,
+        "false_reviews": 5,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.02242152466367713,
+        "passes": true
+      },
+      "scope_dev": {
+        "rows": 180,
+        "positive": 90,
+        "negative": 90,
+        "missed": 0,
+        "false_reviews": 41,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.45555555555555555,
+        "passes": false
+      },
+      "stress": {
+        "rows": 216,
+        "positive": 44,
+        "negative": 172,
+        "missed": 0,
+        "false_reviews": 44,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.2558139534883721,
+        "passes": false
+      }
+    },
+    "any_scalar_threshold_can_pass": false,
+    "paired_scope_development": {
+      "pairs": 84,
+      "both_correct": 43
+    },
+    "calibration_or_fresh_test_used": false
+  }
+}
