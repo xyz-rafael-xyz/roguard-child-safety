@@ -1,0 +1,53 @@
+{
+  "study": 163,
+  "created_utc": "2026-10-19T14:34:26.938690+00:00",
+  "reference_indices": [
+    829,
+    319,
+    310,
+    798,
+    1354,
+    373,
+    620,
+    1289,
+    5043,
+    5897,
+    5713,
+    5085,
+    5343,
+    4822,
+    4743,
+    4844
+  ],
+  "boundaries": [
+    24,
+    38
+  ],
+  "adaptation_boundary": 24,
+  "relative_feature_tolerance": 0.0001,
+  "readout_logit_tolerance": 0.001,
+  "lora": {
+    "rank": 4,
+    "scale": 8.0,
+    "dropout": 0.0,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.o_proj"
+    ]
+  },
+  "gradient_reference_positions": [
+    0,
+    4,
+    8,
+    12
+  ],
+  "learning_rate": 0.0001,
+  "seed": 1163,
+  "only_training_inferred": true,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "accuracy_experiment": false,
+  "publication": "No classifier accuracy claim; one diagnostic adapter update discarded",
+  "synthetic_only": true,
+  "stable_release_ready": false
+}

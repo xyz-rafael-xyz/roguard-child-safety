@@ -2390,3 +2390,25 @@ once, in1,121 batches of at most12 queries, with644 paired and1,728 invariance
 comparisons. This research artifact is explicitly Ukrainian-only and requires
 production support and installed qualification before any release. Training is
 queued after156 qualification; ongoing Romanian training is uninterrupted.
+
+### Shared-attention tail adaptation preflight (study163)
+
+The pinned Gemma4 text model has a final18-layer block that reuses key/value
+states from earlier frozen layers. For a last-token classification loss, those
+shared states allow the adaptable tail to recompute only the final query at
+each layer. The captured state includes complete attention keys and values,
+the final-token hidden state, per-layer inputs, positions and attention masks.
+It does not shorten the conversation. Only parameters after the verified
+shared-KV boundary may change.
+
+Five small-model CPU tests check output equivalence before and after tail
+weight changes, gradient equivalence, sliding-window behavior, multiple batch
+members and rejection of a boundary containing its own key/value projections.
+These tests pass; they do not establish performance on the actual4B weights.
+
+The frozen163 preflight uses16 existing training inputs, balanced by language
+and label and spanning prompt lengths. It will compare boundaries24 and38,
+measure replay time and cache size, and test one rank4 query/output adapter
+update on the full shared tail. Full-sequence parity must still hold after
+the update. The update is discarded; this preflight makes no accuracy claim
+and accesses no development, calibration or reserved examples.
