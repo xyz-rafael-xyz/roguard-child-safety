@@ -2011,3 +2011,18 @@ development margins within 1e-7. Scores are bounded margins, not calibrated
 probabilities. Source, feature-chunk and input hashes are verified before fitting.
 This CPU-only fallback may run alongside the later Ukrainian encoder training.
 No study142 accuracy result is claimed at preparation time.
+
+### Inference batching prototype
+
+`training/gemma4_batch_features_v9.py` groups continuations by exact token length
+and clones the common prompt cache for each group. It returns features in the
+original input order. Two tests on small actual Gemma 4 models cover independent
+and shared key/value layers, sliding attention, unequal lengths and cache
+isolation. Both pass at the original absolute feature tolerance of 1e-5.
+
+An initial right-padding implementation exceeded that tolerance for a shared-KV
+test: its maximum difference from independent full inference was 1.19e-5.
+Grouping by exact length preserves the one-token attention path and fixes the
+test without changing its tolerance. The prototype is not used by the frozen
+study141 run. It has no real-model throughput result or deployment qualification;
+actual score and decision parity must be checked before enabling it.
