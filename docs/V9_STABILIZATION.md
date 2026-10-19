@@ -1628,7 +1628,7 @@ synthetic data without independent annotation.
 The subsequent full suite in the neural environment passed 1,049 tests and 129
 subtests. Seventeen checks were skipped there: three MLX checks were covered by
 the separate 13-test MLX CPU run, and fourteen historical adapter checks require
-retired weight files absent from this checkout. Environment versions and log
+historical weight files absent from this checkout. Environment versions and log
 hashes are recorded in
 [`software-verification-20261019.json`](../research/v9-stabilization/software-verification-20261019.json).
 These software checks do not establish classifier accuracy.
