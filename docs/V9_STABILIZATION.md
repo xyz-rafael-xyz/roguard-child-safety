@@ -1669,3 +1669,31 @@ reports successful many-shot fine-tuning of RoBERTa and DeBERTa on that task.
 pairs with contrastive training to improve NLI robustness. These findings
 motivate the method; they do not establish Romanian or Ukrainian child-safety
 accuracy, and RoGuard does not claim to have invented counterfactual training.
+
+### Completed reason-covered entailment result (studies123–124)
+
+Study123 completed both epochs and selected epoch2 by its frozen development
+rule. It improves several earlier measurements but does not qualify for release.
+The post-selection audit is:
+
+| Population | Romanian misses / positives | Romanian false reviews / negatives | Ukrainian misses / positives | Ukrainian false reviews / negatives |
+| --- | ---: | ---: | ---: | ---: |
+| Formal calibration | 0 / 614 | 490 / 1,386 | 0 / 614 | 1 / 1,386 |
+| Conversational calibration | 0 / 216 | 23 / 243 | 6 / 164 | 16 / 223 |
+| Exposed scope regression | 0 / 44 | 6 / 44 | 0 / 44 | 5 / 44 |
+
+All audit populations had zero abstentions. The development scope check also
+fails, with 15/90 Romanian and 29/90 Ukrainian false reviews at the selected
+cutoffs. A separate development-only diagnostic using the existing 99% recall
+requirement reduces those counts to 15/90 and 21/90, still above the limit. That
+search now resolves equal false-review objectives in favor of fewer misses and
+recovers positives whenever the negative decisions can be preserved. Exhaustive
+comparison tests cover its full objective. It changes no candidate artifact and
+does not use calibration or reserved-test predictions.
+
+Study124 reproduced all 1,152 checked installed decisions and all 40 CPU smoke
+decisions. Maximum component-score differences were 0.0000025034 on Metal and
+0.0000141711 on CPU. The fresh 600-case evaluation was skipped because the prior
+accuracy requirements failed. The full CPU qualification branch was likewise
+unnecessary for this rejected candidate. The queued study125 native comparison
+can now proceed with the frozen continuation inputs.

@@ -43,6 +43,15 @@ def frontier(rows):
                 boundary = remaining[allowance]
                 index = int(np.searchsorted(revision_cuts, boundary, side='right')) - 1
                 revision_cutoff = min(revision_cutoff, float(revision_cuts[index]))
+        # Recover any additional positives without adding a false review.
+        # Among the negatives not already selected by support, preserve every
+        # currently negative decision and lower revision within that partition.
+        retained_negatives = revision[~gold & ~support_positive & (revision < revision_cutoff)]
+        if len(retained_negatives):
+            index = int(np.searchsorted(revision_cuts, retained_negatives.max(), side='right'))
+            revision_cutoff = float(revision_cuts[index])
+        else:
+            revision_cutoff = float(revision_cuts[0])
         predicted = support_positive | (revision >= revision_cutoff)
         metrics = {}
         for group, mask in masks.items():
@@ -55,7 +64,7 @@ def frontier(rows):
                                   recall=(positive-missed)/positive, false_review_rate=false/negative,
                                   passes=missed*100 <= positive and false*20 <= negative)
         rates = [m['false_review_rate'] for m in metrics.values()]
-        rank = (max(rates), sum(rates))
+        rank = (max(rates), sum(rates), sum(m['missed'] for m in metrics.values()))
         if best is None or rank < best:
             best = rank
             selected = dict(support_threshold=support_cutoff, revision_threshold=revision_cutoff,

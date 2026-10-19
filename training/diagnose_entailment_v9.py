@@ -14,7 +14,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--candidate', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--recall-budget', action='store_true', help='Diagnose the existing 99% recall gate rather than zero misses')
     args = parser.parse_args()
+    selected_frontier = frontier
+    frontier_module = Path('training/entailment_frontier_v9.py')
+    frontier_key = 'full_coverage_two_cutoff_frontier'
+    if args.recall_budget:
+        from training.budgeted_entailment_frontier_v9 import frontier as selected_frontier
+        frontier_module = Path('training/budgeted_entailment_frontier_v9.py')
+        frontier_key = 'recall_budget_two_cutoff_frontier'
     root = args.candidate
     report = json.loads((root/'development.json').read_text())
     if report.get('complete') is not True:
@@ -64,16 +72,18 @@ def main():
                                         support_score=value['support_score'], revision_score=value['revision_score'],
                                         score=value['score']))
         languages[language] = dict(selected_counts=dict(sorted(groups.items())),
-                                   full_coverage_two_cutoff_frontier=frontier(population),
                                    lowest_positive_scores=sorted(weakest, key=lambda v: v['score'])[:12])
+        languages[language][frontier_key] = selected_frontier(population)
     result = dict(format='roguard-entailment-development-diagnosis-v1', source_sha256=digest(Path(__file__)),
-                  input_sha256=hashes, synthetic_only=True, calibration_read=False, fresh_test_read=False,
+                  input_sha256=hashes, frontier_source_sha256=digest(frontier_module),
+                  minimum_development_recall=.99 if args.recall_budget else 1.,
+                  synthetic_only=True, calibration_read=False, fresh_test_read=False,
                   model_changed=False, training_reason_counts=[dict(language=l, support=s, revision=r, rows=n)
                                                               for (l, s, r), n in sorted(training.items())],
                   languages=languages)
     with args.output.open('x') as stream:
         stream.write(json.dumps(result, indent=2)+'\n')
-    print(json.dumps({l: v['full_coverage_two_cutoff_frontier'] for l, v in languages.items()}))
+    print(json.dumps({l: v[frontier_key] for l, v in languages.items()}))
 
 
 if __name__ == '__main__':

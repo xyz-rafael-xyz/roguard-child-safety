@@ -14,17 +14,19 @@ def brute_force(rows):
     for support, revision in itertools.product(cuts([r['support_score'] for r in rows]),
                                                cuts([r['revision_score'] for r in rows])):
         rates = []
+        total_misses = 0
         for group in groups:
             population = [r for r in rows if r['group'] == group]
             positives = sum(r['gold'] for r in population)
             misses = sum(r['gold'] == 1 and r['support_score'] < support and r['revision_score'] < revision for r in population)
             if misses * 100 > positives:
                 break
+            total_misses += misses
             negatives = len(population)-positives
             false = sum(r['gold'] == 0 and (r['support_score'] >= support or r['revision_score'] >= revision) for r in population)
             rates.append(false/negatives)
         else:
-            rank = (max(rates), sum(rates))
+            rank = (max(rates), sum(rates), total_misses)
             if best is None or rank < best:
                 best = rank
     return best
@@ -37,8 +39,15 @@ def test_exact_frontier_matches_exhaustive_search_with_ties_and_small_groups(see
                  revision_score=rng.choice([0., .2, .8, 1.]))
             for g, positive in [('formal', 200), ('conversation', 100), ('small', 44)]
             for gold, size in [(1, positive), (0, 40)] for _ in range(size)]
+    # Avoid forcing every threshold to zero: retain nontrivial OR frontiers.
+    for row in rows:
+        if row['gold'] and row['support_score'] == row['revision_score'] == 0:
+            row['revision_score'] = .2
+    rows.extend(dict(group=g, gold=0, support_score=0., revision_score=0.)
+                for g in ('formal', 'conversation', 'small'))
     result = frontier(rows)
     assert tuple(result['rank']) == brute_force(rows)
+    assert result['rank'][0] < 1
     assert result['metrics']['small']['missed'] == 0
     assert all(m['missed'] * 100 <= m['positive'] for m in result['metrics'].values())
 
