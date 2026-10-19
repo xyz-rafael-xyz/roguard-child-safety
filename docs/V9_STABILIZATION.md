@@ -1804,3 +1804,36 @@ Hugging Face offline settings enabled, and took 6.8–8.0 seconds including cold
 startup and cache checks. This checks the installed CLI path only; these models
 remain unqualified and the reserved test was not used. The measured record is
 `research/v9-stabilization/cached-cli-preflight-20261019.json`.
+
+### Completed grammatical-gender continuation (studies128–129)
+
+Study128 selected epoch0 for Romanian and epoch1.5 for Ukrainian. The Romanian
+results therefore remain those of study125. Ukrainian development scope false
+reviews fell from 41 to 39 of 90 negatives, and stress false reviews from 44 to
+41 of 172 negatives, with zero development misses. Calibration still fails:
+there are zero misses, but 166/1,386 formal and 25/223 conversational false
+reviews. Exposed regression has zero misses and 19/44 false reviews. This is
+not sufficient evidence of an overall accuracy improvement or release readiness.
+
+Study129 reproduced all 10,443 prior decisions on the installed CPU runtime,
+with a maximum score difference of 0.0000099838. Accuracy prerequisites failed,
+so the reserved 600-case test remained uninferred. The queued study131 scope
+operator continuation follows this completed result.
+
+### Conversational scope wording prepared (study136)
+
+Study136 adds a small training-only set of 120 individually authored examples,
+60 per language: 24 opposed pairs and 12 ordinary controls per language.
+The exchanges describe fiction, personal distress, general vocabulary questions,
+and changes of focal topic without a template cross-product. The ordinary
+controls include schoolwork, games and explicitly pleasant anticipation, so
+emotional vocabulary alone does not imply a positive label. Two tests check
+policy consistency, complete pairs, identical history in topic-change pairs,
+unique conversations and absence of unexpanded templates.
+
+Both native tokenizers and the NLI tokenizer find zero exact input overlaps
+with protected evaluation, reserved cases, inherited training, or additions
+127/130/135. Maximum input length is 117 NLI tokens. These are project-authored
+synthetic examples, with no independent annotation or clinical validation.
+No neural inference or training is part of preparation; studies131–134 are
+unchanged and study136 has no accuracy result.
