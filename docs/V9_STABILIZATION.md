@@ -2095,3 +2095,26 @@ examples were inferred. The next targeted data question is whether the limited
 sampling of formal and indirect-distress training examples constrains these
 semantic heads; only 100 examples from each of those sources per language were
 included in study141's initial sample.
+
+### Expanded contextual training prepared (studies144–145)
+
+Study144 adds the remaining formal-composition and indirect-distress training
+inputs: 2,179 Romanian and 2,167 Ukrainian examples. Together with study141's
+training sample, this produces 7,953 training examples. The 5,421 development
+examples and all release requirements stay fixed. Exact prompt-token audits
+found no overlap with protected evaluation inputs or existing representations.
+Reserved inputs were used only for overlap exclusion, never model inference.
+
+The extractor first compares batches of four and one against 100 existing
+training representations. Every relative feature difference must be at most
+1e-4. Batches of four are selected only if they also run faster; otherwise the
+verified single-example path is used. This is a training-extraction comparison,
+not a deployment batching qualification. Features remain private, while input,
+source and chunk hashes are recorded for reproducibility.
+
+Study145 repeats study143's architecture, seed, optimizer and checkpoint schedule
+on the expanded training set. Semantic couplings use the expanded training labels
+only. Each language retains its study143 classifier unless the same development
+objective strictly improves. Both studies are queued after the full native
+encoder and its installed verification, before the next conversational encoder.
+No expanded-training accuracy result is claimed at preparation time.
