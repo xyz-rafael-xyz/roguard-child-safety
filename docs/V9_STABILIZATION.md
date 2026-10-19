@@ -1883,11 +1883,11 @@ No model assets or package profile are being published by this screen.
 
 Forty already exposed scope-development examples are selected with seed1139:
 two per language/scope/label group, twenty per language. The original policy
-prompt is unchanged, classification uses fixed threshold0.5, and an invalid
-highest-probability output token counts as an error. At least18/20correct in
+prompt is unchanged, classification uses fixed threshold 0.5, and an invalid
+highest-probability output token counts as an error. At least 18/20 correct in
 each language would justify a broader experiment; this small screen can never
 qualify a release. The reserved test is not read. Prompt preparation verifies
-one-token labels and a maximum length of467tokens with no truncation.
+one-token labels and a maximum length of 467 tokens with no truncation.
 
 Four CPU tests on small instances of the actual Gemma 4 text architecture
 verify the final-token projection and cached-prefix path for tied/untied output
@@ -1904,32 +1904,32 @@ not improve. Ukrainian development has zero misses, with 79/1,413 formal,
 4/223 conversational, 34/90 scope and 26/172 stress false reviews. This lowers
 the worst development false-review rate relative to study128, but calibration
 does not confirm an overall improvement: formal calibration has zero misses and
-258/1,386 false reviews; conversational calibration has one miss among164positive
-cases and29/223false reviews. Exposed regression has one miss among44positive
-cases and17/44false reviews. Accuracy prerequisites fail.
+258/1,386 false reviews; conversational calibration has one miss among 164 positive
+cases and 29/223 false reviews. Exposed regression has one miss among 44 positive
+cases and 17/44 false reviews. Accuracy prerequisites fail.
 
-Study132 reproduced all10,443prior decisions with a maximum score difference
-of0.0000115634. Reserved-test inference was skipped. The prepared study139
+Study132 reproduced all 10,443 prior decisions with a maximum score difference
+of 0.0000115634. Reserved-test inference was skipped. The prepared study139
 capacity screen runs next, followed by full-encoder adaptation in studies133–134.
 
 ### Prompt mismatch diagnosed and corrected (studies139–140)
 
-The study139 screen completed in19.5seconds with a peak MLX allocation of
-6.26GB and cached/full score disagreement below3.4e-7. Its accuracy result is a
-failure: all40highest-probability tokens were outside the permitted0/1labels,
-so all40were counted as abstentions. The original results remain preserved.
+The study139 screen completed in 19.5 seconds with a peak MLX allocation of
+6.26 GB and cached/full score disagreement below 3.4e-7. Its accuracy result is a
+failure: all 40 highest-probability tokens were outside the permitted 0/1 labels,
+so all 40 were counted as abstentions. The original results remain preserved.
 
 Investigation found that MLX's tokenizer wrapper defaults `enable_thinking` to
 its inferred model capability. The plain Hugging Face tokenizer used in the
-preflight did not enable it. All40actual prompts therefore differed from the
-preflight; their maximum length was469rather than467tokens. Study140 explicitly
+preflight did not enable it. All 40 actual prompts therefore differed from the
+preflight; their maximum length was 469 rather than 467 tokens. Study140 explicitly
 sets `enable_thinking=False` for both completed-label templates. A unit test
 checks that this overrides the wrapper default without reading the gold label.
 An actual tokenizer-only comparison confirms identical Hugging Face and MLX
-input tokens for all40corrected prompts. Their hashes are frozen and checked
+input tokens for all 40 corrected prompts. Their hashes are frozen and checked
 again by the inference script before scoring.
 
-The retry uses the same40examples, policy, fixed threshold and strict malformed
+The retry uses the same 40 examples, policy, fixed threshold and strict malformed
 output rule. It also records the top token ID for diagnosis. No scoring rule or
 release gate is relaxed. It is scheduled after the Romanian study133 child
 process exits and before its Ukrainian sibling starts: only the parent
