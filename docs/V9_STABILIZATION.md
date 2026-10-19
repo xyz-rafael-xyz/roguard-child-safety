@@ -1136,3 +1136,15 @@ states below the trainable final block. Before any optimizer update, the cached
 calculation must match the original loss and gradients within 0.001 on fixed
 Romanian and Ukrainian development cases. This acceleration has not yet passed
 that actual-model preflight and is not claimed as a measured speed improvement.
+
+**Study88 operational deviation:** training was stopped by the operator after the
+last reported step800, before the planned 1,024 steps completed. Later validation
+losses (0.950 at step511 and 0.432 at step767) were worse than the selected
+step255 loss (0.264). Severe host memory pressure had also slowed training to
+about 22 seconds per step. The selected adapter was verified against its saved
+checkpoint hash before any screen result was read. The exact termination step
+between reports is not claimed. See
+[the deviation record](../research/v9-stabilization/qwen-adapter-88/early-stop-deviation.json)
+and [recorded training metrics](../research/v9-stabilization/qwen-adapter-88/training-metrics.json).
+Evaluation continues on that fixed selected checkpoint; the original training
+protocol remains unchanged in the record.
