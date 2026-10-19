@@ -2179,3 +2179,18 @@ comparison. Couplings are reconstructed from each classifier's training labels
 with its original language/label weights. This CPU comparison adds no foundation
 inference or training data. It is queued after study145 and before study148's
 calibration inference, so calibration results cannot guide its selection.
+
+### Portable sparse scope scoring
+
+`training/portable_scope_gate_v9.py` reconstructs the exported sparse gate using
+the Python standard library. It applies the frozen character/word n-grams,
+sublinear counts, IDF and per-block normalization without loading scikit-learn
+or executable model objects. Six tests cover multilingual held-out strings,
+empty and repeated text, quotation styles and malformed numeric artifacts.
+
+The actual selected gates reproduced all 5,421 development decisions, with
+maximum score differences below 5e-16. On this machine the scope component took
+approximately 0.15–0.16 milliseconds per case with native/contextual scores
+already available. This timing excludes those encoders and is not an end-to-end
+latency claim. Numerical CI now runs the sparse export and blend tests with
+their required reference dependencies explicitly installed.
