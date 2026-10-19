@@ -1644,3 +1644,28 @@ Study129 then replays every prior population on the installed CPU runtime and
 refuses fresh-test reuse if any earlier study opened it. The two native release
 gate implementations pass all six focused checks. No study128 training has
 started yet, and no result from this scheduled continuation is claimed.
+
+### Cutoff feasibility and scope-learning context
+
+The training runs above select cutoffs with zero development misses. A separate
+diagnostic now searches the exact two-cutoff frontier using the actual release
+requirement of at least 99% recall within each group. The allowable miss count is
+computed separately for each group; a group with fewer than 100 positive cases
+still permits no misses. Seven tests compare the search with exhaustive
+enumeration, including tied scores and small groups.
+
+Applied to the completed study121 predictions, this diagnostic still fails the
+false-review requirement in both languages. Its best worst-group false-review
+rates are 41.90% for Romanian and 36.67% for Ukrainian. The diagnostic reads only
+development predictions, changes no model or labels, and provides no new
+calibration or test result. The bound inputs and full counts are in
+[`budgeted-development-diagnosis.json`](../research/v9-stabilization/policy-entailment-121/budgeted-development-diagnosis.json).
+
+The use of controlled scope contrasts has prior research precedent.
+[ScoNe (She et al., 2023)](https://aclanthology.org/2023.acl-short.154/)
+tests whether negation changes an inference under controlled combinations and
+reports successful many-shot fine-tuning of RoBERTa and DeBERTa on that task.
+[Yang et al.](https://arxiv.org/abs/2410.20710) combine counterfactual sentence
+pairs with contrastive training to improve NLI robustness. These findings
+motivate the method; they do not establish Romanian or Ukrainian child-safety
+accuracy, and RoGuard does not claim to have invented counterfactual training.
