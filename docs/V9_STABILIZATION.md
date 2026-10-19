@@ -1166,3 +1166,15 @@ registered accuracy gates. Study89 reproduced all 400 decisions with a maximum
 score difference of 0.000011713. Batching took 317.46 seconds versus 228.49 for
 single-message inference on this host, so study90 selected the single-message
 reference for its full audit before reading any full-audit outputs.
+
+Study96 will replay every study95 development, calibration and stress example
+through the separately installed wheel if study95 qualifies. It requires zero
+decision differences, no abstentions, a maximum score difference of 0.0001,
+and the same accuracy gates in every populated group. This check has been
+prepared but has not yet run.
+
+The proposed study94 prefix cache passed a small CPU test using actual Qwen3.5
+hybrid recurrent/attention blocks. Losses and all trainable gradients matched
+the uncached calculation within 0.00001 across repeated inputs and optimizer
+updates. This checks the cache implementation; the full-size model must still
+pass its separate preflight before training starts.
