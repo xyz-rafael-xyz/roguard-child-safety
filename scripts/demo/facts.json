@@ -1,267 +1,141 @@
 {
-  "version": "6.0.0",
+  "version": "9.0.0",
   "fictional_examples": true,
-  "backend": "adapted",
+  "visualization_not_screen_recording": true,
+  "captured_utc": "2026-10-19T20:49:17.838791+00:00",
+  "manifest_sha256": "90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb",
+  "bundle_sha256": "5c201dfe19fcb10eee3339ff241b7ee971aa6f362dd386cbfcf5a9fd390d3057",
   "ro": {
-    "input": {
-      "case_id": "fictional_ro_1",
-      "language": "ro",
-      "turns": [
-        {
-          "role": "minor",
-          "text": "Mă simt singur și aș vrea să vorbesc cu cineva."
-        }
-      ],
-      "draft": "Putem vorbi în ritmul tău."
-    },
-    "output": {
-      "schema_version": "4.0",
-      "language": "ro",
-      "case_id": "fictional_ro_1",
-      "signal": {
-        "decision": "REVIEW_SUPPORT_SIGNAL",
-        "reason_codes": [],
-        "synthetic_score": 0.999856,
-        "development_cutoff": 0.24000000000000005,
-        "model": {
-          "backend": "adapted",
-          "semantic_preprocessing": "surface-v1",
-          "fast_sha256": "140f9fe450c7abe8bd0bad619217d80cb3bb9c0b3c2fcca43d04bb662cb839fc",
-          "semantic_head_sha256": "19557343192cee579aaf296ced0993a2a5b6a07631d0efce1b2551e670bd2389",
-          "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82"
-        },
-        "evidence_references": [
+    "signal": {
+      "input": {
+        "language": "ro",
+        "turns": [
           {
-            "turn_index": 0,
-            "start": 0,
-            "end": 47,
-            "score_change_if_omitted": 0.999472,
-            "basis": "turn_ablation_sensitivity_not_verified_evidence"
+            "role": "minor",
+            "text": "Mă simt singur și aș vrea să vorbesc cu cineva."
           }
         ]
       },
-      "response_review": {
-        "status": "NO_LISTED_PATTERN",
-        "findings": [],
-        "complexity": {
-          "words": 5,
-          "sentences": 1,
-          "mean_words_per_sentence": 5.0,
-          "long_words_12plus": 0,
-          "jargon_occurrences": 0,
-          "reading_age_estimated": false,
-          "comprehension_established": false
-        },
-        "safe_response_established": false,
-        "coverage": "limited_phrase_rules",
-        "recommended_human_checks": [
-          "assumptions",
-          "pressure",
-          "privacy",
-          "meaning",
-          "support_contract"
+      "output": {
+        "format": "roguard-gemma4-tail-review-v1",
+        "language": "ro",
+        "focus": 0,
+        "input_digest": "93bc311955b73ac578a49be5532339714727ea016911bc521e672a0daf1ccdac",
+        "model_identity": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+        "score": 0.9999999999433127,
+        "predicted": 1,
+        "decision": "review",
+        "reason": "MODEL_REVIEW_PROPOSAL",
+        "review_requested": true,
+        "score_is_calibrated": false,
+        "text_in_report": false,
+        "establishes_safety": false,
+        "permits_external_action": false,
+        "permits_notification": false
+      }
+    },
+    "topic_shift": {
+      "input": {
+        "language": "ro",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Mă simt singur și aș vrea să vorbesc cu cineva."
+          },
+          {
+            "role": "assistant",
+            "text": "Vrei să îmi spui mai mult?"
+          },
+          {
+            "role": "minor",
+            "text": "Mă ajuți să înțeleg exercițiul?"
+          }
         ]
       },
-      "declared_contract": null,
-      "uncertainty_audit": null,
-      "next_step": "HUMAN_REVIEW",
-      "authority_from_model": false,
-      "external_action_taken": false,
-      "text_in_report": false,
-      "real_world_accuracy_established": false,
-      "language_verified": false,
-      "calibration": {
-        "prediction_set": [
-          1
-        ],
-        "decision": "REVIEW_SUPPORT_SIGNAL",
-        "alpha": 0.1,
-        "calibration_counts": {
-          "0": 12,
-          "1": 18
-        },
-        "coverage_requires_exchangeability": true,
-        "real_world_coverage_established": false
-      },
-      "action_review": {
-        "status": "NOT_ASSESSED",
-        "reason_codes": [
-          "NO_ACTION_FACTS"
-        ],
-        "external_action_taken": false
-      },
-      "trace": [
-        {
-          "step": "interpretation",
-          "source": "model_advisory",
-          "decision": "REVIEW_SUPPORT_SIGNAL"
-        },
-        {
-          "step": "proposed_action",
-          "source": "declared_facts_only",
-          "decision": "NOT_ASSESSED"
-        }
-      ],
-      "declared_facts_unverified": true
+      "output": {
+        "format": "roguard-gemma4-tail-review-v1",
+        "language": "ro",
+        "focus": 2,
+        "input_digest": "ca697c5cfcff4536e23dcae8d39805cd2b4c8e91de9add846bd04e41f0a2e24f",
+        "model_identity": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+        "score": 7.890729849467674e-06,
+        "predicted": 0,
+        "decision": "no_signal",
+        "reason": "NO_SIGNAL_DETECTED",
+        "review_requested": false,
+        "score_is_calibrated": false,
+        "text_in_report": false,
+        "establishes_safety": false,
+        "permits_external_action": false,
+        "permits_notification": false
+      }
     }
   },
   "uk": {
-    "input": {
-      "case_id": "fictional_uk_1",
-      "language": "uk",
-      "turns": [
-        {
-          "role": "minor",
-          "text": "Мені самотньо і хочеться з кимось поговорити."
-        }
-      ],
-      "draft": "Можемо поговорити в зручному для тебе темпі."
-    },
-    "output": {
-      "schema_version": "4.0",
-      "language": "uk",
-      "case_id": "fictional_uk_1",
-      "signal": {
-        "decision": "REVIEW_SUPPORT_SIGNAL",
-        "reason_codes": [],
-        "synthetic_score": 0.999863,
-        "development_cutoff": 0.5000000000000001,
-        "model": {
-          "backend": "adapted",
-          "semantic_preprocessing": "surface-v1",
-          "fast_sha256": "cdc390bd92f58a2a1f3f215029ac00fe907a8313513b671b027118a7768712cb",
-          "semantic_head_sha256": "19557343192cee579aaf296ced0993a2a5b6a07631d0efce1b2551e670bd2389",
-          "base_revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82"
-        },
-        "evidence_references": [
+    "signal": {
+      "input": {
+        "language": "uk",
+        "turns": [
           {
-            "turn_index": 0,
-            "start": 0,
-            "end": 45,
-            "score_change_if_omitted": 0.999478,
-            "basis": "turn_ablation_sensitivity_not_verified_evidence"
+            "role": "minor",
+            "text": "Мені самотньо і хочеться з кимось поговорити."
           }
         ]
       },
-      "response_review": {
-        "status": "NO_LISTED_PATTERN",
-        "findings": [],
-        "complexity": {
-          "words": 7,
-          "sentences": 1,
-          "mean_words_per_sentence": 7.0,
-          "long_words_12plus": 0,
-          "jargon_occurrences": 0,
-          "reading_age_estimated": false,
-          "comprehension_established": false
-        },
-        "safe_response_established": false,
-        "coverage": "limited_phrase_rules",
-        "recommended_human_checks": [
-          "assumptions",
-          "pressure",
-          "privacy",
-          "meaning",
-          "support_contract"
+      "output": {
+        "format": "roguard-gemma4-tail-review-v1",
+        "language": "uk",
+        "focus": 0,
+        "input_digest": "3bb28633f162416fdb6aea55507fd7a764a23d244cfdde3b9774dc64ad1bfc7e",
+        "model_identity": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+        "score": 0.9999999939941078,
+        "predicted": 1,
+        "decision": "review",
+        "reason": "MODEL_REVIEW_PROPOSAL",
+        "review_requested": true,
+        "score_is_calibrated": false,
+        "text_in_report": false,
+        "establishes_safety": false,
+        "permits_external_action": false,
+        "permits_notification": false
+      }
+    },
+    "topic_shift": {
+      "input": {
+        "language": "uk",
+        "turns": [
+          {
+            "role": "minor",
+            "text": "Мені самотньо і хочеться з кимось поговорити."
+          },
+          {
+            "role": "assistant",
+            "text": "Хочеш розповісти більше?"
+          },
+          {
+            "role": "minor",
+            "text": "Допоможеш розібратися із завданням?"
+          }
         ]
       },
-      "declared_contract": null,
-      "uncertainty_audit": null,
-      "next_step": "HUMAN_REVIEW",
-      "authority_from_model": false,
-      "external_action_taken": false,
-      "text_in_report": false,
-      "real_world_accuracy_established": false,
-      "language_verified": false,
-      "calibration": {
-        "prediction_set": [
-          1
-        ],
-        "decision": "REVIEW_SUPPORT_SIGNAL",
-        "alpha": 0.1,
-        "calibration_counts": {
-          "0": 12,
-          "1": 18
-        },
-        "coverage_requires_exchangeability": true,
-        "real_world_coverage_established": false
-      },
-      "action_review": {
-        "status": "NOT_ASSESSED",
-        "reason_codes": [
-          "NO_ACTION_FACTS"
-        ],
-        "external_action_taken": false
-      },
-      "trace": [
-        {
-          "step": "interpretation",
-          "source": "model_advisory",
-          "decision": "REVIEW_SUPPORT_SIGNAL"
-        },
-        {
-          "step": "proposed_action",
-          "source": "declared_facts_only",
-          "decision": "NOT_ASSESSED"
-        }
-      ],
-      "declared_facts_unverified": true
+      "output": {
+        "format": "roguard-gemma4-tail-review-v1",
+        "language": "uk",
+        "focus": 2,
+        "input_digest": "11de660ee0df652311e7bcb6714de8f457836b1d224daa5b6ee3a2e84137eb9b",
+        "model_identity": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+        "score": 2.351332038325782e-12,
+        "predicted": 0,
+        "decision": "no_signal",
+        "reason": "NO_SIGNAL_DETECTED",
+        "review_requested": false,
+        "score_is_calibrated": false,
+        "text_in_report": false,
+        "establishes_safety": false,
+        "permits_external_action": false,
+        "permits_notification": false
+      }
     }
-  },
-  "repair": {
-    "schema_version": "6.0",
-    "status": "REPAIR_PROPOSED",
-    "original_decision": "BLOCK",
-    "original_reason_codes": [
-      "SOURCE_PERMISSION_INACTIVE"
-    ],
-    "selected": [
-      "lesson"
-    ],
-    "removed_from_proposal": [
-      "private_note"
-    ],
-    "added_to_proposal": [],
-    "requirements_preserved": true,
-    "semantic_sufficiency_verified": false,
-    "scope": {
-      "purpose": "tutoring",
-      "recipient": "teacher",
-      "operation": "export"
-    },
-    "plan": {
-      "status": "PROPOSAL_READY",
-      "selected": [
-        "lesson"
-      ],
-      "declared_cost": 1,
-      "retained": [
-        {
-          "artifact_id": "lesson",
-          "requirements": [
-            "learning"
-          ]
-        }
-      ],
-      "removed": [
-        {
-          "artifact_id": "private_note",
-          "reason_codes": [
-            "SOURCE_PERMISSION_INACTIVE"
-          ]
-        }
-      ],
-      "missing_requirements": [],
-      "optimal_within_declared_candidates": true,
-      "objective": "cost_then_count_then_ids",
-      "policy_revision": 3,
-      "clock": 0,
-      "semantic_sufficiency_verified": false,
-      "execution_authorized": false,
-      "text_in_report": false
-    },
-    "execution_authorized": false,
-    "text_in_report": false
   },
   "revocation": {
     "before": {
@@ -293,6 +167,263 @@
       "policy_revision": 4,
       "authority_verified": false,
       "text_in_report": false
+    }
+  },
+  "evidence": {
+    "reserved": {
+      "path": "research/v9-stabilization/reported-tail-reserved-199/actual/report.json",
+      "sha256": "a8a0de84f1e863fc70243e843cf4ed7ad1b15c0cf56205e96ccd7576518abf86",
+      "report": {
+        "complete": true,
+        "languages": {
+          "ro": {
+            "counts": {
+              "rows": 300,
+              "positive": 150,
+              "negative": 150,
+              "missed": 0,
+              "false_reviews": 0,
+              "abstentions": 0,
+              "recall": 1.0,
+              "false_review_rate": 0.0,
+              "passes": true
+            },
+            "input_sha256": "ff07b2e373969e0509769de7e3a907a3bf57952467ced6e153ff4abe6e0800f1",
+            "seconds": 154.119837166043
+          },
+          "uk": {
+            "counts": {
+              "rows": 300,
+              "positive": 150,
+              "negative": 150,
+              "missed": 0,
+              "false_reviews": 0,
+              "abstentions": 0,
+              "recall": 1.0,
+              "false_review_rate": 0.0,
+              "passes": true
+            },
+            "input_sha256": "c4ea1c1b0e45a519654e7dcdf9217f9f55eb7b4315315dcfafcbc084cc8adef6",
+            "seconds": 155.66842720890418
+          }
+        },
+        "selection_sha256": "769b65524165ca145dda72d034e53292a6d8cd89996474975c157ff9dd41154e",
+        "first_neural_inference": true,
+        "synthetic_only": true,
+        "independently_annotated": false,
+        "analyst_blind": false,
+        "independent_observations": false,
+        "stable_release_ready": false,
+        "counts_pass": true,
+        "finished_utc": "2026-10-19T20:28:41.151744+00:00"
+      }
+    },
+    "installed": {
+      "path": "research/v9-stabilization/reported-tail-installed-198/actual/report.json",
+      "sha256": "9a2f5ef651d71b79e70c91c9016cdbc7acccaf793a8f04d15dacffe07639946f",
+      "report": {
+        "complete": true,
+        "languages": {
+          "ro": {
+            "replay": {
+              "cases": 2547,
+              "score_max_error": 0.0,
+              "decision_changes": 0
+            },
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 243,
+                "missed": 0,
+                "false_reviews": 0,
+                "recall": 1.0,
+                "false_review_rate": 0.0,
+                "passes": true
+              },
+              "exposed": {
+                "positive": 44,
+                "negative": 44,
+                "missed": 0,
+                "false_reviews": 2,
+                "recall": 1.0,
+                "false_review_rate": 0.045454545454545456,
+                "passes": true
+              },
+              "formal": {
+                "positive": 614,
+                "negative": 1386,
+                "missed": 0,
+                "false_reviews": 0,
+                "recall": 1.0,
+                "false_review_rate": 0.0,
+                "passes": true
+              }
+            },
+            "seconds_including_model_load": 1385.7778352920432
+          },
+          "uk": {
+            "replay": {
+              "cases": 2475,
+              "score_max_error": 0.0,
+              "decision_changes": 0
+            },
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 0,
+                "recall": 1.0,
+                "false_review_rate": 0.0,
+                "passes": true
+              },
+              "exposed": {
+                "positive": 44,
+                "negative": 44,
+                "missed": 0,
+                "false_reviews": 0,
+                "recall": 1.0,
+                "false_review_rate": 0.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 614,
+                "negative": 1386,
+                "missed": 0,
+                "false_reviews": 0,
+                "recall": 1.0,
+                "false_review_rate": 0.0,
+                "passes": true
+              }
+            },
+            "seconds_including_model_load": 1332.0034891250543
+          }
+        },
+        "wheel_sha256": "bb12c0a188418e80b0be4d03dead7a4f1e498625fc7269094a8920a470906bac",
+        "bundle_sha256": "5c201dfe19fcb10eee3339ff241b7ee971aa6f362dd386cbfcf5a9fd390d3057",
+        "protocol_sha256": "f6373e976609305983fddf7f0da3cbf864f937155a4d733c5395ce1c0f93e9a0",
+        "source_freeze_sha256": "d8123da7415136ded8783c73e681c002f83c8a645f1c8ef4e246f54ab1e8c006",
+        "installed_package_verified": true,
+        "fresh_test_inferred": false,
+        "synthetic_only": true,
+        "independently_annotated": false,
+        "stable_release_ready": false,
+        "installed_execution_verified": true,
+        "prior_counts_pass": true,
+        "seconds": 2717.9178434999194,
+        "finished_utc": "2026-10-19T20:23:30.447787+00:00"
+      }
+    },
+    "publication": {
+      "path": "research/v9-stabilization/stable-release-200/publication.json",
+      "sha256": "c277dd499961a597ffd03225fc87b98da0e7d6e603fdd92869f7d0f8844de32a",
+      "report": {
+        "complete": true,
+        "stable_release_ready": true,
+        "publication_performed": true,
+        "verified_utc": "2026-10-19T20:45:29.096614+00:00",
+        "release_commit": "a6d3f2cd557e8fe8537772d95a320f05a5afc35b",
+        "github": {
+          "tag_name": "v9.0.0",
+          "prerelease": false,
+          "draft": false,
+          "html_url": "https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0",
+          "published_at": "2026-10-19T20:43:57Z"
+        },
+        "pypi": {
+          "project": "roguard-child-safety",
+          "default_version": "9.0.0",
+          "wheel_filename": "roguard_child_safety-9.0.0-py3-none-any.whl",
+          "wheel_sha256": "f846b9cd744c83c05ff2aaa3ebed56dab671e67643d31bfc1347d6284c1edcce",
+          "yanked": false,
+          "url": "https://pypi.org/project/roguard-child-safety/9.0.0/"
+        },
+        "ci": {
+          "url": "https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/runs/39320685414",
+          "conclusion": "success",
+          "jobs": [
+            {
+              "name": "verify / contextual-readout-math",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / windows-unicode-install (3.14)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / wheel-install (3.9)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / wheel-install (3.12)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.10)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.12)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / wheel-install (3.14)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.14)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.13)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.11)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / unit (3.9)",
+              "conclusion": "success"
+            },
+            {
+              "name": "verify / windows-unicode-install (3.9)",
+              "conclusion": "success"
+            },
+            {
+              "name": "build",
+              "conclusion": "success"
+            },
+            {
+              "name": "pypi",
+              "conclusion": "success"
+            },
+            {
+              "name": "github-release",
+              "conclusion": "success"
+            }
+          ]
+        },
+        "default_install": {
+          "command": "pip install --upgrade roguard-child-safety",
+          "fresh_environment": true,
+          "version": "9.0.0",
+          "version_pin_used": false,
+          "prerelease_option_used": false,
+          "bilingual_core_cli_checks": 4,
+          "all_passed": true
+        },
+        "model_profile": "v9-gemma4-20261019",
+        "model_release": "https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/models-v9-20261019",
+        "evidence": {
+          "research/v9-stabilization/stable-release-200/wheel-equivalence.json": "276e50dd5cde461a533c65be2755d7fbc5933298afc65d34275f438c54995145",
+          "research/v9-stabilization/stable-release-200/pypi-wheel-equivalence.json": "240aa983c1fe83639dd67a8c4bee3263217e5f8a875a31d60249c59f37f9a78d",
+          "research/v9-stabilization/stable-release-200/download-smoke.json": "9df16af77cd7792e4ada063618f1893c36a71e7823ac6dd75864789d7bf12e3f",
+          "research/v9-stabilization/reported-tail-reserved-199/actual/report.json": "a8a0de84f1e863fc70243e843cf4ed7ad1b15c0cf56205e96ccd7576518abf86"
+        },
+        "qualification_scope": "Project-authored synthetic binary review task under the declared policy; not real-world child-language accuracy",
+        "historical_stage_reports": "Earlier stable_release_ready/publication_performed false values describe their stage before the final checks and publication; this receipt records the completed release."
+      }
     }
   }
 }

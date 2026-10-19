@@ -1,0 +1,91 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>RoGuard 9 — language, context, control</title>
+<style>html,body{margin:0;background:#091522}canvas{display:block}</style>
+<canvas width="1280" height="720" aria-label="RoGuard v9 illustrated walkthrough"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),g=canvas.getContext('2d');
+const C={bg:'#091522',panel:'#122337',raised:'#1b3047',line:'#294257',ink:'#f2f4ed',muted:'#a9bbca',mint:'#9de8cd',violet:'#c2b0ff',amber:'#ffc58f',blue:'#8fbfff'};
+const TAU=Math.PI*2,clamp=v=>Math.max(0,Math.min(1,v)),smooth=v=>{v=clamp(v);return v*v*(3-2*v)},out=v=>1-Math.pow(1-clamp(v),3);
+function text(s,x,y,size=24,color=C.ink,weight=400){g.fillStyle=color;g.font=`${weight} ${size}px "Helvetica Neue",Arial,sans-serif`;g.fillText(s,x,y)}
+function rect(x,y,w,h,fill=C.panel,r=20,stroke=null){g.beginPath();g.roundRect(x,y,w,h,r);g.fillStyle=fill;g.fill();if(stroke){g.strokeStyle=stroke;g.lineWidth=1;g.stroke()}}
+function line(x,y,a,b,color=C.line,width=2){g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(x,y);g.lineTo(a,b);g.stroke()}
+function dot(x,y,r,color){g.fillStyle=color;g.beginPath();g.arc(x,y,r,0,TAU);g.fill()}
+function pill(s,x,y,color=C.mint,fill=C.raised){g.font='600 15px "Helvetica Neue",Arial';const w=g.measureText(s).width+28;rect(x,y,w,31,fill,15);text(s,x+14,y+21,15,color,600);return w}
+function wrap(s,x,y,width,size=25,color=C.ink,weight=400,leading=34){g.font=`${weight} ${size}px "Helvetica Neue",Arial`;let row='',n=0;for(const word of s.split(' ')){const next=row?row+' '+word:word;if(g.measureText(next).width>width&&row){text(row,x,y+n*leading,size,color,weight);row=word;n++}else row=next}if(row)text(row,x,y+n*leading,size,color,weight);return (n+1)*leading}
+function revealed(t,delay,fn){let p=out((t-delay)/.65);g.save();g.globalAlpha*=p;g.translate(0,(1-p)*18);fn(p);g.restore()}
+function label(s,y=145,color=C.mint){text(s,64,y,15,color,600)}
+function heading(a,b,sub,color=C.mint){label(a,145,color);text(b,64,203,49,C.ink,600);text(sub,64,241,21,C.muted)}
+function curve(a,b,c,d,e,f,h,i,color,width=2){g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(a,b);g.bezierCurveTo(c,d,e,f,h,i);g.stroke()}
+function bezier(p,a,b,c,d){const q=1-p;return q*q*q*a+3*q*q*p*b+3*q*p*p*c+p*p*p*d}
+function flow(x1,y1,x2,y2,t,color){const bend=(x2-x1)*.45;curve(x1,y1,x1+bend,y1,x2-bend,y2,x2,y2,C.line,2);for(let k=0;k<3;k++){const p=(t*.28+k/3)%1;dot(bezier(p,x1,x1+bend,x2-bend,x2),bezier(p,y1,y1,y2,y2),3.5,color)}}
+function check(x,y,color=C.mint){g.strokeStyle=color;g.lineWidth=3;g.beginPath();g.moveTo(x,y);g.lineTo(x+6,y+6);g.lineTo(x+18,y-7);g.stroke()}
+function background(t){rect(0,0,1280,720,C.bg,0);g.save();g.globalAlpha=.32;
+ for(let i=0;i<5;i++){g.strokeStyle=[C.mint,C.violet,C.blue,C.amber,C.mint][i];g.lineWidth=1;g.beginPath();for(let x=750;x<=1300;x+=10){let y=90+i*38+Math.sin(x/155+TAU*t/28+i*.7)*19;x===750?g.moveTo(x,y):g.lineTo(x,y)}g.stroke()}g.restore();
+ line(64,92,1216,92,C.line,1);text('RoGuard',64,58,29,C.ink,650);pill('9.0  /  STABLE',201,35,C.mint);text('ROMANIAN  +  UKRAINIAN',972,56,14,C.muted,600);
+}
+function hero(t){label('LOCAL AI REVIEW / HUMAN-CONTROLLED ACTION');text('Language matters.',64,231,65,C.ink,600);text('So does context.',64,308,65,C.ink,600);
+ text('Romanian and Ukrainian review proposals.',67,363,23,C.muted);text('Explicit permissions. Clear next steps.',67,398,23,C.muted);
+ pill('LOCAL INFERENCE',64,456,C.mint);pill('CONVERSATION-AWARE',255,456,C.violet);
+ text('A research toolkit for thoughtful AI interactions.',66,548,21,C.muted);
+ const cx=977,cy=367;g.save();g.translate(cx,cy);g.rotate(-.18);g.strokeStyle=C.line;g.lineWidth=1;g.beginPath();g.ellipse(0,0,207,171,0,0,TAU);g.stroke();g.restore();
+ for(let i=0;i<2;i++){const p=t*.6+i*Math.PI,a=207*Math.cos(p),b=171*Math.sin(p);dot(cx+a*Math.cos(-.18)-b*Math.sin(-.18),cy+a*Math.sin(-.18)+b*Math.cos(-.18),6,i?C.violet:C.mint)}
+ text('9',878,453,245,C.ink,500);text('.0',1020,454,74,C.mint,400);
+ const yy=Math.sin(t*1.7)*7;rect(783,225+yy,112,63,C.panel,18,C.line);text('RO',815,268+yy,26,C.mint,650);
+ rect(1097,412-yy,112,63,C.panel,18,C.line);text('UK',1128,455-yy,26,C.violet,650);
+ text('REVIEW  →  CLARIFY  →  CHECK',814,578,16,C.muted,600);
+}
+function signals(t){heading('01 / UNDERSTAND THE MESSAGE','Two languages. A clear review proposal.','Actual outputs from the released v9 model. Fictional messages.');
+ ['ro','uk'].forEach((lang,i)=>{const x=64+i*588,col=i?C.violet:C.mint,entry=window.facts[lang].signal;
+ rect(x,282,564,278,C.panel,22,C.line);pill(i?'UKRAINIAN':'ROMANIAN',x+26,305,col);text('LOCAL MODEL',x+408,326,13,C.muted,600);
+ wrap(entry.input.turns[0].text,x+26,389,504,27,C.ink,450,36);
+ let scan=clamp((t-.2-i*.25)/1.6);line(x+26,473,x+26+512*scan,473,col,2);
+ revealed(t,.65+i*.25,()=>{rect(x+25,491,514,48,C.raised,12);check(x+42,515,col);text(entry.output.predicted===1?'Review proposed':'No signal on this turn',x+75,521,22,col,600)});
+ });
+ text('A signal informs review. It never sends a notification or grants access.',64,606,21,C.muted);
+}
+function context(t){heading('02 / KEEP THE CONVERSATION IN VIEW','A new topic does not erase a concern.','The model reviews the selected turn using its earlier conversation.',C.violet);
+ const entry=window.facts.uk.topic_shift,p=out((t-.6)/1.2);line(90,316,90,551,C.line,2);
+ const ys=[304,393,482];entry.input.turns.forEach((turn,i)=>{const xx=116+(i===2?12*p:0),yy=ys[i];dot(90,yy+30,5,i===2?C.mint:C.violet);rect(xx,yy,i===2?660:638,72,i===2?C.raised:C.panel,16,i===2?C.mint:null);text(i===2?'CURRENT TURN':i===0?'EARLIER MESSAGE':'ASSISTANT',xx+18,yy+23,12,i===2?C.mint:C.muted,600);wrap(turn.text,xx+18,yy+51,610,21,C.ink,400,25)});
+ flow(800,516,869,437,t,C.mint);rect(894,298,322,263,C.panel,22,C.line);pill('FOCAL RESULT',918,321,C.mint);
+ revealed(t,1.05,()=>{text(entry.output.predicted===0?'No signal':'Review proposed',918,402,33,C.mint,600);text('on the homework turn',918,439,21,C.muted)});
+ rect(918,474,274,61,'#302b36',12);text('Earlier concern stays open.',934,510,18,C.amber,600);
+ text('A negative prediction is not a safety finding or a case-closure decision.',64,607,21,C.muted);
+}
+function permissions(t){heading('03 / CONTROL WHAT HAPPENS NEXT','Insight is not permission.','Source restrictions follow derived content. Your application controls action.',C.amber);
+ const revoked=t>=2.1,p=smooth((t-2.1)/.4),col=revoked?C.amber:C.mint;
+ const titles=['Lesson source','Derived summary','Proposed export'];
+ titles.forEach((title,i)=>{const x=64+i*398;rect(x,327,356,180,C.panel,22,C.line);text('0'+(i+1),x+25,362,14,C.muted,600);text(title,x+25,407,27,C.ink,550);
+ if(i===0)pill(revoked?'PERMISSION REVOKED':'PERMISSION GRANTED',x+25,439,col);
+ if(i===1){text('Source link retained',x+25,465,20,C.violet);line(x+26,484,x+290,484,C.violet,1)}
+ if(i===2)pill(window.facts.revocation[revoked?'after':'before'].decision,x+25,439,col);
+ if(i<2)flow(x+362,415,x+392,415,t,col);
+ });
+ if(p>0){g.save();g.globalAlpha=.2*(1-p);g.strokeStyle=C.amber;g.lineWidth=2;g.beginPath();g.arc(1029,417,50+140*p,0,TAU);g.stroke();g.restore()}
+ dot(78,567,5,col);text(revoked?'Revocation blocks the derived summary’s export.':'A scoped grant permits this policy check.',96,574,24,col,500);
+ text('Actual permission-ledger output. No external action is performed.',64,612,19,C.muted);
+}
+function evidence(t){label('V9.0.0 / OFFICIAL STABLE RELEASE');text('Measured. Reproducible. Ready to explore.',64,202,46,C.ink,600);
+ const report=window.facts.evidence.reserved.report;
+ ['ro','uk'].forEach((lang,i)=>{const x=64+i*390,m=report.languages[lang].counts,total=m.rows,correct=total-m.missed-m.false_reviews;
+ rect(x,245,366,143,C.panel,20,C.line);pill(i?'UKRAINIAN':'ROMANIAN',x+22,264,i?C.violet:C.mint);text(`${correct}/${total}`,x+22,358,53,i?C.violet:C.mint,600);text('correct',x+238,355,20,C.muted)});
+ rect(844,245,372,143,C.panel,20,C.line);text('HELD-OUT SYNTHETIC TEST',867,284,13,C.muted,600);text('600 cases',867,333,37,C.ink,600);text('No misses or false alerts',867,366,19,C.muted);
+ text('Synthetic results do not establish real-world child-language accuracy.',64,423,20,C.muted);
+ rect(64,454,1152,116,'#e8eee7',20);text('INSTALL OR UPGRADE',87,486,13,'#43605c',650);
+ text('pip install --upgrade roguard-child-safety',87,535,36,C.bg,550);
+ const cursor=Math.floor(t*2)%2===0; if(cursor)rect(840,509,3,31,'#43605c',0);
+ text('Optional model: Apple Silicon + Python 3.12+ · setup in README',64,611,20,C.muted);
+}
+const scenes=[hero,signals,context,permissions,evidence],durations=[5,6,6,5,6],names=['LANGUAGE','REVIEW','CONTEXT','CONTROL','EVIDENCE'];
+window.duration=28;window.fps=20;
+window.render=function(time){if(!window.facts||window.facts.version!=='9.0.0')throw Error('Verified v9 facts required');let t=((time%28)+28)%28,begin=0,index=0;
+ for(let i=0;i<durations.length;i++){if(t<begin+durations[i]){index=i;break}begin+=durations[i]}
+ const local=t-begin,cross=smooth((local-durations[index]+.6)/.6);g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;background(t);
+ g.save();g.beginPath();g.rect(0,110,1280,520);g.clip();g.translate(-1280*cross,0);scenes[index](local);g.restore();
+ if(cross>0){g.save();g.beginPath();g.rect(0,110,1280,520);g.clip();g.translate(1280*(1-cross),0);scenes[(index+1)%5](0);g.restore();g.save();g.globalAlpha=Math.sin(Math.PI*cross)*.55;line(1280*(1-cross),130,1280*(1-cross),610,C.mint,1);g.restore()}
+ line(64,646,1216,646,C.line,1);
+ text('ILLUSTRATED WORKFLOW / FICTIONAL MESSAGES',64,681,12,C.muted,550);
+ names.forEach((name,i)=>{const xx=668+i*112;dot(xx,676,3,i===index?C.mint:C.line);text(name,xx+10,680,11,i===index?C.ink:C.muted,550)});
+ rect(64,646,1152*(t/28),2,C.mint,0);
+};
+</script>

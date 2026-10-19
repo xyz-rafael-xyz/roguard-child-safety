@@ -12,9 +12,11 @@
 [![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
 [![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
 
-[![A looping 26-second RoGuard v6 visual walkthrough: Romanian and Ukrainian model review, permission-aware repair, and source revocation](media/roguard-demo-loop.gif)](media/roguard-demo.mp4)
+[![RoGuard 9.0: a looping animated walkthrough of Romanian and Ukrainian review, conversation context, permission revocation, and the held-out synthetic evaluation](media/roguard-v9-demo-loop.gif)](media/roguard-v9-demo.mp4)
 
-**[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
+**RoGuard 9.0 in motion** · [Watch / pause the video](media/roguard-v9-demo.mp4) · [Still preview](media/roguard-v9-poster.png) · [Transcript and captured outputs](docs/DEMO_VIDEO.md)
+
+A 28-second illustrated workflow with actual v9 outputs and fictional messages.
 
 ## RoGuard 9.0: local review and decision assurance
 
