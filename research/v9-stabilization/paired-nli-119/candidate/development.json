@@ -1,0 +1,320 @@
+{
+  "format": "roguard-paired-nli-training-v1",
+  "base": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "hypothesis": "In the focal message, a real person expresses distress, a need for emotional support or a safety concern, including a withdrawal of an earlier disclosure.",
+  "source_freeze_sha256": "bb3f88e3e729484a3ca51f1341188c2af27f856a725102289ecc12d22109b17b",
+  "epochs": [
+    {
+      "epoch": 0,
+      "thresholds": {
+        "ro": 0.14413122087717056,
+        "uk": 0.05937696248292923
+      },
+      "metrics": {
+        "ro_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 1413,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 1.0,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 458,
+            "positive": 216,
+            "negative": 242,
+            "missed": 0,
+            "false_reviews": 150,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.6198347107438017,
+            "passes": false
+          }
+        },
+        "ro_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 90,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 1.0,
+            "passes": false
+          }
+        },
+        "uk_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 1413,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 1.0,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 387,
+            "positive": 164,
+            "negative": 223,
+            "missed": 0,
+            "false_reviews": 149,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.6681614349775785,
+            "passes": false
+          }
+        },
+        "uk_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 84,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.9333333333333333,
+            "passes": false
+          }
+        },
+        "uk_stress": {
+          "all": {
+            "rows": 216,
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 107,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.622093023255814,
+            "passes": false
+          }
+        }
+      },
+      "rank": [
+        1.0,
+        5.843422502310528
+      ]
+    },
+    {
+      "epoch": 0.5,
+      "thresholds": {
+        "ro": 0.00033889686164911836,
+        "uk": 0.00036273505247663707
+      },
+      "metrics": {
+        "ro_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 749,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.5300778485491862,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 458,
+            "positive": 216,
+            "negative": 242,
+            "missed": 0,
+            "false_reviews": 77,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.3181818181818182,
+            "passes": false
+          }
+        },
+        "ro_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 37,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.4111111111111111,
+            "passes": false
+          }
+        },
+        "uk_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 779,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.551309271054494,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 387,
+            "positive": 164,
+            "negative": 223,
+            "missed": 0,
+            "false_reviews": 51,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.22869955156950672,
+            "passes": false
+          }
+        },
+        "uk_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 49,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.5444444444444444,
+            "passes": false
+          }
+        },
+        "uk_stress": {
+          "all": {
+            "rows": 216,
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 116,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.6744186046511628,
+            "passes": false
+          }
+        }
+      },
+      "rank": [
+        0.6744186046511628,
+        3.258242649561723
+      ]
+    },
+    {
+      "epoch": 1,
+      "thresholds": {
+        "ro": 0.0001772160321706906,
+        "uk": 0.0018407368334010243
+      },
+      "metrics": {
+        "ro_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 1226,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.867657466383581,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 458,
+            "positive": 216,
+            "negative": 242,
+            "missed": 0,
+            "false_reviews": 188,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.7768595041322314,
+            "passes": false
+          }
+        },
+        "ro_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 44,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.4888888888888889,
+            "passes": false
+          }
+        },
+        "uk_dev": {
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 598,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.42321302193913657,
+            "passes": false
+          },
+          "conversational": {
+            "rows": 387,
+            "positive": 164,
+            "negative": 223,
+            "missed": 0,
+            "false_reviews": 20,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.08968609865470852,
+            "passes": false
+          }
+        },
+        "uk_scope_dev": {
+          "all": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 27,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.3,
+            "passes": false
+          }
+        },
+        "uk_stress": {
+          "all": {
+            "rows": 216,
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 49,
+            "abstentions": 0,
+            "recall": 1.0,
+            "false_review_rate": 0.28488372093023256,
+            "passes": false
+          }
+        }
+      },
+      "rank": [
+        0.867657466383581,
+        3.231188700928779
+      ]
+    }
+  ],
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "training_rows": 6856,
+  "authored_rows": 2760,
+  "seed": 1119,
+  "learning_rate": 1e-05,
+  "trainable_parameters": 28944387,
+  "neutral_probability_retained": true,
+  "test_used_for_selection": false,
+  "exposed115_used_for_selection": false,
+  "selected_epoch": 0.5
+}

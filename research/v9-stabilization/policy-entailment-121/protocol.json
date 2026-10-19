@@ -1,0 +1,12 @@
+{
+  "frozen_utc": "2026-10-19T08:02:57.280661+00:00",
+  "rationale": "Separate semantic support and revision/scope review tasks; OR proved equal existing policy for all432completeworlds. No change to labels or gates.",
+  "parent": "selected119only",
+  "data": "Same6856trainrows; two fixed hypotheses per input; no new raw text. Joint counterfactual batches, inverse frequency weighting perlanguage/task/class.",
+  "training": "last4blocks+pooler/head,1epoch13712queries,lr5e-6,seed1121; weightedCEplus0.2pairedmargin; half/endDEVselection minimizes worstFP then total under fullcoverage",
+  "cal_and_exposed115": "audit only after checkpoint selection",
+  "fresh_test": "117frozen600remainexcluded; first-use evaluation requires allgates plus installed verification and no earlier access",
+  "conditional": "Run after120 completes only if119fails prioraccuracy gates. If120openedfresh test, do not claimitfresh.",
+  "synthetic_only": true,
+  "independently_annotated": false
+}
