@@ -1,0 +1,98 @@
+{
+  "complete": false,
+  "languages": {
+    "ro": {
+      "metrics": {
+        "conversational": {
+          "positive": 216,
+          "negative": 243,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        },
+        "exposed": {
+          "positive": 44,
+          "negative": 44,
+          "missed": 0,
+          "false_reviews": 2,
+          "recall": 1.0,
+          "false_review_rate": 0.045454545454545456,
+          "passes": true
+        },
+        "formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        }
+      },
+      "prior_counts_pass": true,
+      "development_replay": {
+        "cases": 2954,
+        "score_max_error": 0.0,
+        "decision_changes": 0,
+        "training_references": 8,
+        "full_forward_relative_error": 4.612413704307983e-06,
+        "portable_head_logit_error": 1.1682510375976562e-05
+      },
+      "cases": 2547,
+      "threshold": 0.8659504636108948,
+      "seconds": 621.8350950831082
+    },
+    "uk": {
+      "metrics": {
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        },
+        "exposed": {
+          "positive": 44,
+          "negative": 44,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        },
+        "formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 23,
+          "false_reviews": 0,
+          "recall": 0.9625407166123778,
+          "false_review_rate": 0.0,
+          "passes": false
+        }
+      },
+      "prior_counts_pass": false,
+      "development_replay": {
+        "cases": 3099,
+        "score_max_error": 0.0,
+        "decision_changes": 0,
+        "training_references": 8,
+        "full_forward_relative_error": 4.304550202505197e-06,
+        "portable_head_logit_error": 1.0728836059570312e-05
+      },
+      "cases": 2475,
+      "threshold": 0.9970286876411156,
+      "seconds": 634.8366958328988
+    }
+  },
+  "source_freeze_sha256": "0d41142a3225695139dbeb8e606327e540947e99e800d115fbbc7b3c91ee4e23",
+  "calibration_used_for_selection": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "installed_execution_verified": false,
+  "stable_release_ready": false
+}

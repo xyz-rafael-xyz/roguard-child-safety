@@ -2777,7 +2777,29 @@ The training loss declined from 0.0614 to 0.00226 in Romanian and from 0.0776 to
 [Completed training report](../research/v9-stabilization/serial-grounding-tail-fit-186/actual/report.json)
 · [Frozen prior-audit protocol](../research/v9-stabilization/serial-grounding-prior-187/protocol.json).
 
-Prior187 is the next accuracy gate, followed by installed188 and reserved189.
-Those results are not implied by perfect development performance. All of these
-populations are synthetic; no new independent human language review or measured
-real-world performance is claimed.
+Prior187 completed. Romanian passed all three groups with zero misses and two
+false reviews, both in the 44-negative exposed group (4.55%). Ukrainian had zero
+false reviews and passed conversational and exposed groups, but missed 23/614
+formal positives (96.25% recall). Installed188 and reserved189 did not run.
+Both complete development replays matched exactly; full-model reference checks
+also passed. These are classification errors, not runtime numerical drift.
+
+### Development separation comparison
+
+Study190 retains Romanian186 unchanged and compares all five saved Ukrainian186
+checkpoints using only the original 3,099 development cases and original three
+scoring modes. It first minimizes the unchanged development error-budget rank.
+Among zero-error candidates, it selects the widest positive/negative score
+separation, with the cutoff centered in that interval. Exact remaining ties
+retain the earlier checkpoint/mode. The prior audit motivated this selection
+method change, but no prior scores or labels enter the comparison. No training
+weights or gold labels are changed by this selection experiment.
+
+The previous selector retained the first perfect checkpoint without measuring
+its separation. A wider development score gap provides robustness to additive
+score perturbations on those cases; it is not a calibrated uncertainty bound or
+a guarantee of generalization. New prior191, installed192 and reserved193 checks
+are required before publication. The reserved117 test remains neurally unused.
+
+All these populations are synthetic; no new independent human language review
+or measured real-world performance is claimed.

@@ -27,9 +27,12 @@ track the accuracy work required before v9 becomes the default release. The curr
 **Latest v9 qualification progress:** continuation training now yields zero
 errors across all 6,053 synthetic development cases and all 13 language/group
 checks. The work adds context-grounding contrasts and a verified repair for
-inconsistent grouped training gradients. The separate 5,022-case prior audit is
-running with fixed weights and cutoffs; installed-model comparison and the
-untouched reserved test follow only after it passes. The clean installed wheel
+inconsistent grouped training gradients. The separate 5,022-case prior audit
+passed all Romanian groups (zero misses, two false alerts), but found 23 missed
+Ukrainian formal concerns. A development-only checkpoint comparison now tests
+score separation as a tie-breaker between equally accurate candidates.
+Installed-model comparison and the untouched reserved test follow only after
+both languages pass. The clean installed wheel
 passes 46 runtime/installer tests. V9 remains experimental; stable installations
 select 7.1.1. Synthetic development results do not establish real-world accuracy.
 [Training method](docs/V9_SHARED_ATTENTION.md)
