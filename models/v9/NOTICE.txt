@@ -32,10 +32,24 @@ Interpreter base and derived adapter
   ai.google.dev/gemma/terms
   Copies: licenses/Gemma-Terms.txt and licenses/Gemma-Prohibited-Use-Policy.txt
 
-Use and distribution of Gemma and its model derivatives are subject to the
+Use and distribution of this Gemma 3 component and its model derivatives are subject to the
 Gemma Terms of Use, including the use restrictions incorporated by Section 3.2.
 Those restrictions are conditions of the optional model distribution and are
 not replaced by the RoGuard source-code MIT license.
+
+Gemma 4 base and derived shared-attention adapters
+  Google Gemma 4 E4B instruction model
+  Upstream revision: fee6332c1abaafb77f6f9624236c63aa2f1d0187
+  MLX community 4-bit conversion revision: 475b9088d29754a3379866cf5aeb6b41acd313c2
+  https://huggingface.co/mlx-community/gemma-4-e4b-it-4bit
+  Google's pinned model card declares Apache-2.0 and links to:
+    https://ai.google.dev/gemma/docs/gemma_4_license
+  Copy: licenses/Apache-2.0.txt
+  The conversion model card retains a license: gemma metadata tag. Both original
+  model cards are preserved unchanged as licenses/gemma4-google-README.md and
+  licenses/gemma4-mlx-README.md; URLs and hashes are in licenses/gemma4-sources.json.
+  The upstream base files are unmodified. RoGuard separately trains low-rank
+  query/output projections in the shared-attention layers and classification heads.
 
 Modifications by RoGuard
   The Romanian and Ukrainian classifier checkpoints are fine-tuned derivatives

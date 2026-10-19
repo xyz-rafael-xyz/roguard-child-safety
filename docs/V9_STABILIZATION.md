@@ -2576,3 +2576,11 @@ Python 3.12 or later because the qualified NumPy version requires Python 3.12.
 Unsupported systems are rejected before any model download. The base package
 keeps its Python 3.9 support. Fifty-six focused package and installer tests pass;
 the three tests requiring MLX are handled in the separate MLX environment.
+
+A clean Python 3.12 environment installed the rebuilt wheel with `gemma4,test`
+directly from its dependency declarations. Dependency resolution and `pip check`
+passed; PyTorch is absent. All 46 selected runtime and installer tests passed
+with zero skips, including actual MLX CPU execution. All 156 installed package
+files match the wheel. The installed-model and reserved-evaluation runners now
+use this clean environment. These runs still wait for frozen prior accuracy.
+[Clean installation evidence](../research/v9-stabilization/gemma4-clean-install-20261019.json).
