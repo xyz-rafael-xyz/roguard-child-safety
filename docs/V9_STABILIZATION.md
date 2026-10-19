@@ -1349,3 +1349,60 @@ predeclared shallow-tree configurations receive equal class/population weights;
 calibration is audited only if every development and fold group passes. These
 reused stress cases are not an independent test. Neither the thresholds nor the
 release accuracy requirements are relaxed.
+
+Study108 is the conditional installed-package check for a qualifying study107
+candidate. It requires the same 200-example screen parity and 216-example stress
+counts, with the latter explicitly treated as development evidence.
+
+Study109 supplements the prior training-history separation checks with every
+original development and calibration input and the known stress set. All three
+pinned tokenizer audits completed: 4,917 Romanian rows, 4,990 Ukrainian rows and
+9,907 combined interpreter rows. Each found zero conflicting binary targets and
+zero exact token-input overlap with any of the three reserved probes. No neural
+model was loaded for these checks.
+
+Study110 will verify the installed bilingual dispatcher only if study108 and
+all prerequisite accuracy checks pass. Its 40-example integration screen must
+match the selected models before the reserved probes are opened. Access to
+those probes is recorded before loading them, and predictions are saved after
+each batch. The existing per-language, per-probe and deduplicated accuracy gates
+remain unchanged. No reserved neural results are available yet.
+
+## Scope consensus repair and installed verification
+
+Study106 replays all 216 known stress decisions and scores exactly. Its captured
+model outputs show that the interpreter recognizes the three previously missed
+food-and-care concerns; the learned combiner suppresses those proposals.
+Study107's added stress-family tree fitting fails its development gates, so it
+never audits calibration. Studies108 and110 consequently skip.
+
+Studies111–113 test a narrow addition that preserves every original review.
+Study111's confidence floor of 0.9 recovers none of the three misses. Study112
+selects 0.8095 using only the original development and base fold results and
+recovers two. Both fail the stress gate and skip calibration.
+
+Study113 requires a positive native proposal, an interpreter review proposal,
+and agreement between the two field models on real, non-negated scope. Within
+those agreed scope categories it uses the stronger field confidence, combined
+with the interpreter's concern confidence. These conditional model scores are
+not calibrated probabilities. The cutoff is selected only on original
+development and base fold outputs, requiring at most 1% false reviews in each
+group; calibration and stress do not select it. A stress-audit unpacking bug was
+fixed before any audit results were obtained; the selected cutoff was unchanged
+and both source versions are retained.
+
+The selected cutoff is 0.8472052216529846. Original calibration has 0/614 missed
+formal concerns and 18/1,386 false reviews; conversational calibration has 1/164
+misses and 11/223 false reviews (99.39% recall, 4.93% false reviews). Known stress
+has 0/44 misses and 6/172 false reviews. All current count gates pass. This remains
+a development-informed repair evaluated on reused synthetic data.
+
+The new local runtime preserves component abstentions and all existing input,
+model and permission checks. Its portable calculation matches every one of the
+216 captured actual-model stress outputs exactly. Twelve runtime tests and
+21 bilingual evidence-gate tests pass. Study114 now loads all models from a
+newly installed wheel and compares 200 screen plus 216 stress results. Study115
+is queued to verify the bilingual dispatcher and, only if every prerequisite
+passes, evaluate the frozen reserved probes with recorded access and partial
+results. Reserved neural inference has not run yet. The stable default is
+unchanged until qualification and release work finish.

@@ -1,0 +1,72 @@
+{
+  "parent_selection_sha256": "fbc94f94eb3314fb9f24caea331b4ea1791c9a9f1ccc5b98d54583a3a26e74fe",
+  "native_artifact_sha256": "0cfdf2d5fbaaed11ec0ac330ab6edba36288e0a86108a37e94277f67be3aba41",
+  "native_threshold": 0.008849031757563353,
+  "base_threshold": 0.043580791610622005,
+  "rescue_threshold": 0.9,
+  "threshold": 0.5,
+  "development": {
+    "formal": {
+      "rows": 2000,
+      "positive": 587,
+      "negative": 1413,
+      "missed": 0,
+      "false_reviews": 7,
+      "abstentions": 0,
+      "recall": 1.0,
+      "false_review_rate": 0.004953998584571833,
+      "passes": true
+    },
+    "conversational": {
+      "rows": 387,
+      "positive": 164,
+      "negative": 223,
+      "missed": 0,
+      "false_reviews": 0,
+      "abstentions": 0,
+      "recall": 1.0,
+      "false_review_rate": 0.0,
+      "passes": true
+    }
+  },
+  "oof": {
+    "formal": {
+      "rows": 2000,
+      "positive": 587,
+      "negative": 1413,
+      "missed": 0,
+      "false_reviews": 11,
+      "abstentions": 0,
+      "recall": 1.0,
+      "false_review_rate": 0.00778485491861288,
+      "passes": true
+    },
+    "conversational": {
+      "rows": 387,
+      "positive": 164,
+      "negative": 223,
+      "missed": 0,
+      "false_reviews": 1,
+      "abstentions": 0,
+      "recall": 1.0,
+      "false_review_rate": 0.004484304932735426,
+      "passes": true
+    }
+  },
+  "development_hashes": {
+    "rows": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "native": "78ed93172788c5705f44dd5a8fa7743a11e0177493757170a7fade3c56a2f79a",
+    "interpreter": "63fe17772787168485f57e85646d56c5d517b6693c0970d77296e983e56f8a2e",
+    "base": "67b6045831d2686c259ca6fc4cf047603563311dd8d7846d9e1c4e509ea04cdb",
+    "oof": "394cf65cc502003fa224cceb9132857932821c7d46059a5daee3a22477d26263"
+  },
+  "policy": "Preserve every base review; rescueonlynative-positiveandinterpreter-review withminimumconcern/nonfiction-subject/nonfiction-source/nonnegated-assertionmass abovefixedthreshold.",
+  "selection": "Smallest confidencecutoff>=0.9with <=1%false reviews ineach originalDEVandbase-OOFgroup. StressandCALnotusedforcutoff.",
+  "score_is_calibrated": false,
+  "calibration_used_for_selection": false,
+  "stress_used_for_selection": false,
+  "synthetic_only": true,
+  "independent_accuracy_evaluation": false,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
