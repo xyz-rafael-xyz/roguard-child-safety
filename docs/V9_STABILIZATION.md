@@ -1632,3 +1632,15 @@ historical weight files absent from this checkout. Environment versions and log
 hashes are recorded in
 [`software-verification-20261019.json`](../research/v9-stabilization/software-verification-20261019.json).
 These software checks do not establish classifier accuracy.
+
+Studies128–129 schedule the prepared study127 contrasts as a conditional native
+encoder continuation. They wait for the current comparisons and run only if
+both study123 and the bilingual study125 candidate fail their prior accuracy
+gates. Each language retains its complete study125 training set and adds the
+1,728 new contrasts and ordinary examples. Parent artifacts and input hashes are
+bound before training; complete morphology pairs participate in the existing
+paired loss. Initial and half-epoch development checks select the checkpoint.
+Study129 then replays every prior population on the installed CPU runtime and
+refuses fresh-test reuse if any earlier study opened it. The two native release
+gate implementations pass all six focused checks. No study128 training has
+started yet, and no result from this scheduled continuation is claimed.

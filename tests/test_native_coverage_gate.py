@@ -1,6 +1,7 @@
 from copy import deepcopy
 import pytest
 from training.verify_native_coverage_v9 import require_groups
+from training.verify_native_morphology_v9 import require_groups as morphology_gate
 
 
 def passing(language):
@@ -13,23 +14,25 @@ def passing(language):
 
 
 @pytest.mark.parametrize('language',['ro','uk'])
-def test_requires_every_group_and_unchanged_accuracy_limits(language):
-    assert require_groups(passing(language))
+@pytest.mark.parametrize('gate',[require_groups,morphology_gate])
+def test_requires_every_group_and_unchanged_accuracy_limits(language,gate):
+    assert gate(passing(language))
     for name in passing(language)['epochs'][0]['metrics']:
         r=deepcopy(passing(language));del r['epochs'][0]['metrics'][name]
-        assert not require_groups(r)
+        assert not gate(r)
     for key,value in [('missed',2),('false_reviews',6),('abstentions',1),('positive',0),('negative',0),('missed',True)]:
         r=deepcopy(passing(language));r['audit']['cal']['conversational'][key]=value
-        assert not require_groups(r)
+        assert not gate(r)
     r=deepcopy(passing(language));del r['audit']['cal']['formal']
-    assert not require_groups(r)
+    assert not gate(r)
 
 
-def test_rejects_unfinished_or_previously_opened_candidates():
+@pytest.mark.parametrize('gate',[require_groups,morphology_gate])
+def test_rejects_unfinished_or_previously_opened_candidates(gate):
     for key in ('complete','fresh_test_not_inferred','counts_pass'):
         r=passing('uk');r[key]=False
-        assert not require_groups(r)
+        assert not gate(r)
     r=passing('uk');r['selected_epoch']=3
-    assert not require_groups(r)
+    assert not gate(r)
     r=passing('uk');r['language']='en'
-    assert not require_groups(r)
+    assert not gate(r)

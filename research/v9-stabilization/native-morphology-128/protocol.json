@@ -1,0 +1,17 @@
+{
+  "study": 128,
+  "parent": "selected125nativecheckpoints",
+  "conditional": "run only after123and125fail prior accuracy gates and126hascompleted;skipif either prior candidate qualifies",
+  "data": "full125continuationtrainingplusfrozen127gendercontrasts;expected10904RO11661UK",
+  "seed": 1128,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "trainable": "lastfourencoderblocksandclassifier",
+  "objective": "samepairedcrossentropyas125;includecomplete morphology_scope_v9pairs",
+  "selection": "initialandhalfepochDEVfullpositivecoverage;minimizeworstgroupFPthensum",
+  "calibration": "auditonlyafterselection",
+  "fresh600": "excludeatnative-tokenlevelincludinginheritedhistory;noinferenceintraining",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "release_gates_unchanged": true
+}
