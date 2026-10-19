@@ -2412,3 +2412,11 @@ measure replay time and cache size, and test one rank4 query/output adapter
 update on the full shared tail. Full-sequence parity must still hold after
 the update. The update is discarded; this preflight makes no accuracy claim
 and accesses no development, calibration or reserved examples.
+
+A separate cache helper stores only typed arrays and bounded JSON metadata,
+with input-token and source-freeze identities. Loading rejects mismatched
+identities, nonfinite states, unexpected arrays and oversized archives; it
+never uses pickle. Equal-length states can be batched without padding or
+changing attention positions. Two CPU tests pass for storage round trips,
+identity/corruption rejection and batched full-sequence parity. The numerical
+CI job also runs the NumPy cache validation test.
