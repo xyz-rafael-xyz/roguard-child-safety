@@ -1718,3 +1718,19 @@ are frozen in
 [`scope-operators-130`](../research/v9-stabilization/scope-operators-130).
 They have not been added to the running study125 or the already frozen study128.
 This is a prepared follow-up intervention, with no accuracy result claimed.
+
+Studies131–132 schedule that intervention only if the earlier candidates still
+fail. Study131 retains the complete selected study128 continuation corpus and
+adds the 1,920 new rows per language. Its two-epoch training objective remains
+paired crossentropy, now including the new opposed scope pairs. Development
+selection uses the existing 99% recall requirement separately for each group;
+among feasible cutoffs it minimizes the worst false-review rate, their sum, and
+then misses. This changes the earlier zero-miss development selection rule,
+while keeping the release gates unchanged. Eight cutoff tests cover small-group
+miss budgets, ties, inseparable scores and invalid inputs.
+
+Study132 performs full installed CPU replay before any conditional reserved-test
+access and rejects prior access by studies118,120,122,124,126 or129. The three
+native verification implementations pass all nine shared gate tests. Both stages
+are frozen before execution and wait for the earlier queued studies. No
+study131 training or study132 accuracy result is claimed at preparation time.

@@ -2,6 +2,7 @@ from copy import deepcopy
 import pytest
 from training.verify_native_coverage_v9 import require_groups
 from training.verify_native_morphology_v9 import require_groups as morphology_gate
+from training.verify_native_scope_operators_v9 import require_groups as operators_gate
 
 
 def passing(language):
@@ -14,7 +15,7 @@ def passing(language):
 
 
 @pytest.mark.parametrize('language',['ro','uk'])
-@pytest.mark.parametrize('gate',[require_groups,morphology_gate])
+@pytest.mark.parametrize('gate',[require_groups,morphology_gate,operators_gate])
 def test_requires_every_group_and_unchanged_accuracy_limits(language,gate):
     assert gate(passing(language))
     for name in passing(language)['epochs'][0]['metrics']:
@@ -27,7 +28,7 @@ def test_requires_every_group_and_unchanged_accuracy_limits(language,gate):
     assert not gate(r)
 
 
-@pytest.mark.parametrize('gate',[require_groups,morphology_gate])
+@pytest.mark.parametrize('gate',[require_groups,morphology_gate,operators_gate])
 def test_rejects_unfinished_or_previously_opened_candidates(gate):
     for key in ('complete','fresh_test_not_inferred','counts_pass'):
         r=passing('uk');r[key]=False

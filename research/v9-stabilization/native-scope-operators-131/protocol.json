@@ -1,0 +1,18 @@
+{
+  "study": 131,
+  "parent": "Selected128 native checkpoints",
+  "conditional": "Only if123,125and128 fail prior accuracy gates; wait for129installed audit",
+  "data": "Full128continuation training plus frozen130 scope contrasts; expected12824RO13581UK",
+  "seed": 1131,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "trainable": "Last four encoder blocks and classifier",
+  "objective": "Existing paired crossentropy; include complete scope_operators_v9 pairs",
+  "selection": "Initial and half-epoch DEV only; enforce recall>=99% per group; minimize worst FP rate, sum FP rates, then total misses",
+  "change_from128": "Adds130scope contrasts and aligns cutoff selection with the existing99%release recall requirement; retains5%false-review gate",
+  "calibration": "Audit only after selection",
+  "fresh600": "Exclude at native token level including inherited history; no inference during training",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "release_gates_unchanged": true
+}
