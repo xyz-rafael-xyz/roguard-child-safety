@@ -2247,3 +2247,19 @@ calls (42.1%) and 563/2,783 Ukrainian calls (20.2%), changing no decisions. The
 Ukrainian exits also avoid the native encoder. These are cached development call
 counts, not end-to-end latency measurements or deployment qualification. No
 training, calibration inference or reserved-test access was added.
+
+### Direct policy supervision prepared (study151)
+
+Study151 keeps study145's data, initialization, architecture and optimizer. It
+adds binary cross-entropy on the existing integrated policy probability, averaged
+over its independent and coupled forms, to the binary-head and six-field losses.
+This directly trains the composed review decision while retaining semantic-field
+supervision. Training uses the existing policy, not a changed routing rule.
+
+Two gradient tests compare the differentiable calculation with the independent
+numeric scorer to 1e-12, verify finite gradients in all policy-relevant fields
+and confirm that a gradient step reduces the policy loss. The time field remains
+trained by its field loss; it does not independently change this existing policy.
+The CPU-only experiment waits for study149 and skips if a preceding contextual
+candidate qualifies development. Its baseline is study145, and release gates,
+calibration separation and reserved-test handling remain unchanged.

@@ -1,0 +1,43 @@
+{
+  "study": 151,
+  "created_utc": "2026-10-19T13:47:38.786367+00:00",
+  "parent": "145 expanded semantic-head training; same data, initialization, optimizer and schedule",
+  "training_rows": 7953,
+  "new_training_rows": 4346,
+  "development_rows": 5421,
+  "epochs": 100,
+  "evaluation_epochs": [
+    10,
+    20,
+    40,
+    60,
+    100
+  ],
+  "initial_epoch_evaluated": true,
+  "seed": 1143,
+  "hidden": 128,
+  "batch_size": 128,
+  "dropout": 0.1,
+  "learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "gradient_clip": 1.0,
+  "scoring_modes": [
+    "binary",
+    "policy",
+    "coupled_policy"
+  ],
+  "training": "141 training representations plus all additional formal and indirect-distress training rows extracted in144",
+  "couplings": "Recomputed only from expanded training labels; language/review strata remain equally weighted",
+  "selection": "Retain145 standalone candidate unless strictly improved on the unchanged development objective",
+  "release_gates_unchanged": true,
+  "new_foundation_inference": false,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "export_check": "Independent numeric GELU logits within1e-4 for allDEVinputs at everycheckedepoch",
+  "objective": "binaryCE + mean6fieldCE + mean(independentPolicyBCE,coupledPolicyBCE)",
+  "policy_probability_clamp": 1e-07,
+  "skip": "Skip if145or149bilingualDEVqualifies"
+}
