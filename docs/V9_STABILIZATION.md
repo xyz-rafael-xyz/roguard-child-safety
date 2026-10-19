@@ -2584,3 +2584,37 @@ with zero skips, including actual MLX CPU execution. All 156 installed package
 files match the wheel. The installed-model and reserved-evaluation runners now
 use this clean environment. These runs still wait for frozen prior accuracy.
 [Clean installation evidence](../research/v9-stabilization/gemma4-clean-install-20261019.json).
+
+### Shared-attention development qualified
+
+Study165 completed three epochs on 9,681 synthetic training cases. Selection
+retained Romanian epoch3 with coupled-policy scoring and Ukrainian epoch2 with
+policy scoring. The predeclared selection rule minimizes the worst group false
+review rate subject to each group's 99% recall floor. All nine development
+groups pass the unchanged gates:
+
+| Language | Group | Concerns | Benign cases | Missed concerns | False reviews |
+|---|---|---:|---:|---:|---:|
+| RO | Formal | 587 | 1,413 | 4 | 1 |
+| RO | Conversational | 216 | 242 | 0 | 0 |
+| RO | Scope | 90 | 90 | 0 | 0 |
+| RO | Context transition | 36 | 108 | 0 | 0 |
+| UK | Formal | 587 | 1,413 | 0 | 0 |
+| UK | Conversational | 164 | 223 | 1 | 1 |
+| UK | Scope | 90 | 90 | 0 | 0 |
+| UK | Stress | 44 | 172 | 0 | 1 |
+| UK | Context transition | 36 | 108 | 0 | 0 |
+
+The run took 28 minutes including initial and checkpoint development evaluations;
+peak MLX allocation was 4.51 GB. The selected cutoffs are fixed at
+0.8931910638567166 for Romanian and 0.9220764642322622 for Ukrainian. Full
+checkpoint comparisons, selected predictions and hashes are in the
+[completed report](../research/v9-stabilization/shared-tail-fit-165/actual/report.json).
+The [training-method note](V9_SHARED_ATTENTION.md) explains the cache boundary,
+numerical checks and resource costs.
+
+Study166 now evaluates the frozen selections on 5,022 separate calibration and
+exposed-regression inputs. Study167 will then compare actual installed-model
+outputs in the clean environment. Study168 remains gated on those results;
+its reserved 600 cases have not been neurally inferred. Passing development
+does not establish qualification on those later populations or real-world data.
