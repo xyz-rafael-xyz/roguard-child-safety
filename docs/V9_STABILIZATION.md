@@ -1864,3 +1864,35 @@ not change any metric or gate. It performs no model inference and does not read
 the reserved test. The script and input-bound result are retained as
 `training/audit_evaluation_inputs_v9.py` and
 `research/v9-stabilization/evaluation-input-label-audit-20261019.json`.
+
+### Newer multilingual model capacity screen prepared (study139)
+
+The earlier Gemma 3 12B attempt was already limited by local latency. Study139
+instead prepares a separate screen of Gemma 4 E4B, whose upstream card describes
+4.5B effective parameters and 8B including embeddings, multilingual pretraining,
+and an Apache 2.0 license. These are upstream capabilities, not RoGuard accuracy
+results. Sources: [Google model card at the conversion's source revision](https://huggingface.co/google/gemma-4-E4B-it/blob/fee6332c1abaafb77f6f9624236c63aa2f1d0187/README.md)
+and [MLX conversion](https://huggingface.co/mlx-community/gemma-4-e4b-it-4bit).
+
+The 5.18 GB download is pinned to revision
+`475b9088d29754a3379866cf5aeb6b41acd313c2`, with every file hashed and upstream
+large-file hashes checked. It remains in the private cache. The conversion's
+card still labels its license as Gemma; any future redistribution must preserve
+and resolve that metadata difference against the pinned upstream license.
+No model assets or package profile are being published by this screen.
+
+Forty already exposed scope-development examples are selected with seed1139:
+two per language/scope/label group, twenty per language. The original policy
+prompt is unchanged, classification uses fixed threshold0.5, and an invalid
+highest-probability output token counts as an error. At least18/20correct in
+each language would justify a broader experiment; this small screen can never
+qualify a release. The reserved test is not read. Prompt preparation verifies
+one-token labels and a maximum length of467tokens with no truncation.
+
+Four CPU tests on small instances of the actual Gemma 4 text architecture
+verify the final-token projection and cached-prefix path for tied/untied output
+weights and enabled/disabled logit caps. The real screen additionally compares
+its first two results against full forward passes. It runs in float32 with a
+10 GiB allocation limit, after study132 and before study133, with a fifteen-minute
+resource timeout. This scheduling change leaves all encoder training sources,
+data and protocols unchanged. No study139 inference result is claimed here.

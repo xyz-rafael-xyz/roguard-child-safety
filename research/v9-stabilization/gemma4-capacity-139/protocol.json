@@ -1,0 +1,24 @@
+{
+  "study": 139,
+  "created_utc": "2026-10-19T11:16:59.077127+00:00",
+  "purpose": "Capacity/resource screen only",
+  "base": "Gemma4E4B4bit",
+  "data": "Two cases per language/scope/gold stratum from prior scope DEV; 20perlanguage",
+  "seed": 1139,
+  "input_sha256": {
+    "research/v9-stabilization/native-morphology-128/ro/scope_dev.jsonl.gz": "1ac6e51fecdc6c150523c5058e622e08374009710dbf471e836b4af4e67dd381",
+    "research/v9-stabilization/native-morphology-128/uk/scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f"
+  },
+  "fixed_threshold": 0.5,
+  "invalid_top_tokens_count_as_errors": true,
+  "screen_warrants_expansion": "At least18/20correct per language",
+  "release_gates_unchanged": true,
+  "source_policy": "Unchanged POLICY_V2",
+  "floating_dtype": "float32",
+  "cache_verification": "Firsttwo full forward comparisons, <=0.001score error and same top token",
+  "memory_limit_bytes": 10737418240,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "fresh_test_read": false,
+  "neural_inference_started": false
+}
