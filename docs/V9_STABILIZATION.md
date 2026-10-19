@@ -1490,8 +1490,7 @@ study119 fails its prior accuracy gates. It learns two entailment tasks with one
 shared encoder: a real-person support concern, and a withdrawal or conflicting
 fiction/real-person interpretation requiring review. Their Boolean OR is tested
 to reproduce the existing policy for all 432 complete attribute combinations.
-This distinction is useful because reviewing a revision is not a claim that the
-message describes a personal safety problem. Labels and release gates do not
+Separate output fields identify the reason for review. Labels and release gates do not
 change.
 
 The study reuses the same 6,856 training inputs with two hypotheses per input,
@@ -1508,7 +1507,19 @@ compare both component scores, their maximum and every decision through an
 isolated package, followed by a CPU check. Any earlier fresh-test access by118
 or120 prevents it from claiming another first-use evaluation.
 
-The full suite with these runtime changes passed 980 tests, with31 optional
-skips and129 subtests. Subsequent CLI integration adds checked loading of either
+The full suite with these runtime changes passed 980 tests, with 31 optional
+skips and 129 subtests. Subsequent CLI integration adds checked loading of either
 entailment profile and points portable-model users to the semantic dependency
 extra. These are preparatory capabilities; no qualified profile is published yet.
+
+Study119 completed both epochs and selected the half-epoch checkpoint. Its
+calibration remains below the release gates: Romanian has 1/614 formal misses,
+1,008/1,386 formal false reviews and 143/243 conversational false reviews;
+Ukrainian has zero calibration misses but 1,065/1,386 formal and 119/223
+conversational false reviews. Exposed regression has zero misses in either
+language, with 28/44 Romanian and 27/44 Ukrainian false reviews. This candidate is
+rejected. These counts describe its selected conservative operating point.
+
+Study120 reproduced all checked installed decisions, including 40 CPU cases;
+the largest score difference was 0.000018478. It skipped the fresh test because
+accuracy failed. Study121 has started its separate support/revision refinement.
