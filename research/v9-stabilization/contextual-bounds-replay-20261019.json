@@ -1,0 +1,87 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "rows": 2638,
+      "stages": {
+        "contextual_required": 1527,
+        "after_native": 1111
+      },
+      "groups": {
+        "formal": {
+          "contextual_required": 1188,
+          "after_native": 812
+        },
+        "conversational": {
+          "contextual_required": 239,
+          "after_native": 219
+        },
+        "scope_dev": {
+          "contextual_required": 100,
+          "after_native": 80
+        }
+      },
+      "contextual_calls_avoided": 1111,
+      "native_calls_avoided": 0,
+      "early_decision_changes": 0,
+      "threshold": 0.015932320838280487,
+      "native_weight": 0.75,
+      "scope_power": 1,
+      "gate_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+      "reference_predictions_sha256": "f72c4336c90dd479513b9f1230c9bcdb1f5ec3dae685b3672b7fb9b47ad86fcf",
+      "native_predictions_sha256": {
+        "research/v9-stabilization/native-scope-operators-131/ro/dev-predictions.jsonl": "4e095ec2f6dddbbb6555c92f6a038efc641ea29bd7864831c9ab09c1f8a0101e",
+        "research/v9-stabilization/native-scope-operators-131/ro/scope_dev-predictions.jsonl": "bc73c4e6cf64d75d5ac8345e3362d239e125040d23437a33eb7d4cf516f42b96"
+      }
+    },
+    "uk": {
+      "rows": 2783,
+      "stages": {
+        "scope_only": 563,
+        "contextual_required": 2220
+      },
+      "groups": {
+        "formal": {
+          "scope_only": 361,
+          "contextual_required": 1639
+        },
+        "conversational": {
+          "contextual_required": 361,
+          "scope_only": 26
+        },
+        "scope_dev": {
+          "scope_only": 48,
+          "contextual_required": 132
+        },
+        "stress": {
+          "contextual_required": 88,
+          "scope_only": 128
+        }
+      },
+      "contextual_calls_avoided": 563,
+      "native_calls_avoided": 563,
+      "early_decision_changes": 0,
+      "threshold": 0.10609748718180642,
+      "native_weight": 0.25,
+      "scope_power": 2,
+      "gate_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+      "reference_predictions_sha256": "c5814b4fec4130bae92b67da3655620e4b4a07df523feaa1967302ba24f0d46c",
+      "native_predictions_sha256": {
+        "research/v9-stabilization/native-scope-operators-131/uk/dev-predictions.jsonl": "517100a52b69448c4e957c6afec2fbaa0c8b3560710b3d62e18be4588ad838e3",
+        "research/v9-stabilization/native-scope-operators-131/uk/scope_dev-predictions.jsonl": "09af76dba13908d82ede7851e1a96b6eb9214ecf9027668ee015ebf7e6639928",
+        "research/v9-stabilization/native-scope-operators-131/uk/stress-predictions.jsonl": "5afa432fca18fedc378cd972e96a4e1d0b3942b9f3f4cfceb3360e5f100e9c67"
+      }
+    }
+  },
+  "new_neural_inference": false,
+  "fresh_test_inferred": false,
+  "calibration_inferred": false,
+  "installed_execution_verified": false,
+  "synthetic_only": true,
+  "scope": "Decision-equivalence and avoided-call counts only; no accuracy or end-to-end latency claim",
+  "implementation_sha256": "061f3d42461c00d89d3bf3171bcb5b9c70048af172fd641458a52bda852f10bb",
+  "scope_implementation_sha256": "76591dcdf33f2ebf1c7813d6b032860d05b5da8797bc76f60040ed2c8e2315a7",
+  "verification_source_sha256": "8d1262e3d58e66df26aaa05d3607c945da1210c022ff620b886c8abb4ed2473a",
+  "inputs_sha256": "3037790885b88e491da5b9ec670dd5a53b765c4b14a05bf0ab5f66529b3074f5",
+  "finished_utc": "2026-10-19T13:40:55.310742+00:00"
+}

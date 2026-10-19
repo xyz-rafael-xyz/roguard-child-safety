@@ -2230,3 +2230,20 @@ It is queued after studies137–138 and skips when an earlier candidate should
 advance to release qualification. The new preprocessing has its own artifact
 format and requires an installed runtime check before any reserved inference.
 There is no study150 accuracy result at preparation time.
+
+### Conservative model-call bounds
+
+The logit blend is monotone in the contextual score, and its result is multiplied
+by the sparse scope factor. `training/contextual_bounds_v9.py` computes the
+possible output interval before requesting the contextual model. A decision is
+returned early only when the entire interval lies on one side of the frozen
+cutoff, with a numerical margin. Otherwise the full path remains required.
+These bounds preserve a classifier's decision; they do not establish that the
+decision is correct.
+
+Seven tests cover extreme and random component scores, cutoff boundaries and
+invalid values. Replay against study147 avoided 1,111/2,638 Romanian contextual
+calls (42.1%) and 563/2,783 Ukrainian calls (20.2%), changing no decisions. The
+Ukrainian exits also avoid the native encoder. These are cached development call
+counts, not end-to-end latency measurements or deployment qualification. No
+training, calibration inference or reserved-test access was added.
