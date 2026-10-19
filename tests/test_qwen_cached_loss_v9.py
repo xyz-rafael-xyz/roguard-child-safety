@@ -2,7 +2,8 @@
 import pytest
 
 
-def test_cached_loss_and_gradients_survive_updates_and_repeated_inputs():
+@pytest.mark.parametrize('checkpoint', [False, True])
+def test_cached_loss_and_gradients_survive_updates_and_repeated_inputs(checkpoint):
     mx = pytest.importorskip('mlx.core')
     nn = pytest.importorskip('mlx.nn')
     from mlx.utils import tree_flatten
@@ -12,6 +13,7 @@ def test_cached_loss_and_gradients_survive_updates_and_repeated_inputs():
 
     previous = mx.default_device()
     mx.set_default_device(mx.cpu)
+    layer_type = original_call = None
     try:
         mx.random.seed(994)
         model = Model(ModelArgs(model_type='qwen3_5', text_config=dict(
@@ -22,6 +24,11 @@ def test_cached_loss_and_gradients_survive_updates_and_repeated_inputs():
             linear_value_head_dim=16, full_attention_interval=4)))
         model.freeze()
         linear_to_lora_layers(model, 1, dict(rank=2, scale=2., dropout=0.))
+        if checkpoint:
+            from mlx_lm.tuner.trainer import grad_checkpoint
+            layer_type = type(model.layers[0])
+            original_call = layer_type.__call__
+            grad_checkpoint(model.layers[0])
         sequences = [[1, 2, 3, 4, 5, 0], [1, 2, 3, 8, 9, 11, 1]]
         cached, common = make_loss(model, sequences)
         assert common == 3
@@ -52,4 +59,6 @@ def test_cached_loss_and_gradients_survive_updates_and_repeated_inputs():
             optimizer.update(model, cached_gradient)
             mx.eval(model.parameters(), optimizer.state)
     finally:
+        if layer_type is not None:
+            layer_type.__call__ = original_call
         mx.set_default_device(previous)

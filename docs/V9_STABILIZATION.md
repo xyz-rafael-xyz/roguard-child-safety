@@ -1176,5 +1176,46 @@ prepared but has not yet run.
 The proposed study94 prefix cache passed a small CPU test using actual Qwen3.5
 hybrid recurrent/attention blocks. Losses and all trainable gradients matched
 the uncached calculation within 0.00001 across repeated inputs and optimizer
-updates. This checks the cache implementation; the full-size model must still
+updates, both with and without the trainer's gradient-checkpointing wrapper.
+This checks the cache implementation; the full-size model must still
 pass its separate preflight before training starts.
+
+### One interface for separate language candidates
+
+The source checkout now provides `roguard.language_bundle.LanguageReviewModel`
+for explicitly configured Romanian and Ukrainian local bundles. It validates
+the entire batch before loading a model, groups inputs by their declared
+language, restores their original order, and returns each selected model's
+report unchanged. It checks the input, focal turn and model bindings and rejects
+reports claiming permission to notify or act. Future turns beyond the focus
+never reach the selected model.
+
+A local manifest contains exactly these fields, with actual SHA256 values from
+your trusted model configuration:
+
+```json
+{
+  "format": "roguard-language-review-bundle-v1",
+  "languages": {
+    "ro": {"path": "ro/bundle.json", "sha256": "<Romanian bundle SHA256>", "device": "cpu"},
+    "uk": {"path": "uk/bundle.json", "sha256": "<Ukrainian bundle SHA256>", "device": "cpu"}
+  }
+}
+```
+
+Both child manifests must be inside the language bundle's directory. Choose
+`mps` for a Qwen child on Apple Silicon. Other model requirements still apply;
+the dispatcher does not install dependencies or download weights. It retains
+only the most recently used language model and releases its own reference
+before switching languages.
+
+```sh
+python -m roguard.language_bundle --bundle models/languages.json --sha256 "$TRUSTED_BUNDLE_SHA256" --input conversation.json
+```
+
+Twenty tests cover mixed-language ordering, model reuse and release, batch
+validation before loading, future-turn isolation, output bindings, tampering,
+path escapes, incomplete results and unsupported claims. These are software
+checks using test doubles; the combined language dispatcher still needs an
+actual-model check with the final qualified candidates. No default model is
+selected by this addition.

@@ -26,7 +26,8 @@ track the accuracy work required before v9 becomes the default release. The curr
 **Latest v9 qualification progress:** a Romanian three-model candidate passes
 its development and reused synthetic calibration count gates, with zero missed
 calibration concerns and 3.75%/2.88% formal/conversational false reviews. Its
-installed report-combination replay matches all 200 checked decisions and scores.
+installed pipeline, running all three actual models, matches all 200 checked
+decisions and scores.
 Ukrainian conversational recall still fails qualification; v9 is not the default.
 [Results, follow-up experiments and limits](docs/V9_STABILIZATION.md#conservative-boosted-candidate-and-installed-runtime).
 
