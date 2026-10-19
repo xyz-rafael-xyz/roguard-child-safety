@@ -2641,3 +2641,12 @@ cases remain neurally unscored.
 
 [Complete batch diagnosis](../research/v9-stabilization/shared-tail-replay-diagnostic-169/report.json)
 · [Corrected frozen protocol](../research/v9-stabilization/shared-tail-canonical-prior-170/protocol.json).
+
+The prepared `scripts/verify_gemma4_release.py` will bind a stable wheel to the
+qualified wheel, download inventory and completed evaluation reports. It permits
+only the pinned model manifest and profile catalog as new package files, checks
+unchanged dependencies and command entry points, and recomputes reserved counts
+against their original labels after the reserved evaluation has completed.
+Nine tests reject altered code/data, extra modules, changed download metadata,
+dependency drift, command changes and unexpected installation files. The actual
+release check has not run; no stable v9 wheel is promoted by these fixture tests.
