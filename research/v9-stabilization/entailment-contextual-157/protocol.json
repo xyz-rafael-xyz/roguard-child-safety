@@ -1,0 +1,24 @@
+{
+  "study": 157,
+  "created_utc": "2026-10-19T14:13:57.427781+00:00",
+  "language": "uk",
+  "semantic_families": [
+    "gemma4-structured-143",
+    "gemma4-structured-expanded-145",
+    "gemma4-policy-loss-151"
+  ],
+  "epochs": [
+    10,
+    20,
+    40,
+    60,
+    100
+  ],
+  "selection": "Fixed153 entailment-scope gate then semantic check; same per-group99/5 development frontier; retain153 unless strictly improved",
+  "couplings": "Original train-only balanced couplings per parent",
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false
+}

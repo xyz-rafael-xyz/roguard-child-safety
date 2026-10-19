@@ -1,0 +1,2548 @@
+{
+  "complete": true,
+  "finished_utc": "2026-10-19T14:14:01.051976+00:00",
+  "selected": {
+    "kind": "conditional",
+    "semantic_family": "gemma4-structured-expanded-145",
+    "epoch": 10,
+    "semantic_mode": "coupled_policy",
+    "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+    "frontier": {
+      "threshold": 0.004625885561719867,
+      "rank": [
+        0.022222222222222223,
+        0.07018791510117492,
+        6
+      ],
+      "metrics": {
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 4,
+          "false_review_rate": 0.017937219730941704,
+          "recall": 0.9939024390243902,
+          "passes": true
+        },
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 26,
+          "false_review_rate": 0.01840056617126681,
+          "recall": 0.9914821124361158,
+          "passes": true
+        },
+        "scope_dev": {
+          "positive": 90,
+          "negative": 90,
+          "missed": 0,
+          "false_reviews": 2,
+          "false_review_rate": 0.022222222222222223,
+          "recall": 1.0,
+          "passes": true
+        },
+        "stress": {
+          "positive": 44,
+          "negative": 172,
+          "missed": 0,
+          "false_reviews": 2,
+          "false_review_rate": 0.011627906976744186,
+          "recall": 1.0,
+          "passes": true
+        }
+      },
+      "counts_pass": true
+    }
+  },
+  "comparisons": [
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 10,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+      "frontier": {
+        "threshold": 0.0005468846318028697,
+        "rank": [
+          0.1111111111111111,
+          0.18950850958100507,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 69,
+            "false_review_rate": 0.04883227176220807,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 10,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+      "frontier": {
+        "threshold": 0.03620280254472942,
+        "rank": [
+          0.1,
+          0.1597588118669533,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 3,
+            "false_review_rate": 0.013452914798206279,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 49,
+            "false_review_rate": 0.03467799009200283,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 9,
+            "false_review_rate": 0.1,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 10,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+      "frontier": {
+        "threshold": 0.015057600834081563,
+        "rank": [
+          0.08888888888888889,
+          0.146054864853475,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 39,
+            "false_review_rate": 0.027600849256900213,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 20,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+      "frontier": {
+        "threshold": 1.0159847329017225e-05,
+        "rank": [
+          0.1111111111111111,
+          0.19163165183153585,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 72,
+            "false_review_rate": 0.050955414012738856,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 20,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+      "frontier": {
+        "threshold": 0.0108560604978745,
+        "rank": [
+          0.1,
+          0.15716597596458612,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 39,
+            "false_review_rate": 0.027600849256900213,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 9,
+            "false_review_rate": 0.1,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 20,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+      "frontier": {
+        "threshold": 0.0039021217079489127,
+        "rank": [
+          0.08888888888888889,
+          0.14534715076996474,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 38,
+            "false_review_rate": 0.02689313517338995,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 40,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+      "frontier": {
+        "threshold": 1.1321611091650086e-06,
+        "rank": [
+          0.1111111111111111,
+          0.19304707999855636,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 74,
+            "false_review_rate": 0.052370842179759375,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 40,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+      "frontier": {
+        "threshold": 0.0009567874226772085,
+        "rank": [
+          0.1,
+          0.16707397313372976,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 53,
+            "false_review_rate": 0.03750884642604388,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 9,
+            "false_review_rate": 0.1,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 40,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+      "frontier": {
+        "threshold": 0.00022464754580248694,
+        "rank": [
+          0.08888888888888889,
+          0.14747029302049552,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 41,
+            "false_review_rate": 0.029016277423920735,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 60,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+      "frontier": {
+        "threshold": 3.4248899248535304e-09,
+        "rank": [
+          0.1111111111111111,
+          0.1944625081655769,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 76,
+            "false_review_rate": 0.0537862703467799,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 60,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+      "frontier": {
+        "threshold": 2.2471235976710805e-06,
+        "rank": [
+          0.1111111111111111,
+          0.1944625081655769,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 76,
+            "false_review_rate": 0.0537862703467799,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 60,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+      "frontier": {
+        "threshold": 8.720301786496681e-07,
+        "rank": [
+          0.1,
+          0.16919711538426055,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 56,
+            "false_review_rate": 0.039631988676574664,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 9,
+            "false_review_rate": 0.1,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 100,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+      "frontier": {
+        "threshold": 2.7446950662236657e-07,
+        "rank": [
+          0.1111111111111111,
+          0.19304707999855636,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 74,
+            "false_review_rate": 0.052370842179759375,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 100,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+      "frontier": {
+        "threshold": 2.1586823433479673e-06,
+        "rank": [
+          0.1111111111111111,
+          0.19092393774802557,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 71,
+            "false_review_rate": 0.05024769992922859,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-143",
+      "epoch": 100,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+      "frontier": {
+        "threshold": 2.3301930742168305e-06,
+        "rank": [
+          0.08888888888888889,
+          0.1439317226029442,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 36,
+            "false_review_rate": 0.025477707006369428,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 10,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+      "frontier": {
+        "threshold": 1.832152244669227e-05,
+        "rank": [
+          0.1111111111111111,
+          0.19517022224908714,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 77,
+            "false_review_rate": 0.05449398443029016,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 10,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+      "frontier": {
+        "threshold": 0.0038400061754593974,
+        "rank": [
+          0.07777777777777778,
+          0.1328206114918331,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 36,
+            "false_review_rate": 0.025477707006369428,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 10,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+      "frontier": {
+        "threshold": 0.004625885561719867,
+        "rank": [
+          0.022222222222222223,
+          0.07018791510117492,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 26,
+            "false_review_rate": 0.01840056617126681,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.022222222222222223,
+            "recall": 1.0,
+            "passes": true
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": true
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 20,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+      "frontier": {
+        "threshold": 1.1023978008944277e-08,
+        "rank": [
+          0.1111111111111111,
+          0.19658565041610768,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 79,
+            "false_review_rate": 0.055909412597310686,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 20,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+      "frontier": {
+        "threshold": 0.00016324413747093844,
+        "rank": [
+          0.07777777777777778,
+          0.13352832557534336,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 37,
+            "false_review_rate": 0.026185421089879687,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 20,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+      "frontier": {
+        "threshold": 0.00016586226163837684,
+        "rank": [
+          0.044444444444444446,
+          0.0931178514069074,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 27,
+            "false_review_rate": 0.01910828025477707,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 4,
+            "false_review_rate": 0.044444444444444446,
+            "recall": 1.0,
+            "passes": true
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": true
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 40,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+      "frontier": {
+        "threshold": 1.6882667480425438e-10,
+        "rank": [
+          0.08888888888888889,
+          0.16728628735878284,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 69,
+            "false_review_rate": 0.04883227176220807,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 40,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+      "frontier": {
+        "threshold": 8.373506881695574e-06,
+        "rank": [
+          0.06666666666666667,
+          0.12241721446423225,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 37,
+            "false_review_rate": 0.026185421089879687,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 6,
+            "false_review_rate": 0.06666666666666667,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 40,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+      "frontier": {
+        "threshold": 1.7549852287292684e-07,
+        "rank": [
+          0.07777777777777778,
+          0.1349437537423639,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 39,
+            "false_review_rate": 0.027600849256900213,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 60,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+      "frontier": {
+        "threshold": 1.3126737201038e-10,
+        "rank": [
+          0.1111111111111111,
+          0.18950850958100507,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 69,
+            "false_review_rate": 0.04883227176220807,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 60,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+      "frontier": {
+        "threshold": 5.896366950507517e-05,
+        "rank": [
+          0.07777777777777778,
+          0.12488351575293022,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 33,
+            "false_review_rate": 0.02335456475583864,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 1,
+            "false_review_rate": 0.005813953488372093,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 60,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+      "frontier": {
+        "threshold": 6.549392873469026e-07,
+        "rank": [
+          0.07777777777777778,
+          0.12998975515779204,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 32,
+            "false_review_rate": 0.02264685067232838,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 100,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+      "frontier": {
+        "threshold": 4.379974325621606e-10,
+        "rank": [
+          0.1111111111111111,
+          0.18243136874590243,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 59,
+            "false_review_rate": 0.04175513092710545,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 100,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+      "frontier": {
+        "threshold": 0.00039630061339050835,
+        "rank": [
+          0.06666666666666667,
+          0.10377862786129158,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 3,
+            "false_review_rate": 0.013452914798206279,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 17,
+            "false_review_rate": 0.012031139419674451,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 6,
+            "false_review_rate": 0.06666666666666667,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-structured-expanded-145",
+      "epoch": 100,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+      "frontier": {
+        "threshold": 1.8871899791006996e-07,
+        "rank": [
+          0.07777777777777778,
+          0.12998975515779204,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 32,
+            "false_review_rate": 0.02264685067232838,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 10,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "5da90a8a26398f7b9f4afff3195fed387a5b6803cac2e91148946130ab9e6e10",
+      "frontier": {
+        "threshold": 3.4490860375293244e-05,
+        "rank": [
+          0.1,
+          0.17839739846989397,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 69,
+            "false_review_rate": 0.04883227176220807,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 9,
+            "false_review_rate": 0.1,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 10,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "5da90a8a26398f7b9f4afff3195fed387a5b6803cac2e91148946130ab9e6e10",
+      "frontier": {
+        "threshold": 0.01008075149456239,
+        "rank": [
+          0.05555555555555555,
+          0.10705981885205956,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 31,
+            "false_review_rate": 0.021939136588818117,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 5,
+            "false_review_rate": 0.05555555555555555,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 10,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "5da90a8a26398f7b9f4afff3195fed387a5b6803cac2e91148946130ab9e6e10",
+      "frontier": {
+        "threshold": 0.0006911731511650755,
+        "rank": [
+          0.05555555555555555,
+          0.11413695968716217,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 41,
+            "false_review_rate": 0.029016277423920735,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 5,
+            "false_review_rate": 0.05555555555555555,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 20,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "fa8b461e4fec1475aa0752d5258ea2cee18c59cde4cd534c13c9c409eee66731",
+      "frontier": {
+        "threshold": 8.633756099252621e-11,
+        "rank": [
+          0.1111111111111111,
+          0.19658565041610768,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 79,
+            "false_review_rate": 0.055909412597310686,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 20,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "fa8b461e4fec1475aa0752d5258ea2cee18c59cde4cd534c13c9c409eee66731",
+      "frontier": {
+        "threshold": 2.716287854385734e-05,
+        "rank": [
+          0.07777777777777778,
+          0.12786661290726126,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 29,
+            "false_review_rate": 0.020523708421797595,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 20,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "fa8b461e4fec1475aa0752d5258ea2cee18c59cde4cd534c13c9c409eee66731",
+      "frontier": {
+        "threshold": 3.236953105705593e-05,
+        "rank": [
+          0.05555555555555555,
+          0.09998267801695694,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 21,
+            "false_review_rate": 0.014861995753715499,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 5,
+            "false_review_rate": 0.05555555555555555,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 40,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "1014657e0f3b20bde67e44dab3e7b0391702885c80afe3d80eeca1fa5a76228a",
+      "frontier": {
+        "threshold": 2.7497250717886835e-08,
+        "rank": [
+          0.1111111111111111,
+          0.17606194199431008,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 50,
+            "false_review_rate": 0.035385704175513094,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 10,
+            "false_review_rate": 0.1111111111111111,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 40,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "1014657e0f3b20bde67e44dab3e7b0391702885c80afe3d80eeca1fa5a76228a",
+      "frontier": {
+        "threshold": 0.0009009905372249015,
+        "rank": [
+          0.06666666666666667,
+          0.10967836096104754,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 19,
+            "false_review_rate": 0.013446567586694975,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 6,
+            "false_review_rate": 0.06666666666666667,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 40,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "1014657e0f3b20bde67e44dab3e7b0391702885c80afe3d80eeca1fa5a76228a",
+      "frontier": {
+        "threshold": 6.702777868860976e-05,
+        "rank": [
+          0.06666666666666667,
+          0.11109378912806805,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 21,
+            "false_review_rate": 0.014861995753715499,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 6,
+            "false_review_rate": 0.06666666666666667,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 60,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "299653ac713ff1e919b53ef47f0a6592cb914ed4bd6b0e7056ba40ed8b3b9f53",
+      "frontier": {
+        "threshold": 9.507041631685711e-08,
+        "rank": [
+          0.08888888888888889,
+          0.1517165775215571,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 47,
+            "false_review_rate": 0.03326256192498231,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 60,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "299653ac713ff1e919b53ef47f0a6592cb914ed4bd6b0e7056ba40ed8b3b9f53",
+      "frontier": {
+        "threshold": 3.726837500975518e-05,
+        "rank": [
+          0.07777777777777778,
+          0.11922180308484812,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 25,
+            "false_review_rate": 0.017692852087756547,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 1,
+            "false_review_rate": 0.005813953488372093,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 60,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "299653ac713ff1e919b53ef47f0a6592cb914ed4bd6b0e7056ba40ed8b3b9f53",
+      "frontier": {
+        "threshold": 3.674013350479376e-05,
+        "rank": [
+          0.06666666666666667,
+          0.1010335511386344,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 15,
+            "false_review_rate": 0.010615711252653927,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 6,
+            "false_review_rate": 0.06666666666666667,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 1,
+            "false_review_rate": 0.005813953488372093,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 100,
+      "semantic_mode": "binary",
+      "semantic_checkpoint_sha256": "a5ebe5cd149fe29ee43cbff7628ed5ac0ddc1227f6c5e2c46a6c0bf8341a8d35",
+      "frontier": {
+        "threshold": 5.4958249823553794e-09,
+        "rank": [
+          0.08888888888888889,
+          0.15808600427314945,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 56,
+            "false_review_rate": 0.039631988676574664,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 100,
+      "semantic_mode": "policy",
+      "semantic_checkpoint_sha256": "a5ebe5cd149fe29ee43cbff7628ed5ac0ddc1227f6c5e2c46a6c0bf8341a8d35",
+      "frontier": {
+        "threshold": 6.695218027640918e-07,
+        "rank": [
+          0.08888888888888889,
+          0.1394474176702088,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 3,
+            "false_review_rate": 0.013452914798206279,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 36,
+            "false_review_rate": 0.025477707006369428,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 8,
+            "false_review_rate": 0.08888888888888889,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    {
+      "kind": "conditional",
+      "semantic_family": "gemma4-policy-loss-151",
+      "epoch": 100,
+      "semantic_mode": "coupled_policy",
+      "semantic_checkpoint_sha256": "a5ebe5cd149fe29ee43cbff7628ed5ac0ddc1227f6c5e2c46a6c0bf8341a8d35",
+      "frontier": {
+        "threshold": 6.222542520722205e-08,
+        "rank": [
+          0.07777777777777778,
+          0.12857432699077154,
+          6
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 4,
+            "false_review_rate": 0.017937219730941704,
+            "recall": 0.9939024390243902,
+            "passes": true
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 30,
+            "false_review_rate": 0.021231422505307854,
+            "recall": 0.9914821124361158,
+            "passes": true
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 2,
+            "false_review_rate": 0.011627906976744186,
+            "recall": 1.0,
+            "passes": true
+          }
+        },
+        "counts_pass": false
+      }
+    }
+  ],
+  "development_passes": true,
+  "baseline": {
+    "threshold": 0.5,
+    "rank": [
+      0.1111111111111111,
+      0.2128630743368437,
+      6
+    ],
+    "metrics": {
+      "conversational": {
+        "positive": 164,
+        "negative": 223,
+        "missed": 1,
+        "false_reviews": 4,
+        "false_review_rate": 0.017937219730941704,
+        "recall": 0.9939024390243902,
+        "passes": true
+      },
+      "formal": {
+        "positive": 587,
+        "negative": 1413,
+        "missed": 5,
+        "false_reviews": 102,
+        "false_review_rate": 0.07218683651804671,
+        "recall": 0.9914821124361158,
+        "passes": false
+      },
+      "scope_dev": {
+        "positive": 90,
+        "negative": 90,
+        "missed": 0,
+        "false_reviews": 10,
+        "false_review_rate": 0.1111111111111111,
+        "recall": 1.0,
+        "passes": false
+      },
+      "stress": {
+        "positive": 44,
+        "negative": 172,
+        "missed": 0,
+        "false_reviews": 2,
+        "false_review_rate": 0.011627906976744186,
+        "recall": 1.0,
+        "passes": true
+      }
+    },
+    "counts_pass": false
+  },
+  "contextual_calls": 997,
+  "total_cases": 2783,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "new_foundation_inference": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "source_freeze_sha256": "80bfc531777a842e45977829beb8acb1a7c02bd2775c2f337345a7ff3a84cf72",
+  "parent_freeze_sha256": "8aeb7985a05fc26a313cc5810b55a65be8c54dd70eed6469d40cf50f5c4fde10"
+}

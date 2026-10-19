@@ -2337,3 +2337,20 @@ contextual head on907 cases. Its prior input manifest contains979 of2,547 cases;
 1,568 first-stage exits require no contextual inference. This is a reduction in
 model calls, not a measured end-to-end latency improvement. The prior extraction
 waits for active Romanian training to finish; no reserved cases are included.
+
+### Ukrainian entailment-first cascade (studies157–158)
+
+Study157 replaces the first-stage native blend with the frozen153 entailment
+scope decision, then selects among the same existing semantic heads on
+development. The expanded145 epoch10 coupled-policy head passes all development
+groups: five formal and one conversational miss, with26 formal,4 conversational,
+2 scope and2 stress false reviews. Numeric replay in158 reproduces all2,783
+scores and decisions exactly, evaluating the contextual head on997 cases.
+
+Separate qualification passes formal calibration (3/614 misses,23/1,386 false
+reviews) and the exposed regression (no misses,2/44 false reviews). Conversational
+calibration still fails recall:7/164 misses,10/223 false reviews. All seven are
+stopped by the entailment first stage; they involve a transition from a fictional
+exercise to a personal concern. This diagnosis informs subsequent experiments;
+these outcomes are not used to choose a new cutoff. The cascade remains
+unqualified, and the reserved test set has not been inferred.
