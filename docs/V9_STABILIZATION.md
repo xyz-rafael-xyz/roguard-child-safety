@@ -1148,3 +1148,21 @@ between reports is not claimed. See
 and [recorded training metrics](../research/v9-stabilization/qwen-adapter-88/training-metrics.json).
 Evaluation continues on that fixed selected checkpoint; the original training
 protocol remains unchanged in the record.
+
+Study95 prepares a smaller Ukrainian native-model repair before conditional
+study94. Its 864 new synthetic variants contrast bare emotional-disconnection
+signals with ordinary solitude and self-care, using the existing scope labels.
+They do not overlap the original development/calibration inputs or the retained
+216-case stress set after normalization. Training starts from study85, uses the
+last four encoder blocks and classifier at a lower learning rate, and retains
+the original calibration split. Checkpoint selection explicitly uses the known
+stress set as development evidence; it is not described as independent testing.
+The experiment is skipped if an earlier candidate already qualifies.
+
+The selected study88 adapter completed its screen with 334/400 correct decisions,
+zero abstentions, 39 missed concerns and 27 false reviews. This is an improvement
+over the unadapted control's 323/400 correct decisions, but does not meet the
+registered accuracy gates. Study89 reproduced all 400 decisions with a maximum
+score difference of 0.000011713. Batching took 317.46 seconds versus 228.49 for
+single-message inference on this host, so study90 selected the single-message
+reference for its full audit before reading any full-audit outputs.

@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-19T02:38:44.681674+00:00",
+  "purpose": "Repair the smaller Ukrainian native model using bare affect/disconnection signals and ordinary solitude/self-care contrasts.",
+  "data": "864 new scope-preserving authored inputs from32contentfamilies,3072historyreplay and864priorneedsinputs; deduplicate and exclude originaldevelopment/calibration, retainedstress and reservedinputs beforetraining.",
+  "training": "Warm85selectednative checkpoint; top4encoderlayers andclassifier; twoepochs,batch8,lr5e-6,warmup/decay,labelsmoothing.02,balancedformal/conversational x binarylabel sampling;seed995.",
+  "selection": "Half/endepoch checkpoints; thresholdcovers originaldevelopment plus reusedstress positives; rankworstfalse-reviewgroup then total. Originalcalibration never selects checkpoint/threshold.",
+  "gates": "Originaldevelopment/calibration >=99% concern recall and<=5% false reviews perkind; reusedstress zero misses and<=5% false reviews. Knownstress is development, not independent evaluation.",
+  "trigger": "Only if90/92/93 still lack qualifyingUkrainiancandidate; trythissmallerrepairbeforeconditionalQwen94.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "independent_accuracy_evaluation": false
+}
