@@ -1,0 +1,109 @@
+{
+  "format": "roguard-installed-repaired-pipeline-v1",
+  "language": "uk",
+  "actual_models_loaded": true,
+  "cached_component_outputs_used": false,
+  "bundle_sha256": "b98e3528406127afa13bbf0c57e5b464389be8968cc8d41cb600480949e0d01b",
+  "artifact_sha256": "889bb657ff43ee77b978d3662f019c86e72157f603aca744b1dcbdab209381da",
+  "selection_sha256": "2924fa12bd8c07c866f3bbfa9d2dadd53c80c619c512abed4588f9b91d2f9e7b",
+  "qualification_audit_sha256": "a762c7248067848ec2b6707627a9a6223d5376b85e1702d059dde9d6769e4704",
+  "wheel_sha256": "74ea4c74de74e86c624f171ac96c3d9d553477c7add33ef332130726a2731e0e",
+  "source_freeze_sha256": "2f7495742cae8022ce2d73381dbaa107b50cfcd79195e0b28cd2cc6aef2f3d1b",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "synthetic_only": true,
+  "independent_accuracy_evaluation": false,
+  "splits": {
+    "screen": {
+      "rows": 200,
+      "seconds": 430.0101726669818,
+      "input_sha256": "4ca7d18ce8bcbf70b9862191496267f661990e780ebee942b1ec17c1567dd877",
+      "counts": {
+        "rows": 200,
+        "positive": 100,
+        "negative": 100,
+        "missed": 0,
+        "false_reviews": 1,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.01,
+        "passes": true
+      },
+      "maximum_score_error": 0.0,
+      "decision_changes": 0,
+      "parity_pass": true,
+      "reference_sha256": "65aef1df01d125ea61aa7951581693d9660c5d5de4a21de1e4578145fee7bb9a",
+      "groups": {
+        "formal": {
+          "rows": 100,
+          "positive": 50,
+          "negative": 50,
+          "missed": 0,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.02,
+          "passes": true
+        },
+        "conversational": {
+          "rows": 100,
+          "positive": 50,
+          "negative": 50,
+          "missed": 0,
+          "false_reviews": 0,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        }
+      }
+    },
+    "stress": {
+      "rows": 216,
+      "seconds": 381.33704920788296,
+      "input_sha256": "6f797c616dc02115f11bedfa1a9c32e182549c9a640ed4192bb52b6e40ba5665",
+      "counts": {
+        "rows": 216,
+        "positive": 44,
+        "negative": 172,
+        "missed": 0,
+        "false_reviews": 6,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.03488372093023256,
+        "passes": true
+      },
+      "maximum_score_error": 0.0,
+      "decision_changes": 0,
+      "parity_pass": true,
+      "reference_sha256": "a256ff8c44a2a24a07c3043b07be649850c80cef2920facc4294c2e151beafb5",
+      "groups": {
+        "formal": {
+          "rows": 216,
+          "positive": 44,
+          "negative": 172,
+          "missed": 0,
+          "false_reviews": 6,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.03488372093023256,
+          "passes": true
+        },
+        "conversational": {
+          "rows": 0,
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "abstentions": 0,
+          "recall": null,
+          "false_review_rate": null,
+          "passes": false
+        }
+      }
+    }
+  },
+  "complete": true,
+  "parity_pass": true,
+  "stress_pass": true
+}

@@ -9,7 +9,7 @@ description = "Romanian and Ukrainian AI interaction testing, permission control
 readme = "docs/PYPI.md"
 requires-python = ">=3.9"
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE", "models/v9/NOTICE.txt", "models/v9/licenses/*.txt", "models/v9/licenses/ro-UPSTREAM-LICENSE"]
 authors = [{name = "RoGuard contributors"}]
 keywords = ["child-safety", "Romanian", "Ukrainian", "evaluation", "guardrails"]
 classifiers = [
@@ -43,6 +43,8 @@ roguard-lab = "roguard.lab:main"
 roguard-compare-reports = "roguard.conversation:compare_main"
 roguard-conversation = "roguard.conversation:main"
 roguard-model = "roguard.model_setup:main"
+roguard-fetch = "roguard.model_install:main"
+roguard-review = "roguard.review_cli:main"
 roguard = "roguard.cli:main"
 roguard-pairs = "roguard.pair_eval:main"
 roguard-contrast = "roguard.contrast:main"
@@ -86,7 +88,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
+roguard = ["model-profiles.json", "model-download-*.json", "review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

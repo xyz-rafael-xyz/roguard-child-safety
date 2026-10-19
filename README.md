@@ -29,8 +29,8 @@ calibration count gates. Romanian calibration has zero missed concerns and
 3.75%/2.88% formal/conversational false reviews. Ukrainian conversational
 calibration has 99.39% recall and 4.93% false reviews; the repaired combination
 also recovers all 44 known stress concerns with 6/172 benign false reviews.
-Its installed-package and bilingual checks are in progress; reserved neural
-evaluation remains unopened. These are synthetic measurements, and v9 is not
+Its installed-package and bilingual checks pass with exact decision and score
+parity. The frozen reserved evaluation is now running. These are synthetic measurements, and v9 is not
 yet the default release.
 [Results and limits](docs/V9_STABILIZATION.md#scope-consensus-repair-and-installed-verification).
 

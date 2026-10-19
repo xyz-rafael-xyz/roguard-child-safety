@@ -1,0 +1,41 @@
+RoGuard optional v9 model components
+
+The RoGuard Python source is MIT licensed. Third-party model weights and model
+derivatives retain the following separate terms. This notice describes candidate
+components; it does not establish qualification or release status.
+
+Romanian encoder
+  dumitrescustefan/bert-base-romanian-cased-v1
+  Revision: 37fb0ffb4bc4f7c4cde429626775685fb18f234f
+  Copyright (c) 2020 Stefan Dumitrescu
+  MIT license: licenses/ro-UPSTREAM-LICENSE
+  https://huggingface.co/dumitrescustefan/bert-base-romanian-cased-v1
+
+Ukrainian encoder
+  youscan/ukr-roberta-base
+  Revision: 8149bde480a6df9014aa934c3f8af30858dea5a6
+  Apache License 2.0: licenses/Apache-2.0.txt
+  https://huggingface.co/youscan/ukr-roberta-base
+
+Interpreter base and derived adapter
+  Gemma 3 text 4B instruction model, MLX community 4-bit conversion
+  Revision: 4f665a4c50ecfe4ecdc34056ab52fe3e3c4abf9e
+  https://huggingface.co/mlx-community/gemma-3-text-4b-it-4bit
+  Gemma is provided under and subject to the Gemma Terms of Use found at
+  ai.google.dev/gemma/terms
+  Copies: licenses/Gemma-Terms.txt and licenses/Gemma-Prohibited-Use-Policy.txt
+
+Use and distribution of Gemma and its model derivatives are subject to the
+Gemma Terms of Use, including the use restrictions incorporated by Section 3.2.
+Those restrictions are conditions of the optional model distribution and are
+not replaced by the RoGuard source-code MIT license.
+
+Modifications by RoGuard
+  The Romanian and Ukrainian classifier checkpoints are fine-tuned derivatives
+  of the listed encoders. The field heads and decision combiners were trained
+  for RoGuard. The interpreter adapter contains RoGuard-trained low-rank
+  parameters for the listed Gemma base; the downloaded upstream base files are
+  unchanged. Model-selection records, hashes and limitations are recorded in
+  research/v9-stabilization and docs/V9_STABILIZATION.md.
+
+No upstream author or model provider endorses RoGuard through this notice.

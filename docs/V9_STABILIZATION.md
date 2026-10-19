@@ -1406,3 +1406,12 @@ is queued to verify the bilingual dispatcher and, only if every prerequisite
 passes, evaluate the frozen reserved probes with recorded access and partial
 results. Reserved neural inference has not run yet. The stable default is
 unchanged until qualification and release work finish.
+
+Study114 completed both actual installed-model splits with zero decision or
+score differences and no abstentions. Its screen has 0/100 misses and 1/100 false
+reviews; stress has 0/44 misses and 6/172 false reviews. Study115 initially failed
+to initialize Metal in the sandbox before producing integration predictions.
+The identical frozen run was restarted with GPU access enabled. Its 40-example
+bilingual integration check passes exactly, and reserved access has now been
+recorded. The reserved evaluation is running; its accuracy result is not yet
+available.
