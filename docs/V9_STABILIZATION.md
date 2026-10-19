@@ -2146,3 +2146,19 @@ Independent numeric reconstruction matches every development score exactly.
 Romanian still fails, with two formal misses and 264/1,413 formal, 4/242
 conversational and 11/90 scope false reviews. Calibration, installed execution
 and the reserved population have not qualified these candidates for release.
+
+### Frozen Ukrainian composite qualification prepared (study148)
+
+Study148 checks study147's selected Ukrainian candidate on the separate
+calibration and exposed regression populations, with its weights and threshold
+fixed beforehand. The reserved 600 examples are absent from its inference
+inputs. Both languages had zero exact development/training collisions even
+after quotation abstraction in study147.
+
+The composite numeric scorer first reproduced all 2,783 Ukrainian development
+decisions. Its maximum score difference was 4.32e-6, below the frozen 1e-5
+tolerance. This verifies reconstruction from the selected semantic tensors,
+native scores, blend and sparse scope gate; it is not installed end-to-end
+parity. The separate contextual features and prior accuracy checks are queued
+after studies144–145. Fresh-test access still requires both languages to pass
+all preceding accuracy and installation checks.
