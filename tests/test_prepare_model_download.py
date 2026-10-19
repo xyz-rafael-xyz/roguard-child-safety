@@ -29,7 +29,8 @@ def test_staged_artifacts_install_and_resume_without_original_sources(tmp_path, 
     source.unlink()
     assert len(spec['files']) == 3
     assert len(list((output / 'assets').iterdir())) == 2
-    raw = (output / 'model-download.json').read_bytes()
+    catalog = json.loads((output / 'model-profiles.json').read_text())
+    raw = (output / catalog['profiles']['test-model']['manifest']).read_bytes()
     sha = hashlib.sha256(raw).hexdigest()
     calls = []
 

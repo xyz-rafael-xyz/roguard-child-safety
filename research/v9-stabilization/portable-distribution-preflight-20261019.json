@@ -1,7 +1,7 @@
 {
   "format": "roguard-portable-distribution-preflight-v1",
-  "created_utc": "2026-10-19T09:45:59.989041+00:00",
-  "source_sha256": "d814f2c825e07f7955d76126db66eebbffbf3676afdf90906818430b8d902151",
+  "created_utc": "2026-10-19T09:55:03.682275+00:00",
+  "source_sha256": "9268323943088dde4d5f24375231d4f3d48df684e570e65fc939bbd9a3aca5e5",
   "examples": {
     "native": "paired-scope-117 selected RO/UK",
     "entailment": "policy-entailment-121 selected"
@@ -15,7 +15,8 @@
       "assets": 22,
       "uploaded": false,
       "qualifies_for_release": false,
-      "bundle_sha256": "18791af074e5d1e786395399d992276e46a8a1c6501bffc41efb342af7cf9765"
+      "bundle_sha256": "18791af074e5d1e786395399d992276e46a8a1c6501bffc41efb342af7cf9765",
+      "manifest_filename": "model-download-private-native-preflight.json"
     },
     "entailment": {
       "manifest_sha256": "bc0ebf4189870097de729c0cbd25d99235c5f39915156134ec150e9118e3da2a",
@@ -25,7 +26,8 @@
       "assets": 11,
       "uploaded": false,
       "qualifies_for_release": false,
-      "bundle_sha256": "bb59fa5285d14f12a5cc79bf81fea3751ad97e3bb6172bfb5dbf7104d7e5bef2"
+      "bundle_sha256": "bb59fa5285d14f12a5cc79bf81fea3751ad97e3bb6172bfb5dbf7104d7e5bef2",
+      "manifest_filename": "model-download-private-entailment-preflight.json"
     }
   },
   "unit_tests_passed": 6,
@@ -34,5 +36,21 @@
   "neural_inference_performed": false,
   "uploaded": false,
   "package_profile_published": false,
-  "accuracy_qualification": false
+  "accuracy_qualification": false,
+  "wheel": {
+    "sha256": "36630bdf29fb8c8d49f4c0e83d04b1c2d798fad9fa1608c7cf7de8de4773c8c6",
+    "version": "9.0.0a1",
+    "private_profiles_only": true,
+    "installed_separately": true,
+    "source_checkout_catalog_unchanged": true,
+    "both_profiles_included": true,
+    "both_manifests_included": true,
+    "optional_runtime_guidance": "semantic",
+    "offline_cache_verification_pass": true,
+    "lazy_bundle_validation_pass": true,
+    "nli_license_included": true,
+    "weight_files_in_wheel": false,
+    "archive_entries": 169
+  },
+  "correction": "Staged manifest filenames now match the model-download-*.json package inclusion pattern; verified in an actual installed wheel."
 }

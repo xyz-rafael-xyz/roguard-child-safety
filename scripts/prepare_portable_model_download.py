@@ -168,9 +168,10 @@ def stage(payload, output, profile_id, release_url, terms, *, validate_bundle=Tr
             for entry in bundle.get('languages', {}).values():
                 load_bundle(local / entry['path'], expected_sha256=entry['sha256'])
             del model
-        (root / 'model-download.json').write_bytes(raw)
+        manifest_name = 'model-download-' + profile_id + '.json'
+        (root / manifest_name).write_bytes(raw)
         (root / 'model-profiles.json').write_bytes(encoded(dict(profiles={profile_id: dict(
-            manifest='model-download.json', sha256=sha, runtime='portable')})))
+            manifest=manifest_name, sha256=sha, runtime='portable')})))
         (root / 'staging-report.json').write_bytes(encoded(dict(manifest_sha256=sha,
             logical_bytes=sum(e['bytes'] for e in entries), upload_bytes=sum(p.stat().st_size for p in assets.iterdir()),
             files=len(entries), assets=len(list(assets.iterdir())), uploaded=False, qualifies_for_release=False)))

@@ -56,4 +56,7 @@ A staged candidate must still pass the accuracy and installed-runtime checks
 before publication. The
 [private staging preflight](../../research/v9-stabilization/portable-distribution-preflight-20261019.json)
 covers both portable model families; it is distribution evidence, not accuracy
-evidence. Run the script with `--help` for its required paths and release URL.
+evidence. An isolated wheel with private profiles was built and installed to
+verify manifest inclusion, offline cache checks, bundle configuration and the
+portable dependency guidance. It contains no weight files. Run the script with
+`--help` for its required paths and release URL.
