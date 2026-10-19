@@ -2520,3 +2520,11 @@ RoGuard module to the supplied wheel, then compares every prior decision and
 score with the frozen research result. Two tests cover staged metadata, altered
 wheel contents and rejection of checkout imports. Neither staging nor actual
 installed-model evaluation has run yet; both depend on qualifying accuracy.
+
+The study168 evaluator is prepared for the untouched 600-case reserved117 test.
+It requires completed bilingual development, prior accuracy and installed parity,
+with unchanged weights, bundle and wheel. An exclusive first-access ledger
+prevents treating another attempt as a fresh evaluation. Scores and cutoffs are
+not fitted on this test; abstentions count as errors. Its prerequisite test
+rejects missing groups, failed accuracy, changed installations and prior access.
+The evaluator has not run and the reserved cases remain neurally unscored.
