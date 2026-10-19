@@ -62,6 +62,9 @@ def test_gemma4_attribution_preserves_both_pinned_model_cards():
     payload = build.Payload()
     terms = build.add_terms(payload, Path(__file__).resolve().parents[1]/'models/v9/licenses')
     assert 'https://ai.google.dev/gemma/docs/gemma_4_license' in terms
+    source, size, identity = payload.files['licenses/RoGuard-MIT.txt']
+    assert source.read_bytes() == (Path(__file__).resolve().parents[1]/'LICENSE').read_bytes()
+    assert source.stat().st_size == size and build.digest(source) == identity
     for name in ('gemma4-google-README.md', 'gemma4-mlx-README.md', 'Apache-2.0.txt'):
         source, size, identity = payload.files['licenses/'+name]
         assert source.stat().st_size == size and build.digest(source) == identity

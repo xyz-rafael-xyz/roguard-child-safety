@@ -57,10 +57,12 @@ def add_terms(payload, root):
     for record in records:
         payload.add('licenses/'+record['file'], root/record['file'], record['sha256'])
     payload.json('licenses/sources.json', records)
+    payload.add('licenses/RoGuard-MIT.txt', Path(__file__).resolve().parents[1]/'LICENSE')
     payload.add('NOTICE.txt', (
         'RoGuard optional Gemma4 review model.\n'
         'Base: Google Gemma 4 E4B; MLX conversion: mlx-community.\n'
         'RoGuard modifications are separate trained attention adapters and classification heads.\n'
+        'RoGuard code and modifications: MIT; see licenses/RoGuard-MIT.txt.\n'
         'The upstream base files are unmodified and fetched from a pinned revision.\n'
         'Google identifies Gemma 4 as Apache-2.0. The conversion card retains a\n'
         'license: gemma metadata tag; both original cards are preserved in licenses/.\n'
