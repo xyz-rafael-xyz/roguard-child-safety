@@ -18,6 +18,10 @@
 
 ## RoGuard 9.0: local review and decision assurance
 
+**[9.0.0 is the latest stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0)**
+and the default on [PyPI](https://pypi.org/project/roguard-child-safety/).
+[Verified publication and fresh-install record](research/v9-stabilization/stable-release-200/publication.json).
+
 V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
 review proposals, and an adaptive clarification planner. Trainable attention
 adapters use a frozen Gemma 4 body; recorded numerical checks bind training,

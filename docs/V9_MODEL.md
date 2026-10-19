@@ -7,6 +7,9 @@ earlier statement. A review proposal is not a finding that a child is unsafe.
 
 Available in RoGuard **9.0.0**, through the default `v9` model profile.
 
+[Stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0) ·
+[Verified PyPI/default-install record](../research/v9-stabilization/stable-release-200/publication.json).
+
 ## Install and download
 
 The optional Gemma 4 model uses native Apple Silicon and Python 3.12 or later
@@ -116,6 +119,11 @@ The reserved test was opened only after development, prior and installed-runtime
 [Selected checkpoints](../research/v9-stabilization/reported-tail-fit-196/actual/report.json) · [Prior regression](../research/v9-stabilization/reported-tail-prior-197/actual/report.json) · [Installed runtime](../research/v9-stabilization/reported-tail-installed-198/actual/report.json) · [First reserved evaluation](../research/v9-stabilization/reported-tail-reserved-199/actual/report.json) · [Release equivalence](../research/v9-stabilization/stable-release-200/wheel-equivalence.json).
 
 The immutable profile is `v9-gemma4-20261019`; `v9` selects the same manifest. Its SHA-256 is `90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb`. The release wheel preserves all 156 qualified package files byte for byte, adding only the download manifest and profile catalog. [Training method and numerical checks](V9_SHARED_ATTENTION.md).
+
+The [actual PyPI wheel](../research/v9-stabilization/stable-release-200/pypi-wheel-equivalence.json)
+passed the same equivalence check. A fresh public download verified all 23 files;
+both documented CLI examples and four prior regression probes passed offline.
+[Download and inference record](../research/v9-stabilization/stable-release-200/download-smoke.json).
 
 ## Recompute the published benchmark
 
