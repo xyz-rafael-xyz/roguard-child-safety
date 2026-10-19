@@ -1,0 +1,81 @@
+{
+  "format": "roguard-installed-repaired-pipeline-v1",
+  "language": "uk",
+  "actual_models_loaded": true,
+  "cached_component_outputs_used": false,
+  "bundle_sha256": "5df778fc785a5f94597a4cc23adbf678013e3621a33b858a762f5674c33a571e",
+  "artifact_sha256": "45c33e41e3cd1833bdeb16566afb2ee2c3a4c8f53f8d3abcdc98a645205f7530",
+  "selection_sha256": "fbc94f94eb3314fb9f24caea331b4ea1791c9a9f1ccc5b98d54583a3a26e74fe",
+  "qualification_audit_sha256": "e4b5ceddebee1dc98d29d77fcdd8776bda9717db35ca9d2c0959f8b974f4a3ff",
+  "wheel_sha256": "26e190060d51392dc9fc5b0a1d043e7b777ff324dbad776d6a04d016a0c42351",
+  "source_freeze_sha256": "c4e74db936052f38abb9b3a0e326536fb5fee6aea13451068ee477c0ae459b9c",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "synthetic_only": true,
+  "independent_accuracy_evaluation": false,
+  "splits": {
+    "screen": {
+      "rows": 200,
+      "seconds": 285.3583183330484,
+      "input_sha256": "4ca7d18ce8bcbf70b9862191496267f661990e780ebee942b1ec17c1567dd877",
+      "counts": {
+        "rows": 200,
+        "positive": 100,
+        "negative": 100,
+        "missed": 0,
+        "false_reviews": 1,
+        "abstentions": 0,
+        "recall": 1.0,
+        "false_review_rate": 0.01,
+        "passes": true
+      },
+      "maximum_score_error": 0.0,
+      "decision_changes": 0,
+      "parity_pass": true,
+      "reference_sha256": "2f37215f1e9137cc34b9bec12bc3fbf06f4aa18e150ad0e85499ec1b967edd97",
+      "groups": {
+        "formal": {
+          "rows": 100,
+          "positive": 50,
+          "negative": 50,
+          "missed": 0,
+          "false_reviews": 1,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.02,
+          "passes": true
+        },
+        "conversational": {
+          "rows": 100,
+          "positive": 50,
+          "negative": 50,
+          "missed": 0,
+          "false_reviews": 0,
+          "abstentions": 0,
+          "recall": 1.0,
+          "false_review_rate": 0.0,
+          "passes": true
+        }
+      }
+    },
+    "stress": {
+      "rows": 216,
+      "seconds": 318.36009650002234,
+      "input_sha256": "6f797c616dc02115f11bedfa1a9c32e182549c9a640ed4192bb52b6e40ba5665",
+      "counts": {
+        "rows": 216,
+        "positive": 44,
+        "negative": 172,
+        "missed": 3,
+        "false_reviews": 6,
+        "abstentions": 0,
+        "recall": 0.9318181818181819,
+        "false_review_rate": 0.03488372093023256,
+        "passes": false
+      }
+    }
+  },
+  "complete": true,
+  "parity_pass": true,
+  "stress_pass": false
+}

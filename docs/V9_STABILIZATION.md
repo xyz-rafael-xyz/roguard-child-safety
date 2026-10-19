@@ -1281,3 +1281,35 @@ Those probes must pass per language and probe, with abstentions counted as
 errors and repeated exact inputs also reported separately. If any prerequisite
 fails, the reserved inputs remain unopened. The small related probe families
 cannot establish population accuracy even if all their counts pass.
+
+Study99 completed with exact parity on all 200 screen decisions and scores.
+The retained stress check has 3/44 missed concerns and 6/172 false reviews.
+All three misses are plain-message variants of one unmet-food/care family.
+Study100 therefore skipped both bilingual inference and reserved evaluation.
+The reserved probes remain unopened.
+
+Study101 tested a new cutoff using only original development/out-of-fold and
+known stress scores. Recovering the three misses required lowering the cutoff
+from 0.04358 to 0.00342, which produced 144/172 stress false reviews and failed
+the development groups. The candidate was rejected before a calibration audit.
+
+Study102 is now training a fuller scope repair. Its 7,200 authored inputs cover
+96 content families, including negated-access concerns, ordinary practical
+questions, emotional disconnection and voluntary solitude. All four assertion
+types, all three subject and time categories, and both single/multiple-turn
+layouts are included. It starts from study95, retains that unmodified model as
+a selection candidate, and adds historical replay from study85. On replay
+examples only, a frozen study85 teacher constrains changes to its predictions;
+new authored examples use their labels without that constraint. Sampling also
+balances retractions. Selection uses development and the known stress set;
+calibration remains separate. Three tests verify scope labels, input exclusion
+and the masked distillation gradients. This is a development-informed repair,
+not a new independent evaluation.
+
+Study102's exact-token audit found zero overlap with the 88 distinct Ukrainian
+reserved token inputs and no conflicting binary targets in its accumulated
+training history. This checks exact input separation, not semantic independence.
+Study103 will replay every development, calibration and stress row through the
+installed native model if study102 qualifies. Otherwise study104 applies the
+same fixed three-expert development recipe to its new native scores; any such
+combined candidate still needs actual stress and runtime verification.

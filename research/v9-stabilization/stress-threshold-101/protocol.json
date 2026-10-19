@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-10-19T03:26:20.865761+00:00",
+  "purpose": "Recompute a conservative cutoff on already exposed development/OOF and retained authored stress, without refitting the97parent95tree.",
+  "selection": "Cutoff is min(existing97threshold,full-coverage midpoint over originalDEV+OOF+actual99stress scores)); no calibration scores or labels used to choose it.",
+  "gates": "DEV andOOF each>=99% recall<=5%false reviews perkind; stress44positivezero misses,172negative<=8false reviews. Only if these pass audit originalcalibration at frozennewcutoff. Faileddevelopment skipscalibrationaudit.",
+  "provenance": "Knownstress is reuseddevelopment, not a fresh test. Originalfailed99results retained. No reserved inference.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

@@ -28,9 +28,10 @@ candidates pass their development and reused synthetic calibration count gates.
 Romanian calibration has zero missed concerns and 3.75%/2.88%
 formal/conversational false reviews; Ukrainian conversational calibration has
 99.39% recall and 4.04% false reviews. The Romanian installed pipeline matches
-all 200 checked decisions and scores. Ukrainian installed-runtime and retained
-stress checks are in progress; reserved evaluation remains unopened. These are
-synthetic measurements. V9 is not yet the default release.
+all 200 checked decisions and scores, as does the Ukrainian pipeline. The
+Ukrainian retained stress check still misses 3/44 concerns; a further repair is
+training and reserved evaluation remains unopened. These are synthetic
+measurements. V9 is not yet the default release.
 [Results, follow-up experiments and limits](docs/V9_STABILIZATION.md#conservative-boosted-candidate-and-installed-runtime).
 
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).

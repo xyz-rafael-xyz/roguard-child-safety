@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-19T03:31:07.725493+00:00",
+  "purpose": "Repair negated-access/basic-needs recognition while retaining fictional-retraction policy and prior behavior.",
+  "data": "7200 authored Ukrainian inputs across96contentfamilies:32negated-access/ordinary-question contrasts,32bare-affect/solitude,32needscontrasts; all3subjects,3times,4assertions,2layouts plusplainvariants. Add3072historicalrows sampledfrom85; exclude originalDEV/CAL, retainedstress andreservednormalizedinputs. Transitivehistoryincludeswarm95history.",
+  "training": "Warm95native checkpoint; last4encoderblocks+classifier,2epochs,batch8,lr3e-6,warmup/decay,seed1102. Equal expected sampling mass per style x binarylabel x retraction(8strata).",
+  "objective": "Crossentropy withoutlabelsmoothing plus0.5*T^2*KL(teacher85||student),T=2, only historicalreplayrows; teacherprobabilitiescomputedbeforeoptimization, nevertrained; newauthoredrows receiveonlylabeledobjective.",
+  "selection": "Retain unmodified95warmstart as candidate; half/endepoch checks use originalDEV+knownstress fullcoveragecutoff and rankworstfalse-reviewgroupthen total. Calibration neverselects weights/cutoff. Stressusedasdevelopment, notindependenttest.",
+  "gates": "OriginalDEV/CAL >=99%concernrecall<=5%false reviews perkind; retainedstress zero misses<=5%false reviews. Actualinstalledparityandreservedstillrequired.",
+  "diagnosis": "Known95DEVfictionalretractionforgetting; known99stress3misses allplainvariants of oneunmet-food/care family;101cutoff-onlyrepairfailsdevelopmentandneverauditscalibration.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "independent_accuracy_evaluation": false
+}
