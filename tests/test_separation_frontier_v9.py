@@ -1,5 +1,7 @@
 import pytest
 
+pytest.importorskip('numpy')
+
 from training.separation_frontier_v9 import frontier
 
 
