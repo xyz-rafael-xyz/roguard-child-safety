@@ -1079,3 +1079,18 @@ model abstains and that counts as error. No reserved examples are evaluated.
 The initial bfloat16 output-projection preflight failed before predictions; its
 source and status are preserved. A float32 arithmetic amendment must pass the
 same projection and cache parity tolerances before the screen can run.
+
+The float32 Qwen control completed 400/400 valid decisions. It did not meet
+accuracy gates: conversational misses were 12/50 RO and 11/50 UK, and formal
+misses were 17/50 RO and 21/50 UK. False reviews were respectively 3/50, 7/50,
+2/50 and 4/50. The projection probability discrepancy was 0.000001401 and the
+cached/uncached discrepancy 0.000003666. Larger model size alone did not solve
+the task.
+
+Study88 therefore tests task adaptation of only Qwen's final full-attention
+block (about 639,000 trainable parameters). It uses 1,024 balanced synthetic
+training examples and 80 fixed original-development examples, with protected
+input exclusion. Checkpoints are selected by development target loss; the
+existing 400-case screen is evaluated afterward. Study89 prepares an equal-length
+batched decoder whose complete screen must match study88's single-message
+outputs before it can be adopted for larger evaluations.

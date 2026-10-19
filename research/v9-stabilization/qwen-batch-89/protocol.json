@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-10-19T01:32:57.277023+00:00",
+  "purpose": "Verify equal-token-length batched Qwen inference before any full-data adoption.",
+  "candidate": "Fixed selected adapter88; no candidate changes",
+  "recipe": "Group by total token length, batches<=4, repeat independently copied KV/Arrays common-prefix states; full-vocabulary validity; originalcaseorderrestored.",
+  "gates": "Compare all400cases against88singleinference:zero decision/validitychanges; max conditional score difference<=0.001. Also compare first2cases uncached.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

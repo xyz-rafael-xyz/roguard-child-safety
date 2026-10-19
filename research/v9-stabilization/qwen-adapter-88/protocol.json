@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-10-19T01:27:57.737830+00:00",
+  "purpose": "Task adaptation after unadapted Qwen failed the fixed screen",
+  "training": "1024 balanced synthetic inputs; final full-attention block only; rank8 LoRA; lr1e-4;1024 microsteps accumulated4;full-vocabulary single-target loss;frozen recurrent blocks remain eval-mode.",
+  "selection": "Minimum fixed80-original-development target loss at trainer callbacks0/255/511/767/1023 plus explicit final1024; no calibration selection.",
+  "evaluation": "Same400screen and fixed0.5cutoff/full-vocabulary validity; same cached/uncached/projection checks.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

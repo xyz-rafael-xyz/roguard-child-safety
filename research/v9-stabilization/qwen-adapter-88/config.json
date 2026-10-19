@@ -1,0 +1,24 @@
+{
+  "seed": 988,
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit",
+  "revision": "938d8919941c6e7efd3c7150eff7fe9d12afa631",
+  "data": "research/v9-stabilization/qwen-adapter-88",
+  "num_layers": 1,
+  "batch_size": 1,
+  "iters": 1024,
+  "val_batches": 80,
+  "learning_rate": 0.0001,
+  "steps_per_report": 20,
+  "steps_per_eval": 256,
+  "save_every": 256,
+  "max_seq_length": 1024,
+  "grad_checkpoint": true,
+  "grad_accumulation_steps": 4,
+  "lora_parameters": {
+    "rank": 8,
+    "dropout": 0.0,
+    "scale": 16.0
+  },
+  "fine_tune_type": "lora",
+  "adapter_path": "research/v9-stabilization/qwen-adapter-88/adapters"
+}
