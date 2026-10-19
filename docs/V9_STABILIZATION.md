@@ -2474,3 +2474,12 @@ Checkpoint, output mode and cutoff selection use the unchanged per-group
 history-transition group. Separate prior qualification, installed runtime parity
 and reserved evaluation remain required. These studies are prepared experiments;
 their preparation and numerical tests do not establish improved accuracy.
+
+A separate qualification runner is prepared for study166. It refuses to prepare
+inputs until study165 completes and both languages pass every development gate.
+It binds selected adapters, readouts, output modes and thresholds; verifies
+full-sequence and independent readout parity on the original training references;
+then replays every development decision before scoring prior populations. It
+does no fitting and does not access the reserved test. Three tests cover rejected
+incomplete/tampered candidates, exact declared-policy behavior and replay
+identity, label and decision binding. This runner has not yet qualified a model.
