@@ -1624,3 +1624,11 @@ examples contain at most 112 entailment tokens or 72 native-encoder tokens.
 This intervention is prepared only; it has not been added to the running study123
 or the frozen study125 comparison. All examples remain project-authored
 synthetic data without independent annotation.
+
+The subsequent full suite in the neural environment passed 1,049 tests and 129
+subtests. Seventeen checks were skipped there: three MLX checks were covered by
+the separate 13-test MLX CPU run, and fourteen historical adapter checks require
+retired weight files absent from this checkout. Environment versions and log
+hashes are recorded in
+[`software-verification-20261019.json`](../research/v9-stabilization/software-verification-20261019.json).
+These software checks do not establish classifier accuracy.

@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-10-19T09:22:25.845433+00:00",
+  "git_head": "7050f16d73aec9b8de2e4ca65ddfd8db8722f9d7",
+  "neural_environment": {
+    "pytest": "9.1.1",
+    "torch": "2.14.0",
+    "transformers": "4.57.6",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1"
+  },
+  "full_suite": {
+    "passed": 1049,
+    "skipped": 17,
+    "subtests_passed": 129,
+    "seconds": 43.89,
+    "log_sha256": "6b6e2160d4f98906acd7966f73d8fafdea762b50c687882ad734f55c77f031e3"
+  },
+  "mlx_cpu_checks": {
+    "passed": 13,
+    "seconds": 3.91,
+    "log_sha256": "2c4f95ae833baaa5b5fa44baac38fc13378358db1ac0e4fb9615707716db166a"
+  },
+  "skip_explanation": "Three optional MLX checks skipped in the Torch environment are covered by the separate MLX CPU run; fourteen historical adapter checks lack their retired weight files in this checkout.",
+  "model_accuracy_claim": false
+}
