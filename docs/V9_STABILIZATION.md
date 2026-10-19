@@ -2512,3 +2512,11 @@ The Gemma4 runtime now uses the same fixed 387-token prompt prefix as the
 qualification pipeline, with a full-input fallback when the prefix differs.
 All 13 runtime tests pass on MLX CPU, including both execution paths and
 abstention for oversized inputs. This alignment changes no trained checkpoint.
+
+Local bundle staging and the study167 installed-verification runner are also
+prepared. Staging rechecks all prior populations and selected weights before
+copying any bundle. Installed verification binds every package file and imported
+RoGuard module to the supplied wheel, then compares every prior decision and
+score with the frozen research result. Two tests cover staged metadata, altered
+wheel contents and rejection of checkout imports. Neither staging nor actual
+installed-model evaluation has run yet; both depend on qualifying accuracy.
