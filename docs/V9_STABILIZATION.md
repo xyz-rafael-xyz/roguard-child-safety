@@ -2320,3 +2320,20 @@ calibration has no misses and four false reviews; exposed regression has no
 misses and eight false reviews. Neither candidate qualifies. The discrepancy
 between development and calibration remains visible; reserved inference stays
 closed. Native study137 training has resumed.
+
+### Conditional contextual check (studies155–156)
+
+Study155 keeps study154's Romanian first-stage decision and compares the already
+trained143,145 and151 semantic heads only where that stage requests review.
+Checkpoints, binary/policy modes and the final threshold are selected exclusively
+on development with the same per-group recall constraint. The selected143
+epoch20 factorized-policy head has one formal and two conversational misses,
+10/1,413 formal false reviews, and no conversational or scope false reviews.
+All development groups pass. The retained baseline remains available.
+
+Study156 freezes this cascade for prior qualification. A separate implementation
+reproduces all2,638 development decisions and scores exactly while evaluating the
+contextual head on907 cases. Its prior input manifest contains979 of2,547 cases;
+1,568 first-stage exits require no contextual inference. This is a reduction in
+model calls, not a measured end-to-end latency improvement. The prior extraction
+waits for active Romanian training to finish; no reserved cases are included.

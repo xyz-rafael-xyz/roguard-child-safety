@@ -1,0 +1,93 @@
+{
+  "format": "roguard-conditional-contextual-experiment-v1",
+  "language": "ro",
+  "agreement_composition_sha256": "314d9805d96c52cc50cc3e96c27b7e010b92468a6c08045d2f56d731a73680b6",
+  "selection": {
+    "kind": "conditional",
+    "semantic_family": "gemma4-structured-143",
+    "epoch": 20,
+    "semantic_mode": "policy",
+    "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+    "frontier": {
+      "threshold": 0.013204660696288617,
+      "rank": [
+        0.007077140835102618,
+        0.007077140835102618,
+        3
+      ],
+      "metrics": {
+        "conversational": {
+          "positive": 216,
+          "negative": 242,
+          "missed": 2,
+          "false_reviews": 0,
+          "false_review_rate": 0.0,
+          "recall": 0.9907407407407407,
+          "passes": true
+        },
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 1,
+          "false_reviews": 10,
+          "false_review_rate": 0.007077140835102618,
+          "recall": 0.9982964224872232,
+          "passes": true
+        },
+        "scope_dev": {
+          "positive": 90,
+          "negative": 90,
+          "missed": 0,
+          "false_reviews": 0,
+          "false_review_rate": 0.0,
+          "recall": 1.0,
+          "passes": true
+        }
+      },
+      "counts_pass": true
+    }
+  },
+  "head": {
+    "language": "ro",
+    "mode": "policy",
+    "couplings": {
+      "scope": [
+        [
+          1.6824095122252285,
+          0.002065402968231091,
+          0.0025773454041832225
+        ],
+        [
+          0.002065402968231091,
+          4.424153392854792,
+          0.006787862384294525
+        ],
+        [
+          0.0025773454041832225,
+          0.006787862384294525,
+          5.517384065070756
+        ]
+      ],
+      "assertion_relation": [
+        [
+          1.1022206881140533,
+          0.004125126066031319
+        ],
+        [
+          1.099788474955364,
+          0.0278207205438103
+        ],
+        [
+          1.0988447018547904,
+          0.03701533598708859
+        ],
+        [
+          0.0032962277499457913,
+          10.710287240793605
+        ]
+      ]
+    },
+    "checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af"
+  },
+  "threshold": 0.013204660696288617
+}
