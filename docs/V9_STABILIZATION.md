@@ -956,3 +956,38 @@ The amended 400-case screen passed with the same prediction-file SHA-256 as
 the first batch screen, again zero decision/interpretation/validity changes and
 zero abstentions. Observed time was 175.86 seconds. The bounded uncached probe
 agreed within 0.000007332. Full evaluation restarted with this checked source.
+
+### Full interpreter and model-combination results
+
+The complete interpreter evaluation finished 4,845 development and 4,846
+calibration cases. Every case produced valid output, but accuracy gates failed.
+Calibration formal concern recall was 82.57% in Romanian and 84.53% in Ukrainian.
+Installed native classifier replay29 preserved every decision in both languages;
+this establishes runtime parity, not model accuracy.
+
+The following are calibration counts for fixed development-selected combinations:
+
+| Study | Language | Formal misses / 614 | Formal false reviews / 1,386 | Conversational misses | Conversational false reviews |
+| --- | --- | --- | --- | --- | --- |
+| review-fusion-36 | RO | 8 | 12 | 0 / 216 | 6 / 243 |
+| review-fusion-36 | UK | 13 | 3 | 15 / 164 | 3 / 223 |
+| three-expert-fusion-76 | RO | 26 | 0 | 0 / 216 | 3 / 243 |
+| three-expert-fusion-76 | UK | 12 | 15 | 10 / 164 | 13 / 223 |
+
+Study77 retained each combination's fitted weights and reduced its threshold
+to cover every development concern in both OOF and refitted predictions. This
+recovered misses but increased false alerts; none of its four parent/language
+candidates passed all gates. A separate calibration oracle diagnostic showed that
+no single threshold on either Ukrainian linear combination could satisfy both
+requirements. These oracle thresholds are not deployed or treated as candidates.
+
+Study78 tests shallow boosted trees on the same fixed three-expert features.
+Four depth/leaf configurations use five connected development folds; thresholds
+and the final fit are fixed before its calibration audit. It adds no neural
+training or inference. Plain JSON tree export must reproduce scikit-learn to
+1e-12, with a separate test on unseen vectors. Prior calibration diagnosis informed
+this experiment, so its calibration result remains reused regression evidence.
+
+The user resumed near the original 12-hour boundary. A recorded 30-minute
+completion window allows the active evaluation and queued installed checks to
+finish; the original schedule is preserved. Accuracy gates were not changed.

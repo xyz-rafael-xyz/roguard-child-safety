@@ -1,0 +1,81 @@
+{
+  "format": "roguard-installed-native-replay-v1",
+  "device": "cpu",
+  "synthetic_only": true,
+  "installed_version": "9.0.0a1",
+  "installed_module": "/private/var/folders/0j/b_fb5kn50zx3fc59m6lpkz8h0000gn/T/roguard-installed-native-29-9kev32kk/installed/roguard/native_review.py",
+  "runtime_source_sha256": "38a9c8b866680265d485b1ea49c0652d82b57d5cc58f00f38291fc2fa0b0de83",
+  "wheel_sha256": "d0e424900be4053ef042b556275b8d1099474496d0ee97b27a9899bf3dd3ca58",
+  "artifact_sha256": "d3d966461ca451a46ac6daf0dca02e2f8641ee604861fe12408fc08d56b17224",
+  "splits": {
+    "dev": {
+      "rows": 2387,
+      "input_sha256": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+      "reference_sha256": "75b41177cb46db366989963df7535907260d26bf25d9d9e056f8a8d6c4af93f3",
+      "seconds": 65.49896270805039,
+      "abstentions": 0,
+      "max_score_error": 3.159046173095703e-06,
+      "decision_disagreements": 0,
+      "counts": {
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 6,
+          "recall": 0.9914821124361158,
+          "false_review_rate": 0.004246284501061571,
+          "passes": true
+        },
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 1,
+          "false_reviews": 2,
+          "recall": 0.9939024390243902,
+          "false_review_rate": 0.008968609865470852,
+          "passes": true
+        }
+      },
+      "parity_pass": true,
+      "accuracy_gates_pass": true
+    },
+    "cal": {
+      "rows": 2387,
+      "input_sha256": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+      "reference_sha256": "c24dc49e1787c89db6f3ba44f081986ef144a94bf399549c938cd25b3532916c",
+      "seconds": 56.27256974996999,
+      "abstentions": 0,
+      "max_score_error": 5.364418029785156e-06,
+      "decision_disagreements": 0,
+      "counts": {
+        "formal": {
+          "positive": 614,
+          "negative": 1386,
+          "missed": 4,
+          "false_reviews": 4,
+          "recall": 0.993485342019544,
+          "false_review_rate": 0.002886002886002886,
+          "passes": true
+        },
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 26,
+          "false_reviews": 2,
+          "recall": 0.8414634146341463,
+          "false_review_rate": 0.008968609865470852,
+          "passes": false
+        }
+      },
+      "parity_pass": true,
+      "accuracy_gates_pass": false
+    }
+  },
+  "maximum_score_tolerance": 0.0001,
+  "permitted_decision_disagreements": 0,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "complete": true,
+  "parity_pass": true,
+  "accuracy_gates_pass": false
+}

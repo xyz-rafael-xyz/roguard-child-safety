@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-19T00:17:22.967912+00:00",
+  "parents": "Same fixed three-expert inputs as study76",
+  "training": "Five connected folds. GradientBoostingClassifier log_loss, 100 trees, learning_rate0.05, subsample1, random_state978, no early stopping. Four configs: depth2/3 x minimum leaf20/50; equal mass per formal/conversational class. No neural retraining.",
+  "selection": "OOF recall-gap threshold targets original99% recall, eligibility under unchanged gates then worst/total false-review rate, shallower trees, larger leaves. Fit selected config to all development rows before calibration audit.",
+  "deployment": "Export plain JSON trees; float32 feature conversion matches sklearn inference. Every fitted model must agree with exported inference within1e-12 on fitting inputs; separate unseen-vector unit test. No pickle.",
+  "diagnosis": "Prior calibration errors motivated nonlinear expert trust. Calibration remains reused regression evidence. Oracle threshold diagnosis showed current Ukrainian linear ranking cannot jointly satisfy99%recall/5%false-review on calibration; oracle thresholds are not candidates.",
+  "sklearn_version": "1.9.1",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

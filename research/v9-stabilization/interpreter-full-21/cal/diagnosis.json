@@ -1,0 +1,7851 @@
+{
+  "synthetic_only": true,
+  "strict_evaluation": {
+    "groups": {
+      "ro_formal": {
+        "total": 2000,
+        "positive": 614,
+        "negative": 1386,
+        "decided": 2000,
+        "abstained": 0,
+        "correct_decided": 1835,
+        "missed_or_abstained_concerns": 107,
+        "false_review_or_abstained_benign": 58,
+        "direct_misses": 107,
+        "direct_false_reviews": 58,
+        "coverage": 1.0,
+        "decided_accuracy": 0.9175,
+        "strict_accuracy": 0.9175,
+        "concern_recall_including_abstentions": 0.8257328990228013,
+        "benign_review_or_abstention_rate": 0.04184704184704185
+      },
+      "uk_formal": {
+        "total": 2000,
+        "positive": 614,
+        "negative": 1386,
+        "decided": 2000,
+        "abstained": 0,
+        "correct_decided": 1834,
+        "missed_or_abstained_concerns": 95,
+        "false_review_or_abstained_benign": 71,
+        "direct_misses": 95,
+        "direct_false_reviews": 71,
+        "coverage": 1.0,
+        "decided_accuracy": 0.917,
+        "strict_accuracy": 0.917,
+        "concern_recall_including_abstentions": 0.8452768729641693,
+        "benign_review_or_abstention_rate": 0.051226551226551224
+      },
+      "ro_conversational": {
+        "total": 459,
+        "positive": 216,
+        "negative": 243,
+        "decided": 459,
+        "abstained": 0,
+        "correct_decided": 415,
+        "missed_or_abstained_concerns": 2,
+        "false_review_or_abstained_benign": 42,
+        "direct_misses": 2,
+        "direct_false_reviews": 42,
+        "coverage": 1.0,
+        "decided_accuracy": 0.9041394335511983,
+        "strict_accuracy": 0.9041394335511983,
+        "concern_recall_including_abstentions": 0.9907407407407407,
+        "benign_review_or_abstention_rate": 0.1728395061728395
+      },
+      "uk_conversational": {
+        "total": 387,
+        "positive": 164,
+        "negative": 223,
+        "decided": 387,
+        "abstained": 0,
+        "correct_decided": 349,
+        "missed_or_abstained_concerns": 6,
+        "false_review_or_abstained_benign": 32,
+        "direct_misses": 6,
+        "direct_false_reviews": 32,
+        "coverage": 1.0,
+        "decided_accuracy": 0.9018087855297158,
+        "strict_accuracy": 0.9018087855297158,
+        "concern_recall_including_abstentions": 0.9634146341463414,
+        "benign_review_or_abstention_rate": 0.14349775784753363
+      }
+    },
+    "invariance": {
+      "groups": 0,
+      "inconsistent": 0,
+      "fully_correct": 0
+    },
+    "paired_scenarios": {
+      "groups": 0,
+      "fully_correct": 0
+    },
+    "caveat": "These metrics describe the supplied labeled inputs, not real-world safety."
+  },
+  "target_failures": [
+    "ro_formal: concern recall below 99% including abstentions",
+    "ro_conversational: benign review/abstention rate above 5%",
+    "uk_formal: concern recall below 99% including abstentions",
+    "uk_formal: benign review/abstention rate above 5%",
+    "uk_conversational: concern recall below 99% including abstentions",
+    "uk_conversational: benign review/abstention rate above 5%"
+  ],
+  "field_confusions": {
+    "concern": {
+      "0 -> 0": 1725,
+      "1 -> 1": 2725,
+      "1 -> 0": 215,
+      "0 -> 1": 181
+    },
+    "subject": {
+      "SELF -> SELF": 1282,
+      "FICTIONAL -> FICTIONAL": 1403,
+      "OTHER -> OTHER": 1260,
+      "OTHER -> FICTIONAL": 151,
+      "FICTIONAL -> OTHER": 51,
+      "OTHER -> SELF": 38,
+      "SELF -> FICTIONAL": 483,
+      "SELF -> OTHER": 119,
+      "FICTIONAL -> SELF": 59
+    },
+    "source": {
+      "DIRECT -> DIRECT": 1297,
+      "FICTION -> FICTION": 1360,
+      "REPORTED -> REPORTED": 1300,
+      "REPORTED -> FICTION": 118,
+      "FICTION -> REPORTED": 95,
+      "REPORTED -> DIRECT": 31,
+      "DIRECT -> FICTION": 456,
+      "DIRECT -> REPORTED": 131,
+      "FICTION -> DIRECT": 58
+    },
+    "assertion": {
+      "AFFIRMED -> AFFIRMED": 1636,
+      "NEGATED -> NEGATED": 1117,
+      "RETRACTED -> RETRACTED": 569,
+      "UNCERTAIN -> UNCERTAIN": 1009,
+      "UNCERTAIN -> AFFIRMED": 177,
+      "AFFIRMED -> UNCERTAIN": 226,
+      "UNCERTAIN -> NEGATED": 77,
+      "NEGATED -> RETRACTED": 13,
+      "RETRACTED -> NEGATED": 17,
+      "RETRACTED -> AFFIRMED": 4,
+      "AFFIRMED -> NEGATED": 1
+    },
+    "relation": {
+      "NEW -> NEW": 4251,
+      "RETRACTS -> RETRACTS": 586,
+      "NEW -> RETRACTS": 5,
+      "RETRACTS -> NEW": 4
+    },
+    "time": {
+      "PAST -> PAST": 1389,
+      "HYPOTHETICAL -> CURRENT": 562,
+      "CURRENT -> PAST": 222,
+      "CURRENT -> CURRENT": 1667,
+      "PAST -> HYPOTHETICAL": 15,
+      "HYPOTHETICAL -> PAST": 352,
+      "HYPOTHETICAL -> HYPOTHETICAL": 438,
+      "PAST -> CURRENT": 33,
+      "CURRENT -> HYPOTHETICAL": 168
+    }
+  },
+  "minimal_policy_repairs": {
+    "subject": 207,
+    "source": 224,
+    "concern": 126,
+    "assertion": 9,
+    "assertion + relation": 2,
+    "subject + source": 44
+  },
+  "paired_reference_transitions": {},
+  "errors": [
+    {
+      "case_id": "cal-ro-18-32-0-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-38-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-1-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-39-1-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-39-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-38-1-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-33-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-37-2-0-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-39-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-33-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-32-1-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-37-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-32-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-39-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-1-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-39-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-37-1-1-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-2-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-37-0-1-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-37-1-1-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-37-0-2-0-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-39-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-37-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-38-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-33-0-2-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-2-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-2-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-39-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-1-0-0-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-2-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-1-0-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-39-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-37-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-32-1-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-35-1-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-35-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-2-0-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-1-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-2-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-0-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-2-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-35-1-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-37-0-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-38-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-38-2-1-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-32-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-35-1-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-35-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-1-0-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-38-1-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-0-2-2-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-35-0-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-2-0-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-36-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-38-0-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-1-2-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-39-2-1-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-1-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-32-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-39-0-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-37-0-2-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-39-1-0-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-1-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-35-1-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-35-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-1-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-1-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-38-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-0-3-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-36-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-37-0-1-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-37-1-2-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-36-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-37-0-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-39-1-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-1-0-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-1-1-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-1-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-36-2-0-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-39-2-2-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-32-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-1-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-0-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-0-2-3-0-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-35-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-0-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-39-0-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-35-0-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-1-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-1-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-35-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-36-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-35-1-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-1-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-0-0-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-35-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-35-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-39-1-1-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-39-1-0-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-34-0-2-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-2-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-2-0-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-35-0-1-0-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-35-0-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-37-2-1-1-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-34-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-38-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-33-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-39-1-0-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-35-1-2-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-0-2-2-0-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-38-0-2-0-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-32-0-1-2-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-38-2-1-1-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-0-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-38-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-33-0-2-3-0-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-37-0-1-2-1-2",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-16-33-0-2-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-32-1-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-19-32-0-1-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-18-34-0-1-2-1-0",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-ro-17-34-0-2-0-1-1",
+      "language": "ro",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-39-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-1-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-1-0-2-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-0-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-2-2-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-33-1-0-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-2-0-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-2-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-39-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-1-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-32-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-0-1-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-2-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-32-1-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-1-1-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-32-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-1-1-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-1-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-2-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-35-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-38-0-1-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-2-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-1-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-2-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-2-1-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-1-0-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-38-0-2-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-2-0-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-0-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-2-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-1-2-2-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-1-2-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-1-1-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-2-0-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-1-1-2-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-2-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-2-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-38-0-2-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-39-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-32-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-1-0-1-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-1-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-1-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-1-2-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-1-0-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-39-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-32-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-2-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-0-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-39-1-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-35-1-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-1-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-33-0-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-1-0-0-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-38-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-0-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-2-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-1-1-3-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-1-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-38-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-1-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-2-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-0-1-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ],
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-1-0-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-1-1-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-1-0-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-0-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-38-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-1-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-0-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-38-1-0-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-32-1-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-2-3-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-38-0-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-0-2-0-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-33-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-38-0-1-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-33-0-1-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-37-0-2-0-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-38-0-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-1-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-1-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-37-0-0-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-35-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-37-0-0-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-39-0-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-38-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-34-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-1-1-2-0-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-34-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-38-0-2-1-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "relation",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "assertion",
+          "relation"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-38-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-33-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-39-1-0-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-38-0-2-0-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-32-0-1-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-1-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-36-0-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-0-2-1-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-33-0-2-3-0-2",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "assertion",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-19-33-0-2-2-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-33-0-2-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-16-37-0-2-0-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-32-0-1-1-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-32-0-1-1-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-18-34-0-1-2-1-0",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "cal-uk-17-34-0-2-0-1-1",
+      "language": "uk",
+      "kind": "formal",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source",
+        "time"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-19-3-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-17-3-1-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-66",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-2-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-17-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-3-5-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-3-5-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-uk-48",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-18-3-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-20",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-cal-uk-127",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-5-0-lower-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-16-5-0-lower-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-19-3-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-18-3-1-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-cal-uk-122",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-33",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-63",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-2-5-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-uk-67",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-18",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-70",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-cal-ro-9",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-16-5-0-original-prefix",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-3-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-73",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-1-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-uk-145",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-2-0-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-17-3-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-2-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-21",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-18-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-22",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-17-3-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-ro-6",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-19-3-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-17-3-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-16-3-0-original",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-64",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-uk-68",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-2-5-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-5-0-original-prefix",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-2-0-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-69",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-16-3-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-0-5-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-cal-ro-54",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-0-5-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-17-3-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-0-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-1-5-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-uk-69",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-1-plain",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-v71-cal-uk-94",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-19-3-2-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-repair-cal-ro-72",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-ro-30",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-2-5-0-1",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-0-5-0-2",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-2-5-0-0",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-ro-15",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-18-3-0-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-18-3-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-18-3-1-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-transfer-cal-uk-19",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 1,
+      "predicted": 0,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject"
+        ],
+        [
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-1-5-0-2",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-17-3-0-original",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-ro-2-5-0-0",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern",
+        "assertion"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-benign-uk-3-5-0-1",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "concern"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "concern"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-uk-18-3-1-lower",
+      "language": "uk",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-support-cal-ro-29",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-16-3-0-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    },
+    {
+      "case_id": "native-cal-ro-19-3-1-lower",
+      "language": "ro",
+      "kind": "conversational",
+      "gold": 0,
+      "predicted": 1,
+      "invalid_schema": false,
+      "differing_fields": [
+        "subject",
+        "source"
+      ],
+      "minimal_policy_repairs": [
+        [
+          "subject",
+          "source"
+        ]
+      ]
+    }
+  ],
+  "stable_release_ready": false,
+  "caveat": "Gold-label repairs are offline diagnostics, never corrected accuracy. Repairs may overlap; schema validity remains a separate error."
+}

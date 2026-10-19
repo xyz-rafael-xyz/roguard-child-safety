@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-19T00:14:36.696252+00:00",
+  "parents": [
+    36,
+    76
+  ],
+  "languages": [
+    "ro",
+    "uk"
+  ],
+  "method": "Keep all fitted weights fixed. Threshold is no higher than original and is at the midpoint below the lowest positive score across connected-fold OOF and refitted development predictions. Requires 100% development concern coverage; unchanged 99% recall and 5% false-review release gates still apply to both groups.",
+  "rationale": "Existing calibration miss counts motivated a more conservative development-only operating point. No calibration scores or labels enter the threshold calculation; this audit is reused regression evidence, not independent validation.",
+  "selection": "Four predeclared parent/language combinations; no further threshold search in this experiment.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}
