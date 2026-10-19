@@ -1313,3 +1313,15 @@ Study103 will replay every development, calibration and stress row through the
 installed native model if study102 qualifies. Otherwise study104 applies the
 same fixed three-expert development recipe to its new native scores; any such
 combined candidate still needs actual stress and runtime verification.
+
+### Installed composite verification (study105)
+
+If the distilled three-expert candidate in study104 passes its original development,
+connected-fold and calibration gates, study105 replays the same 200 installed-package
+screen inputs and 216 known development stress inputs used in study99. It requires
+zero changed screen decisions, no abstentions and score differences at most 0.001;
+the stress gate requires zero missed concerns and at most 5% false reviews. The
+candidate, data and installed runtime are pinned before inference. Actual component
+outputs are retained for diagnosis without replacing the pipeline execution path.
+This is conditional verification, not a new accuracy result. Reserved neural
+inference remains unopened.
