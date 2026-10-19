@@ -1734,3 +1734,20 @@ access and rejects prior access by studies118,120,122,124,126 or129. The three
 native verification implementations pass all nine shared gate tests. Both stages
 are frozen before execution and wait for the earlier queued studies. No
 study131 training or study132 accuracy result is claimed at preparation time.
+
+Studies133–134 prepare a further conditional continuation with every native
+encoder parameter trainable. It retains the study131 corpus, paired objective
+and per-group selection rule. Learning rates decay by 0.85 toward earlier
+layers, from 0.000005 at the final encoder layer and classifier to approximately
+0.000000711 at the embeddings. The purpose is to test whether adapting only the
+top four layers leaves a limitation in context handling. This sequential
+continuation is not an isolated architectural ablation.
+
+Four optimizer tests verify complete parameter coverage, gradients, updates,
+schedule ratios and rejection of omitted or multiply assigned parameters.
+Configuration-only checks on the pinned native architectures cover 124,442,882
+Romanian and 125,979,650 Ukrainian parameters in 14 optimization groups each;
+these checks perform no model inference. Study134 uses the same full installed
+CPU replay and additionally rejects reserved-test access by study132. All twelve
+shared native gate tests pass. This fallback waits for the prior experiments and
+has no training or accuracy result yet.

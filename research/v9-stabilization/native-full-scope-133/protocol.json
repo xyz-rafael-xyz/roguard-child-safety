@@ -1,0 +1,18 @@
+{
+  "study": 133,
+  "parent": "Selected131 native checkpoints",
+  "conditional": "Only after123/125/128/131fail prior accuracy gates and132installed audit completes",
+  "data": "Exactly the131continuation corpus; no additional training rows",
+  "seed": 1133,
+  "epochs": 2,
+  "top_learning_rate": 5e-06,
+  "layer_decay": 0.85,
+  "trainable": "Every encoder, embedding, pooler and classifier parameter",
+  "objective": "Same paired crossentropy and scope pairs as131",
+  "selection": "Same per-group99%recall-constrained DEV selection as131; worst FP rate, sum rates, total misses",
+  "calibration": "Audit only after selection",
+  "fresh600": "No training inference; token-exclude from inherited history and continuation corpus",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "release_gates_unchanged": true
+}
