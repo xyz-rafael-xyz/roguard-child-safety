@@ -1911,3 +1911,28 @@ cases and17/44false reviews. Accuracy prerequisites fail.
 Study132 reproduced all10,443prior decisions with a maximum score difference
 of0.0000115634. Reserved-test inference was skipped. The prepared study139
 capacity screen runs next, followed by full-encoder adaptation in studies133–134.
+
+### Prompt mismatch diagnosed and corrected (studies139–140)
+
+The study139 screen completed in19.5seconds with a peak MLX allocation of
+6.26GB and cached/full score disagreement below3.4e-7. Its accuracy result is a
+failure: all40highest-probability tokens were outside the permitted0/1labels,
+so all40were counted as abstentions. The original results remain preserved.
+
+Investigation found that MLX's tokenizer wrapper defaults `enable_thinking` to
+its inferred model capability. The plain Hugging Face tokenizer used in the
+preflight did not enable it. All40actual prompts therefore differed from the
+preflight; their maximum length was469rather than467tokens. Study140 explicitly
+sets `enable_thinking=False` for both completed-label templates. A unit test
+checks that this overrides the wrapper default without reading the gold label.
+An actual tokenizer-only comparison confirms identical Hugging Face and MLX
+input tokens for all40corrected prompts. Their hashes are frozen and checked
+again by the inference script before scoring.
+
+The retry uses the same40examples, policy, fixed threshold and strict malformed
+output rule. It also records the top token ID for diagnosis. No scoring rule or
+release gate is relaxed. It is scheduled after the Romanian study133 child
+process exits and before its Ukrainian sibling starts: only the parent
+scheduler is paused, and the retry resumes it in a `finally` block. Active
+Romanian training continues unchanged. No study140 neural result is claimed
+at preparation time; the reserved test remains unread by both screens.
