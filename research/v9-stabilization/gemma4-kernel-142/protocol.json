@@ -1,0 +1,31 @@
+{
+  "study": 142,
+  "created_utc": "2026-10-19T12:07:54.402728+00:00",
+  "condition": "Run only after141complete and development gates fail; otherwise prioritize141verification",
+  "architecture": "RBF support-vector classifier on the identical frozen Gemma4 representations",
+  "candidates_C": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "gamma_width_factors": [
+    0.25,
+    1.0,
+    4.0
+  ],
+  "class_weight": "balanced",
+  "seed": 1142,
+  "score": "0.5+atan(margin)/pi; uncalibrated monotone margin",
+  "selection": "Development only, same99%recall pergroup,minworstfalse-reviewrate,sumrates,misses;linear141retainedunlessstrictlyimproved;tiesamongRBFretainfirstgridcandidate",
+  "release_gates_unchanged": true,
+  "new_foundation_inference": false,
+  "training_data": "Exact141training rows and representations, no additions",
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "execution": "CPU only after141;mayoverlap133UkrainianGPUtraining;BLASlimitedto4threads",
+  "export_check": "FullDEV portable kernel margins versus sklearn maximum absolute disagreement<=1e-7"
+}

@@ -1993,3 +1993,21 @@ Cached/full score disagreement is below 1.4e-8; the model stage took 18.4 second
 with peak MLX allocation 6.25 GB. These are a local forty-case screen's measurements,
 not production performance claims. Study141 proceeds as the separately declared
 learned-classifier experiment. No reserved example has been inferred.
+
+### Conditional nonlinear classifier prepared (study142)
+
+Study142 reuses study141's verified contextual representations if the linear
+classifiers fail development. It fits radial-basis support-vector classifiers
+with a predeclared twelve-setting grid per language. This adds a nonlinear
+decision boundary without another foundation-model inference pass or new data.
+The selected linear classifier is retained unless a nonlinear candidate strictly
+improves the same development objective. The 99% recall and 5% false-review
+requirements are unchanged; calibration and reserved tests remain separate.
+
+The portable scorer exports numeric support vectors and coefficients, avoiding
+executable model serialization. Its test matches the fitted classifier on an
+unseen nonlinear-boundary sample; each real candidate must also match full
+development margins within 1e-7. Scores are bounded margins, not calibrated
+probabilities. Source, feature-chunk and input hashes are verified before fitting.
+This CPU-only fallback may run alongside the later Ukrainian encoder training.
+No study142 accuracy result is claimed at preparation time.
