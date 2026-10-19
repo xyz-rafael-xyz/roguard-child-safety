@@ -31,7 +31,9 @@ inconsistent grouped training gradients. The separate 5,022-case prior audit
 passed all Romanian groups (zero misses, two false alerts), but found 23 missed
 Ukrainian formal concerns. A development-only checkpoint comparison selected a
 later Ukrainian checkpoint with the same zero errors and a wider score gap.
-Its new prior audit is running with the selection fixed.
+Its prior audit reduced Ukrainian formal misses from 23 to 9, still below the
+99% recall gate. A Ukrainian continuation now adds separately authored reported-
+support contrasts and a disjoint development wording set; Romanian is retained.
 Installed-model comparison and the untouched reserved test follow only after
 both languages pass. The clean installed wheel
 passes 46 runtime/installer tests. V9 remains experimental; stable installations

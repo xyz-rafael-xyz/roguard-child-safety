@@ -2809,11 +2809,38 @@ positive scores are 0.6942256725025439 and 0.9757479402804444, giving an additiv
 margin of 0.14076113388895028; the previously selected epoch1 had a margin of
 0.0011592202905497118. Epoch2 had a smaller margin, 0.10064773505820901.
 The original epoch1 development replay matched all 3,099 scores exactly.
-Romanian retains its previous checkpoint, scoring mode and cutoff. Prior191 is
-running with these selections frozen.
+Romanian retains its previous checkpoint, scoring mode and cutoff. Prior191
+completed: Romanian again had zero misses and two exposed false reviews;
+Ukrainian had zero false reviews and nine formal misses (98.53% recall), with
+zero conversational or exposed errors. The unchanged 99% gate remains open.
+Installed192 and reserved193 did not run. Both full development replays matched
+exactly and the full-model reference checks passed.
 
 [Complete development comparison](../research/v9-stabilization/separated-tail-selection-190/actual/report.json)
 · [New prior protocol](../research/v9-stabilization/separated-tail-prior-191/protocol.json).
+
+### Reported-support continuation
+
+The remaining Ukrainian misses cluster around indirect requests for support in
+reported or hypothetical speech. Corpus194 adds 2,304 Ukrainian training inputs
+and 288 development inputs. It crosses indirect support versus ordinary
+assistance with speaker/source, time, assertion, word order and neutral history.
+Training and development use disjoint banks of statements and framing phrases.
+No failed audit sentence was copied. Exact prompt-token overlap against the
+earlier training/development corpora, prior populations and reserved117 is zero;
+the reserved inputs were used only for identity checks, without neural scores.
+
+Cache195 records exact frozen-body attention states. Continuation196 retains
+Romanian190 without training and starts Ukrainian from its selected190 weights.
+It uses all 7,307 previous Ukrainian training cases plus 2,304 new cases, with
+equal total old/new training mass and label balancing within each half. The
+predeclared run is two epochs, learning rate 2e-5, seed1196, the repaired
+single-example backward path, and the same joint semantic and paired losses.
+Development selection uses the error-budget rank followed by zero-error score
+separation. Prior197, installed198 and reserved199 are conditional later gates.
+
+[Data design](../research/v9-stabilization/reported-support-194/protocol.json)
+· [Training protocol](../research/v9-stabilization/reported-tail-fit-196/protocol.json).
 
 All these populations are synthetic; no new independent human language review
 or measured real-world performance is claimed.

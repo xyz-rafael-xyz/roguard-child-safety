@@ -1,0 +1,92 @@
+{
+  "study": 196,
+  "created_utc": "2026-10-19T18:48:06.243427+00:00",
+  "seed": 1196,
+  "epochs": 2,
+  "boundary": 24,
+  "batch_size": 8,
+  "learning_rate": 2e-05,
+  "backward_execution": "Single-example attention calls; preserve joint minibatch losses and original grouped development inference",
+  "optimizer": "AdamW, weight_decay0.01, gradient_norm_clip1",
+  "lora": {
+    "rank": 8,
+    "scale": 16.0,
+    "dropout": 0.0,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.o_proj"
+    ]
+  },
+  "heads": {
+    "ro": {
+      "path": "research/v9-stabilization/gemma4-structured-143/actual/epoch-10.safetensors",
+      "sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+      "epoch": 10,
+      "family": "gemma4-structured-143"
+    },
+    "uk": {
+      "path": "research/v9-stabilization/gemma4-structured-expanded-145/actual/epoch-10.safetensors",
+      "sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+      "epoch": 10,
+      "family": "gemma4-structured-expanded-145"
+    }
+  },
+  "initial": {
+    "ro": {
+      "path": "research/v9-stabilization/separated-tail-selection-190/actual/ro-selected.safetensors",
+      "sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09"
+    },
+    "uk": {
+      "path": "research/v9-stabilization/separated-tail-selection-190/actual/uk-selected.safetensors",
+      "sha256": "8a01dba6062e0bf9e92b1ebeaa7e818d7f677eac9d02553fff43f79cbaf64435"
+    }
+  },
+  "caches": [
+    "research/v9-stabilization/shared-tail-corpus-164",
+    "research/v9-stabilization/grounding-tail-corpus-174",
+    "research/v9-stabilization/referent-tail-corpus-176",
+    "research/v9-stabilization/reported-tail-corpus-195"
+  ],
+  "head_initialization": "Selected190 Ukrainian checkpoint; retain Romanian190 without training",
+  "retained_candidate": "research/v9-stabilization/separated-tail-selection-190",
+  "languages_trained": [
+    "uk"
+  ],
+  "objective": "Equal total previous164/174/176 versus new195 training mass; each half label-balanced binaryCE + mean six-fieldCE +0.2 paired softplus margin +0.1 mean symmetric KL across seven output distributions for identical-current-message history contrasts",
+  "coupling": "Preserve165 training-fitted semantic pair potentials",
+  "selection": "Initial and every half epoch; minimize maximum normalized error-budget utilization (100*FN/P and20*FP/N), then sum utilization, then errors, then widest zero-error score separation over all DEV groups; independent language/mode/threshold; unchanged99/5 gates",
+  "validation_modes": [
+    "binary",
+    "policy",
+    "coupled_policy"
+  ],
+  "cache": "Composite verified164/174/176/195 caches; preserve original per-corpus DEV batch8 boundaries",
+  "expected_training_rows": 9611,
+  "expected_development_rows": 6341,
+  "batches": {
+    "uk": [
+      {
+        "epoch": 1,
+        "cases": 9611,
+        "batches": 1343,
+        "paired_comparisons": 2256,
+        "invariant_comparisons": 2400
+      },
+      {
+        "epoch": 2,
+        "cases": 9611,
+        "batches": 1345,
+        "paired_comparisons": 2256,
+        "invariant_comparisons": 2400
+      }
+    ]
+  },
+  "corpus_source_freeze_sha256": "2e217aa6bff903514ede180bae3ea18cf3d4af236fa780dfaafaa172e59afe04",
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "production_runtime_supported": false,
+  "publication": "Requires separate frozen prior qualification, installed execution parity and reserved evaluation"
+}
