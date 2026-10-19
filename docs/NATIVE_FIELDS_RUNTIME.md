@@ -167,8 +167,9 @@ before inference; missing component results cannot silently drop cases.
 The combined pipeline uses the `fusion` extra on Apple Silicon with Python 3.10 or later. The older
 `semantic` extra pins Transformers 4, whereas the MLX interpreter requires
 Transformers 5; install `fusion` in a separate environment, without also requesting
-`semantic` or `adapted`. This combined environment is undergoing actual-model
-verification in study84. The plain package remains available without these heavy
+`semantic` or `adapted`. Study84 verified this combined environment with actual inference on 200
+Romanian cases: zero changed decisions and zero score difference from the fixed
+reference, using Torch 2.14.0, Transformers 5.17.0, MLX 0.32.2 and MLX-LM 0.31.3. The plain package remains available without these heavy
 optional dependencies. No model is downloaded by loading a bundle.
 
 Its manifest contains `format`, a `fusion` object (`path`, `sha256`), and

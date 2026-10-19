@@ -1058,3 +1058,10 @@ the existing 200-case Romanian screen. This also tests a combined Torch/MLX
 environment: the previous `semantic` and `mlx` extras have incompatible
 Transformers requirements. The separate `fusion` extra addresses this dependency
 conflict without changing either existing extra.
+
+Study84 completed actual installed inference for all 200 Romanian cases with
+zero changed decisions and zero score difference from study80. The run used
+Torch 2.14.0, Transformers 5.17.0, MLX 0.32.2 and MLX-LM 0.31.3 in one process.
+Observed elapsed inference time was 292.10 seconds on the local machine, including
+lazy model loading. This is a runtime compatibility check on a reused screen,
+not an independent accuracy evaluation or a general latency benchmark.
