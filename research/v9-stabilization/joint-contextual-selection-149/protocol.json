@@ -1,0 +1,39 @@
+{
+  "study": 149,
+  "created_utc": "2026-10-19T13:24:48.975758+00:00",
+  "semantic_families": [
+    "gemma4-structured-143",
+    "gemma4-structured-expanded-145"
+  ],
+  "native_families": [
+    "native-scope-operators-131",
+    "native-full-scope-133"
+  ],
+  "epochs": [
+    10,
+    20,
+    40,
+    60,
+    100
+  ],
+  "semantic_modes": [
+    "binary",
+    "policy",
+    "coupled_policy"
+  ],
+  "native_weights": {
+    "ro": 0.75,
+    "uk": 0.25
+  },
+  "scope_gate": "Selected147 artifact and power retained per language",
+  "couplings": "Reconstructed only from each semantic training population with original language-label balancing",
+  "selection": "Joint development performance; unchanged99/5gates, retain147 unless strictly improved; identical native checkpoints deduplicated",
+  "parent_provenance": "Bind completed parent reports, evaluated checkpoints and all predictions before comparing candidates",
+  "no_new_training": true,
+  "no_new_foundation_inference": true,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false
+}

@@ -2162,3 +2162,20 @@ native scores, blend and sparse scope gate; it is not installed end-to-end
 parity. The separate contextual features and prior accuracy checks are queued
 after studies144–145. Fresh-test access still requires both languages to pass
 all preceding accuracy and installation checks.
+
+### Joint checkpoint selection prepared (study149)
+
+Study149 addresses a limitation of selecting each classifier in isolation. It
+compares the existing semantic checkpoints from studies143 and145 by the errors
+of their composition with the native encoder and scope gate. The language-specific
+blend weights from study146 and the scope gate and power from study147 stay fixed.
+Only the already evaluated epochs10,20,40,60,100 and three semantic score paths
+are considered. Native studies131 and133 are compared, with identical tensor
+checkpoints deduplicated. Study147 is retained unless the unchanged development
+objective strictly improves.
+
+Completed parent reports, predictions and tensor hashes are recorded before
+comparison. Couplings are reconstructed from each classifier's training labels
+with its original language/label weights. This CPU comparison adds no foundation
+inference or training data. It is queued after study145 and before study148's
+calibration inference, so calibration results cannot guide its selection.
