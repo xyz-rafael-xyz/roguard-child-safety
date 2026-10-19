@@ -2613,8 +2613,31 @@ checkpoint comparisons, selected predictions and hashes are in the
 The [training-method note](V9_SHARED_ATTENTION.md) explains the cache boundary,
 numerical checks and resource costs.
 
-Study166 now evaluates the frozen selections on 5,022 separate calibration and
-exposed-regression inputs. Study167 will then compare actual installed-model
-outputs in the clean environment. Study168 remains gated on those results;
-its reserved 600 cases have not been neurally inferred. Passing development
-does not establish qualification on those later populations or real-world data.
+The next accuracy audit covers 5,022 separate calibration and exposed-regression
+inputs. Actual installed-model comparison in the clean environment follows only
+if that audit passes. Passing development does not establish qualification on
+those later populations or real-world data.
+
+### Matching evaluation batch shapes
+
+Study166 stopped before prior inference because its development replay used
+batch4 while training selected checkpoints using batch8. Study169 measured all
+5,709 development cases at batch sizes 1, 4 and 8 with unchanged weights and
+cutoffs. Every decision was unchanged. Batch8 reproduced every original score
+exactly; different batch shapes caused small floating-point differences:
+
+| Language | Batch4 maximum score difference | Batch1 maximum score difference | Decision changes |
+|---|---:|---:|---:|
+| RO | 2.94e-5 | 2.03e-5 | 0 |
+| UK | 3.45e-6 | 2.55e-6 | 0 |
+
+The 1e-5 score tolerance remains unchanged. Study170 replays development using
+the original batch8 and runs prior inference one example at a time, matching
+the installed model's numerical execution path. Study171 compares those outputs
+through the clean installed wheel; study172 opens the reserved test only if
+all previous checks pass. The original stopped attempt remains recorded, and
+no calibration or reserved case was inferred during diagnosis. The 600 reserved
+cases remain neurally unscored.
+
+[Complete batch diagnosis](../research/v9-stabilization/shared-tail-replay-diagnostic-169/report.json)
+· [Corrected frozen protocol](../research/v9-stabilization/shared-tail-canonical-prior-170/protocol.json).

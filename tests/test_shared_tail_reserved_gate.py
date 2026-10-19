@@ -3,6 +3,7 @@ from copy import deepcopy
 import pytest
 
 from training.evaluate_shared_tail_reserved_v9 import require_installed_gate
+from training.evaluate_canonical_tail_reserved_v9 import require_installed_gate as require_canonical_installed_gate
 
 
 def good_report():
@@ -13,7 +14,8 @@ def good_report():
         languages=dict(ro=deepcopy(language), uk=deepcopy(language)))
 
 
-def test_reserved_gate_requires_both_languages_every_group_and_exact_installed_identity():
+@pytest.mark.parametrize('require_installed_gate', [require_installed_gate, require_canonical_installed_gate])
+def test_reserved_gate_requires_both_languages_every_group_and_exact_installed_identity(require_installed_gate):
     report = good_report()
     require_installed_gate(report, 'a'*64, 'b'*64)
     for key in ('complete', 'installed_execution_verified', 'prior_counts_pass'):
