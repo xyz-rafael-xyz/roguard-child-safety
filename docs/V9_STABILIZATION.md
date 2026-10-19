@@ -2420,3 +2420,12 @@ never uses pickle. Equal-length states can be batched without padding or
 changing attention positions. Two CPU tests pass for storage round trips,
 identity/corruption rejection and batched full-sequence parity. The numerical
 CI job also runs the NumPy cache validation test.
+
+### Romanian conversational continuation completed
+
+Study137's Romanian training selected the half-epoch checkpoint on development.
+It still fails false-review gates:261/1,413 formal,16/242 conversational and23/90
+scope false reviews, with no misses. Separate calibration has no misses but
+268/1,386 formal and36/243 conversational false reviews; the exposed regression
+has10/44 false reviews. All checkpoints and the completed evidence are retained.
+This result does not replace the better fixed154/155 Romanian cascades.
