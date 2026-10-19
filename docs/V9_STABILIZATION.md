@@ -1482,3 +1482,33 @@ failed. A development-only threshold-feasibility check also confirms that no
 single cutoff on either selected native checkpoint can satisfy all required
 recall and false-review limits. The fix therefore needs better learned scores,
 not merely another cutoff. Study119 is now running.
+
+### Conditional separation of support and revision review
+
+Study121 is frozen as a conditional follow-up after study120: it runs only if
+study119 fails its prior accuracy gates. It learns two entailment tasks with one
+shared encoder: a real-person support concern, and a withdrawal or conflicting
+fiction/real-person interpretation requiring review. Their Boolean OR is tested
+to reproduce the existing policy for all 432 complete attribute combinations.
+This distinction is useful because reviewing a revision is not a claim that the
+message describes a personal safety problem. Labels and release gates do not
+change.
+
+The study reuses the same 6,856 training inputs with two hypotheses per input,
+weights each language/task/class group equally in the loss, and preserves the
+complete authored counterfactual pairs. Partial pair groups from historical
+replay remain individually supervised examples. It starts from the selected
+study119 checkpoint and trains one further epoch. Parent data hashes are recorded
+before training. Calibration and exposed115 are audit-only; the fresh600 remain
+excluded from training and selection.
+
+The runtime emits separate support and revision proposals, retains the neutral
+NLI probability in normalization, and grants no action authority. Study122 will
+compare both component scores, their maximum and every decision through an
+isolated package, followed by a CPU check. Any earlier fresh-test access by118
+or120 prevents it from claiming another first-use evaluation.
+
+The full suite with these runtime changes passed 980 tests, with31 optional
+skips and129 subtests. Subsequent CLI integration adds checked loading of either
+entailment profile and points portable-model users to the semantic dependency
+extra. These are preparatory capabilities; no qualified profile is published yet.

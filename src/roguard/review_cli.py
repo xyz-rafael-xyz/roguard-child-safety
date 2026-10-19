@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--profile',default='v9')
     parser.add_argument('--cache',type=Path,default=cache_directory())
     args=parser.parse_args()
+    extra="fusion"
     try:
         if args.text is not None:
             if args.input is not None or args.language is None:
@@ -31,11 +32,12 @@ def main():
         prepare_input(payload,args.focus)
         raw,digest=profile(args.profile)
         bundle,bundle_sha=install(raw,digest,args.cache,download=False)
-        from .consensus_bundle import load_bundle
+        from .entailment_bundle import load_bundle, runtime_extra
+        extra=runtime_extra(bundle,bundle_sha)
         model=load_bundle(bundle,expected_sha256=bundle_sha)
         print(json.dumps(model.predict(payload,focus=args.focus),ensure_ascii=False))
     except ImportError:
-        parser.error('Install the model runtime: pip install --upgrade "roguard-child-safety[fusion]"')
+        parser.error(f'Install the model runtime: pip install --upgrade "roguard-child-safety[{extra}]"')
     except (OSError,ValueError) as error:parser.error(str(error))
 
 
