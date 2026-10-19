@@ -1793,3 +1793,14 @@ new input has 147 NLI tokens. No neural inference or training is part of this
 preparation. These are project-authored synthetic probes, not clinical evidence
 or new independent expert review. The active and queued studies128–134 remain
 unchanged; study135 has no accuracy result.
+
+The private wheel also completed four actual `roguard.review_cli` invocations
+through its packaged profile and verified offline cache: one previously evaluated
+positive and negative development example per language. All four decisions
+matched the selected study117 references; the largest score difference was
+8.2e-10. Each report withheld message text and granted no notification or external
+action authority. The subprocesses imported the separately installed wheel, with
+Hugging Face offline settings enabled, and took 6.8–8.0 seconds including cold
+startup and cache checks. This checks the installed CLI path only; these models
+remain unqualified and the reserved test was not used. The measured record is
+`research/v9-stabilization/cached-cli-preflight-20261019.json`.
