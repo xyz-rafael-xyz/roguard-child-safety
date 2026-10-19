@@ -1,0 +1,38 @@
+{
+  "study": 143,
+  "created_utc": "2026-10-19T12:53:25.759482+00:00",
+  "architecture": "Shared bilingual 128-unit GELU/dropout bottleneck, six semantic heads and one binary head over frozen Gemma4 features",
+  "training": "Exact3607training rows from141;language/label balanced loss;binaryCE plus mean of six semanticCE losses",
+  "seed": 1143,
+  "epochs": 100,
+  "evaluation_epochs": [
+    10,
+    20,
+    40,
+    60,
+    100
+  ],
+  "initial_epoch_evaluated": true,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "dropout": 0.1,
+  "gradient_clip": 1.0,
+  "scoring_modes": [
+    "binary",
+    "policy",
+    "coupled_policy"
+  ],
+  "couplings": "Smoothed training-only subject/source and assertion/relation likelihood ratios using existing native_fields_v9 policy",
+  "selection": "Per-language DEVonly;eachgroup>=99%recall,minworstfalse-reviewrate,sumrates,misses;retain142unlessstrictlyimproved;separate selected shared-training checkpoints allowed per language",
+  "condition": "Skip if141or142passesdevelopment;otherwiseCPUonlyafterbothcomplete",
+  "release_gates_unchanged": true,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "new_foundation_inference": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "export_check": "Independent numeric GELU readout logits within1e-4 on everyDEVinput at everycheckedepoch; unit tolerance1e-6",
+  "checkpoints": "Retain every evaluated tensorcheckpoint and selectedlanguageheads"
+}

@@ -2026,3 +2026,72 @@ Grouping by exact length preserves the one-token attention path and fixes the
 test without changing its tolerance. The prototype is not used by the frozen
 study141 run. It has no real-model throughput result or deployment qualification;
 actual score and decision parity must be checked before enabling it.
+
+### Completed frozen contextual linear classifiers (study141)
+
+All 9,028 representations were extracted, with a maximum cached/full relative
+feature difference of 1.97e-5 and peak MLX allocation of 6.08 GB. Extraction,
+validation and fitting took 2,899 seconds locally. Portable logistic scores match
+the fitted classifiers within 1.12e-16 on every development example.
+
+The selected Romanian classifier uses C=0.001. It misses five formal positives
+and has 618/1,413 formal, 48/242 conversational and 26/90 scope false reviews.
+The selected Ukrainian classifier uses C=0.01. It misses five formal positives
+and one conversational positive, with 349/1,413 formal, 39/223 conversational,
+29/90 scope and 52/172 stress false reviews. Both satisfy the development recall
+constraint but fail false-review requirements. Neither qualifies for remaining
+release verification. Calibration and reserved-test inference were not performed.
+
+Read-only interim Romanian fits of the same predeclared linear and kernel grids
+ran while Ukrainian representation extraction finished. They introduce no new
+candidate settings or evaluation population. A separate diagnostic reconstructed
+the pretrained 0/1 label scores from the cached features and two decoded output
+rows; it matched all twenty Romanian study140 scores within 8.35e-7. Those
+normalized label scores also fail the development gates. This diagnostic does
+not reinterpret malformed generated answers as successful study140 predictions.
+
+### Shared bilingual semantic classifier prepared (study143)
+
+Study143 tests whether the existing six semantic labels provide useful additional
+supervision. One shared 128-unit GELU bottleneck learns subject, time, assertion,
+source, relation and concern, alongside a binary review head, from the same
+3,607 training representations. Language/label weights balance the four training
+strata. Training uses 100 CPU epochs, seed1143, AdamW at 0.001, weight decay 0.01
+and gradient clipping. It evaluates epoch0 and the predeclared epochs10,20,40,60,100.
+
+Three score paths are compared on development: the binary head, the existing
+factorized policy calculation and that calculation with training-fitted pair
+couplings. The latter encode subject/source and assertion/relation associations
+already supported by `native_fields_v9`; their values use training labels only.
+Scores and semantic interpretations remain model proposals, not verified facts
+or calibrated safety probabilities. Each language retains its study142 selection
+unless a candidate strictly improves the unchanged development objective.
+
+The independent numeric GELU export test passes at 1e-6. Every evaluated real
+checkpoint must also match all development logits within 1e-4. All evaluated
+tensor checkpoints are retained privately and bound by hashes. The study adds
+no foundation-model inference, calibration access or reserved-test inference.
+It is queued after study142 and skips if an earlier contextual classifier passes
+development. Ukrainian encoder training can continue on the GPU independently.
+
+### Completed nonlinear and semantic-head comparisons (studies142–143)
+
+Study142 retained the linear Romanian classifier. Its selected Ukrainian RBF
+classifier has five formal misses and 368/1,413 formal, 41/223 conversational,
+27/90 scope and 45/172 stress false reviews. The worst false-review rate is
+30%; it still fails development. All twenty-four kernel export comparisons
+passed their margin-parity checks. Fitting and evaluation took 98.3 seconds.
+
+Study143 completed in 12.4 seconds. Romanian selected the coupled-policy score
+at epoch10: five formal and two conversational misses, with 396/1,413 formal,
+18/242 conversational and 20/90 scope false reviews. Ukrainian selected the
+factorized-policy score at epoch20: five formal misses, with 255/1,413 formal,
+32/223 conversational, 21/90 scope and 25/172 stress false reviews. Each group
+still meets the recall constraint, but false-review gates remain unmet.
+
+These are improvements within the contextual-readout experiments, not release
+qualification or evidence of real-world accuracy. No calibration or reserved
+examples were inferred. The next targeted data question is whether the limited
+sampling of formal and indirect-distress training examples constrains these
+semantic heads; only 100 examples from each of those sources per language were
+included in study141's initial sample.
