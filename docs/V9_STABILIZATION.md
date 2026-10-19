@@ -1973,3 +1973,23 @@ The idle study140 scheduler is replaced with one that runs study140 and then
 study141 after Romanian study133 finishes. Its `finally` block resumes the
 paused study133 parent so Ukrainian training can proceed. Active training is
 not interrupted, and all GPU jobs remain serialized.
+
+### Completed Romanian full adaptation and corrected prompt screen
+
+The Romanian half of study133 completed both epochs and retained epoch0: none
+of the fully updated checkpoints improved the development selection objective.
+Its calibration therefore remains at zero misses, with 244/1,386 formal and
+37/243 conversational false reviews; exposed regression has 8/44 false reviews.
+Ukrainian study133 and installed verification134 are still pending at this update.
+
+Study140 completed with correct prepared/runtime prompt tokens. It scored
+15/20 correct in each language. Romanian has one missed positive and four false
+reviews, including four abstentions; Ukrainian has two missed positives and
+three false reviews, including two abstentions. The six invalid top tokens begin
+JSON objects rather than the requested digit. They remain errors. The screen
+does not qualify for expansion under its predeclared 18/20 rule.
+
+Cached/full score disagreement is below 1.4e-8; the model stage took 18.4 seconds
+with peak MLX allocation 6.25 GB. These are a local forty-case screen's measurements,
+not production performance claims. Study141 proceeds as the separately declared
+learned-classifier experiment. No reserved example has been inferred.
