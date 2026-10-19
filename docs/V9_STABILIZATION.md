@@ -1561,3 +1561,14 @@ the preparation or the software tests.
 The full software suite after these changes passed 1,008 tests and 129 subtests,
 with 32 optional skips. The cutoff-search and authored-contrast checks also
 passed all 10 focused tests in the NumPy-enabled environment.
+
+Study121 completed and selected its half-epoch checkpoint. It missed no positive
+calibration cases at its conservative cutoff, but produced 1,135/1,386 formal and
+164/243 conversational false reviews in Romanian, and 1,015/1,386 formal and
+101/223 conversational false reviews in Ukrainian. Exposed regression false
+reviews were 26/44 and 19/44, respectively. These results reject the candidate.
+Its development-only two-cutoff diagnosis also remains above the 5% false-review
+limit. Study122 reproduced all 1,152 checked installed decisions and 40 CPU
+decisions; maximum component-score differences were 0.000013829 on Metal and
+0.000038385 on CPU. It skipped the fresh evaluation. Study123 then started the
+expanded training run.

@@ -1,0 +1,24 @@
+{
+  "format": "roguard-policy-entailment-artifact-v1",
+  "base": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "revision": "b5113eb38ab63efdd7f280f8c144ea8b13f978ce",
+  "thresholds": {
+    "ro": 0.00021381662372732535,
+    "uk": 0.00041050714207813144
+  },
+  "hypotheses": [
+    "The focal message conveys a real person's emotional distress, safety problem or need for personal support, including uncertain, past or hypothetical concerns.",
+    "The focal message withdraws an earlier concerning statement, or gives conflicting claims about whether that concerning statement is real or fictional."
+  ],
+  "checkpoint_sha256": "f67c0c3eb77cff8efa93f6b13a634bdf019148933b63aeaf98b1c7a687257b4b",
+  "base_hashes": {
+    "config.json": "bc7b85f164a17c1b007d87fb99d3676f4a4d2e6511d2288dd3f5334dc0f34e6b",
+    "model.safetensors": "7c8e29f1115986d032e92b0fbaa0bdef1062a46f658b08705f237c05014a8541",
+    "special_tokens_map.json": "311de3f4eed9d76a43bf0d71f10e62e086ca65ccce9f15d5da0d2098bf519ecc",
+    "spm.model": "13c8d666d62a7bc4ac8f040aab68e942c861f93303156cc28f5c7e885d86d6e3",
+    "tokenizer.json": "e23095eb61ba944c7be3a5d3e8ec19e37ce7ced0daa03550bde03e83c21b3f8a",
+    "tokenizer_config.json": "25e9f84c6b43da7bff43a0aee8eeee2c8a39d246823d8464b9275ef704eab42f"
+  },
+  "score": "maximum-of-two-entailment-probabilities-including-neutral",
+  "preprocessing": "normalized-prefix-and-focus-json-v1"
+}

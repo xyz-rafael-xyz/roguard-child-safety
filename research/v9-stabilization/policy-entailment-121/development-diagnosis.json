@@ -1,0 +1,1059 @@
+{
+  "format": "roguard-entailment-development-diagnosis-v1",
+  "source_sha256": "50a46ea7a9d069c8ce1ea2947d82bbc10b8ceebedd4f4681856fffc7f6012a0b",
+  "input_sha256": {
+    "research/v9-stabilization/policy-entailment-121/candidate/development.json": "1e954417e9bb5f99ed4e36f09d3be692e8ac00ce4ac0f1027094f8d8a44b5c57",
+    "research/v9-stabilization/policy-entailment-121/candidate/review.json": "f2d158d79ca39a6c2b8f8c1116a71b359935670dae944566adc1c5bd0b027c14",
+    "research/v9-stabilization/policy-entailment-121/candidate/train.jsonl.gz": "ee720ebbdd6bb673e14f163376960c68119be541300149831acad770194e0ae9",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_dev.jsonl.gz": "bb3b58d040c52475d82c7a4980c780333e670f24513e7bd36dedb22dae7d480a",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_dev-predictions.jsonl": "836cabc398ad4e903fe2b6b2dd077382b4defff861cba623c0d65ca6736429e3",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_scope_dev.jsonl.gz": "1ac6e51fecdc6c150523c5058e622e08374009710dbf471e836b4af4e67dd381",
+    "research/v9-stabilization/policy-entailment-121/candidate/ro_scope_dev-predictions.jsonl": "4f5f629c0101acab7fe6feb1c2c07fa36e3baf8735a0e8b93af574a854e1e852",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_dev.jsonl.gz": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_dev-predictions.jsonl": "3b50cba33c0467f8bf8124c67815471b67fef893e0e34e2437487d6d5fab2f57",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_scope_dev-predictions.jsonl": "50f35fee26fd0dd76abfd62fd0b588ba0c1a887b5235db06ca6ff087643aa0dd",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_stress.jsonl.gz": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f",
+    "research/v9-stabilization/policy-entailment-121/candidate/uk_stress-predictions.jsonl": "150e4d160ffdffeb9fef850035e4a03162c7cc0594cc2f68598bd9ca7847d580"
+  },
+  "synthetic_only": true,
+  "calibration_read": false,
+  "fresh_test_read": false,
+  "model_changed": false,
+  "training_reason_counts": [
+    {
+      "language": "ro",
+      "support": 0,
+      "revision": 0,
+      "rows": 1708
+    },
+    {
+      "language": "ro",
+      "support": 0,
+      "revision": 1,
+      "rows": 55
+    },
+    {
+      "language": "ro",
+      "support": 1,
+      "revision": 0,
+      "rows": 1665
+    },
+    {
+      "language": "uk",
+      "support": 0,
+      "revision": 0,
+      "rows": 1708
+    },
+    {
+      "language": "uk",
+      "support": 0,
+      "revision": 1,
+      "rows": 9
+    },
+    {
+      "language": "uk",
+      "support": 1,
+      "revision": 0,
+      "rows": 1711
+    }
+  ],
+  "languages": {
+    "ro": {
+      "selected_counts": {
+        "conversational/all": {
+          "rows": 458,
+          "positives": 216,
+          "negatives": 242,
+          "misses": 0,
+          "false_reviews": 90
+        },
+        "conversational/assertion:AFFIRMED": {
+          "rows": 393,
+          "positives": 174,
+          "negatives": 219,
+          "misses": 0,
+          "false_reviews": 75
+        },
+        "conversational/assertion:UNCERTAIN": {
+          "rows": 65,
+          "positives": 42,
+          "negatives": 23,
+          "misses": 0,
+          "false_reviews": 15
+        },
+        "conversational/reason:(0, 0)": {
+          "rows": 242,
+          "positives": 0,
+          "negatives": 242,
+          "misses": 0,
+          "false_reviews": 90
+        },
+        "conversational/reason:(1, 0)": {
+          "rows": 216,
+          "positives": 216,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "conversational/subject:FICTIONAL": {
+          "rows": 94,
+          "positives": 0,
+          "negatives": 94,
+          "misses": 0,
+          "false_reviews": 7
+        },
+        "conversational/subject:OTHER": {
+          "rows": 66,
+          "positives": 42,
+          "negatives": 24,
+          "misses": 0,
+          "false_reviews": 19
+        },
+        "conversational/subject:SELF": {
+          "rows": 298,
+          "positives": 174,
+          "negatives": 124,
+          "misses": 0,
+          "false_reviews": 64
+        },
+        "conversational/time:CURRENT": {
+          "rows": 391,
+          "positives": 174,
+          "negatives": 217,
+          "misses": 0,
+          "false_reviews": 75
+        },
+        "conversational/time:PAST": {
+          "rows": 67,
+          "positives": 42,
+          "negatives": 25,
+          "misses": 0,
+          "false_reviews": 15
+        },
+        "formal/all": {
+          "rows": 2000,
+          "positives": 587,
+          "negatives": 1413,
+          "misses": 0,
+          "false_reviews": 1190
+        },
+        "formal/assertion:AFFIRMED": {
+          "rows": 537,
+          "positives": 233,
+          "negatives": 304,
+          "misses": 0,
+          "false_reviews": 262
+        },
+        "formal/assertion:NEGATED": {
+          "rows": 581,
+          "positives": 0,
+          "negatives": 581,
+          "misses": 0,
+          "false_reviews": 479
+        },
+        "formal/assertion:RETRACTED": {
+          "rows": 303,
+          "positives": 107,
+          "negatives": 196,
+          "misses": 0,
+          "false_reviews": 196
+        },
+        "formal/assertion:UNCERTAIN": {
+          "rows": 579,
+          "positives": 247,
+          "negatives": 332,
+          "misses": 0,
+          "false_reviews": 253
+        },
+        "formal/reason:(0, 0)": {
+          "rows": 1413,
+          "positives": 0,
+          "negatives": 1413,
+          "misses": 0,
+          "false_reviews": 1190
+        },
+        "formal/reason:(0, 1)": {
+          "rows": 107,
+          "positives": 107,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "formal/reason:(1, 0)": {
+          "rows": 480,
+          "positives": 480,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "formal/subject:FICTIONAL": {
+          "rows": 672,
+          "positives": 36,
+          "negatives": 636,
+          "misses": 0,
+          "false_reviews": 476
+        },
+        "formal/subject:OTHER": {
+          "rows": 643,
+          "positives": 255,
+          "negatives": 388,
+          "misses": 0,
+          "false_reviews": 365
+        },
+        "formal/subject:SELF": {
+          "rows": 685,
+          "positives": 296,
+          "negatives": 389,
+          "misses": 0,
+          "false_reviews": 349
+        },
+        "formal/time:CURRENT": {
+          "rows": 685,
+          "positives": 207,
+          "negatives": 478,
+          "misses": 0,
+          "false_reviews": 357
+        },
+        "formal/time:HYPOTHETICAL": {
+          "rows": 661,
+          "positives": 189,
+          "negatives": 472,
+          "misses": 0,
+          "false_reviews": 415
+        },
+        "formal/time:PAST": {
+          "rows": 654,
+          "positives": 191,
+          "negatives": 463,
+          "misses": 0,
+          "false_reviews": 418
+        },
+        "ro_scope_dev/all": {
+          "rows": 180,
+          "positives": 90,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 38
+        },
+        "ro_scope_dev/assertion:AFFIRMED": {
+          "rows": 156,
+          "positives": 90,
+          "negatives": 66,
+          "misses": 0,
+          "false_reviews": 27
+        },
+        "ro_scope_dev/assertion:NEGATED": {
+          "rows": 24,
+          "positives": 0,
+          "negatives": 24,
+          "misses": 0,
+          "false_reviews": 11
+        },
+        "ro_scope_dev/reason:(0, 0)": {
+          "rows": 90,
+          "positives": 0,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 38
+        },
+        "ro_scope_dev/reason:(1, 0)": {
+          "rows": 90,
+          "positives": 90,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "ro_scope_dev/subject:FICTIONAL": {
+          "rows": 48,
+          "positives": 0,
+          "negatives": 48,
+          "misses": 0,
+          "false_reviews": 14
+        },
+        "ro_scope_dev/subject:OTHER": {
+          "rows": 24,
+          "positives": 24,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "ro_scope_dev/subject:SELF": {
+          "rows": 108,
+          "positives": 66,
+          "negatives": 42,
+          "misses": 0,
+          "false_reviews": 24
+        },
+        "ro_scope_dev/time:CURRENT": {
+          "rows": 180,
+          "positives": 90,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 38
+        }
+      },
+      "full_coverage_two_cutoff_frontier": {
+        "support_threshold": 0.00020858804055023938,
+        "revision_threshold": 0.6314635425806046,
+        "rank": [
+          0.5116772823779193,
+          1.2492346744807659
+        ],
+        "metrics": {
+          "conversational": {
+            "rows": 458,
+            "positive": 216,
+            "negative": 242,
+            "missed": 0,
+            "false_reviews": 79,
+            "recall": 1.0,
+            "false_review_rate": 0.32644628099173556,
+            "passes": false
+          },
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 723,
+            "recall": 1.0,
+            "false_review_rate": 0.5116772823779193,
+            "passes": false
+          },
+          "ro_scope_dev": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 37,
+            "recall": 1.0,
+            "false_review_rate": 0.4111111111111111,
+            "passes": false
+          }
+        },
+        "counts_pass": false
+      },
+      "lowest_positive_scores": [
+        {
+          "case_id": "native-dev-ro-15-1-2-lower",
+          "group": "conversational",
+          "attributes": {
+            "subject": "SELF",
+            "time": "PAST",
+            "assertion": "AFFIRMED",
+            "source": "DIRECT",
+            "relation": "NEW",
+            "concern": "1"
+          },
+          "support_score": 0.00020871333254035562,
+          "revision_score": 0.00021386740263551474,
+          "score": 0.00021386740263551474
+        },
+        {
+          "case_id": "native-dev-ro-15-1-2-plain",
+          "group": "conversational",
+          "attributes": {
+            "subject": "SELF",
+            "time": "PAST",
+            "assertion": "AFFIRMED",
+            "source": "DIRECT",
+            "relation": "NEW",
+            "concern": "1"
+          },
+          "support_score": 0.00026640392025001347,
+          "revision_score": 0.000226489151827991,
+          "score": 0.00026640392025001347
+        },
+        {
+          "case_id": "native-dev-ro-15-1-2-original",
+          "group": "conversational",
+          "attributes": {
+            "subject": "SELF",
+            "time": "PAST",
+            "assertion": "AFFIRMED",
+            "source": "DIRECT",
+            "relation": "NEW",
+            "concern": "1"
+          },
+          "support_score": 0.00042140024015679955,
+          "revision_score": 0.00022411403188016266,
+          "score": 0.00042140024015679955
+        },
+        {
+          "case_id": "dev-ro-13-28-0-2-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "DIRECT",
+            "subject": "SELF",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0016422386979684234,
+          "revision_score": 0.0022329064086079597,
+          "score": 0.0022329064086079597
+        },
+        {
+          "case_id": "dev-ro-14-26-2-1-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.0017360831843689084,
+          "revision_score": 0.0023842041846364737,
+          "score": 0.0023842041846364737
+        },
+        {
+          "case_id": "dev-ro-13-28-0-2-3-1-0",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "DIRECT",
+            "subject": "SELF",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0019093715818598866,
+          "revision_score": 0.00253249891102314,
+          "score": 0.00253249891102314
+        },
+        {
+          "case_id": "dev-ro-13-26-2-1-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.0005055885994806886,
+          "revision_score": 0.00270503549836576,
+          "score": 0.00270503549836576
+        },
+        {
+          "case_id": "dev-ro-13-27-2-0-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "CURRENT"
+          },
+          "support_score": 0.0005048185703344643,
+          "revision_score": 0.0030292205046862364,
+          "score": 0.0030292205046862364
+        },
+        {
+          "case_id": "dev-ro-14-24-2-1-3-1-1",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.002728651277720928,
+          "revision_score": 0.0032651356887072325,
+          "score": 0.0032651356887072325
+        },
+        {
+          "case_id": "dev-ro-13-29-2-2-3-1-0",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0007693268707953393,
+          "revision_score": 0.0034314775839447975,
+          "score": 0.0034314775839447975
+        },
+        {
+          "case_id": "dev-ro-13-26-2-1-3-1-1",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.0008525080629624426,
+          "revision_score": 0.0036839775275439024,
+          "score": 0.0036839775275439024
+        },
+        {
+          "case_id": "dev-ro-14-27-2-0-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "CURRENT"
+          },
+          "support_score": 0.0029198848642408848,
+          "revision_score": 0.003773809876292944,
+          "score": 0.003773809876292944
+        }
+      ]
+    },
+    "uk": {
+      "selected_counts": {
+        "conversational/all": {
+          "rows": 387,
+          "positives": 164,
+          "negatives": 223,
+          "misses": 0,
+          "false_reviews": 40
+        },
+        "conversational/assertion:AFFIRMED": {
+          "rows": 335,
+          "positives": 134,
+          "negatives": 201,
+          "misses": 0,
+          "false_reviews": 33
+        },
+        "conversational/assertion:UNCERTAIN": {
+          "rows": 52,
+          "positives": 30,
+          "negatives": 22,
+          "misses": 0,
+          "false_reviews": 7
+        },
+        "conversational/reason:(0, 0)": {
+          "rows": 223,
+          "positives": 0,
+          "negatives": 223,
+          "misses": 0,
+          "false_reviews": 40
+        },
+        "conversational/reason:(1, 0)": {
+          "rows": 164,
+          "positives": 164,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "conversational/subject:FICTIONAL": {
+          "rows": 81,
+          "positives": 0,
+          "negatives": 81,
+          "misses": 0,
+          "false_reviews": 3
+        },
+        "conversational/subject:OTHER": {
+          "rows": 54,
+          "positives": 30,
+          "negatives": 24,
+          "misses": 0,
+          "false_reviews": 3
+        },
+        "conversational/subject:SELF": {
+          "rows": 252,
+          "positives": 134,
+          "negatives": 118,
+          "misses": 0,
+          "false_reviews": 34
+        },
+        "conversational/time:CURRENT": {
+          "rows": 333,
+          "positives": 134,
+          "negatives": 199,
+          "misses": 0,
+          "false_reviews": 36
+        },
+        "conversational/time:PAST": {
+          "rows": 54,
+          "positives": 30,
+          "negatives": 24,
+          "misses": 0,
+          "false_reviews": 4
+        },
+        "formal/all": {
+          "rows": 2000,
+          "positives": 587,
+          "negatives": 1413,
+          "misses": 0,
+          "false_reviews": 645
+        },
+        "formal/assertion:AFFIRMED": {
+          "rows": 537,
+          "positives": 233,
+          "negatives": 304,
+          "misses": 0,
+          "false_reviews": 236
+        },
+        "formal/assertion:NEGATED": {
+          "rows": 581,
+          "positives": 0,
+          "negatives": 581,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "formal/assertion:RETRACTED": {
+          "rows": 303,
+          "positives": 107,
+          "negatives": 196,
+          "misses": 0,
+          "false_reviews": 196
+        },
+        "formal/assertion:UNCERTAIN": {
+          "rows": 579,
+          "positives": 247,
+          "negatives": 332,
+          "misses": 0,
+          "false_reviews": 213
+        },
+        "formal/reason:(0, 0)": {
+          "rows": 1413,
+          "positives": 0,
+          "negatives": 1413,
+          "misses": 0,
+          "false_reviews": 645
+        },
+        "formal/reason:(0, 1)": {
+          "rows": 107,
+          "positives": 107,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "formal/reason:(1, 0)": {
+          "rows": 480,
+          "positives": 480,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "formal/subject:FICTIONAL": {
+          "rows": 672,
+          "positives": 36,
+          "negatives": 636,
+          "misses": 0,
+          "false_reviews": 261
+        },
+        "formal/subject:OTHER": {
+          "rows": 643,
+          "positives": 255,
+          "negatives": 388,
+          "misses": 0,
+          "false_reviews": 193
+        },
+        "formal/subject:SELF": {
+          "rows": 685,
+          "positives": 296,
+          "negatives": 389,
+          "misses": 0,
+          "false_reviews": 191
+        },
+        "formal/time:CURRENT": {
+          "rows": 685,
+          "positives": 207,
+          "negatives": 478,
+          "misses": 0,
+          "false_reviews": 225
+        },
+        "formal/time:HYPOTHETICAL": {
+          "rows": 661,
+          "positives": 189,
+          "negatives": 472,
+          "misses": 0,
+          "false_reviews": 185
+        },
+        "formal/time:PAST": {
+          "rows": 654,
+          "positives": 191,
+          "negatives": 463,
+          "misses": 0,
+          "false_reviews": 235
+        },
+        "uk_scope_dev/all": {
+          "rows": 180,
+          "positives": 90,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 44
+        },
+        "uk_scope_dev/assertion:AFFIRMED": {
+          "rows": 156,
+          "positives": 90,
+          "negatives": 66,
+          "misses": 0,
+          "false_reviews": 32
+        },
+        "uk_scope_dev/assertion:NEGATED": {
+          "rows": 24,
+          "positives": 0,
+          "negatives": 24,
+          "misses": 0,
+          "false_reviews": 12
+        },
+        "uk_scope_dev/reason:(0, 0)": {
+          "rows": 90,
+          "positives": 0,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 44
+        },
+        "uk_scope_dev/reason:(1, 0)": {
+          "rows": 90,
+          "positives": 90,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "uk_scope_dev/subject:FICTIONAL": {
+          "rows": 48,
+          "positives": 0,
+          "negatives": 48,
+          "misses": 0,
+          "false_reviews": 24
+        },
+        "uk_scope_dev/subject:OTHER": {
+          "rows": 24,
+          "positives": 24,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "uk_scope_dev/subject:SELF": {
+          "rows": 108,
+          "positives": 66,
+          "negatives": 42,
+          "misses": 0,
+          "false_reviews": 20
+        },
+        "uk_scope_dev/time:CURRENT": {
+          "rows": 180,
+          "positives": 90,
+          "negatives": 90,
+          "misses": 0,
+          "false_reviews": 44
+        },
+        "uk_stress/all": {
+          "rows": 216,
+          "positives": 44,
+          "negatives": 172,
+          "misses": 0,
+          "false_reviews": 138
+        },
+        "uk_stress/assertion:AFFIRMED": {
+          "rows": 120,
+          "positives": 44,
+          "negatives": 76,
+          "misses": 0,
+          "false_reviews": 42
+        },
+        "uk_stress/assertion:NEGATED": {
+          "rows": 96,
+          "positives": 0,
+          "negatives": 96,
+          "misses": 0,
+          "false_reviews": 96
+        },
+        "uk_stress/reason:(0, 0)": {
+          "rows": 172,
+          "positives": 0,
+          "negatives": 172,
+          "misses": 0,
+          "false_reviews": 138
+        },
+        "uk_stress/reason:(1, 0)": {
+          "rows": 44,
+          "positives": 44,
+          "negatives": 0,
+          "misses": 0,
+          "false_reviews": 0
+        },
+        "uk_stress/subject:FICTIONAL": {
+          "rows": 64,
+          "positives": 0,
+          "negatives": 64,
+          "misses": 0,
+          "false_reviews": 32
+        },
+        "uk_stress/subject:OTHER": {
+          "rows": 64,
+          "positives": 16,
+          "negatives": 48,
+          "misses": 0,
+          "false_reviews": 48
+        },
+        "uk_stress/subject:SELF": {
+          "rows": 88,
+          "positives": 28,
+          "negatives": 60,
+          "misses": 0,
+          "false_reviews": 58
+        },
+        "uk_stress/time:CURRENT": {
+          "rows": 120,
+          "positives": 28,
+          "negatives": 92,
+          "misses": 0,
+          "false_reviews": 74
+        },
+        "uk_stress/time:PAST": {
+          "rows": 96,
+          "positives": 16,
+          "negatives": 80,
+          "misses": 0,
+          "false_reviews": 64
+        }
+      },
+      "full_coverage_two_cutoff_frontier": {
+        "support_threshold": 0.00041050714207813144,
+        "revision_threshold": 0.589095801115036,
+        "rank": [
+          0.4777777777777778,
+          1.503160442672244
+        ],
+        "metrics": {
+          "conversational": {
+            "rows": 387,
+            "positive": 164,
+            "negative": 223,
+            "missed": 0,
+            "false_reviews": 40,
+            "recall": 1.0,
+            "false_review_rate": 0.17937219730941703,
+            "passes": false
+          },
+          "formal": {
+            "rows": 2000,
+            "positive": 587,
+            "negative": 1413,
+            "missed": 0,
+            "false_reviews": 645,
+            "recall": 1.0,
+            "false_review_rate": 0.4564755838641189,
+            "passes": false
+          },
+          "uk_scope_dev": {
+            "rows": 180,
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 43,
+            "recall": 1.0,
+            "false_review_rate": 0.4777777777777778,
+            "passes": false
+          },
+          "uk_stress": {
+            "rows": 216,
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 67,
+            "recall": 1.0,
+            "false_review_rate": 0.38953488372093026,
+            "passes": false
+          }
+        },
+        "counts_pass": false
+      },
+      "lowest_positive_scores": [
+        {
+          "case_id": "dev-uk-12-27-1-2-2-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "UNCERTAIN",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0004106634296476841,
+          "revision_score": 0.00017403080710209906,
+          "score": 0.0004106634296476841
+        },
+        {
+          "case_id": "dev-uk-12-28-1-2-0-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "AFFIRMED",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.001194401178508997,
+          "revision_score": 0.0002569194766692817,
+          "score": 0.001194401178508997
+        },
+        {
+          "case_id": "dev-uk-12-26-1-2-0-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "AFFIRMED",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0014517161762341857,
+          "revision_score": 0.00019079649064224213,
+          "score": 0.0014517161762341857
+        },
+        {
+          "case_id": "dev-uk-12-27-1-2-0-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "AFFIRMED",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0015917462296783924,
+          "revision_score": 0.00016028678510338068,
+          "score": 0.0015917462296783924
+        },
+        {
+          "case_id": "dev-uk-13-26-2-1-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.0027221394702792168,
+          "revision_score": 0.002785953227430582,
+          "score": 0.002785953227430582
+        },
+        {
+          "case_id": "dev-uk-13-27-2-0-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "CURRENT"
+          },
+          "support_score": 0.001868015737272799,
+          "revision_score": 0.0032364586368203163,
+          "score": 0.0032364586368203163
+        },
+        {
+          "case_id": "dev-uk-12-31-1-2-0-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "AFFIRMED",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.0035983312409371138,
+          "revision_score": 0.0002020340907620266,
+          "score": 0.0035983312409371138
+        },
+        {
+          "case_id": "dev-uk-13-29-2-2-3-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.004393046721816063,
+          "revision_score": 0.002737930743023753,
+          "score": 0.004393046721816063
+        },
+        {
+          "case_id": "dev-uk-12-25-1-2-2-1-2",
+          "group": "formal",
+          "attributes": {
+            "assertion": "UNCERTAIN",
+            "concern": "1",
+            "relation": "NEW",
+            "source": "REPORTED",
+            "subject": "OTHER",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.004983913153409958,
+          "revision_score": 0.00022389771766029298,
+          "score": 0.004983913153409958
+        },
+        {
+          "case_id": "dev-uk-13-29-2-2-3-1-0",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.010079928673803806,
+          "revision_score": 0.022201653569936752,
+          "score": 0.022201653569936752
+        },
+        {
+          "case_id": "dev-uk-13-26-2-1-3-1-1",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "PAST"
+          },
+          "support_score": 0.013456345535814762,
+          "revision_score": 0.02513217367231846,
+          "score": 0.02513217367231846
+        },
+        {
+          "case_id": "dev-uk-13-25-2-2-3-1-1",
+          "group": "formal",
+          "attributes": {
+            "assertion": "RETRACTED",
+            "concern": "1",
+            "relation": "RETRACTS",
+            "source": "FICTION",
+            "subject": "FICTIONAL",
+            "time": "HYPOTHETICAL"
+          },
+          "support_score": 0.02712511271238327,
+          "revision_score": 0.01905353181064129,
+          "score": 0.02712511271238327
+        }
+      ]
+    }
+  }
+}
