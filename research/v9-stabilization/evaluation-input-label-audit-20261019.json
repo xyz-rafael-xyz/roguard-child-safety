@@ -1,0 +1,517 @@
+{
+  "format": "roguard-prior-evaluation-token-label-audit-v1",
+  "created_utc": "2026-10-19T11:10:14.072590+00:00",
+  "populations": "Nine prior evaluation populations only",
+  "parent": "research/v9-stabilization/native-morphology-128",
+  "source_sha256": "f40d0a8cee2f7bf40454dc4fe82b41de7b085d0ea5e654274ca768cdba5b557b",
+  "reserved_test_read": false,
+  "neural_inference_performed": false,
+  "input_sha256": {
+    "research/v9-stabilization/native-morphology-128/ro/dev.jsonl.gz": "bb3b58d040c52475d82c7a4980c780333e670f24513e7bd36dedb22dae7d480a",
+    "research/v9-stabilization/native-morphology-128/ro/scope_dev.jsonl.gz": "1ac6e51fecdc6c150523c5058e622e08374009710dbf471e836b4af4e67dd381",
+    "research/v9-stabilization/native-morphology-128/ro/cal.jsonl.gz": "73cb785c71a89545043a5691565ce7830744e6929914d7b33f09b240276aab91",
+    "research/v9-stabilization/native-morphology-128/ro/exposed.jsonl.gz": "5a0cddcba598c47350c926540ab621870ac211bbfc55fc342a8aa7a684e3d40d",
+    "research/v9-stabilization/native-morphology-128/uk/dev.jsonl.gz": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "research/v9-stabilization/native-morphology-128/uk/scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f",
+    "research/v9-stabilization/native-morphology-128/uk/cal.jsonl.gz": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+    "research/v9-stabilization/native-morphology-128/uk/exposed.jsonl.gz": "c82246e10ad3265b5375e0ce34cf3a78f7723e567cbb4037a2bb74fd0eb7de8f",
+    "research/v9-stabilization/native-morphology-128/uk/stress.jsonl.gz": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f"
+  },
+  "results": {
+    "ro": {
+      "rows": 5185,
+      "unique_inputs": 5153,
+      "duplicate_groups": 32,
+      "duplicate_details": [
+        {
+          "token_input_sha256": "2d4679aeeb78a16737aa2ad809010030d1b418d32c7a44cccfd3270820195687",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-sibling_illness-personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "6bb3ba9a78d5953b05c092260fb2fc7196a86c29b53b300694cfaf42b7148eb3",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-fiction-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-sibling_illness-fiction-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "a0578f51dff688ddd1bf53e944e500de49b06898791852826f513f13498b53ac",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-denial-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-sibling_illness-denial-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "dc2d4c1700aefa8dffc79a44fe74702f62398e9a8f7d5d3c9d15b22a389a8512",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-past-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-sibling_illness-past-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "5140171e482d5dc5de26d076db4bade559a01fb5962e4ea3b4667e9f3e7708ab",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-other-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-sibling_illness-other-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "b0cc89d0069e0696979238c662ac1d5ef8dbbed9e3eb0f405792da792ca63fa9",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-topic_reset-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-sibling_illness-topic_reset-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "02abfcff69c63d50e9b472862dc99caa37510940c4457ea3f3dda956b67e4fd1",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-fiction_to_personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-sibling_illness-fiction_to_personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "d1c0dd3eda61e991392ffb57af525893598c4b92cfd4cdfa8caf4238c266e906",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "7808f89be65d4b411f63e88480724952c31c0b5c875fe73a6ccb076f43d0e9ba",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-fiction-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-fiction-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "36a5229cbb6027ae6cd0b8e65c16fbc89225c4e06c1c508ed4064cf675ae3c61",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-denial-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-denial-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "16955833a8bb086e4232588f37a0d2e979075026331193b2174a94b74d45de2c",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-past-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-past-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "b9733bbadc7e2de8a1c3e95f967afb6c5139f281fa3ee07d8a3c04bcaeb7391d",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-other-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-other-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "5dee9d1d5015d0ddeda9e375e4a9b5eeb91eff011bf514fe8f34ccf871779127",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-topic_reset-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-topic_reset-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "16caa92064bdbe7c013ad0b6f46e1fcf60c9f09589bc1c27c599c77888cb7e0d",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-fiction_to_personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-fiction_to_personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "321faf629bee5428db793dd045d18b4c3f0cda541832150972a9678561640879",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-broken_confidence-personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "b7eee22c082b27321d8ae0de57a3fb4fc19e97ad2f11f2013c300792ab9fa49a",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-fiction-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-broken_confidence-fiction-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "d07384b6a4cbd55e400d466716a271377d69058107c4d49cd1407e38dbc5bedd",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-denial-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-broken_confidence-denial-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "b661bbe8ba424867e88b8ffc21d3c8a26d3d2cd9ab65a85264683697698d0228",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-past-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-broken_confidence-past-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "d50caea28d180cb7a1e7e61ac2994154bb92b32bb34f71862258ca0fd4e68296",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-other-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-broken_confidence-other-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "694e85e617cc38bc45da38df652b68a6fb6e61247ccbccbd480124f2db730167",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-topic_reset-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-broken_confidence-topic_reset-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "543791d008fe95abd465f82794195c00ba294842f3206507d331522ce3be75c1",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-fiction_to_personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-broken_confidence-fiction_to_personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "202dc744a6a18b6b292768baed7da9ed776a2406ba3c5590c1753754ebe05a03",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "775a5b9985db061e01f1c50911b6eeffb9fcca1bd7a50eda549e849ac0b8e753",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-fiction-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-fiction-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "caf0ebd7c5012a2fec1567a7ba8ba07ae98a4f73d6096eb6a5231b6a0b556775",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-denial-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-denial-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "6f4d25e742123fe32106c3162f3da710711c8989be38178ed7da140052bd159c",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-past-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-past-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "e9ef05741e1cd94eb7a03e1820f31d2e96e14888c7e7cc173951ebf115cd9689",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-other-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-other-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "08745176cad518ee2ac9ca0d6cd413045e63564356c7af717bf29e1978409684",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-topic_reset-original",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-topic_reset-spaces",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "e2aa2582fb61fc6204a1d04c39f890120703bd2d5986fcb11c3fbdf13c2a8b5e",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-fiction_to_personal-original",
+              "split": "exposed",
+              "gold": 1
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-fiction_to_personal-spaces",
+              "split": "exposed",
+              "gold": 1
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "bba4c24e8aa5e1f6b88c45bc70c2a375bd8a0ca1b506b2c7c381bc31efc31878",
+          "rows": [
+            {
+              "case_id": "family-ro-sibling_illness-topic_reset-original-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-sibling_illness-topic_reset-spaces-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "4918e2bce62661d47d448bdf9eb695c184ad2f9e7e8b450aec987f549927ecee",
+          "rows": [
+            {
+              "case_id": "family-ro-public_embarrassment-topic_reset-original-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-public_embarrassment-topic_reset-spaces-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "b32e07a98dfa3f7435e1707d1dd7b3c939d7db8db76c186a158d3e4c62cc9bbb",
+          "rows": [
+            {
+              "case_id": "family-ro-broken_confidence-topic_reset-original-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-broken_confidence-topic_reset-spaces-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        },
+        {
+          "token_input_sha256": "3a21d8fb70e9f7492bfaef8c8cc7d56baac41b81144e54b2066fb90960754ad9",
+          "rows": [
+            {
+              "case_id": "family-ro-caregiving_burden-topic_reset-original-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            },
+            {
+              "case_id": "family-ro-caregiving_burden-topic_reset-spaces-lexical-v2",
+              "split": "exposed",
+              "gold": 0
+            }
+          ]
+        }
+      ],
+      "contradictory_groups": []
+    },
+    "uk": {
+      "rows": 5258,
+      "unique_inputs": 5258,
+      "duplicate_groups": 0,
+      "duplicate_details": [],
+      "contradictory_groups": []
+    }
+  }
+}

@@ -1853,3 +1853,14 @@ tests and five tests for the two new data sets pass. Both study source lists
 are frozen before execution. No study137 training or accuracy result is claimed
 at queue time, and any earlier qualifying candidate takes priority over this
 fallback.
+
+A further audit of the nine prior study128 populations compared native-token
+inputs and labels. It found no identical inputs with contradictory labels.
+Romanian has 5,153 unique inputs among 5,185 rows; all 32 duplicate groups are
+same-label whitespace variants within exposed regression. Ukrainian has 5,258
+unique inputs among 5,258 rows. No duplicate crosses the prior evaluation
+partitions. This audit does not establish semantic label correctness and does
+not change any metric or gate. It performs no model inference and does not read
+the reserved test. The script and input-bound result are retained as
+`training/audit_evaluation_inputs_v9.py` and
+`research/v9-stabilization/evaluation-input-label-audit-20261019.json`.
