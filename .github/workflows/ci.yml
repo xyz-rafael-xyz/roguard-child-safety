@@ -74,6 +74,26 @@ jobs:
       - run: roguard-predict-bilingual --help > /dev/null
       - run: roguard-replay-bilingual --help > /dev/null
 
+  contextual-readout-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install numerical test dependencies
+        run: >-
+          python -m pip install -e '.[test]'
+          numpy==2.5.3 scipy==1.18.1 scikit-learn==1.9.1
+          joblib==1.6.0 threadpoolctl==3.7.0 cloudpickle==3.1.2 narwhals==2.27.1
+      - name: Verify portable scores and per-group accuracy gates
+        run: >-
+          python -m pytest -q
+          tests/test_gemma4_readout.py::test_portable_readout_matches_fitted_classifier_and_rejects_bad_features
+          tests/test_gemma4_kernel.py
+          tests/test_budgeted_native_frontier.py
+          tests/test_entailment_frontier.py
+
   wheel-install:
     runs-on: ubuntu-latest
     strategy:
