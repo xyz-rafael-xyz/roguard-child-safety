@@ -1,0 +1,108 @@
+{
+  "selection": {
+    "kind": "joint",
+    "semantic_family": "gemma4-structured-expanded-145",
+    "epoch": 10,
+    "semantic_mode": "policy",
+    "native_family": "native-scope-operators-131",
+    "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+    "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+    "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+    "native_weight": 0.25,
+    "scope_power": 2,
+    "frontier": {
+      "threshold": 0.11608802666680487,
+      "rank": [
+        0.022222222222222223,
+        0.04794429687177681,
+        5
+      ],
+      "metrics": {
+        "conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 4,
+          "false_review_rate": 0.017937219730941704,
+          "recall": 1.0,
+          "passes": true
+        },
+        "formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 5,
+          "false_reviews": 11,
+          "false_review_rate": 0.00778485491861288,
+          "recall": 0.9914821124361158,
+          "passes": true
+        },
+        "scope_dev": {
+          "positive": 90,
+          "negative": 90,
+          "missed": 0,
+          "false_reviews": 2,
+          "false_review_rate": 0.022222222222222223,
+          "recall": 1.0,
+          "passes": true
+        },
+        "stress": {
+          "positive": 44,
+          "negative": 172,
+          "missed": 0,
+          "false_reviews": 0,
+          "false_review_rate": 0.0,
+          "recall": 1.0,
+          "passes": true
+        }
+      },
+      "counts_pass": true
+    }
+  },
+  "head": {
+    "language": "uk",
+    "mode": "policy",
+    "couplings": {
+      "scope": [
+        [
+          1.6569922850844476,
+          0.0010014470250879761,
+          0.0011024597986982582
+        ],
+        [
+          0.0010014470250879761,
+          4.804229405123384,
+          0.0031989701573812536
+        ],
+        [
+          0.0011024597986982582,
+          0.0031989701573812536,
+          5.288171392501525
+        ]
+      ],
+      "assertion_relation": [
+        [
+          1.081507250289884,
+          0.002547308993788279
+        ],
+        [
+          1.0808184929537796,
+          0.010976042093040437
+        ],
+        [
+          1.0805872836215191,
+          0.013805488183158111
+        ],
+        [
+          0.001804684011665605,
+          13.215509669891745
+        ]
+      ]
+    },
+    "checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d"
+  },
+  "mixing": {
+    "mode": "logit",
+    "native_weight": 0.25
+  },
+  "threshold": 0.11608802666680487
+}

@@ -2263,3 +2263,60 @@ trained by its field loss; it does not independently change this existing policy
 The CPU-only experiment waits for study149 and skips if a preceding contextual
 candidate qualifies development. Its baseline is study145, and release gates,
 calibration separation and reserved-test handling remain unchanged.
+
+### Completed expanded and policy-supervised contextual fits
+
+Study144 extracted all 4,346 additional training representations in 1,208 seconds,
+with 6.23 GB peak MLX allocation. Batches of four matched the 100 reference
+representations within 3.97e-5 relative error and took 34.6 seconds versus 39.1
+seconds individually. Study145 retained the Romanian study143 head. Its selected
+Ukrainian epoch10 coupled-policy head reduced the worst development false-review
+rate to 18.9%, but still failed. Fitting took 18.3 seconds.
+
+Study149 retained the existing Romanian composition. Ukrainian selected the
+expanded epoch10 factorized-policy head with native131 and the unchanged scope
+gate: five formal misses, with 11/1,413 formal, 4/223 conversational, 2/90 scope
+and zero stress false reviews. Every group passes development. Study152 freezes
+this composition for separate prior qualification using study148's feature
+extraction. Its numeric replay reproduced all 2,783 development scores exactly.
+
+Study151 completed in 27.9 seconds. Romanian retained its prior standalone head.
+Ukrainian selected epoch10 coupled-policy: three formal and one conversational
+miss, with 99/1,413 formal, 20/223 conversational, 7/90 scope and 13/172 stress
+false reviews. This improves standalone development behavior but does not pass
+every gate. Neither study145 nor151 accessed calibration or reserved inference.
+
+### Entailment scope and native agreement (studies153–154)
+
+Study153 combines the frozen study123 entailment scores with study147's sparse
+scope gate. It compares the maximum reason score and a bounded ratio that
+preserves the original two-reason decision, with scope powers0,1,2,4. Selection
+uses development only. The selected maximum-score path uses power4 for Romanian
+and power2 for Ukrainian. Both still fail formal and scope false-review gates,
+so neither language is scored on calibration in this study.
+
+Study154 requires both the selected native131 decision and the selected153
+entailment-scope decision. Component cutoffs stay fixed; the bounded minimum of
+their score/cutoff ratios exactly represents this conjunction. Separate numerical
+tests verify both the OR-ratio and AND-ratio transformations, including boundaries.
+
+Romanian passes development: zero formal misses with 10/1,413 false reviews;
+two conversational misses with 2/242 false reviews; zero scope misses with
+4/90 false reviews. With the composition frozen, calibration has zero misses,
+but 95/1,386 formal false reviews exceed the 5% limit. Conversational calibration
+has 10/243 false reviews and passes. The exposed regression has no misses or
+false reviews across 88 cases. Ukrainian still fails development scope, so its
+calibration is skipped. Reserved inference remains closed.
+
+### Separate Ukrainian qualification completed (studies148 and152)
+
+Study148 extracted all 2,475 Ukrainian calibration and exposed-regression
+representations in 821 seconds, with 6.24 GB peak MLX allocation. The frozen147
+composition misses 32/614 formal positives, with 6/1,386 formal false reviews.
+Conversational calibration passes with one miss and five false reviews, but the
+exposed regression has 10/44 false reviews. Study152's frozen149 composition
+also misses 32 formal positives, with eight formal false reviews. Conversational
+calibration has no misses and four false reviews; exposed regression has no
+misses and eight false reviews. Neither candidate qualifies. The discrepancy
+between development and calibration remains visible; reserved inference stays
+closed. Native study137 training has resumed.

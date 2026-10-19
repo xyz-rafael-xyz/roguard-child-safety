@@ -1,0 +1,1833 @@
+{
+  "complete": true,
+  "parent_linear_report_sha256": "563c808c80691c7a191d5e8207816daabcd92e07968f915e69cb982d30bc2dd4",
+  "parent_semantic_report_sha256": "3474f00356f5b94e336e752705262ab58b7bad13ca5913bb1cb7595e36e9c57b",
+  "expanded_feature_report_sha256": "e46a5dc7cf6246ac625f87deefb9fd1eebab6ba4d62be4857c661d58900825f7",
+  "source_freeze_sha256": "aab4a342f70de1855343987e84ff25c97b107e6d11c4fe22918552d56098371a",
+  "selected": {
+    "ro": {
+      "kind": "parent145",
+      "parent_selection": {
+        "kind": "parent143",
+        "parent_selection": {
+          "kind": "structured",
+          "epoch": 10,
+          "mode": "coupled_policy",
+          "frontier": {
+            "threshold": 0.032872477872220654,
+            "rank": [
+              0.2802547770700637,
+              0.5768571645815421,
+              7
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 2,
+                "false_reviews": 18,
+                "false_review_rate": 0.0743801652892562,
+                "recall": 0.9907407407407407,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 396,
+                "false_review_rate": 0.2802547770700637,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.2222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          },
+          "checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf"
+        },
+        "frontier": {
+          "threshold": 0.032872477872220654,
+          "rank": [
+            0.2802547770700637,
+            0.5768571645815421,
+            7
+          ],
+          "metrics": {
+            "conversational": {
+              "positive": 216,
+              "negative": 242,
+              "missed": 2,
+              "false_reviews": 18,
+              "false_review_rate": 0.0743801652892562,
+              "recall": 0.9907407407407407,
+              "passes": false
+            },
+            "formal": {
+              "positive": 587,
+              "negative": 1413,
+              "missed": 5,
+              "false_reviews": 396,
+              "false_review_rate": 0.2802547770700637,
+              "recall": 0.9914821124361158,
+              "passes": false
+            },
+            "scope_dev": {
+              "positive": 90,
+              "negative": 90,
+              "missed": 0,
+              "false_reviews": 20,
+              "false_review_rate": 0.2222222222222222,
+              "recall": 1.0,
+              "passes": false
+            }
+          },
+          "counts_pass": false
+        }
+      },
+      "frontier": {
+        "threshold": 0.032872477872220654,
+        "rank": [
+          0.2802547770700637,
+          0.5768571645815421,
+          7
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 216,
+            "negative": 242,
+            "missed": 2,
+            "false_reviews": 18,
+            "false_review_rate": 0.0743801652892562,
+            "recall": 0.9907407407407407,
+            "passes": false
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 5,
+            "false_reviews": 396,
+            "false_review_rate": 0.2802547770700637,
+            "recall": 0.9914821124361158,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 20,
+            "false_review_rate": 0.2222222222222222,
+            "recall": 1.0,
+            "passes": false
+          }
+        },
+        "counts_pass": false
+      }
+    },
+    "uk": {
+      "kind": "structured",
+      "epoch": 10,
+      "mode": "coupled_policy",
+      "frontier": {
+        "threshold": 0.13155064292636776,
+        "rank": [
+          0.08968609865470852,
+          0.3131089660488394,
+          4
+        ],
+        "metrics": {
+          "conversational": {
+            "positive": 164,
+            "negative": 223,
+            "missed": 1,
+            "false_reviews": 20,
+            "false_review_rate": 0.08968609865470852,
+            "recall": 0.9939024390243902,
+            "passes": false
+          },
+          "formal": {
+            "positive": 587,
+            "negative": 1413,
+            "missed": 3,
+            "false_reviews": 99,
+            "false_review_rate": 0.07006369426751592,
+            "recall": 0.9948892674616695,
+            "passes": false
+          },
+          "scope_dev": {
+            "positive": 90,
+            "negative": 90,
+            "missed": 0,
+            "false_reviews": 7,
+            "false_review_rate": 0.07777777777777778,
+            "recall": 1.0,
+            "passes": false
+          },
+          "stress": {
+            "positive": 44,
+            "negative": 172,
+            "missed": 0,
+            "false_reviews": 13,
+            "false_review_rate": 0.0755813953488372,
+            "recall": 1.0,
+            "passes": false
+          }
+        },
+        "counts_pass": false
+      },
+      "checkpoint_sha256": "5da90a8a26398f7b9f4afff3195fed387a5b6803cac2e91148946130ab9e6e10"
+    }
+  },
+  "epochs": [
+    {
+      "epoch": 0,
+      "languages": {
+        "ro": {
+          "export_logit_error": 3.2782554626464844e-07,
+          "variants": {
+            "binary": {
+              "threshold": 0.4483034610748291,
+              "rank": [
+                0.8966942148760331,
+                2.4411386593204774,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 217,
+                  "false_review_rate": 0.8966942148760331,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 1256,
+                  "false_review_rate": 0.8888888888888888,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 59,
+                  "false_review_rate": 0.6555555555555556,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.35625164515573526,
+              "rank": [
+                1.0,
+                2.7763085399449037,
+                2
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 2,
+                  "false_reviews": 204,
+                  "false_review_rate": 0.8429752066115702,
+                  "recall": 0.9907407407407407,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 1413,
+                  "false_review_rate": 1.0,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 84,
+                  "false_review_rate": 0.9333333333333333,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.3418342456668629,
+              "rank": [
+                1.0,
+                2.8122130394857665,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 210,
+                  "false_review_rate": 0.8677685950413223,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 1413,
+                  "false_review_rate": 1.0,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 85,
+                  "false_review_rate": 0.9444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 3.5762786865234375e-07,
+          "variants": {
+            "binary": {
+              "threshold": 0.42761102318763733,
+              "rank": [
+                1.0,
+                3.817538614848032,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 217,
+                  "false_review_rate": 0.9730941704035875,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 1413,
+                  "false_review_rate": 1.0,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 76,
+                  "false_review_rate": 0.8444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 172,
+                  "false_review_rate": 1.0,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.3651932758092178,
+              "rank": [
+                0.9886765746638358,
+                3.522987880442448,
+                4
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 149,
+                  "false_review_rate": 0.6681614349775785,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 3,
+                  "false_reviews": 1397,
+                  "false_review_rate": 0.9886765746638358,
+                  "recall": 0.9948892674616695,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 79,
+                  "false_review_rate": 0.8777777777777778,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 170,
+                  "false_review_rate": 0.9883720930232558,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.3531657496360837,
+              "rank": [
+                0.9941860465116279,
+                3.568690884673602,
+                3
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 159,
+                  "false_review_rate": 0.7130044843049327,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 2,
+                  "false_reviews": 1390,
+                  "false_review_rate": 0.9837225760792639,
+                  "recall": 0.9965928449744463,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 79,
+                  "false_review_rate": 0.8777777777777778,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 171,
+                  "false_review_rate": 0.9941860465116279,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "457a15fe51ab431c03b9a3acc76b31acfaa8cdcd182828ef23e11e6d18070f11"
+    },
+    {
+      "epoch": 10,
+      "languages": {
+        "ro": {
+          "export_logit_error": 2.86102294921875e-06,
+          "variants": {
+            "binary": {
+              "threshold": 0.0008519736293237656,
+              "rank": [
+                0.4444444444444444,
+                1.090046381592415,
+                4
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 73,
+                  "false_review_rate": 0.30165289256198347,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 4,
+                  "false_reviews": 486,
+                  "false_review_rate": 0.34394904458598724,
+                  "recall": 0.9931856899488927,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 40,
+                  "false_review_rate": 0.4444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.005374373237969014,
+              "rank": [
+                0.36666666666666664,
+                0.9259947477087025,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 60,
+                  "false_review_rate": 0.24793388429752067,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 440,
+                  "false_review_rate": 0.31139419674451524,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 33,
+                  "false_review_rate": 0.36666666666666664,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.0022521479109749616,
+              "rank": [
+                0.3,
+                0.7677346715563276,
+                1
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 44,
+                  "false_review_rate": 0.18181818181818182,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 1,
+                  "false_reviews": 404,
+                  "false_review_rate": 0.28591648973814576,
+                  "recall": 0.9982964224872232,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 27,
+                  "false_review_rate": 0.3,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 3.814697265625e-06,
+          "variants": {
+            "binary": {
+              "threshold": 0.003516965778544545,
+              "rank": [
+                0.4444444444444444,
+                1.2689281596769475,
+                6
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 51,
+                  "false_review_rate": 0.22869955156950672,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 275,
+                  "false_review_rate": 0.194621372965322,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 40,
+                  "false_review_rate": 0.4444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 69,
+                  "false_review_rate": 0.4011627906976744,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.134485604996552,
+              "rank": [
+                0.16666666666666666,
+                0.5113435186888845,
+                4
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 27,
+                  "false_review_rate": 0.1210762331838565,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 3,
+                  "false_reviews": 127,
+                  "false_review_rate": 0.08987968860580325,
+                  "recall": 0.9948892674616695,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 15,
+                  "false_review_rate": 0.16666666666666666,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 23,
+                  "false_review_rate": 0.13372093023255813,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.13155064292636776,
+              "rank": [
+                0.08968609865470852,
+                0.3131089660488394,
+                4
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 20,
+                  "false_review_rate": 0.08968609865470852,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 3,
+                  "false_reviews": 99,
+                  "false_review_rate": 0.07006369426751592,
+                  "recall": 0.9948892674616695,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 7,
+                  "false_review_rate": 0.07777777777777778,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 13,
+                  "false_review_rate": 0.0755813953488372,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "5da90a8a26398f7b9f4afff3195fed387a5b6803cac2e91148946130ab9e6e10"
+    },
+    {
+      "epoch": 20,
+      "languages": {
+        "ro": {
+          "export_logit_error": 5.7220458984375e-06,
+          "variants": {
+            "binary": {
+              "threshold": 9.975947250495665e-07,
+              "rank": [
+                0.4888888888888889,
+                1.0092926953378605,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 60,
+                  "false_review_rate": 0.24793388429752067,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 385,
+                  "false_review_rate": 0.2724699221514508,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 44,
+                  "false_review_rate": 0.4888888888888889,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.0008002623052183334,
+              "rank": [
+                0.32222222222222224,
+                0.6927485626385452,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 40,
+                  "false_review_rate": 0.1652892561983471,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 290,
+                  "false_review_rate": 0.20523708421797593,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 29,
+                  "false_review_rate": 0.32222222222222224,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 6.428091984943648e-05,
+              "rank": [
+                0.32222222222222224,
+                0.6296918226854533,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 22,
+                  "false_review_rate": 0.09090909090909091,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 306,
+                  "false_review_rate": 0.21656050955414013,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 29,
+                  "false_review_rate": 0.32222222222222224,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 4.76837158203125e-06,
+          "variants": {
+            "binary": {
+              "threshold": 1.531798758946934e-07,
+              "rank": [
+                0.5888888888888889,
+                1.6750091647091794,
+                6
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 70,
+                  "false_review_rate": 0.31390134529147984,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 360,
+                  "false_review_rate": 0.25477707006369427,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 53,
+                  "false_review_rate": 0.5888888888888889,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 89,
+                  "false_review_rate": 0.5174418604651163,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.003275537081831971,
+              "rank": [
+                0.28888888888888886,
+                0.7393984998587008,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 39,
+                  "false_review_rate": 0.17488789237668162,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 143,
+                  "false_review_rate": 0.10120311394196745,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 26,
+                  "false_review_rate": 0.28888888888888886,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 30,
+                  "false_review_rate": 0.1744186046511628,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.0014783136592322276,
+              "rank": [
+                0.16666666666666666,
+                0.4659963273262881,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 27,
+                  "false_review_rate": 0.1210762331838565,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 4,
+                  "false_reviews": 104,
+                  "false_review_rate": 0.07360226468506724,
+                  "recall": 0.9931856899488927,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 15,
+                  "false_review_rate": 0.16666666666666666,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 18,
+                  "false_review_rate": 0.10465116279069768,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "fa8b461e4fec1475aa0752d5258ea2cee18c59cde4cd534c13c9c409eee66731"
+    },
+    {
+      "epoch": 40,
+      "languages": {
+        "ro": {
+          "export_logit_error": 5.7220458984375e-06,
+          "variants": {
+            "binary": {
+              "threshold": 8.442418220511172e-06,
+              "rank": [
+                0.5222222222222223,
+                1.1622764997982138,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 72,
+                  "false_review_rate": 0.2975206611570248,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 484,
+                  "false_review_rate": 0.34253361641896674,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 47,
+                  "false_review_rate": 0.5222222222222223,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 5.671170608693719e-05,
+              "rank": [
+                0.4888888888888889,
+                1.1576406801073853,
+                1
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 81,
+                  "false_review_rate": 0.3347107438016529,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 1,
+                  "false_reviews": 472,
+                  "false_review_rate": 0.3340410474168436,
+                  "recall": 0.9982964224872232,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 44,
+                  "false_review_rate": 0.4888888888888889,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 3.904546530028344e-05,
+              "rank": [
+                0.35555555555555557,
+                0.8537453282097174,
+                4
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 50,
+                  "false_review_rate": 0.2066115702479339,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 4,
+                  "false_reviews": 412,
+                  "false_review_rate": 0.2915782024062279,
+                  "recall": 0.9931856899488927,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 32,
+                  "false_review_rate": 0.35555555555555557,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 5.7220458984375e-06,
+          "variants": {
+            "binary": {
+              "threshold": 6.309465561571415e-06,
+              "rank": [
+                0.5777777777777777,
+                1.4979612055480236,
+                6
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 61,
+                  "false_review_rate": 0.273542600896861,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 314,
+                  "false_review_rate": 0.2222222222222222,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 52,
+                  "false_review_rate": 0.5777777777777777,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 73,
+                  "false_review_rate": 0.42441860465116277,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 0.0009209464952052815,
+              "rank": [
+                0.4444444444444444,
+                1.0606722014351044,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 49,
+                  "false_review_rate": 0.21973094170403587,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 207,
+                  "false_review_rate": 0.1464968152866242,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 40,
+                  "false_review_rate": 0.4444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 43,
+                  "false_review_rate": 0.25,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 0.000555983895348625,
+              "rank": [
+                0.28888888888888886,
+                0.720852316846599,
+                2
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 35,
+                  "false_review_rate": 0.15695067264573992,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 1,
+                  "false_reviews": 175,
+                  "false_review_rate": 0.12384996461429583,
+                  "recall": 0.9982964224872232,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 26,
+                  "false_review_rate": 0.28888888888888886,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 26,
+                  "false_review_rate": 0.1511627906976744,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "1014657e0f3b20bde67e44dab3e7b0391702885c80afe3d80eeca1fa5a76228a"
+    },
+    {
+      "epoch": 60,
+      "languages": {
+        "ro": {
+          "export_logit_error": 5.7220458984375e-06,
+          "variants": {
+            "binary": {
+              "threshold": 2.2461498474513064e-06,
+              "rank": [
+                0.4777777777777778,
+                1.0337719990875753,
+                3
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 52,
+                  "false_review_rate": 0.21487603305785125,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 3,
+                  "false_reviews": 482,
+                  "false_review_rate": 0.34111818825194623,
+                  "recall": 0.9948892674616695,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 43,
+                  "false_review_rate": 0.4777777777777778,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 2.2564653357642426e-05,
+              "rank": [
+                0.4,
+                0.9178917138963463,
+                1
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 51,
+                  "false_review_rate": 0.21074380165289255,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 1,
+                  "false_reviews": 434,
+                  "false_review_rate": 0.30714791224345367,
+                  "recall": 0.9982964224872232,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 36,
+                  "false_review_rate": 0.4,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 1.5849479945827574e-05,
+              "rank": [
+                0.3111111111111111,
+                0.6285793663326958,
+                2
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 15,
+                  "false_review_rate": 0.06198347107438017,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 2,
+                  "false_reviews": 361,
+                  "false_review_rate": 0.25548478414720455,
+                  "recall": 0.9965928449744463,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 28,
+                  "false_review_rate": 0.3111111111111111,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 7.62939453125e-06,
+          "variants": {
+            "binary": {
+              "threshold": 9.04889475350501e-06,
+              "rank": [
+                0.36666666666666664,
+                1.0490441394683119,
+                6
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 44,
+                  "false_review_rate": 0.19730941704035873,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 250,
+                  "false_review_rate": 0.17692852087756547,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 33,
+                  "false_review_rate": 0.36666666666666664,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 53,
+                  "false_review_rate": 0.3081395348837209,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 3.735032363414844e-05,
+              "rank": [
+                0.4222222222222222,
+                1.2091372537992304,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 48,
+                  "false_review_rate": 0.21524663677130046,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 282,
+                  "false_review_rate": 0.19957537154989385,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 38,
+                  "false_review_rate": 0.4222222222222222,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 64,
+                  "false_review_rate": 0.37209302325581395,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 3.744012288606759e-05,
+              "rank": [
+                0.25555555555555554,
+                0.718997333211703,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 26,
+                  "false_review_rate": 0.11659192825112108,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 219,
+                  "false_review_rate": 0.15498938428874734,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 23,
+                  "false_review_rate": 0.25555555555555554,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 33,
+                  "false_review_rate": 0.19186046511627908,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "299653ac713ff1e919b53ef47f0a6592cb914ed4bd6b0e7056ba40ed8b3b9f53"
+    },
+    {
+      "epoch": 100,
+      "languages": {
+        "ro": {
+          "export_logit_error": 7.62939453125e-06,
+          "variants": {
+            "binary": {
+              "threshold": 1.3738638005023063e-09,
+              "rank": [
+                0.7,
+                1.6245816590923714,
+                0
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 109,
+                  "false_review_rate": 0.45041322314049587,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 0,
+                  "false_reviews": 670,
+                  "false_review_rate": 0.47416843595187547,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 63,
+                  "false_review_rate": 0.7,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 1.4508520051821768e-07,
+              "rank": [
+                0.5444444444444444,
+                1.2891965398045304,
+                1
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 91,
+                  "false_review_rate": 0.3760330578512397,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 1,
+                  "false_reviews": 521,
+                  "false_review_rate": 0.36871903750884644,
+                  "recall": 0.9982964224872232,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 49,
+                  "false_review_rate": 0.5444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 6.955819300860472e-08,
+              "rank": [
+                0.4111111111111111,
+                1.0137705953571616,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 216,
+                  "negative": 242,
+                  "missed": 0,
+                  "false_reviews": 71,
+                  "false_review_rate": 0.29338842975206614,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 437,
+                  "false_review_rate": 0.30927105449398445,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 37,
+                  "false_review_rate": 0.4111111111111111,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        },
+        "uk": {
+          "export_logit_error": 7.62939453125e-06,
+          "variants": {
+            "binary": {
+              "threshold": 0.00015209312550723553,
+              "rank": [
+                0.3111111111111111,
+                0.7159627018662351,
+                6
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 1,
+                  "false_reviews": 36,
+                  "false_review_rate": 0.16143497757847533,
+                  "recall": 0.9939024390243902,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 155,
+                  "false_review_rate": 0.10969568294409059,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 28,
+                  "false_review_rate": 0.3111111111111111,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 23,
+                  "false_review_rate": 0.13372093023255813,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "policy": {
+              "threshold": 1.1880178070569234e-05,
+              "rank": [
+                0.4444444444444444,
+                1.1422777463000369,
+                2
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 55,
+                  "false_review_rate": 0.24663677130044842,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 2,
+                  "false_reviews": 235,
+                  "false_review_rate": 0.16631280962491155,
+                  "recall": 0.9965928449744463,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 40,
+                  "false_review_rate": 0.4444444444444444,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 49,
+                  "false_review_rate": 0.28488372093023256,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            },
+            "coupled_policy": {
+              "threshold": 1.190758065997935e-05,
+              "rank": [
+                0.32222222222222224,
+                0.8192092894835488,
+                5
+              ],
+              "metrics": {
+                "conversational": {
+                  "positive": 164,
+                  "negative": 223,
+                  "missed": 0,
+                  "false_reviews": 41,
+                  "false_review_rate": 0.18385650224215247,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "formal": {
+                  "positive": 587,
+                  "negative": 1413,
+                  "missed": 5,
+                  "false_reviews": 196,
+                  "false_review_rate": 0.1387119603680113,
+                  "recall": 0.9914821124361158,
+                  "passes": false
+                },
+                "scope_dev": {
+                  "positive": 90,
+                  "negative": 90,
+                  "missed": 0,
+                  "false_reviews": 29,
+                  "false_review_rate": 0.32222222222222224,
+                  "recall": 1.0,
+                  "passes": false
+                },
+                "stress": {
+                  "positive": 44,
+                  "negative": 172,
+                  "missed": 0,
+                  "false_reviews": 30,
+                  "false_review_rate": 0.1744186046511628,
+                  "recall": 1.0,
+                  "passes": false
+                }
+              },
+              "counts_pass": false
+            }
+          }
+        }
+      },
+      "checkpoint_sha256": "a5ebe5cd149fe29ee43cbff7628ed5ac0ddc1227f6c5e2c46a6c0bf8341a8d35"
+    }
+  ],
+  "training_rows": 7953,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "objective": "binaryCE + mean6fieldCE + mean independent/coupled policyBCE",
+  "fresh_test_inferred": false,
+  "calibration_inferred": false,
+  "new_foundation_inference": false,
+  "stable_release_ready": false,
+  "training_language_label_weights": {
+    "('uk', 0)": 0.8004227053140096,
+    "('ro', 0)": 0.8457039557635049,
+    "('ro', 1)": 1.3370880968392738,
+    "('uk', 1)": 1.2190374003678726
+  },
+  "finished_utc": "2026-10-19T13:52:34.817163+00:00",
+  "seconds": 27.85293758381158,
+  "development_passes": false
+}

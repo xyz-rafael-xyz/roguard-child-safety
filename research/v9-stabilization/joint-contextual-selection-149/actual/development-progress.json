@@ -1,0 +1,5207 @@
+{
+  "complete": false,
+  "languages": {
+    "ro": {
+      "selected": {
+        "kind": "retained147",
+        "parent_selection": {
+          "kind": "scope_gate",
+          "C": 0.1,
+          "baseline": "blend146",
+          "power": 1,
+          "frontier": {
+            "threshold": 0.015932320838280487,
+            "rank": [
+              0.18683651804670912,
+              0.32558766588876603,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 264,
+                "false_review_rate": 0.18683651804670912,
+                "recall": 0.9965928449744463,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          },
+          "export_max_error": 0.0,
+          "artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181"
+        },
+        "frontier": {
+          "threshold": 0.015932320838280487,
+          "rank": [
+            0.18683651804670912,
+            0.32558766588876603,
+            2
+          ],
+          "metrics": {
+            "conversational": {
+              "positive": 216,
+              "negative": 242,
+              "missed": 0,
+              "false_reviews": 4,
+              "false_review_rate": 0.01652892561983471,
+              "recall": 1.0,
+              "passes": true
+            },
+            "formal": {
+              "positive": 587,
+              "negative": 1413,
+              "missed": 2,
+              "false_reviews": 264,
+              "false_review_rate": 0.18683651804670912,
+              "recall": 0.9965928449744463,
+              "passes": false
+            },
+            "scope_dev": {
+              "positive": 90,
+              "negative": 90,
+              "missed": 0,
+              "false_reviews": 11,
+              "false_review_rate": 0.12222222222222222,
+              "recall": 1.0,
+              "passes": false
+            }
+          },
+          "counts_pass": false
+        }
+      },
+      "comparisons": [
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.011805504683999334,
+            "rank": [
+              0.1967445152158528,
+              0.34660677416902086,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 278,
+                "false_review_rate": 0.1967445152158528,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.016714890220089373,
+            "rank": [
+              0.1875442321302194,
+              0.33740649108338744,
+              3
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 3,
+                "false_reviews": 265,
+                "false_review_rate": 0.1875442321302194,
+                "recall": 0.9948892674616695,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.015932323974013396,
+            "rank": [
+              0.18683651804670912,
+              0.32558766588876603,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 264,
+                "false_review_rate": 0.18683651804670912,
+                "recall": 0.9965928449744463,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.006836447964204866,
+            "rank": [
+              0.22576079263977353,
+              0.39784527381516377,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 319,
+                "false_review_rate": 0.22576079263977353,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.024706853616403575,
+            "rank": [
+              0.18895966029723993,
+              0.33882191925040794,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 267,
+                "false_review_rate": 0.18895966029723993,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.020095095099499888,
+            "rank": [
+              0.18966737438075018,
+              0.3284185222228071,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 268,
+                "false_review_rate": 0.18966737438075018,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.008795352053706157,
+            "rank": [
+              0.2278839348903043,
+              0.39996841606569455,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 322,
+                "false_review_rate": 0.2278839348903043,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.017186405562885206,
+            "rank": [
+              0.19815994338287332,
+              0.34802220233604136,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 280,
+                "false_review_rate": 0.19815994338287332,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.012616562929894923,
+            "rank": [
+              0.21089879688605803,
+              0.3607610558392261,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 298,
+                "false_review_rate": 0.21089879688605803,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.004403888018273095,
+            "rank": [
+              0.22576079263977353,
+              0.4019775052201225,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02066115702479339,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 319,
+                "false_review_rate": 0.22576079263977353,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.007259907349657018,
+            "rank": [
+              0.2094833687190375,
+              0.38156784989442777,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 296,
+                "false_review_rate": 0.2094833687190375,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0067253826761393826,
+            "rank": [
+              0.21019108280254778,
+              0.3711644528668269,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 297,
+                "false_review_rate": 0.21019108280254778,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0055724222523825875,
+            "rank": [
+              0.224345364472753,
+              0.36309651231480994,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 317,
+                "false_review_rate": 0.224345364472753,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.009268232041382937,
+            "rank": [
+              0.19886765746638357,
+              0.3598410275306627,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 281,
+                "false_review_rate": 0.19886765746638357,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.006311336890336245,
+            "rank": [
+              0.21231422505307856,
+              0.3510653728951355,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 300,
+                "false_review_rate": 0.21231422505307856,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0060999827718727665,
+            "rank": [
+              0.21656050955414013,
+              0.39690945353944773,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.024793388429752067,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 306,
+                "false_review_rate": 0.21656050955414013,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.009657244347730052,
+            "rank": [
+              0.2024062278839349,
+              0.3564007182420616,
+              3
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02066115702479339,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 3,
+                "false_reviews": 286,
+                "false_review_rate": 0.2024062278839349,
+                "recall": 0.9948892674616695,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.009620971643651579,
+            "rank": [
+              0.20169851380042464,
+              0.35156077275359265,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 285,
+                "false_review_rate": 0.20169851380042464,
+                "recall": 0.9931856899488927,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0020708547961290295,
+            "rank": [
+              0.23637650389242745,
+              0.44436548460868086,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 10,
+                "false_review_rate": 0.04132231404958678,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 334,
+                "false_review_rate": 0.23637650389242745,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 15,
+                "false_review_rate": 0.16666666666666666,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.015339223369263133,
+            "rank": [
+              0.19603680113234254,
+              0.3458990600855106,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 277,
+                "false_review_rate": 0.19603680113234254,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.008753480594957222,
+            "rank": [
+              0.20311394196744514,
+              0.3418650898095021,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 287,
+                "false_review_rate": 0.20311394196744514,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.12222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0016378348332485798,
+            "rank": [
+              0.21797593772116064,
+              0.3872137705953571,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.024793388429752067,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 308,
+                "false_review_rate": 0.21797593772116064,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0068278598917542,
+            "rank": [
+              0.20452937013446568,
+              0.3585238604925924,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02066115702479339,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 289,
+                "false_review_rate": 0.20452937013446568,
+                "recall": 0.9931856899488927,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0036792924163467616,
+            "rank": [
+              0.2208067940552017,
+              0.37480128441332844,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02066115702479339,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 312,
+                "false_review_rate": 0.2208067940552017,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.0015062825106540597,
+            "rank": [
+              0.23071479122434538,
+              0.5149204845209477,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 15,
+                "false_review_rate": 0.06198347107438017,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 326,
+                "false_review_rate": 0.23071479122434538,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.2222222222222222,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.011805793722188821,
+            "rank": [
+              0.20169851380042464,
+              0.3334707819363291,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02066115702479339,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 285,
+                "false_review_rate": 0.20169851380042464,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 10,
+                "false_review_rate": 0.1111111111111111,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.003017534961602394,
+            "rank": [
+              0.22646850672328378,
+              0.46907640387663546,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.05371900826446281,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 320,
+                "false_review_rate": 0.22646850672328378,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 17,
+                "false_review_rate": 0.18888888888888888,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.002084877466808195,
+            "rank": [
+              0.23849964614295824,
+              0.4521819234615992,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.024793388429752067,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 337,
+                "false_review_rate": 0.23849964614295824,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 17,
+                "false_review_rate": 0.18888888888888888,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.025827252368139014,
+            "rank": [
+              0.19745222929936307,
+              0.3584255993636422,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 279,
+                "false_review_rate": 0.19745222929936307,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "ae3d58b2a6843c2fbf0e41ab51c2ce138df092604adfb68273df958f90be2b67",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "0adb56dfe3f01b0278aefe7cf193af3b1b271a264cb71d8fc095a491bc897181",
+          "native_weight": 0.75,
+          "scope_power": 1,
+          "frontier": {
+            "threshold": 0.025473560893989562,
+            "rank": [
+              0.19745222929936307,
+              0.3473144882525311,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 216,
+                "negative": 242,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.01652892561983471,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 279,
+                "false_review_rate": 0.19745222929936307,
+                "recall": 0.9931856899488927,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        }
+      ]
+    },
+    "uk": {
+      "selected": {
+        "kind": "joint",
+        "semantic_family": "gemma4-structured-expanded-145",
+        "epoch": 10,
+        "semantic_mode": "policy",
+        "native_family": "native-scope-operators-131",
+        "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+        "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+        "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+        "native_weight": 0.25,
+        "scope_power": 2,
+        "frontier": {
+          "threshold": 0.11608802666680487,
+          "rank": [
+            0.022222222222222223,
+            0.04794429687177681,
+            5
+          ],
+          "metrics": {
+            "conversational": {
+              "positive": 164,
+              "negative": 223,
+              "missed": 0,
+              "false_reviews": 4,
+              "false_review_rate": 0.017937219730941704,
+              "recall": 1.0,
+              "passes": true
+            },
+            "formal": {
+              "positive": 587,
+              "negative": 1413,
+              "missed": 5,
+              "false_reviews": 11,
+              "false_review_rate": 0.00778485491861288,
+              "recall": 0.9914821124361158,
+              "passes": true
+            },
+            "scope_dev": {
+              "positive": 90,
+              "negative": 90,
+              "missed": 0,
+              "false_reviews": 2,
+              "false_review_rate": 0.022222222222222223,
+              "recall": 1.0,
+              "passes": true
+            },
+            "stress": {
+              "positive": 44,
+              "negative": 172,
+              "missed": 0,
+              "false_reviews": 0,
+              "false_review_rate": 0.0,
+              "recall": 1.0,
+              "passes": true
+            }
+          },
+          "counts_pass": true
+        }
+      },
+      "comparisons": [
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.02170152547057,
+            "rank": [
+              0.13333333333333333,
+              0.23580570506559878,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 10,
+                "false_review_rate": 0.04484304932735426,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 65,
+                "false_review_rate": 0.04600141542816702,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.03019823154099508,
+            "rank": [
+              0.07777777777777778,
+              0.14327111073323062,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02242152466367713,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 28,
+                "false_review_rate": 0.019815994338287332,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.07777777777777778,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.023255813953488372,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.1129313101707013,
+            "rank": [
+              0.044444444444444446,
+              0.07158194726101956,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 13,
+                "false_review_rate": 0.009200283085633405,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.05773346458864944,
+            "rank": [
+              0.06666666666666667,
+              0.1293956044969846,
+              1
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 1,
+                "false_reviews": 14,
+                "false_review_rate": 0.009907997169143666,
+                "recall": 0.9982964224872232,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.03488372093023256,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.08211160209884771,
+            "rank": [
+              0.06666666666666667,
+              0.09073529271752687,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.013452914798206279,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 15,
+                "false_review_rate": 0.010615711252653927,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "142d3a3fca60a2e4418dbeb8ce806c59f15327a63a379e5ba63b69514c7379cf",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.056455634737291,
+            "rank": [
+              0.06666666666666667,
+              0.12042699463151374,
+              1
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.008968609865470852,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 1,
+                "false_reviews": 14,
+                "false_review_rate": 0.009907997169143666,
+                "recall": 0.9982964224872232,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.03488372093023256,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.005319751433165384,
+            "rank": [
+              0.15555555555555556,
+              0.33202045322485213,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 11,
+                "false_review_rate": 0.04932735426008968,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 155,
+                "false_review_rate": 0.10969568294409059,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.014445743439595975,
+            "rank": [
+              0.07777777777777778,
+              0.1875589635653084,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 8,
+                "false_review_rate": 0.03587443946188341,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 88,
+                "false_review_rate": 0.06227883934890304,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.07777777777777778,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.10609744550947839,
+            "rank": [
+              0.044444444444444446,
+              0.08385110711236786,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02242152466367713,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 24,
+                "false_review_rate": 0.016985138004246284,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.11252256735717531,
+            "rank": [
+              0.06666666666666667,
+              0.11053831586484779,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 12,
+                "false_review_rate": 0.008492569002123142,
+                "recall": 0.9965928449744463,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.07593137407325783,
+            "rank": [
+              0.06666666666666667,
+              0.11905020326944865,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.026905829596412557,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 36,
+                "false_review_rate": 0.025477707006369428,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "14aa6c333256a28572a479ff0275a3247e5361b97efa4b9ed56909c9ead799af",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.07761585250479644,
+            "rank": [
+              0.06666666666666667,
+              0.11407688628239909,
+              3
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 3,
+                "false_reviews": 17,
+                "false_review_rate": 0.012031139419674451,
+                "recall": 0.9948892674616695,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0029224217195292744,
+            "rank": [
+              0.2111111111111111,
+              0.4382203171731114,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 15,
+                "false_review_rate": 0.06726457399103139,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 193,
+                "false_review_rate": 0.13658881811748053,
+                "recall": 0.9931856899488927,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 19,
+                "false_review_rate": 0.2111111111111111,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.023255813953488372,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.004103684050165505,
+            "rank": [
+              0.14444444444444443,
+              0.3282909645894236,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.04932735426008968,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 149,
+                "false_review_rate": 0.10544939844302902,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.029069767441860465,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.07958433212338126,
+            "rank": [
+              0.044444444444444446,
+              0.11169632401245323,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.04035874439461883,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 38,
+                "false_review_rate": 0.02689313517338995,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.11104008179457572,
+            "rank": [
+              0.044444444444444446,
+              0.09194044367156073,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02242152466367713,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 19,
+                "false_review_rate": 0.013446567586694975,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.015652445314285036,
+            "rank": [
+              0.08888888888888889,
+              0.23705157042928626,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.06278026905829596,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 96,
+                "false_review_rate": 0.06794055201698514,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 8,
+                "false_review_rate": 0.08888888888888889,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "7af75f2eb152ed319bf5c3b53f27518e32cbec355cab6e4900cef22a0debc136",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.027194364774140348,
+            "rank": [
+              0.06666666666666667,
+              0.16716813696869134,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 10,
+                "false_review_rate": 0.04484304932735426,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 54,
+                "false_review_rate": 0.03821656050955414,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.06666666666666667,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00010336467072847459,
+            "rank": [
+              0.3111111111111111,
+              0.6585912718313631,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 25,
+                "false_review_rate": 0.11210762331838565,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 234,
+                "false_review_rate": 0.16560509554140126,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 28,
+                "false_review_rate": 0.3111111111111111,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.06976744186046512,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00010117554976776664,
+            "rank": [
+              0.23333333333333334,
+              0.5576712841154315,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.09417040358744394,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 202,
+                "false_review_rate": 0.14295824486907288,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.23333333333333334,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 15,
+                "false_review_rate": 0.0872093023255814,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.004169933391085279,
+            "rank": [
+              0.18888888888888888,
+              0.33037766203711394,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.06278026905829596,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 103,
+                "false_review_rate": 0.07289455060155697,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 17,
+                "false_review_rate": 0.18888888888888888,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 1,
+                "false_review_rate": 0.005813953488372093,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.007679342866836947,
+            "rank": [
+              0.08888888888888889,
+              0.20402068172446652,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.053811659192825115,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 62,
+                "false_review_rate": 0.043878273177636234,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 8,
+                "false_review_rate": 0.08888888888888889,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0008651094741522747,
+            "rank": [
+              0.18888888888888888,
+              0.40830536685517144,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 19,
+                "false_review_rate": 0.08520179372197309,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 165,
+                "false_review_rate": 0.11677282377919321,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 17,
+                "false_review_rate": 0.18888888888888888,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "9e4b2beebfc17af84c0de11aec8aac3ab1f039c6e962c029a6184de3a67daf5a",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.001026351633104972,
+            "rank": [
+              0.14444444444444443,
+              0.3294810667477929,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 16,
+                "false_review_rate": 0.07174887892376682,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 119,
+                "false_review_rate": 0.08421797593772117,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.029069767441860465,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.001058241553059747,
+            "rank": [
+              0.15555555555555556,
+              0.29539088010508624,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 13,
+                "false_review_rate": 0.05829596412556054,
+                "recall": 0.9939024390243902,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 107,
+                "false_review_rate": 0.07572540693559802,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 1,
+                "false_review_rate": 0.005813953488372093,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.001634975269193704,
+            "rank": [
+              0.08888888888888889,
+              0.18782269020360304,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 10,
+                "false_review_rate": 0.04484304932735426,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 60,
+                "false_review_rate": 0.04246284501061571,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 8,
+                "false_review_rate": 0.08888888888888889,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.011047677484903744,
+            "rank": [
+              0.07777777777777778,
+              0.1740522819812186,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.053811659192825115,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 60,
+                "false_review_rate": 0.04246284501061571,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.07777777777777778,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.019459262511512976,
+            "rank": [
+              0.044444444444444446,
+              0.09211200289432844,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.03139013452914798,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 23,
+                "false_review_rate": 0.01627742392073602,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0009735863911736467,
+            "rank": [
+              0.13333333333333333,
+              0.2825211817887874,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.05829596412556054,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 112,
+                "false_review_rate": 0.07926397735314933,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 12,
+                "false_review_rate": 0.13333333333333333,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-143",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "24954578cc185d8772f087c31a64482f513a75553598ca76624e0423374e5e76",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0009207281884987675,
+            "rank": [
+              0.08888888888888889,
+              0.2258740387019008,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 11,
+                "false_review_rate": 0.04932735426008968,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 91,
+                "false_review_rate": 0.06440198159943383,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 8,
+                "false_review_rate": 0.08888888888888889,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.023255813953488372,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.004742264030233926,
+            "rank": [
+              0.2,
+              0.43166604264720937,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 25,
+                "false_review_rate": 0.11210762331838565,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 95,
+                "false_review_rate": 0.06723283793347487,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 18,
+                "false_review_rate": 0.2,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.05232558139534884,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.007627323908629296,
+            "rank": [
+              0.1,
+              0.25332241096319896,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.06278026905829596,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 54,
+                "false_review_rate": 0.03821656050955414,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.1,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.05232558139534884,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.11608802666680487,
+            "rank": [
+              0.022222222222222223,
+              0.04794429687177681,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 11,
+                "false_review_rate": 0.00778485491861288,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.022222222222222223,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0881795782165958,
+            "rank": [
+              0.03333333333333333,
+              0.08529431909070734,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.017937219730941704,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 7,
+                "false_review_rate": 0.004953998584571833,
+                "recall": 0.9965928449744463,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.03333333333333333,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.029069767441860465,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.10503059843873694,
+            "rank": [
+              0.02242152466367713,
+              0.051720887721001974,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02242152466367713,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 10,
+                "false_review_rate": 0.007077140835102618,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.022222222222222223,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 0,
+                "false_review_rate": 0.0,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 10,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "8092d3784038b598c20dd81508da3c4d31e0b88e164eaa8b36eab6268566ab8d",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.08843934622864726,
+            "rank": [
+              0.029069767441860465,
+              0.06899118896335053,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.013452914798206279,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 6,
+                "false_review_rate": 0.004246284501061571,
+                "recall": 0.9965928449744463,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.022222222222222223,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.029069767441860465,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.000173685503569211,
+            "rank": [
+              0.23333333333333334,
+              0.5453353862872333,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 28,
+                "false_review_rate": 0.12556053811659193,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 132,
+                "false_review_rate": 0.09341825902335456,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.23333333333333334,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 16,
+                "false_review_rate": 0.09302325581395349,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00021059111906850879,
+            "rank": [
+              0.15555555555555556,
+              0.44874746268374716,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 25,
+                "false_review_rate": 0.11210762331838565,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 108,
+                "false_review_rate": 0.07643312101910828,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 14,
+                "false_review_rate": 0.15555555555555556,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 18,
+                "false_review_rate": 0.10465116279069768,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.05940728901130625,
+            "rank": [
+              0.02242152466367713,
+              0.05965798345990485,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.02242152466367713,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 13,
+                "false_review_rate": 0.009200283085633405,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.022222222222222223,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 1,
+                "false_review_rate": 0.005813953488372093,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.03908111221613625,
+            "rank": [
+              0.044444444444444446,
+              0.08170864645935937,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.013452914798206279,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 9,
+                "false_review_rate": 0.006369426751592357,
+                "recall": 0.9965928449744463,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.03848462532056566,
+            "rank": [
+              0.03333333333333333,
+              0.09490418183078231,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 7,
+                "false_review_rate": 0.03139013452914798,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 18,
+                "false_review_rate": 0.012738853503184714,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.03333333333333333,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 20,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "5dc72ceac0d9e1c18a6c67dcdefcd60d4c6a5347beafcc5e19772e98b2caada0",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.03908118852418138,
+            "rank": [
+              0.03333333333333333,
+              0.07059753534824825,
+              3
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.013452914798206279,
+                "recall": 1.0,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 3,
+                "false_reviews": 9,
+                "false_review_rate": 0.006369426751592357,
+                "recall": 0.9948892674616695,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.03333333333333333,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 1.7400915680078249e-06,
+            "rank": [
+              0.32222222222222224,
+              0.7168613341676227,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 36,
+                "false_review_rate": 0.16143497757847533,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 157,
+                "false_review_rate": 0.1111111111111111,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 29,
+                "false_review_rate": 0.32222222222222224,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.12209302325581395,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 2.04559278058175e-06,
+            "rank": [
+              0.23333333333333334,
+              0.5723677910899468,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 29,
+                "false_review_rate": 0.13004484304932734,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 131,
+                "false_review_rate": 0.0927105449398443,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.23333333333333334,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.11627906976744186,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0027294862814419537,
+            "rank": [
+              0.09865470852017937,
+              0.2292600509385865,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 22,
+                "false_review_rate": 0.09865470852017937,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 50,
+                "false_review_rate": 0.035385704175513094,
+                "recall": 0.9965928449744463,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.07777777777777778,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 3,
+                "false_review_rate": 0.01744186046511628,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0017122748239499653,
+            "rank": [
+              0.08968609865470852,
+              0.2218591100604262,
+              1
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.08968609865470852,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 1,
+                "false_reviews": 44,
+                "false_review_rate": 0.03113941967445152,
+                "recall": 0.9982964224872232,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 7,
+                "false_review_rate": 0.07777777777777778,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.023255813953488372,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00014689012570544074,
+            "rank": [
+              0.12556053811659193,
+              0.3354232745013251,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 28,
+                "false_review_rate": 0.12556053811659193,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 97,
+                "false_review_rate": 0.0686482661004954,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 8,
+                "false_review_rate": 0.08888888888888889,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.05232558139534884,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 40,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "b4aed5ff7f9b445db71c136578f028682a571ec3d8498b99f4f8970fc12419e2",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0002887727018119928,
+            "rank": [
+              0.08520179372197309,
+              0.2355457756834932,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 19,
+                "false_review_rate": 0.08520179372197309,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 60,
+                "false_review_rate": 0.04246284501061571,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 5,
+                "false_review_rate": 0.05555555555555555,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 9,
+                "false_review_rate": 0.05232558139534884,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 1.5792194818946522e-05,
+            "rank": [
+              0.36666666666666664,
+              0.8418387369875706,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 53,
+                "false_review_rate": 0.23766816143497757,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 122,
+                "false_review_rate": 0.08634111818825195,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 33,
+                "false_review_rate": 0.36666666666666664,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 26,
+                "false_review_rate": 0.1511627906976744,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 1.0047486634260854e-05,
+            "rank": [
+              0.34444444444444444,
+              0.7881662662388056,
+              4
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 50,
+                "false_review_rate": 0.2242152466367713,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 113,
+                "false_review_rate": 0.0799716914366596,
+                "recall": 0.9931856899488927,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 31,
+                "false_review_rate": 0.34444444444444444,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 24,
+                "false_review_rate": 0.13953488372093023,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00012011098152870688,
+            "rank": [
+              0.32222222222222224,
+              0.8033991236567437,
+              0
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 57,
+                "false_review_rate": 0.2556053811659193,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 0,
+                "false_reviews": 138,
+                "false_review_rate": 0.09766454352441614,
+                "recall": 1.0,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 29,
+                "false_review_rate": 0.32222222222222224,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 22,
+                "false_review_rate": 0.12790697674418605,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 7.579326510391415e-05,
+            "rank": [
+              0.3,
+              0.7704754105704836,
+              0
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 56,
+                "false_review_rate": 0.25112107623318386,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 0,
+                "false_reviews": 121,
+                "false_review_rate": 0.08563340410474168,
+                "recall": 1.0,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 27,
+                "false_review_rate": 0.3,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 23,
+                "false_review_rate": 0.13372093023255813,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.00011991276828631328,
+            "rank": [
+              0.23333333333333334,
+              0.6297307151233459,
+              2
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 47,
+                "false_review_rate": 0.21076233183856502,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 2,
+                "false_reviews": 98,
+                "false_review_rate": 0.06935598018400566,
+                "recall": 0.9965928449744463,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.23333333333333334,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.11627906976744186,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 60,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "742bca70b7892f54a617dece44e867e7b826d1c2d051eea60df9e9699b1b7469",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 7.555332931985806e-05,
+            "rank": [
+              0.20179372197309417,
+              0.5771776157172308,
+              0
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 0,
+                "false_reviews": 45,
+                "false_review_rate": 0.20179372197309417,
+                "recall": 1.0,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 0,
+                "false_reviews": 91,
+                "false_review_rate": 0.06440198159943383,
+                "recall": 1.0,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 17,
+                "false_review_rate": 0.18888888888888888,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 21,
+                "false_review_rate": 0.12209302325581395,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 1.983680199504017e-05,
+            "rank": [
+              0.37777777777777777,
+              0.8026039509029905,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 39,
+                "false_review_rate": 0.17488789237668162,
+                "recall": 0.9939024390243902,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 156,
+                "false_review_rate": 0.11040339702760085,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 34,
+                "false_review_rate": 0.37777777777777777,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 24,
+                "false_review_rate": 0.13953488372093023,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "binary",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 1.9214811413023336e-05,
+            "rank": [
+              0.3111111111111111,
+              0.6989968822644665,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 38,
+                "false_review_rate": 0.17040358744394618,
+                "recall": 0.9939024390243902,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 143,
+                "false_review_rate": 0.10120311394196745,
+                "recall": 0.9914821124361158,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 28,
+                "false_review_rate": 0.3111111111111111,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.11627906976744186,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.05878944126836509,
+            "rank": [
+              0.04932735426008968,
+              0.1300174577838475,
+              6
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 11,
+                "false_review_rate": 0.04932735426008968,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 5,
+                "false_reviews": 43,
+                "false_review_rate": 0.03043170559094126,
+                "recall": 0.9914821124361158,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 1,
+                "false_review_rate": 0.005813953488372093,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.07585707438507625,
+            "rank": [
+              0.044444444444444446,
+              0.10562503168992957,
+              5
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 6,
+                "false_review_rate": 0.026905829596412557,
+                "recall": 0.9939024390243902,
+                "passes": true
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 4,
+                "false_reviews": 32,
+                "false_review_rate": 0.02264685067232838,
+                "recall": 0.9931856899488927,
+                "passes": true
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 4,
+                "false_review_rate": 0.044444444444444446,
+                "recall": 1.0,
+                "passes": true
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 2,
+                "false_review_rate": 0.011627906976744186,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": true
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-scope-operators-131",
+          "native_checkpoint_sha256": "35c15a31ea89536a94f6e7cf31662e86e72ad5f686a376c87fb7719ddc62e073",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0005787908787926617,
+            "rank": [
+              0.2222222222222222,
+              0.4917937197589506,
+              1
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 29,
+                "false_review_rate": 0.13004484304932734,
+                "recall": 0.9939024390243902,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 0,
+                "false_reviews": 115,
+                "false_review_rate": 0.08138711960368011,
+                "recall": 1.0,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 20,
+                "false_review_rate": 0.2222222222222222,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 10,
+                "false_review_rate": 0.05813953488372093,
+                "recall": 1.0,
+                "passes": false
+              }
+            },
+            "counts_pass": false
+          }
+        },
+        {
+          "kind": "joint",
+          "semantic_family": "gemma4-structured-expanded-145",
+          "epoch": 100,
+          "semantic_mode": "coupled_policy",
+          "native_family": "native-full-scope-133",
+          "native_checkpoint_sha256": "e53d843804455e5876b7ee9b34e4469b0ab1c764f79e44603f7865f65c0cd042",
+          "semantic_checkpoint_sha256": "508d41f1aee08c935425aee97213cd35a9a79df5a778019ed1472c775be4694f",
+          "scope_artifact_sha256": "dcfb91acd7cc79072ec64eaab326d3a6d3e2dff01598ce5b5c0c41af01471b80",
+          "native_weight": 0.25,
+          "scope_power": 2,
+          "frontier": {
+            "threshold": 0.0012024834424608673,
+            "rank": [
+              0.14444444444444443,
+              0.3534766076102918,
+              1
+            ],
+            "metrics": {
+              "conversational": {
+                "positive": 164,
+                "negative": 223,
+                "missed": 1,
+                "false_reviews": 24,
+                "false_review_rate": 0.10762331838565023,
+                "recall": 0.9939024390243902,
+                "passes": false
+              },
+              "formal": {
+                "positive": 587,
+                "negative": 1413,
+                "missed": 0,
+                "false_reviews": 94,
+                "false_review_rate": 0.06652512384996462,
+                "recall": 1.0,
+                "passes": false
+              },
+              "scope_dev": {
+                "positive": 90,
+                "negative": 90,
+                "missed": 0,
+                "false_reviews": 13,
+                "false_review_rate": 0.14444444444444443,
+                "recall": 1.0,
+                "passes": false
+              },
+              "stress": {
+                "positive": 44,
+                "negative": 172,
+                "missed": 0,
+                "false_reviews": 6,
+                "false_review_rate": 0.03488372093023256,
+                "recall": 1.0,
+                "passes": true
+              }
+            },
+            "counts_pass": false
+          }
+        }
+      ]
+    }
+  },
+  "source_freeze_sha256": "db6acc506d06c323b4451a04efe1dc7c2f7ad83e7392f7ab4367ba024ca97dd6",
+  "parent_freeze_sha256": "28d4125fa20fab8b007b59178fbcc283bde136c082a1d4921feb57f3265f9a5a",
+  "new_foundation_inference": false,
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false
+}
