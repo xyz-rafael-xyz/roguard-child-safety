@@ -1896,3 +1896,18 @@ its first two results against full forward passes. It runs in float32 with a
 10 GiB allocation limit, after study132 and before study133, with a fifteen-minute
 resource timeout. This scheduling change leaves all encoder training sources,
 data and protocols unchanged. No study139 inference result is claimed here.
+
+### Completed scope-operator continuation (studies131–132)
+
+Study131 selected epoch0 for Romanian and epoch1.5 for Ukrainian. Romanian did
+not improve. Ukrainian development has zero misses, with 79/1,413 formal,
+4/223 conversational, 34/90 scope and 26/172 stress false reviews. This lowers
+the worst development false-review rate relative to study128, but calibration
+does not confirm an overall improvement: formal calibration has zero misses and
+258/1,386 false reviews; conversational calibration has one miss among164positive
+cases and29/223false reviews. Exposed regression has one miss among44positive
+cases and17/44false reviews. Accuracy prerequisites fail.
+
+Study132 reproduced all10,443prior decisions with a maximum score difference
+of0.0000115634. Reserved-test inference was skipped. The prepared study139
+capacity screen runs next, followed by full-encoder adaptation in studies133–134.
