@@ -1231,3 +1231,19 @@ Calibration is audited separately. Even if those counts pass, the retained
 216-case stress set and actual installed composite still require verification.
 This study fits saved component outputs on the CPU and does not interrupt the
 running Qwen inference audit.
+
+The study97 run with native85 passes development and out-of-fold counts, but
+fails conversational calibration: 14/164 concerns missed and 4/223 benign
+messages reviewed. Formal calibration has zero misses and 9/1,386 false
+reviews. It is not a qualifying candidate.
+
+**Execution-order amendment:** study90 was paused after 2,501 of its 9,691
+predictions to run the smaller, already frozen study95 repair sooner. The saved
+prediction prefix, input set, adapter and original evaluator are hash-bound in
+[the pause record](../research/v9-stabilization/qwen-qualification-90/pause-record.json).
+Study95's data, training and selection rules remain unchanged. No partial Qwen
+accuracy results selected this scheduling change. Study98 prepares continuation
+of the same audit, requiring eight fixed saved-prefix replays to agree before
+processing the remaining inputs. Its timing covers only the remaining work.
+If study95 and its installed verification qualify, the incomplete Qwen study
+will remain paused while final bilingual qualification takes priority.
