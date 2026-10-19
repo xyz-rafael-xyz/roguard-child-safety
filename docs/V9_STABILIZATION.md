@@ -1123,3 +1123,16 @@ Study93 also retains all 216 authored Ukrainian stress cases from study85. It
 evaluates the fixed Qwen and combined-model decisions without fitting on those
 cases. Passing the main calibration audit does not waive this earlier failed
 stress check.
+
+Study94 is a conditional repair, queued only if the preceding studies still do
+not provide a qualifying Ukrainian candidate. The study88 validation loss rose
+from 0.264 at step255 to 0.950 at step511, while its earlier best checkpoint was
+preserved. The repair warm-starts the final selected study88 checkpoint, lowers
+the initial learning rate from 0.0001 to 0.00001, and decays it to 0.000001.
+Training and development inputs are unchanged.
+
+To reduce repeated work, the proposed trainer reuses only the common-prefix
+states below the trainable final block. Before any optimizer update, the cached
+calculation must match the original loss and gradients within 0.001 on fixed
+Romanian and Ukrainian development cases. This acceleration has not yet passed
+that actual-model preflight and is not claimed as a measured speed improvement.
