@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-19T01:17:38.611722+00:00",
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit",
+  "revision": "938d8919941c6e7efd3c7150eff7fe9d12afa631",
+  "purpose": "Alternative newer multilingual model control after native repair limitations.",
+  "sources": [
+    "https://huggingface.co/Qwen/Qwen3.5-9B",
+    "https://huggingface.co/mlx-community/Qwen3.5-9B-MLX-4bit"
+  ],
+  "data": "Existing400-case bilingual instruction screen; reused synthetic evidence, not reserved or independent.",
+  "recipe": "Fixed binary policy, thinking disabled, one next-token decision, full-vocabulary top token must be0or1 else abstain. Score is conditional two-token softmax, uncalibrated. No threshold fit, cutoff0.5.",
+  "memory": "Project only final hidden state; verify label probabilities and vocabulary argmax against full projection; common-prefix cache checked against uncached first two complete prompts. Tolerance0.001.",
+  "selection": "No training, model or prompt selection based on reserved inputs. Full release qualification remains separate.",
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "arithmetic_amendment": "Initial bfloat16 last-token projection check failed before any example was evaluated. Use model.set_dtype(float32), retaining packed4bit weights, and rerun unchanged projection/cache parity tolerances before evaluating the screen."
+}

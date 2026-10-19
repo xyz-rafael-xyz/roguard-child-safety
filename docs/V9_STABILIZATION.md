@@ -1065,3 +1065,17 @@ Torch 2.14.0, Transformers 5.17.0, MLX 0.32.2 and MLX-LM 0.31.3 in one process.
 Observed elapsed inference time was 292.10 seconds on the local machine, including
 lazy model loading. This is a runtime compatibility check on a reused screen,
 not an independent accuracy evaluation or a general latency benchmark.
+
+Study85 selected its half-epoch checkpoint on development and stress-set counts.
+Calibration formal counts improved to zero misses and 12/1,386 false reviews;
+conversational counts were 9/164 misses and 8/223 false reviews. The additional
+stress set still falsely reviewed 25% of benign examples. This candidate is not
+qualified; installed-needs-86 therefore skipped its conditional replay.
+
+Study87 starts a separate Qwen3.5-9B control using a pinned MLX 4-bit conversion,
+a fixed binary policy, disabled thinking, and the existing 400-case bilingual
+screen. The next vocabulary token must be a valid decision digit, otherwise the
+model abstains and that counts as error. No reserved examples are evaluated.
+The initial bfloat16 output-projection preflight failed before predictions; its
+source and status are preserved. A float32 arithmetic amendment must pass the
+same projection and cache parity tolerances before the screen can run.

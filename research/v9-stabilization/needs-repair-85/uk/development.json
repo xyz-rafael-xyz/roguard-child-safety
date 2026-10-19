@@ -1,0 +1,251 @@
+{
+  "synthetic_only": true,
+  "selection_partition": "development",
+  "base": "youscan/ukr-roberta-base",
+  "revision": "8149bde480a6df9014aa934c3f8af30858dea5a6",
+  "train_language": "uk",
+  "training_rows": 4667,
+  "epochs": [
+    {
+      "epoch": 0.5,
+      "training_epoch": 1,
+      "rows_completed": 2336,
+      "loss": 0.09090825157520706,
+      "seconds": 78.42394912499003,
+      "thresholds": {
+        "uk": 0.026689061895012856
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "ro_conversational": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 12,
+          "recall": 1.0,
+          "false_review_rate": 0.008492569002123142
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 9,
+          "recall": 1.0,
+          "false_review_rate": 0.04035874439461883
+        }
+      },
+      "stress_false_review_rate": 0.25,
+      "stress_concern_recall": 1.0
+    },
+    {
+      "epoch": 1,
+      "training_epoch": 1,
+      "rows_completed": 4667,
+      "loss": 0.07998791229847359,
+      "seconds": 158.82212291611359,
+      "thresholds": {
+        "uk": 0.008432221133261919
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "ro_conversational": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 229,
+          "recall": 1.0,
+          "false_review_rate": 0.16206652512384997
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 28,
+          "recall": 1.0,
+          "false_review_rate": 0.12556053811659193
+        }
+      },
+      "stress_false_review_rate": 0.2558139534883721,
+      "stress_concern_recall": 1.0
+    },
+    {
+      "epoch": 1.5,
+      "training_epoch": 2,
+      "rows_completed": 2336,
+      "loss": 0.05670397997872062,
+      "seconds": 77.66975562484004,
+      "thresholds": {
+        "uk": 0.00851806765422225
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "ro_conversational": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 180,
+          "recall": 1.0,
+          "false_review_rate": 0.12738853503184713
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 25,
+          "recall": 1.0,
+          "false_review_rate": 0.11210762331838565
+        }
+      },
+      "stress_false_review_rate": 0.2558139534883721,
+      "stress_concern_recall": 1.0
+    },
+    {
+      "epoch": 2,
+      "training_epoch": 2,
+      "rows_completed": 4667,
+      "loss": 0.05703933188717251,
+      "seconds": 156.50509512494318,
+      "thresholds": {
+        "uk": 0.00827687093988061
+      },
+      "development": {
+        "ro_formal": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "ro_conversational": {
+          "positive": 0,
+          "negative": 0,
+          "missed": 0,
+          "false_reviews": 0,
+          "recall": null,
+          "false_review_rate": null
+        },
+        "uk_formal": {
+          "positive": 587,
+          "negative": 1413,
+          "missed": 0,
+          "false_reviews": 162,
+          "recall": 1.0,
+          "false_review_rate": 0.11464968152866242
+        },
+        "uk_conversational": {
+          "positive": 164,
+          "negative": 223,
+          "missed": 0,
+          "false_reviews": 20,
+          "recall": 1.0,
+          "false_review_rate": 0.08968609865470852
+        }
+      },
+      "stress_false_review_rate": 0.2558139534883721,
+      "stress_concern_recall": 1.0
+    }
+  ],
+  "learning_rate": 1e-05,
+  "full_parameter_training": false,
+  "focus_boundary_training_rows": 234,
+  "time_scope_training_rows": 90,
+  "trainable_parameters": 28943618,
+  "sampling": "Equal expected mass per formal/conversational x label; authored repair is conversational; replacement; seed985.",
+  "base_weights_sha256": "6fb0e970bd7bf5ae18d0cdb2104ac0533dcf58248c410e05217f11f77a9c7b18",
+  "parent_artifact_sha256": "2f64337d589f7620dc8907c3a20b4d462fcfd2c58248a027b7db9bc2b95ebf2b",
+  "calibration_diagnosis_informed_training": true,
+  "authored_repair_rows": 1728,
+  "stress_rows": 216,
+  "stress_data_sha256": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f",
+  "base_manifest_sha256": "9489e95fe5ec6a9fe67901c786e644489a0246855a9b6258b8bdcb251c946927",
+  "validation_schedule": "Half-epoch and end-of-epoch, selected solely by development counts.",
+  "padding_multiple": 32,
+  "mps_cache_release_interval": 25,
+  "selected_epoch": 0.5,
+  "unique_training_indices_seen": 3837,
+  "stress_calibration_used": false,
+  "stress_false_review_rate": 0.25,
+  "stress_missed": 0,
+  "selected_checkpoint_dev_replay_max_error": 0.0,
+  "calibration_audit": {
+    "ro_formal": {
+      "positive": 0,
+      "negative": 0,
+      "missed": 0,
+      "false_reviews": 0,
+      "recall": null,
+      "false_review_rate": null
+    },
+    "ro_conversational": {
+      "positive": 0,
+      "negative": 0,
+      "missed": 0,
+      "false_reviews": 0,
+      "recall": null,
+      "false_review_rate": null
+    },
+    "uk_formal": {
+      "positive": 614,
+      "negative": 1386,
+      "missed": 0,
+      "false_reviews": 12,
+      "recall": 1.0,
+      "false_review_rate": 0.008658008658008658
+    },
+    "uk_conversational": {
+      "positive": 164,
+      "negative": 223,
+      "missed": 9,
+      "false_reviews": 8,
+      "recall": 0.9451219512195121,
+      "false_review_rate": 0.03587443946188341
+    }
+  },
+  "artifact_sha256": "f4d398d9e8c859729058a6c01df905b2eaf3ae7141f6755b12040059e5b59907"
+}
