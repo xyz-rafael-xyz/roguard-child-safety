@@ -138,3 +138,20 @@ It preserves context-limit abstentions and validates the source report's input,
 model, policy and field bindings. It does not authenticate the report producer.
 Study69 compares both languages against the unchanged accuracy gates and checks
 the policy on actual installed neural outputs; it is not an approved default.
+
+## Experimental three-model report combination
+
+`roguard.three_expert.ThreeExpertReview` combines reports from the direct native
+classifier, native semantic heads, and interpreter. Load a JSON tree artifact
+with its independently obtained SHA-256, then call
+`predict(payload, native_report, semantic_report, interpreter_report, focus=...)`.
+All reports must describe the same input and pinned model identities. Any
+component abstention produces a clarification request. The loader rejects
+malformed, cyclic, shared, overdeep, or oversized tree structures.
+
+This API combines reports; it does not load the neural models or authenticate
+reports supplied by an untrusted caller. The output never authorizes notification
+or an external action. It is not the default detector. Study80 verified the
+Romanian study79 artifact against 200 cached outputs from actual installed neural
+runtimes: zero changed decisions and zero score difference. Ukrainian qualification
+and reserved evaluation remain incomplete; this is not a stable v9 release.

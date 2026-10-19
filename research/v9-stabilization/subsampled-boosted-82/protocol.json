@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-19T00:29:13.859051+00:00",
+  "language": "uk",
+  "features": "All121 three-expert features; square-root feature subsampling per tree split.",
+  "motivation": "Semantic-only81 recovers conversational concerns but causes excessive false alerts. Feature subsampling tests less binary-score dominance while retaining its discrimination.",
+  "configs": "depth2/3 by leaf10/20;200trees;lr.05;seed982;five connected development folds",
+  "threshold": "Full OOF and refitted development concern coverage; calibration never selects threshold",
+  "calibration_reused": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false
+}

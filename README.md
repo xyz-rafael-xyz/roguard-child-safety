@@ -23,6 +23,13 @@ workflow; the language-model accuracy gates remain open. [V9 scope, usage and
 measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_STABILIZATION.md)
 track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
 
+**Latest v9 qualification progress:** a Romanian three-model candidate passes
+its development and reused synthetic calibration count gates, with zero missed
+calibration concerns and 3.75%/2.88% formal/conversational false reviews. Its
+installed report-combination replay matches all 200 checked decisions and scores.
+Ukrainian conversational recall still fails qualification; v9 is not the default.
+[Results, follow-up experiments and limits](docs/V9_STABILIZATION.md#conservative-boosted-candidate-and-installed-runtime).
+
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
 
 **RoGuard 7.1 reduces Romanian and Ukrainian false alerts.** The latest patch, **7.1.1**, also fixes negated phrase matches in the bounded language rules. The joint context model was retrained and recalibrated, with explicit topic-shift checks, separate rule evidence and clearer uncertainty labels. On the original synthetic regression set, benign review requests fell from 20/126 to 1/126 in Romanian and 29/126 to 2/126 in Ukrainian, while retaining all 90 checked non-quoted concerns per language. Remaining errors and all rejected candidates are documented; these are not real-world accuracy claims. [Full results and limits](docs/V7_1_RELEASE.md).

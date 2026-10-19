@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-19T00:27:39.784166+00:00",
+  "language": "uk",
+  "motivation": "29 shared calibration misses between native22 and boosted78 suggest dominance of the direct binary score.",
+  "features": "85 native/interpreter probabilities, argmax onehots and same-class probability products; exclude binary score, logit, and all score interactions.",
+  "configs": "Same four depth/leaf configurations as78;100 trees; fixed seed978; connected five folds.",
+  "threshold": "Full development concern coverage, including OOF and refitted scores. Never fitted to calibration.",
+  "calibration_reused": true,
+  "reserved_probes_used": false,
+  "stable_release_ready": false,
+  "preflight_correction": "Initial prepare stopped before fitting: fixed a hard-coded dimension assumption to derive widths from ontology (17 classes, 121 parent / 85 semantic features)."
+}

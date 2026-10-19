@@ -991,3 +991,50 @@ this experiment, so its calibration result remains reused regression evidence.
 The user resumed near the original 12-hour boundary. A recorded 30-minute
 completion window allows the active evaluation and queued installed checks to
 finish; the original schedule is preserved. Accuracy gates were not changed.
+
+### Conservative boosted candidate and installed runtime
+
+Study78 combined three fixed experts using shallow boosted trees. Study79 kept
+those fitted trees and selected a threshold covering every development concern
+in both out-of-fold and refitted scores. Calibration diagnosis motivated the
+experiment, but calibration scores did not select the threshold.
+
+| Study | Language | Formal misses / 614 | Formal false reviews / 1,386 | Conversational misses | Conversational false reviews |
+| --- | --- | --- | --- | --- | --- |
+| boosted-fusion-78 | RO | 10 | 0 | 0 / 216 | 3 / 243 |
+| boosted-fusion-78 | UK | 6 | 1 | 26 / 164 | 1 / 223 |
+| conservative-boosted-79 | RO | 0 | 52 | 0 / 216 | 7 / 243 |
+| conservative-boosted-79 | UK | 0 | 10 | 19 / 164 | 2 / 223 |
+
+The Romanian study79 candidate passes the unchanged development and calibration
+count gates. Its calibration false-review rates are 3.75% formal and 2.88%
+conversational, with no missed concerns. These are reused synthetic calibration
+results, not independent or real-world accuracy estimates.
+
+Study80 built and installed a wheel containing the explicit three-model report
+combiner. Across 200 Romanian cases, combining cached actual installed neural
+outputs produced zero decision changes and zero score difference from research.
+The screen missed no concerns and falsely reviewed one conversational benign
+case. Component identity/input binding and tree validation have dedicated tests.
+This is a report-combination API, not a bundled automatic three-model pipeline.
+
+The full installed interpreter screen30 and assurance replay37 completed.
+Installed two-expert fusion38 also completed; reserved fusion42 was skipped
+because bilingual qualification failed. Reserved neural inputs remain unopened.
+Ukrainian conversational recall still blocks stable v9 promotion.
+
+### Ukrainian follow-up controls
+
+Study81 excludes the binary score and all score interactions, retaining 85
+semantic features. It recovers all conversational calibration concerns, but
+falsely reviews 38/223 benign conversational cases and 296/1,386 formal cases;
+it also misses 22/614 formal concerns. A feature-invariance test verifies that
+changing the excluded binary features cannot change its input vector.
+
+Study82 retains all 121 features and samples a square-root-sized feature subset
+at each tree split. Four depth/leaf settings use the same connected folds, 200
+trees, and full development concern coverage. Calibration has 0/614 formal misses
+and 11/1,386 formal false reviews; conversational results are 18/164 misses and
+2/223 false reviews. It therefore fails the recall gate. Neither follow-up is
+promoted. Both reuse calibration for diagnosis and introduce no new neural
+training or reserved predictions.
