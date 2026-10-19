@@ -2118,3 +2118,31 @@ only. Each language retains its study143 classifier unless the same development
 objective strictly improves. Both studies are queued after the full native
 encoder and its installed verification, before the next conversational encoder.
 No expanded-training accuracy result is claimed at preparation time.
+
+### Contextual complementarity and expanded scope gate (studies146–147)
+
+Study146 compares the fixed study131 encoder and study143 semantic classifier
+using probability and logit blends at five predeclared weights. Inputs, labels
+and development groups are checked for identity before combining predictions.
+Neither language passes every development gate. The selected Ukrainian blend
+misses no positives and has 56/1,413 formal, 9/223 conversational, 11/90 scope
+and zero stress false reviews. Romanian still fails formal and scope checks.
+Five numerical tests cover the blend calculation and invalid scores.
+
+Study147 revisits the quotation-abstracted scope classifier from study10 with
+the expanded training corpus: 14,156 Romanian and 14,913 Ukrainian inputs.
+It learns applicability separately from concern content, preserving text outside
+closed quotations. Three regularization settings and three powers are compared
+with each fixed baseline on development. Full normalized training inputs have
+zero protected overlap. Shared abstracted scope frames are counted explicitly;
+their reuse does not establish generalization to new phrasing. No hand-written
+decision rule is added for the observed development errors.
+
+The selected Ukrainian candidate passes all four development groups: four
+formal misses and 24/1,413 formal false reviews; no conversational misses and
+5/223 false reviews; no scope misses and 4/90 false reviews; no stress misses
+or false reviews. Its gate uses C=0.1 and power2 with the study146 blend.
+Independent numeric reconstruction matches every development score exactly.
+Romanian still fails, with two formal misses and 264/1,413 formal, 4/242
+conversational and 11/90 scope false reviews. Calibration, installed execution
+and the reserved population have not qualified these candidates for release.
