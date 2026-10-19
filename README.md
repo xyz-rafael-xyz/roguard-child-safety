@@ -1,7 +1,7 @@
 # RoGuard — Romanian and Ukrainian child-safety research toolkit
 
 [![Total Downloads](https://static.pepy.tech/badge/roguard-child-safety)](https://pepy.tech/project/roguard-child-safety)
-[![GitHub stars](https://img.shields.io/github/stars/xyz-rafael-xyz/roguard-child-safety?color=b8a5ff)](https://github.com/xyz-rafael-xyz/roguard-child-safety/stargazers)
+
 
 [![CI](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/roguard-child-safety?color=7ee4c6)](https://pypi.org/project/roguard-child-safety/)
