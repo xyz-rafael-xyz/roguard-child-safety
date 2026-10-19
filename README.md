@@ -16,37 +16,57 @@
 
 **[Watch the RoGuard v6 walkthrough](media/roguard-demo.mp4)** · [Transcript and demo evidence](docs/DEMO_VIDEO.md) · Fictional examples; actual v6 outputs.
 
-**RoGuard 9 alpha: decision assurance.** Preserve joint interpretations across
-models, compute an optimal adaptive reviewer-question plan, and verify reports
-bound to their context, models and policy. Includes a local CLI, Romanian/Ukrainian
-reviewer labels and actual evidence-model integration. This is a new experimental
-workflow; the language-model accuracy gates remain open. [V9 scope, usage and
-measurements](docs/V9_ASSURANCE.md). [Stable qualification experiments](docs/V9_STABILIZATION.md)
-track the accuracy work required before v9 becomes the default release. The current source checkout also includes a [local Romanian/Ukrainian clarification workspace](docs/V9_ASSURANCE.md#local-clarification-workspace-current-source-checkout).
+## RoGuard 9.0: local review and decision assurance
 
-**Latest v9 qualification progress:** continuation training now yields zero
-errors across all 6,341 synthetic development cases and all 14 language/group
-checks. The work adds context-grounding contrasts and a verified repair for
-inconsistent grouped training gradients. The separate 5,022-case prior audit
-passed all Romanian groups (zero misses, two false alerts), but found 23 missed
-Ukrainian formal concerns. A development-only checkpoint comparison selected a
-later Ukrainian checkpoint with the same zero errors and a wider score gap.
-Its prior audit reduced Ukrainian formal misses from 23 to 9, still below the
-99% recall gate. The completed Ukrainian continuation adds separately authored
-reported-support contrasts and a disjoint development wording set; Romanian is
-retained. The new prior audit passed all six language/group checks: Romanian
-had zero misses and two exposed false alerts; Ukrainian had zero errors across
-all 2,475 cases. Installed-model comparison is now running across the same 5,022
-prior cases; the untouched reserved test follows only after parity passes.
-The clean installed wheel
-passes 46 runtime/installer tests. V9 remains experimental; stable installations
-select 7.1.1. Synthetic development results do not establish real-world accuracy.
-[Training method](docs/V9_SHARED_ATTENTION.md)
-· [Results and remaining checks](docs/V9_STABILIZATION.md#completed-grounding-continuation).
+V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
+review proposals, and an adaptive clarification planner. Trainable attention
+adapters use a frozen Gemma 4 body; recorded numerical checks bind training,
+installed inference and the release package to the same model. Review proposals
+remain separate from permission and external-action decisions.
 
-**RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The stable v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
+Install or upgrade the stable toolkit (Python 3.9–3.14):
 
-**RoGuard 7.1 reduces Romanian and Ukrainian false alerts.** The latest patch, **7.1.1**, also fixes negated phrase matches in the bounded language rules. The joint context model was retrained and recalibrated, with explicit topic-shift checks, separate rule evidence and clearer uncertainty labels. On the original synthetic regression set, benign review requests fell from 20/126 to 1/126 in Romanian and 29/126 to 2/126 in Ukrainian, while retaining all 90 checked non-quoted concerns per language. Remaining errors and all rejected candidates are documented; these are not real-world accuracy claims. [Full results and limits](docs/V7_1_RELEASE.md).
+```sh
+pip install --upgrade roguard-child-safety
+```
+
+For the optional model, use native Apple Silicon and Python 3.12 or later
+(validated on 3.12), in a separate environment from the older model extras:
+
+```sh
+pip install --upgrade "roguard-child-safety[gemma4]"
+roguard-fetch fetch
+roguard-review --language ro --text "Mă ajuți să înțeleg exercițiul?"
+roguard-review --language uk --text "Допоможеш розібратися із завданням?"
+```
+
+The explicit download verifies pinned model files; the base is about 5.18 GB.
+Inference then runs locally. Load once through the Python API for repeated work.
+The older Studio model screens retain their documented backends; use
+`roguard-review` or the new Python interface for this model.
+
+The first neural evaluation of the reserved 600 synthetic cases passed the unchanged 99% recall and 5% false-review limits in both languages. The installed package also reproduced all 5,022 prior scores exactly. Those prior cases had zero missed concerns and two Romanian false alerts; all six language/group checks passed. Development selection used 6,341 cases and had zero errors across 14 groups.
+
+| Language | Reserved cases | Missed concerns | False reviews | Recall | False-review rate |
+|---|---:|---:|---:|---:|---:|
+| Romanian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+| Ukrainian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+
+These measurements use project-authored synthetic inputs. They do not establish
+real-world child-language accuracy or measured human benefit. A review proposal
+does not verify an event, and a negative result cannot close an earlier concern.
+The auxiliary interpretation heads have no separate accuracy qualification.
+
+[Model setup, conversation examples and Python API](docs/V9_MODEL.md) ·
+[Decision assurance and review UI](docs/V9_ASSURANCE.md) ·
+[Training method](docs/V9_SHARED_ATTENTION.md) ·
+[Complete experiments and release evidence](docs/V9_STABILIZATION.md)
+
+## Earlier workflows retained in v9
+
+**RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The older v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
+
+**RoGuard 7.1 reduces Romanian and Ukrainian false alerts.** Its **7.1.1** patch also fixes negated phrase matches in the bounded language rules. The joint context model was retrained and recalibrated, with explicit topic-shift checks, separate rule evidence and clearer uncertainty labels. On the original synthetic regression set, benign review requests fell from 20/126 to 1/126 in Romanian and 29/126 to 2/126 in Ukrainian, while retaining all 90 checked non-quoted concerns per language. Remaining errors and all rejected candidates are documented; these are not real-world accuracy claims. [Full results and limits](docs/V7_1_RELEASE.md).
 
 **RoGuard 7: conversation evidence review.** An optional jointly trained Romanian/Ukrainian model proposes current/past, other-person, quotation, correction and uncertainty interpretations, with turn references and a separate concern-mention prediction. A local review screen, authenticated analysis endpoint and tutoring integration connect those proposals to source-linked permissions. **Experimental: synthetic evidence only, with remaining Ukrainian and calibration errors.** [Try the workflow](docs/CONTEXT.md) · [Training iterations and results](docs/V7_RELEASE.md).
 
@@ -96,10 +116,10 @@ family-holdout benchmark, bilingual interpretation summaries, and an evaluator
 that reports abstentions alongside accuracy. These development changes do not
 replace the published model. [Study and usage](docs/CONTEXTUAL_MODEL_STUDY.md).
 
-## Why v8 is still a prerelease
+## Historical v8 model limits
 
-Version **8.0.0rc2** is published; **7.1.1** remains the stable installation.
-The remaining v8 gate is model accuracy. Further language-specific training
+Version **8.0.0rc2** remained a prerelease because its model accuracy gates did not pass.
+V9 qualifies a different optional model; these older model results remain historical evidence. Further language-specific training
 improved some development results but did not meet the registered targets:
 at least 99% concern recall and at most 5% benign false reviews in each
 Romanian/Ukrainian formal/conversational group. The latest Romanian candidate's
@@ -107,9 +127,9 @@ calibration false-review rates are 17.6% formal and 18.9% conversational;
 the latest Ukrainian candidate's calibration recall is 90.4% and 95.7%.
 These experimental weights are not included in the published runtime.
 
-Stable promotion requires passing those targets, then checking the reserved fresh
-evaluation and the integrated runtime. All current measurements use synthetic
-inputs. Passing software CI does not establish model accuracy.
+The v9 model passed its development, prior, reserved and installed-runtime checks
+under the same observed-count targets. All measurements use synthetic inputs.
+Passing software CI does not establish model accuracy.
 [Training results and release checks](docs/V8_CONTEXT_INTERVENTIONS.md).
 
 ## Install and try it
@@ -120,21 +140,13 @@ Install or upgrade to the **latest stable PyPI release** in one command (Python 
 pip install --upgrade roguard-child-safety
 ```
 
-**Want the latest experimental preview?** Stable installs currently select
-7.1.1. Pip excludes prereleases by default. Opt in with:
-
-```sh
-pip install --upgrade --pre roguard-child-safety
-roguard-studio --evidence --open
-```
-
-The experimental interpretation model still has missed concerns and false
-alerts; passing software tests does not establish classifier accuracy. See the
-[measured v8 results](docs/V8_PREVIEW.md) and
-[stabilization work](docs/V8_STABILIZATION.md). For its optional semantic model,
-use `pip install --upgrade --pre 'roguard-child-safety[adapted]'`, then
-`roguard-model fetch` and `roguard-studio --evidence --evidence-backend guarded --open`.
-Guarded mode preserves the older model's review signals and can add false alerts.
+The v9 model is an explicit optional download; see the setup above. The older
+experimental evidence workflow remains available with `roguard-studio --evidence --open`.
+For its optional backend, use a separate environment with
+`pip install --upgrade 'roguard-child-safety[adapted]'`, then `roguard-model fetch`
+and `roguard-studio --evidence --evidence-backend guarded --open`.
+Its [historical measured limits](docs/V8_PREVIEW.md) still apply; guarded mode
+preserves the older model's review signals and can add false alerts.
 
 Open the new local interaction laboratory:
 

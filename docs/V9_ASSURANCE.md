@@ -1,17 +1,16 @@
-# V9 alpha: decision assurance
+# V9 decision assurance
 
-Version **9.0.0a1** adds a local assurance workflow to the existing toolkit. It is
-an alpha, not stable v9.0. The language-model promotion gates remain open. The
-existing models are retained; this release does not claim better text accuracy.
-[Acceptance plan](V9_PLAN.md) · [Previous model experiments](CONTEXTUAL_MODEL_STUDY.md).
+RoGuard **9.0.0** includes a local assurance workflow, bilingual clarification
+labels, a local review workspace and a report-to-planner bridge. The new optional
+review model has its own [qualification and setup guide](V9_MODEL.md).
+[Acceptance plan](V9_PLAN.md) · [Previous experiments](CONTEXTUAL_MODEL_STUDY.md).
 
-The current source checkout additionally provides an experimental local
-six-field interpreter and a report-to-planner bridge. The bridge verifies the
-conversation, focal turn, configured model identities and interpretation
+The retained six-field interpreter remains experimental. Its bridge verifies
+the conversation, focal turn, configured model identities and interpretation
 contract before constructing a joint-hypothesis plan. Invalid output preserves
-all possible interpretations. These additions are undergoing installed-runtime
-validation and are not part of the published alpha. See the
-[interpreter setup and integration guide](INTERPRETER_RUNTIME.md).
+all possible interpretations. Qualifying the new binary review model does not
+establish accuracy for every interpreter field or older model backend.
+See the [interpreter integration guide](INTERPRETER_RUNTIME.md).
 
 ## What changes
 
@@ -37,7 +36,7 @@ available question sequence resolves the action, the result is `UNRESOLVED`.
 
 ## Try it
 
-Install the available preview with `pip install --upgrade --pre roguard-child-safety`.
+Install the stable release with `pip install --upgrade roguard-child-safety`.
 From a repository checkout, run the included fictional examples:
 
 ```sh
@@ -104,15 +103,16 @@ Two seeds cover **20,000 structural cases** and **178,586
 world paths**, with zero leaf or cost mismatches. Optimal plans improve over the
 greedy baseline in **3,338 cases**, are worse in none,
 and reduce aggregate declared worst-case cost by **7.71%**.
-The full software suite passes 479 tests, with 14 private-artifact tests skipped.
+The original assurance-alpha software suite passed 479 tests, with 14 private-artifact tests skipped; these counts describe that recorded study.
 Results and source hashes live in `research/v9-assurance/`. Generated structural
 worlds are not child messages. Cost comparisons use an explicitly defined
 cost-aware, one-step action-ambiguity greedy baseline. They are neither a reviewer
 usability study nor evidence that the hypothesis set includes the truth.
 
-Stable language-model promotion still requires >=99% concern recall and <=5%
-benign review per language and formal/conversational group, then reserved fresh
-evaluation and integrated runtime checks. V9 does not remove those requirements.
+The optional v9 review model passed the unchanged >=99% concern recall and
+<=5% benign-review gates, followed by reserved evaluation and installed-runtime
+checks. See the [separate model record](V9_MODEL.md); the assurance solver itself
+does not establish language-model accuracy.
 
 ## Research position
 
@@ -124,9 +124,9 @@ and [OPA decision logs](https://www.openpolicyagent.org/docs/management-decision
 No first-of-kind, conformal coverage, real-world accuracy or Eastern European
 market-leadership claim is made.
 
-## Localized answer choices in the source checkout
+## Localized answer choices
 
-The current checkout includes a display helper for Romanian and Ukrainian
+V9 includes a display helper for Romanian and Ukrainian
 reviewers. It supplies localized questions and answer labels while retaining
 the certificate's exact branch codes and parent binding:
 
@@ -158,12 +158,11 @@ permission for an external action.
 
 These are project-authored interface labels, not a new independent linguistic
 review. Four tests cover bilingual code coverage, exact branch/binding retention,
-unchanged certificates and tampered-input rejection. The helper is currently a
-source-checkout addition, not part of the published alpha.
+unchanged certificates and tampered-input rejection. The helper is included in v9.0.0.
 
-## Local clarification workspace (current source checkout)
+## Local clarification workspace
 
-After installing this checkout with `pip install -e .`, open the local review UI:
+After installing RoGuard, open the local review UI:
 
 ```sh
 python -m roguard.studio --review --open

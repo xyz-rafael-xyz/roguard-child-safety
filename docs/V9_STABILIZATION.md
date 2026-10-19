@@ -1,7 +1,8 @@
 # V9 stable qualification work
 
-The release target is a default stable v9 installation. Publication of the
-assurance alpha does not satisfy that target. The language-model gates remain
+The final v9 model passed development, prior regression, installed-runtime and
+first-use reserved evaluation. See the [release model guide](V9_MODEL.md).
+This document retains the complete experimental history, including rejected candidates. The language-model gates remain
 at least 99% concern recall and at most 5% benign review in each language and
 formal/conversational group, followed by fresh evaluation and integrated checks.
 
@@ -2872,3 +2873,24 @@ estimate of generalization.
 
 All these populations are synthetic; no new independent human language review
 or measured real-world performance is claimed.
+
+
+## Completed installed and reserved qualification
+
+The first neural evaluation of the reserved 600 synthetic cases passed the unchanged 99% recall and 5% false-review limits in both languages. The installed package also reproduced all 5,022 prior scores exactly. Those prior cases had zero missed concerns and two Romanian false alerts; all six language/group checks passed. Development selection used 6,341 cases and had zero errors across 14 groups.
+
+| Language | Reserved cases | Missed concerns | False reviews | Recall | False-review rate |
+|---|---:|---:|---:|---:|---:|
+| Romanian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+| Ukrainian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+
+Installed198 reproduced all prior scores exactly through the clean installed
+wheel. Reserved199 then opened the protected 600-case test for its first neural
+evaluation, with weights, modes and cutoffs fixed. Its global first-access ledger
+is retained. The test is synthetic, not analyst-blind or independently annotated;
+combinatorial cases are not independent observations. No real-world accuracy or
+measured human benefit follows from these results.
+
+[Installed report](../research/v9-stabilization/reported-tail-installed-198/actual/report.json) ·
+[Reserved report](../research/v9-stabilization/reported-tail-reserved-199/actual/report.json) ·
+[Release wheel equivalence](../research/v9-stabilization/stable-release-200/wheel-equivalence.json).

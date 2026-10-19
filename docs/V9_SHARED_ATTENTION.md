@@ -1,4 +1,7 @@
-# Training the v9 shared-attention candidate
+# Training the v9 shared-attention model
+
+The final profile and measured release results are in the [v9 model guide](V9_MODEL.md).
+The initial experiment below is followed by the documented grounding and reported-support continuation.
 
 This experiment adapts a quantized Gemma 4 E4B model for Romanian and Ukrainian
 review proposals on a 16 GB Apple Silicon machine. It uses the model's shared

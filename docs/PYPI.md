@@ -1,64 +1,49 @@
 # RoGuard — Romanian and Ukrainian interaction testing and guardrails
 
-RoGuard 7.1 provides a local bilingual laboratory for fictional AI interactions, source-linked permissions, minimum necessary disclosure, decision consistency and useful-task preservation. It includes an optional semantic text classifier and the existing declared-contract checks.
+RoGuard combines local model review with explicit permission checks and a laboratory for fictional AI interactions. Developers can test whether a system preserves source restrictions, respects revocation, requests human review and still completes permitted tasks. The browser and CLI simulate actions; external execution requires separately configured host callbacks and live approval checks.
 
-V7 adds an experimental, jointly trained conversation-context model, turn-reference review, separate concern-mention predictions, and permission-aware extractive tutoring proposals. [Context workflow and measured limitations](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/CONTEXT.md).
-
-Patch 7.1.1 also corrects negated support/solitude matches in the bounded language rules. Version 7.1 retrains and recalibrates the joint context model, reduces synthetic Romanian/Ukrainian benign review requests, and adds separately reported language signals and clearer uncertainty handling. Errors remain, including frame-classification errors. [Measured improvements and limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_1_RELEASE.md).
-
-## Version 9 alpha: decision assurance
-
-V9 adds correlated hypothesis preservation, optimal adaptive clarification under
-explicit reviewer costs, recomputable context/model/policy-bound certificates,
-and guarded reviewer-answer handling. `roguard-assure` works locally without new
-runtime dependencies. It integrates the existing experimental evidence model;
-it does not establish a new language-accuracy result or authorize actions.
-[Usage and measured limits](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_ASSURANCE.md).
-
-Stable installation still selects 7.1.1. Use `pip install --upgrade --pre
-roguard-child-safety` to opt into available experimental releases.
-
-## Retained version 8 experimental workspace
-
-The optional evidence workspace adds six interpretation attributes, bounded
-contextual modeling, a conservative model cascade, candidate statement links,
-host-reviewed revisions, exact action uncertainty analysis, and permission-aware
-response proposals. It is a research preview, not a validated replacement for the
-stable v7 model. Existing defaults remain available.
-
-```sh
-pip install --upgrade --pre roguard-child-safety
-roguard-studio --evidence --open
-```
-
-For the optional adapted semantic evidence model, install the `adapted` extra,
-run `roguard-model fetch`, and use `--evidence-backend guarded` to retain the released model’s review signals. Models are
-experimental and trained on fictional data. [Preview results and limitations](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V8_PREVIEW.md).
-
-Preview 8.0.0rc2 fixes Unicode and whitespace consistency, UTF-8 file input on
-Windows, bounded denial and pet-food rules, assertion labels, and preservation of
-entered conversations when switching language. These are runtime repairs; the
-bundled experimental model weights are unchanged. [Repair measurements](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V8_REPAIRS.md).
-
-## Install and open
+## Install
 
 ```sh
 pip install --upgrade roguard-child-safety
-roguard-studio --reliability --open
 ```
 
-The core package has no runtime dependencies and supports Python 3.9–3.14. The browser and CLI simulate actions; they do not contact guardians or execute external tools. A separately configured Python gateway can call trusted host callbacks after live policy and approval checks.
+The core toolkit has no runtime dependencies and supports Python 3.9–3.14 on macOS, Linux and Windows.
 
-V6 also adds authenticated tenant APIs, encrypted durable permissions and one-attempt queued execution, metadata-only monitoring/OpenTelemetry, overlapping long-context analysis, and permission-aware repair. Optional extras: `gateway`, `observability`, `adapted`. [Integration guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/RELIABILITY.md).
+```sh
+roguard-studio --reliability --open
+roguard-studio --review --open
+```
 
-## What you can do
+## V9 local model review
 
-- Replay branching fictional scenarios against programmed references, recorded responses or your own explicit Python adapter.
-- Identify the first failing step and reduce a scenario with a bounded replay budget.
-- Retain source restrictions through summaries, proposed memory and tool results.
-- Compute the exact minimum declared disclosure cost while covering required task fields.
-- Test decision invariance and required policy transitions, retaining uncertainty.
-- Compare permitted-task completion, unnecessary refusal and unauthorized proposals/deliveries.
+The optional v9 model proposes whether a Romanian or Ukrainian focal message needs review under the project's declared policy. It uses earlier turns to distinguish an ordinary topic change, a support signal and a revision of an earlier statement. Review is a proposal, not a finding that an event occurred or permission to contact anyone.
+
+This model requires native Apple Silicon and Python 3.12 or later. In a separate virtual environment:
+
+```sh
+pip install --upgrade "roguard-child-safety[gemma4]"
+roguard-fetch fetch
+roguard-review --language ro --text "Mă ajuți să înțeleg exercițiul?"
+roguard-review --language uk --text "Допоможеш розібратися із завданням?"
+```
+
+The explicit download fetches pinned, checksummed model files. The base is approximately 5.18 GB; subsequent inference is local. Keep disk space for the installed base and a verified private loading copy. For applications, load the model once and reuse it. [Installation, conversation input and Python API](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_MODEL.md).
+
+The first neural evaluation of the reserved 600 synthetic cases passed the unchanged 99% recall and 5% false-review limits in both languages. The installed package also reproduced all 5,022 prior scores exactly. Those prior cases had zero missed concerns and two Romanian false alerts; all six language/group checks passed. Development selection used 6,341 cases and had zero errors across 14 groups.
+
+| Language | Reserved cases | Missed concerns | False reviews | Recall | False-review rate |
+|---|---:|---:|---:|---:|---:|
+| Romanian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+| Ukrainian | 300 | 0/150 | 0/150 | 100.00% | 0.00% |
+
+Measurements describe project-authored synthetic inputs. They do not establish accuracy on real children's messages or measured human benefit. Scores are not calibrated safety probabilities. A negative prediction cannot close a concern; an overlong input requests clarification, and malformed model output is rejected. The binary review task is qualified separately from the auxiliary interpretation heads.
+
+## Decision assurance
+
+V9 preserves complete supplied interpretation hypotheses, computes an optimal adaptive clarification tree under declared reviewer costs, and verifies reports bound to their context, model identities and policy. Romanian and Ukrainian question labels and a local clarification workspace are included. The guarantee applies to the supplied finite problem; it does not establish that the true interpretation is among the supplied hypotheses. [Assurance guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_ASSURANCE.md).
+
+## Test an application
 
 ```sh
 roguard-lab demo --language uk --family revocation --target stale
@@ -66,24 +51,16 @@ roguard-lab compare --language ro
 roguard-lab suite --fail-on-failure
 ```
 
-For the new adapted text classifier, use Python 3.10+ (tested on 3.12):
+- Replay branching fictional scenarios against programmed references, recorded responses or an explicit Python adapter.
+- Find the first failing step and reduce a scenario within a bounded replay budget.
+- Preserve source restrictions through summaries, proposed memory and tool results.
+- Minimize declared disclosure cost while covering required task fields.
+- Compare permitted-task completion, unnecessary refusal and unauthorized proposals or deliveries.
 
-```sh
-pip install --upgrade 'roguard-child-safety[adapted]'
-roguard-model fetch
-roguard-studio --conversation --open --backend adapted
-```
+Authenticated tenant APIs, encrypted durable permissions, one-attempt queued execution and metadata-only monitoring are available through optional integration extras. Host declarations and callback code remain trusted inputs. [Integration guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/RELIABILITY.md).
 
-The pinned model download is approximately 1.2 GB; subsequent inference is local. V6 adds a LoRA-adapted encoder and calibrated abstention while retaining older backends. Its final test contains only six synthetic phrase families per language; no real-world child-language accuracy is established. Laboratory reference scores demonstrate controlled software behavior, not AI reasoning or human benefit. Provenance, coverage, costs and authority are host declarations; callback code is trusted, not sandboxed. Reduced scenario exports contain their input text.
+## Retained experimental backends
 
-[GitHub and full README](https://github.com/xyz-rafael-xyz/roguard-child-safety) · [Interaction guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/INTERACTION_LAB.md) · [v5 evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V5_RELEASE.md) · [Classifier evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V4_RELEASE.md)
+The older Studio conversation, context and evidence screens retain their documented backends; they do not automatically use the new Gemma 4 model. The `semantic` and `adapted` extras require a different Transformers major version and belong in a separate environment from `gemma4`. Their historical model limitations remain documented. [Context workflow](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/CONTEXT.md) · [Evidence workspace](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/EVIDENCE.md).
 
-## Context evidence review (v7, experimental)
-
-```sh
-pip install --upgrade 'roguard-child-safety[adapted]'
-roguard-model fetch
-roguard-studio --context --context-backend joint --open
-```
-
-The two prediction heads distinguish conversational framing from whether a concern is mentioned. Candidate references identify whole turns, not verified evidence spans. Training and tests are fictional; actual child-language accuracy and benefit are not established. Ukrainian interpretation errors and abstentions remain. Source permissions and human approvals stay independent of model outputs. [Full v7 evidence](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V7_RELEASE.md).
+[GitHub and full README](https://github.com/xyz-rafael-xyz/roguard-child-safety) · [Training method](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_SHARED_ATTENTION.md) · [Evaluation record](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_STABILIZATION.md)
