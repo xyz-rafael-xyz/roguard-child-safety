@@ -1,0 +1,22 @@
+{
+  "study": 137,
+  "parent": "Selected133 native checkpoints",
+  "conditional": "Only after123/125/128/131/133fail prior accuracy gates and134installed audit completes",
+  "data": "Complete133corpus plus135indirect distress and136authored conversational scope",
+  "expected_training_rows": {
+    "ro": 14156,
+    "uk": 14913
+  },
+  "seed": 1137,
+  "epochs": 2,
+  "top_learning_rate": 5e-06,
+  "layer_decay": 0.85,
+  "trainable": "Every encoder, embedding, pooler and classifier parameter",
+  "objective": "Paired crossentropy including135/136opposed pairs and original replay",
+  "selection": "Per-group99%recall-constrained DEV selection; worst FP rate, sum rates, total misses",
+  "calibration": "Audit only after selection",
+  "fresh600": "No training inference; token-exclude from inherited history and continuation corpus",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "release_gates_unchanged": true
+}

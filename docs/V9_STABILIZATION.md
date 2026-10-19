@@ -1837,3 +1837,19 @@ with protected evaluation, reserved cases, inherited training, or additions
 synthetic examples, with no independent annotation or clinical validation.
 No neural inference or training is part of preparation; studies131–134 are
 unchanged and study136 has no accuracy result.
+
+Studies137–138 queue the use of those two new data sets only if the existing
+candidates fail and study134 finishes. Study137 retains the selected study133
+weights and complete corpus, then adds all 1,332 new examples per language from
+studies135–136. Expected totals are 14,156 Romanian and 14,913 Ukrainian training
+rows. All encoder parameters remain trainable with the same layer-wise rates,
+paired objective, two epochs and development selection rule as study133; the
+new seed is 1137. This continuation tests the added content and conversational
+wording without changing the runtime or release thresholds.
+
+Study138 repeats full installed CPU verification and rejects any earlier access
+to the reserved test, including by study134. All fifteen shared native gate
+tests and five tests for the two new data sets pass. Both study source lists
+are frozen before execution. No study137 training or accuracy result is claimed
+at queue time, and any earlier qualifying candidate takes priority over this
+fallback.
