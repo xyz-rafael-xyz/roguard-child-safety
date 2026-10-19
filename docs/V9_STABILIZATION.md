@@ -1588,3 +1588,13 @@ exposed regression audits. Study126 checks every prior split through the
 installed CPU runtime before any conditional fresh evaluation. Its gate requires
 every language-specific group and rejects missing counts, incomplete runs and
 prior fresh-test access. Three focused gate tests pass.
+
+The entailment route also has a conditional full CPU replay after study124
+passes. The 40-case CPU smoke check is insufficient to establish accuracy for
+all cases on the default CPU runtime. The additional replay covers all nine
+prior populations and both already-opened fresh partitions, requires unchanged
+decisions, checks all three score fields within 0.001, and recomputes every
+accuracy group. It is a deployment verification, not a second first-use test.
+Two prerequisite tests verify that success flags cannot override missing or
+failing fresh counts. The final release package still needs an actual cached
+bundle/CLI check and byte-identical verified inference code.
