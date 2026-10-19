@@ -20,6 +20,11 @@ def load_bundle(path, *, expected_sha256, device='cpu'):
         raise ValueError('Bundle identity or size differs')
     spec=json.loads(raw)
     if not isinstance(spec,dict): raise ValueError('Expected a model bundle object')
+    if spec.get('format')=='roguard-gemma4-tail-review-bundle-v1':
+        if device!='mps':
+            raise ValueError('Gemma4 review requires --device mps on Apple Silicon')
+        from .gemma4_review import Gemma4ReviewModel
+        return Gemma4ReviewModel.from_bundle(path,expected_sha256=expected_sha256)
     if spec.get('format')=='roguard-qwen-review-bundle-v1':
         if device!='mps':
             raise ValueError('Qwen review requires --device mps on Apple Silicon')

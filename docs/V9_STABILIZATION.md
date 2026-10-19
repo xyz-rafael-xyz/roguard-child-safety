@@ -2483,3 +2483,21 @@ then replays every development decision before scoring prior populations. It
 does no fitting and does not access the reserved test. Three tests cover rejected
 incomplete/tampered candidates, exact declared-policy behavior and replay
 identity, label and decision binding. This runner has not yet qualified a model.
+
+### Installed Gemma4 adapter execution path
+
+An explicit experimental bundle loader now supports the shared-attention
+architecture without importing the research package. It pins the base files,
+software implementations, prompt and policy; copies verified model bytes into
+a private loader snapshot; checks the complete adapter/head inventory; and
+loads only finite float32 weights. Input batches are validated before inference,
+future turns are excluded, oversize inputs abstain, and conversation caches
+are discarded after each call. No model output authorizes notifications or
+external actions. No downloadable model or default profile is added.
+
+Eleven initial tests pass with the real MLX CPU implementation, including a
+small adapted-model comparison against full-sequence inference. A further
+bundle test checks device selection and path containment. The wheel builds and
+a separate installed-package fixture check passes without checkout imports.
+These are runtime engineering checks; actual trained-weight installed parity
+and language accuracy remain to be measured after qualification.
