@@ -111,10 +111,10 @@ The CLI can count A1 words locally when text is supplied; the cap still comes fr
 
 A **synthetic abstract card** is an invented description of annotation fields or policy facts, with no real or realistic child statement. A **complete one-fact pair** is a positive card and its minimally changed negative, both classified correctly. Those pairs measure an invented-card task, not accuracy on children's messages. When a professional has reporting duties, this software does not determine or replace them; follow applicable law, organizational policy, and qualified human judgment.
 
-**Contextual-model development:** whole-conversation instruction tuning, a paired
+**Earlier contextual-model development:** whole-conversation instruction tuning, a paired
 family-holdout benchmark, bilingual interpretation summaries, and an evaluator
-that reports abstentions alongside accuracy. These development changes do not
-replace the published model. [Study and usage](docs/CONTEXTUAL_MODEL_STUDY.md).
+that reports abstentions alongside accuracy. These earlier candidates are separate
+from the qualified v9 profile above. [Study and usage](docs/CONTEXTUAL_MODEL_STUDY.md).
 
 ## Historical v8 model limits
 

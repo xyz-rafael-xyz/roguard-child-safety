@@ -1,13 +1,14 @@
 # Experimental local interpreter API
 
-This source-checkout API runs an explicitly selected v9 structured adapter on
-Apple Silicon with the `mlx` extra. It is under validation. It does not change
-the stable installation or establish that the release accuracy requirements
-have been met. The current interpreter-14 result is 371/400 on a reused
-development screen; several language/stratum requirements still fail.
+This retained experimental API runs an explicitly selected structured adapter
+on Apple Silicon with the `mlx` extra. Its code is included in v9.0.0, but its
+six-field model is not the qualified v9 binary review model. For the released
+review profile, use the [v9 model guide](V9_MODEL.md). The historical
+interpreter-14 result is 371/400 on a reused development screen; several of its
+language/stratum requirements still fail.
 
-The source-checkout components follow this data flow. The learned fusion fit
-and installed neural checks are still pending:
+These experimental components follow this data flow. Their historical fusion
+and interpreter studies have separate qualification records:
 
 ```mermaid
 flowchart TD

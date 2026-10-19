@@ -115,7 +115,7 @@ The reserved test was opened only after development, prior and installed-runtime
 
 [Selected checkpoints](../research/v9-stabilization/reported-tail-fit-196/actual/report.json) · [Prior regression](../research/v9-stabilization/reported-tail-prior-197/actual/report.json) · [Installed runtime](../research/v9-stabilization/reported-tail-installed-198/actual/report.json) · [First reserved evaluation](../research/v9-stabilization/reported-tail-reserved-199/actual/report.json) · [Release equivalence](../research/v9-stabilization/stable-release-200/wheel-equivalence.json).
 
-The immutable profile is `v9-gemma4-20261019`; `v9` selects the same manifest. Its SHA-256 is `90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb`. The release wheel must preserve all 156 qualified package files byte for byte, adding only the download manifest and profile catalog. [Training method and numerical checks](V9_SHARED_ATTENTION.md).
+The immutable profile is `v9-gemma4-20261019`; `v9` selects the same manifest. Its SHA-256 is `90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb`. The release wheel preserves all 156 qualified package files byte for byte, adding only the download manifest and profile catalog. [Training method and numerical checks](V9_SHARED_ATTENTION.md).
 
 ## Recompute the published benchmark
 
