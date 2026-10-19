@@ -1598,3 +1598,29 @@ accuracy group. It is a deployment verification, not a second first-use test.
 Two prerequisite tests verify that success flags cannot override missing or
 failing fresh counts. The final release package still needs an actual cached
 bundle/CLI check and byte-identical verified inference code.
+
+### Prepared grammatical-gender coverage intervention (study127)
+
+At study123's half-epoch checkpoint, development false reviews fell from
+723 to 328 on Romanian formal inputs and from 645 to 178 on Ukrainian formal
+inputs, with zero development misses. The broader scope cases still failed:
+21/90 Romanian and 35/90 Ukrainian negative examples were reviewed. The
+reported-fiction subgroup contributed 12 false reviews in each language. The
+training corpus contained no occurrences of the explicit feminine-character
+stems `eroin` or `героїн`. This is a coverage gap consistent with the errors;
+it does not prove that grammatical gender alone caused them.
+
+Study127 prepares 3,456 additional training examples, balanced across masculine
+and feminine fictional characters and real peers. Each language has 1,152
+concerning real/fiction contrasts and 576 ordinary-request examples, so real-peer
+wording alone does not imply concern. Quoted speech uses the corresponding
+grammatical forms. The content comes from study117's training partition; the
+framing is newly authored. Three focused tests check labels, pair completeness,
+balance, inflection and absence of copied protected examples.
+
+Separate entailment, Romanian and Ukrainian tokenizer audits found zero overlap
+with protected evaluation inputs or the existing training inputs. The added
+examples contain at most 112 entailment tokens or 72 native-encoder tokens.
+This intervention is prepared only; it has not been added to the running study123
+or the frozen study125 comparison. All examples remain project-authored
+synthetic data without independent annotation.
