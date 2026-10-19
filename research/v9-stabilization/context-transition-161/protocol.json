@@ -1,0 +1,60 @@
+{
+  "study": 161,
+  "created_utc": "2026-10-19T14:22:08.868367+00:00",
+  "counts": {
+    "ro_train": {
+      "rows": 864,
+      "labels": {
+        "1": 216,
+        "0": 648
+      },
+      "sha256": "a9a3e5953d9eb698c690ea1c87e3779b6561decf5a9578a771b7fe35be34193b"
+    },
+    "ro_dev": {
+      "rows": 144,
+      "labels": {
+        "1": 36,
+        "0": 108
+      },
+      "sha256": "41edd6f514a0638c67a99bb5b3c9b5457a1223a4d3bd435aa617c79bb1bc05f9"
+    },
+    "uk_train": {
+      "rows": 864,
+      "labels": {
+        "1": 216,
+        "0": 648
+      },
+      "sha256": "72b33a8624732ea258886b66a4832d1e3e3b921ad95ec05d1ce257091ca2c9f9"
+    },
+    "uk_dev": {
+      "rows": 144,
+      "labels": {
+        "1": 36,
+        "0": 108
+      },
+      "sha256": "6db46db96cd8c7a17d0ea973264f6ee529d6d6e3f8a8ee07c8b0cf9d9cf5f903"
+    }
+  },
+  "training_only": false,
+  "development_design": "Disjoint current-message bodies and framing; shared nuisance histories",
+  "design_informed_by": "Exposed158 context-switch error category; no failed-case wording copied",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "protected_token_overlap": 0,
+  "fresh_test_neurally_inferred": false,
+  "no_foundation_inference": true,
+  "source_input_sha256": {
+    "research/v9-stabilization/reason-coverage-123/candidate/ro_dev.jsonl.gz": "bb3b58d040c52475d82c7a4980c780333e670f24513e7bd36dedb22dae7d480a",
+    "research/v9-stabilization/reason-coverage-123/candidate/ro_scope_dev.jsonl.gz": "1ac6e51fecdc6c150523c5058e622e08374009710dbf471e836b4af4e67dd381",
+    "research/v9-stabilization/reason-coverage-123/candidate/ro_cal.jsonl.gz": "73cb785c71a89545043a5691565ce7830744e6929914d7b33f09b240276aab91",
+    "research/v9-stabilization/reason-coverage-123/candidate/ro_exposed.jsonl.gz": "5a0cddcba598c47350c926540ab621870ac211bbfc55fc342a8aa7a684e3d40d",
+    "research/v9-stabilization/paired-scope-117/data/ro-test.jsonl": "ff07b2e373969e0509769de7e3a907a3bf57952467ced6e153ff4abe6e0800f1",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_dev.jsonl.gz": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_cal.jsonl.gz": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_exposed.jsonl.gz": "c82246e10ad3265b5375e0ce34cf3a78f7723e567cbb4037a2bb74fd0eb7de8f",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_stress.jsonl.gz": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f",
+    "research/v9-stabilization/paired-scope-117/data/uk-test.jsonl": "c4ea1c1b0e45a519654e7dcdf9217f9f55eb7b4315315dcfafcbc084cc8adef6"
+  },
+  "stable_release_ready": false
+}

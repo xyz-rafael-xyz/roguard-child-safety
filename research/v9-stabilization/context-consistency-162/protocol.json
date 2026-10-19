@@ -1,0 +1,55 @@
+{
+  "study": 162,
+  "created_utc": "2026-10-19T14:25:08.916542+00:00",
+  "language": "uk",
+  "parent": "Frozen123 selected bilingual NLI checkpoint; this continuation is Ukrainian only",
+  "training_rows": 6292,
+  "replay_rows": 4096,
+  "authored_rows": 2196,
+  "inherited_history_rows": 19109,
+  "new_objective": "Balanced reason crossentropy +0.2 paired margin +0.1 symmetric KL across identical focal messages with differing history",
+  "trainable": "Last four encoder blocks, pooler and classifier",
+  "seed": 1162,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "selection": "UK per-group99/5 two-reason frontier, including held-out161 transitions; checkpoint and cutoffs fixed before calibration",
+  "output": "Research-only Ukrainian artifact; not qualified for Romanian or direct production loading",
+  "design_informed_by": "158 and160 context-switch misses; no failed-case wording copied",
+  "protected_token_overlap": 0,
+  "inherited_protected_token_overlap": 0,
+  "fresh_test_neurally_inferred": false,
+  "source_input_sha256": {
+    "research/v9-stabilization/reason-coverage-123/candidate/training-history.jsonl.gz": "5efa7936cb2a091b20ffaa93cc87eefefab3b17ace25aa7d3ede9b1d9bfeb2df",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_dev.jsonl.gz": "6fa84a0a1f1f84de9fb87f5ab33655a85e48d20c23fac088056a435679901626",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_scope_dev.jsonl.gz": "6b63d36291d3388bcbb1c52fe5483c63971632ecb9bf76403ed41b28ba936f4f",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_stress.jsonl.gz": "55b7569b32330a4e9ad49c39d7e5d8410168fd9c8ade2b25de0be5748a64113f",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_cal.jsonl.gz": "e83a8a7197a521227ed9a858a2e7bc5ea2014e22a41c9e6118e35218e125cdd4",
+    "research/v9-stabilization/reason-coverage-123/candidate/uk_exposed.jsonl.gz": "c82246e10ad3265b5375e0ce34cf3a78f7723e567cbb4037a2bb74fd0eb7de8f",
+    "research/v9-stabilization/context-transition-161/uk-dev.jsonl.gz": "6db46db96cd8c7a17d0ea973264f6ee529d6d6e3f8a8ee07c8b0cf9d9cf5f903",
+    "research/v9-stabilization/paired-scope-117/data/ro-test.jsonl": "ff07b2e373969e0509769de7e3a907a3bf57952467ced6e153ff4abe6e0800f1",
+    "research/v9-stabilization/paired-scope-117/data/uk-test.jsonl": "c4ea1c1b0e45a519654e7dcdf9217f9f55eb7b4315315dcfafcbc084cc8adef6",
+    "research/v9-stabilization/indirect-distress-135/uk-train.jsonl.gz": "fa524d0ca9b5e80fab5feea13c788d333bdb3ecc611459be6bbe3cfbacd5783c",
+    "research/v9-stabilization/freeform-scope-136/uk-train.jsonl.gz": "19f9cb06cadd64b21dfc913959bce35e26d85dda32d0368a2f9f19fe2c526eed",
+    "research/v9-stabilization/context-transition-161/uk-train.jsonl.gz": "72b33a8624732ea258886b66a4832d1e3e3b921ad95ec05d1ce257091ca2c9f9"
+  },
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "training_reason_counts": [
+    {
+      "support": 0,
+      "revision": 0,
+      "rows": 4270
+    },
+    {
+      "support": 0,
+      "revision": 1,
+      "rows": 203
+    },
+    {
+      "support": 1,
+      "revision": 0,
+      "rows": 1819
+    }
+  ]
+}

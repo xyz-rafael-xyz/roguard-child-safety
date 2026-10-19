@@ -2354,3 +2354,39 @@ stopped by the entailment first stage; they involve a transition from a fictiona
 exercise to a personal concern. This diagnosis informs subsequent experiments;
 these outcomes are not used to choose a new cutoff. The cascade remains
 unqualified, and the reserved test set has not been inferred.
+
+### Recall-first cascade and context consistency (studies159–162)
+
+Study159 sets the entailment first-stage cutoff to the minimum positive
+development score, then selects its contextual check with the unchanged99/5
+frontier. The policy-supervised151 epoch10 coupled head passes development,
+including one scope false review and no scope misses. Separate160 qualification
+passes formal calibration (two misses, nine false reviews) and exposed regression
+(no errors), but conversational recall still fails: eight misses and seven false
+reviews. Its development replay has no score or decision differences.
+
+Study161 adds1,728 synthetic training cases and288 development cases across the
+two languages. Current-message attribution is paired between personal and
+explicitly fictional versions; each is repeated under three earlier topics.
+Ordinary-message controls remain negative. Development uses different message
+bodies and framing. Two tests verify the intended policy labels, complete
+contrasts, identical focal messages across histories and disjoint wording.
+Token checks find no overlap with the protected development, calibration,
+exposed or reserved populations. These are project-authored examples.
+
+Study162 prepares a Ukrainian-only continuation of the123 entailment encoder.
+Its6,292 training rows include4,096 stratified replay examples,1,332 existing
+indirect/freeform examples and864 new transition examples. The last four encoder
+blocks, pooler and classifier are trained with balanced reason cross-entropy,
+paired margins and a symmetric KL penalty for identical current messages under
+different histories. Whole matched-history families stay together in batches.
+The144 held-out Ukrainian transitions form an additional development gate;
+calibration remains separate. Inherited training also has zero token overlap
+with this new development population.
+
+Two additional tests verify minibatch coverage and the consistency loss with
+finite gradients. A preflight covers every one of12,584 training queries exactly
+once, in1,121 batches of at most12 queries, with644 paired and1,728 invariance
+comparisons. This research artifact is explicitly Ukrainian-only and requires
+production support and installed qualification before any release. Training is
+queued after156 qualification; ongoing Romanian training is uninterrupted.

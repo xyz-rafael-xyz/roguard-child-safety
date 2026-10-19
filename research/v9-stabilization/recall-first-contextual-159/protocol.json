@@ -1,0 +1,26 @@
+{
+  "study": 159,
+  "created_utc": "2026-10-19T14:17:35.029073+00:00",
+  "language": "uk",
+  "semantic_families": [
+    "gemma4-structured-143",
+    "gemma4-structured-expanded-145",
+    "gemma4-policy-loss-151"
+  ],
+  "epochs": [
+    10,
+    20,
+    40,
+    60,
+    100
+  ],
+  "selection": "First-stage153 score cutoff set to minimum positive development score; second-stage semantic head uses unchanged99/5 development frontier",
+  "couplings": "Original train-only balanced couplings per parent",
+  "calibration_inferred": false,
+  "fresh_test_inferred": false,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "design_informed_by": "158 missed context-switch calibration cases; no case text or calibration scores enter fitting",
+  "calibration_used_for_selection": false
+}
