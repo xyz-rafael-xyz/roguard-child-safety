@@ -17,6 +17,13 @@ Ukrainian encoder
   Apache License 2.0: licenses/Apache-2.0.txt
   https://huggingface.co/youscan/ukr-roberta-base
 
+Multilingual entailment encoder and derived checkpoints
+  MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7
+  Revision: b5113eb38ab63efdd7f280f8c144ea8b13f978ce
+  MIT license, copied unchanged from the pinned model repository:
+    licenses/nli-UPSTREAM-LICENSE.txt
+  https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7
+
 Interpreter base and derived adapter
   Gemma 3 text 4B instruction model, MLX community 4-bit conversion
   Revision: 4f665a4c50ecfe4ecdc34056ab52fe3e3c4abf9e
@@ -35,7 +42,8 @@ Modifications by RoGuard
   of the listed encoders. The field heads and decision combiners were trained
   for RoGuard. The interpreter adapter contains RoGuard-trained low-rank
   parameters for the listed Gemma base; the downloaded upstream base files are
-  unchanged. Model-selection records, hashes and limitations are recorded in
+  unchanged. The entailment checkpoints are RoGuard fine-tuned derivatives of
+  the listed multilingual model. Model-selection records, hashes and limitations are recorded in
   research/v9-stabilization and docs/V9_STABILIZATION.md.
 
 No upstream author or model provider endorses RoGuard through this notice.
