@@ -1,0 +1,32 @@
+{
+  "study": 141,
+  "created_utc": "2026-10-19T11:58:40.166184+00:00",
+  "seed": 1141,
+  "architecture": "Frozen Gemma4 final contextual vector plus learned binary logistic readout per language",
+  "motivation": "Test contextual representations separately from instruction following and output token choice",
+  "training_sampling": "At most50 per source and label, deterministic training-only sampling",
+  "normalization": "Per-row L2 norm multiplied by sqrt(hidden dimension); no evaluation-fitted statistics",
+  "candidates_C": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "class_weight": "balanced",
+  "max_iter": 2000,
+  "selection": "Per-language development only: at least99% recall in each group, minimize worst false-review rate, sum rates, misses, then smaller C",
+  "foundation_model_frozen": true,
+  "compute_dtype": "float32",
+  "max_input_tokens": 542,
+  "malformed_generation_policy": "Not a generative predictor; readout always returns a binary classifier score. Study139/140 results remain unchanged.",
+  "prior_calibration_and_exposed_inference": "Deferred to a separate verifier if all development groups pass",
+  "reserved_inference": false,
+  "reserved_access": "Token overlap exclusion only, no representation extraction",
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "stable_release_ready": false,
+  "release_gates_unchanged": true,
+  "feature_chunk_size": 200,
+  "representation_parity": "First two inputs: cached vs full final features relative max error<=0.0001"
+}

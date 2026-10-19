@@ -1936,3 +1936,40 @@ process exits and before its Ukrainian sibling starts: only the parent
 scheduler is paused, and the retry resumes it in a `finally` block. Active
 Romanian training continues unchanged. No study140 neural result is claimed
 at preparation time; the reserved test remains unread by both screens.
+
+### Frozen contextual classifier prepared (study141)
+
+Study141 tests a different classifier architecture: a small logistic classifier
+on the final contextual representation of frozen Gemma 4 E4B. It uses the same
+explicit direct-answer prompt, but learns a binary readout from training data.
+This measures whether those representations support the policy better than
+the model's generated answer. It does not change the scoring or results of
+studies139–140. Linear probing is an established method, not a new research claim.
+
+Training samples at most 50 examples per source and label from the study131
+corpus plus the prepared study135–136 additions: 1,659 Romanian and 1,948
+Ukrainian examples. The full development populations contain 2,638 Romanian
+and 2,783 Ukrainian examples. Exact prompt-token audits find no overlap with
+protected evaluation inputs, including all 600 reserved examples. Reserved
+examples are used only for exclusion and never enter the representation input
+artifact. All examples remain synthetic and project-authored.
+
+The model and tokenizer are pinned, prompt hashes are checked again at runtime,
+and no input is truncated; the maximum prepared length is 542 tokens. Each
+representation is normalized independently. Five predeclared regularization
+settings are fitted per language, with selection and thresholds using development
+data only under the unchanged 99% recall requirement. Calibration and exposed
+regression inference are deferred until development passes. A separate installed
+runtime verification and the reserved test would still be required for release.
+
+Two focused tests pass: cached versus complete features on a small instance of
+the actual Gemma 4 architecture, and portable JSON readout scores versus the
+fitted classifier. The real experiment also checks cached/full features on its
+first two inputs. Feature chunks are resumable and bound to input, source and
+weight hashes. They remain private local caches. No study141 accuracy result is
+claimed at preparation time.
+
+The idle study140 scheduler is replaced with one that runs study140 and then
+study141 after Romanian study133 finishes. Its `finally` block resumes the
+paused study133 parent so Ukrainian training can proceed. Active training is
+not interrupted, and all GPU jobs remain serialized.
