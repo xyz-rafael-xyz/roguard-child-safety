@@ -19,11 +19,13 @@ def load_bundle(path,*,expected_sha256,device='cpu'):
     if spec.get('format')!=FORMAT:
         from .consensus_bundle import load_bundle as existing
         return existing(path,expected_sha256=expected_sha256,device=device)
-    if (set(spec)!={'format','kind','artifact','checkpoint','base'} or spec['kind'] not in ('review','support-revision')
+    if (set(spec)!={'format','kind','artifact','checkpoint','base'} or spec['kind'] not in ('review','support-revision','separate-reasons')
             or not isinstance(spec['artifact'],dict) or set(spec['artifact'])!={'path','sha256'}):raise ValueError('Invalid entailment model bundle')
     artifact=_local_path(path.parent,spec['artifact']['path']);checkpoint=_local_path(path.parent,spec['checkpoint']);base=_local_path(path.parent,spec['base']);expected=_digest(spec['artifact']['sha256'])
     if spec['kind']=='review':
         from .paired_nli import PairedNLIReview as Model
-    else:
+    elif spec['kind']=='support-revision':
         from .policy_entailment import PolicyEntailmentReview as Model
+    else:
+        from .reason_entailment import ReasonEntailmentReview as Model
     return Model(artifact,checkpoint,base,expected_sha256=expected,device=device)

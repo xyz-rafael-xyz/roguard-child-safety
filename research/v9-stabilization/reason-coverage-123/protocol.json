@@ -1,0 +1,19 @@
+{
+  "study": 123,
+  "synthetic_only": true,
+  "independently_annotated": false,
+  "reason": "Binary-label replay left only nine Ukrainian revision examples; separate tasks require coverage by reason and semantic attributes.",
+  "new_training": "2304 authored withdrawal contrasts plus all eligible historical revisions and source/reason/subject/assertion/time strata filled to 32 distinct inputs; entire121 replay retained",
+  "parent": "selected121 checkpoint; no adaptation if121 passes all prior accuracy gates",
+  "seed": 1123,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "trainable": "last four encoder blocks, pooler and classifier",
+  "objective": "balanced language/task/class cross entropy plus complete counterfactual pair margin 0.2",
+  "selection": "initial and each half epoch; independent support and revision cutoffs per language, exact OR frontier covering every development positive, minimize worst group false-review rate then sum",
+  "calibration": "audit only after checkpoint and thresholds selected",
+  "exposed115": "regression audit only, never training or selection",
+  "fresh117": "600 frozen cases excluded at token level; no neural inference in this training script",
+  "gates": "unchanged: recall >=99%, false reviews <=5% in each group; known Ukrainian stress zero misses",
+  "publication": "requires actual installed parity and fresh evaluation after all prior gates pass"
+}

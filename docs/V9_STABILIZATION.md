@@ -1523,3 +1523,41 @@ rejected. These counts describe its selected conservative operating point.
 Study120 reproduced all checked installed decisions, including 40 CPU cases;
 the largest score difference was 0.000018478. It skipped the fresh test because
 accuracy failed. Study121 has started its separate support/revision refinement.
+
+### Reason coverage and separate score cutoffs (studies123–124)
+
+An audit of study121's replay found 55 Romanian and only nine Ukrainian
+withdrawal examples, despite 1,665 and 1,711 personal-support examples,
+respectively. Binary-label sampling had obscured this imbalance. Increasing the
+loss weight of rare examples does not increase their linguistic variety.
+
+Study123 retains that replay, adds 2,304 authored withdrawal contrasts, includes
+every eligible historical withdrawal example, and fills historical groups by
+source, policy reason, subject, assertion and time to 32 distinct inputs where
+available. It contains 19,109 conversations, including 1,359 Romanian and 728
+Ukrainian withdrawal examples. Both sides of each new contrast withdraw a
+statement; its concerning versus ordinary content determines the review label.
+Real, reported and fictional contexts follow the unchanged evidence policy.
+All data remain project-authored synthetic examples, without independent
+annotation of this study. Tokenized training inputs have zero overlap with the
+protected development, calibration, exposed regression and fresh evaluation
+inputs.
+
+The study is queued after study122, conditional on study121 failing its accuracy
+prerequisites. It trains two epochs from the selected study121 checkpoint.
+Support and revision have separate development-selected cutoffs per language.
+An exact search minimizes the worst group false-review rate while covering
+every development positive; a brute-force comparison verifies the search on
+small populations including score ties and endpoints. Checkpoints are selected
+on development only. Calibration and exposed115 are subsequent audits. The
+600-case fresh evaluation remains excluded from training and selection.
+
+The new runtime reports both scores, both cutoffs and the reason for review.
+It grants no notification or external-action authority. Study124 checks the
+actual installed package on Metal and CPU before conditionally opening the
+fresh evaluation. No stable-release or real-world accuracy claim follows from
+the preparation or the software tests.
+
+The full software suite after these changes passed 1,008 tests and 129 subtests,
+with 32 optional skips. The cutoff-search and authored-contrast checks also
+passed all 10 focused tests in the NumPy-enabled environment.

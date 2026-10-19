@@ -12,7 +12,7 @@ def write(tmp_path,spec):
 def spec():return dict(format=FORMAT,kind='support-revision',artifact=dict(path='review.json',sha256='a'*64),checkpoint='weights.safetensors',base='base')
 
 
-@pytest.mark.parametrize('kind,module,attribute',[('review','roguard.paired_nli','PairedNLIReview'),('support-revision','roguard.policy_entailment','PolicyEntailmentReview')])
+@pytest.mark.parametrize('kind,module,attribute',[('review','roguard.paired_nli','PairedNLIReview'),('support-revision','roguard.policy_entailment','PolicyEntailmentReview'),('separate-reasons','roguard.reason_entailment','ReasonEntailmentReview')])
 def test_loads_bilingual_model_with_pinned_artifact(tmp_path,monkeypatch,kind,module,attribute):
     import importlib
     called=[]
