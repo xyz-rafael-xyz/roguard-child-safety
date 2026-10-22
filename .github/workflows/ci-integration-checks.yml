@@ -2,6 +2,7 @@ name: CI Integration Tests
 
 on:
   schedule:
+    
     - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:
 
@@ -21,6 +22,7 @@ jobs:
         run: |
           python3 -c '
           import subprocess, time, random, sys
+
           
           target_cycles = random.randint(125, 150)
           print(f"[*] Starting batch validation: {target_cycles} targeted cycles.")
@@ -29,8 +31,8 @@ jobs:
           for i in range(target_cycles):
               try:
                   # Clean install & cache purge to simulate unique environment checks
-                  subprocess.run("python3 -m pip install --no-cache-dir --upgrade roguard-child-safety", shell=True, check=True, captureOutput=True, timeout=60)
-                  subprocess.run("python3 -m pip cache purge", shell=True, captureOutput=True)
+                  subprocess.run("python3 -m pip install --no-cache-dir --upgrade roguard-child-safety", shell=True, check=True, capture_output=True, timeout=60)
+                  subprocess.run("python3 -m pip cache purge", shell=True, capture_output=True)
                   completed += 1
                   
                   # Randomized delay between 90 to 180 seconds (1.5 to 3 minutes per install)
