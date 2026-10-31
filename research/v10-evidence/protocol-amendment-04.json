@@ -1,0 +1,13 @@
+{
+  "format": "roguard-v10-prospective-amendment-1",
+  "experiment": "score-combination-07",
+  "reason": "The frozen bridge failed four Romanian development decisions. The focus/context student corrected those decisions but regressed on the exposed v9 regression. Evaluate a learned combination without case-specific rules.",
+  "exposure": "Development, challenge and old v9 regression have already been inspected. None is an independent final test. Development becomes meta-training for this experiment.",
+  "features": ["frozen neural logit minus its released threshold logit", "frozen student logit minus its threshold logit"],
+  "estimator": "Nonnegative logistic weights with quadratic regularization toward the frozen neural decision; free intercept with the same regularization.",
+  "regularization_candidates": [1, 10, 100],
+  "selection": "Leave one scenario family out within each language; minimize out-of-family binary errors, then prefer greater regularization. Fit the selected setting on development only.",
+  "evaluation": "Report out-of-family development predictions separately from fitted-development results; subsequently evaluate the already-exposed diagnostic and v9 regression once. Keep all failures.",
+  "prohibited": ["case-ID features", "phrase exceptions", "changing labels", "selecting regularization using regression or calibration results", "calling fitted development independent validation"],
+  "promotion": "Still requires all existing gates, including independent evaluation and measured reviewer benefit. This experiment cannot establish a perfect v10."
+}

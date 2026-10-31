@@ -1,0 +1,81 @@
+{
+  "format": "roguard-score-combination-research1",
+  "bindings": {
+    "student_sha256": "8d45e0660e4cb0120197e26c7752196b571488bd8204699ffec5e5a6659a670a",
+    "source_sha256": "5cd81c81b2dce2b3150b103d50c0a82c203788ea9377f3a2bf876844897d5247",
+    "feature_contract": "two-centered-logits-v1",
+    "amendment_sha256": "5d57d247f7264b08f248d7b0e36b57553e3353cabe73d4a9e5bf1ea4d1717c1a",
+    "inputs": {
+      "dev": {
+        "cases": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+        "neural_predictions": "20ad2294566d9dd9f0e93b97744aef92e35944db107dd3ec2f46b5db22cff357"
+      },
+      "challenge": {
+        "cases": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+        "neural_predictions": "fa41f9a73f664d652e1b895109f97c51b14256440fd0f1492fa736c834194344"
+      },
+      "v9-regression": {
+        "cases": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+        "neural_predictions": "38ef44082fd335ac43cb557602d9e91ad305bbb7d0da5cf29e4f6c4ab6905ff7"
+      }
+    },
+    "independent_evaluation": false,
+    "stable_release_ready": false
+  },
+  "weights": {
+    "ro": [
+      0.9581177831801723,
+      0.06002395006554126,
+      -0.02008370856745292
+    ],
+    "uk": [
+      1.0000456447396364,
+      1.489525657759979e-05,
+      4.7087724396816474e-06
+    ]
+  },
+  "selection": {
+    "ro": {
+      "selected_strength": 100,
+      "trials": [
+        {
+          "strength": 1,
+          "errors": 2
+        },
+        {
+          "strength": 10,
+          "errors": 2
+        },
+        {
+          "strength": 100,
+          "errors": 2
+        }
+      ],
+      "neural_errors": 2
+    },
+    "uk": {
+      "selected_strength": 100,
+      "trials": [
+        {
+          "strength": 1,
+          "errors": 0
+        },
+        {
+          "strength": 10,
+          "errors": 0
+        },
+        {
+          "strength": 100,
+          "errors": 0
+        }
+      ],
+      "neural_errors": 0
+    }
+  },
+  "thresholds": {
+    "ro": 0.8659504636108948,
+    "uk": 0.6608994271813364
+  },
+  "student_threshold": 0.6247091368744109,
+  "stable_release_ready": false
+}

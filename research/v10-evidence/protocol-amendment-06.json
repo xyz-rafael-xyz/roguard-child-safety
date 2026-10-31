@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-prospective-amendment-1",
+  "experiment": "uniform-memory-09",
+  "motivation": "The remaining combination error has distracting turns between denial context and its focal statement. The current bridge only selects evidence when v9 rejects the input size. Test the same trained selector uniformly across all prefixes.",
+  "fixed_parameters": {"selector": "student-03", "budget_characters": 1200, "minimum_relevance": 0.5, "neural_weights": "unchanged released v9", "binary_thresholds": "unchanged released v9", "alpha": 0.1},
+  "input_construction": "Select exact spans on all prefixes. When every extracted unit of a retained turn is selected, preserve that entire original turn text instead of inserting spaces between its sentences. No phrase-specific or case-ID rules.",
+  "reuse": "Reuse a prior neural forward result only when the actual inference-input digest, language and frozen components match. Changed inference inputs require new GPU computation. Record counts and hashes. Cached predictions do not establish end-to-end latency.",
+  "evaluation": "Calibrate this frozen pipeline separately on the calibration partition, then evaluate all development, diagnostic and exposed v9 regression cases. All have been exposed; none is a fresh final test.",
+  "acceptance": "All existing requirements remain. No default switch, promotion, label edits or repeated final-test tuning."
+}

@@ -70,6 +70,11 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 
 ## Earlier workflows retained in v9
 
+V10 work is an **unqualified research branch**, with long-conversation evidence
+selection, interpretation-set evaluation and a recorded improvement loop.
+[Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
+The stable default remains v9.
+
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The older v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
 
 **RoGuard 7.1 reduces Romanian and Ukrainian false alerts.** Its **7.1.1** patch also fixes negated phrase matches in the bounded language rules. The joint context model was retrained and recalibrated, with explicit topic-shift checks, separate rule evidence and clearer uncertainty labels. On the original synthetic regression set, benign review requests fell from 20/126 to 1/126 in Romanian and 29/126 to 2/126 in Ukrainian, while retaining all 90 checked non-quoted concerns per language. Remaining errors and all rejected candidates are documented; these are not real-world accuracy claims. [Full results and limits](docs/V7_1_RELEASE.md).
