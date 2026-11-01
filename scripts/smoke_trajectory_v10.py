@@ -2,7 +2,11 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 
 from roguard.trajectory_model import TrajectoryModel
 
@@ -21,7 +25,17 @@ def main():
         assert 1<=len(result['interpretation_set']['hypotheses'])<=432
         assert result['assurance']['input']['context_digest']==result['input_digest']
         assert json.loads(json.dumps(result,allow_nan=False))==result
-    print('Portable bilingual research inference, calibration and planner smoke passed; no model qualification implied.')
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'conversation.json'
+            path.write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
+            environment=dict(os.environ,PYTHONIOENCODING='ascii:strict',PYTHONUTF8='0')
+            completed=subprocess.run([sys.executable,'-m','roguard.trajectory_cli',str(path),
+                '--model',str(a.artifact.resolve()),'--model-sha256',sha,
+                '--calibration',str(a.calibration.resolve()),'--plan'],
+                env=environment,stdout=subprocess.PIPE,stderr=subprocess.PIPE,check=True)
+            actual=json.loads(completed.stdout.decode('ascii'))
+            assert actual=={k:v for k,v in result.items() if k!='probabilities'}
+    print('Portable bilingual inference, planner and legacy-encoding CLI smoke passed; no model qualification implied.')
 
 
 if __name__=='__main__':main()

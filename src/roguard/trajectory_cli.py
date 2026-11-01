@@ -31,7 +31,8 @@ def main():
         result.pop('probabilities')
         if a.draft is not None:
             result['response_review']=selector.review_response(a.draft,payload['language'],payload['turns'][-1]['text'])
-        print(json.dumps(result,indent=2,ensure_ascii=False))
+        # Escaped JSON preserves Romanian/Ukrainian text on legacy terminals.
+        print(json.dumps(result,indent=2,ensure_ascii=True))
     except (ValueError,KeyError,TypeError,OSError,ImportError) as error:
         p.exit(2,'Invalid v10 research input: '+str(error)+'\n')
 
