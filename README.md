@@ -21,7 +21,7 @@ A 28-second illustrated workflow with actual v9 outputs and fictional messages.
 ## RoGuard 9.0: local review and decision assurance
 
 **[9.0.0 is the latest stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0)**
-and the default on [PyPI](https://pypi.org/project/roguard-child-safety/).
+and is published on [PyPI as `roguard-child-safety`](https://pypi.org/project/roguard-child-safety/).
 [Verified publication and fresh-install record](research/v9-stabilization/stable-release-200/publication.json).
 
 V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
@@ -68,12 +68,12 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
 
-## Earlier workflows retained in v9
-
-V10 work is an **unqualified research branch**, with long-conversation evidence
+**V10 is unreleased research and has no PyPI package release.** It adds experimental long-conversation evidence
 selection, interpretation-set evaluation and a recorded improvement loop.
 [Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
-The stable default remains v9.
+The published stable package remains **v9.0.0**.
+
+## Earlier workflows retained in v9
 
 **RoGuard 8 experimental preview: structured evidence and response proposals.** The new opt-in workspace separates subject, time, assertion, source, relation and concern; tracks candidate contradictions and host-reviewed revisions; and checks response alternatives against task coverage and source permissions. Training studies include **75,984 distinct fictional conversation inputs**, separate development/calibration/test partitions, and a follow-up conversational adaptation. Large synthetic counts do not establish real-world accuracy. The older v7 workflow remains available. [Preview setup](docs/EVIDENCE.md) · [Experiments, comparisons and limits](docs/V8_PREVIEW.md). [Input normalization and denial-scope repairs](docs/V8_REPAIRS.md).
 
