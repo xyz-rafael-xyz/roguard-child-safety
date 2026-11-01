@@ -10,6 +10,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: ['3.9', '3.12']
+        exclude:
+          - os: ubuntu-latest
+            python-version: '3.9'
+        include:
+          - os: ubuntu-24.04
+            python-version: '3.9'
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -23,7 +29,8 @@ jobs:
           --calibration research/v10-evidence/memory-contract-v2/portable-calibration.json
 
   unit:
-    runs-on: ubuntu-latest
+    # setup-python has no Python 3.9 build for Ubuntu 26.04.
+    runs-on: ${{ matrix.python-version == '3.9' && 'ubuntu-24.04' || 'ubuntu-latest' }}
     strategy:
       matrix:
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
@@ -124,7 +131,7 @@ jobs:
           tests/test_gemma4_review.py
 
   wheel-install:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.python-version == '3.9' && 'ubuntu-24.04' || 'ubuntu-latest' }}
     strategy:
       matrix:
         python-version: ['3.9', '3.12', '3.14']
