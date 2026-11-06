@@ -118,3 +118,12 @@ runtime study exactly. The
 [verification record](../research/v10-evidence/committee-bundle-runtime-29/report.json)
 also checks all 171 installed package files against the wheel. This is a packaging
 and parity check on existing cases, not another accuracy population.
+
+`scripts/archive_committee_research_v10.py` assembles the tested wheel, checked
+adapters, bilingual input examples, license and verification records into a local
+research archive. The
+[archive record](../research/v10-evidence/committee-archive-29b/report.json)
+verifies all 21 archived files byte for byte. The wheel retains version 9.0.0
+metadata for this unpublished engineering artifact; it is not the published
+stable wheel or a v10 package-index release. The earlier archive record remains
+available with its superseded setup instructions.
