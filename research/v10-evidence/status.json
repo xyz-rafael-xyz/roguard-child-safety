@@ -904,17 +904,11 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "semantic-query-24": {
-      "protocol": "protocol-amendment-22.json",
-      "status": "feature_extraction_running"
-    },
-    "neural-response-26": {
-      "protocol": "protocol-amendment-24.json",
-      "status": "registered_waiting_for_encoder_memory"
-    },
-    "committee-runtime-29": {
-      "protocol": "protocol-amendment-27.json",
-      "status": "registered_installed_wheel_ready_waiting_for_encoder_memory"
+    "committee_runtime_29": {
+      "status": "running",
+      "source": "committee-runtime-29",
+      "installed_wheel": true,
+      "qualification_pending": true
     }
   },
   "assertion_query_22": {
@@ -984,5 +978,52 @@
     "challenge_rows": 32,
     "independent_validation": false,
     "full_pipeline_qualified": false
+  },
+  "query_features_24": {
+    "source": "query-features-24/report.json",
+    "complete": true,
+    "training_rows": 16641,
+    "development_rows": 6341,
+    "independent_validation": false
+  },
+  "query_fit_24": {
+    "source": "query-fit-24/report.json",
+    "qualified": false,
+    "development_joint_errors": {
+      "ro": 643,
+      "uk": 691
+    },
+    "development_binary_errors": {
+      "ro": 0,
+      "uk": 0
+    }
+  },
+  "neural_response_26": {
+    "source": "neural-response-26/report.json",
+    "decision": "REJECT",
+    "development_correct": 77,
+    "development_total": 80,
+    "old_diagnostic_correct": 10,
+    "old_diagnostic_total": 10,
+    "qualified": false
+  },
+  "assertion_specialist_30": {
+    "source": "assertion-specialist-30/report.json",
+    "decision": "REJECT",
+    "development_errors": {
+      "ro": 433,
+      "uk": 315
+    },
+    "baseline_errors": {
+      "ro": 584,
+      "uk": 578
+    },
+    "qualified": false
+  },
+  "native_answer_diagnostic_31": {
+    "source": "native-answer-diagnostic-31/report.json",
+    "decision": "DIAGNOSTIC_ONLY",
+    "projection_parity_pass": true,
+    "qualified": false
   }
 }

@@ -1,0 +1,60 @@
+{
+  "format": "roguard-assertion-specialist-fit-1",
+  "source_sha256": "386039a7dc1a0f955550fbab4e0c6ac1df05245bb61e3f116b992afd861c53d5",
+  "amendment_sha256": "ac7e44550bf9ab10537585cf0c6128f9014f517c795978e498088e70451c5df6",
+  "feature_report_sha256": "5b98909219f406931d9e662cc7ad376cdd90a1d55447f53e1776574713c75c1c",
+  "configurations": [
+    {
+      "name": "v9-linear",
+      "view": "v9",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "v9-mlp128",
+      "view": "v9",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "query-linear",
+      "view": "query",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "query-mlp128",
+      "view": "query",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "dual-linear",
+      "view": "dual",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "dual-mlp128",
+      "view": "dual",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    }
+  ],
+  "optimization": {
+    "epochs": 40,
+    "batch_size": 128,
+    "seed": 1030,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0
+  },
+  "labels": [
+    "AFFIRMED",
+    "NEGATED",
+    "UNCERTAIN",
+    "RETRACTED"
+  ],
+  "binary_decision_changed": false,
+  "calibration_or_regression_loaded": false,
+  "stable_release_ready": false
+}

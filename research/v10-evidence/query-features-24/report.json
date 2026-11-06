@@ -1,0 +1,50 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "rows": 9984,
+      "dimensions": 5120,
+      "partitions": {
+        "train": 7030,
+        "dev": 2954
+      },
+      "query_full_forward_maximum_error": {
+        "dev": 0.00014781951904296875,
+        "train": 0.000110626220703125
+      },
+      "common_prefix_tokens": 144,
+      "maximum_equal_length_batch": 4,
+      "duplicate_query_inputs": 0,
+      "train_dev_query_overlap": 0,
+      "artifacts": {
+        "features.npy": "19001e110df1af9607af88cb4a81701a39207a9c2a71b3ca915bf6c4d43c3e53",
+        "logits.npy": "11e0209e92916aab80b66d8ef8d749346f97948e884ae16d6b4f10b04073e92e",
+        "rows.jsonl": "780a23e1255a131e72fa1fab85a4f77e8763477484e3e5ebebcd47e07113f125"
+      }
+    },
+    "uk": {
+      "rows": 12998,
+      "dimensions": 5120,
+      "partitions": {
+        "train": 9611,
+        "dev": 3387
+      },
+      "query_full_forward_maximum_error": {
+        "train": 0.00026988983154296875,
+        "dev": 0.0001926422119140625
+      },
+      "common_prefix_tokens": 144,
+      "maximum_equal_length_batch": 4,
+      "duplicate_query_inputs": 0,
+      "train_dev_query_overlap": 0,
+      "artifacts": {
+        "features.npy": "399c0981e9996b62b1297bd9f94e2f019d7f1faa4fdcbe08233b0c69715f5f21",
+        "logits.npy": "72e7911c28781c610b948e808c30b1fc58f97969efe6541851c233ad06fb8466",
+        "rows.jsonl": "e44688b7b35833b501e20ec63bd07a19939152c4260723dd25a80510893b2a19"
+      }
+    }
+  },
+  "calibration_or_test_loaded": false,
+  "stable_release_ready": false,
+  "seconds": 3707.2397590423934
+}

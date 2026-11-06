@@ -1,0 +1,11 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "native-answer-diagnostic-31",
+  "purpose": "Locate remaining semantic errors by comparing the pretrained answer-letter readout with fitted heads on the same frozen representations. This is a TRAIN/DEV diagnostic, not new fitting or release qualification.",
+  "projection": "Read only the pinned tied-embedding rows for single-token answer letters A/B/C/D/E. Decode the declared 4-bit affine representation, validate against MLX dequantization, and project frozen final-token features through the original letter rows with the original logit softcap of 30. Conditional probabilities over permitted letters are not calibrated probabilities of truth or safety.",
+  "assertion_inputs": "All original TRAIN/DEV query-features-24 rows. Use A/B/C/D in the fixed assertion-label order. Verify the new projection against all 256 saved outer-scope predictions from probe 22: same predicted label and maximum conditional-probability difference 1e-3.",
+  "response_inputs": "Only the 340 TRAIN and 80 DEV features from neural-response-26, with the same five labels and prompt. Verify feature hashes and ordered context/draft identities. Do not load or score the original ten response diagnostic inputs in this study.",
+  "verification": "Verify pinned base file identities before extracting rows. Preserve the row matrix digest and source, input and prompt bindings. Record errors separately by language, partition and class, including the differences in TRAIN/DEV class prevalence. A projection-parity failure invalidates the diagnostic.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

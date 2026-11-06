@@ -1,0 +1,13 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "assertion-specialist-30",
+  "motivation": "Query readout 24 retains zero binary development errors but still makes 587 Romanian and 575 Ukrainian assertion errors. The binary review objective groups affirmed and uncertain concerns together, and the original assertion training distribution is imbalanced. Train assertion as a separate class-balanced task, without binary loss or binary-first model selection.",
+  "inputs": "Use only the verified query-features-24 original TRAIN and DEV arrays: 16641 TRAIN and 6341 DEV rows. No new wording, labels, calibration or regression data. The other semantic fields and binary committee are not changed.",
+  "candidates": "Six configurations per language: v9-only, semantic-query-only and dual 2560-dimensional views, each with either a linear four-class head (learning rate 1e-3) or a 128-unit GELU head (learning rate 3e-4). Normalize each view independently as in study 24.",
+  "optimization": {"epochs": 40, "batch_size": 128, "seed": 1030, "weight_decay": 0.01, "gradient_norm_clip": 1.0},
+  "objective": "Assertion cross-entropy only, weighted by N/(4*n_class) from TRAIN counts so each assertion category has equal total training mass. No binary objective, teacher KL, or other field losses.",
+  "selection": "Use original DEV only: minimize the maximum assertion-category error rate, then total errors, then mean per-class cross-entropy. Freeze a separate head and retain all epochs. Compare with the unchanged v9 assertion argmax on exactly the same DEV inputs.",
+  "scope": "Semantic component research only. Correcting class imbalance is not deployment probability calibration. No binary decision, profile default or release qualification changes. Regression and fresh calibration follow only after the component is selected.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

@@ -1,0 +1,13 @@
+{
+  "study": "scope-query-33",
+  "motivation": "Study 30 improved assertion recognition by separating the objective and balancing TRAIN classes, but still fails DEV. The older scope20 matched TRAIN curriculum was never represented with the explicit semantic query. Add those already screened TRAIN inputs to the fixed study24 query representation.",
+  "inputs": "16641 original TRAIN plus 3456 existing scope20 TRAIN; original 6341 DEV unchanged. No new labels or wording. Reuse verified published-v9 features for scope20, extract fresh zero-adapter outer-claim-scope query features, and reject any duplicate actual query token input.",
+  "feature_format": "roguard-scope-query-features-1",
+  "feature_parity": "Check fresh full-forward versus cached-prefix query features within 1e-3 for each language. Original query arrays and all scope20 parent arrays must match their recorded hashes.",
+  "candidates": "query-linear and query-mlp128 only; same 2560-dimensional per-view RMS normalization as study30. Learning rates 1e-3 and 3e-4 respectively.",
+  "optimization": {"epochs": 40, "batch_size": 128, "seed": 1033, "weight_decay": 0.01, "gradient_norm_clip": 1.0},
+  "objective": "Assertion cross-entropy weighted by N/(4*n_class) from the expanded TRAIN only. No binary or other-field loss.",
+  "selection": "Original DEV only: maximum assertion-category error rate, then total errors, then mean per-class cross entropy. Freeze before any regression scoring.",
+  "limitations": "All inputs are exposed synthetic development evidence. No independent validation or calibration, binary change, or release qualification. Every failure is retained.",
+  "stable_release_ready": false
+}
