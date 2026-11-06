@@ -1,7 +1,6 @@
 """Matched response TRAIN pairs; authored after exposed study-26 diagnostics."""
 from collections import Counter
 
-from training.response_curriculum_v10 import CONTEXTS, normalized
 
 
 # Each tuple is (appropriate, problem). Aligned pairs stay in TRAIN in both
@@ -55,6 +54,7 @@ PAIRS = {
 
 
 def additional_rows(original):
+    from training.response_curriculum_v10 import CONTEXTS, normalized
     protected = {(r['language'], normalized(r['draft'])) for r in original}
     seen = set(); rows = []
     for lang, categories in PAIRS.items():

@@ -55,3 +55,33 @@ def test_binary_requests_do_not_instruct_hypothetical_or_question_style():
         if row['task']=='binary_review':
             assert 'first-person' in prompt(row)
             assert row['style'] not in ('a leading question','a short conditional sentence','a concrete future proposal')
+
+
+def test_native_combination_preserves_strict_schema():
+    from training.generate_large_corpus_v10 import combine_native
+    parts={language:json.dumps({key[3:]:value for key,value in valid().items() if key.startswith(language+'_')}) for language in ('ro','uk')}
+    request={'task':'response_behavior'}
+    assert parse(combine_native(parts,request),request)==valid()
+    parts['ro']='{"problematic":"a","problematic":"b","appropriate":"c"}'
+    with pytest.raises(ValueError,match='duplicate_json_key'):combine_native(parts,request)
+    parts['ro']='[]'
+    with pytest.raises(ValueError,match='not_json_object'):combine_native(parts,request)
+    parts['ro']='{"problematic":"a"}'
+    with pytest.raises(ValueError,match='wrong_native_schema'):combine_native(parts,request)
+    with pytest.raises(ValueError,match='missing_native_language'):combine_native({'ro':'{}'},request)
+
+
+def test_native_prompts_use_fixed_training_examples_and_monolingual_keys():
+    from training.native_generation_prompts_v10 import native_query
+    from training.contrast_response_data_v10 import PAIRS
+    for request in manifest(plan())[:16]:
+        for language in ('ro','uk'):
+            system,query=native_query(request,language)
+            assert system and request['setting'] in query
+            if request['task']=='response_behavior':
+                good,bad=PAIRS[language][request['category']][0]
+                assert good in query and bad in query
+                assert 'problematic' in query and 'appropriate' in query
+            else:
+                assert request['theme'] in query and 'concern' in query and 'benign' in query
+    with pytest.raises(ValueError):native_query(manifest(plan())[0],'en')

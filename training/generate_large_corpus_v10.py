@@ -91,7 +91,7 @@ def prompt(request):
     return task+'Setting: '+request['setting']+'. Style: '+request['style']+'. Variation number: '+str(request['variation'])+'. Exactly these four keys: '+', '.join(KEYS[request['task']])+'.'
 
 
-def parse(raw, request):
+def json_object(raw):
     def unique(pairs):
         result = {}
         for key, value in pairs:
@@ -99,6 +99,23 @@ def parse(raw, request):
             result[key] = value
         return result
     value = json.loads(raw, object_pairs_hook=unique)
+    if not isinstance(value, dict): raise ValueError('not_json_object')
+    return value
+
+
+def combine_native(parts, request):
+    if set(parts) != {'ro', 'uk'}: raise ValueError('missing_native_language')
+    values = {}
+    for language, part in parts.items():
+        value = json_object(part)
+        expected = {key[3:] for key in KEYS[request['task']] if key.startswith(language+'_')}
+        if set(value) != expected: raise ValueError('wrong_native_schema')
+        values.update({language+'_'+key: text for key, text in value.items()})
+    return json.dumps(values, ensure_ascii=False)
+
+
+def parse(raw, request):
+    value = json_object(raw)
     if not isinstance(value, dict) or set(value) != set(KEYS[request['task']]): raise ValueError('wrong_schema')
     cleaned = {}
     for key, text in value.items():
@@ -161,6 +178,11 @@ def main():
                 'generator':plan['generator'],'system_prompt':SYSTEM,'historical_inputs':bindings,
                 'historical_unique_texts':len(protected),'requested_families':len(requests),
                 'training_ready':False,'semantic_labels_verified':False,'stable_release_ready':False}
+    if plan.get('native_generation'):
+        protocol['system_prompt'] = None
+        protocol['language_pairing'] = 'Independent monolingual pairs share a request and partition; they are not parallel translations.'
+        protocol['native_prompt_source_sha256']=file_sha('training/native_generation_prompts_v10.py')
+        protocol['demonstration_source_sha256']=file_sha('training/contrast_response_data_v10.py')
     if a.preflight_report:
         if a.preflight_report.exists(): raise ValueError('Preflight exists')
         a.preflight_report.parent.mkdir(parents=True, exist_ok=True)
@@ -172,6 +194,8 @@ def main():
         a.study.mkdir(parents=True);a.private.mkdir(parents=True)
         (a.study/'protocol.json').write_text(json.dumps(protocol,indent=2)+'\n')
         (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
+        if plan.get('native_generation'):
+            (a.study/'native-prompts.py').write_bytes(Path('training/native_generation_prompts_v10.py').read_bytes())
         (a.study/'manifest.json').write_text(json.dumps(requests,indent=2)+'\n')
     lock=(a.private/'writer.lock').open('a')
     import fcntl
@@ -214,14 +238,30 @@ def main():
             key=(request['family'],attempt)
             if key in by_attempt: record=by_attempt[key]
             else:
-                messages=[{'role':'system','content':SYSTEM},{'role':'user','content':prompt(request)}]
-                tokens=tokenizer.apply_chat_template(messages,tokenize=True,return_dict=False,add_generation_prompt=True,enable_thinking=False)
-                if not tokens or len(tokens)>2048: raise ValueError('Generator prompt exceeds envelope')
                 seed=plan['generator']['seed']+index*plan['generator']['attempts_per_family']+attempt;mx.random.seed(seed)
-                tick=time.monotonic();raw=generate(model,tokenizer,tokens,max_tokens=plan['generator']['maximum_output_tokens'],
-                    sampler=make_sampler(temp=plan['generator']['temperature'],top_p=plan['generator']['top_p']),verbose=False)
-                record={'family':request['family'],'attempt':attempt,'seed':seed,'query_token_sha256':digest(tokens),
-                        'raw':raw,'seconds':time.monotonic()-tick}
+                tick=time.monotonic();parts={};query_hashes={}
+                for language in (('ro','uk') if plan.get('native_generation') else ('both',)):
+                    if language=='both':system,query=SYSTEM,prompt(request)
+                    else:
+                        from training.native_generation_prompts_v10 import native_query
+                        system,query=native_query(request,language)
+                    messages=[{'role':'system','content':system},{'role':'user','content':query}]
+                    if plan.get('native_generation'):
+                        messages.append({'role':'assistant','content':'{'})
+                        tokens=tokenizer.apply_chat_template(messages,tokenize=True,return_dict=False,continue_final_message=True,enable_thinking=False)
+                    else:
+                        tokens=tokenizer.apply_chat_template(messages,tokenize=True,return_dict=False,add_generation_prompt=True,enable_thinking=False)
+                    if not tokens or len(tokens)>2048: raise ValueError('Generator prompt exceeds envelope')
+                    parts[language]=('{' if plan.get('native_generation') else '')+generate(model,tokenizer,tokens,max_tokens=plan['generator']['maximum_output_tokens'],
+                        sampler=make_sampler(temp=plan['generator']['temperature'],top_p=plan['generator']['top_p']),verbose=False)
+                    query_hashes[language]=digest(tokens);mx.clear_cache()
+                raw=parts.get('both')
+                if raw is None:
+                    try:
+                        raw=combine_native(parts,request)
+                    except (ValueError,TypeError,AttributeError):raw=''
+                record={'family':request['family'],'attempt':attempt,'seed':seed,'query_token_sha256':query_hashes,
+                        'raw':raw,'raw_parts':parts,'seconds':time.monotonic()-tick}
                 append(a.private/'attempts.jsonl',record);by_attempt[key]=record;mx.clear_cache()
             try:
                 values=parse(record['raw'],request)
