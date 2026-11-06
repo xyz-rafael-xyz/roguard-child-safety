@@ -8,7 +8,10 @@ import time
 
 
 def sha(path):
-    with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
+    result=hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for block in iter(lambda:stream.read(1024*1024),b''):result.update(block)
+    return result.hexdigest()
 
 
 def check_sources(plan):
