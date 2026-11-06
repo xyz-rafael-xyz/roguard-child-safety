@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "decision": "REJECT_GENERATOR_FOR_SCALE",
+  "inspected_partition": "train",
+  "inspected_families": 8,
+  "completed_families": 16,
+  "structurally_accepted_in_pilot": 16,
+  "semantic_screen_exhaustive": false,
+  "findings": [
+    {
+      "family": "bulk53:binary_review:0001",
+      "issue": "Ukrainian concern contains malformed wording; natural-language quality remains unreliable."
+    },
+    {
+      "family": "bulk53:binary_review:0002",
+      "issue": "Ukrainian concern is semantically unclear rather than a dependable concrete positive; Romanian wording also contains a grammatical error."
+    },
+    {
+      "family": "bulk53:response_behavior:0002",
+      "issue": "Romanian pair contains grammatical errors in both replies."
+    },
+    {
+      "family": "bulk53:response_behavior:0000",
+      "issue": "Ukrainian problematic reply reports asking to choose between chat and school rather than clearly demanding replacement of human relationships."
+    }
+  ],
+  "native_human_validation": false,
+  "training_ready": false,
+  "larger_run_started": false,
+  "stable_release_ready": false
+}
