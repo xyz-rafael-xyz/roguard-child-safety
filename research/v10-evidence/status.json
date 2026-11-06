@@ -906,11 +906,9 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "robust_attention_47": {
-      "status": "attention_training_running",
-      "protocol": "protocol-amendment-45.json",
-      "new_training_rows": 1204,
-      "selected_parent_protected_overlap": 0
+    "response_attention_48": {
+      "status": "registered_preflight_and_small_model_tests_passed",
+      "protocol": "protocol-amendment-46.json"
     }
   },
   "assertion_query_22": {
@@ -1439,5 +1437,18 @@
     "augmentation_parent_audit": "robust-training-46/parent-overlap-audit.json",
     "selected_parents_overlapping_protected_inputs": 4,
     "qualified": false
+  },
+  "robust_attention_47": {
+    "source": "robust-tail-47/report.json",
+    "assessment": "robust-tail-assessment-47/report.json",
+    "fresh_challenge": "robust-tail-challenge-47/report.json",
+    "decision": "REJECT",
+    "selected_epoch": {
+      "ro": 0,
+      "uk": 0
+    },
+    "all_selected_tensor_bytes_equal_v9": true,
+    "fresh_challenge_errors": 7,
+    "new_regression_stopped_after_identity_proof": "robust-tail-regression-47/cancelled.json"
   }
 }

@@ -102,6 +102,9 @@ checks input, source, chunk and tensor identities before reuse.
 
 | Robust attention 47 | `training.prepare_robust_augmentation_v10 --exclude-protected-parents --amendment ...45.json`, then feature extraction, `training.cache_semantic_tail_v10`, and `training.train_semantic_tail_v10 --amendment ...45.json` | Registered final 18-layer q/o LoRA plus active-head update, with corrected augmentation-parent screening. Original plus eligible trajectory DEV selection; new attention needs fresh neural regression. Fresh44 comparison uses `eval.evaluate_readout_challenge_v10 --component attention --amendment ...45.json`. |
 
+| Unchanged selection assessment 47 | `eval.assess_unchanged_attention_v10` | Checks all 80 tensors per language byte for byte and identical runtime settings, despite different serialized file hashes. Fresh44 outputs also match v9 exactly. The redundant full-baseline rerun was stopped; partial files remain marked incomplete. |
+| Response attention 48 | `training.train_response_attention_v10` | Registered six-epoch shared bilingual response adapter: final 18 q/o LoRA layers plus the study26 linear head, same 596 TRAIN/80 DEV split. Frozen-body states are streamed in minibatches. Small-Gemma forward/gradient/frozen-parameter checks and input-binding preflight pass before full training. |
+
 Each command's `--help` lists its required paths. Use new output directories;
 commands refuse to overwrite studies. Historic `source.py` snapshots preserve
 the implementation used for each recorded result, even as the working scripts

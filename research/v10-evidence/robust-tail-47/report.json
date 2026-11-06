@@ -1,0 +1,224 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "training_rows": 7632,
+      "development_rows": 3117,
+      "trainable_parameters": 1755667,
+      "checkpoints": [
+        {
+          "epoch": 0,
+          "binary_errors": 2,
+          "joint_argmax_errors": 666,
+          "field_errors": [
+            64,
+            14,
+            587,
+            53,
+            1,
+            1
+          ],
+          "mean_field_cross_entropy": 0.4185444881195108,
+          "mode": "policy",
+          "threshold": 0.8659504636108948,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            666,
+            0.4185444881195108,
+            -0.0
+          ],
+          "adapter_sha256": "a52740c7939523dff962b30565c086d307507a0c6e9f373b3728797d0c0a61ac"
+        },
+        {
+          "epoch": 0.5,
+          "binary_errors": 6,
+          "joint_argmax_errors": 690,
+          "field_errors": [
+            79,
+            15,
+            589,
+            77,
+            1,
+            0
+          ],
+          "mean_field_cross_entropy": 0.4038693689106126,
+          "mode": "binary",
+          "threshold": 0.6285592588876713,
+          "score_margin": 0.0,
+          "selection_rank": [
+            6,
+            690,
+            0.4038693689106126,
+            -0.0
+          ],
+          "adapter_sha256": "dc2a464cee4c92452854848e4113090776eb5c2138993ba68b573b424aacfa05"
+        },
+        {
+          "epoch": 1,
+          "binary_errors": 3,
+          "joint_argmax_errors": 692,
+          "field_errors": [
+            79,
+            16,
+            589,
+            78,
+            1,
+            1
+          ],
+          "mean_field_cross_entropy": 0.403593668439113,
+          "mode": "coupled_policy",
+          "threshold": 0.6360092456956095,
+          "score_margin": 0.0,
+          "selection_rank": [
+            3,
+            692,
+            0.403593668439113,
+            -0.0
+          ],
+          "adapter_sha256": "4ebe2d856ef123dc8366711ba79edf333c9cc859b3103a75f5b03d200ac98541"
+        }
+      ],
+      "selected": {
+        "epoch": 0,
+        "binary_errors": 2,
+        "joint_argmax_errors": 666,
+        "field_errors": [
+          64,
+          14,
+          587,
+          53,
+          1,
+          1
+        ],
+        "mean_field_cross_entropy": 0.4185444881195108,
+        "mode": "policy",
+        "threshold": 0.8659504636108948,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          666,
+          0.4185444881195108,
+          -0.0
+        ],
+        "adapter_sha256": "a52740c7939523dff962b30565c086d307507a0c6e9f373b3728797d0c0a61ac"
+      },
+      "initial_maximum_score_error": 3.2836982992723307e-06,
+      "initial_original_development_errors": 0,
+      "complete": true,
+      "mean_training_loss": 0.064302938415989,
+      "training_seconds": 366.7586388750933
+    },
+    "uk": {
+      "training_rows": 10213,
+      "development_rows": 3551,
+      "trainable_parameters": 1755667,
+      "checkpoints": [
+        {
+          "epoch": 0,
+          "binary_errors": 0,
+          "joint_argmax_errors": 667,
+          "field_errors": [
+            55,
+            42,
+            578,
+            52,
+            0,
+            13
+          ],
+          "mean_field_cross_entropy": 0.39211917216074393,
+          "mode": "binary",
+          "threshold": 0.6608994271813364,
+          "score_margin": 0.29556497792699965,
+          "selection_rank": [
+            0,
+            667,
+            0.39211917216074393,
+            -0.29556497792699965
+          ],
+          "adapter_sha256": "44befd9151e26b2b9ca7e7f12254882a64a41e2e57089741460747390cd94f7e"
+        },
+        {
+          "epoch": 0.5,
+          "binary_errors": 1,
+          "joint_argmax_errors": 683,
+          "field_errors": [
+            78,
+            27,
+            578,
+            67,
+            0,
+            15
+          ],
+          "mean_field_cross_entropy": 0.38409049858560823,
+          "mode": "binary",
+          "threshold": 0.5785683698922808,
+          "score_margin": 0.0,
+          "selection_rank": [
+            1,
+            683,
+            0.38409049858560823,
+            -0.0
+          ],
+          "adapter_sha256": "edaf06dc844a0a2508b13f7c4a694bb9a6d84ad3b2d3b86cbc2a40f3cab892a2"
+        },
+        {
+          "epoch": 1,
+          "binary_errors": 2,
+          "joint_argmax_errors": 680,
+          "field_errors": [
+            75,
+            25,
+            580,
+            74,
+            0,
+            10
+          ],
+          "mean_field_cross_entropy": 0.35995472667607337,
+          "mode": "binary",
+          "threshold": 0.15315372611649247,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            680,
+            0.35995472667607337,
+            -0.0
+          ],
+          "adapter_sha256": "59d73b1774520b20114a9a1a7c8e81d0a8dcdf54ec22eff283646291d32d4da3"
+        }
+      ],
+      "selected": {
+        "epoch": 0,
+        "binary_errors": 0,
+        "joint_argmax_errors": 667,
+        "field_errors": [
+          55,
+          42,
+          578,
+          52,
+          0,
+          13
+        ],
+        "mean_field_cross_entropy": 0.39211917216074393,
+        "mode": "binary",
+        "threshold": 0.6608994271813364,
+        "score_margin": 0.29556497792699965,
+        "selection_rank": [
+          0,
+          667,
+          0.39211917216074393,
+          -0.29556497792699965
+        ],
+        "adapter_sha256": "44befd9151e26b2b9ca7e7f12254882a64a41e2e57089741460747390cd94f7e"
+      },
+      "initial_maximum_score_error": 2.696136372909441e-07,
+      "initial_original_development_errors": 0,
+      "complete": true,
+      "mean_training_loss": 0.11830498376731062,
+      "training_seconds": 484.92556862486526
+    }
+  },
+  "stable_release_ready": false,
+  "calibration_or_test_loaded": false,
+  "seconds": 959.66970724985
+}

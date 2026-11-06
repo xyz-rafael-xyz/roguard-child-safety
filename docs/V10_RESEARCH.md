@@ -106,6 +106,7 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Fresh committee challenge 44 | Both v9 and committee miss seven of 72 new authored checkpoints (48 distinct model views); no fixed or introduced errors | Rejected; older engineering passes do not generalize to this diagnostic |
 | Translated response 45 | Translation followed by four boolean behavior judgments fixes the redaction false alerts but introduces other failures:35/40 valid correct, including one invalid JSON output | Rejected |
 | Robust readout 46 | Adds 1,204 TRAIN augmentations but fixes none of fresh44's seven misses and introduces one broad plus two trajectory-DEV errors. Four selected augmentation parents overlap older DEV/calibration inputs; the next data build excludes them | Rejected |
+| Robust attention 47 | Updated checkpoints worsen development selection; both languages retain epoch zero. All 160 selected tensor byte sequences and runtime settings match v9, and fresh44 still has seven errors | Rejected; no selected model improvement |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
