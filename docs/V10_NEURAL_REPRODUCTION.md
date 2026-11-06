@@ -257,3 +257,20 @@ evidence. Even zero errors in study59's development and exposed diagnostics
 would require a separate frozen reserved-test evaluation before an engineering
 pass. Neither this queue nor the runtime checks authorize promotion or reviewer
 handoff. One full encoder is active at a time.
+
+## Packaged response attention runtime (study60)
+
+`Gemma4ResponseAttentionModel` supports the selected attention-adapted response
+architecture used by studies49 and59. It validates a checksum-bound artifact,
+all72 q/o adapter arrays and the separate five-category linear head. Inference
+shares the caller's review encoder and restores every original adapter array
+after success or failure. It uses the same query, role separation, context
+limits and unqualified diagnostic semantics as the frozen-head interface.
+
+The local research wheel passes44 installed tests outside the checkout and all
+177 package files match the archive. Small actual-Gemma tests verify prediction
+changes under active adapters, cached/full parity and exact original outputs
+after restoration. Full-size installed verification is still pending. The
+verification command checks every mapped DEV input against the selected saved
+logits and independent full forwards; it never opens reserved TEST. A local
+export of failed study49 provides a verification fixture, not an accepted model.
