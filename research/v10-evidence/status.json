@@ -852,7 +852,7 @@
     "qualified": false
   },
   "remaining_requirements": [
-    "Qualify structured interpretation and measure independent committee performance; installed binary component and trajectory integration pass exposed engineering checks",
+    "Resolve the seven fresh44 binary diagnostic errors, preserve prior regressions, and qualify structured interpretation; independent committee performance is not established",
     "Qualify response checking",
     "Fresh calibration after model selection",
     "Independent Romanian and Ukrainian annotated final evaluation",
@@ -871,7 +871,7 @@
     ],
     "wheel_sha256": "7a51771a2a7f32a5d55de27d8e15cb11a593edff5e5675f0fef5414d748adecd",
     "host": "macOS arm64",
-    "cross_platform_ci": "Both runs for f77733b passed; trajectory integration and probability-floor changes await their own CI run.",
+    "cross_platform_ci": "Both hosted runs for d631162 pass all 16 jobs, including committee trajectory and probability-floor portability checks.",
     "wheel_published": false,
     "legacy_encoding_cli_smoke": true,
     "durable_session_tests": 16,
@@ -904,9 +904,10 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "contrast_grounded_response_43": {
-      "status": "running",
-      "protocol": "protocol-amendment-41.json"
+    "robust_semantic_readout_46": {
+      "status": "feature_extraction_running",
+      "protocol": "protocol-amendment-44.json",
+      "new_training_rows": 1204
     }
   },
   "assertion_query_22": {
@@ -1390,5 +1391,36 @@
     "semantic_sets_calibrated": false,
     "independent_validation": false,
     "archive": "committee-archive-42b/report.json"
+  },
+  "contrast_grounded_response_43": {
+    "source": "contrast-grounded-response-43/report.json",
+    "decision": "REJECT",
+    "development_correct": 38,
+    "development_total": 40,
+    "invalid": 0,
+    "qualified": false
+  },
+  "committee_challenge_44": {
+    "source": "committee-challenge-44/report.json",
+    "decision": "REJECT",
+    "totals": {
+      "rows": 72,
+      "candidate_errors": 7,
+      "v9_errors": 7,
+      "fixed": 0,
+      "introduced": 0,
+      "abstentions": 0
+    },
+    "distinct_model_inputs": 48,
+    "independent_annotation": false,
+    "qualified": false
+  },
+  "translated_response_45": {
+    "source": "translated-response-45/report.json",
+    "decision": "REJECT",
+    "development_correct": 35,
+    "development_total": 40,
+    "invalid": 1,
+    "qualified": false
   }
 }

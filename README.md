@@ -72,6 +72,8 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 selection, durable review sessions, semantic training, interpretation-set evaluation and a recorded improvement loop.
 Its experimental shared-encoder committee fixes the two v9 broad-audit false alerts,
 with zero errors across 6,002 fresh checkpoint inferences on exposed engineering data.
+A later 72-checkpoint authored challenge exposes seven errors shared with v9; the committee
+fails that new diagnostic and remains unqualified.
 [Committee results and local research bundle](docs/V10_COMMITTEE.md).
 [Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
 The published stable package remains **v9.0.0**.

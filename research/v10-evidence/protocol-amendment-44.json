@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "robust-semantic-readout-46",
+  "motivation": "Fresh44 exposes shared v9/committee misses on assistant-instruction interference and bot-dependence distress. Add label-preserving adversarial assistant contexts to existing TRAIN, plus separately authored bot-use contrast TRAIN wording. Do not train on fresh44 or change its labels.",
+  "training": "Select64 distinct single-turn existing TRAIN inputs per language and binary label by normalized-input hash. Prepend each of four fixed assistant classification instructions, balanced between output0 and output1. Add six new bot-use concern phrasings per language under affirmed-self, fictional and negated-self scope, each direct and behind the same four instructions. Expected1204 additional rows, subject to exact normalized prefix exclusion.",
+  "protection": "Audit original TRAIN and DEV caches; protect all original DEV, prior trajectory dev/calibration/challenge/regression, broad regression, and fresh44 original and selected memory views. None of those labels enters training or threshold selection. This is development after failure analysis, not independent validation.",
+  "features": "Reuse checksum-bound original v9 TRAIN/DEV representations; append fresh frozen-v9 representations only for screened new TRAIN rows. Original DEV remains unchanged.",
+  "registered_candidates": [
+    {"name": "robust-semantic-ce", "learning_rate": 0.0001, "teacher_kl": 0.0},
+    {"name": "robust-semantic-distilled", "learning_rate": 0.0001, "teacher_kl": 0.2},
+    {"name": "robust-semantic-conservative", "learning_rate": 0.00003, "teacher_kl": 0.5}
+  ],
+  "selection": "Existing semantic-readout fitter:12 epochs, seed1011, batch64, frozen encoder, original DEV-only lexicographic selection; retain epoch-zero. Freeze selected weights before regression and fresh44 evaluation. Zero binary DEV errors alone does not qualify the model.",
+  "stable_release_ready": false
+}

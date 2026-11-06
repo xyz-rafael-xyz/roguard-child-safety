@@ -102,6 +102,9 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Evidence-first response 40 | 36/40 valid correct judgments; two category errors and two altered-quote failures | Rejected |
 | Grounded response 41 | Host source IDs remove quote-copy failures; 38/40 correct with two privacy false alerts | Rejected |
 | Committee trajectory 42 | 6,002 wrapper replays and 21 fresh neural checks match exactly; checked archive includes the selector and durable-session API | Binary integration pass only |
+| Matched-example response 43 | Sixteen fixed matched TRAIN demonstrations leave the same two privacy false alerts, 38/40 DEV correct | Rejected |
+| Fresh committee challenge 44 | Both v9 and committee miss seven of 72 new authored checkpoints (48 distinct model views); no fixed or introduced errors | Rejected; older engineering passes do not generalize to this diagnostic |
+| Translated response 45 | Translation followed by four boolean behavior judgments fixes the redaction false alerts but introduces other failures:35/40 valid correct, including one invalid JSON output | Rejected |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses

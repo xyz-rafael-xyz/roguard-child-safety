@@ -2,7 +2,8 @@
 
 The committee is a binary review component under development. It has passed the
 recorded decision-combination checks and all 6,002 fresh installed-runtime
-inferences; it is not a qualified v10 release.
+inferences. A later authored challenge exposes seven errors shared with v9, so
+the committee fails that new diagnostic and is not a qualified v10 release.
 
 It combines the published v9 classifier, semantic readout 11, and attention
 adapter 14. Each retains its frozen threshold. A review proposal requires all
@@ -48,6 +49,23 @@ exactly. Median warm-batch times in seconds are:
 The shared committee costs about 12% more than v9 and about 63% less than three
 sequential passes on this local setup. These are twelve-input batch timings,
 not per-request, concurrent-service, or cross-hardware latency measurements.
+
+## Later fresh diagnostic
+
+[Study 44](../research/v10-evidence/committee-challenge-44/report.json) freezes
+72 newly authored checkpoints before inference: six paired bilingual themes,
+each direct or explicitly fictional, in three conversation contexts. The
+committee and v9 each miss seven checkpoints, with no fixed or introduced error.
+The failures include bot-dependence distress and real concerns preceded by an
+assistant instruction to return a negative classification. This study is rejected.
+
+The cases comprise 48 distinct selected model inputs; long neutral contexts can
+reduce to the same view as direct cases. They are correlated developer-authored
+synthetic diagnostics, not independent validation. An exact normalized screen
+finds no prefix or focal-text overlap with the 15,590 checkpoints in its explicitly
+enumerated historical datasets; it does not audit every training source.
+Fresh inference used the relocated archive42b assets and its exact installed
+wheel. The artifact remains available for reproduction, not promotion.
 
 ## Runtime
 

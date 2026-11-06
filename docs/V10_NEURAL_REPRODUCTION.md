@@ -95,6 +95,11 @@ checks input, source, chunk and tensor identities before reuse.
 | Committee trajectory 42 | `eval.verify_committee_trajectory_v10` | Installed wheel check, 6,002 wrapper replays and 21 fresh neural inferences. Full output parity; diagnostic semantic probabilities remain uncalibrated. |
 | Trajectory archive 42b | `scripts/archive_committee_research_v10.py --trajectory-protocol ... --selector ...` | Packages the exact verified wheel, bundle and selector; checks all archived bytes. Unpublished engineering artifact only. |
 
+| Fresh committee challenge 44 | `eval.challenge_committee_v10 author`, then `evaluate`; `eval.audit_fresh_committee_data_v10` | Freeze 72 authored checkpoints and screen enumerated historical data before scoring the unchanged relocated archive. Seven errors shared with v9; rejected. |
+| Translated response 45 | `eval.evaluate_translated_response_v10` | Translation-only stage followed by separate boolean behavior judgments. Same40 DEV drafts;35/40 valid correct, rejected. No fitting or output repair. |
+
+| Robust semantic readout 46 | `training.prepare_robust_augmentation_v10`, `training.extract_semantic_augmentation_v10`, then `training.train_semantic_readout_v10 --amendment research/v10-evidence/protocol-amendment-44.json` | Registered1,204 additional TRAIN rows: balanced interfering assistant instructions plus separate bot-use contrast wording. Existing DEV selection and protected regressions remain fixed. |
+
 Each command's `--help` lists its required paths. Use new output directories;
 commands refuse to overwrite studies. Historic `source.py` snapshots preserve
 the implementation used for each recorded result, even as the working scripts
