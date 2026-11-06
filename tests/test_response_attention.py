@@ -60,3 +60,28 @@ def test_response_checkpoint_rejects_changed_inventory_and_roundtrips():
     with pytest.raises(ValueError):load_response_weights(model,bad)
     bad=dict(tensors);bad['head.last.bias']=np.full((5,),np.nan,dtype=np.float32)
     with pytest.raises(ValueError):load_response_weights(model,bad)
+
+
+def test_response_optimizer_routes_head_and_tail_like_separate_optimizers():
+    mx,np,model=setup()
+    import mlx.optimizers as optim
+    from mlx.utils import tree_flatten, tree_map
+    from training.response_attention_v10 import make_response_optimizer
+    config={'learning_rate':5e-6,'head_learning_rate':1e-3,'weight_decay':.01}
+    combined,groups=make_response_optimizer(config)
+    separate={name:optim.AdamW(learning_rate=rate,weight_decay=.01)
+              for name,rate in (('head',1e-3),('base',5e-6))}
+    expected=model.trainable_parameters()
+    for scale in (.5,1.):
+        gradients=tree_map(lambda value:mx.ones_like(value),model.trainable_parameters())
+        for optimizer,rate in groups:optimizer.learning_rate=rate*scale
+        next_expected={}
+        for name,rate in (('head',1e-3),('base',5e-6)):
+            separate[name].learning_rate=rate*scale
+            next_expected.update(separate[name].apply_gradients({name:gradients[name]},expected))
+        combined.update(model,gradients);expected=next_expected
+        mx.eval(model.trainable_parameters(),expected,combined.state)
+        actual=dict(tree_flatten(model.trainable_parameters()))
+        target=dict(tree_flatten(expected))
+        assert set(actual)==set(target)
+        for name in actual:assert np.array_equal(np.asarray(actual[name]),np.asarray(target[name])),name

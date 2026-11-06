@@ -65,3 +65,14 @@ def load_response_weights(model, tensors):
             for name, value in tensors.items()):
         raise ValueError('Invalid response-tail checkpoint inventory')
     model.load_weights([(name, mx.array(value)) for name, value in tensors.items()], strict=False)
+
+
+def make_response_optimizer(config):
+    """Keep the optional head learning rate separate from attention updates."""
+    import mlx.optimizers as optim
+    tail = optim.AdamW(learning_rate=config['learning_rate'], weight_decay=config['weight_decay'])
+    if 'head_learning_rate' not in config:
+        return tail, [(tail, config['learning_rate'])]
+    head = optim.AdamW(learning_rate=config['head_learning_rate'], weight_decay=config['weight_decay'])
+    optimizer = optim.MultiOptimizer([head, tail], [lambda name, _: name.startswith('head.')])
+    return optimizer, [(head, config['head_learning_rate']), (tail, config['learning_rate'])]

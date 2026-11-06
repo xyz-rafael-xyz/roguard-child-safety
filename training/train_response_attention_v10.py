@@ -11,7 +11,7 @@ from roguard.gemma4_review import _Engine
 from roguard.trajectory_data import file_sha, read_jsonl, write_jsonl
 from roguard.trajectory_model import RESPONSE_LABELS
 from training.query_inference_v10 import QueryView
-from training.response_attention_v10 import make_response_tail, zero_tail_outputs, response_state, load_response_weights
+from training.response_attention_v10 import make_response_tail, zero_tail_outputs, response_state, load_response_weights, make_response_optimizer
 from training.train_contrast_response_v10 import payload
 from training.train_neural_response_v10 import PROMPT, make_head, prediction_rows
 from training.train_response_readout_v10 import summarize
@@ -58,7 +58,7 @@ def load_inputs(a):
         'contrast_report_sha256':file_sha(a.contrast_study/'report.json'),
         'parent_features_sha256':parent_selection['features_sha256'],
         'additional_features_sha256':contrast_selection['additional_features_sha256'],
-        'initial_head_sha256':parent['selected']['head_sha256'],
+        'parent_head_sha256':parent['selected']['head_sha256'],
         'context_protocol_sha256':file_sha(a.context_study/'protocol.json')}
     return rows,x,train,dev,identities,parent,data,bindings
 
@@ -68,9 +68,12 @@ def main():
     for name in ('base','candidate','data','parent_study','parent_private','contrast_study','contrast_private','context_study','study','private'):
         p.add_argument('--'+name.replace('_','-'),dest=name,type=Path,required=True)
     p.add_argument('--preflight-report',type=Path)
+    p.add_argument('--amendment',type=Path,default=Path('research/v10-evidence/protocol-amendment-46.json'))
     a=p.parse_args()
     if a.study.exists() or a.private.exists():raise ValueError('Refusing to overwrite response attention study')
-    amendment=Path('research/v10-evidence/protocol-amendment-46.json');plan=json.loads(amendment.read_text());config=plan['optimization']
+    amendment=a.amendment;plan=json.loads(amendment.read_text());config=plan['optimization']
+    fresh_head=plan.get('fresh_response_head',False)
+    if not isinstance(fresh_head,bool):raise ValueError('Invalid response initialization option')
     rows,x,train,dev,identities,parent,data,bindings=load_inputs(a)
     if a.preflight_report:
         if a.preflight_report.exists():raise ValueError('Refusing to overwrite preflight')
@@ -88,7 +91,7 @@ def main():
     a.study.mkdir(parents=True);a.private.mkdir(parents=True)
     protocol={'format':'roguard-response-attention-fit-1','source_sha256':file_sha(__file__),
         'helper_sha256':file_sha('training/response_attention_v10.py'),'amendment_sha256':file_sha(amendment),
-        'prompt':PROMPT,'labels':list(RESPONSE_LABELS),'optimization':config,'bindings':bindings,
+        'prompt':PROMPT,'labels':list(RESPONSE_LABELS),'optimization':config,'bindings':bindings,'fresh_response_head':fresh_head,
         'training_rows':596,'development_rows':80,'persistent_body_cache':False,
         'independent_validation':False,'stable_release_ready':False}
     (a.study/'protocol.json').write_text(json.dumps(protocol,indent=2)+'\n')
@@ -101,6 +104,9 @@ def main():
     head=make_head(parent['selected']['configuration'])
     head.load_weights([(k,mx.array(v)) for k,v in load_file(a.parent_private/'selected.safetensors').items()])
     head.eval();teacher=head(mx.array(x));mx.eval(teacher);teacher=np.asarray(teacher).copy()
+    if fresh_head:
+        mx.random.seed(config['seed']);head=make_head(parent['selected']['configuration']);head.eval()
+    initial=head(mx.array(x));mx.eval(initial);initial=np.asarray(initial).copy()
     model=make_response_tail(engine.model.base,head);query=QueryView(engine,PROMPT)
     trainable_names=set(dict(tree_flatten(model.trainable_parameters())))
     if len(trainable_names)!=74:raise ValueError('Expected72 LoRA tensors and two response-head tensors')
@@ -134,9 +140,9 @@ def main():
         z=infer(dev_rows,dev if epoch==0 else None,True)
         outputs=prediction_rows(z.astype(np.float64));summary=summarize(dev_rows,outputs)
         if epoch==0:
-            expected=prediction_rows(teacher[dev].astype(np.float64))
-            if any(a['label']!=b['label'] for a,b in zip(outputs,expected)) or summary['errors']!=3:
-                raise ValueError('Initial selected response26 decisions differ')
+            expected=prediction_rows(initial[dev].astype(np.float64))
+            if any(a['label']!=b['label'] for a,b in zip(outputs,expected)) or (not fresh_head and summary['errors']!=3):
+                raise ValueError('Initial response decisions differ from bound representations')
         path=a.private/('epoch-'+str(epoch)+'.safetensors')
         tensors={k:np.asarray(v).copy() for k,v in tree_flatten(model.trainable_parameters())}
         if set(tensors)!=trainable_names or any(not np.isfinite(v).all() for v in tensors.values()):
@@ -148,7 +154,7 @@ def main():
         (a.study/'progress.json').write_text(json.dumps({'selected':selected,'epochs':history,'seconds':time.monotonic()-started},indent=2)+'\n')
         print(json.dumps({'epoch':epoch,'development_errors':summary['errors'],'selected_epoch':selected['epoch'],'seconds':time.monotonic()-started}),flush=True)
     save_evaluation(0)
-    optimizer=optim.AdamW(learning_rate=config['learning_rate'],weight_decay=config['weight_decay'])
+    optimizer,rate_groups=make_response_optimizer(config)
     def loss_fn(current,states,gold,row_weights,old):
         z=current(states);logp=z-mx.logsumexp(z,axis=-1,keepdims=True)
         old_logp=old-mx.logsumexp(old,axis=-1,keepdims=True)
@@ -160,7 +166,8 @@ def main():
         model.train();order=rng.permutation(train)
         for offset in range(0,len(order),config['batch_size']):
             chosen=order[offset:offset+config['batch_size']];states=[response_state(engine,query,payload(rows[i]))[0] for i in chosen]
-            step+=1;scale=min(step/warm,max(.1,(total-step)/max(1,total-warm)));optimizer.learning_rate=config['learning_rate']*scale
+            step+=1;scale=min(step/warm,max(.1,(total-step)/max(1,total-warm)))
+            for group,rate in rate_groups:group.learning_rate=rate*scale
             loss,gradient=value_grad(model,states,mx.array(labels[chosen]),mx.array(weights[chosen]),mx.array(teacher[chosen]))
             gradient,norm=optim.clip_grad_norm(gradient,config['gradient_norm_clip']);mx.eval(loss,norm,gradient)
             if not bool(mx.isfinite(loss).item()) or not bool(mx.isfinite(norm).item()):raise ValueError('Nonfinite response update')
@@ -193,6 +200,7 @@ def main():
     spec={'format':'roguard-response-attention-research-1','adapter_sha256':file_sha(a.private/'selected.safetensors'),
         'base_model':'mlx-community/gemma-4-e4b-it-4bit','base_revision':'475b9088d29754a3379866cf5aeb6b41acd313c2',
         'labels':list(RESPONSE_LABELS),'prompt':PROMPT,'boundary':24,'head':parent['selected']['configuration'],
+        'protocol_sha256':file_sha(a.study/'protocol.json'),'fresh_response_head':fresh_head,
         'selection_sha256':selection_sha,'qualified':False,'contextual_factual_support_established':False}
     (a.study/'model.json').write_text(json.dumps(spec,indent=2)+'\n')
     report={'complete':True,'selected':selected,'selection_sha256':selection_sha,'model_spec_sha256':file_sha(a.study/'model.json'),
