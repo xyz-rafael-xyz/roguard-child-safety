@@ -72,3 +72,34 @@ entry points are in [neural reproduction](V10_NEURAL_REPRODUCTION.md). No new
 package-index version or default model profile is published by this experiment.
 Semantic sets, response checking, fresh calibration, independent final evaluation
 and measured reviewer benefit remain separate qualification requirements.
+
+## Local research bundle
+
+After fresh runtime verification passes, `scripts/package_committee_v10.py`
+copies the exact six adapters and metadata files into a new directory. It checks
+that both packaged committee identities match the recorded runtime evaluation.
+The pretrained Gemma base stays separate. The manifest identifies this as an
+unqualified research component, and the exporter refuses to overwrite a bundle.
+
+The installed package can load a relocated bundle with:
+
+```python
+from roguard.committee_bundle import load_committee
+
+model = load_committee(
+    "research-bundle/committee.json",
+    expected_sha256="<manifest SHA-256 from the packaging report>",
+    base="/path/to/the/pinned/gemma-base",
+    language="ro",
+)
+result = model.predict({
+    "language": "ro",
+    "turns": [{"role": "minor", "text": "Am nevoie de ajutor cu tema."}],
+})
+```
+
+The equivalent JSON CLI is `python -m roguard.committee_bundle --bundle ...
+--sha256 ... --base ... --input conversation.json`. Loading validates all six
+adapter checksums and rejects missing assets, altered metadata, mixed languages
+and paths escaping the bundle. It performs no download. Full inference requires
+the existing Apple Silicon MLX environment and the pinned pretrained base.
