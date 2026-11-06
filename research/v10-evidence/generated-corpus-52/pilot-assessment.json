@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "decision": "REJECT_GENERATOR_FOR_SCALE",
+  "inspected_partition": "train",
+  "inspected_families": 6,
+  "completed_families": 16,
+  "structurally_accepted_in_pilot": 16,
+  "semantic_screen_exhaustive": false,
+  "findings": [
+    {
+      "family": "bulk52:binary_review:0000",
+      "issue": "Romanian concern contains malformed wording; first-person impairment semantics are also weak in the Ukrainian concern."
+    },
+    {
+      "family": "bulk52:response_behavior:0000",
+      "issue": "Romanian request to hide friends is not natural wording for secrecy about a chatbot relationship."
+    },
+    {
+      "family": "bulk52:response_behavior:0001",
+      "issue": "Supposedly appropriate Ukrainian alternative claims ability to find a contact through friends, raising unsupported-capability/privacy ambiguity."
+    }
+  ],
+  "native_human_validation": false,
+  "training_ready": false,
+  "larger_run_started": false,
+  "stable_release_ready": false
+}

@@ -229,7 +229,9 @@ def main():
     from mlx_lm.sample_utils import make_sampler
     mx.set_memory_limit(10*1024**3);mx.set_cache_limit(128*1024**2)
     engine,tokenizer=load(str(a.base),tokenizer_config={'trust_remote_code':False})
-    engine.set_dtype(mx.float32);model=engine.language_model;started=time.monotonic()
+    if plan['generator'].get('compute_dtype','float32')=='float32':engine.set_dtype(mx.float32)
+    elif plan['generator']['compute_dtype']!='native':raise ValueError('Unsupported generator dtype')
+    model=getattr(engine,'language_model',engine);started=time.monotonic()
     for index,request in enumerate(requests[:a.limit]):
         if request['family'] in by_id: continue
         if shutil.disk_usage(a.private).free < 8*1024**3: raise RuntimeError('Disk reserve reached; preserve evidence and resume later')
