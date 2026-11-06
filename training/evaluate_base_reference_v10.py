@@ -26,6 +26,8 @@ def main():
     p.add_argument('--specialists', type=Path)
     p.add_argument('--attention-study', type=Path)
     p.add_argument('--attention-regression', type=Path)
+    p.add_argument('--paired-cache-study', type=Path)
+    p.add_argument('--paired-cache-private', type=Path)
     a = p.parse_args()
     if a.study.exists() or a.private.exists():
         raise ValueError('Refusing to overwrite base-reference evaluation')
@@ -80,13 +82,35 @@ def main():
     (a.study/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
     (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
     import numpy as np
+    import mlx.core as mx
     from mlx.utils import tree_flatten
     from safetensors.numpy import load_file
     cases = {name: read_jsonl(path) for name, path in paths.items()}
     baseline = {name: read_jsonl(a.reference_study/(name+'-baseline.jsonl')) for name in paths}
     baseline_by_id = {name: {r['checkpoint_id']: r for r in rows} for name, rows in baseline.items()}
     outputs = {name: [] for name in paths}; started = time.monotonic(); done = 0; forwards = 0
-    maximum_feature_error = 0.; maximum_live_score_error = 0.; checked = []; fresh_languages = []
+    maximum_feature_error = 0.; maximum_live_score_error = 0.; checked = []; fresh_languages = []; reused_features = 0
+    paired_cache = None
+    if a.paired_cache_study is not None:
+        if a.paired_cache_private is None:
+            raise ValueError('Paired feature cache directory required')
+        paired_cache = json.loads((a.paired_cache_study/'report.json').read_text())
+        cache_protocol = json.loads((a.paired_cache_study/'protocol.json').read_text())
+        if (not paired_cache['complete'] or cache_protocol['format'] != 'roguard-base-reference-regression-1'
+                or cache_protocol['extractor_source_sha256'] != file_sha('training/extract_base_reference_v10.py')
+                or cache_protocol['reference_report_sha256'] != file_sha(a.reference_study/'report.json')
+                or cache_protocol['selector_sha256'] != selector.identity
+                or cache_protocol['inputs'] != protocol['inputs']):
+            raise ValueError('Paired cache representation or population differs')
+        for lang, artifacts in paired_cache['features'].items():
+            if file_sha(a.paired_cache_study/'v9-binding'/(lang+'-review.json')) != frozen.models[lang].identity:
+                raise ValueError('Paired cache v9 encoder binding differs')
+            for suffix, expected_sha in artifacts.items():
+                if file_sha(a.paired_cache_private/(lang+'-'+suffix)) != expected_sha:
+                    raise ValueError('Paired feature cache bytes differ')
+        protocol['paired_cache_report_sha256'] = file_sha(a.paired_cache_study/'report.json')
+        protocol['paired_cache_languages'] = sorted(paired_cache['features'])
+        (a.study/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
     for lang in ('ro', 'uk'):
         if specialists is not None and specialists['languages'][lang]['selected'] == 'attention':
             previous = json.loads((a.attention_regression/'report.json').read_text())
@@ -122,20 +146,31 @@ def main():
         if specialists is not None and specialists['languages'][lang]['spec_sha256'] != file_sha(a.selected_study/(lang+'-head.json')):
             raise ValueError('Specialist reference metadata differs')
         fresh_languages.append(lang)
-        engine = _Engine(*frozen.models[lang]._args); mx = engine.mx
+        cached = paired_cache is not None and lang in paired_cache['features']
+        engine = None if cached else _Engine(*frozen.models[lang]._args)
         head = make_head(spec['configuration'])
         tensors = load_file(a.selected/(lang+'-selected.safetensors'))
         expected = dict(tree_flatten(head.parameters()))
         if set(tensors) != set(expected) or any(tensors[k].shape != v.shape or not np.isfinite(tensors[k]).all() for k, v in expected.items()):
             raise ValueError('Selected classifier tensor inventory differs')
         head.load_weights([(k, mx.array(v)) for k, v in tensors.items()]); head.eval(); mx.eval(head.parameters())
-        common = engine.make_cache(engine.model.base)
-        mx.eval(engine.model.base.model(mx.array([PREFIX_TOKENS]), cache=common))
+        common = None
+        if not cached:
+            common = engine.make_cache(engine.model.base)
+            mx.eval(engine.model.base.model(mx.array([PREFIX_TOKENS]), cache=common))
         mappings = read_jsonl(a.reference_private/(lang+'-rows.jsonl'))
         lookup = {(r['population'], r['checkpoint_id']): i for i, r in enumerate(mappings)}
         old_h = np.load(a.reference_private/(lang+'-features.npy'), mmap_mode='r')
         old_z = np.load(a.reference_private/(lang+'-original-logits.npy'), mmap_mode='r')
         records = [(name, c, point) for name, rows in cases.items() for c in rows if c['language'] == lang for point in c['checkpoints']]
+        cached_values = None; cached_mapping = {}
+        if cached:
+            cached_rows = read_jsonl(a.paired_cache_private/(lang+'-rows.jsonl'))
+            cached_values = np.load(a.paired_cache_private/(lang+'-features.npy'), mmap_mode='r')
+            cached_mapping = {(r['population'], r['checkpoint_id']): (i, r) for i, r in enumerate(cached_rows)}
+            if (cached_values.shape != (len(records), 5120) or len(cached_mapping) != len(records)
+                    or set(cached_mapping) != {(name, checkpoint_id(c, point)) for name, c, point in records}):
+                raise ValueError('Paired cache checkpoint inventory differs')
         features = np.lib.format.open_memmap(a.private/(lang+'-features.npy'), mode='w+', dtype=np.float32, shape=(len(records), 5120))
         new_logits = np.empty((len(records), 19), dtype=np.float32)
         new_mappings = []; memo = {}; checked_populations = set()
@@ -153,7 +188,15 @@ def main():
             old_score = _score(old_z[position], frozen.models[lang]._spec)
             if abs(old_score-old['score']) > 1e-7 or int(old_score >= frozen.models[lang]._spec['threshold']) != old['predicted']:
                 raise ValueError('Original baseline score binding differs')
-            if inference_digest not in memo:
+            if cached:
+                cache_position, cache_row = cached_mapping[(population, key)]
+                if cache_row['input_digest'] != input_identity(payload) or cache_row['inference_input_digest'] != inference_digest:
+                    raise ValueError('Paired cache actual input differs')
+                paired = cached_values[cache_position].copy()
+                z = head(mx.array(paired[None, :])); mx.eval(z)
+                values = np.asarray(z)[0].copy(); score = _score(values, spec)
+                reused_features += 1
+            elif inference_digest not in memo:
                 tokens = classifier_tokens(engine.tokenizer, inference)
                 if len(tokens) > 1024:
                     raise ValueError('Model token limit exceeded')
@@ -184,7 +227,8 @@ def main():
                     del live, live_adapted
                 memo[inference_digest] = paired, values, score; forwards += 1
                 del state, base_h, z
-            paired, values, score = memo[inference_digest]
+            if not cached:
+                paired, values, score = memo[inference_digest]
             features[i] = paired; new_logits[i] = values
             new_mappings.append({'population': population, 'checkpoint_id': key,
                 'input_digest': input_identity(payload), 'inference_input_digest': inference_digest})
@@ -205,10 +249,11 @@ def main():
         write_jsonl(a.private/(lang+'-rows.jsonl'), new_mappings)
         for name, rows in outputs.items():
             write_jsonl(a.study/(name+'-candidate.jsonl'), rows)
-        del engine, head, common, memo, old_h, old_z, new_logits
+        del engine, head, common, memo, old_h, old_z, new_logits, cached_values
         import gc
         gc.collect(); mx.clear_cache()
     report = {'complete': True, 'populations': {}, 'fresh_base_forwards': forwards,
+              'paired_feature_rows_reused': reused_features,
               'maximum_adapted_feature_replay_error': maximum_feature_error,
               'maximum_live_paired_score_error': maximum_live_score_error, 'live_checked_populations': checked,
               'seconds': time.monotonic()-started, 'fitting_performed': False,

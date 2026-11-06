@@ -739,6 +739,25 @@
           "head_sha256": "2733cbd7b88899c1f5a2fa1117ef71989c29157a03d91246402b1307028f91ff"
         }
       }
+    },
+    {
+      "candidate": "language-specialists-19",
+      "source": "language-specialist-regression-19/report.json",
+      "accepted": false,
+      "reason": "Two broad binary errors including one new regression; semantic errors remain",
+      "broad_paired_comparison": {
+        "candidate_only_correct": 1,
+        "baseline_only_correct": 1,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.0
+        ],
+        "comparison_digest": "51f6e72660f57aa62e1f5672b70269a805171b89991c68f35b4d25d17357d492",
+        "real_world_superiority_established": false
+      },
+      "broad_binary_errors": 2,
+      "original_600_binary_errors": 0
     }
   ],
   "broad_regression": {
@@ -800,14 +819,10 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "language-specialists-19": {
-      "selection": "language-specialists-19/report.json",
-      "regression_status": "running"
-    },
     "scope-curriculum-20": {
       "training_rows": 3456,
       "input_audit": "scope-input-audit-20/report.json",
-      "fit_status": "not_started"
+      "fit_status": "feature_extraction_running"
     }
   }
 }

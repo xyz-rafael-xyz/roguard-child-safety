@@ -71,6 +71,7 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Frozen score comparator 15 | Selecting an existing v9 score mode/threshold on the same development data still leaves two Romanian development errors; broad audit worsens to 5,009/5,022 | Comparator; rejected for promotion |
 | Semantic lexical probes 16 and 17 | Plain and quotation-separated features leave 3,235 and 3,150 joint interpretation errors respectively on 6,668 development inputs; neither changes the binary review decision | Rejected as standalone interpretation models |
 | Base-reference heads 18 | Four classifier designs compare pretrained-only and paired pretrained/v9 representations. Selected Romanian head has zero binary and 632 joint semantic development errors; Ukrainian head has one binary and 611 joint semantic errors | Rejected as a bilingual replacement |
+| Language specialists 19 | Development-only language selection retains 348/348 trajectory and 600/600 original binary decisions; broad audit is 5,020/5,022 with one fixed error and one new regression; 83 broad semantic argmax errors remain | Rejected |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -104,10 +105,14 @@ retains the exact fixed/new binary error IDs and rejects the candidate. Saved
 logits reproduce every recorded score and binary decision exactly. No ensemble
 or threshold is fitted to these regression failures.
 
-The next registered comparison, language specialists 19, chooses between
+The registered comparison, language specialists 19, chooses between
 attention-14 and base-reference-18 separately for each language using identical
 development IDs and labels. It selects Romanian base-reference and Ukrainian
-attention; regression evaluation is separate from selection. Scope curriculum 20
+attention; regression evaluation is separate from selection. Its failed result
+is retained in `language-specialist-regression-19`. A subsequent replay of its
+verified paired features reproduced all 6,002 prediction records exactly, with
+zero score difference. Reuse does not measure end-to-end latency or qualify the
+model. Scope curriculum 20
 adds 3,456 synthetic TRAIN examples in 864 matched assertion families. The
 effective-input audit retains every focal text and finds no exact protected-prefix
 overlap. Retractions include a prior affirmative statement; the other variants
