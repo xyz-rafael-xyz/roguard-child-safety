@@ -30,6 +30,10 @@ and exposed development examples remain in the record.
 - An experimental neural bridge retaining the v9 decision path on supported
   prefixes and applying the learned selector to longer inputs. Its added field
   output is checked numerically against the unchanged score computation.
+- A three-model review committee sharing the frozen encoder body. It retains
+  each component's threshold, exposes disagreement and restores the original
+  tensors after inference failures. A checksum-bound local bundle packages all
+  six bilingual adapters. See [committee runtime and evidence](V10_COMMITTEE.md).
 - An explicit session review floor with host-reviewed, context-bound resolution.
   A benign topic change does not close an earlier concern.
 - A durable SQLite session API that checks every appended minor prefix, retains
@@ -75,8 +79,12 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Scope curriculum 20 / specialists 21 | Training expands to 22,658 inputs; both languages retain zero eligible binary development errors. Development-selected language combination has three broad binary errors, one more than v9, while retaining 600/600 original binary decisions | Rejected |
 | Explicit assertion query 22 | Two fixed prompts on 128 balanced DEV examples per language: direct prompt gets 93 RO / 88 UK correct; outer-scope prompt gets 99 RO / 98 UK. Uncertainty recall improves while affirmation errors increase | Rejected as a zero-shot replacement |
 | Qwen assertion query 23 | Same 256 DEV cases and two prompts, with a separately pinned pretrained model: direct prompt gets 91 RO / 106 UK correct; outer-scope gets 101 RO / 98 UK. Every prompt introduces new errors relative to v9 | Rejected as a zero-shot replacement |
+| Semantic-query heads 24 | Explicit-query representations for 16,641 original TRAIN and 6,341 DEV inputs. Selected heads retain zero binary DEV errors but leave 643 RO / 691 UK joint semantic errors | Rejected |
+| Neural response head 26 | Separate semantic response encoder/readout improves DEV from 28/80 to 77/80 and the original diagnostic from 3/10 to 10/10; three DEV mistakes remain | Rejected |
 | Review agreement 27 | Two-model agreement leaves two eligible development errors; input-contract routing reduces this to one. Neither advances to new broad combination scoring | Rejected |
 | Three-model unanimity 28 | Zero errors on 6,668 eligible DEV inputs and on all 5,022 broad, 600 original and 32 challenge checkpoints. Fixes both v9 broad false alerts without an observed new error. Separate assessment reproduces the result | Binary engineering pass only; full pipeline remains unqualified |
+| Class-balanced assertion specialist 30 | Assertion-only training lowers original DEV errors from 584 to 433 RO and from 578 to 315 UK. The selected explicit-query linear heads still make substantial errors | Rejected |
+| Native answer diagnostic 31 | Verified pretrained-vocabulary projection reproduces all 256 earlier probe decisions, but raw answer scores leave 1,118 RO / 1,216 UK assertion DEV errors and 28/80 response DEV errors | Diagnostic only |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -148,10 +156,14 @@ lexical head gets 57/80 development inputs right (40 distinct replies) and 7/10
 original diagnostic replies right, without losing an old correct diagnostic
 answer. It still fails and is exported separately; Student 03 remains unchanged.
 The failed first reporting attempt is retained, and the corrected rerun produces
-identical model artifacts and selection. Experiment 26 registers a semantic
-encoder comparison on the same data. Neither experiment is independently
-annotated or qualifies overall response safety. Existing response lint remains
-separate.
+identical model artifacts and selection. Experiment 26 uses an explicit semantic
+encoder prompt and a separate learned response head on the same inputs. It gets
+77/80 development and 10/10 original diagnostic replies right, but still makes
+three development mistakes involving negation and boundaries. Experiment 32
+registers new matched training pairs across all four response problems; the
+existing development labels stay fixed. These experiments are developer-authored
+synthetic evidence and do not qualify overall response safety. Existing response
+lint remains separate.
 
 The v9 runtime enforces both a **12-turn prefix limit** and a **1,024-token model
 limit**. Long-input abstentions are visible in comparisons. Gains from accepting
