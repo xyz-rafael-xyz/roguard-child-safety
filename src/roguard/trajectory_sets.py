@@ -24,7 +24,9 @@ def distribution(values):
     return values
 
 
-def calibrate(rows, *, pipeline_digest, alpha=0.1):
+def calibrate(rows, *, pipeline_digest, alpha=0.1, method='one_minus_probability'):
+    if method not in ('one_minus_probability', 'probability_floor'):
+        raise ValueError('Unknown interpretation calibration method')
     if type(alpha) not in (float, int) or not math.isfinite(alpha) or not 0 < alpha < 1:
         raise ValueError('alpha must be between zero and one')
     if not isinstance(pipeline_digest,str) or len(pipeline_digest)!=64 or any(c not in '0123456789abcdef' for c in pipeline_digest):
@@ -43,16 +45,19 @@ def calibrate(rows, *, pipeline_digest, alpha=0.1):
         if world is None:
             raise ValueError('Gold interpretation is outside the ontology')
         values = distribution(row['probabilities'])
-        score = 1-values[world]
         table = groups[row['language']]
-        table[row['family']] = max(table.get(row['family'], 0), score)
+        if method == 'probability_floor':
+            table[row['family']] = min(table.get(row['family'], 1.0), values[world])
+        else:
+            score = 1-values[world]
+            table[row['family']] = max(table.get(row['family'], 0), score)
     quantiles, counts = {}, {}
     for lang, table in groups.items():
-        scores = sorted(table.values())
+        scores = sorted(table.values(), reverse=method == 'probability_floor')
         n = len(scores)
         rank = math.ceil((n+1)*(1-alpha))
-        # Infinity is represented by the maximum possible nonconformity, 1.
-        quantiles[lang] = scores[rank-1] if rank <= n else 1.0
+        # Insufficient families include all worlds in either representation.
+        quantiles[lang] = scores[rank-1] if rank <= n else (0.0 if method == 'probability_floor' else 1.0)
         counts[lang] = n
     result = {'format': 'roguard-joint-calibration-v10-research1',
               'pipeline_digest': pipeline_digest, 'policy_digest': policy_digest(),
@@ -61,6 +66,10 @@ def calibrate(rows, *, pipeline_digest, alpha=0.1):
               'assumptions': ['exchangeable scenario families', 'same frozen inference pipeline',
                               'correct in-ontology labels', 'no calibration-driven model selection'],
               'real_world_coverage_established': False}
+    if method == 'probability_floor':
+        result['format'] = 'roguard-joint-calibration-v10-research2'
+        result['probability_floors'] = result.pop('quantiles')
+        result['unit'] = 'minimum_true_world_probability_per_family'
     result['digest'] = digest(result)
     return result
 
@@ -68,16 +77,18 @@ def calibrate(rows, *, pipeline_digest, alpha=0.1):
 def predict_set(values, calibration, *, language, pipeline_digest, supported=True):
     distribution(values)
     expected = {k: v for k, v in calibration.items() if k != 'digest'}
-    if calibration.get('digest') != digest(expected) or calibration.get('format') != 'roguard-joint-calibration-v10-research1':
+    if calibration.get('digest') != digest(expected) or calibration.get('format') not in (
+            'roguard-joint-calibration-v10-research1', 'roguard-joint-calibration-v10-research2'):
         raise ValueError('Calibration integrity mismatch')
     if calibration['pipeline_digest'] != pipeline_digest or calibration['policy_digest'] != policy_digest():
         raise ValueError('Calibration belongs to another pipeline or policy')
     if language not in ('ro', 'uk') or type(supported) is not bool:
         raise ValueError('Invalid language or support flag')
-    q = calibration['quantiles'][language]
+    use_floor = calibration['format'] == 'roguard-joint-calibration-v10-research2'
+    q = calibration['probability_floors' if use_floor else 'quantiles'][language]
     if type(q) not in (float, int) or not math.isfinite(q) or not 0 <= q <= 1:
         raise ValueError('Invalid calibration quantile')
-    selected = [w.copy() for w, p in zip(WORLDS, values) if 1-p <= q] if supported else []
+    selected = [w.copy() for w, p in zip(WORLDS, values) if (p >= q if use_floor else 1-p <= q)] if supported else []
     reason = 'CALIBRATED_SET'
     if not supported or not selected:
         selected = [w.copy() for w in WORLDS]

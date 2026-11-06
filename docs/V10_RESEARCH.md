@@ -27,6 +27,12 @@ and exposed development examples remain in the record.
   selector, representation, budget and policy. Insufficient calibration returns
   the full ontology; unsupported/empty sets cannot silently become confidence.
   Exchangeability and ontology assumptions remain unverified in deployment.
+- An optional probability-floor calibration method that preserves distinctions
+  between tiny positive probabilities. The existing method and old artifacts
+  remain unchanged. Its numerical regression test reduces a constructed
+  cancellation-induced 432-world set to the two worlds meeting the true cutoff;
+  historical model prediction sets remain identical. This fixes numerical
+  ordering, not the remaining model interpretation errors.
 - An experimental neural bridge retaining the v9 decision path on supported
   prefixes and applying the learned selector to longer inputs. Its added field
   output is checked numerically against the unchanged score computation.
@@ -87,8 +93,15 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Class-balanced assertion specialist 30 | Assertion-only training lowers original DEV errors from 584 to 433 RO and from 578 to 315 UK. The selected explicit-query linear heads still make substantial errors | Rejected |
 | Native answer diagnostic 31 | Verified pretrained-vocabulary projection reproduces all 256 earlier probe decisions, but raw answer scores leave 1,118 RO / 1,216 UK assertion DEV errors and 28/80 response DEV errors | Diagnostic only |
 | Contrast response 32 | Adds 64 new matched drafts across four TRAIN contexts each. Selected head gets 74/80 DEV and 10/10 original diagnostics; below study26's 77/80 DEV | Rejected |
+| Scope-query assertion 33 | Existing matched TRAIN curriculum under the explicit semantic query leaves 474 RO / 358 UK assertion DEV errors, worse than specialist30's 433 / 315 | Rejected |
 | Response context 34 | Same 40 distinct DEV drafts under three new distracting contexts each: study26 gets 101/120 and study32 gets 95/120 | Both rejected |
 | Regularized response 35 / isolated response 36 | Six converged regularization settings; both selected heads get 70/80 original DEV. Isolated-draft inference prevents context interference by construction but still misses five distinct DEV drafts | Rejected |
+| Qwen response 37 | Separate pinned encoder on the same 164 distinct TRAIN / 40 DEV drafts. Selected regularized head gets 36/40 DEV and 9/10 original diagnostics | Rejected |
+| Committee cost 38 | Shared runtime takes about 12% longer than v9 and 63% less than separate component passes on warm twelve-input batches, with exact score parity | Local performance measurement only |
+| Probability floor 39 | Direct probability cutoffs avoid subtraction cancellation on a constructed tiny-probability case; all historical evaluated sets remain unchanged | Numerical fix; no accuracy gain claimed |
+| Evidence-first response 40 | 36/40 valid correct judgments; two category errors and two altered-quote failures | Rejected |
+| Grounded response 41 | Host source IDs remove quote-copy failures; 38/40 correct with two privacy false alerts | Rejected |
+| Committee trajectory 42 | 6,002 wrapper replays and 21 fresh neural checks match exactly; checked archive includes the selector and durable-session API | Binary integration pass only |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -241,7 +254,7 @@ Independent fluent authors and adjudicators must supply the final evaluation.
 The study needs a prespecified sample size, independent label provenance, the
 larger-context comparator on that independent population, response-model
 qualification, a measured human reviewer study, and installed runtime checks on
-target platforms. Local software verification passed 1,159 tests (84 optional
+target platforms. Local software verification passed 1,181 tests (84 optional
 tests skipped) and installed-wheel smoke checks on Python 3.9, 3.10 and 3.12.
 Those checks establish software behavior, not model accuracy. A compact
 student that regresses against v9 cannot replace it merely because it is faster.

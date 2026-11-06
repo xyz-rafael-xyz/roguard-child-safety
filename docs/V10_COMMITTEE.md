@@ -35,6 +35,20 @@ reproduces every component score exactly, with zero binary errors across all
 6,002 checkpoint inferences. The run took 1,655 seconds on the local MLX
 environment; its batch runtime is not a per-request latency benchmark.
 
+The separately registered [cost comparison](../research/v10-evidence/committee-cost-38/report.json)
+uses twelve length-stratified prefixes per language, warm-up, three randomized
+measurement rounds and the same loaded encoder. Every comparator score matches
+exactly. Median warm-batch times in seconds are:
+
+| Language | V9 alone | Shared committee | Three sequential component passes |
+|---|---:|---:|---:|
+| Romanian | 3.785 | 4.230 | 11.463 |
+| Ukrainian | 3.996 | 4.481 | 11.987 |
+
+The shared committee costs about 12% more than v9 and about 63% less than three
+sequential passes on this local setup. These are twelve-input batch timings,
+not per-request, concurrent-service, or cross-hardware latency measurements.
+
 ## Runtime
 
 `roguard.gemma4_committee.Gemma4ReviewCommittee` accepts three explicitly
@@ -127,3 +141,63 @@ verifies all 21 archived files byte for byte. The wheel retains version 9.0.0
 metadata for this unpublished engineering artifact; it is not the published
 stable wheel or a v10 package-index release. The earlier archive record remains
 available with its superseded setup instructions.
+
+
+## Conversation and durable-session integration
+
+`roguard.committee_trajectory.CommitteeTrajectoryModel` applies the registered
+1,200-character selection policy to every prefix and preserves complete selected
+turns. Mandatory-evidence overflow abstains. Its identity binds both language
+committees, the selector and budget; its predictor identity additionally binds
+any calibration and planning settings. Optional calibration from a different
+pipeline is rejected before inference.
+
+[Integration study 42](../research/v10-evidence/committee-trajectory-42/report.json)
+checks all 6,002 existing checkpoints through the wrapper with saved component
+outputs, followed by 21 fresh installed neural inferences. All output fields
+match exactly. Annotated evidence retention is 1.0 on both languages' development
+and challenge populations; the broad and original populations do not provide
+that annotation. These are integration checks on exposed cases. The wrapper's
+432 field probabilities are diagnostic and uncalibrated.
+
+The local archive recorded in
+[committee-archive-42b](../research/v10-evidence/committee-archive-42b/report.json)
+contains the verified wheel, six adapters, selector, examples and this guide.
+It remains an unpublished research artifact with local 9.0.0 wheel metadata.
+The older binary-only archive remains reproducible. Use the hashes recorded in
+the archive's verification protocol when constructing the model:
+
+```python
+from roguard.committee_trajectory import CommitteeTrajectoryModel
+from roguard.trajectory_model import TrajectoryModel
+from roguard.trajectory_store import ReviewSessionStore
+
+selector = TrajectoryModel(
+    "selector.json.gz",
+    expected_sha256="81493f522678301dfc3196345cd18a577ad39d3b4cc386260cd10866d85a6eea",
+)
+model = CommitteeTrajectoryModel.from_bundle(
+    "committee/committee.json",
+    expected_sha256="f610bc91753f54c807f82adf4260c9e60ba3bd8397f4a8daeb90856302414dbd",
+    base="/path/to/the/pinned/gemma-base",
+    selector=selector,
+)
+binding = model.predictor_identity()
+store = ReviewSessionStore("sessions.sqlite")
+store.create("example-session", "ro", model_identity=binding)
+result = store.append(
+    "example-session",
+    [{"role": "minor", "text": "Am nevoie de ajutor cu tema."}],
+    expected_revision=0,
+    request_id="example-request-1",
+    model_identity=binding,
+    predictor=model.predict,
+)
+```
+
+Each appended minor prefix is evaluated. Earlier positive or abstaining reviews
+remain unresolved after later negative results and process restarts. A repeated
+request ID with identical content returns the original result; conflicting
+revisions fail without partially appending turns. Host review resolution uses a
+separate explicit operation. The full local suite passes 1,181 tests with 84
+optional skips and 129 subtests; 32 focused tests pass from the installed wheel.

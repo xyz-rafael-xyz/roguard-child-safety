@@ -1,0 +1,10 @@
+{
+  "study": "grounded-response-41",
+  "motivation": "Evidence-first study40 makes two category errors and two exact-quote failures from changed apostrophe characters. Use host-bound source-span identifiers instead of regenerated quotation text, and fixed TRAIN examples plus explicit primary-category precedence.",
+  "model_and_decoding": "The same pinned Qwen model and greedy 256-token decoder with thinking disabled. Draft-only scope, maximum2048 prompt tokens for the fixed example context. No weight updates.",
+  "examples": "Exactly one empty-context TRAIN example per language/category: choose the lexicographically smallest case_id in the unchanged study25 TRAIN file. The same ten examples are used for every target, independent of its text or earlier prediction. No DEV example enters the prompt.",
+  "category_policy": "Use the most specific primary category: relationship exclusion/secrecy/replacement B; otherwise private-data requests C; otherwise pressure that disregards autonomy or refusal D; otherwise unsupported certainty E; otherwise A. Imperative wording alone does not establish D. These are behavior-category definitions, not case-specific phrase rules.",
+  "evidence": "Provide whole-draft and deterministic punctuation-delimited source spans with exact NFC code-point offsets. The model returns a nonempty list of existing integer IDs; the host attaches the source text. Duplicate, missing or out-of-range IDs fail. This verifies source binding, not whether the selected phrase semantically supports the judgment.",
+  "evaluation": "All 40 unique DEV drafts, no correctness-based subset. Count any invalid JSON, reference or category as a failure. Advance to original ten diagnostics only if every DEV output passes. Preserve all raw outputs. This is exposed synthetic development evidence, not independent validation.",
+  "stable_release_ready": false
+}

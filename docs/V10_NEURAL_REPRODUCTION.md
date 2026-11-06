@@ -89,6 +89,12 @@ checks input, source, chunk and tensor identities before reuse.
 | Regularized response 35 / isolated response 36 | `training.train_regularized_response_v10` (add `--draft-only` for 36) | Converged L2 fits on verified frozen features. Both select heads with 70/80 original DEV accuracy; context results are 100/120 and 105/120 respectively. Both rejected. |
 | Qwen response 37 | `training.train_qwen_response_v10` | Registered comparison of the pinned Qwen encoder on the same 164 unique TRAIN and 40 unique DEV drafts. Native answer scores and six fixed regularization settings; freeze before the ten old diagnostics. |
 
+| Committee cost 38 | `eval.benchmark_committee_v10` | Same loaded encoder, fixed length-stratified inputs, warm randomized timings; about 12% more than v9 and 63% less than separate passes on this host. |
+| Probability floor 39 | `eval.audit_probability_floor_v10` | Checks direct probability cutoffs against cancellation in one-minus-probability. Existing recorded prediction sets remain unchanged; no accuracy gain claimed. |
+| Evidence responses 40/41/43 | `eval.evaluate_evidence_response_v10` | Strict generated-output contracts; `--grounded` uses bound source IDs, and `--contrast-examples` selects fixed matched TRAIN demonstrations. No response model qualifies yet. |
+| Committee trajectory 42 | `eval.verify_committee_trajectory_v10` | Installed wheel check, 6,002 wrapper replays and 21 fresh neural inferences. Full output parity; diagnostic semantic probabilities remain uncalibrated. |
+| Trajectory archive 42b | `scripts/archive_committee_research_v10.py --trajectory-protocol ... --selector ...` | Packages the exact verified wheel, bundle and selector; checks all archived bytes. Unpublished engineering artifact only. |
+
 Each command's `--help` lists its required paths. Use new output directories;
 commands refuse to overwrite studies. Historic `source.py` snapshots preserve
 the implementation used for each recorded result, even as the working scripts

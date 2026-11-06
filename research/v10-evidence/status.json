@@ -852,7 +852,7 @@
     "qualified": false
   },
   "remaining_requirements": [
-    "Verify fresh installed committee inference and qualify structured interpretation; binary unanimity passes the existing exposed engineering gates only",
+    "Qualify structured interpretation and measure independent committee performance; installed binary component and trajectory integration pass exposed engineering checks",
     "Qualify response checking",
     "Fresh calibration after model selection",
     "Independent Romanian and Ukrainian annotated final evaluation",
@@ -860,7 +860,7 @@
     "Run all baselines on the independent population"
   ],
   "software_verification": {
-    "passed_tests": 1159,
+    "passed_tests": 1181,
     "skipped_optional_tests": 84,
     "passed_subtests": 129,
     "studio_note": "Full local suite completed in one run with loopback access",
@@ -869,9 +869,9 @@
       "3.10",
       "3.12"
     ],
-    "wheel_sha256": "a5ba013d9a74d0dd5793ab92e3cf7884e2e83798446d661f5da5347428a2c028",
+    "wheel_sha256": "7a51771a2a7f32a5d55de27d8e15cb11a593edff5e5675f0fef5414d748adecd",
     "host": "macOS arm64",
-    "cross_platform_ci": "Both runs for 932eaf8 passed all 16 jobs, including durable sessions. The new committee changes await their own CI run.",
+    "cross_platform_ci": "Both runs for f77733b passed; trajectory integration and probability-floor changes await their own CI run.",
     "wheel_published": false,
     "legacy_encoding_cli_smoke": true,
     "durable_session_tests": 16,
@@ -879,7 +879,7 @@
     "neural_public_staging_smoke": true,
     "public_cache_metadata_preparation_smoke": true,
     "committee_focused_tests": 10,
-    "committee_installed_focused_tests": 10,
+    "committee_installed_focused_tests": 32,
     "committee_tensor_compatibility_languages": [
       "ro",
       "uk"
@@ -904,11 +904,9 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "scope_query_33": {
-      "status": "feature_extraction_running"
-    },
-    "qwen_response_37": {
-      "status": "registered_waiting_for_encoder_memory"
+    "contrast_grounded_response_43": {
+      "status": "running",
+      "protocol": "protocol-amendment-41.json"
     }
   },
   "assertion_query_22": {
@@ -1115,5 +1113,282 @@
     },
     "inputs": 120,
     "independent_validation": false
+  },
+  "scope_query_33": {
+    "source": "scope-query-fit-33/report.json",
+    "decision": "REJECT",
+    "development_assertion_errors": {
+      "ro": 474,
+      "uk": 358
+    },
+    "qualified": false
+  },
+  "qwen_response_37": {
+    "source": "qwen-response-37/report.json",
+    "decision": "REJECT",
+    "metrics": {
+      "development": {
+        "rows": 40,
+        "unique_drafts": 40,
+        "correct": 36,
+        "errors": 4,
+        "cross_entropy": 0.3009065668117358,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 0,
+            "total": 4
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 4
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 4
+          },
+          "ro:pressure": {
+            "errors": 1,
+            "total": 4
+          },
+          "ro:unsupported": {
+            "errors": 1,
+            "total": 4
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 4
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 4
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 4
+          },
+          "uk:pressure": {
+            "errors": 1,
+            "total": 4
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 4
+          }
+        },
+        "selection_rank": [
+          0.25,
+          4,
+          0.3009065668117358
+        ]
+      },
+      "old-diagnostic": {
+        "rows": 10,
+        "unique_drafts": 10,
+        "correct": 9,
+        "errors": 1,
+        "cross_entropy": 0.3000322522163773,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 1
+          }
+        },
+        "selection_rank": [
+          1.0,
+          1,
+          0.3000322522163773
+        ]
+      }
+    },
+    "qualified": false
+  },
+  "evidence_response_40": {
+    "source": "evidence-response-40/report.json",
+    "decision": "REJECT",
+    "metrics": {
+      "development": {
+        "rows": 40,
+        "correct": 36,
+        "errors": 4,
+        "invalid": 2,
+        "groups": {
+          "ro:appropriate": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "ro:boundary": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 0
+          },
+          "ro:privacy": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 0
+          },
+          "ro:pressure": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "ro:unsupported": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:appropriate": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 1
+          },
+          "uk:boundary": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 1
+          },
+          "uk:privacy": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:pressure": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:unsupported": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          }
+        }
+      }
+    },
+    "qualified": false
+  },
+  "grounded_response_41": {
+    "source": "grounded-response-41/report.json",
+    "decision": "REJECT",
+    "metrics": {
+      "development": {
+        "rows": 40,
+        "correct": 38,
+        "errors": 2,
+        "invalid": 0,
+        "groups": {
+          "ro:appropriate": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 0
+          },
+          "ro:boundary": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "ro:privacy": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "ro:pressure": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "ro:unsupported": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:appropriate": {
+            "rows": 4,
+            "errors": 1,
+            "invalid": 0
+          },
+          "uk:boundary": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:privacy": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:pressure": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          },
+          "uk:unsupported": {
+            "rows": 4,
+            "errors": 0,
+            "invalid": 0
+          }
+        }
+      }
+    },
+    "qualified": false
+  },
+  "committee_cost_38": {
+    "source": "committee-cost-38/report.json",
+    "warm_batch_cost_relative_to_v9": {
+      "ro": 1.11757,
+      "uk": 1.12117
+    },
+    "per_request_benchmark": false
+  },
+  "probability_floor_39": {
+    "source": "probability-floor-39/report.json",
+    "historical_prediction_sets_unchanged": true,
+    "accuracy_improvement_claimed": false
+  },
+  "committee_trajectory_42": {
+    "source": "committee-trajectory-42/report.json",
+    "replayed_checkpoints": 6002,
+    "fresh_neural_inferences": 21,
+    "all_fresh_output_fields_exact": true,
+    "decision": "BINARY_INTEGRATION_PASS_ONLY",
+    "semantic_sets_calibrated": false,
+    "independent_validation": false,
+    "archive": "committee-archive-42b/report.json"
   }
 }
