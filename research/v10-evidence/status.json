@@ -898,9 +898,40 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "assertion-query-22": {
-      "protocol": "protocol-amendment-20.json",
-      "status": "development_diagnostic_running"
+    "semantic-query-24": {
+      "protocol": "protocol-amendment-22.json",
+      "status": "feature_extraction_running"
     }
+  },
+  "assertion_query_22": {
+    "source": "assertion-query-22/report.json",
+    "decision": "REJECT",
+    "direct_correct": {
+      "ro": 93,
+      "uk": 88
+    },
+    "outer_scope_correct": {
+      "ro": 99,
+      "uk": 98
+    },
+    "rows_per_language_per_prompt": 128,
+    "independent_validation": false,
+    "qualified": false
+  },
+  "assertion_query_23": {
+    "source": "qwen-assertion-query-23/report.json",
+    "decision": "REJECT",
+    "direct_correct": {
+      "ro": 91,
+      "uk": 106
+    },
+    "outer_scope_correct": {
+      "ro": 101,
+      "uk": 98
+    },
+    "rows_per_language_per_prompt": 128,
+    "paired_assessment": "assertion-query-assessment-23/report.json",
+    "independent_validation": false,
+    "qualified": false
   }
 }

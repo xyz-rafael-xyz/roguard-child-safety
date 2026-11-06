@@ -15,7 +15,10 @@ def main():
     for key in ('features', 'feature_study', 'study', 'private'):
         p.add_argument('--'+key.replace('_', '-'), dest=key, type=Path, required=True)
     p.add_argument('--curriculum', action='store_true', help='Use the registered scope-20 curriculum and old/new weighting.')
+    p.add_argument('--query', action='store_true', help='Use the registered query-conditioned study-24 features.')
     a = p.parse_args()
+    if a.curriculum and a.query:
+        raise ValueError('Query and curriculum are different registered experiments')
     if a.study.exists() or a.private.exists():
         raise ValueError('Refusing to overwrite a reference-head fit')
     extraction = json.loads((a.feature_study/'report.json').read_text())
@@ -23,8 +26,12 @@ def main():
         raise ValueError('Paired feature extraction is incomplete')
     base_amendment = Path('research/v10-evidence/protocol-amendment-15.json')
     amendment = Path('research/v10-evidence/protocol-amendment-17.json') if a.curriculum else base_amendment
+    if a.query:
+        amendment = Path('research/v10-evidence/protocol-amendment-22.json')
     feature_protocol = json.loads((a.feature_study/'protocol.json').read_text())
     expected_format = 'roguard-scope-reference-features-1' if a.curriculum else 'roguard-base-reference-features-1'
+    if a.query:
+        expected_format = 'roguard-query-reference-features-1'
     if feature_protocol['amendment_sha256'] != file_sha(amendment) or feature_protocol['format'] != expected_format:
         raise ValueError('Feature extraction and registered plan differ')
     plan = json.loads(base_amendment.read_text()); optimization = dict(plan['optimization'])
@@ -32,12 +39,14 @@ def main():
         if feature_protocol['input_clarification_sha256'] != file_sha('research/v10-evidence/protocol-amendment-18.json'):
             raise ValueError('Curriculum effective-input audit differs')
         optimization['seed'] = 1020
+    if a.query:
+        optimization['seed'] = 1024
     for lang, record in extraction['languages'].items():
         for suffix, expected in record['artifacts'].items():
             if file_sha(a.features/(lang+'-'+suffix)) != expected:
                 raise ValueError('Paired feature binding differs')
     a.study.mkdir(parents=True); a.private.mkdir(parents=True)
-    protocol = {'format': 'roguard-base-reference-fit-1',
+    protocol = {'format': 'roguard-query-reference-fit-1' if a.query else 'roguard-base-reference-fit-1',
         'source_sha256': file_sha(Path(__file__)), 'head_source_sha256': file_sha('training/base_reference_head_v10.py'),
         'frontier_source_sha256': file_sha('training/reference_frontier_v10.py'),
         'amendment_sha256': file_sha(amendment), 'feature_report_sha256': file_sha(a.feature_study/'report.json'),
@@ -45,6 +54,9 @@ def main():
         'base_configuration_amendment_sha256': file_sha(base_amendment),
         'equal_old_new_training_mass': a.curriculum,
         'calibration_or_test_loaded': False, 'stable_release_ready': False}
+    if a.query:
+        protocol['query_prompt'] = feature_protocol['prompt']
+        protocol['query_helper_sha256'] = feature_protocol['query_helper_sha256']
     (a.study/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
     (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
     (a.study/'head-source.py').write_bytes(Path('training/base_reference_head_v10.py').read_bytes())
@@ -73,6 +85,8 @@ def main():
             raise ValueError('Only TRAIN and DEV are permitted')
         if {rows[i]['token_sha256'] for i in train} & {rows[i]['token_sha256'] for i in dev}:
             raise ValueError('Exact model input overlaps TRAIN and DEV')
+        if a.query and {rows[i]['query_token_sha256'] for i in train} & {rows[i]['query_token_sha256'] for i in dev}:
+            raise ValueError('Exact query input overlaps TRAIN and DEV')
         labels = np.array([r['fields'] for r in rows], dtype=np.int32)
         gold = np.array([r['gold'] for r in rows], dtype=np.int32)
         row_weights = np.ones(len(rows), dtype=np.float32)
@@ -133,11 +147,14 @@ def main():
             if record['selected'] is None or rank < record['selected']['selection_rank']:
                 selected = a.private/(lang+'-selected.safetensors'); selected.write_bytes(checkpoint.read_bytes())
                 summary['head_sha256'] = file_sha(selected); record['selected'] = dict(summary)
-                spec = {'format': 'roguard-base-reference-head-1', 'language': lang,
+                spec = {'format': 'roguard-query-reference-head-1' if a.query else 'roguard-base-reference-head-1', 'language': lang,
                         'configuration': configuration, 'head_sha256': file_sha(selected),
                         'v9_identity': file_sha(a.feature_study/'v9-binding'/(lang+'-review.json')),
                         'mode': mode, 'threshold': boundary['threshold'], 'couplings': original_spec['couplings'],
                         'qualified': False}
+                if a.query:
+                    spec['query_prompt'] = feature_protocol['prompt']
+                    spec['feature_report_sha256'] = protocol['feature_report_sha256']
                 (a.study/(lang+'-head.json')).write_text(json.dumps(spec, indent=2)+'\n')
                 for row, value, logits in zip(population, binary, z):
                     row['predicted'] = int(value); row['field_logits'] = logits.tolist()

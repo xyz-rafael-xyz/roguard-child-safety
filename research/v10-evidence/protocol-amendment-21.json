@@ -1,0 +1,12 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "qwen-assertion-query-23",
+  "motivation": "Compare a second already-cached multilingual foundation model on the exact assertion-query development diagnostic. Qwen3.5-9B previously failed the project's binary screen; this experiment does not erase that result or presume that a larger model is better.",
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit",
+  "revision": "938d8919941c6e7efd3c7150eff7fe9d12afa631",
+  "asset_binding": "Verify every file against the existing public qwen-control-87/model-manifest.json. Use the unadapted base, float32 nonquantized arithmetic as in the prior pinned Qwen control, and original vocabulary projection.",
+  "population_and_prompts": "Identical 256 balanced exposed development cases and both predeclared assertion prompts from experiment22. Four single-token letters, no generation sampling, parameter updates, threshold fitting or regression inputs.",
+  "interpretation": "Compare per-language and per-assertion accuracy to the Gemma diagnostic. This is architecture exploration on development, never independent qualification. Conditional answer probabilities are uncalibrated.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

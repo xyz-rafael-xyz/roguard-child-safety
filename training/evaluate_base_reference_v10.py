@@ -28,7 +28,10 @@ def main():
     p.add_argument('--attention-regression', type=Path)
     p.add_argument('--paired-cache-study', type=Path)
     p.add_argument('--paired-cache-private', type=Path)
+    p.add_argument('--query', action='store_true')
     a = p.parse_args()
+    if a.query and (a.specialists is not None or a.paired_cache_study is not None or a.paired_cache_private is not None):
+        raise ValueError('Query regression requires fresh query inference without old-view specialists or paired caches')
     if a.study.exists() or a.private.exists():
         raise ValueError('Refusing to overwrite base-reference evaluation')
     selection = json.loads((a.selected_study/'report.json').read_text())
@@ -37,10 +40,12 @@ def main():
     ref_protocol = json.loads((a.reference_study/'protocol.json').read_text())
     if (not selection['complete'] or not reference['complete']
             or ref_protocol['format'] != 'roguard-v10-semantic-regression-1'
-            or selected_protocol['format'] != 'roguard-base-reference-fit-1'):
+            or selected_protocol['format'] != ('roguard-query-reference-fit-1' if a.query else 'roguard-base-reference-fit-1')):
         raise ValueError('Expected complete, compatible parent studies')
     if selected_protocol['head_source_sha256'] != file_sha('training/base_reference_head_v10.py'):
         raise ValueError('Classifier implementation differs')
+    if a.query and selected_protocol['query_helper_sha256'] != file_sha('training/probe_assertion_query_v10.py'):
+        raise ValueError('Query tokenization implementation differs')
     for lang, artifacts in reference['features'].items():
         for suffix, expected in artifacts.items():
             if file_sha(a.reference_private/(lang+'-'+suffix)) != expected:
@@ -65,7 +70,7 @@ def main():
             raise ValueError('Specialist parent binding differs')
     a.study.mkdir(parents=True); a.private.mkdir(parents=True)
     frozen = LocalFrozenV9(a.base, a.candidate, a.study/'v9-binding')
-    protocol = {'format': 'roguard-base-reference-regression-1', 'source_sha256': file_sha(Path(__file__)),
+    protocol = {'format': 'roguard-query-reference-regression-1' if a.query else 'roguard-base-reference-regression-1', 'source_sha256': file_sha(Path(__file__)),
         'head_source_sha256': file_sha('training/base_reference_head_v10.py'),
         'extractor_source_sha256': file_sha('training/extract_base_reference_v10.py'),
         'selection_report_sha256': file_sha(a.selected_study/'report.json'),
@@ -76,6 +81,9 @@ def main():
         'fresh_zero_adapter_base_inference': True, 'published_v9_features_reused': True,
         'end_to_end_latency_measured': False, 'fitting_performed': False, 'threshold_selection_performed': False,
         'independent_test': False, 'stable_release_ready': False}
+    if a.query:
+        protocol['query_prompt'] = selected_protocol['query_prompt']
+        protocol['query_inference_sha256'] = file_sha('training/query_inference_v10.py')
     if specialists is not None:
         protocol['specialist_selection_sha256'] = file_sha(a.specialists/'report.json')
         protocol['reused_attention_regression_sha256'] = file_sha(a.attention_regression/'report.json')
@@ -90,6 +98,7 @@ def main():
     baseline_by_id = {name: {r['checkpoint_id']: r for r in rows} for name, rows in baseline.items()}
     outputs = {name: [] for name in paths}; started = time.monotonic(); done = 0; forwards = 0
     maximum_feature_error = 0.; maximum_live_score_error = 0.; checked = []; fresh_languages = []; reused_features = 0
+    maximum_query_parity_error = 0.
     paired_cache = None
     if a.paired_cache_study is not None:
         if a.paired_cache_private is None:
@@ -141,6 +150,15 @@ def main():
                 outputs[name].extend(reused); done += len(reused)
             continue
         spec = json.loads((a.selected_study/(lang+'-head.json')).read_text())
+        if spec['format'] != ('roguard-query-reference-head-1' if a.query else 'roguard-base-reference-head-1'):
+            raise ValueError('Selected representation format differs')
+        selected_record = selection['languages'][lang]['selected']
+        if (any(spec[k] != selected_record[k] for k in ('mode', 'threshold', 'head_sha256'))
+                or spec['configuration']['name'] != selected_record['candidate']):
+            raise ValueError('Selected classifier metadata differs from the frozen development choice')
+        if a.query and (spec['query_prompt'] != selected_protocol['query_prompt']
+                        or spec['feature_report_sha256'] != selected_protocol['feature_report_sha256']):
+            raise ValueError('Query head and fitted representation differ')
         if spec['head_sha256'] != protocol['selected_heads'][lang] or spec['v9_identity'] != frozen.models[lang].identity:
             raise ValueError('Selected head binding differs')
         if specialists is not None and specialists['languages'][lang]['spec_sha256'] != file_sha(a.selected_study/(lang+'-head.json')):
@@ -148,6 +166,10 @@ def main():
         fresh_languages.append(lang)
         cached = paired_cache is not None and lang in paired_cache['features']
         engine = None if cached else _Engine(*frozen.models[lang]._args)
+        query_view = None
+        if a.query:
+            from training.query_inference_v10 import QueryView
+            query_view = QueryView(engine, selected_protocol['query_prompt'])
         head = make_head(spec['configuration'])
         tensors = load_file(a.selected/(lang+'-selected.safetensors'))
         expected = dict(tree_flatten(head.parameters()))
@@ -175,7 +197,7 @@ def main():
         new_logits = np.empty((len(records), 19), dtype=np.float32)
         new_mappings = []; memo = {}; checked_populations = set()
         identity = digest({'spec': spec, 'selector': selector.identity, 'budget': 1200,
-                           'representation': 'published-v9-plus-zero-adapter-base-v1'})
+                           'representation': 'published-v9-plus-semantic-query-v1' if a.query else 'published-v9-plus-zero-adapter-base-v1'})
         for i, (population, case, point) in enumerate(records):
             key = checkpoint_id(case, point); old = baseline_by_id[population][key]
             payload = prefix(case, point['focus']); view, inference = prepare_memory(payload, selector, 1200, preserve_complete=True)
@@ -200,10 +222,12 @@ def main():
                 tokens = classifier_tokens(engine.tokenizer, inference)
                 if len(tokens) > 1024:
                     raise ValueError('Model token limit exceeded')
-                if len(tokens) > len(PREFIX_TOKENS) and tokens[:len(PREFIX_TOKENS)] == PREFIX_TOKENS:
-                    state = capture_with_prefix(engine.model.base, mx.array([tokens[len(PREFIX_TOKENS):]]), common, start=24)
-                else:
-                    state = capture(engine.model.base, mx.array([tokens]), start=24)
+                state = None
+                if not a.query or population not in checked_populations:
+                    if len(tokens) > len(PREFIX_TOKENS) and tokens[:len(PREFIX_TOKENS)] == PREFIX_TOKENS:
+                        state = capture_with_prefix(engine.model.base, mx.array([tokens[len(PREFIX_TOKENS):]]), common, start=24)
+                    else:
+                        state = capture(engine.model.base, mx.array([tokens]), start=24)
                 live_adapted = None
                 if population not in checked_populations:
                     live_adapted = replay(engine.model.base, state)[:, 0, :]; mx.eval(live_adapted)
@@ -211,9 +235,14 @@ def main():
                     maximum_feature_error = max(maximum_feature_error, difference)
                     if difference > 1e-3:
                         raise ValueError('Reused adapted representation differs from live replay')
-                with without_adapters(engine.model.base):
-                    base_h = replay(engine.model.base, state)[:, 0, :]; mx.eval(base_h)
-                    base_array = np.asarray(base_h)[0].copy()
+                if a.query:
+                    base_array = query_view(inference, verify_full=population not in checked_populations)
+                    maximum_query_parity_error = max(maximum_query_parity_error, query_view.maximum_full_parity_error)
+                else:
+                    with without_adapters(engine.model.base):
+                        base_h = replay(engine.model.base, state)[:, 0, :]; mx.eval(base_h)
+                        base_array = np.asarray(base_h)[0].copy()
+                        del base_h
                 paired = np.concatenate((old_h[position], base_array))
                 z = head(mx.array(paired[None, :])); mx.eval(z)
                 values = np.asarray(z)[0].copy(); score = _score(values, spec)
@@ -226,7 +255,7 @@ def main():
                     checked_populations.add(population); checked.append(lang+':'+population)
                     del live, live_adapted
                 memo[inference_digest] = paired, values, score; forwards += 1
-                del state, base_h, z
+                del state, z
             if not cached:
                 paired, values, score = memo[inference_digest]
             features[i] = paired; new_logits[i] = values
@@ -249,13 +278,14 @@ def main():
         write_jsonl(a.private/(lang+'-rows.jsonl'), new_mappings)
         for name, rows in outputs.items():
             write_jsonl(a.study/(name+'-candidate.jsonl'), rows)
-        del engine, head, common, memo, old_h, old_z, new_logits, cached_values
+        del engine, query_view, head, common, memo, old_h, old_z, new_logits, cached_values
         import gc
         gc.collect(); mx.clear_cache()
     report = {'complete': True, 'populations': {}, 'fresh_base_forwards': forwards,
               'paired_feature_rows_reused': reused_features,
               'maximum_adapted_feature_replay_error': maximum_feature_error,
               'maximum_live_paired_score_error': maximum_live_score_error, 'live_checked_populations': checked,
+              'maximum_query_full_parity_error': maximum_query_parity_error if a.query else None,
               'seconds': time.monotonic()-started, 'fitting_performed': False,
               'independent_test': False, 'stable_release_ready': False,
               'features': {lang: {suffix: file_sha(a.private/(lang+'-'+suffix)) for suffix in

@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-query-24",
+  "motivation": "Explicit zero-shot assertion prompts in study 22 recover some uncertainty distinctions but introduce affirmation errors. Test a supervised readout of the query-conditioned hidden representation, retaining the published v9 representation as a second view.",
+  "training": "All 16641 original TRAIN rows from verified corpora 164, 174, 176 and 195. No regression or calibration rows. No new or altered labels.",
+  "development": "All 6341 original DEV rows from those four corpora. This is exposed model-selection evidence, not an independent final test. Check exact query-token input disjointness from TRAIN before fitting.",
+  "representation": "First view: existing verified published-v9 2560-dimensional representation. Second view: pinned Gemma4 base, with all task adapters zeroed, final hidden token before the answer under the unchanged outer-claim-scope prompt registered in study 22. This prompt is fixed before feature extraction. No encoder updates.",
+  "verification": "Verify all parent feature hashes and row/label identities. Validate cached-prefix final-token replay against full uncached inference on a TRAIN and DEV row per language, maximum feature error 1e-3. No input truncation. Bind every actual query token sequence to its row and refuse duplicate or cross-partition inputs.",
+  "batching": "Group exact equal-length inputs in batches of at most four, with no padding. Preserve original row positions. The full-forward parity check compares batched replay with unbatched inference.",
+  "optimization": "Use the four base/dual linear/128-GELU heads, 40 epochs, batch 128, learning rates, class weighting and binary plus six-field objectives from amendment 15, with seed 1024. Base means query-conditioned view in this experiment. No curriculum weighting.",
+  "selection": "Use the unchanged amendment-15 DEV ranking and threshold search. Preserve every checkpoint. Explicitly mark the new feature and model formats so old paired-view regression caches cannot be reused for the query view.",
+  "evaluation": "Freeze selected weights and thresholds before any new regression extraction. A passing development score does not qualify a public release. Existing no-regression and independent-evidence requirements remain.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

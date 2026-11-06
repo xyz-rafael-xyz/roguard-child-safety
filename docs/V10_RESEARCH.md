@@ -73,6 +73,8 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Base-reference heads 18 | Four classifier designs compare pretrained-only and paired pretrained/v9 representations. Selected Romanian head has zero binary and 632 joint semantic development errors; Ukrainian head has one binary and 611 joint semantic errors | Rejected as a bilingual replacement |
 | Language specialists 19 | Development-only language selection retains 348/348 trajectory and 600/600 original binary decisions; broad audit is 5,020/5,022 with one fixed error and one new regression; 83 broad semantic argmax errors remain | Rejected |
 | Scope curriculum 20 / specialists 21 | Training expands to 22,658 inputs; both languages retain zero eligible binary development errors. Development-selected language combination has three broad binary errors, one more than v9, while retaining 600/600 original binary decisions | Rejected |
+| Explicit assertion query 22 | Two fixed prompts on 128 balanced DEV examples per language: direct prompt gets 93 RO / 88 UK correct; outer-scope prompt gets 99 RO / 98 UK. Uncertainty recall improves while affirmation errors increase | Rejected as a zero-shot replacement |
+| Qwen assertion query 23 | Same 256 DEV cases and two prompts, with a separately pinned pretrained model: direct prompt gets 91 RO / 106 UK correct; outer-scope gets 101 RO / 98 UK. Every prompt introduces new errors relative to v9 | Rejected as a zero-shot replacement |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -220,3 +222,17 @@ student that regresses against v9 cannot replace it merely because it is faster.
 See [independent study handoff](V10_INDEPENDENT_STUDY.md). Runtime controls do not
 establish interpretation truth, legal authority, calibrated individual safety,
 or a measured benefit to children.
+
+Experiment 24 registers supervised semantic-query representations. It pairs the
+unchanged v9 representation with the pretrained encoder under the fixed outer-scope
+assertion prompt from experiment 22. The original 16,641 TRAIN and 6,341 DEV rows
+are kept separate; no new labels or regression corrections are introduced. This
+is a new representation experiment, not a release claim. Its frozen-query feature
+format is distinct from the old binary-prompt paired-view caches.
+
+The paired assessment for assertion probes 22 and 23 recomputes every score from
+saved predictions and verifies each row against the original v9 feature/logit
+cache. The v9 assertion head gets 99/128 Romanian and 103/128 Ukrainian cases
+correct on this balanced sample. Even prompts with a small net accuracy gain
+introduce 20 or more new errors on a language subset; neither model passes the
+no-regression requirement. See `assertion-query-assessment-23/report.json`.

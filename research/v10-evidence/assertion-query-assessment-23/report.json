@@ -1,0 +1,94 @@
+{
+  "format": "roguard-assertion-query-assessment-1",
+  "complete": true,
+  "source_sha256": "3474f04e8a779d78514a5aa08df49fe5df01cc947e03f94a7ed1814415dd68e6",
+  "reference_report_sha256": "7ba88c9176901412ae3f1d5c8c53ea781d45969d33bfb5236cf4f6fd26ebebba",
+  "probe_sources": {
+    "assertion-query-22": {
+      "protocol.json": "1e5812e2c97ba64626cc470a5eb41f1c63e1ab3e7cf056a267ab40d017e289c1",
+      "report.json": "bb95ab1de94afaaaaa91b96be200f1c277b954511faa3ad42b33ad836b773246",
+      "predictions.jsonl": "e99e3768a756d7736c4d9040238f862e0e892ded75585a6f8e374d3f5a21ae31"
+    },
+    "qwen-assertion-query-23": {
+      "protocol.json": "d988c000e1e6aa5395a0b971e21e5703574e31468babae9cb0fb2a1096d2e473",
+      "report.json": "353db325d44c90a915de138f9c44ff08fc2ac42121138cde9e797672efc300bd",
+      "predictions.jsonl": "a2904acf18081f449c56ebda0c37c0cbe91e79b781cd8a5ea7f386f66f6b3da3"
+    }
+  },
+  "selected_development_sha256": "9edc59e5cf18561c8e124e0529701751a8be5a2017f514cfb4be47ad8dc10e37",
+  "comparisons": {
+    "assertion-query-22": {
+      "ro": {
+        "direct-status": {
+          "total": 128,
+          "baseline_correct": 99,
+          "query_correct": 93,
+          "fixed": 6,
+          "introduced": 12
+        },
+        "outer-claim-scope": {
+          "total": 128,
+          "baseline_correct": 99,
+          "query_correct": 99,
+          "fixed": 28,
+          "introduced": 28
+        }
+      },
+      "uk": {
+        "direct-status": {
+          "total": 128,
+          "baseline_correct": 103,
+          "query_correct": 88,
+          "fixed": 2,
+          "introduced": 17
+        },
+        "outer-claim-scope": {
+          "total": 128,
+          "baseline_correct": 103,
+          "query_correct": 98,
+          "fixed": 23,
+          "introduced": 28
+        }
+      }
+    },
+    "qwen-assertion-query-23": {
+      "ro": {
+        "direct-status": {
+          "total": 128,
+          "baseline_correct": 99,
+          "query_correct": 91,
+          "fixed": 13,
+          "introduced": 21
+        },
+        "outer-claim-scope": {
+          "total": 128,
+          "baseline_correct": 99,
+          "query_correct": 101,
+          "fixed": 25,
+          "introduced": 23
+        }
+      },
+      "uk": {
+        "direct-status": {
+          "total": 128,
+          "baseline_correct": 103,
+          "query_correct": 106,
+          "fixed": 23,
+          "introduced": 20
+        },
+        "outer-claim-scope": {
+          "total": 128,
+          "baseline_correct": 103,
+          "query_correct": 98,
+          "fixed": 25,
+          "introduced": 30
+        }
+      }
+    }
+  },
+  "decision": "REJECT",
+  "reason": "Zero-shot query errors remain; this exposed development diagnostic cannot qualify a release.",
+  "fitting_performed": false,
+  "independent_test": false,
+  "stable_release_ready": false
+}

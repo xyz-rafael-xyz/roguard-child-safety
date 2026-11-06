@@ -1,6 +1,7 @@
 """Development-only explicit assertion queries to the unchanged pretrained model."""
 import argparse
 from collections import Counter, defaultdict
+from contextlib import nullcontext
 import gzip
 import json
 from pathlib import Path
@@ -57,6 +58,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for key in ('base', 'candidate', 'study'):
         p.add_argument('--'+key, type=Path, required=True)
+    p.add_argument('--backend', choices=('gemma', 'qwen'), default='gemma')
     a = p.parse_args()
     if a.study.exists():
         raise ValueError('Refusing to overwrite an assertion-query diagnostic')
@@ -74,32 +76,58 @@ def main():
                 raise ValueError('Insufficient balanced development cases')
             selected.extend(values[:32])
     a.study.mkdir(parents=True)
-    frozen = LocalFrozenV9(a.base, a.candidate, a.study/'v9-binding')
+    frozen = LocalFrozenV9(a.base, a.candidate, a.study/'v9-binding') if a.backend == 'gemma' else None
+    qwen_manifest = None
+    if a.backend == 'qwen':
+        manifest_path = Path('research/v9-stabilization/qwen-control-87/model-manifest.json')
+        qwen_manifest = json.loads(manifest_path.read_text())
+        if a.base.name != qwen_manifest['revision']:
+            raise ValueError('Pinned Qwen revision differs')
+        for name, expected in qwen_manifest['files'].items():
+            path = a.base/name
+            if path.stat().st_size != expected['bytes'] or file_sha(path) != expected['sha256']:
+                raise ValueError('Pinned Qwen asset differs: '+name)
     write_jsonl(a.study/'selected-development.jsonl', selected)
     protocol = {'format': 'roguard-assertion-query-probe-1', 'source_sha256': file_sha(Path(__file__)),
-        'amendment_sha256': file_sha('research/v10-evidence/protocol-amendment-20.json'),
+        'amendment_sha256': file_sha('research/v10-evidence/protocol-amendment-'+('20' if a.backend == 'gemma' else '21')+'.json'),
+        'backend': a.backend,
         'inputs': inputs, 'selected_development_sha256': file_sha(a.study/'selected-development.jsonl'),
         'prompts': PROMPTS, 'labels': list(LABELS), 'letters': list(LETTERS),
         'fitting_performed': False, 'calibration_or_test_loaded': False, 'stable_release_ready': False}
+    if qwen_manifest is not None:
+        protocol['model_manifest_sha256'] = file_sha(manifest_path)
+        protocol['model'] = qwen_manifest['model']; protocol['revision'] = qwen_manifest['revision']
     (a.study/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
     (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
     import numpy as np
     from mlx_lm.models.gemma4_text import logit_softcap
     started = time.monotonic(); outputs = []; counts = Counter()
     for lang in ('ro', 'uk'):
-        engine = _Engine(*frozen.models[lang]._args); mx = engine.mx; model = engine.model.base
-        with without_adapters(model):
+        if a.backend == 'gemma':
+            engine = _Engine(*frozen.models[lang]._args); mx = engine.mx; model = engine.model.base
+            tokenizer = engine.tokenizer
+        else:
+            import mlx.core as mx
+            from mlx_lm import load
+            mx.set_memory_limit(10*1024**3); mx.set_cache_limit(256*1024**2)
+            engine, tokenizer = load(str(a.base), tokenizer_config={'trust_remote_code': False})
+            engine.set_dtype(mx.float32); model = engine.language_model
+        with without_adapters(model) if a.backend == 'gemma' else nullcontext():
             for prompt_name, prompt in PROMPTS.items():
                 for entry in (e for e in selected if e['row']['language'] == lang):
                     row = entry['row']; payload = {'language': lang, 'turns': row['turns'][:row['focus']+1]}
-                    tokens, labels = tokens_for(engine.tokenizer, prompt, payload)
+                    tokens, labels = tokens_for(tokenizer, prompt, payload)
                     if not tokens or len(tokens) > 1024:
                         raise ValueError('Query diagnostic exceeds its input envelope')
                     hidden = model.model(mx.array([tokens]))[:, -1:, :]
-                    logits = model.model.embed_tokens.as_linear(hidden) if model.tie_word_embeddings else model.lm_head(hidden)
-                    if model.final_logit_softcapping is not None:
-                        logits = logit_softcap(model.final_logit_softcapping, logits)
+                    tied = getattr(model, 'tie_word_embeddings', model.args.tie_word_embeddings)
+                    logits = model.model.embed_tokens.as_linear(hidden) if tied else model.lm_head(hidden)
+                    softcap = getattr(model, 'final_logit_softcapping', None)
+                    if softcap is not None:
+                        logits = logit_softcap(softcap, logits)
                     mx.eval(logits); values = np.asarray(logits)[0, 0].astype(np.float64)
+                    if not np.isfinite(values).all():
+                        raise ValueError('Nonfinite vocabulary logits')
                     restricted = values[labels]; exp = np.exp(restricted-restricted.max()); probs = exp/exp.sum()
                     log_normalizer = values.max()+np.log(np.exp(values-values.max()).sum())
                     mass = float(np.exp(restricted-log_normalizer).sum())
