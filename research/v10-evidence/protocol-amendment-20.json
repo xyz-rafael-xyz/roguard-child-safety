@@ -1,0 +1,12 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "assertion-query-22",
+  "motivation": "The existing encoder prompt explicitly requests only a binary review decision and groups uncertainty with affirmation. Test whether explicitly asking for assertion status recovers a distinction that the binary-conditioned representation suppresses.",
+  "population": "Original development only: deterministically choose 32 cases per language and assertion class by SHA256 of token-input identity. Total 256 developer-exposed cases, balanced over four assertion classes. No regression, calibration or final test is used.",
+  "model": "Pinned original Gemma4 base with all v9 task-adapter output matrices zeroed. Use its original vocabulary head, not a fitted classifier. No parameter updates.",
+  "registered_prompts": ["direct-status", "outer-claim-scope"],
+  "prediction": "Compare original vocabulary logits for four single-token answer letters A/B/C/D. Record conditional probabilities, total probability mass on those letters and unconstrained argmax agreement. These conditional probabilities are not calibrated uncertainty.",
+  "purpose": "A development diagnostic to decide whether semantic-query representations justify a new training architecture. This sample cannot qualify a release or establish independent superiority.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

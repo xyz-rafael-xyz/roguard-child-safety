@@ -72,6 +72,7 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Semantic lexical probes 16 and 17 | Plain and quotation-separated features leave 3,235 and 3,150 joint interpretation errors respectively on 6,668 development inputs; neither changes the binary review decision | Rejected as standalone interpretation models |
 | Base-reference heads 18 | Four classifier designs compare pretrained-only and paired pretrained/v9 representations. Selected Romanian head has zero binary and 632 joint semantic development errors; Ukrainian head has one binary and 611 joint semantic errors | Rejected as a bilingual replacement |
 | Language specialists 19 | Development-only language selection retains 348/348 trajectory and 600/600 original binary decisions; broad audit is 5,020/5,022 with one fixed error and one new regression; 83 broad semantic argmax errors remain | Rejected |
+| Scope curriculum 20 / specialists 21 | Training expands to 22,658 inputs; both languages retain zero eligible binary development errors. Development-selected language combination has three broad binary errors, one more than v9, while retaining 600/600 original binary decisions | Rejected |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -117,7 +118,12 @@ adds 3,456 synthetic TRAIN examples in 864 matched assertion families. The
 effective-input audit retains every focal text and finds no exact protected-prefix
 overlap. Retractions include a prior affirmative statement; the other variants
 share neutral history. These developer-authored frames still lack independent
-language review. See the machine-readable status for current run completion.
+language review. The completed curriculum fit improves some development fields
+but its selected language combination fails the broad audit. The subsequent
+assertion-query diagnostic tests an explicitly semantic prompt with the unchanged
+pretrained vocabulary head, because the v9 encoder prompt requests only a binary
+review decision. This is a development probe, not release evidence. See the
+machine-readable status for current run completion.
 
 The uniform-memory experiment computed 481 changed neural inputs and reused
 1,079 results after checking input identities and frozen component bindings.

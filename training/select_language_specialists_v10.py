@@ -11,6 +11,7 @@ def main():
     p.add_argument('--attention-study', type=Path, required=True)
     p.add_argument('--reference-study', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--amendment', type=Path, default=Path('research/v10-evidence/protocol-amendment-16.json'))
     a = p.parse_args()
     if a.output.exists():
         raise ValueError('Refusing to overwrite specialist selection')
@@ -20,7 +21,7 @@ def main():
         raise ValueError('All candidates must have completed development selection')
     result = {'format': 'roguard-language-specialists-selection-1',
         'source_sha256': file_sha(Path(__file__)),
-        'amendment_sha256': file_sha('research/v10-evidence/protocol-amendment-16.json'),
+        'amendment_sha256': file_sha(a.amendment),
         'parent_report_sha256': {name: file_sha(path/'report.json') for name, path in sources.items()},
         'languages': {}, 'regression_loaded_for_selection': False, 'stable_release_ready': False}
     for lang in ('ro', 'uk'):

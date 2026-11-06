@@ -758,6 +758,85 @@
       },
       "broad_binary_errors": 2,
       "original_600_binary_errors": 0
+    },
+    {
+      "candidate": "scope-fit-20",
+      "source": "scope-fit-20/report.json",
+      "accepted": false,
+      "training_rows": 22658,
+      "eligible_development_rows": 6668,
+      "selected_development": {
+        "ro": {
+          "candidate": "dual-mlp",
+          "epoch": 7,
+          "binary_errors": 0,
+          "joint_argmax_errors": 614,
+          "field_errors": [
+            38,
+            15,
+            558,
+            42,
+            0,
+            0
+          ],
+          "mean_field_cross_entropy": 0.19763930573803468,
+          "mode": "coupled_policy",
+          "threshold": 0.6084684797881992,
+          "score_margin": 0.0704343490592595,
+          "selection_rank": [
+            0,
+            614,
+            0.19763930573803468,
+            -0.0704343490592595
+          ],
+          "head_sha256": "e69e83aeb251451f234d8185002855823f065ca9c957727f92b0ffad16e148f2"
+        },
+        "uk": {
+          "candidate": "dual-linear",
+          "epoch": 1,
+          "binary_errors": 0,
+          "joint_argmax_errors": 653,
+          "field_errors": [
+            27,
+            141,
+            502,
+            21,
+            0,
+            11
+          ],
+          "mean_field_cross_entropy": 0.4794109309426609,
+          "mode": "policy",
+          "threshold": 0.9999762744382822,
+          "score_margin": 8.785130027555432e-06,
+          "selection_rank": [
+            0,
+            653,
+            0.4794109309426609,
+            -8.785130027555432e-06
+          ],
+          "head_sha256": "d424ecb13fe567c5c3eab6af8058b120c5285f56698a760d352383ee9bfc6533"
+        }
+      },
+      "reason": "Zero binary development errors do not qualify remaining semantic failures or regression performance"
+    },
+    {
+      "candidate": "language-specialists-21",
+      "source": "language-specialist-regression-21/report.json",
+      "accepted": false,
+      "broad_binary_errors": 3,
+      "original_600_binary_errors": 0,
+      "broad_paired_comparison": {
+        "candidate_only_correct": 0,
+        "baseline_only_correct": 1,
+        "strict_accuracy_delta": -0.00019912385503783353,
+        "paired_family_bootstrap_delta_95_interval": [
+          -0.005681818181818182,
+          0.0
+        ],
+        "comparison_digest": "0bf7f28581d74c09008be5f8f7df32653eb15d8f779ff3d120a781d086c8cff6",
+        "real_world_superiority_established": false
+      },
+      "reason": "One new broad binary regression, no fixed v9 broad errors, and remaining semantic failures"
     }
   ],
   "broad_regression": {
@@ -819,10 +898,9 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "scope-curriculum-20": {
-      "training_rows": 3456,
-      "input_audit": "scope-input-audit-20/report.json",
-      "fit_status": "feature_extraction_running"
+    "assertion-query-22": {
+      "protocol": "protocol-amendment-20.json",
+      "status": "development_diagnostic_running"
     }
   }
 }
