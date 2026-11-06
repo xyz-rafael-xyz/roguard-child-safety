@@ -67,7 +67,7 @@ def manifest(plan):
     partitions = [name for name, count in quotas.items() for _ in range(count)]
     for i in range(total):
         for task in plan['tasks']:
-            result.append({'family': f'bulk50:{task}:{i:04d}', 'partition': partitions[i], 'task': task,
+            result.append({'family': f'{plan.get("family_prefix", "bulk50")}:{task}:{i:04d}', 'partition': partitions[i], 'task': task,
                            'category': CATEGORIES[i % 4] if task == 'response_behavior' else None,
                            'theme': THEMES[i % len(THEMES)], 'setting': SETTINGS[(i//len(THEMES)) % len(SETTINGS)],
                            'style': (BINARY_STYLES if task=='binary_review' else STYLES)[(i//4) % len(STYLES)],
@@ -150,7 +150,8 @@ def main():
     for name in ('base','study','private'): p.add_argument('--'+name, type=Path, required=True)
     p.add_argument('--limit', type=int); p.add_argument('--resume', action='store_true')
     p.add_argument('--preflight-report', type=Path)
-    a = p.parse_args(); amendment = Path('research/v10-evidence/protocol-amendment-48.json')
+    p.add_argument('--amendment', type=Path, default=Path('research/v10-evidence/protocol-amendment-48.json'))
+    a = p.parse_args(); amendment = a.amendment
     plan = json.loads(amendment.read_text()); requests = manifest(plan)
     if a.limit is not None and not 1 <= a.limit <= len(requests): raise ValueError('Invalid family limit')
     if a.base.name != plan['generator']['revision']: raise ValueError('Unexpected generator revision')
@@ -175,7 +176,7 @@ def main():
     lock=(a.private/'writer.lock').open('a')
     import fcntl
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-    inventory={path.name:file_sha(path) for path in sorted(a.base.iterdir()) if path.is_file() and path.suffix in ('.json','.safetensors')}
+    inventory={path.name:file_sha(path) for path in sorted(a.base.iterdir()) if path.is_file()}
     if not any(name.endswith('.safetensors') for name in inventory): raise ValueError('No generator weights')
     binding=a.study/'model-files.json'
     if binding.exists():
