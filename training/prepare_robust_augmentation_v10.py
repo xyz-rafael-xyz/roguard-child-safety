@@ -38,7 +38,10 @@ CONCERNS = {
 
 def main():
     p = argparse.ArgumentParser(description=__doc__);p.add_argument('--output', type=Path, required=True)
-    p.add_argument('--selector', type=Path, required=True);a=p.parse_args()
+    p.add_argument('--selector', type=Path, required=True)
+    p.add_argument('--exclude-protected-parents', action='store_true')
+    p.add_argument('--amendment', type=Path, default=Path('research/v10-evidence/protocol-amendment-44.json'))
+    a=p.parse_args()
     if a.output.exists():raise ValueError('Refusing to overwrite robust TRAIN')
     selector=TrajectoryModel(a.selector);old_train=set();protected=set();eligible={};inputs={}
     for name in ('shared-tail-corpus-164','grounding-tail-corpus-174','referent-tail-corpus-176','reported-tail-corpus-195'):
@@ -61,7 +64,7 @@ def main():
     candidates=[];parent_ids=[]
     for lang in ('ro','uk'):
         for gold in (0,1):
-            selected=sorted((identity,row) for identity,row in eligible.items() if row['language']==lang and target(row)==gold)[:64]
+            selected=sorted((identity,row) for identity,row in eligible.items() if row['language']==lang and target(row)==gold and (not a.exclude_protected_parents or identity not in protected))[:64]
             if len(selected)!=64:raise ValueError('Insufficient balanced single-turn TRAIN')
             for identity,row in selected:
                 parent_ids.append({'input_key':identity,'case_id':row['case_id'],'language':lang,'review':gold})
@@ -91,9 +94,11 @@ def main():
         else:seen.add(identity);rows.append(row)
     a.output.mkdir(parents=True);write_jsonl(a.output/'train.jsonl',rows);write_jsonl(a.output/'selected-parents.jsonl',parent_ids)
     (a.output/'source.py').write_bytes(Path(__file__).read_bytes())
-    report={'complete':True,'source_sha256':file_sha(__file__),'amendment_sha256':file_sha('research/v10-evidence/protocol-amendment-44.json'),
+    report={'complete':True,'source_sha256':file_sha(__file__),'amendment_sha256':file_sha(a.amendment),
         'inputs':inputs,'training_data_sha256':file_sha(a.output/'train.jsonl'),'training_rows':len(rows),'excluded':dict(excluded),
         'counts':dict(Counter(r['language']+':'+r['source'] for r in rows)),
+        'protected_parents_excluded_before_selection':a.exclude_protected_parents,
+        'selected_parent_protected_overlap':sum(r['input_key'] in protected for r in parent_ids),
         'old_training_unique_prefixes':len(old_train),'protected_unique_prefixes':len(protected),
         'independent_annotation':False,'limitation':'Exact normalized screening does not establish family independence; fresh44 already influenced the research direction.'}
     (a.output/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='inputs'},indent=2))

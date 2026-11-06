@@ -57,10 +57,11 @@ def main():
                 'development_private', 'features', 'feature_study', 'study', 'private'):
         p.add_argument('--'+key.replace('_', '-'), dest=key, type=Path, required=True)
     p.add_argument('--cache-root',type=Path,default=Path('research/v9-stabilization'))
+    p.add_argument('--amendment', type=Path, default=Path('research/v10-evidence/protocol-amendment-11.json'))
     a = p.parse_args()
     if a.study.exists() or a.private.exists():
         raise ValueError('Refusing to overwrite attention training')
-    amendment = Path('research/v10-evidence/protocol-amendment-11.json')
+    amendment = a.amendment
     configuration = json.loads(amendment.read_text())['registered_configuration']
     if configuration['epochs'] != 1 or configuration['batch_size'] != 8:
         raise ValueError('This registered implementation requires one epoch and batch size eight')

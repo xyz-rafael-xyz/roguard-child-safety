@@ -904,10 +904,11 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "robust_semantic_readout_46": {
+    "robust_attention_47": {
       "status": "feature_extraction_running",
-      "protocol": "protocol-amendment-44.json",
-      "new_training_rows": 1204
+      "protocol": "protocol-amendment-45.json",
+      "new_training_rows": 1204,
+      "selected_parent_protected_overlap": 0
     }
   },
   "assertion_query_22": {
@@ -1421,6 +1422,20 @@
     "development_correct": 35,
     "development_total": 40,
     "invalid": 1,
+    "qualified": false
+  },
+  "robust_readout_46": {
+    "selection": "robust-readout-46/report.json",
+    "regression": "robust-regression-46/report.json",
+    "fresh_challenge": "robust-challenge-46/report.json",
+    "decision": "REJECT",
+    "fresh_challenge_errors": 7,
+    "fresh_challenge_fixes": 0,
+    "broad_introduced_errors": 1,
+    "trajectory_development_introduced_errors": 2,
+    "original_600_binary_errors": 0,
+    "augmentation_parent_audit": "robust-training-46/parent-overlap-audit.json",
+    "selected_parents_overlapping_protected_inputs": 4,
     "qualified": false
   }
 }
