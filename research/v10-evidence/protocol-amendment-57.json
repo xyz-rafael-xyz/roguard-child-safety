@@ -1,0 +1,24 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "large-response-attention-59",
+  "motivation": "All243 frozen-feature readout checkpoints in55 fail zero-error acceptance. Adapt the final18 attention layers jointly with the response head on all12884 TRAIN inputs. Larger data can help but no improvement is presumed.",
+  "fresh_response_head": true,
+  "data": "Exactly12884 TRAIN and592 DEV rows bound to completed55, including all12288 generated TRAIN variants. Preserve frame/topic partitions; generated counts are correlated expansions of192 TRAIN core sentences. No new gold labels or TEST access. Historical context34 and old ten diagnostics only after frozen selection.",
+  "initialization": "Pinned Gemma base, v9 rank8 q/o LoRA basis with all B outputs zeroed, fresh five-category linear response head at seed1059. Bind old frozen features/head26 as baseline; check all initial DEV features and sampled full/replay parity.",
+  "optimization": {
+    "epochs": 6,
+    "learning_rate": 1e-05,
+    "head_learning_rate": 0.001,
+    "seed": 1059,
+    "batch_size": 8,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0,
+    "teacher_kl_weight": 0.0
+  },
+  "objective": "Cross-entropy weighted for equal mass across20 origin/language/category TRAIN groups. Zero teacher KL. Independent head/tail rates, five-percent warmup and linear decay to ten percent. Uniform permutation without replacement of all TRAIN each epoch; no DEV optimization.",
+  "selection": "Epoch0 and six completed epochs. Same55 lexicographic maximum origin/language/category error rate, maximum per-origin error rate, total errors, mean per-origin cross-entropy. Exact ties earliest epoch. Retain every checkpoint; freeze selection before context diagnostics.",
+  "verification": "74 registered trainable tensors only; finite gradients and tensors; initial frozen-feature and actual full/replay error <=1e-3; selected logits reload <=1e-5 with identical decisions. Recompute baseline26 on context and original diagnostics with zero adapter outputs; restore selected tensors afterwards. Paired fixes/regressions for every population.",
+  "resources": "One full encoder after57 and installed runtime58 checks finish. No persistent body-state cache. Preserve8GiB free disk. Retain interrupted optimizer checkpoints; no silent overwrite or result-based restart.",
+  "qualification": "Any error or introduced regression rejects. Even zero errors on development and old diagnostics requires a separate frozen reserved-TEST evaluation before any response engineering pass. No final reviewer handoff until complete candidate passes every required population. Independent human validation and measured utility remain outstanding. Stable v9 unchanged.",
+  "stable_release_ready": false
+}

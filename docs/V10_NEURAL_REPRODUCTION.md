@@ -164,6 +164,12 @@ reserved test opens only after every preceding population has zero candidate
 errors and zero introduced errors. Feature extraction can resume using bound,
 hashed chunks; interrupted optimizer runs cannot overwrite checkpoints.
 
+Response55 completed all243 checkpoints and was rejected. The registered
+selection retained the original head (warm-linear epoch0):39/592 DEV errors,
+19/120 context errors and0/10 original-diagnostic errors. Some checkpoints
+reached13 total DEV errors but worsened the maximum group error rate. None
+was error-free. The1,536 reserved TEST inputs remain unopened.
+
 Composition56 supplies4,608 binary TRAIN inputs from64 core sentences in16
 paired frames, plus576 DEV and1,728 reserved TEST inputs. Eight concern scopes
 cover direct statements, explicit denial, fiction, reported speech, uncertainty,
@@ -233,3 +239,21 @@ until the active training sequence releases the full encoder. Tokenizer and CPU
 fixture parity, installed-wheel integrity, and portable API tests are recorded
 separately from that pending full-model verification. No successful software test
 can promote an inaccurate classifier or qualify the complete v10 release.
+
+## Larger response attention training (study59)
+
+After the frozen-feature comparison failed, amendment57 registers six full
+passes over the same12,884 TRAIN inputs, adapting the final18 q/o attention
+layers and a fresh five-category head. It preserves the592-input development
+population, equal origin/language/category training weights and study55's
+selection rule. Initial features are checked against the completed bound store;
+every checkpoint is retained. Context and original diagnostics are evaluated
+only after selection, with paired fixes and introduced errors against head26.
+
+The report-based sequence waits for all study57 steps to finish, verifies
+installed runtime58 on exposed TRAIN/DEV probes, then starts attention training.
+A failed execution stops the sequence. A scientific rejection remains retained
+evidence. Even zero errors in study59's development and exposed diagnostics
+would require a separate frozen reserved-test evaluation before an engineering
+pass. Neither this queue nor the runtime checks authorize promotion or reviewer
+handoff. One full encoder is active at a time.

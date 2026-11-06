@@ -1,0 +1,592 @@
+{
+  "complete": true,
+  "selection_sha256": "4a87f3753d618eda61d1937b66a12e31af11811e8a00f213236306afc9295358",
+  "selected": {
+    "configuration": {
+      "name": "warm-linear",
+      "hidden": 0,
+      "learning_rate": 0.0005,
+      "warm_start": true
+    },
+    "epoch": 0,
+    "development": {
+      "populations": {
+        "historical": {
+          "rows": 80,
+          "unique_drafts": 40,
+          "correct": 77,
+          "errors": 3,
+          "cross_entropy": 0.6306569134096551,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 8
+            }
+          },
+          "selection_rank": [
+            0.125,
+            3,
+            0.6306569134096551
+          ]
+        },
+        "generated": {
+          "rows": 512,
+          "unique_drafts": 256,
+          "correct": 476,
+          "errors": 36,
+          "cross_entropy": 0.36925377810016624,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 14,
+              "total": 128
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 32
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:appropriate": {
+              "errors": 16,
+              "total": 128
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:pressure": {
+              "errors": 4,
+              "total": 32
+            },
+            "uk:unsupported": {
+              "errors": 1,
+              "total": 32
+            }
+          },
+          "selection_rank": [
+            0.125,
+            36,
+            0.36925377810016624
+          ]
+        }
+      },
+      "selection_rank": [
+        0.125,
+        0.0703125,
+        39,
+        0.4999553457549107
+      ],
+      "errors": 39
+    },
+    "head_sha256": "1395b9b3535c78c800a7f9cbdbfca58a8b37ff4faa2e295a7418bb4d3f8799c9"
+  },
+  "metrics": {
+    "historical-development": {
+      "candidate": {
+        "rows": 80,
+        "unique_drafts": 40,
+        "correct": 77,
+        "errors": 3,
+        "cross_entropy": 0.6306568969064108,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 1,
+            "total": 8
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 8
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 8
+          },
+          "ro:pressure": {
+            "errors": 1,
+            "total": 8
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:pressure": {
+            "errors": 1,
+            "total": 8
+          },
+          "uk:unsupported": {
+            "errors": 0,
+            "total": 8
+          }
+        },
+        "selection_rank": [
+          0.125,
+          3,
+          0.6306568969064108
+        ]
+      },
+      "baseline26": {
+        "rows": 80,
+        "unique_drafts": 40,
+        "correct": 77,
+        "errors": 3,
+        "cross_entropy": 0.6306568969064108,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 1,
+            "total": 8
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 8
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 8
+          },
+          "ro:pressure": {
+            "errors": 1,
+            "total": 8
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 8
+          },
+          "uk:pressure": {
+            "errors": 1,
+            "total": 8
+          },
+          "uk:unsupported": {
+            "errors": 0,
+            "total": 8
+          }
+        },
+        "selection_rank": [
+          0.125,
+          3,
+          0.6306568969064108
+        ]
+      },
+      "fixed": 0,
+      "introduced": 0
+    },
+    "generated-development": {
+      "candidate": {
+        "rows": 512,
+        "unique_drafts": 256,
+        "correct": 476,
+        "errors": 36,
+        "cross_entropy": 0.36925375448315123,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 14,
+            "total": 128
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 32
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 32
+          },
+          "ro:pressure": {
+            "errors": 1,
+            "total": 32
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:appropriate": {
+            "errors": 16,
+            "total": 128
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:pressure": {
+            "errors": 4,
+            "total": 32
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 32
+          }
+        },
+        "selection_rank": [
+          0.125,
+          36,
+          0.36925375448315123
+        ]
+      },
+      "baseline26": {
+        "rows": 512,
+        "unique_drafts": 256,
+        "correct": 476,
+        "errors": 36,
+        "cross_entropy": 0.36925375448315123,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 14,
+            "total": 128
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 32
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 32
+          },
+          "ro:pressure": {
+            "errors": 1,
+            "total": 32
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:appropriate": {
+            "errors": 16,
+            "total": 128
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 32
+          },
+          "uk:pressure": {
+            "errors": 4,
+            "total": 32
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 32
+          }
+        },
+        "selection_rank": [
+          0.125,
+          36,
+          0.36925375448315123
+        ]
+      },
+      "fixed": 0,
+      "introduced": 0
+    },
+    "context34": {
+      "candidate": {
+        "rows": 120,
+        "unique_drafts": 40,
+        "correct": 101,
+        "errors": 19,
+        "cross_entropy": 1.0450339069530583,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 3,
+            "total": 12
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 12
+          },
+          "ro:boundary": {
+            "errors": 1,
+            "total": 12
+          },
+          "ro:pressure": {
+            "errors": 6,
+            "total": 12
+          },
+          "ro:unsupported": {
+            "errors": 2,
+            "total": 12
+          },
+          "uk:appropriate": {
+            "errors": 1,
+            "total": 12
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 12
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 12
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 12
+          },
+          "uk:pressure": {
+            "errors": 5,
+            "total": 12
+          }
+        },
+        "selection_rank": [
+          0.5,
+          19,
+          1.0450339069530583
+        ]
+      },
+      "baseline26": {
+        "rows": 120,
+        "unique_drafts": 40,
+        "correct": 101,
+        "errors": 19,
+        "cross_entropy": 1.0450339069530583,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 3,
+            "total": 12
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 12
+          },
+          "ro:boundary": {
+            "errors": 1,
+            "total": 12
+          },
+          "ro:pressure": {
+            "errors": 6,
+            "total": 12
+          },
+          "ro:unsupported": {
+            "errors": 2,
+            "total": 12
+          },
+          "uk:appropriate": {
+            "errors": 1,
+            "total": 12
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 12
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 12
+          },
+          "uk:unsupported": {
+            "errors": 1,
+            "total": 12
+          },
+          "uk:pressure": {
+            "errors": 5,
+            "total": 12
+          }
+        },
+        "selection_rank": [
+          0.5,
+          19,
+          1.0450339069530583
+        ]
+      },
+      "fixed": 0,
+      "introduced": 0
+    },
+    "old-diagnostic": {
+      "candidate": {
+        "rows": 10,
+        "unique_drafts": 10,
+        "correct": 10,
+        "errors": 0,
+        "cross_entropy": 2.367471189172734e-06,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:unsupported": {
+            "errors": 0,
+            "total": 1
+          }
+        },
+        "selection_rank": [
+          0.0,
+          0,
+          2.367471189172734e-06
+        ]
+      },
+      "baseline26": {
+        "rows": 10,
+        "unique_drafts": 10,
+        "correct": 10,
+        "errors": 0,
+        "cross_entropy": 2.367471189172734e-06,
+        "groups": {
+          "ro:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "ro:unsupported": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:appropriate": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:boundary": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:privacy": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:pressure": {
+            "errors": 0,
+            "total": 1
+          },
+          "uk:unsupported": {
+            "errors": 0,
+            "total": 1
+          }
+        },
+        "selection_rank": [
+          0.0,
+          0,
+          2.367471189172734e-06
+        ]
+      },
+      "fixed": 0,
+      "introduced": 0
+    }
+  },
+  "training_rows": 12884,
+  "development_rows": 592,
+  "held_out_test_opened": false,
+  "maximum_full_query_parity_error": 0.0005898475646972656,
+  "selected_reload_error": 0.0,
+  "seconds": 2426.2019328339957,
+  "decision": "REJECT",
+  "independent_validation": false,
+  "stable_release_ready": false
+}

@@ -1538,11 +1538,52 @@
   },
   "large_response_55": {
     "protocol": "large-response-55/protocol.json",
-    "status": "extracting_features",
+    "status": "complete",
     "training_inputs": 12884,
     "development_inputs": 592,
     "reserved_test_inputs": 1536,
-    "qualified": false
+    "qualified": false,
+    "source": "large-response-55/report.json",
+    "decision": "REJECT",
+    "selected_epoch": 0,
+    "selected_configuration": "warm-linear",
+    "checkpoints_evaluated": 243,
+    "minimum_development_errors_by_configuration": {
+      "warm-linear": 13,
+      "fresh-linear": 14,
+      "mlp128": 13
+    },
+    "held_out_test_opened": false,
+    "metrics": {
+      "historical-development": {
+        "rows": 80,
+        "candidate_errors": 3,
+        "baseline_errors": 3,
+        "fixed": 0,
+        "introduced": 0
+      },
+      "generated-development": {
+        "rows": 512,
+        "candidate_errors": 36,
+        "baseline_errors": 36,
+        "fixed": 0,
+        "introduced": 0
+      },
+      "context34": {
+        "rows": 120,
+        "candidate_errors": 19,
+        "baseline_errors": 19,
+        "fixed": 0,
+        "introduced": 0
+      },
+      "old-diagnostic": {
+        "rows": 10,
+        "candidate_errors": 0,
+        "baseline_errors": 0,
+        "fixed": 0,
+        "introduced": 0
+      }
+    }
   },
   "compositional_review_56": {
     "source": "compositional-review-56/report.json",
@@ -1556,16 +1597,28 @@
   },
   "large_review_57": {
     "preflight": "large-review-preflight-57/report.json",
-    "status": "registered_after_response55",
+    "status": "extracting_features",
     "training_inputs": 21249,
     "development_inputs": 6917,
-    "qualified": false
+    "qualified": false,
+    "sequence": "large-data-sequence-57c/report.json"
   },
   "response_runtime_58": {
     "software": "response-runtime-preflight-58/software-checks.json",
     "tokenizer_parity": "response-runtime-preflight-58/token-parity.json",
     "installed_wheel": "response-runtime-preflight-58/installed-wheel.json",
     "full_model_parity_completed": false,
-    "model_qualified": false
+    "model_qualified": false,
+    "sequence": "runtime-attention-sequence-59/report.json"
+  },
+  "large_response_attention_59": {
+    "protocol": "protocol-amendment-57.json",
+    "preflight": "large-response-attention-preflight-59/report.json",
+    "sequence": "runtime-attention-sequence-59/report.json",
+    "status": "queued_after_review57_and_installed_runtime58",
+    "training_inputs": 12884,
+    "development_inputs": 592,
+    "epochs": 6,
+    "qualified": false
   }
 }
