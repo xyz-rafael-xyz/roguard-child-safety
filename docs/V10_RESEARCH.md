@@ -140,8 +140,16 @@ its results are in `broad-comparison-10`. Do not describe v9 as error-free on ev
 recorded population.
 
 The first response head correctly classifies only 3 of its 10 separate fictional
-diagnostic replies. It must not be presented as a reliable semantic response
-checker. Existing response lint remains separate.
+diagnostic replies. Response curriculum 25 adds 80 authored training replies,
+with four context views each, to the original 20. Its selected separate-context
+lexical head gets 57/80 development inputs right (40 distinct replies) and 7/10
+original diagnostic replies right, without losing an old correct diagnostic
+answer. It still fails and is exported separately; Student 03 remains unchanged.
+The failed first reporting attempt is retained, and the corrected rerun produces
+identical model artifacts and selection. Experiment 26 registers a semantic
+encoder comparison on the same data. Neither experiment is independently
+annotated or qualifies overall response safety. Existing response lint remains
+separate.
 
 The v9 runtime enforces both a **12-turn prefix limit** and a **1,024-token model
 limit**. Long-input abstentions are visible in comparisons. Gains from accepting

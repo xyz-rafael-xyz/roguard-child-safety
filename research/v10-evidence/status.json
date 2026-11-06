@@ -901,6 +901,10 @@
     "semantic-query-24": {
       "protocol": "protocol-amendment-22.json",
       "status": "feature_extraction_running"
+    },
+    "neural-response-26": {
+      "protocol": "protocol-amendment-24.json",
+      "status": "registered_waiting_for_encoder_memory"
     }
   },
   "assertion_query_22": {
@@ -931,6 +935,20 @@
     },
     "rows_per_language_per_prompt": 128,
     "paired_assessment": "assertion-query-assessment-23/report.json",
+    "independent_validation": false,
+    "qualified": false
+  },
+  "response_curriculum_25": {
+    "source": "response-fit-25b/report.json",
+    "decision": "REJECT",
+    "training_inputs": 340,
+    "distinct_training_replies": 100,
+    "development_correct": 57,
+    "development_inputs": 80,
+    "distinct_development_replies": 40,
+    "original_diagnostic_correct": 7,
+    "original_diagnostic_total": 10,
+    "original_baseline_correct": 3,
     "independent_validation": false,
     "qualified": false
   }
