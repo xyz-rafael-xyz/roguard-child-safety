@@ -9,6 +9,7 @@ import sys
 import tempfile
 
 from roguard.trajectory_model import TrajectoryModel
+from roguard.trajectory_store import ReviewSessionStore
 
 
 def main():
@@ -26,6 +27,17 @@ def main():
         assert result['assurance']['input']['context_digest']==result['input_digest']
         assert json.loads(json.dumps(result,allow_nan=False))==result
         with tempfile.TemporaryDirectory() as directory:
+            store = ReviewSessionStore(Path(directory)/'sessions.sqlite')
+            store.create('smoke', language, model_identity=result['pipeline_digest'])
+            def predict_prefix(value):
+                return model.predict(value, calibration=calibration, plan=True)
+            committed = store.append('smoke', payload['turns'], expected_revision=0,
+                request_id='first', model_identity=result['pipeline_digest'], predictor=predict_prefix)
+            assert committed['predictions'][0]['predicted']==result['predicted']
+            resumed = ReviewSessionStore(Path(directory)/'sessions.sqlite')
+            assert resumed.read('smoke')==committed['session']
+            assert resumed.append('smoke', payload['turns'], expected_revision=0,
+                request_id='first', model_identity=result['pipeline_digest'], predictor=predict_prefix)==committed
             path=Path(directory)/'conversation.json'
             path.write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
             environment=dict(os.environ,PYTHONIOENCODING='ascii:strict',PYTHONUTF8='0')
@@ -35,7 +47,7 @@ def main():
                 env=environment,stdout=subprocess.PIPE,stderr=subprocess.PIPE,check=True)
             actual=json.loads(completed.stdout.decode('ascii'))
             assert actual=={k:v for k,v in result.items() if k!='probabilities'}
-    print('Portable bilingual inference, planner and legacy-encoding CLI smoke passed; no model qualification implied.')
+    print('Portable bilingual inference, durable sessions, planner and legacy-encoding CLI smoke passed; no model qualification implied.')
 
 
 if __name__=='__main__':main()

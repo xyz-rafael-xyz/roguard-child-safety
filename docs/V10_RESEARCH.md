@@ -32,6 +32,11 @@ and exposed development examples remain in the record.
   output is checked numerically against the unchanged score computation.
 - An explicit session review floor with host-reviewed, context-bound resolution.
   A benign topic change does not close an earlier concern.
+- A durable SQLite session API that checks every appended minor prefix, retains
+  unresolved positive predictions and abstentions across restarts, and records
+  host reviewer resolutions. Atomic revisions prevent concurrent writes or stale
+  resolutions from losing history; request IDs make retries idempotent. Model
+  failure aborts the entire append and must be surfaced by the host.
 - Blinded annotation packets, disagreement detection, counterbalanced reviewer
   packets and elapsed-time summaries. No participants were contacted or invented.
 - A single-opening final-test workflow that binds artifacts before exposing test
@@ -68,6 +73,13 @@ has also been exposed during repeated exploratory work. A final study needs fres
 calibration for the selected pipeline and an independently held final test; these
 exploratory sets do not establish a coverage guarantee.
 
+The new `semantic-training-12/report.json` also audits exact normalized input
+overlap with v9's earlier neural fine-tuning. Some trajectory development and
+calibration inputs were already in that fine-tuning corpus: splitting the later
+trajectory dataset does not undo this exposure. These partitions are exploratory
+for the neural model. The report preserves affected checkpoint IDs. Fresh neural
+calibration must exclude the complete prior training history.
+
 The uniform-memory experiment computed 481 changed neural inputs and reused
 1,079 results after checking input identities and frozen component bindings.
 This reuse does not measure end-to-end latency. Selecting evidence uniformly
@@ -91,6 +103,8 @@ longer inputs are distinguished from gains in understanding supported inputs.
 Results, model artifacts, protocols and amendments live in
 [`research/v10-evidence`](../research/v10-evidence). Large upstream model weights
 remain outside Git. No new real-child data is collected.
+
+For the persistent host API, see [durable sessions](V10_DURABLE_SESSIONS.md).
 
 ## Reproduce the portable experiment
 
@@ -151,7 +165,7 @@ Independent fluent authors and adjudicators must supply the final evaluation.
 The study needs a prespecified sample size, independent label provenance, the
 larger-context comparator on that independent population, response-model
 qualification, a measured human reviewer study, and installed runtime checks on
-target platforms. Local software verification passed 1,135 tests (79 optional
+target platforms. Local software verification passed 1,151 tests (79 optional
 tests skipped) and installed-wheel smoke checks on Python 3.9, 3.10 and 3.12.
 Those checks establish software behavior, not model accuracy. A compact
 student that regresses against v9 cannot replace it merely because it is faster.

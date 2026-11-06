@@ -308,20 +308,29 @@
     "Run all baselines on the independent population"
   ],
   "software_verification": {
-    "passed_tests": 1135,
+    "passed_tests": 1151,
     "skipped_optional_tests": 79,
     "passed_subtests": 129,
-    "studio_note": "13 socket tests passed separately with loopback access",
+    "studio_note": "Full local suite completed in one run with loopback access",
     "installed_wheel_smoke_python": [
       "3.9",
       "3.10",
       "3.12"
     ],
-    "wheel_sha256": "11ff268f0e7aadd9aa630fcd1f986cdd9283e995f924b67e08ff9ebf7aab1d94",
+    "wheel_sha256": "a725c5903505dd30133aac4fecb2a52023287bddc2714f71f502fd213dbdea89",
     "host": "macOS arm64",
-    "cross_platform_ci": "Portable-runtime jobs passed on Linux and Windows (Python 3.9 and 3.12) at 530df38; final-commit CI remains separately tracked by PR 2.",
+    "cross_platform_ci": "Commit 602d6b3 passed the full CI matrix. Durable-session changes await their own run.",
     "wheel_published": false,
-    "legacy_encoding_cli_smoke": true
+    "legacy_encoding_cli_smoke": true,
+    "durable_session_tests": 16,
+    "durable_installed_wheel_smoke": true
   },
-  "interpretation": "All current model populations are exposed synthetic engineering evidence. No independent validation, measured child benefit, universal perfection or release qualification is established."
+  "interpretation": "All current model populations are exposed synthetic engineering evidence. No independent validation, measured child benefit, universal perfection or release qualification is established.",
+  "calibration_overlap_audit": {
+    "source": "semantic-training-12/report.json",
+    "development_prefixes_in_prior_finetuning": 21,
+    "calibration_prefixes_in_prior_finetuning": 44,
+    "calibration_prefixes_total": 580,
+    "fresh_calibration_required": true
+  }
 }

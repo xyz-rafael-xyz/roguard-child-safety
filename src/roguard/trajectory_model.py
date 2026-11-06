@@ -174,13 +174,13 @@ class TrajectorySession:
         self._open = set()
 
     def predict(self, payload, **kwargs):
+        if kwargs.get('focus') is not None and kwargs['focus'] != len(payload['turns'])-1:
+            raise ValueError('Session predictions must address the latest turn')
         if self._last is not None and (payload['language'] != self._last['language'] or payload['turns'][:len(self._last['turns'])] != self._last['turns'] or len(payload['turns']) < len(self._last['turns'])):
             raise ValueError('Session history changed; start a new session')
         result = self.model.predict(payload, **kwargs)
-        if kwargs.get('focus') is not None and kwargs['focus'] != len(payload['turns'])-1:
-            raise ValueError('Session predictions must address the latest turn')
         self._last = json.loads(json.dumps(payload))
-        if result['predicted'] == 1:
+        if result['predicted'] != 0:
             self._open.add(result['input_digest'])
         result['unresolved_review_references'] = sorted(self._open)
         result['session_review_required'] = bool(self._open) or result['predicted'] is None

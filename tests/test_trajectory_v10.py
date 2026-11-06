@@ -168,6 +168,13 @@ def test_portable_student_digest_overflow_and_session_floor(tmp_path):
     with pytest.raises(ValueError):session.predict(p)
     long={'language':'ro','turns':[{'role':'minor','text':'x'*200}]}
     assert model.predict(long,budget=128)['predicted'] is None
+    abstained = TrajectorySession(model)
+    unsupported = abstained.predict(long,budget=128)
+    long['turns'].append({'role':'minor','text':'Acum fac matematică.'})
+    later = abstained.predict(long,budget=512)
+    assert later['predicted']==0 and later['session_review_required']
+    abstained.resolve(unsupported['input_digest'], expected_context_digest=later['input_digest'])
+    assert not abstained.predict(long,budget=512)['session_review_required']
 
 
 def test_annotation_packets_hide_gold_and_reject_changed_inputs():
