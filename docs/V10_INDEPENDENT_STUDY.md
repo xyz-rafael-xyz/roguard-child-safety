@@ -70,6 +70,26 @@ Interactive visual verification remains pending because the connected browser
 was unavailable during implementation. Practice forms must not be represented as
 the independent final study.
 
+After both assigned annotators return their JSON files, the coordinator can run
+this from the repository with RoGuard installed:
+
+```sh
+python -m eval.coordinate_annotations_v10 \
+  --packet-a work/ro-a.json --key-a work/ro-a-PRIVATE-key.json \
+  --completed-a returns/ro-a.json \
+  --packet-b work/ro-b.json --key-b work/ro-b-PRIVATE-key.json \
+  --completed-b returns/ro-b.json \
+  --adjudicator-id ro-third --output work/ro-adjudication
+```
+
+The command rejects changed inputs, incomplete returns, mismatched prefixes and
+reused role identifiers. It prepares a new blinded HTML for disagreements and
+for unresolved judgments, including cases where both annotators are uncertain.
+Give the adjudicator only `adjudication.html`; retain the report, packet and key
+with the coordinator. Validate that return too, then document final resolutions
+and reasons. The command never changes gold labels or approves a model, and
+different identifiers do not prove different people participated.
+
 ## Frozen final comparison
 
 Select the model and all hyperparameters on development data. Obtain fresh

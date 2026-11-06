@@ -108,6 +108,7 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Robust readout 46 | Adds 1,204 TRAIN augmentations but fixes none of fresh44's seven misses and introduces one broad plus two trajectory-DEV errors. Four selected augmentation parents overlap older DEV/calibration inputs; the next data build excludes them | Rejected |
 | Robust attention 47 | Updated checkpoints worsen development selection; both languages retain epoch zero. All 160 selected tensor byte sequences and runtime settings match v9, and fresh44 still has seven errors | Rejected; no selected model improvement |
 | Response attention 48 | Six shared bilingual attention epochs retain response26: 77/80 DEV and 101/120 context checks, zero fixes. All trained checkpoints are worse; exact selected reload and full/replay checks pass | Rejected |
+| Fresh-head response attention 49 | DEV remains 77/80 (two fixes, two new errors); context improves from 101/120 to 110/120 (13 fixes, four new errors). Selected epoch3 reloads exactly | Rejected; regressions and remaining errors |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses

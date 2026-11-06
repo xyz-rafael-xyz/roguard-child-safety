@@ -1,0 +1,167 @@
+{
+  "complete": true,
+  "source_sha256": "3ec4fc7ff8c1bd097a3e504b249152c1ccd96c9be31ddbe35f5b7b8e442bde97",
+  "report_sha256": "06f965dbf369e73cb67d9fba2391f17cb08851ec0071b9a1bec3dc4f82a00020",
+  "selection_sha256": "564c940e9466e3244e2b336e04e6a4815fcd9e38d79988ca66ea00214228dc6c",
+  "inputs": {
+    "research/v10-evidence/response-curriculum-25/dev.jsonl": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+    "research/v10-evidence/neural-response-26/development-predictions.jsonl": "0aaf9f05b2c3fd4aff8e3bd1b182297914af6b7db966d4a9453cce6fb5aed4d4",
+    "research/v10-evidence/response-attention-49/development-predictions.jsonl": "bb89d137ead3e6b50be66e8139fbca0c5e7374b92525f864b1e0ced0cb7b0756",
+    "research/v10-evidence/response-context-34/inputs.jsonl": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+    "research/v10-evidence/response-context-34/baseline26-predictions.jsonl": "a4d18985b229ccd5cc0146d285abc5581017bf1d592eec6891ec9ba0705e1613",
+    "research/v10-evidence/response-attention-49/context-predictions.jsonl": "2879c397f47e153e9797d47e2967f87ccab93d7333e35dd5ceaf75af105d03db"
+  },
+  "metrics": {
+    "development": {
+      "rows": 80,
+      "distinct_language_drafts": 40,
+      "baseline_errors": 3,
+      "candidate_errors": 3,
+      "fixed": 2,
+      "introduced": 2,
+      "changed_cases": [
+        {
+          "case_id": "dev:appropriate:3:ro:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:boundary:2:ro:0",
+          "language": "ro",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:boundary:2:ro:1",
+          "language": "ro",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:pressure:0:uk:0",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        }
+      ]
+    },
+    "context": {
+      "rows": 120,
+      "distinct_language_drafts": 40,
+      "baseline_errors": 19,
+      "candidate_errors": 10,
+      "fixed": 13,
+      "introduced": 4,
+      "changed_cases": [
+        {
+          "case_id": "dev:appropriate:3:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:boundary:2:ro:context34:0",
+          "language": "ro",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:boundary:2:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:appropriate:2:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:2:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:3:ro:context34:0",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:3:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:0:ro:context34:0",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:0:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:appropriate:1:ro:context34:1",
+          "language": "ro",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:appropriate:1:uk:context34:1",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:boundary:1:uk:context34:1",
+          "language": "uk",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:boundary:1:uk:context34:2",
+          "language": "uk",
+          "baseline_correct": true,
+          "candidate_correct": false
+        },
+        {
+          "case_id": "dev:pressure:3:uk:context34:0",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:3:uk:context34:1",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:2:uk:context34:1",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        },
+        {
+          "case_id": "dev:pressure:2:uk:context34:2",
+          "language": "uk",
+          "baseline_correct": false,
+          "candidate_correct": true
+        }
+      ]
+    }
+  },
+  "decision": "REJECT",
+  "baseline": "response head26, not the v9 binary classifier",
+  "limitation": "Exposed synthetic development diagnostics; context variants share drafts and are not independent samples.",
+  "independent_validation": false,
+  "stable_release_ready": false
+}

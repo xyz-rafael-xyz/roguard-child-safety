@@ -905,13 +905,7 @@
     "eligible_development_binary_errors": 0,
     "eligible_development_rows": 6668
   },
-  "active_experiments": {
-    "response_attention_49": {
-      "status": "running",
-      "protocol": "protocol-amendment-47.json",
-      "preflight": "response-attention-preflight-49b/report.json"
-    }
-  },
+  "active_experiments": {},
   "assertion_query_22": {
     "source": "assertion-query-22/report.json",
     "decision": "REJECT",
@@ -1472,6 +1466,30 @@
     "software_checks": "annotation-form-software-49/report.json",
     "human_annotations_obtained": false,
     "real_browser_verified": false,
-    "practice_only": true
+    "practice_only": true,
+    "coordination_checks": "annotation-coordination-49/report.json"
+  },
+  "response_attention_49": {
+    "source": "response-attention-49/report.json",
+    "assessment": "response-attention-assessment-49/report.json",
+    "decision": "REJECT",
+    "selected_epoch": 3,
+    "metrics": {
+      "development": {
+        "rows": 80,
+        "baseline_errors": 3,
+        "candidate_errors": 3,
+        "fixed": 2,
+        "introduced": 2
+      },
+      "context": {
+        "rows": 120,
+        "baseline_errors": 19,
+        "candidate_errors": 10,
+        "fixed": 13,
+        "introduced": 4
+      }
+    },
+    "qualified": false
   }
 }
