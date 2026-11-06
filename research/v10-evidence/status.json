@@ -905,7 +905,15 @@
     "eligible_development_binary_errors": 0,
     "eligible_development_rows": 6668
   },
-  "active_experiments": {},
+  "active_experiments": {
+    "generated_corpus_50": {
+      "status": "registered_preflight_passed",
+      "protocol": "protocol-amendment-48.json",
+      "preflight": "generated-corpus-preflight-50/report.json",
+      "requested_families": 1408,
+      "training_ready": false
+    }
+  },
   "assertion_query_22": {
     "source": "assertion-query-22/report.json",
     "decision": "REJECT",
@@ -1491,5 +1499,9 @@
       }
     },
     "qualified": false
+  },
+  "final_reviewer_stage": {
+    "status": "closed",
+    "opening_requirement": "Complete candidate has zero observed errors and zero regressions across every required engineering population. Practice tooling availability does not open this stage."
   }
 }
