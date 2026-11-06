@@ -258,7 +258,7 @@ Independent fluent authors and adjudicators must supply the final evaluation.
 The study needs a prespecified sample size, independent label provenance, the
 larger-context comparator on that independent population, response-model
 qualification, a measured human reviewer study, and installed runtime checks on
-target platforms. Local software verification passed 1,181 tests (84 optional
+target platforms. Local software verification passed 1,196 tests (84 optional
 tests skipped) and installed-wheel smoke checks on Python 3.9, 3.10 and 3.12.
 Those checks establish software behavior, not model accuracy. A compact
 student that regresses against v9 cannot replace it merely because it is faster.
@@ -280,3 +280,9 @@ cache. The v9 assertion head gets 99/128 Romanian and 103/128 Ukrainian cases
 correct on this balanced sample. Even prompts with a small net accuracy gain
 introduce 20 or more new errors on a language subset; neither model passes the
 no-regression requirement. See `assertion-query-assessment-23/report.json`.
+
+The engineering response gate requires distinct case IDs and all five known
+response categories in both Romanian and Ukrainian. Explicitly invalid outputs,
+unknown labels, malformed rows and duplicate IDs fail even when a supplied label
+matches the gold string. Passing this coverage check does not satisfy the
+independent study or reviewer-benefit requirements.
