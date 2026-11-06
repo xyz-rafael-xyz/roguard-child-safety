@@ -65,6 +65,11 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Score combinations 07 and 08 | 347/348 family-cross-validated development decisions; 32/32 diagnostic and 600/600 regression decisions; inherited interpretation errors | Rejected |
 | Uniform memory 09 | 346/348 development decisions; 32/32 diagnostic and 600/600 regression decisions; 22 Ukrainian regression interpretations omitted | Rejected |
 | Score combination 10 | 346/348 family-cross-validated development decisions; 32/32 diagnostic and 600/600 regression decisions | Rejected |
+| Semantic readout 11, retrained neural heads | Broad binary audit changes from 5,020/5,022 to 5,021/5,022, fixing two errors but introducing one; 600/600 original binary decisions retained; 346/348 trajectory development decisions; structured argmax regressions remain | Rejected |
+| Semantic readout 12 and monotone consensus 13 | Expanded training retains 5,020/5,022 broad and 600/600 original binary decisions; trajectory development stays 346/348; structured errors remain | Rejected |
+| Attention training 14 | Zero binary errors on 6,668 eligible development inputs; 348/348 trajectory development, 32/32 diagnostic and 600/600 original regression decisions; broad audit remains 5,020/5,022, fixing one old error and introducing one new false alert | Rejected |
+| Frozen score comparator 15 | Selecting an existing v9 score mode/threshold on the same development data still leaves two Romanian development errors; broad audit worsens to 5,009/5,022 | Comparator; rejected for promotion |
+| Semantic lexical probes 16 and 17 | Plain and quotation-separated features leave 3,235 and 3,150 joint interpretation errors respectively on 6,668 development inputs; neither changes the binary review decision | Rejected as standalone interpretation models |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -79,6 +84,24 @@ calibration inputs were already in that fine-tuning corpus: splitting the later
 trajectory dataset does not undo this exposure. These partitions are exploratory
 for the neural model. The report preserves affected checkpoint IDs. Fresh neural
 calibration must exclude the complete prior training history.
+
+Attention experiment 14 uses 19,202 training inputs and updates the last 18
+layers' query/output adapters and the active language head. Its development
+selection excludes the 21 exact prior-training overlaps, leaving 6,668 inputs
+across the original and trajectory development sets. The headline 348-case
+trajectory score also includes those 21 exposed overlaps and is descriptive.
+Selecting only an existing frozen-v9 score mode cannot remove the two remaining
+Romanian development errors; the attention update does. This is a development
+gain, not independent superiority.
+
+Fresh attention inference on all four exposed evaluation populations reduces
+broad-audit semantic argmax errors from 133 to 73, but still leaves 21 Ukrainian
+semantic errors on the original 600 cases. These are **uncalibrated singleton
+predictions**, not a coverage guarantee. The independently recomputed
+[`semantic-assessment-14/report.json`](../research/v10-evidence/semantic-assessment-14/report.json)
+retains the exact fixed/new binary error IDs and rejects the candidate. Saved
+logits reproduce every recorded score and binary decision exactly. No ensemble
+or threshold is fitted to these regression failures.
 
 The uniform-memory experiment computed 481 changed neural inputs and reused
 1,079 results after checking input identities and frozen component bindings.
@@ -105,6 +128,8 @@ Results, model artifacts, protocols and amendments live in
 remain outside Git. No new real-child data is collected.
 
 For the persistent host API, see [durable sessions](V10_DURABLE_SESSIONS.md).
+For neural training and public starting artifacts, see
+[neural reproduction](V10_NEURAL_REPRODUCTION.md).
 
 ## Reproduce the portable experiment
 

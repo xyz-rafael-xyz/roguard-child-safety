@@ -1,0 +1,58 @@
+{
+  "format": "roguard-gemma4-tail-review-experiment-v1",
+  "language": "uk",
+  "base_model": "mlx-community/gemma-4-e4b-it-4bit",
+  "base_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "policy_sha256": "22a741f25e8c8637fecc327dbe8cad942efc0ddb93aca3d4840a6488277aa0c2",
+  "policy_digest": "026269ab59822c3493eb062bdbd6c08992d41ec2c05bdd143df9f502166e0a32",
+  "adapter_sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f",
+  "mode": "binary",
+  "couplings": {
+    "scope": [
+      [
+        1.6583445498618836,
+        0.0009689459868266463,
+        0.0007763737834454161
+      ],
+      [
+        0.0009689459868266463,
+        5.65317241223169,
+        0.0026487881491757004
+      ],
+      [
+        0.0007763737834454161,
+        0.0026487881491757004,
+        4.530691163159059
+      ]
+    ],
+    "assertion_relation": [
+      [
+        1.0673645942287031,
+        0.002280993724260129
+      ],
+      [
+        1.0665966287634436,
+        0.013655125040948892
+      ],
+      [
+        1.0664390120281797,
+        0.015989544394030924
+      ],
+      [
+        0.001747705250963525,
+        15.784848018948152
+      ]
+    ]
+  },
+  "threshold": 0.6608996158096978,
+  "boundary": 24,
+  "lora": {
+    "rank": 8,
+    "scale": 16.0,
+    "dropout": 0.0,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.o_proj"
+    ]
+  }
+}

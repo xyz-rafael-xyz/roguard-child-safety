@@ -25,10 +25,11 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for key in ('base','candidate','study','private'):
         p.add_argument('--'+key,type=Path,required=True)
+    p.add_argument('--cache-root',type=Path,default=Path('research/v9-stabilization'))
     a=p.parse_args()
     if a.study.exists() or a.private.exists():raise SystemExit('Refusing to overwrite extracted representations')
     a.study.mkdir(parents=True);a.private.mkdir(parents=True)
-    roots=[Path('research/v9-stabilization')/name for name in
+    roots=[a.cache_root/name for name in
            ('shared-tail-corpus-164','grounding-tail-corpus-174','referent-tail-corpus-176','reported-tail-corpus-195')]
     reader=CompositeReader(roots)
     if any(r['partition'] not in ('train','dev') for r in reader.entries):

@@ -52,7 +52,13 @@ keys and participant returns outside the public repository.
 
 Select the model and all hyperparameters on development data. Obtain fresh
 calibration families for the final frozen pipeline: the current exploratory
-calibration has already been inspected during development. Use `trajectory_study.freeze()` to bind model,
+calibration has already been inspected during development. The full-history audit
+also found 44 of its 580 normalized inference prefixes in v9 fine-tuning. Check
+new calibration and final-test inputs against every upstream fine-tuning corpus,
+not just the newest trajectory training split. Include both original prefixes and
+the actual selected memory views in exact-overlap screening; that screening alone
+does not establish family or author independence. Record the audited training
+manifest hashes alongside the model freeze. Use `trajectory_study.freeze()` to bind model,
 calibration and source artifacts plus the final test's file digest without parsing
 its contents. The independent custodian controls access to that file.
 

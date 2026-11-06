@@ -18,6 +18,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for key in ('cached_study', 'cached_private', 'original', 'selected', 'selected_study', 'study'):
         p.add_argument('--'+key.replace('_', '-'), dest=key, type=Path, required=True)
+    p.add_argument('--consensus-study', type=Path)
     a = p.parse_args()
     if a.study.exists():
         raise ValueError('Refusing to overwrite evaluation')
@@ -25,7 +26,17 @@ def main():
     selection = json.loads((a.selected_study/'report.json').read_text())
     if not cached['complete'] or not selection['complete']:
         raise ValueError('Extraction and selection must be complete')
+    consensus = None
+    if a.consensus_study is not None:
+        fit = json.loads((a.consensus_study/'report.json').read_text())
+        if not fit['complete'] or file_sha(a.consensus_study/'consensus.json') != fit['consensus_sha256']:
+            raise ValueError('Consensus selection is incomplete or changed')
+        consensus = json.loads((a.consensus_study/'consensus.json').read_text())
+        if consensus['format'] != 'roguard-semantic-consensus-v10-research1':
+            raise ValueError('Unknown consensus format')
     original_protocol = json.loads((a.cached_study/'protocol.json').read_text())
+    if original_protocol.get('format') != 'roguard-v10-semantic-regression-1':
+        raise ValueError('Only the verified frozen-v9 encoder cache supports this evaluation')
     paths = {'broad': Path('research/v10-evidence/broad-v9-regression/cases.jsonl'),
         **{name: Path('research/v10-evidence/data')/(name+'.jsonl')
            for name in ('dev', 'challenge', 'v9-regression')}}
@@ -44,6 +55,8 @@ def main():
         'input_hashes': original_protocol['inputs'], 'fitting_performed': False,
         'threshold_selection_performed': False, 'end_to_end_latency_measured': False,
         'independent_test': False, 'stable_release_ready': False}
+    if consensus is not None:
+        protocol['consensus_sha256'] = file_sha(a.consensus_study/'consensus.json')
     (a.study/'protocol.json').write_text(json.dumps(protocol, indent=2)+'\n')
     (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
     import numpy as np
@@ -52,6 +65,7 @@ def main():
     baseline = {name: read_jsonl(a.cached_study/(name+'-baseline.jsonl')) for name in paths}
     previous = {name: {r['checkpoint_id']: r for r in rows} for name, rows in baseline.items()}
     predictions = {name: [] for name in paths}
+    parent_predictions = {name: [] for name in paths}
     for lang in ('ro', 'uk'):
         original = load_file(a.original/'actual'/(lang+'-selected.safetensors'))
         selected = load_file(a.selected/(lang+'-selected.safetensors'))
@@ -61,6 +75,9 @@ def main():
         spec = json.loads((a.selected_study/(lang+'-review.json')).read_text())
         if spec['adapter_sha256'] != file_sha(a.selected/(lang+'-selected.safetensors')):
             raise ValueError('Selected head binding differs')
+        if consensus is not None and (consensus['languages'][lang]['adapter_sha256'] != spec['adapter_sha256']
+                or consensus['languages'][lang]['review_spec_sha256'] != file_sha(a.selected_study/(lang+'-review.json'))):
+            raise ValueError('Consensus belongs to another selected model')
         reference_spec = json.loads((a.cached_study/'v9-binding'/(lang+'-review.json')).read_text())
         if reference_spec['adapter_sha256'] != file_sha(a.original/'actual'/(lang+'-selected.safetensors')):
             raise ValueError('Cached encoder has another original adapter binding')
@@ -69,21 +86,35 @@ def main():
              '3.weight': 'last.weight', '3.bias': 'last.bias'}.items()})
         head.eval()
         x = np.load(a.cached_private/(lang+'-features.npy'), mmap_mode='r')
+        old_logits = np.load(a.cached_private/(lang+'-original-logits.npy'), mmap_mode='r')
         mappings = read_jsonl(a.cached_private/(lang+'-rows.jsonl'))
-        if len(mappings) != len(x):
+        if len(mappings) != len(x) or len(old_logits) != len(x):
             raise ValueError('Missing feature mappings')
-        for start in range(0, len(x), 128):
-            values = head(mx.array(x[start:start+128])); mx.eval(values)
-            for row, logits in zip(mappings[start:start+128], np.asarray(values)):
+        # Match installed single-prefix inference, including GEMM batch shape.
+        for start in range(len(x)):
+            values = head(mx.array(x[start:start+1])); mx.eval(values)
+            for row, logits in zip(mappings[start:start+1], np.asarray(values)):
                 old = previous[row['population']][row['checkpoint_id']]
                 if old['input_digest'] != row['input_digest'] or old['inference_input_digest'] != row['inference_input_digest']:
                     raise ValueError('Cached prediction input binding differs')
+                old_score = _score(old_logits[start], reference_spec)
+                if abs(old['score']-old_score)>1e-7 or old['predicted'] != int(old_score>=reference_spec['threshold']):
+                    raise ValueError('Cached baseline score differs from its frozen logits')
                 score = _score(logits, spec)
-                predictions[row['population']].append({**old, 'score': score,
+                parent = {**old, 'score': score,
                     'predicted': int(score >= spec['threshold']), 'model_identity': spec['adapter_sha256'],
                     'interpretation_set': {'hypotheses': [world_from_logits(logits)],
                         'reason': 'UNCALIBRATED_ARGMAX_DIAGNOSTIC',
-                        'coverage_assumptions_verified': False, 'outside_ontology_ruled_out': False}})
+                        'coverage_assumptions_verified': False, 'outside_ontology_ruled_out': False}}
+                parent_predictions[row['population']].append(parent)
+                candidate = dict(parent)
+                if consensus is not None:
+                    from training.semantic_consensus_v10 import score_features, predict
+                    parameters = consensus['languages'][lang]
+                    score = float(predict(score_features(logits[None, :], spec['couplings']), parameters)[0])
+                    candidate.update(score=score, predicted=int(score >= parameters['threshold']),
+                        consensus_identity=protocol['consensus_sha256'])
+                predictions[row['population']].append(candidate)
     report = {'complete': True, 'populations': {}, 'stable_release_ready': False,
               'fitting_performed': False, 'independent_test': False}
     for name, path in paths.items():
@@ -92,6 +123,9 @@ def main():
         report['populations'][name] = {'baseline': evaluate(cases, baseline[name]),
             'candidate': evaluate(cases, predictions[name]),
             'comparison': paired_compare(cases, baseline[name], predictions[name])}
+        if consensus is not None:
+            report['populations'][name].update(parent=evaluate(cases, parent_predictions[name]),
+                parent_comparison=paired_compare(cases, parent_predictions[name], predictions[name]))
     (a.study/'report.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps({name: {label: {lang: r['strict_accuracy'] for lang, r in result[label]['groups'].items()}
           for label in ('baseline', 'candidate')} for name, result in report['populations'].items()}, indent=2))

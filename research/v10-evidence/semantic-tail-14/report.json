@@ -1,0 +1,224 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "training_rows": 8314,
+      "development_rows": 3117,
+      "trainable_parameters": 1755667,
+      "checkpoints": [
+        {
+          "epoch": 0,
+          "binary_errors": 2,
+          "joint_argmax_errors": 666,
+          "field_errors": [
+            64,
+            14,
+            587,
+            53,
+            1,
+            1
+          ],
+          "mean_field_cross_entropy": 0.4185444881195108,
+          "mode": "policy",
+          "threshold": 0.8659504636108948,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            666,
+            0.4185444881195108,
+            -0.0
+          ],
+          "adapter_sha256": "a52740c7939523dff962b30565c086d307507a0c6e9f373b3728797d0c0a61ac"
+        },
+        {
+          "epoch": 0.5,
+          "binary_errors": 0,
+          "joint_argmax_errors": 697,
+          "field_errors": [
+            90,
+            14,
+            586,
+            83,
+            0,
+            1
+          ],
+          "mean_field_cross_entropy": 0.40037649420121335,
+          "mode": "binary",
+          "threshold": 0.5649699605990475,
+          "score_margin": 0.19408331243114774,
+          "selection_rank": [
+            0,
+            697,
+            0.40037649420121335,
+            -0.19408331243114774
+          ],
+          "adapter_sha256": "b9d4575aca624894cc577ffcbea7ea7273dafb2af017f41e0d8f42aebb1122db"
+        },
+        {
+          "epoch": 1,
+          "binary_errors": 0,
+          "joint_argmax_errors": 684,
+          "field_errors": [
+            77,
+            14,
+            587,
+            73,
+            0,
+            1
+          ],
+          "mean_field_cross_entropy": 0.38649160704344204,
+          "mode": "binary",
+          "threshold": 0.7531859131315719,
+          "score_margin": 0.15763945947485236,
+          "selection_rank": [
+            0,
+            684,
+            0.38649160704344204,
+            -0.15763945947485236
+          ],
+          "adapter_sha256": "a30f3bc51a01f4effe4e575a194c170b0693b723a0df1aab98521654b8ff8a2e"
+        }
+      ],
+      "selected": {
+        "epoch": 1,
+        "binary_errors": 0,
+        "joint_argmax_errors": 684,
+        "field_errors": [
+          77,
+          14,
+          587,
+          73,
+          0,
+          1
+        ],
+        "mean_field_cross_entropy": 0.38649160704344204,
+        "mode": "binary",
+        "threshold": 0.7531859131315719,
+        "score_margin": 0.15763945947485236,
+        "selection_rank": [
+          0,
+          684,
+          0.38649160704344204,
+          -0.15763945947485236
+        ],
+        "adapter_sha256": "a30f3bc51a01f4effe4e575a194c170b0693b723a0df1aab98521654b8ff8a2e"
+      },
+      "initial_maximum_score_error": 3.2836982992723307e-06,
+      "initial_original_development_errors": 0,
+      "complete": true,
+      "mean_training_loss": 0.03348507817105547,
+      "training_seconds": 391.18946612486616
+    },
+    "uk": {
+      "training_rows": 10888,
+      "development_rows": 3551,
+      "trainable_parameters": 1755667,
+      "checkpoints": [
+        {
+          "epoch": 0,
+          "binary_errors": 0,
+          "joint_argmax_errors": 667,
+          "field_errors": [
+            55,
+            42,
+            578,
+            52,
+            0,
+            13
+          ],
+          "mean_field_cross_entropy": 0.39211917216074393,
+          "mode": "binary",
+          "threshold": 0.6608994271813364,
+          "score_margin": 0.29556497792699965,
+          "selection_rank": [
+            0,
+            667,
+            0.39211917216074393,
+            -0.29556497792699965
+          ],
+          "adapter_sha256": "44befd9151e26b2b9ca7e7f12254882a64a41e2e57089741460747390cd94f7e"
+        },
+        {
+          "epoch": 0.5,
+          "binary_errors": 1,
+          "joint_argmax_errors": 638,
+          "field_errors": [
+            28,
+            41,
+            578,
+            28,
+            0,
+            12
+          ],
+          "mean_field_cross_entropy": 0.390089513760086,
+          "mode": "binary",
+          "threshold": 0.8715159936850352,
+          "score_margin": 0.0,
+          "selection_rank": [
+            1,
+            638,
+            0.390089513760086,
+            -0.0
+          ],
+          "adapter_sha256": "e859acf3f2975eb969e698755bcbb2a0b28259b3eb9a86db27496ed4594478b4"
+        },
+        {
+          "epoch": 1,
+          "binary_errors": 0,
+          "joint_argmax_errors": 621,
+          "field_errors": [
+            20,
+            26,
+            578,
+            18,
+            0,
+            8
+          ],
+          "mean_field_cross_entropy": 0.3928926956045437,
+          "mode": "binary",
+          "threshold": 0.7413741818272822,
+          "score_margin": 0.10718020511056559,
+          "selection_rank": [
+            0,
+            621,
+            0.3928926956045437,
+            -0.10718020511056559
+          ],
+          "adapter_sha256": "ce0bef752f03f6e2ae3c2e6b83cb80cb8732792ed37eb28baaa846c0d8c821db"
+        }
+      ],
+      "selected": {
+        "epoch": 1,
+        "binary_errors": 0,
+        "joint_argmax_errors": 621,
+        "field_errors": [
+          20,
+          26,
+          578,
+          18,
+          0,
+          8
+        ],
+        "mean_field_cross_entropy": 0.3928926956045437,
+        "mode": "binary",
+        "threshold": 0.7413741818272822,
+        "score_margin": 0.10718020511056559,
+        "selection_rank": [
+          0,
+          621,
+          0.3928926956045437,
+          -0.10718020511056559
+        ],
+        "adapter_sha256": "ce0bef752f03f6e2ae3c2e6b83cb80cb8732792ed37eb28baaa846c0d8c821db"
+      },
+      "initial_maximum_score_error": 2.696136372909441e-07,
+      "initial_original_development_errors": 0,
+      "complete": true,
+      "mean_training_loss": 0.04643189285491184,
+      "training_seconds": 505.4880128749646
+    }
+  },
+  "stable_release_ready": false,
+  "calibration_or_test_loaded": false,
+  "seconds": 982.8702902081423
+}

@@ -285,6 +285,402 @@
         }
       },
       "accepted": false
+    },
+    {
+      "candidate": "semantic-readout-11",
+      "accepted": false,
+      "evaluation": "semantic-regression-11/report.json",
+      "populations": {
+        "broad": {
+          "ro": {
+            "checkpoints": 2547,
+            "binary_errors_or_abstentions": 1,
+            "uncalibrated_joint_argmax_accuracy": 0.9730479587792311
+          },
+          "uk": {
+            "checkpoints": 2475,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9898000815993472
+          }
+        },
+        "dev": {
+          "ro": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9885057471264368
+          },
+          "uk": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "challenge": {
+          "ro": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9566666666666667
+          },
+          "uk": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.92
+          }
+        }
+      },
+      "interpretation_note": "Singleton argmax is diagnostic, not a calibrated coverage guarantee.",
+      "broad_paired_errors": {
+        "candidate_only_correct": 2,
+        "baseline_only_correct": 1,
+        "zero_regression_requirement_met": false
+      }
+    },
+    {
+      "candidate": "semantic-readout-12",
+      "accepted": false,
+      "evaluation": "semantic-regression-12/report.json",
+      "populations": {
+        "broad": {
+          "ro": {
+            "checkpoints": 2547,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9615537059056679
+          },
+          "uk": {
+            "checkpoints": 2475,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9898000815993472
+          }
+        },
+        "dev": {
+          "ro": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9827586206896551
+          },
+          "uk": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "challenge": {
+          "ro": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.93
+          }
+        }
+      },
+      "broad_paired_comparison": {
+        "candidate_only_correct": 0,
+        "baseline_only_correct": 0,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.0
+        ],
+        "comparison_digest": "34d1aeb134af1c273ab7b33a5968fbf3867ba4d9b5adbec1774f72e006a24e00",
+        "real_world_superiority_established": false
+      },
+      "interpretation_note": "Singleton argmax is diagnostic, not calibrated coverage."
+    },
+    {
+      "candidate": "semantic-consensus-13",
+      "accepted": false,
+      "evaluation": "semantic-regression-13/report.json",
+      "populations": {
+        "broad": {
+          "ro": {
+            "checkpoints": 2547,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9615537059056679
+          },
+          "uk": {
+            "checkpoints": 2475,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9898000815993472
+          }
+        },
+        "dev": {
+          "ro": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9827586206896551
+          },
+          "uk": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "challenge": {
+          "ro": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.93
+          }
+        }
+      },
+      "broad_paired_comparison": {
+        "candidate_only_correct": 0,
+        "baseline_only_correct": 0,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.0
+        ],
+        "comparison_digest": "ef82afb137559344a36664f581596aaddf01e63232b8535a5677b053fa8de921",
+        "real_world_superiority_established": false
+      },
+      "interpretation_note": "Singleton argmax is diagnostic, not calibrated coverage."
+    },
+    {
+      "candidate": "semantic-tail-14",
+      "source": "semantic-tail-regression-14/report.json",
+      "accepted": false,
+      "populations": {
+        "broad": {
+          "ro": {
+            "checkpoints": 2547,
+            "binary_errors_or_abstentions": 2,
+            "uncalibrated_joint_argmax_accuracy": 0.9785969084423306
+          },
+          "uk": {
+            "checkpoints": 2475,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.99265605875153
+          }
+        },
+        "dev": {
+          "ro": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "challenge": {
+          "ro": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.93
+          }
+        }
+      },
+      "interpretation_note": "Singleton argmax is diagnostic, not calibrated coverage.",
+      "broad_paired_comparison": {
+        "candidate_only_correct": 1,
+        "baseline_only_correct": 1,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          -0.00025,
+          0.005681818181818182
+        ],
+        "comparison_digest": "0893e214bf5295396c662ce3f34413df9cc433b986d1dd9e99bdf24b45d332e8",
+        "real_world_superiority_established": false
+      },
+      "assessment": "semantic-assessment-14/report.json"
+    },
+    {
+      "candidate": "semantic-score-baseline-15",
+      "source": "semantic-score-baseline-regression-15/report.json",
+      "accepted": false,
+      "populations": {
+        "broad": {
+          "ro": {
+            "checkpoints": 2547,
+            "binary_errors_or_abstentions": 13,
+            "uncalibrated_joint_argmax_accuracy": 0.9615537059056679
+          },
+          "uk": {
+            "checkpoints": 2475,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9857201142390861
+          }
+        },
+        "dev": {
+          "ro": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 1,
+            "uncalibrated_joint_argmax_accuracy": 0.9827586206896551
+          },
+          "uk": {
+            "checkpoints": 174,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "challenge": {
+          "ro": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 16,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 1.0
+          },
+          "uk": {
+            "checkpoints": 300,
+            "binary_errors_or_abstentions": 0,
+            "uncalibrated_joint_argmax_accuracy": 0.9233333333333333
+          }
+        }
+      },
+      "interpretation_note": "Singleton argmax is diagnostic, not calibrated coverage.",
+      "broad_paired_comparison": {
+        "candidate_only_correct": 1,
+        "baseline_only_correct": 12,
+        "strict_accuracy_delta": -0.002190362405416169,
+        "paired_family_bootstrap_delta_95_interval": [
+          -0.00275,
+          0.005681818181818182
+        ],
+        "comparison_digest": "f4c9bb29e9e2fa20e7eac43d8ce36ede3e1401204e1dc447ffe085cc5bbf106e",
+        "real_world_superiority_established": false
+      }
+    },
+    {
+      "candidate": "semantic-sparse-16",
+      "source": "semantic-sparse-16/report.json",
+      "accepted": false,
+      "binary_review_changed": false,
+      "development_rows": 6668,
+      "semantic_development": {
+        "ro": {
+          "rows": 3117,
+          "field_errors": {
+            "subject": 408,
+            "time": 524,
+            "assertion": 585,
+            "source": 408,
+            "relation": 17,
+            "concern": 437
+          },
+          "joint_argmax_errors": 1427
+        },
+        "uk": {
+          "rows": 3551,
+          "field_errors": {
+            "subject": 757,
+            "time": 836,
+            "assertion": 413,
+            "source": 757,
+            "relation": 39,
+            "concern": 472
+          },
+          "joint_argmax_errors": 1808
+        }
+      }
+    },
+    {
+      "candidate": "semantic-scope-17",
+      "source": "semantic-scope-17/report.json",
+      "accepted": false,
+      "binary_review_changed": false,
+      "development_rows": 6668,
+      "semantic_development": {
+        "ro": {
+          "rows": 3117,
+          "field_errors": {
+            "subject": 152,
+            "time": 263,
+            "assertion": 720,
+            "source": 152,
+            "relation": 11,
+            "concern": 383
+          },
+          "joint_argmax_errors": 1286
+        },
+        "uk": {
+          "rows": 3551,
+          "field_errors": {
+            "subject": 810,
+            "time": 834,
+            "assertion": 332,
+            "source": 810,
+            "relation": 127,
+            "concern": 557
+          },
+          "joint_argmax_errors": 1864
+        }
+      }
     }
   ],
   "broad_regression": {
@@ -323,7 +719,9 @@
     "wheel_published": false,
     "legacy_encoding_cli_smoke": true,
     "durable_session_tests": 16,
-    "durable_installed_wheel_smoke": true
+    "durable_installed_wheel_smoke": true,
+    "neural_public_staging_smoke": true,
+    "public_cache_metadata_preparation_smoke": true
   },
   "interpretation": "All current model populations are exposed synthetic engineering evidence. No independent validation, measured child benefit, universal perfection or release qualification is established.",
   "calibration_overlap_audit": {
@@ -332,5 +730,15 @@
     "calibration_prefixes_in_prior_finetuning": 44,
     "calibration_prefixes_total": 580,
     "fresh_calibration_required": true
+  },
+  "latest_attention_assessment": {
+    "source": "semantic-assessment-14/report.json",
+    "decision": "REJECT",
+    "broad_fixed_errors": 1,
+    "broad_introduced_errors": 1,
+    "original_600_binary_errors": 0,
+    "original_600_semantic_argmax_errors": 21,
+    "eligible_development_binary_errors": 0,
+    "eligible_development_rows": 6668
   }
 }

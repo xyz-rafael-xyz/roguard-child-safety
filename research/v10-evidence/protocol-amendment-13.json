@@ -1,0 +1,12 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-sparse-16",
+  "motivation": "The neural studies leave a concentrated uncertainty-label failure. Test an independent lexical representation on the full semantic training corpus, rather than changing the binary review decision or adding phrase-specific runtime exceptions.",
+  "training": "Original four-corpus TRAIN inputs plus semantic-training-12 only; 19202 training prefixes. Original development plus the 327 eligible trajectory-development inputs are selection/evaluation only.",
+  "representation": "32768 signed-free hashed features, separate focus/history namespaces, word unigrams and bigrams plus character 3/4/5-grams; log-count weighting and L2 normalization. Labels and future turns are excluded.",
+  "registered_fit": {"regularization_C": 8.0, "max_iterations": 800, "solver": "lbfgs", "class_weight": "balanced", "seed": 1016},
+  "outputs": "Six semantic marginal heads only. No new binary reviewer, response checker or relevance selector is trained in this experiment.",
+  "evaluation": "Report each field and joint argmax on original and eligible trajectory development, separately by language. Any later fusion must be registered before its regression evaluation and must preserve the neural binary decision.",
+  "qualification": "Exposed synthetic development evidence only; no calibrated coverage or independent language-validation claim.",
+  "stable_release_ready": false
+}
