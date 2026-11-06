@@ -681,6 +681,64 @@
           "joint_argmax_errors": 1864
         }
       }
+    },
+    {
+      "candidate": "base-reference-fit-18",
+      "source": "base-reference-fit-18/report.json",
+      "accepted": false,
+      "reason": "One Ukrainian binary development error and remaining semantic errors",
+      "selected_development": {
+        "ro": {
+          "candidate": "dual-mlp",
+          "epoch": 31,
+          "binary_errors": 0,
+          "joint_argmax_errors": 632,
+          "field_errors": [
+            34,
+            13,
+            581,
+            38,
+            0,
+            0
+          ],
+          "mean_field_cross_entropy": 0.3476275010057108,
+          "mode": "coupled_policy",
+          "threshold": 0.8563001689641652,
+          "score_margin": 0.037512877607057016,
+          "selection_rank": [
+            0,
+            632,
+            0.3476275010057108,
+            -0.037512877607057016
+          ],
+          "head_sha256": "476644f3cdeedb753b61b8d326456faa9232c8e15448cb21ce8a4e35ad4d293a"
+        },
+        "uk": {
+          "candidate": "dual-linear",
+          "epoch": 4,
+          "binary_errors": 1,
+          "joint_argmax_errors": 611,
+          "field_errors": [
+            16,
+            14,
+            578,
+            18,
+            0,
+            4
+          ],
+          "mean_field_cross_entropy": 1.1125265685740067,
+          "mode": "coupled_policy",
+          "threshold": 0.8763766103111164,
+          "score_margin": 0.0,
+          "selection_rank": [
+            1,
+            611,
+            1.1125265685740067,
+            -0.0
+          ],
+          "head_sha256": "2733cbd7b88899c1f5a2fa1117ef71989c29157a03d91246402b1307028f91ff"
+        }
+      }
     }
   ],
   "broad_regression": {
@@ -740,5 +798,16 @@
     "original_600_semantic_argmax_errors": 21,
     "eligible_development_binary_errors": 0,
     "eligible_development_rows": 6668
+  },
+  "active_experiments": {
+    "language-specialists-19": {
+      "selection": "language-specialists-19/report.json",
+      "regression_status": "running"
+    },
+    "scope-curriculum-20": {
+      "training_rows": 3456,
+      "input_audit": "scope-input-audit-20/report.json",
+      "fit_status": "not_started"
+    }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "base-reference-18",
+  "motivation": "Attention-14 clears binary development but still has 1305 joint semantic development errors. Its small training loss and persistent uncertainty errors motivate testing representations before v9's task adapters, instead of repeatedly tuning the same adapted representation.",
+  "training": "The same 19202 verified TRAIN inputs as attention-14; no new labels, no calibration or regression examples in fitting.",
+  "development": "The same 6668 eligible DEV inputs as attention-14; prior exact training overlaps remain excluded. This is exposed model-selection data, not a final test.",
+  "representation": "Two exact final-token shared-KV tail replays: published v9 and the identical pinned base with all final-18-layer q/o LoRA output matrices zeroed. Prefix/body states are shared; original tensors are restored after each reference replay. Preserve both 2560-dimensional views. No encoder parameters are trained.",
+  "verification": "Check adapted logits against recorded v9 teacher logits and base replay against a full uncached zero-adapter forward on one TRAIN example per language. Retain observed maximum differences. Fail if score parity exceeds 1e-5 or sampled feature parity exceeds 1e-3.",
+  "registered_candidates": [
+    {"name": "base-linear", "view": "base", "hidden": 0, "learning_rate": 0.001},
+    {"name": "dual-linear", "view": "dual", "hidden": 0, "learning_rate": 0.001},
+    {"name": "base-mlp", "view": "base", "hidden": 128, "learning_rate": 0.0003},
+    {"name": "dual-mlp", "view": "dual", "hidden": 128, "learning_rate": 0.0003}
+  ],
+  "optimization": {"epochs": 40, "batch_size": 128, "seed": 1018, "weight_decay": 0.01, "gradient_norm_clip": 1.0, "semantic_ce_weight": 1.0, "binary_ce_weight": 1.0},
+  "objective": "Binary cross-entropy plus mean inverse-square-root class-weighted six-field cross-entropy, with per-view L2 feature normalization. Randomly initialized classifier; no KL that would require copying v9's semantic mistakes. No regression-derived correction rules.",
+  "selection": "Evaluate each epoch, select binary/policy/coupled-policy score and threshold on DEV; rank by binary errors, joint semantic argmax errors, mean field cross-entropy and negative binary margin. Preserve all checkpoints and all failures. Compare selected model with exact frozen v9.",
+  "evaluation": "Freeze the selected classifier before new exposed regression inference. A new base representation requires fresh inference; the old adapted-only feature cache is insufficient. These regressions remain exposed and cannot establish independent superiority.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}
