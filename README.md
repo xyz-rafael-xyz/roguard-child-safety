@@ -70,6 +70,9 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 
 **V10 is unreleased research and has no PyPI package release.** It adds experimental long-conversation evidence
 selection, durable review sessions, semantic training, interpretation-set evaluation and a recorded improvement loop.
+Its experimental shared-encoder committee fixes the two v9 broad-audit false alerts,
+with zero errors across 6,002 fresh checkpoint inferences on exposed engineering data.
+[Committee results and local research bundle](docs/V10_COMMITTEE.md).
 [Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
 The published stable package remains **v9.0.0**.
 

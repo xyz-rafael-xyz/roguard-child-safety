@@ -904,11 +904,17 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "committee_runtime_29": {
-      "status": "running",
-      "source": "committee-runtime-29",
-      "installed_wheel": true,
-      "qualification_pending": true
+    "committee_bundle_runtime_29": {
+      "status": "complete"
+    },
+    "contrast_response_32": {
+      "status": "running"
+    },
+    "scope_query_33": {
+      "status": "registered_waiting_for_encoder"
+    },
+    "response_context_34": {
+      "status": "registered_waiting_for_frozen_response_head"
     }
   },
   "assertion_query_22": {
@@ -1025,5 +1031,24 @@
     "decision": "DIAGNOSTIC_ONLY",
     "projection_parity_pass": true,
     "qualified": false
+  },
+  "committee_runtime_29": {
+    "source": "committee-runtime-29/report.json",
+    "decision": "BINARY_RUNTIME_ENGINEERING_PASS_ONLY",
+    "fresh_inferences": 6002,
+    "maximum_component_score_error": 0.0,
+    "broad_errors": 0,
+    "broad_fixed": 2,
+    "broad_introduced": 0,
+    "original_errors": 0,
+    "independent_validation": false,
+    "full_pipeline_qualified": false
+  },
+  "committee_bundle_29": {
+    "packaging": "committee-packaging-29/report.json",
+    "fresh_verification": "committee-bundle-runtime-29/report.json",
+    "fresh_checks": 21,
+    "all_output_fields_exact": true,
+    "public_package_release": false
   }
 }

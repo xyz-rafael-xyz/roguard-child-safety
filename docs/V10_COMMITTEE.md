@@ -1,7 +1,8 @@
 # Experimental shared-encoder review committee
 
 The committee is a binary review component under development. It has passed the
-recorded decision-combination checks; it is not a qualified v10 release.
+recorded decision-combination checks and all 6,002 fresh installed-runtime
+inferences; it is not a qualified v10 release.
 
 It combines the published v9 classifier, semantic readout 11, and attention
 adapter 14. Each retains its frozen threshold. A review proposal requires all
@@ -28,7 +29,11 @@ be independent samples of one another.
 retains all component decisions and the frozen rule. The separate
 [`assessment`](../research/v10-evidence/review-unanimity-assessment-28/report.json)
 recomputes the votes, gold labels, fixed errors and new errors from bound parent
-records. Fresh installed-runtime verification is registered as experiment 29.
+records. Fresh installed-runtime verification in
+[`experiment 29`](../research/v10-evidence/committee-runtime-29/report.json)
+reproduces every component score exactly, with zero binary errors across all
+6,002 checkpoint inferences. The run took 1,655 seconds on the local MLX
+environment; its batch runtime is not a per-request latency benchmark.
 
 ## Runtime
 
@@ -62,10 +67,11 @@ checks shared replay against separate full forwards and checks restoration after
 an injected attention failure. Both languages' real 80-tensor inventories also
 pass the compatibility check.
 
-An isolated wheel installation passes the same 10 focused tests on the local
-neural environment. Portable installed smoke checks pass on Python 3.9, 3.10 and
-3.12. The registered full-model run must still compare all 6,002 exposed
-checkpoint outputs with the frozen parent scores and decisions.
+An isolated wheel installation passes all 20 committee and bundle tests on the
+local neural environment. Portable installed smoke checks pass on Python 3.9,
+3.10 and 3.12. The full-model run verifies all 6,002 exposed checkpoint outputs
+against the frozen parent scores and decisions. Both hosted CI runs for the
+bundle implementation pass all 16 jobs, including Windows and Linux checks.
 
 The research adapters remain outside Git; the public metadata and training
 entry points are in [neural reproduction](V10_NEURAL_REPRODUCTION.md). No new
@@ -103,3 +109,12 @@ The equivalent JSON CLI is `python -m roguard.committee_bundle --bundle ...
 adapter checksums and rejects missing assets, altered metadata, mixed languages
 and paths escaping the bundle. It performs no download. Full inference requires
 the existing Apple Silicon MLX environment and the pinned pretrained base.
+
+The [packaging record](../research/v10-evidence/committee-packaging-29/report.json)
+binds every exported file. A second installed-wheel verification loads this new
+bundle and performs 21 fresh inferences spanning every observed vote pattern by
+population/language and every fixed v9 error. Every output field matches the full
+runtime study exactly. The
+[verification record](../research/v10-evidence/committee-bundle-runtime-29/report.json)
+also checks all 171 installed package files against the wheel. This is a packaging
+and parity check on existing cases, not another accuracy population.
