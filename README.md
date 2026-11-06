@@ -69,7 +69,7 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
 
 **V10 is unreleased research and has no PyPI package release.** It adds experimental long-conversation evidence
-selection, interpretation-set evaluation and a recorded improvement loop.
+selection, durable review sessions, semantic training, interpretation-set evaluation and a recorded improvement loop.
 [Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
 The published stable package remains **v9.0.0**.
 

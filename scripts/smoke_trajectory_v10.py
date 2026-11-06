@@ -10,9 +10,12 @@ import tempfile
 
 from roguard.trajectory_model import TrajectoryModel
 from roguard.trajectory_store import ReviewSessionStore
+from roguard.gemma4_committee import Gemma4ReviewCommittee
 
 
 def main():
+    # Importing the optional neural component must not require numerical extras.
+    assert callable(Gemma4ReviewCommittee)
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--artifact',type=Path,required=True);p.add_argument('--calibration',type=Path,required=True)
     a=p.parse_args();sha=hashlib.sha256(a.artifact.read_bytes()).hexdigest()

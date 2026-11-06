@@ -75,6 +75,8 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Scope curriculum 20 / specialists 21 | Training expands to 22,658 inputs; both languages retain zero eligible binary development errors. Development-selected language combination has three broad binary errors, one more than v9, while retaining 600/600 original binary decisions | Rejected |
 | Explicit assertion query 22 | Two fixed prompts on 128 balanced DEV examples per language: direct prompt gets 93 RO / 88 UK correct; outer-scope prompt gets 99 RO / 98 UK. Uncertainty recall improves while affirmation errors increase | Rejected as a zero-shot replacement |
 | Qwen assertion query 23 | Same 256 DEV cases and two prompts, with a separately pinned pretrained model: direct prompt gets 91 RO / 106 UK correct; outer-scope gets 101 RO / 98 UK. Every prompt introduces new errors relative to v9 | Rejected as a zero-shot replacement |
+| Review agreement 27 | Two-model agreement leaves two eligible development errors; input-contract routing reduces this to one. Neither advances to new broad combination scoring | Rejected |
+| Three-model unanimity 28 | Zero errors on 6,668 eligible DEV inputs and on all 5,022 broad, 600 original and 32 challenge checkpoints. Fixes both v9 broad false alerts without an observed new error. Separate assessment reproduces the result | Binary engineering pass only; full pipeline remains unqualified |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses
@@ -160,6 +162,7 @@ Results, model artifacts, protocols and amendments live in
 remain outside Git. No new real-child data is collected.
 
 For the persistent host API, see [durable sessions](V10_DURABLE_SESSIONS.md).
+For the first passing binary committee component, see [shared-encoder committee](V10_COMMITTEE.md).
 For neural training and public starting artifacts, see
 [neural reproduction](V10_NEURAL_REPRODUCTION.md).
 
@@ -222,7 +225,7 @@ Independent fluent authors and adjudicators must supply the final evaluation.
 The study needs a prespecified sample size, independent label provenance, the
 larger-context comparator on that independent population, response-model
 qualification, a measured human reviewer study, and installed runtime checks on
-target platforms. Local software verification passed 1,151 tests (79 optional
+target platforms. Local software verification passed 1,159 tests (84 optional
 tests skipped) and installed-wheel smoke checks on Python 3.9, 3.10 and 3.12.
 Those checks establish software behavior, not model accuracy. A compact
 student that regresses against v9 cannot replace it merely because it is faster.

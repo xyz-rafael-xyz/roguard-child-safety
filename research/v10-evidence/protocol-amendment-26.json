@@ -1,0 +1,13 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "review-unanimity-28",
+  "motivation": "Agreement study 27 fails on development: v9 and readout 11 share two false alerts, and input-length routing to attention 14 removes only one. Attention 14 correctly declines both. Test a single general three-model agreement rule, with no routing or case-specific conditions.",
+  "rule": "Propose review if and only if frozen v9, readout 11 and attention 14 all propose review at their already frozen thresholds. Apply the identical rule to every language and input. No thresholds, parameters or exceptions are fitted.",
+  "development_gate": "Use the same 6668 eligible original/trajectory DEV inputs and the same 21 prior-training exclusions as study 27. Advance to existing exposed regression combination scoring only if there are zero errors in both languages.",
+  "regression": "If development passes, freeze the rule and score the full 5022 broad, 32 challenge and 600 original regression checkpoints. Retain every fixed and newly introduced error. Any error rejects the binary component under this engineering gate.",
+  "verification": "Reuse the input, source, model, score, threshold and token-contract checks implemented for study 27. Record all three component decisions for every output so the new decision can be independently recomputed without weights.",
+  "risk_and_scope": "Unanimity can suppress true concerns when any component misses one; this is a high-precision voting hypothesis, not a proven safety policy. Passing exposed data cannot establish unseen recall. This is a binary-component engineering experiment only, with no interpretation, response, independent final-study or reviewer-benefit qualification.",
+  "exposure": "The motivation uses exposed development and previously exposed aggregate regression findings. No independent superiority is claimed; a fresh independent final study remains required.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

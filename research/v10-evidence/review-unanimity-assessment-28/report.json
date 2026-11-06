@@ -1,0 +1,52 @@
+{
+  "format": "roguard-unanimity-assessment-1",
+  "complete": true,
+  "source_sha256": "97175537a75a698fa22421d4f18b68fdb8b9ef227527c9d2e91a8d33353e912c",
+  "study_report_sha256": "5dc4f7e5ef4254fdce5a5f40bf31bd31fc36eff75fd697b5fca5aaf19c0159b3",
+  "study_protocol_sha256": "ce5b19f9401b9caeafb5eb6ec05365ab1a28c7017da4e752f34815b3ecc93b89",
+  "populations": {
+    "eligible-development": {
+      "rows": 6668,
+      "errors": [],
+      "fixed": [
+        "v10-pair117-ro-train-476:0",
+        "v10-pair117-ro-train-478:13"
+      ],
+      "introduced": []
+    },
+    "broad": {
+      "rows": 5022,
+      "errors": [],
+      "fixed": [
+        "broad-ro-exposed-ro-7-0:0",
+        "broad-ro-exposed-ro-5-0:0"
+      ],
+      "introduced": []
+    },
+    "challenge": {
+      "rows": 32,
+      "errors": [],
+      "fixed": [],
+      "introduced": []
+    },
+    "v9-regression": {
+      "rows": 600,
+      "errors": [],
+      "fixed": [],
+      "introduced": []
+    }
+  },
+  "fitting_performed": false,
+  "fresh_neural_inference_performed": false,
+  "independent_test": false,
+  "stable_release_ready": false,
+  "decision": "BINARY_ENGINEERING_PASS_ONLY",
+  "remaining_requirements": [
+    "FRESH_INSTALLED_RUNTIME_PARITY",
+    "SEMANTIC_SET_QUALIFICATION",
+    "RESPONSE_QUALIFICATION",
+    "FRESH_CALIBRATION",
+    "INDEPENDENT_FINAL_EVALUATION",
+    "MEASURED_REVIEWER_BENEFIT"
+  ]
+}
