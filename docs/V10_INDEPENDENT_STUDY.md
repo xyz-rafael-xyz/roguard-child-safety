@@ -48,6 +48,28 @@ Practice material is in `research/v10-evidence/reviewer-practice-kit`. The files
 named `PRIVATE-key` are practice mappings, not credentials. Keep actual study
 keys and participant returns outside the public repository.
 
+The offline annotation form avoids editing JSON or counting evidence offsets by
+hand. Create a separate form from each blank packet:
+
+```sh
+python -m roguard.trajectory_annotation annotator-a.json --output annotator-a.html
+```
+
+Send only that HTML to its assigned annotator. It contains that person's blinded
+conversation inputs, not the coordinator key. It makes no network requests and
+does not save answers automatically. Annotators download a draft before closing,
+resume it in the same form, select evidence within a message, and download their
+completed return. The coordinator still runs `validate_annotations()` against the
+original packet and private key; the form does not authenticate participants or
+establish independence. Provide the agreed review policy and practice discussion
+before using independently authored study cases. An unresolved judgment stays
+explicit and is never silently converted to a negative label.
+
+The initial form has automated validation, export and Unicode-offset checks.
+Interactive visual verification remains pending because the connected browser
+was unavailable during implementation. Practice forms must not be represented as
+the independent final study.
+
 ## Frozen final comparison
 
 Select the model and all hyperparameters on development data. Obtain fresh
