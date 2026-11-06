@@ -1,4 +1,4 @@
-"""Frozen standalone readout or attention component on fresh44."""
+"""Frozen standalone readout on fresh44, sharing only verified encoder compute."""
 import argparse
 import gc
 import json
@@ -17,8 +17,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('base','bundle','selector','selected_study','selected','data','reference','study'):
         p.add_argument('--'+name.replace('_','-'),dest=name,type=Path,required=True)
-    p.add_argument('--component', choices=('readout','attention'), default='readout')
-    p.add_argument('--amendment', type=Path, default=Path('research/v10-evidence/protocol-amendment-44.json'))
+    p.add_argument('--amendment',type=Path,default=Path('research/v10-evidence/protocol-amendment-55.json'))
     a=p.parse_args()
     if a.study.exists():raise ValueError('Refusing to overwrite readout diagnostic')
     selected=json.loads((a.selected_study/'report.json').read_text())
@@ -38,7 +37,7 @@ def main():
         'reference_report_sha256':file_sha(a.reference/'report.json'),'cases_sha256':file_sha(a.data/'cases.jsonl'),
         'bundle_sha256':integration['bundle_sha256'],'selector_sha256':integration['selector_sha256'],
         'amendment_sha256':file_sha(a.amendment),
-        'decision_rule':'standalone selected component, frozen development threshold; no voting combination','selected_component':a.component,
+        'decision_rule':'standalone selected readout, frozen registered-DEV threshold; no voting combination',
         'fitting_performed':False,'independent_validation':False,'stable_release_ready':False,'languages':{}}
     (a.study/'source.py').write_bytes(Path(__file__).read_bytes())
     records=[];groups={};started=time.monotonic()
@@ -46,16 +45,15 @@ def main():
         # Validate every original bundle asset before using its v9/attention files.
         load_committee(a.bundle,expected_sha256=integration['bundle_sha256'],base=a.base,language=lang)
         manifest=json.loads(a.bundle.read_text());parts={}
-        for kind in ('v9','readout','attention'):
-            if kind == a.component:continue
+        for kind in ('v9','attention'):
             entry=manifest['languages'][lang][kind]
             parts[kind]=Gemma4ReviewModel(a.bundle.parent/entry['artifact'],a.bundle.parent/entry['adapter'],a.base,expected_sha256=entry['artifact_sha256'])
         spec=a.selected_study/(lang+'-review.json');adapter=a.selected/(lang+'-selected.safetensors')
         if file_sha(adapter)!=selected['languages'][lang]['selected']['adapter_sha256']:
             raise ValueError('Selected adapter differs from frozen report')
-        parts[a.component]=Gemma4ReviewModel(spec,adapter,a.base,expected_sha256=file_sha(spec))
+        parts['readout']=Gemma4ReviewModel(spec,adapter,a.base,expected_sha256=file_sha(spec))
         model=Gemma4ReviewCommittee(**parts)
-        protocol['languages'][lang]={'selected_spec_sha256':file_sha(spec),'selected_identity':parts[a.component].identity,
+        protocol['languages'][lang]={'readout_spec_sha256':file_sha(spec),'readout_identity':parts['readout'].identity,
             'v9_identity':parts['v9'].identity,'compute_engine_identity':model.identity}
         (a.study/'protocol.json').write_text(json.dumps(protocol,indent=2)+'\n')
         batch=[];selected_rows=[]
@@ -71,10 +69,10 @@ def main():
             old=baseline[row['case_id']]['prediction'];components=result['components']
             if components is None or components['v9']!=old['components']['v9']:
                 raise ValueError('Fresh frozen-v9 score/logit parity failed')
-            gold=row['checkpoints'][0]['review'];candidate=components[a.component]['predicted'];v9=components['v9']['predicted']
+            gold=row['checkpoints'][0]['review'];candidate=components['readout']['predicted'];v9=components['v9']['predicted']
             records.append({'case_id':row['case_id'],'gold':gold,'input_digest':old['input_digest'],
-                'inference_input_digest':old['inference_input_digest'],'candidate':components[a.component],'v9':components['v9'],
-                'candidate_identity':parts[a.component].identity,'qualified':False})
+                'inference_input_digest':old['inference_input_digest'],'candidate':components['readout'],'v9':components['v9'],
+                'candidate_identity':parts['readout'].identity,'qualified':False})
             g=groups.setdefault(lang+':'+row['context_kind'],{'rows':0,'candidate_errors':0,'v9_errors':0,'fixed':0,'introduced':0})
             g['rows']+=1;g['candidate_errors']+=candidate!=gold;g['v9_errors']+=v9!=gold
             g['fixed']+=candidate==gold and v9!=gold;g['introduced']+=candidate!=gold and v9==gold

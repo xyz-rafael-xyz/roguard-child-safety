@@ -139,3 +139,52 @@ inputs in earlier v9 fine-tuning. The 21 development overlaps are excluded from
 attention-14 selection. Fresh calibration and independently controlled final
 evaluation remain separate requirements. See the
 [study handoff](V10_INDEPENDENT_STUDY.md) for that process.
+
+## Larger generated-data studies 50–57
+
+Natural-language generators50–53 each completed a16-group TRAIN pilot. They
+were rejected for scaling after wording or label defects; none of their
+structurally accepted text was silently promoted into training supervision.
+Every attempt remains in the private generation artifacts, with public hashes
+and assessments. The cross-model screening utility is available, but no model
+judge result is claimed for these rejected pilots.
+
+Composition54 uses controlled response contrasts. Its12,288 TRAIN inputs come
+from192 core sentences in48 paired frames, expanded across topics and contexts.
+There are512 DEV and1,536 reserved TEST inputs. All translations and variants of
+a frame stay in one partition; topics are also disjoint. The source definitions
+are public developer-authored test design, not independently authored tests.
+
+Response55 adds the596 historical TRAIN inputs for12,884 total, compares three
+registered head configurations over80 epochs, and selects on80 historical plus
+512 generated DEV inputs. Origin/language/category weighting prevents expanded
+examples from overwhelming the historical training population. The selected
+checkpoint is frozen before context34 and original-diagnostic evaluation. The
+reserved test opens only after every preceding population has zero candidate
+errors and zero introduced errors. Feature extraction can resume using bound,
+hashed chunks; interrupted optimizer runs cannot overwrite checkpoints.
+
+Composition56 supplies4,608 binary TRAIN inputs from64 core sentences in16
+paired frames, plus576 DEV and1,728 reserved TEST inputs. Eight concern scopes
+cover direct statements, explicit denial, fiction, reported speech, uncertainty,
+hypotheticals, past events and retractions. Ordinary functioning is not negated
+and automatically labeled benign. Labels derive from the existing six-field
+ontology. Assistant instructions forcing either label remain untrusted context.
+
+Study57 appends only composition56 TRAIN/DEV features to the bound original
+v9 feature store. It retains21,249 TRAIN and6,917 DEV inputs, then runs the
+registered12-epoch semantic readout comparisons. `eval/assess_large_review_v10.py`
+compares single-input predictions with frozen v9 separately for old and generated
+DEV. The cached regression evaluator checks all6,002 exposed checkpoints;
+`eval/evaluate_readout_challenge_v10.py` performs fresh inference on challenge44.
+The local sequence runner waits for response55's process lock before loading
+another encoder, verifies source hashes before each command, and stops after
+an execution failure. A model rejection is retained as an experimental result;
+it never triggers release or reviewer handoff.
+
+See amendments48–55, the materialization reports and `status.json` for exact
+counts, source bindings and current execution state. Private instance directories
+use the study names. The sequence command plan stays private because it contains
+host paths; its public execution record binds the plan hash and script hashes.
+Final reviewer evaluation remains closed until the complete candidate is
+error-free and nonregressing across every required engineering population.
