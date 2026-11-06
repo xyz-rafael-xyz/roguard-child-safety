@@ -1610,7 +1610,8 @@
     "broad_introduced": 11,
     "fresh_challenge_errors": 4,
     "fresh_challenge_fixed": 3,
-    "held_out_test_opened": false
+    "held_out_test_opened": false,
+    "error_analysis": "large-review-error-analysis-57/report.json"
   },
   "response_runtime_58": {
     "software": "response-runtime-preflight-58/software-checks.json",
@@ -1642,5 +1643,24 @@
     "model_qualified": false,
     "sequence": "response-attention-runtime-sequence-60/report.json",
     "status": "queued_after_response59"
+  },
+  "crossed_review_61": {
+    "source": "crossed-review-61/report.json",
+    "training_inputs": 7680,
+    "development_inputs": 1920,
+    "reserved_test_inputs": 3840,
+    "reused_training_core_sentences": 64,
+    "new_independent_core_meanings": 0,
+    "independent_annotation": false,
+    "stable_release_ready": false
+  },
+  "crossed_review_62": {
+    "preflight": "crossed-review-preflight-62/report.json",
+    "token_preflight": "crossed-review-preflight-62/token-report.json",
+    "sequence": "crossed-review-sequence-62/report.json",
+    "status": "queued_after_response59_and_runtime60",
+    "training_inputs": 28929,
+    "development_inputs": 8837,
+    "qualified": false
   }
 }

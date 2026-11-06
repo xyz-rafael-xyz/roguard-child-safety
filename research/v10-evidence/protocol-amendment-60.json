@@ -1,0 +1,33 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "crossed-review-62",
+  "motivation": "Test whether adding crossed assertion/attribution/time TRAIN examples reduces the scope-combination regressions observed after57, with the model, initialization, optimizer and selection rule unchanged. The mechanism is unproven; no success is assumed.",
+  "new_train_rows": 7680,
+  "new_dev_rows": 1920,
+  "total_train_rows": 28929,
+  "total_dev_rows": 8837,
+  "features": "Reuse all bound frozen-v9 features from57:21249 TRAIN and6917 DEV. Append only TRAIN/DEV from crossed composition61. Parent family IDs and assignments remain unchanged. Reject repeated token inputs. New3840 and previous1728 reserved TEST instances remain closed to selection.",
+  "registered_candidates": [
+    {
+      "name": "large-semantic-ce",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.0
+    },
+    {
+      "name": "large-semantic-distilled",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.2
+    },
+    {
+      "name": "large-semantic-conservative",
+      "learning_rate": 3e-05,
+      "teacher_kl": 0.5
+    }
+  ],
+  "fit": "Use unchanged train_semantic_readout_v10.py:12 epochs, seed1011, batch64, initial v9 head and frozen encoder. Cross-entropy for binary and six class-weighted semantic fields plus registered teacher KL. Retain every checkpoint, including epoch zero.",
+  "selection": "Existing fitter selects on combined registered DEV only by binary errors, joint errors, field cross-entropy, then score margin. Binary/policy/coupled-policy mode and threshold are chosen exclusively on this DEV population before frozen diagnostics. None of the new TEST or exposed challenge44 labels enters optimization or selection.",
+  "evaluation": "Freeze selected weights and metadata before diagnostics. Compare original-v9 predictions separately on6341 historical DEV,576 composition56 DEV and1920 crossed61 DEV. Evaluate all6002 exposed regression checkpoints and72 fresh44 checkpoints. Any remaining error or new regression rejects; neither reserved test may open before every prerequisite passes. Preserve failures and do not call a development improvement a release.",
+  "resources": "Run after response59 training and installed attention-runtime60 verification, one full encoder on16GB host. Preserve8GiB disk reserve; cache only final representations. Fitting uses the same12-epoch registered configurations as57.",
+  "qualification": "Composed patterns are correlated synthetic evidence, not independent human labels. This subtask cannot qualify a full v10 on its own. Stable package remains v9; final reviewer evaluation remains closed until all complete-candidate engineering gates pass.",
+  "stable_release_ready": false
+}

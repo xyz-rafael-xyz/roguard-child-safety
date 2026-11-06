@@ -281,3 +281,26 @@ after restoration. Full-size installed verification is still pending. The
 verification command checks every mapped DEV input against the selected saved
 logits and independent full forwards; it never opens reserved TEST. A local
 export of failed study49 provides a verification fixture, not an accepted model.
+
+## Crossed binary scope contrasts (studies61–62)
+
+The paired error analysis for57 identifies seven introduced Romanian errors
+on negated concerns with past or hypothetical scope, one Ukrainian error on
+uncertain benign content, and three Ukrainian errors on hypothetical reports
+about another person. These associations do not establish a causal mechanism.
+
+Composition61 crosses assertion, attribution and time on the unchanged
+composition56 cores and family assignments. Its7,680 TRAIN inputs reuse64
+core sentences;1,920 DEV and3,840 reserved TEST inputs retain disjoint frames
+and topics. Ordinary-functioning cores are never negated and assumed benign.
+The new examples are correlated combinations, not new independent meanings.
+Actual tokenization of every TRAIN/DEV input found zero duplicates against the
+parent features, preserved parent family splits and a maximum length of528.
+
+Study62 appends these features to57 for28,929 TRAIN and8,837 DEV inputs. It
+keeps the same v9 initialization, three registered readout configurations,
+12-epoch optimization and development selection rule. Assessment separates
+historical DEV, composition56 DEV and crossed61 DEV; the original regression
+and fresh44 challenge checks remain required. The bound queue waits for
+response59 and attention-runtime60 verification. Neither reserved TEST set
+opens unless every required preceding error/regression gate passes.
