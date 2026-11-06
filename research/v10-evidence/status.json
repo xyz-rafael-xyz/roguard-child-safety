@@ -1597,25 +1597,38 @@
   },
   "large_review_57": {
     "preflight": "large-review-preflight-57/report.json",
-    "status": "extracting_features",
+    "status": "complete",
     "training_inputs": 21249,
     "development_inputs": 6917,
     "qualified": false,
-    "sequence": "large-data-sequence-57c/report.json"
+    "sequence": "large-data-sequence-57c/report.json",
+    "decision": "REJECT",
+    "qualification": "large-review-qualification-57/report.json",
+    "development_fixed": 52,
+    "development_errors": 2,
+    "development_introduced": 0,
+    "broad_introduced": 11,
+    "fresh_challenge_errors": 4,
+    "fresh_challenge_fixed": 3,
+    "held_out_test_opened": false
   },
   "response_runtime_58": {
     "software": "response-runtime-preflight-58/software-checks.json",
     "tokenizer_parity": "response-runtime-preflight-58/token-parity.json",
     "installed_wheel": "response-runtime-preflight-58/installed-wheel.json",
-    "full_model_parity_completed": false,
+    "full_model_parity_completed": true,
     "model_qualified": false,
-    "sequence": "runtime-attention-sequence-59/report.json"
+    "sequence": "runtime-attention-sequence-59/report.json",
+    "full_model_verification": "response-runtime-58/report.json",
+    "probes": 80,
+    "maximum_feature_error": 0.0,
+    "maximum_probability_error": 2.3100865126357562e-07
   },
   "large_response_attention_59": {
     "protocol": "protocol-amendment-57.json",
     "preflight": "large-response-attention-preflight-59/report.json",
     "sequence": "runtime-attention-sequence-59/report.json",
-    "status": "queued_after_review57_and_installed_runtime58",
+    "status": "running",
     "training_inputs": 12884,
     "development_inputs": 592,
     "epochs": 6,

@@ -13,11 +13,37 @@
     "training/prepare_compositional_review_v10.py": "92d96db55b4bfe094122e64a3044a51319ab0524346672571c093f87ff009bf0",
     "training/train_semantic_readout_v10.py": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6"
   },
-  "execution_complete": false,
-  "completed_steps": [],
-  "phase": "running",
+  "execution_complete": true,
+  "completed_steps": [
+    {
+      "name": "extract-review57",
+      "exit_code": 0,
+      "seconds": 1275.6801814171486
+    },
+    {
+      "name": "fit-review57",
+      "exit_code": 0,
+      "seconds": 101.8093202081509
+    },
+    {
+      "name": "assess-review57-development",
+      "exit_code": 0,
+      "seconds": 2.520380667410791
+    },
+    {
+      "name": "evaluate-review57-regressions",
+      "exit_code": 0,
+      "seconds": 3.3671515421010554
+    },
+    {
+      "name": "evaluate-review57-challenge44",
+      "exit_code": 0,
+      "seconds": 65.18155712494627
+    }
+  ],
+  "phase": "finished",
   "stable_release_ready": false,
   "promotion_performed": false,
   "dependency_report_sha256": "08a7ca955f4bf5bc8389d51ad4c43b185300835ab6363582ea1b0c9e23e22fd1",
-  "active_step": "extract-review57"
+  "active_step": null
 }

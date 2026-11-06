@@ -1,0 +1,77 @@
+{
+  "complete": true,
+  "decision": "REJECT",
+  "sources": {
+    "large-review-readout-57": "07c6a6fba3a49210005158d050790bf04d388db20d2d05df8f96c26595da9b86",
+    "large-review-assessment-57": "54ca257cb2839d151c5831fa16eb54c642fc3a1b7dfb9cd5d68b8484823d3291",
+    "large-review-regression-57": "61aa0f6d02fadc2109f4c886b085991a6605963177d93802cc439ae51926686b",
+    "large-review-challenge-57": "551b75b919eec6128949daa4f4b7ed6bd74fd4b71933256c4327944bcf5238b3"
+  },
+  "development": {
+    "historical:ro": {
+      "rows": 2954,
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "generated:ro": {
+      "rows": 288,
+      "candidate_errors": 1,
+      "v9_errors": 16,
+      "fixed": 15,
+      "introduced": 0
+    },
+    "historical:uk": {
+      "rows": 3387,
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "generated:uk": {
+      "rows": 288,
+      "candidate_errors": 1,
+      "v9_errors": 38,
+      "fixed": 37,
+      "introduced": 0
+    }
+  },
+  "regression": {
+    "broad": {
+      "candidate_errors": 11,
+      "v9_errors": 2,
+      "fixed": 2,
+      "introduced": 11
+    },
+    "dev": {
+      "candidate_errors": 2,
+      "v9_errors": 2,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "challenge": {
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "v9-regression": {
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    }
+  },
+  "challenge": {
+    "rows": 72,
+    "candidate_errors": 4,
+    "v9_errors": 7,
+    "fixed": 3,
+    "introduced": 0
+  },
+  "held_out_test_opened": false,
+  "reason": "Two generated DEV false positives, four fresh challenge misses, and eleven introduced broad-regression errors. Improvements on other populations do not satisfy zero-error/no-regression acceptance.",
+  "independent_validation": false,
+  "stable_release_ready": false
+}

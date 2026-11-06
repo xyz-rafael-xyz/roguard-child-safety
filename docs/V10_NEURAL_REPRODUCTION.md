@@ -183,6 +183,12 @@ registered12-epoch semantic readout comparisons. `eval/assess_large_review_v10.p
 compares single-input predictions with frozen v9 separately for old and generated
 DEV. The cached regression evaluator checks all6,002 exposed checkpoints;
 `eval/evaluate_readout_challenge_v10.py` performs fresh inference on challenge44.
+Study57 completed and is rejected: it fixes52 generated DEV errors with no
+DEV regressions but retains two false positives. It fixes three of seven
+fresh-challenge misses and retains four. On the broad audit it fixes two old
+errors but introduces11; the original600 regression inputs remain correct.
+Reserved TEST remains unopened.
+
 The local sequence runner waits for response55's process lock before loading
 another encoder, verifies source hashes before each command, and stops after
 an execution failure. A model rejection is retained as an experimental result;
@@ -234,11 +240,12 @@ result = response.review_response(draft, language="ro", context=user_context)
 `eval/verify_response_runtime_v10.py` compares the installed implementation with
 hash-bound training features and a frozen selected head on exposed TRAIN/DEV
 probes. It also injects a real inference failure and checks that the original
-binary output and adapter/head parameters are unchanged. This check must wait
-until the active training sequence releases the full encoder. Tokenizer and CPU
-fixture parity, installed-wheel integrity, and portable API tests are recorded
-separately from that pending full-model verification. No successful software test
-can promote an inaccurate classifier or qualify the complete v10 release.
+binary output and adapter/head parameters are unchanged. Study58 completed
+all80 probes with exact features, matching labels and maximum probability
+difference2.31e-7. Original binary output and adapter/head parameters remained
+exact after successful calls and an injected failure. These installed full-model
+checks establish execution parity; they cannot promote an inaccurate classifier
+or qualify the complete v10 release.
 
 ## Larger response attention training (study59)
 
