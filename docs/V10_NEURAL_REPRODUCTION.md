@@ -188,3 +188,48 @@ use the study names. The sequence command plan stays private because it contains
 host paths; its public execution record binds the plan hash and script hashes.
 Final reviewer evaluation remains closed until the complete candidate is
 error-free and nonregressing across every required engineering population.
+
+## Packaged response runtime (study58)
+
+`roguard.gemma4_response.Gemma4ResponseModel` is an explicit research interface
+for frozen response readouts. It accepts a checksum-bound response specification,
+head weights and an existing `Gemma4ReviewModel` reference. Both tasks reuse the
+reference's encoder under the review runtime lock. Response inference temporarily
+zeros the task-adapter output matrices and restores them even after failure.
+The small response head remains separate from the binary-review head.
+
+The runtime supports Romanian and Ukrainian, preserves user context and the
+proposed assistant reply as separate roles, and uses the exact registered query.
+Unsupported token lengths yield abstention. A prediction of `appropriate` means
+only that this single-category checker did not select one of its four listed
+behavior problems; it does not certify overall safety or factual support.
+
+After a response study finishes and its selected weights are frozen, export a
+local research artifact with:
+
+```console
+python scripts/package_response_head_v10.py --study STUDY --weights SELECTED_HEAD --output ARTIFACT_DIRECTORY
+```
+
+Construct the package interface explicitly:
+
+```python
+from roguard.gemma4_response import Gemma4ResponseModel
+
+response = Gemma4ResponseModel(
+    artifact_directory / "response.json",
+    artifact_directory / "head.safetensors",
+    reference_model,
+    expected_sha256=verified_response_spec_sha256,
+)
+result = response.review_response(draft, language="ro", context=user_context)
+```
+
+`eval/verify_response_runtime_v10.py` compares the installed implementation with
+hash-bound training features and a frozen selected head on exposed TRAIN/DEV
+probes. It also injects a real inference failure and checks that the original
+binary output and adapter/head parameters are unchanged. This check must wait
+until the active training sequence releases the full encoder. Tokenizer and CPU
+fixture parity, installed-wheel integrity, and portable API tests are recorded
+separately from that pending full-model verification. No successful software test
+can promote an inaccurate classifier or qualify the complete v10 release.
