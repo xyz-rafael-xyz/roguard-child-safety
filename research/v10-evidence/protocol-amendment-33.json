@@ -1,0 +1,10 @@
+{
+  "study": "regularized-response-35",
+  "motivation": "Expanded contrast TRAIN did not improve the stochastic linear/MLP head. Compare converged, explicitly L2-regularized multinomial logistic fits on the same frozen query features, without more wording or labels.",
+  "inputs": "Exactly the 596 TRAIN and 80 DEV inputs from contrast-response-32. Verify all parent feature hashes and ordered payload identities. Per-row RMS normalization is unchanged. No fitting on diagnostic or context-robustness inputs.",
+  "candidates": {"C": [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0], "solver": "lbfgs", "maximum_iterations": 2000, "tolerance": 1e-9, "class_weight": "balanced", "seed": 1035},
+  "selection": "Original DEV only, by worst bilingual-category error rate, total errors, cross entropy. Freeze serialized float64 weights before opening the original diagnostic or context34 features for scoring. Nonconverged or serialization-mismatched fits cannot be selected.",
+  "verification": "Recompute exported probabilities with NumPy from serialized weights; match sklearn within 1e-10. Preserve all fits and compare selected predictions to study26 and study32 without selecting on these comparisons.",
+  "diagnostics": "After selection, evaluate original ten diagnostic replies and all 120 registered context34 inputs using their verified saved features. This is cached inference, not fresh encoder inference or an independent test.",
+  "stable_release_ready": false
+}

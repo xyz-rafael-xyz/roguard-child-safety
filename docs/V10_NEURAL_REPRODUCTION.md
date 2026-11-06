@@ -85,6 +85,9 @@ checks input, source, chunk and tensor identities before reuse.
 | Native answer diagnostic 31 | `training.native_answer_diagnostic_v10` | Projects cached semantic features through the pinned pretrained answer-letter rows. Verifies exact dequantization and all 256 prior probe decisions; direct answer scores still make substantial errors. |
 | Contrast response 32 | `training.train_contrast_response_v10` | Registered new matched TRAIN pairs (596 total TRAIN inputs), unchanged 80 DEV inputs and prompt, verified feature reuse, and separate class-balanced response heads. |
 | Scope query 33 | `training.extract_scope_query_v10`, then `training.train_assertion_specialist_v10 --scope` | Registered fresh query representations for the existing 3,456 screened scope TRAIN inputs; original DEV remains fixed. |
+| Response context 34 | `eval.evaluate_response_context_v10` | Freeze heads before scoring 120 unchanged drafts behind new distracting contexts. Study26 gets 101/120; study32 gets 95/120. Neither qualifies. |
+| Regularized response 35 / isolated response 36 | `training.train_regularized_response_v10` (add `--draft-only` for 36) | Converged L2 fits on verified frozen features. Both select heads with 70/80 original DEV accuracy; context results are 100/120 and 105/120 respectively. Both rejected. |
+| Qwen response 37 | `training.train_qwen_response_v10` | Registered comparison of the pinned Qwen encoder on the same 164 unique TRAIN and 40 unique DEV drafts. Native answer scores and six fixed regularization settings; freeze before the ten old diagnostics. |
 
 Each command's `--help` lists its required paths. Use new output directories;
 commands refuse to overwrite studies. Historic `source.py` snapshots preserve

@@ -86,6 +86,9 @@ sealed final test. The published 600-case v9 test is an exposed regression.
 | Installed committee runtime 29 | Fresh inference reproduces every component score exactly and makes zero binary errors on all 6,002 checkpoints. Exported adapters retain both recorded committee identities | Binary runtime engineering pass only; full pipeline remains unqualified |
 | Class-balanced assertion specialist 30 | Assertion-only training lowers original DEV errors from 584 to 433 RO and from 578 to 315 UK. The selected explicit-query linear heads still make substantial errors | Rejected |
 | Native answer diagnostic 31 | Verified pretrained-vocabulary projection reproduces all 256 earlier probe decisions, but raw answer scores leave 1,118 RO / 1,216 UK assertion DEV errors and 28/80 response DEV errors | Diagnostic only |
+| Contrast response 32 | Adds 64 new matched drafts across four TRAIN contexts each. Selected head gets 74/80 DEV and 10/10 original diagnostics; below study26's 77/80 DEV | Rejected |
+| Response context 34 | Same 40 distinct DEV drafts under three new distracting contexts each: study26 gets 101/120 and study32 gets 95/120 | Both rejected |
+| Regularized response 35 / isolated response 36 | Six converged regularization settings; both selected heads get 70/80 original DEV. Isolated-draft inference prevents context interference by construction but still misses five distinct DEV drafts | Rejected |
 | Frozen v9 with a 4,096-token full-prefix comparator | 32/32 diagnostic decisions with complete annotated-evidence retention | Stronger baseline; extended context is outside v9's qualified envelope |
 
 Combination development is **meta-training**. Its family cross-validation chooses

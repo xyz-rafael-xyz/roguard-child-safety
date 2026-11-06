@@ -904,17 +904,11 @@
     "eligible_development_rows": 6668
   },
   "active_experiments": {
-    "committee_bundle_runtime_29": {
-      "status": "complete"
-    },
-    "contrast_response_32": {
-      "status": "running"
-    },
     "scope_query_33": {
-      "status": "registered_waiting_for_encoder"
+      "status": "feature_extraction_running"
     },
-    "response_context_34": {
-      "status": "registered_waiting_for_frozen_response_head"
+    "qwen_response_37": {
+      "status": "registered_waiting_for_encoder_memory"
     }
   },
   "assertion_query_22": {
@@ -1050,5 +1044,76 @@
     "fresh_checks": 21,
     "all_output_fields_exact": true,
     "public_package_release": false
+  },
+  "contrast_response_32": {
+    "source": "contrast-response-32/report.json",
+    "decision": "REJECT",
+    "populations": {
+      "development": {
+        "correct": 74,
+        "rows": 80,
+        "unique_drafts": 40
+      },
+      "old-diagnostic": {
+        "correct": 10,
+        "rows": 10,
+        "unique_drafts": 10
+      }
+    },
+    "qualified": false
+  },
+  "regularized_response_35": {
+    "source": "regularized-response-35/report.json",
+    "decision": "REJECT",
+    "populations": {
+      "development": {
+        "correct": 70,
+        "rows": 80,
+        "unique_drafts": 40
+      },
+      "old-diagnostic": {
+        "correct": 10,
+        "rows": 10,
+        "unique_drafts": 10
+      },
+      "context34": {
+        "correct": 100,
+        "rows": 120,
+        "unique_drafts": 40
+      }
+    },
+    "qualified": false
+  },
+  "isolated_response_36": {
+    "source": "isolated-response-36/report.json",
+    "decision": "REJECT",
+    "populations": {
+      "development": {
+        "correct": 70,
+        "rows": 80,
+        "unique_drafts": 40
+      },
+      "old-diagnostic": {
+        "correct": 10,
+        "rows": 10,
+        "unique_drafts": 10
+      },
+      "context34": {
+        "correct": 105,
+        "rows": 120,
+        "unique_drafts": 40
+      }
+    },
+    "qualified": false
+  },
+  "response_context_34": {
+    "source": "response-context-34/report.json",
+    "decision": "REJECT",
+    "correct": {
+      "baseline26": 101,
+      "candidate32": 95
+    },
+    "inputs": 120,
+    "independent_validation": false
   }
 }
