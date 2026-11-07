@@ -2511,5 +2511,34 @@
     "actual_large_fit_audited": false,
     "qualified": false,
     "plan": "runtime-attention-audit-92/plan.json"
+  },
+  "response_diversity_screen_93": {
+    "status": "queued_after92",
+    "continued_from": 81,
+    "amendment": "protocol-amendment-76.json",
+    "preflight": "response-diversity-screen-preflight-93/report.json",
+    "queue": "response-diversity-screen-preflight-93/queue.json",
+    "rows": 128,
+    "families": 32,
+    "drafts_changed": false,
+    "prompts_judge_order_seed_acceptance_changed": false,
+    "tokenizer_replay_matches_original81": true,
+    "actual_generations_performed": false,
+    "training_ready": false,
+    "independent_annotation": false,
+    "held_out_test_opened": false,
+    "qualified": false
+  },
+  "response_diversity_screen_audit_94": {
+    "status": "queued_after93",
+    "continued_from": 82,
+    "plan": "response-diversity-screen-audit-94/plan.json",
+    "queue": "response-diversity-screen-audit-94/queue.json",
+    "verifier": "eval/verify_response_screen_continuation_v10.py",
+    "focused_tests_passed": 110,
+    "new_continuation_tests_passed": 20,
+    "actual_screen_audited": false,
+    "encoder_loaded": false,
+    "qualified": false
   }
 }
