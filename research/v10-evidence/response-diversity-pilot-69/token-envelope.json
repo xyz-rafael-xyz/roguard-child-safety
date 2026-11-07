@@ -1,0 +1,40 @@
+{
+  "complete": true,
+  "checks_pass": true,
+  "scope": "All128 retained draft inputs fit the1024-token envelope and training/runtime query tokens agree exactly. No inference or label validation.",
+  "source_sha256": "074f84082b06829fc7d073cbc828a5bd4f1b8ca404bfd5af4dad73cd407ea283",
+  "draft_sha256": "21ce54ac895696df963fc607f778abf455574e947aa089e51d18735ec8d6c511",
+  "base_model": "mlx-community/gemma-4-e4b-it-4bit",
+  "base_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "prompt_sha256": "a9399062a2e313d21e599bc26f3933fe143121663c9c64ec8de2a0948edd27f5",
+  "helpers": {
+    "src/roguard/gemma4_response.py": "fafc3b8a0e7882f56dcc836ba22bf2d50afe27c9acdfbbe66879c4f52a444e82",
+    "training/train_neural_response_v10.py": "93a986c7f1948a8804c88a19f065eb290e5bf39e527ea5a797a020c1cfdfaa8e",
+    "training/train_contrast_response_v10.py": "5ef8a2fbb7612b814e01d2fa2ad5d8b71b53e129ae7dad58f48beebd1a7cd8f2",
+    "training/probe_assertion_query_v10.py": "236a93cfeed2dce471e4a37cf21ab653121cea3b05f79b37405260113d61a3e6"
+  },
+  "tokenizer_files": {
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656",
+    "chat_template.jinja": "2f1b4d75d067bae3fe44e676721c7f077d243bc007156cb9c2f8b5836613d082"
+  },
+  "groups": {
+    "ro": {
+      "rows": 64,
+      "minimum_tokens": 262,
+      "maximum_tokens": 289
+    },
+    "uk": {
+      "rows": 64,
+      "minimum_tokens": 266,
+      "maximum_tokens": 289
+    }
+  },
+  "input_tokens_sha256": "16911edd64a11b8c41d0fe40c26562595340bf8d1b8c69b3056931e577c45673",
+  "model_weights_loaded": false,
+  "candidate_predictions_obtained": false,
+  "training_ready": false,
+  "used_for_training": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

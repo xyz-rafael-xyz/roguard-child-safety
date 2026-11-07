@@ -696,3 +696,26 @@ diagnostic needs a registered, context-preserving reference-comparison design.
 No judge is loaded or run, no data enter65, and these grammar annotations do not
 supply independent RoGuard behavior labels. Romanian candidates inspected so far
 are synthetic or have unresolved dataset reuse terms; none is imported.
+
+`response-diversity-pilot-69` retains 128 new TRAIN drafts across 32 bilingual
+contrast families. The public authoring source reproduces the private drafts,
+family rationales and report byte for byte, and rejects an overwrite without
+changing them. This is assistant authorship, not a pinned local-generator run.
+The families cover six forms, including questions, polite requests, conditions
+and explicit endorsement or rejection of quoted advice. Forms are not balanced
+across every category. No context or topic wrappers multiply these examples.
+
+Structure and exact normalized overlap checks cover the draft itself and nine
+enumerated TRAIN or already exposed diagnostic sources, including rejected66.
+There are no exact text collisions. Word-bigram similarity is descriptive and
+does not prove semantic independence: several concepts recur from earlier
+curricula. All128 inputs fit the 1024-token envelope (262–289 tokens) and have
+identical training/runtime query tokens with the pinned local tokenizer; no
+encoder is loaded for that check.
+
+Assistant inspection retains every family with a written rationale and records
+remaining limits: shared authorship, formulaic evidence disclaimers, lexical
+label cues, empty context and category imbalance. Labels and native-language
+quality are not independently validated. These remain drafts pending a registered
+fitting decision; none enters the live65 run. The failed66 screen is unchanged,
+no judge is rerun, no reserved TEST is opened, and no qualification is claimed.
