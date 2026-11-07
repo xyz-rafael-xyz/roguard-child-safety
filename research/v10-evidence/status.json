@@ -1765,30 +1765,36 @@
       "fixed": 2,
       "introduced": 0
     },
-    "held_out_test_opened": false
+    "held_out_test_opened": false,
+    "error_analysis": "crossed-review-error-analysis-62/report.json",
+    "development_error_analysis": "crossed-review-error-analysis-62/development-summary.json",
+    "original_regression_error_analysis": "crossed-review-error-analysis-62/original-regression-summary.json"
   },
   "selected_response_runtime_63": {
     "protocol": "protocol-amendment-61.json",
     "preflight": "selected-response-runtime-preflight-63/report.json",
     "software": "selected-response-runtime-preflight-63/software-checks.json",
     "sequence": "selected-response-runtime-sequence-63/report.json",
-    "status": "running_installed_verification",
+    "status": "completed_software_parity_pass",
     "model_source": "large_response_attention_59",
     "development_inputs": 592,
-    "full_model_parity_completed": false,
-    "model_qualified": false
+    "full_model_parity_completed": true,
+    "model_qualified": false,
+    "source": "selected-response-runtime-63/report.json",
+    "maximum_probability_error": 4.440892098500626e-16,
+    "maximum_full_forward_logit_error": 0.0002551078796386719
   },
   "warm_large_response_attention_64": {
     "protocol": "protocol-amendment-62.json",
     "preflight": "warm-large-response-attention-preflight-64/report.json",
     "comparison": "warm-large-response-attention-preflight-64/comparison.json",
-    "status": "queued_after_selected_runtime63",
+    "status": "running_training",
     "execution_requires": "Completed59 is rejected; wait for successful completion of already queued crossed-review62 and selected-runtime63 before loading the encoder.",
     "training_inputs": 12884,
     "development_inputs": 592,
     "epochs": 6,
     "changed_training_setting": "fresh_response_head=false",
-    "training_launched": false,
+    "training_launched": true,
     "qualified": false,
     "sequence": "warm-response-attention-sequence-64/report.json",
     "execution_decision": "warm-large-response-attention-preflight-64/execution-decision.json"

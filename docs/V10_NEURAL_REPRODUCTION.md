@@ -373,6 +373,13 @@ Selected weight hashes, selection ranks and all paired counts were rechecked
 against retained predictions. Neither reserved TEST set was opened. These
 results fail zero-error/no-regression acceptance despite aggregate improvements.
 
+Retained error analysis separates23 DEV false alerts from three missed concerns.
+Fifteen errors are repeated variants of composition56 frame23 across languages;
+these are correlated examples. Both introduced broad-regression errors are
+Ukrainian affirmed, current reports about another person. Both introduced errors
+in the original600-case regression concern an affirmed, current self-report
+under different contexts. These descriptions do not establish a causal mechanism.
+
 ## Selected large response package verification (study63)
 
 Amendment61 queues installed-package verification of the final frozen study59
@@ -385,8 +392,13 @@ restoration of original binary outputs and parameters after success and failure.
 Preflight confirms the installed runtime is outside the checkout, matches the
 audited source and receives exactly the bound592 DEV inputs. It rejects an
 incorrect population count and checkout shadowing, without loading an encoder.
-Full verification is running after the completed study62 sequence. A passing execution check would not qualify
-the model or open reserved tests or final human review.
+Full installed verification passes on all592 DEV inputs with matching labels,
+maximum probability difference4.440892098500626e-16 and independent full-forward
+logit difference0.0002551078796386719. Original binary outputs remain exact and
+all original adapter/head parameters remain unchanged after success and injected
+failure. The completed report, all protocol hashes and592 unique expected case
+identities were independently rechecked. This establishes execution fidelity;
+the model remains rejected and reserved tests and final human review stay closed.
 
 ## Queued response initialization comparison (study64)
 
@@ -400,9 +412,10 @@ The mechanism and any improvement remain unproven.
 Preflight validates all input and feature bindings without loading an encoder.
 Study59 has now completed with a rejection, satisfying the registered condition
 for this comparison. The execution decision binds that final report and frozen
-selection, the existing preflight and all training sources. Study64 is queued
-after successful completion of the existing study62 and selected-runtime63
-sequence; training has not started. The queue stops on a dependency failure or
+selection, the existing preflight and all training sources. Study64 has started
+after successful completion of study62 and selected-runtime63. Its actual
+protocol matches59 for optimization, all input bindings, prompts and helper
+sources, with only the registered head initialization changed. The queue stops on a dependency failure or
 source change and never loads a second encoder concurrently. Every failed
 result remains retained, reserved TEST stays unopened, and no reviewer gate
 changes.
