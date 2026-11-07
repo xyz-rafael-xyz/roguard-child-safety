@@ -265,6 +265,12 @@ would require a separate frozen reserved-test evaluation before an engineering
 pass. Neither this queue nor the runtime checks authorize promotion or reviewer
 handoff. One full encoder is active at a time.
 
+The retained epoch1 observation has19/592 DEV errors:11 historical and8
+generated, versus3 and36 for head26. Paired comparison shows36 fixes and16
+introduced errors. This checkpoint fails acceptance. Training and selection
+are still ongoing; the observation does not establish final selection,
+checkpoint reload parity or a completed accuracy assessment.
+
 ## Packaged response attention runtime (study60)
 
 `Gemma4ResponseAttentionModel` supports the selected attention-adapted response
@@ -304,3 +310,18 @@ historical DEV, composition56 DEV and crossed61 DEV; the original regression
 and fresh44 challenge checks remain required. The bound queue waits for
 response59 and attention-runtime60 verification. Neither reserved TEST set
 opens unless every required preceding error/regression gate passes.
+
+## Selected large response package verification (study63)
+
+Amendment61 queues installed-package verification of the final frozen study59
+selection after study62 finishes. It reuses the audited attention runtime
+wheel and checks all592 DEV inputs against saved selected logits and independent
+training-module full forwards. Export requires a completed, hash-bound selection;
+no interim checkpoint is packaged as final. The check also verifies exact
+restoration of original binary outputs and parameters after success and failure.
+
+Preflight confirms the installed runtime is outside the checkout, matches the
+audited source and receives exactly the bound592 DEV inputs. It rejects an
+incorrect population count and checkout shadowing, without loading an encoder.
+Full verification remains pending. A passing execution check would not qualify
+the model or open reserved tests or final human review.

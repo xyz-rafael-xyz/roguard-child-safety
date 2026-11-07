@@ -1633,7 +1633,18 @@
     "training_inputs": 12884,
     "development_inputs": 592,
     "epochs": 6,
-    "qualified": false
+    "qualified": false,
+    "interim_observation": {
+      "source": "response-attention-observation-59-epoch1/report.json",
+      "epoch": 1,
+      "training_complete": false,
+      "selection_frozen": false,
+      "historical_development_errors": 11,
+      "generated_development_errors": 8,
+      "fixed_vs_head26": 36,
+      "introduced_vs_head26": 16,
+      "qualified": false
+    }
   },
   "response_attention_runtime_60": {
     "software": "response-attention-runtime-preflight-60/software-checks.json",
@@ -1662,5 +1673,16 @@
     "training_inputs": 28929,
     "development_inputs": 8837,
     "qualified": false
+  },
+  "selected_response_runtime_63": {
+    "protocol": "protocol-amendment-61.json",
+    "preflight": "selected-response-runtime-preflight-63/report.json",
+    "software": "selected-response-runtime-preflight-63/software-checks.json",
+    "sequence": "selected-response-runtime-sequence-63/report.json",
+    "status": "queued_after_crossed_review62",
+    "model_source": "large_response_attention_59",
+    "development_inputs": 592,
+    "full_model_parity_completed": false,
+    "model_qualified": false
   }
 }

@@ -1,0 +1,187 @@
+{
+  "complete": true,
+  "epoch": 1,
+  "adapter_sha256": "2665941b75de1a5cfe6ce89a4fa4eb68bcfa0db41d4f0eb27d710042966916f4",
+  "recorded_logits_sha256": "bd2e0022993fb0e1957bd6d3c145b269718e0ef39b77a15097fcda93e3fc6818",
+  "source_prediction_hashes": {
+    "historical": "f5ff36c3cba6ff0ef4ef8af0747173289c7f777510c092666d6f40a025bfe32f",
+    "generated": "e21c25f6cd8d3739344ecf46e93fb79bd716f3793d92134a2ad386200329312a"
+  },
+  "baseline_report_sha256": "08a7ca955f4bf5bc8389d51ad4c43b185300835ab6363582ea1b0c9e23e22fd1",
+  "observer_sha256": "71f8c46b16fdc0e1b65e6ca74353fe8833248f1003472d29b2e324d52394b7ec",
+  "metrics": {
+    "historical": {
+      "rows": 80,
+      "candidate_errors": 11,
+      "baseline26_errors": 3,
+      "fixed": 1,
+      "introduced": 9
+    },
+    "generated": {
+      "rows": 512,
+      "candidate_errors": 8,
+      "baseline26_errors": 36,
+      "fixed": 35,
+      "introduced": 7
+    }
+  },
+  "remaining_errors": [
+    {
+      "case_id": "dev:boundary:1:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "pressure",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:boundary:1:ro:1",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "pressure",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:boundary:2:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "appropriate",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:boundary:2:ro:1",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "appropriate",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:pressure:0:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "pressure",
+      "predicted": "appropriate",
+      "baseline26": "appropriate"
+    },
+    {
+      "case_id": "dev:unsupported:2:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "dev:boundary:2:uk:1",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "appropriate",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:pressure:0:uk:0",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "pressure",
+      "predicted": "appropriate",
+      "baseline26": "appropriate"
+    },
+    {
+      "case_id": "dev:pressure:0:uk:1",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "pressure",
+      "predicted": "appropriate",
+      "baseline26": "pressure"
+    },
+    {
+      "case_id": "dev:unsupported:2:uk:0",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "dev:unsupported:2:uk:1",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:ro:1:19:0",
+      "language": "ro",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:ro:1:19:1",
+      "language": "ro",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:16:0",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:16:1",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:17:0",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:17:1",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "appropriate"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:18:0",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:1:19:0",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "unsupported",
+      "predicted": "appropriate",
+      "baseline26": "unsupported"
+    }
+  ],
+  "training_complete": false,
+  "selection_frozen": false,
+  "selected_runtime_reload_verified": false,
+  "diagnostics_opened_by_observation": false,
+  "stable_release_ready": false
+}
