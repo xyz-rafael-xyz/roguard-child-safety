@@ -419,3 +419,10 @@ sources, with only the registered head initialization changed. The queue stops o
 source change and never loads a second encoder concurrently. Every failed
 result remains retained, reserved TEST stays unopened, and no reviewer gate
 changes.
+
+The first warm-head epoch has20/592 DEV errors:11 historical and9 generated.
+Its worst origin/language/category error rate is0.5, compared with0.125 at
+initialization, so the registered rule retains epoch0 despite its39 total errors.
+The epoch1 checkpoint and metrics snapshot are retained and hash-checked.
+No nonselected per-case predictions were recomputed. The six-epoch run continues;
+training and selection remain incomplete and this checkpoint fails acceptance.
