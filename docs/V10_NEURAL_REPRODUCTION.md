@@ -635,5 +635,32 @@ execution, source and input preflights, amendment and explicit execution decisio
 Actual started-protocol verification matches59's optimizer, fresh-head setting,
 prompt, labels, all input bindings and feature-input ordering, and confirms
 all current helper hashes. The registered mixed schedule has18,432 updates and
-147,456 presentations. Initial weight identity, numerical checks and accuracy
-remain to be measured by the actual run. No pilot66 drafts enter its corpus.
+147,456 presentations. No pilot66 drafts enter its corpus. Initial checkpoint verification is retained
+below; trained accuracy and final numerical checks remain pending.
+
+
+## Mixed initialization and retained pilot disagreements
+
+`mixed-response-initialization-65` verifies that all74 actual epoch0 tensors are
+bit-identical to fresh study59, including all36 zero adapter-output arrays. The
+entire checkpoint SHA256 also matches. Initial DEV metrics match exactly at
+459/592 errors; this is an untrained fresh head, not a trained-candidate result.
+Recorded update and presentation counters are both zero at that checkpoint.
+The live run has proceeded into its registered18,432-update schedule.
+
+`authored-response-screen-analysis-66` normalizes the judge's shuffled pair order
+and compares all64 individual draft outcomes with the intended labels. All32
+intended appropriate replies receive that label;22/32 problematic replies receive
+their intended category. Five problematic replies are judged appropriate and
+five receive another problem category. Ten problematic replies and one appropriate
+reply are flagged as non-natural by the judge. Six bilingual families differ between languages
+in category or fluency outcomes. These are agreement counts, not judge accuracy.
+
+Assistant inspection finds explicit refusal pressure and credential requests in
+some disagreements, so adopting the judge's categories would not be justified.
+The task definitions also differ: the candidate explicitly includes unsupported
+verification claims and privacy exposures, while the judge has broader autonomy
+wording and an unclear option. Family unsupported02 retains a possible temporal
+ambiguity about prior account access. No finding establishes a causal explanation
+for judge output or independent gold correctness. No labels are changed and no
+judgment is rerun; the rejected pilot remains outside training.

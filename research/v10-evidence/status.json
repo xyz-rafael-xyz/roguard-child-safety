@@ -1872,7 +1872,7 @@
     }
   },
   "mixed_large_response_attention_65": {
-    "status": "running_initialization",
+    "status": "running_training",
     "protocol": "protocol-amendment-63.json",
     "preflight": "mixed-large-response-attention-preflight-65/report.json",
     "comparison": "mixed-large-response-attention-preflight-65/comparison.json",
@@ -1888,7 +1888,9 @@
     "sequence": "mixed-response-attention-sequence-65/report.json",
     "execution_decision": "mixed-large-response-attention-preflight-65/execution-decision.json",
     "started_verification": "mixed-large-response-attention-preflight-65/started-verification.json",
-    "actual_protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2"
+    "actual_protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+    "initialization_verification": "mixed-response-initialization-65/report.json",
+    "initial_epoch0_arrays_bit_identical_to59": true
   },
   "authored_response_screen_66": {
     "status": "complete_rejected",
@@ -1918,6 +1920,8 @@
     "accepted_bilingual_families": 5,
     "pairs_with_label_disagreement": 10,
     "pairs_with_fluency_rejection": 11,
-    "malformed_judgments": 0
+    "malformed_judgments": 0,
+    "disagreement_analysis": "authored-response-screen-analysis-66/report.json",
+    "assistant_inspection": "authored-response-screen-analysis-66/inspection.json"
   }
 }
