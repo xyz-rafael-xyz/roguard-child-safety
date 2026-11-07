@@ -285,6 +285,12 @@ the provisional selection under the unchanged rule, but still fails acceptance.
 Training continues; context diagnostics, final reload and package verification
 are not yet complete.
 
+Epoch3 worsens to6/592 DEV errors:5 historical and1 generated. Its worst
+origin/language/category error rate rises from25% to37.5%, so the registered
+selection rule retains epoch2. The epoch3 checkpoint and a complete progress
+snapshot are retained. Nonselected per-case predictions were not recomputed;
+no paired fix/regression counts are claimed for epoch3. Training continues.
+
 ## Packaged response attention runtime (study60)
 
 `Gemma4ResponseAttentionModel` supports the selected attention-adapted response
