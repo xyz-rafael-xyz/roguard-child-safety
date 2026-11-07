@@ -567,3 +567,23 @@ rate remains0.25 and the registered selection retains epoch0 (worst-group0.125).
 full metric snapshot, source bindings and rank checks. The sixth and final epoch
 is running. This checkpoint fails acceptance; no reserved TEST or final human
 review is opened, and studies65/66 remain prepared but unqueued.
+
+
+The subsequent CPU-only diagnostic in `initial-head-gradient-audit-65` evaluates
+cross-entropy head gradients at the retained fresh59 epoch0 linear head using
+only the bound cached TRAIN features. No weights are updated and no encoder or
+attention gradients are evaluated. It compares all1,611 first-pass uniform
+batches with all3,072 mixed batches. The empirical head-gradient variance trace
+is65,110.82 for uniform sampling and12,348.80 for mixed sampling (ratio0.18966),
+while the batch-mean head-gradient norms are102.616 and102.627 respectively.
+Directional finite-difference checks pass, and sample-count-weighted aggregation
+of uniform batches reproduces the full finite-TRAIN objective gradient.
+
+Every sampled head-gradient norm exceeds1 in this fixed initial-state diagnostic.
+This does not measure the actual global clipping trajectory: attention gradients,
+optimizer state, weight decay and evolving weights are absent. The original final
+partial batch and mixed historical-cycle remainders also make their unweighted
+batch means slightly different from the full objective. These observations support
+testing the already registered sampler; they neither establish a causal account
+of earlier failures nor predict better accuracy. No protocol, input label, model
+selection or reserved-test access changes.

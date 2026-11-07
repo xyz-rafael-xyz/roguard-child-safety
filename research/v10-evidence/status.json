@@ -1852,9 +1852,17 @@
     "presentations_per_pass": 24576,
     "six_pass_presentations": 147456,
     "training_launched": false,
-    "gradient_variance_measured": false,
     "qualified": false,
-    "reserved_test_opened": false
+    "reserved_test_opened": false,
+    "full_training_gradient_variance_measured": false,
+    "initial_head_gradient_diagnostic": {
+      "source": "initial-head-gradient-audit-65/report.json",
+      "scope": "Fixed cached TRAIN features and fresh59 epoch0 linear head, no updates or attention gradients.",
+      "head_component_variance_measured": true,
+      "mixed_to_uniform_variance_ratio": 0.18965813950406227,
+      "causal_failure_mechanism_established": false,
+      "model_qualified": false
+    }
   },
   "mixed_large_response_attention_65": {
     "status": "prepared_not_queued",
