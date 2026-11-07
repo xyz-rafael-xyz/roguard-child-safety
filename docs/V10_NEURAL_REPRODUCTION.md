@@ -833,3 +833,27 @@ waiting, with no73 training outputs yet. For73, zero binary and joint-argmax DEV
 errors are required before broader qualification; every original joint-set,
 regression, independent-evaluation and release requirement remains. Prior failures,
 reserved TEST separation and the closed final-reviewer stage are preserved.
+
+`attention-development-audit-74` prepares an independent saved-output audit for
+all eight73 checkpoints. A separate sorted-count threshold sweep reproduces the
+registered group-minimax rule, floating-point boundary cases and earliest ties.
+Policy probabilities are checked against a sum over every ontology world. The
+new audit reproduces all8,837 already retained71 DEV prediction records and all
+selection statistics exactly; the largest analytic/enumerated probability
+difference is6.66134e-16. Thirty tests pass, including corrupted checkpoint metrics,
+missing updates, partial batches, incorrect selection events and invalid inputs.
+
+After73 completes and its sequence process exits, run:
+
+```sh
+PYTHONPATH=src:. "$ML_PYTHON" eval/verify_large_review_attention_v10.py \
+  --root "$PWD" --private "$PRIVATE" --output "$PRIVATE/attention73-verification.json"
+```
+
+This verifier checks source and initialization bindings, all saved checkpoint
+tensor inventories, unchanged frozen checkpoint tensors, every epoch's DEV logits
+and statistics, the selected model specification and predictions, and the complete
+update log. It does not repeat encoder inference or independently validate source
+gold labels. Its completed73 audit has not run:65 is still training and73 remains
+queued. No training settings, labels, thresholds or qualification requirements
+change as part of this preparation.

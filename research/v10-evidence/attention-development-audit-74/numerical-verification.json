@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "tests_passed": 30,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "junit_sha256": "9932d8e35d2f87eefb6a1dbbd069cb37c911944deaa08c457c715863004c76b7",
+  "source_hashes": {
+    "eval/audit_attention_development_v10.py": "6dd872fb9e62489c76231bc5e890341ec8f293589cede2013ecb5116ef61e324",
+    "eval/verify_large_review_attention_v10.py": "4226d4dbcf8eadbf56ffa5df04bcd05d2c7878bab8426a62b5ca145579d2c1ad",
+    "tests/test_attention_development_audit_v10.py": "c3c02d980a7597b60b1d3cc5fd97998c203a55b4aef86ca4b18898a0b2fc82cc",
+    "tests/test_large_review_attention_verifier_v10.py": "2a174aa86b65c8d1406c523d3a797d6f1c1f3c6754c9853152998a7ec30d3d98"
+  },
+  "checks": [
+    "Independent threshold sweep matches the registered selector on random scores, duplicates, exact0/1 endpoints, adjacent floating values and perfectly separated labels.",
+    "Independent world enumeration agrees with analytic policy mass and every saved fixture metric; eleven corruptions of counts, labels summaries, threshold, rank, paired counts or loss are rejected.",
+    "Training-log verification checks every25-update event and final partial batch, all epoch/selection events and terminal completion; eight corruptions are rejected.",
+    "Invalid scores, missing populations and single-class groups fail closed."
+  ],
+  "actual73_completion_verified": false,
+  "encoder_loaded": false,
+  "qualified": false
+}
