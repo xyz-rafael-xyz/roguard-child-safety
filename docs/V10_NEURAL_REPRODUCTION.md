@@ -784,3 +784,24 @@ recounts every selected DEV identity, source label, field error, paired decision
 and group aggregate. Broader regressions and reserved TEST are not opened for
 this candidate because the registered DEV prerequisites already fail. The full
 response65 run continues unchanged, and all71 failures remain retained.
+
+The first trained65 checkpoint is retained in
+`mixed-response-epoch1-observation-65`. After3,072 updates and24,576 presentations,
+it has13/592 DEV errors: four historical and nine generated. The registered rule
+selects epoch1 at this observation, with rank `[0.25, 0.05, 13, 0.6300822104004897]`.
+An immutable progress snapshot and a private copy of its selected DEV logits are
+retained. Weight/log identities, counters, input order, gold labels, group counts
+and losses verify exactly. This is an intermediate result; five passes remain,
+no paired diagnostic is opened, and settings are unchanged. Epoch numbers alone
+do not establish a comparison with59 because the update schedules differ.
+
+`large-review-input-recovery-72` prepares the already bound binary corpus for a
+possible future encoder experiment without storing full body caches. It recovers
+all37,766 original TRAIN/DEV payloads (28,929 TRAIN,8,837 DEV), including the four
+historical inventories and generated56/61 inputs. Every input reproduces its
+existing feature-store token hash with the pinned local tokenizer. The independent
+serialized-file check verifies all source payloads, focal prefixes, feature
+indices, labels, groups and partitions. Lengths are416–600 tokens, and all inputs
+share the runtime's387-token fixed prefix. The149.5MB payload/token inventory stays
+private. This adds no new examples, performs no encoder inference and registers
+no fit; independent label correctness and model qualification remain unproven.

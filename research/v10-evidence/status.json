@@ -1890,7 +1890,19 @@
     "started_verification": "mixed-large-response-attention-preflight-65/started-verification.json",
     "actual_protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
     "initialization_verification": "mixed-response-initialization-65/report.json",
-    "initial_epoch0_arrays_bit_identical_to59": true
+    "initial_epoch0_arrays_bit_identical_to59": true,
+    "latest_completed_epoch_observation": {
+      "epoch": 1,
+      "selected_epoch": 1,
+      "development_errors": 13,
+      "historical_errors": 4,
+      "generated_errors": 9,
+      "optimizer_updates_completed": 3072,
+      "training_presentations_completed": 24576,
+      "observation": "mixed-response-epoch1-observation-65/report.json",
+      "snapshot": "mixed-response-epoch1-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch1-observation-65/selected-logits-verification.json"
+    }
   },
   "authored_response_screen_66": {
     "status": "complete_rejected",
@@ -2007,5 +2019,20 @@
     "fixed_v9_binary_errors": 297,
     "introduced_binary_errors": 6,
     "checkpoints_retained": 78
+  },
+  "large_review_input_recovery_72": {
+    "status": "source_payload_and_token_inventory_verified_no_fit_registered",
+    "report": "large-review-input-recovery-72/report.json",
+    "verification": "large-review-input-recovery-72/verification.json",
+    "rows": 37766,
+    "training_rows": 28929,
+    "development_rows": 8837,
+    "every_token_hash_matches_feature_store": true,
+    "common_prefix_matching_rows": 37766,
+    "new_examples_added": 0,
+    "encoder_loaded": false,
+    "training_experiment_registered": false,
+    "training_launched": false,
+    "qualified": false
   }
 }
