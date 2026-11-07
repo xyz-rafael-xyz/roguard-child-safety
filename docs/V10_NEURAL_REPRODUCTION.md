@@ -457,3 +457,13 @@ label, so this is a wording ambiguity rather than a confirmed label reversal.
 Proposed quotation edits are recorded for a future registered revision; the
 current corpus and live experiment remain unchanged. This review is neither
 independent annotation nor evidence that the ambiguity caused model errors.
+
+Warm-head epoch4 has14/592 DEV errors:6 historical and8 generated. Relative
+to epoch3, historical errors fall from9 to6 while generated errors rise from1
+to8; these are aggregate counts, not paired case transitions. Its worst-group
+error rate improves to0.25 but remains above initialization at0.125, so the
+registered rule still selects epoch0. The retained weights, full metric snapshot,
+source bindings and ranks pass verification in
+`warm-response-attention-observation-64-epoch4`. Training continues into epoch5.
+This checkpoint fails acceptance; reserved TEST and final reviewer evaluation
+remain closed.
