@@ -1,0 +1,27 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "warm-large-response-attention-64",
+  "motivation": "Controlled follow-up prepared after the first completed59 epoch, before its final result. On592 DEV inputs, false alerts fall from31 to0 while problematic replies called appropriate rise from3 to17. Test whether preserving the learned26 response head at initialization improves this tradeoff under exactly the same larger-data training. No causal mechanism or improvement is presumed.",
+  "fresh_response_head": false,
+  "data": "Exactly12884 TRAIN and592 DEV rows bound to completed55, including all12288 generated TRAIN variants. Preserve frame/topic partitions; generated counts are correlated expansions of192 TRAIN core sentences. No new gold labels or TEST access. Historical context34 and old ten diagnostics only after frozen selection.",
+  "initialization": "Same pinned base, v9 rank8 q/o LoRA basis with all B outputs zeroed and seed1059 as59. Initialize the five-category linear response head from completed26 instead of a fresh random head. This is the only changed training setting; reuse identical data, train row order, optimizer, rates, weighting, epochs and selection.",
+  "optimization": {
+    "epochs": 6,
+    "learning_rate": 1e-05,
+    "head_learning_rate": 0.001,
+    "seed": 1059,
+    "batch_size": 8,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0,
+    "teacher_kl_weight": 0.0
+  },
+  "objective": "Cross-entropy weighted for equal mass across20 origin/language/category TRAIN groups. Zero teacher KL. Independent head/tail rates, five-percent warmup and linear decay to ten percent. Uniform permutation without replacement of all TRAIN each epoch; no DEV optimization.",
+  "selection": "Epoch0 and six completed epochs. Same55 lexicographic maximum origin/language/category error rate, maximum per-origin error rate, total errors, mean per-origin cross-entropy. Exact ties earliest epoch. Retain every checkpoint; freeze selection before context diagnostics.",
+  "verification": "74 registered trainable tensors only; finite gradients and tensors; initial frozen-feature and actual full/replay error <=1e-3; selected logits reload <=1e-5 with identical decisions. Recompute baseline26 on context and original diagnostics with zero adapter outputs; restore selected tensors afterwards. Paired fixes/regressions for every population.",
+  "resources": "One full encoder after prior registered work finishes. No persistent body-state cache. Preserve8GiB free disk. Retain every epoch and failed result; no overwrite or result-based restart.",
+  "qualification": "Any error or introduced regression rejects. Even zero errors on development and old diagnostics requires a separate frozen reserved-TEST evaluation before any response engineering pass. No final reviewer handoff until complete candidate passes every required population. Independent human validation and measured utility remain outstanding. Stable v9 unchanged.",
+  "stable_release_ready": false,
+  "execution_condition": "Prepared only, not queued or launched. Require completed frozen59 results before deciding whether to execute. If59 passes all development and exposed diagnostics, prioritize its reserved-test qualification instead. If59 remains rejected, this registered initialization comparison may run after already queued runtime60, crossed-review62 and selected-runtime63 work finishes. Never run a second full encoder concurrently.",
+  "prior_amendment_sha256": "91f97fde1c922312f4bfab690530feff9a14f0816c8e6df3d279deca5604c5dd",
+  "provisional_observation_sha256": "15eed8746183d96ceec60a43bf7784d902995c0e8da0fe90dc62053e9e9e53b7"
+}

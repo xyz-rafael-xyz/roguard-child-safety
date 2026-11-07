@@ -271,6 +271,12 @@ introduced errors. This checkpoint fails acceptance. Training and selection
 are still ongoing; the observation does not establish final selection,
 checkpoint reload parity or a completed accuracy assessment.
 
+The error-type analysis shows a tradeoff: across592 DEV inputs, appropriate
+replies flagged as problematic fall from31 to0, while problematic replies
+called appropriate rise from3 to17. Wrong problem-category predictions fall
+from5 to2. These counts retain all five response categories and do not replace
+the zero-error acceptance rule with a binary metric.
+
 ## Packaged response attention runtime (study60)
 
 `Gemma4ResponseAttentionModel` supports the selected attention-adapted response
@@ -325,3 +331,18 @@ audited source and receives exactly the bound592 DEV inputs. It rejects an
 incorrect population count and checkout shadowing, without loading an encoder.
 Full verification remains pending. A passing execution check would not qualify
 the model or open reserved tests or final human review.
+
+## Prepared response initialization comparison (study64)
+
+Amendment62 registers a controlled follow-up before the final59 result. It
+starts from the learned26 response head instead of a fresh head, while retaining
+the same12,884 TRAIN inputs,592 DEV inputs, shuffle seed, six epochs, optimizer,
+rates, weighting and selection rule. The purpose is to test initialization as
+one possible contributor to the observed false-alert/missed-problem tradeoff.
+The mechanism and any improvement remain unproven.
+
+Preflight validates all input and feature bindings without loading an encoder.
+This comparison is prepared, not queued or launched. Execution requires the
+completed59 result and completion of already queued work. If59 clears its
+development and exposed-diagnostic gates, its reserved-test qualification takes
+priority. All failed results remain retained and no reviewer gate changes.

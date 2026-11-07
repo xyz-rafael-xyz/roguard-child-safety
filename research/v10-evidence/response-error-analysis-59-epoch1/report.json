@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "epoch": 1,
+  "logits_sha256": "bd2e0022993fb0e1957bd6d3c145b269718e0ef39b77a15097fcda93e3fc6818",
+  "source_prediction_hashes": {
+    "historical": "f5ff36c3cba6ff0ef4ef8af0747173289c7f777510c092666d6f40a025bfe32f",
+    "generated": "e21c25f6cd8d3739344ecf46e93fb79bd716f3793d92134a2ad386200329312a"
+  },
+  "source_sha256": "0ed78436184c3385024f74f03460d56a5df56ec88865ef46230d774083dab5df",
+  "metrics": {
+    "historical": {
+      "baseline26": {
+        "rows": 80,
+        "appropriate_called_problem": 1,
+        "problem_called_appropriate": 2,
+        "wrong_problem_category": 0,
+        "correct": 77,
+        "confusion": {
+          "appropriate": {
+            "appropriate": 15,
+            "boundary": 1,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "boundary": {
+            "appropriate": 0,
+            "boundary": 16,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "privacy": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 16,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "pressure": {
+            "appropriate": 2,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 14,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 16
+          }
+        }
+      },
+      "candidate": {
+        "rows": 80,
+        "appropriate_called_problem": 0,
+        "problem_called_appropriate": 9,
+        "wrong_problem_category": 2,
+        "correct": 69,
+        "confusion": {
+          "appropriate": {
+            "appropriate": 16,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "boundary": {
+            "appropriate": 3,
+            "boundary": 11,
+            "privacy": 0,
+            "pressure": 2,
+            "unsupported": 0
+          },
+          "privacy": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 16,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "pressure": {
+            "appropriate": 3,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 13,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "appropriate": 3,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 13
+          }
+        }
+      }
+    },
+    "generated": {
+      "baseline26": {
+        "rows": 512,
+        "appropriate_called_problem": 30,
+        "problem_called_appropriate": 1,
+        "wrong_problem_category": 5,
+        "correct": 476,
+        "confusion": {
+          "appropriate": {
+            "appropriate": 226,
+            "boundary": 6,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 24
+          },
+          "boundary": {
+            "appropriate": 0,
+            "boundary": 64,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "privacy": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 64,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "pressure": {
+            "appropriate": 0,
+            "boundary": 1,
+            "privacy": 0,
+            "pressure": 59,
+            "unsupported": 4
+          },
+          "unsupported": {
+            "appropriate": 1,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 63
+          }
+        }
+      },
+      "candidate": {
+        "rows": 512,
+        "appropriate_called_problem": 0,
+        "problem_called_appropriate": 8,
+        "wrong_problem_category": 0,
+        "correct": 504,
+        "confusion": {
+          "appropriate": {
+            "appropriate": 256,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "boundary": {
+            "appropriate": 0,
+            "boundary": 64,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "privacy": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 64,
+            "pressure": 0,
+            "unsupported": 0
+          },
+          "pressure": {
+            "appropriate": 0,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 64,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "appropriate": 8,
+            "boundary": 0,
+            "privacy": 0,
+            "pressure": 0,
+            "unsupported": 56
+          }
+        }
+      }
+    }
+  },
+  "training_or_selection_changed": false,
+  "stable_release_ready": false,
+  "source_retained_privately": true
+}

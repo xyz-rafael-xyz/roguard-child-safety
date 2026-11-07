@@ -1643,7 +1643,8 @@
       "generated_development_errors": 8,
       "fixed_vs_head26": 36,
       "introduced_vs_head26": 16,
-      "qualified": false
+      "qualified": false,
+      "error_analysis": "response-error-analysis-59-epoch1/report.json"
     }
   },
   "response_attention_runtime_60": {
@@ -1684,5 +1685,18 @@
     "development_inputs": 592,
     "full_model_parity_completed": false,
     "model_qualified": false
+  },
+  "warm_large_response_attention_64": {
+    "protocol": "protocol-amendment-62.json",
+    "preflight": "warm-large-response-attention-preflight-64/report.json",
+    "comparison": "warm-large-response-attention-preflight-64/comparison.json",
+    "status": "prepared_not_queued",
+    "execution_requires": "Completed59 result and completion of already queued work; prioritize reserved-test qualification if59 passes preceding gates.",
+    "training_inputs": 12884,
+    "development_inputs": 592,
+    "epochs": 6,
+    "changed_training_setting": "fresh_response_head=false",
+    "training_launched": false,
+    "qualified": false
   }
 }
