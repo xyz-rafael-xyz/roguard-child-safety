@@ -557,3 +557,13 @@ gold labels or v10 qualification. A separate materialization/fitting registratio
 would still be required. No screen is queued or launched while64 runs; no final
 human-review stage is opened. Public source metadata explicitly identifies
 assistant authorship, not a pinned local-generator run.
+
+
+Warm-head study64 epoch5 has15/592 DEV errors:7 historical and8 generated.
+The historical count rises from6 to7 relative to epoch4; the generated count
+stays8. These are aggregate counts, not paired error transitions. Its worst-group
+rate remains0.25 and the registered selection retains epoch0 (worst-group0.125).
+`warm-response-attention-observation-64-epoch5` retains the verified weight hash,
+full metric snapshot, source bindings and rank checks. The sixth and final epoch
+is running. This checkpoint fails acceptance; no reserved TEST or final human
+review is opened, and studies65/66 remain prepared but unqueued.
