@@ -277,6 +277,14 @@ called appropriate rise from3 to17. Wrong problem-category predictions fall
 from5 to2. These counts retain all five response categories and do not replace
 the zero-error acceptance rule with a binary metric.
 
+Epoch2 improves to5/592 DEV errors:4 historical and1 generated. Against head26,
+it fixes37 errors and introduces3. It corrects15 epoch1 mistakes while adding1
+new mistake. The remaining errors are four problematic replies called
+appropriate and one appropriate reply flagged as unsupported. Epoch2 becomes
+the provisional selection under the unchanged rule, but still fails acceptance.
+Training continues; context diagnostics, final reload and package verification
+are not yet complete.
+
 ## Packaged response attention runtime (study60)
 
 `Gemma4ResponseAttentionModel` supports the selected attention-adapted response
