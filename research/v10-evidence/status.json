@@ -1902,6 +1902,20 @@
       "observation": "mixed-response-epoch1-observation-65/report.json",
       "snapshot": "mixed-response-epoch1-observation-65/progress-snapshot.json",
       "verification": "mixed-response-epoch1-observation-65/selected-logits-verification.json"
+    },
+    "second_completed_checkpoint": {
+      "epoch": 2,
+      "optimizer_updates_completed": 6144,
+      "training_presentations_completed": 49152,
+      "development_errors": 13,
+      "selected_epoch": 1,
+      "selected_development_errors": 13,
+      "observation": "mixed-response-epoch2-observation-65/report.json",
+      "snapshot": "mixed-response-epoch2-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch2-observation-65/progress-verification.json",
+      "epoch2_per_case_predictions_replayed": false,
+      "training_continues": true,
+      "qualified": false
     }
   },
   "authored_response_screen_66": {
@@ -2096,5 +2110,21 @@
     "introduced_binary_errors": 6,
     "matched_control_checkpoints_exact": 26,
     "checkpoints_replayed": 78
+  },
+  "semantic_coverage_audit_76": {
+    "status": "completed_train_fit_and_exposed_dev_support_audit",
+    "plan": "semantic-coverage-audit-76/plan.json",
+    "report": "semantic-coverage-audit-76/report.json",
+    "verification": "semantic-coverage-audit-76/verification.json",
+    "interpretation": "semantic-coverage-audit-76/interpretation.json",
+    "rows_verified": 37766,
+    "train_binary_errors": 11,
+    "train_joint_field_errors": 9,
+    "dev_joint_field_errors": 1344,
+    "formal_uncertain_to_affirmed_errors": 1155,
+    "dev_rows_with_unseen_gold_worlds": 0,
+    "encoder_loaded": false,
+    "training_changed": false,
+    "qualified": false
   }
 }

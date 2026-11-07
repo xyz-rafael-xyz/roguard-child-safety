@@ -891,3 +891,37 @@ Independent single-input assessment differs from batched logits by at most
 0.0000247955 and changes no decisions; its8,837 paired records are independently
 recounted. All failures and weights remain retained. The fullencoder65 run and
 the separately registered73 initialization/schedule remain unchanged.
+
+`semantic-coverage-audit-76` audits all 37,766 existing TRAIN/DEV inputs and the
+selected study 75 heads. It performs cached-head TRAIN inference on CPU and reuses
+saved DEV logits. Every metadata position, source label, score, field prediction
+and aggregate is independently recounted. Both languages have 72 TRAIN and 72 DEV
+gold worlds out of 432 ontology combinations, and every current DEV world appears
+in TRAIN. The heads retain 11 binary and nine joint-field TRAIN errors; all 11
+binary misses have correct field argmax. Their 1,344 DEV joint errors therefore
+cannot be attributed simply to unseen gold combinations.
+
+The dominant DEV confusion is formal UNCERTAIN→AFFIRMED: 578 Romanian and 577
+Ukrainian cases. Within `controlled_composition_v8`, all 356/317 UNCERTAIN TRAIN
+examples have a literal negation before the first quote and zero assertion errors.
+All 579/579 corresponding DEV examples lack that marker; 578/577 are wrong. This
+descriptor is not a semantic scope parser and does not prove causality. Other
+TRAIN sources include 279/291 quoted uncertainty examples without that marker, so
+the audit does not claim a global absence of non-negating uncertainty in TRAIN.
+
+The finding motivates a prospective variation of uncertainty wording and quote
+scope, with a matched control and TRAIN-only inputs. Earlier assertion/query
+studies 22–24, 30 and 33 remain failed experiments. No labels, thresholds, model
+weights or live/queued training settings change in this diagnostic; no new
+generated data is admitted and no independent validation is claimed.
+
+The second completed mixed-response pass reaches 6,144 updates and 49,152
+presentations. It retains 13/592 DEV errors: four historical and nine generated.
+Its aggregate and group counts match epoch 1, but its registered cross-entropy
+term is higher (0.768990 versus 0.630082), so epoch 1 remains selected. Equal
+counts do not establish identical per-case decisions. The retained observation
+verifies checkpoint identities, metric/count consistency, selection, counters and
+the complete log prefix. The trainer saves per-case logits only when selection
+changes, so this observation does not independently replay epoch 2 predictions.
+Four registered passes remain; training settings and qualification gates remain
+unchanged.
