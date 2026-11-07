@@ -1,0 +1,41 @@
+{
+  "complete": true,
+  "observation": "Fifth completed checkpoint of the continuing registered six-pass response run 65.",
+  "protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "progress_snapshot_sha256": "db3e359d0bef9303cf0d8dcb6daf6eef03fa8a2cf8b21ae71f6d304cd8d0de80",
+  "progress_verification_sha256": "e81782f7e28cc7dea70146ad82ca063a7def42926025e714d3fa05fd2b572276",
+  "epoch": 5,
+  "selected_epoch": 4,
+  "optimizer_updates_completed": 15360,
+  "training_presentations_completed": 122880,
+  "development_rows": 592,
+  "development_errors": 12,
+  "historical_errors": 4,
+  "generated_errors": 8,
+  "selection_rank": [
+    0.25,
+    0.05,
+    12,
+    0.7945495025330931
+  ],
+  "selected_rank": [
+    0.25,
+    0.05,
+    12,
+    0.7921893765949894
+  ],
+  "checkpoint_sha256": "ec97bb870d9d1a04768c9329c93bc5ca909278febfcffda84b5ee2dd7bdb73a9",
+  "selected_checkpoint_sha256": "5d33450ee2b9f5764e4a2882771ee9dc9b1f0bb246f267d208abeab55acf7c72",
+  "retained_selected_dev_logits_sha256": "09b1fb2505f998cad5d92b984f16525774e49466935d8968a4bc4a0c0bd34aed",
+  "selected_logits_unchanged_since_epoch4": true,
+  "seconds": 25608.356875500176,
+  "epoch5_per_case_logits_retained": false,
+  "epoch5_per_case_predictions_replayed": false,
+  "interpretation": "Epoch 5 has the same aggregate historical/generated group error counts as epoch 4, but higher mean cross-entropy (0.7945495025330931 versus 0.7921893765949894). The registered rank therefore retains epoch 4. Equal group counts do not establish equal individual predictions; only newly selected checkpoint logits are saved by the registered trainer.",
+  "scope": "Saved checkpoint identities, registered counters, aggregate-count/rank consistency and complete training-log prefix. Selected epoch4 logits remain byte-identical to their previously recounted capture. No epoch5 per-case replay, context diagnostic, broader regression or v9 superiority claim.",
+  "remaining_registered_passes": 1,
+  "training_continues": true,
+  "training_settings_changed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}
