@@ -1,0 +1,51 @@
+{
+  "complete": true,
+  "decision": "REJECT",
+  "fit_report_sha256": "bea0fe9ffc9f19691edd6bcb9f7427c09f98ceba02900207ccc15052462181a5",
+  "protocol_sha256": "9ecbbf3485ef754aab395d4eb8529b0147eb8e6b45cb9ccea35aa28084dfef5c",
+  "verification_sha256": "5f5d1222119b5043a2dff6c577704f9eb5be5889a2fca7d8871d6f4b03aa235d",
+  "assessment_sha256": "9ef5f804092e5ea0c35ec34b172d189fcc92bf5e2357e134187a479c13999d4d",
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "binary_development_errors": 19,
+  "v9_binary_development_errors": 310,
+  "fixed_v9_binary_errors": 297,
+  "introduced_binary_errors": 6,
+  "historical_development_binary_errors": 5,
+  "joint_field_development_errors": 1391,
+  "cpu_control_best_per_language_binary_errors": 26,
+  "cpu_control_best_per_language_joint_errors": 1429,
+  "checkpoints_retained": 78,
+  "optimizer_updates": 16308,
+  "training_presentations": 1041444,
+  "selected": {
+    "ro": {
+      "candidate": "policy-quarter",
+      "epoch": 11,
+      "mode": "coupled_policy",
+      "threshold": 0.8824137277018487,
+      "binary_errors": 17,
+      "joint_argmax_errors": 746,
+      "adapter_sha256": "56224ba1937cadf11c9029bccf2d7d3851aa481ebcf8b573854936b0dc988942"
+    },
+    "uk": {
+      "candidate": "policy-one",
+      "epoch": 12,
+      "mode": "coupled_policy",
+      "threshold": 0.9274248149759536,
+      "binary_errors": 2,
+      "joint_argmax_errors": 645,
+      "adapter_sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7"
+    }
+  },
+  "maximum_initial_cpu_logit_error": 3.0517578125e-05,
+  "maximum_selected_reload_logit_error": 0.0,
+  "maximum_batch_single_logit_error": 2.47955322265625e-05,
+  "batch_single_decision_disagreements": 0,
+  "scope": "Completed registered large-data CPU fit and frozen DEV replay. The new loss improves selected aggregate DEV error counts against its CPU control but does not satisfy zero errors or zero regressions. This is development evidence, not independent validation.",
+  "external_regression_execution": "Not opened for this rejected candidate because registered binary and joint-field DEV prerequisites already fail. No fullencoder is loaded for this fit or assessment.",
+  "held_out_test_opened": false,
+  "final_reviewers_stage_opened": false,
+  "v10_qualified": false,
+  "stable_release_ready": false
+}

@@ -766,3 +766,21 @@ match cached v9 values and selected-weight reload must reproduce saved outputs.
 Zero binary and joint-field DEV errors are both required for further qualification.
 No66/69 drafts, reserved TEST cases or diagnostic labels enter fitting. This
 registration does not establish improved accuracy or authorize a v10 release.
+
+Study71 completes on CPU in173.12 seconds and is rejected. The registered
+selection chooses the0.25 policy-loss configuration at epoch11 for Romanian
+(17 binary errors) and coefficient1 at epoch12 for Ukrainian (two errors).
+Together these give19/8,837 binary DEV errors versus26 for the rerun CPU control,
+and1,391 joint-field errors versus1,429 for that control. Paired against v9, the
+candidate fixes297 errors and introduces six; five introductions occur in the
+previously perfect historical binary DEV population. Lower aggregate error
+therefore does not satisfy the no-regression requirement.
+
+All78 checkpoint identities, initial tensors, registered counters and selection
+ranks are verified. Non-head parameters remain exactly original-v9. Selected
+reload error is zero; independent single-input replay differs from batched logits
+by at most0.0000247955 and changes no binary decisions. The separate verifier
+recounts every selected DEV identity, source label, field error, paired decision
+and group aggregate. Broader regressions and reserved TEST are not opened for
+this candidate because the registered DEV prerequisites already fail. The full
+response65 run continues unchanged, and all71 failures remain retained.
