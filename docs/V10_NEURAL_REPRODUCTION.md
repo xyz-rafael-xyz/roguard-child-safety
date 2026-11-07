@@ -741,3 +741,28 @@ No such experiment is registered or launched by this audit. The finding does not
 establish causality or promise improvement, and the1433 retained DEV joint-field
 errors remain a separate generalization failure. Live65 and all qualification
 requirements stay unchanged.
+
+Amendment65 registers `policy-consistent-readout-71` on the unchanged62 feature
+inventory: 28,929 TRAIN and8,837 DEV rows. The existing v9 policy definition already
+has a differentiable PyTorch implementation. A new MLX helper applies that same
+coupled-policy probability to this larger-data experiment; it introduces no new
+policy semantics. Seventeen numerical checks pass, comparing probabilities with
+the runtime and full semantic-world enumeration, gradients with finite differences
+and PyTorch, and the actual nested training loss with its predecessor. The zero
+policy-loss control has exactly matching fixture losses and gradients.
+
+Three configurations start from the original-v9 heads on CPU, with identical
+seed1011, batch64,12 passes, AdamW settings,0.2 teacher-KL weight and field
+supervision. The added policy-BCE coefficients are0,0.25 and1, with a fixed1e-6
+probability clamp for that loss. The control is rerun because the prior62 fit used
+the GPU. Fixed pair potentials, data splits and DEV-only checkpoint/mode/threshold
+selection stay unchanged. The schedule contains16,308 updates,1,041,444 training
+presentations and78 saved checkpoints across both languages and all configurations.
+
+Actual-data preflight verifies every source/input binding and population without
+loading an encoder. Small CPU heads may run alongside the single fullencoder65
+job; the8GiB disk reserve remains mandatory. At runtime, initial DEV logits must
+match cached v9 values and selected-weight reload must reproduce saved outputs.
+Zero binary and joint-field DEV errors are both required for further qualification.
+No66/69 drafts, reserved TEST cases or diagnostic labels enter fitting. This
+registration does not establish improved accuracy or authorize a v10 release.

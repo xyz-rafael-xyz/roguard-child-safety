@@ -1,0 +1,108 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "policy-consistent-readout-71",
+  "motivation": "The frozen selected62 head has60 TRAIN binary misses,59 with correct argmax across all six fields. Test direct supervision of the coupled-policy probability while retaining binary/field supervision. This is an unproven hypothesis, and existing DEV joint-field failures also remain.",
+  "prior_artifacts": {
+    "train_fit70_report_sha256": "0f48f90fe9bd39b86e93524935e0270bd89abb84062b1cef41199759e7caa004",
+    "train_fit70_verification_sha256": "82189821397a8525bb6a468aedf15b2b55efde2ee6e66434b2dac4cf72742e7f",
+    "completed62_report_sha256": "7da0e7bda7b0a43f37cd1043ec53dedbe70a152854dd3701e81de2853b530641",
+    "original_readout_trainer_sha256": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6",
+    "prior_v9_torch_policy_loss_sha256": "f3b0f06a1734a615a4f8c3ac50025c7353305671d03a8acf2896eac82fc907fc"
+  },
+  "novelty_scope": "Direct policy supervision already exists in v9 research. This experiment applies its unchanged policy semantics to the bound larger62 corpus using an MLX CPU implementation and a matched no-policy-loss control. It is not a novel policy definition.",
+  "input_bindings": {
+    "feature_report_sha256": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+    "helpers": {
+      "training/coupled_policy_loss_v10.py": "36f340d9880dba40ce28ff7319331039e811fc31579a4d7c550d5027b168b9de",
+      "training/shared_tail_training_v9.py": "e5c791e8c20523f7fce7dbe76a448edc1eff358245d23b4fd9cfec75d0acb7ed",
+      "training/native_fields_v9.py": "5bdd1ece3562d9105ae0a4895e45aa5d5faf915f8bce98bd3152ac72380ffb8e",
+      "training/separation_frontier_v9.py": "211d9add4add10a6ed8f8c6faab561837e41f602510549746237bb7857acfb12",
+      "training/balanced_headroom_frontier_v9.py": "28543561c75efe93082b42f88cc202934511d15795ed13c2dfab556326f309d0",
+      "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f"
+    },
+    "ro": {
+      "feature_artifacts": {
+        "features.npy": "19823e47f6e856214a06792e9f72eba75c989b095dbf35bbbe6cb89b74a5eca8",
+        "logits.npy": "03907d092ce158042e2bcaf3681f22fa52af2b064a9783ba39f6e3e992410ab7",
+        "rows.jsonl": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351"
+      },
+      "partitions": {
+        "train": 13174,
+        "dev": 4202
+      },
+      "v9_spec_sha256": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+      "v9_weights_sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09"
+    },
+    "uk": {
+      "feature_artifacts": {
+        "features.npy": "765ebdf8425770c43dd6ed84f29b657472b885535b108fedef578cea4ff001fc",
+        "logits.npy": "2686bad1c4807c54b4cbf426b4e07429d51d795d825e4f4df693fe3200eb7d31",
+        "rows.jsonl": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5"
+      },
+      "partitions": {
+        "train": 15755,
+        "dev": 4635
+      },
+      "v9_spec_sha256": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+      "v9_weights_sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+    }
+  },
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "data_policy": "Reuse exactly the62 TRAIN/DEV feature population. No new rows, relabeling, rejected66 or draft69 records. No reservedTEST files or diagnostics enter fitting. No additional encoder inference.",
+  "device": "cpu",
+  "epochs": 12,
+  "seed": 1011,
+  "batch_size": 64,
+  "registered_candidates": [
+    {
+      "name": "policy-control",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.2,
+      "policy_ce": 0.0
+    },
+    {
+      "name": "policy-quarter",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.2,
+      "policy_ce": 0.25
+    },
+    {
+      "name": "policy-one",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.2,
+      "policy_ce": 1.0
+    }
+  ],
+  "initialization": "Original-v9 128-hidden-unit normalized GELU head for each language, fresh seed1011 per configuration and shared deterministic minibatch order. Fixed original-v9 encoder features and pair potentials. All configurations start from the same original weights, not selected62.",
+  "loss": "Existing binaryCE + mean class-weighted six-fieldCE +0.2 mean seven-head teacherKL, plus registered coefficient times BCE of the existing coupled-policy probability. Clamp probability to[1e-6,1-1e-6] only for BCE. Policy semantics, inference scorer and fixed couplings do not change.",
+  "policy_loss_epsilon": 1e-06,
+  "optimizer": "Same AdamW learning rate0.0001, decay0.01, gradient clip1.0; batch64,12 epochs per configuration. CPU execution differs from prior62 GPU execution, so policy-control is rerun on the same backend as the two treatments.",
+  "schedule": {
+    "updates_per_configuration_ro": 2472,
+    "updates_per_configuration_uk": 2964,
+    "total_optimizer_updates": 16308,
+    "total_training_presentations": 1041444,
+    "saved_checkpoints": 78,
+    "checkpoint_epochs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "selection": "Retain existing DEV-only rule: assess binary, policy and coupled-policy modes and their DEV-only thresholds; choose minimum binary errors then maximum score margin per checkpoint; rank checkpoints by binary errors, joint-field errors, mean field CE, then negative margin, with earliest exact tie retained. Selection spans all three configurations. Record the selected mode; do not attribute an improvement to serving-policy alignment if evidence does not support it.",
+  "verification": "Before fitting, verify analytic probability against runtime scoring and full ontology-world enumeration; verify gradients against finite differences and existing PyTorch implementation with actual RO/UK couplings; verify the actual zero-policy training loss/gradient exactly matches the old loss and nonzero settings add only the registered term. Check all input/source hashes and labels. At runtime compare every initial DEV head logit to cached v9 within1e-3, save all checkpoint hashes/counters, and verify selected reload within1e-5 with unchanged argmax.",
+  "evaluation": "Freeze selection before all exposed original/broad/trajectory/challenge regressions. Zero binary AND joint-field DEV errors are prerequisite for further qualification, and all other zero-error/no-regression requirements remain. A failed DEV gate is REJECT, not a release. ReservedTEST and final human-review stages stay closed until all engineering prerequisites pass.",
+  "resources": "Only small readout heads and cached final features run on CPU; no encoder is loaded. May run alongside the single fullencoder65 job. Request two BLAS/OpenMP threads, process one language at a time, preserve8GiB disk reserve and retain every failed checkpoint. No paid compute, auto-restarts or result-dependent extensions.",
+  "stable_release_ready": false
+}
