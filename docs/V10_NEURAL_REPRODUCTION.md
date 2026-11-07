@@ -437,3 +437,23 @@ all recorded group totals and selection rank are verified in
 study59 epoch2 (5 total errors, worst-group rate0.25) on the same DEV inputs.
 The warm-head run continues into epoch3; neither comparison qualifies, and no
 reserved TEST or reviewer evaluation is opened.
+
+Warm-head epoch3 has10/592 DEV errors:9 historical and1 generated. The total
+falls from12, but historical errors rise from8 to9. Romanian boundary remains
+the worst group at4/8, so the registered selection still retains epoch0. The
+remaining generated error has the Ukrainian unsupported gold category; no
+nonselected per-case predictions or paired transitions were recomputed.
+The retained checkpoint and full metric snapshot pass identity, count and rank
+verification in `warm-response-attention-observation-64-epoch3`. Training
+continues into epoch4, with no qualification or reserved-test access.
+
+A separate TRAIN-only inspection in `response-train-inspection-64` covers192
+core drafts across both languages and four problem categories. Mechanical
+checks confirm all12,288 generated TRAIN inputs contain the intended16 topics
+by4 contexts for each core. Assistant inspection flags missing quotation marks
+around the refusal word in pressure frame08: four bilingual contrast drafts
+repeated across256 TRAIN inputs. The following clause clarifies the intended
+label, so this is a wording ambiguity rather than a confirmed label reversal.
+Proposed quotation edits are recorded for a future registered revision; the
+current corpus and live experiment remain unchanged. This review is neither
+independent annotation nor evidence that the ambiguity caused model errors.

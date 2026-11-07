@@ -1799,21 +1799,21 @@
     "sequence": "warm-response-attention-sequence-64/report.json",
     "execution_decision": "warm-large-response-attention-preflight-64/execution-decision.json",
     "latest_completed_epoch_observation": {
-      "source": "warm-response-attention-observation-64-epoch2/report.json",
+      "source": "warm-response-attention-observation-64-epoch3/report.json",
       "complete": true,
       "observation_scope": "Completed epoch metrics and retained checkpoint identity; no nonselected per-case predictions recomputed.",
-      "epoch": 2,
-      "adapter_sha256": "bc08e56d29fd448f5b2b2fb015ed142145a673275777a2786f9c1c6895a9763f",
-      "progress_snapshot_sha256": "1b5c72042f363adb0658eca9d966122c66129fc23850ddb81517d5b06d6e6328",
+      "epoch": 3,
+      "adapter_sha256": "23501937e5ec0f1bad8980555e0da531243639860b367a3889f994333ee8525a",
+      "progress_snapshot_sha256": "bcdb638a45b717063e3a784345f1e75686820ae8096927066284a9637e71889f",
       "training_protocol_sha256": "86fcbec84ee0f912288ea416de9568c29754dfeb9f5698305352b9e20a0bc1e3",
-      "development_errors": 12,
-      "historical_development_errors": 8,
-      "generated_development_errors": 4,
+      "development_errors": 10,
+      "historical_development_errors": 9,
+      "generated_development_errors": 1,
       "selection_rank": [
         0.5,
-        0.1,
-        12,
-        1.0294167494828375
+        0.1125,
+        10,
+        0.9730171489314183
       ],
       "selected_epoch": 0,
       "selected_development_errors": 39,
@@ -1829,6 +1829,12 @@
       "training_complete": false,
       "selection_frozen": false,
       "stable_release_ready": false
+    },
+    "train_only_inspection": {
+      "source": "response-train-inspection-64/report.json",
+      "wording_flag_affected_rows": 256,
+      "current_training_changed": false,
+      "independent_validation": false
     }
   }
 }
