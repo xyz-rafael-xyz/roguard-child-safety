@@ -805,3 +805,31 @@ indices, labels, groups and partitions. Lengths are416–600 tokens, and all inp
 share the runtime's387-token fixed prefix. The149.5MB payload/token inventory stays
 private. This adds no new examples, performs no encoder inference and registers
 no fit; independent label correctness and model qualification remain unproven.
+
+Amendment66 registers `large-review-attention-73` on those exact28,929 TRAIN and
+8,837 DEV inputs. It starts with selected71's heads and original-v9 attention
+adapters. Each language trains72 query/output LoRA tensors and four head tensors;
+the body and other-language head remain frozen. Three passes per language make
+10,851 updates and86,787 presentations. Attention/head learning rates are1e-5/1e-4,
+with the preceding71 loss and its selected policy coefficients0.25/1. Every TRAIN
+row appears once per pass; no DEV rows enter fitting. All eight checkpoints and
+their complete DEV logits will be retained. Source inputs stream through the
+frozen body using the existing runtime prefix, without a persistent body cache.
+
+All source/feature positions, labels, partitions, tokens and initialization
+bindings pass preflight. Thirty-one CPU numerical and input checks pass, including
+nonzero warm-adapter full/replay gradient parity on a small real Gemma architecture,
+frozen-parameter preservation, exact agreement with the preceding head objective
+and separate head/attention optimizer routing. These fixture checks are not actual
+large-model parity or accuracy results. Initial full-model DEV representations and
+logits must still match their bound references; selected reload and runtime-token
+checks are mandatory during execution.
+
+The73 queue waits for65 to finish, then verifies its complete paired results,
+checkpoint identities, registered update/presentation counts, terminal training
+report and encoder-process exit before starting another full encoder. Six parser
+checks cover complete and corrupted terminal reports. The queue is observed
+waiting, with no73 training outputs yet. For73, zero binary and joint-argmax DEV
+errors are required before broader qualification; every original joint-set,
+regression, independent-evaluation and release requirement remains. Prior failures,
+reserved TEST separation and the closed final-reviewer stage are preserved.

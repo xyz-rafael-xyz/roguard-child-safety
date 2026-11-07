@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "tests_passed": 31,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "junit_sha256": "d0dd530403e0b860ecbdcad442a15e5163450f4a34baf96283509c91c065427c",
+  "source_sha256": {
+    "training/train_large_review_attention_v10.py": "2a08071aecf3c87ddd627056b1ce35611ea706c2591965adc413ca1db2376ef3",
+    "training/large_review_attention_v10.py": "3611c07d7184bcc0a9331da1b0f96104371d34fa4fc2c7d6ba273bc80cb8b8ab",
+    "training/coupled_policy_loss_v10.py": "36f340d9880dba40ce28ff7319331039e811fc31579a4d7c550d5027b168b9de",
+    "tests/test_large_review_attention_v10.py": "1858167747b0225cafc3165ff100a46aea603f1a1f3e627e03e1c0131b15383c",
+    "tests/test_coupled_policy_loss_v10.py": "6a79613251d44a937c5a64bf8753178c80d28d4afccbb393b81253bf008ec2e0",
+    "tests/test_policy_consistent_readout_v10.py": "d3bf62f50776b3168eb56872ff093190d2079c2049b01ae22734934c2e1bb4a1",
+    "training/train_policy_consistent_readout_v10.py": "ed4a92b5d157fd724dfb871edccc77228098fa9b7b3b66a0ccdf6d31f7761271",
+    "training/train_semantic_readout_v10.py": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6",
+    "training/differentiable_policy_v9.py": "f3b0f06a1734a615a4f8c3ac50025c7353305671d03a8acf2896eac82fc907fc"
+  },
+  "checks": [
+    "Recovered inputs retain exact teacher-feature alignment under reordering; missing, repeated, wrong-index, changed-label/token/prefix, reserved-partition and overlapping-token fixtures are rejected.",
+    "The streaming objective and every fixture parameter gradient exactly match the actual preceding71 nested head objective at policy coefficients0.25 and1.",
+    "A small real Gemma architecture with nonzero warm adapters matches prefix-captured serial replay and full-inference loss/gradients, before and after an update; the frozen body and other-language head stay exact.",
+    "Head/attention optimizer routing matches two separate AdamW optimizers at their registered rates across multiple steps.",
+    "DEV selection preserves fixed original-v9 paired decisions; incomplete baselines are rejected.",
+    "The17 preceding policy-loss probability, finite-difference/PyTorch gradient and actual-loss integration checks also pass."
+  ],
+  "fixture_model_only": true,
+  "full_encoder_loaded": false,
+  "candidate_training_performed": false,
+  "held_out_accuracy_claimed": false,
+  "stable_release_ready": false
+}

@@ -1,0 +1,21 @@
+{
+  "decision": "QUEUE_AFTER_RESPONSE65_COMPLETION_AND_AUDITS",
+  "amendment_sha256": "d980769ca2df00d35bba6e4fc25085765040516e3eed8a56da503909adcfa16e",
+  "preflight_report_sha256": "1a85ebd9d7f703b1fc88a07decb0fc606cb2322f1e2173b3d4c028f036eb6e4e",
+  "numerical_verification_sha256": "dd6cf7a3ecdd96e704c0b81e6d6ff88dde56acc52475b27100949fb85525e3d2",
+  "dependency_guard_verification_sha256": "665823ba63064b48932660b1afe5ba8137cf93ddbedc75a3694460966be04d1d",
+  "dependency": "mixed-response-attention-sequence-65",
+  "dependency_protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "registered_optimizer_updates": 10851,
+  "registered_presentations": 86787,
+  "registered_checkpoints": 8,
+  "full_encoder_concurrency_limit": 1,
+  "disk_reserve_bytes": 8589934592,
+  "held_out_test_opened": false,
+  "training_launched": false,
+  "training_queue_launched": false,
+  "stable_release_ready": false,
+  "reason": "All source/input and31 numerical checks pass. Six terminal-log parser checks pass. Response65 must finish successfully and both final paired and counter/log audits must succeed, with its encoder PID absent, before73 starts. No candidate currently qualifies."
+}
