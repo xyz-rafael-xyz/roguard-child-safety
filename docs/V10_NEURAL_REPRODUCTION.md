@@ -523,3 +523,37 @@ Seven trainer configuration/preflight tests and the20 sampler/weighting/selectio
 checks pass together (27 total). These do not establish full-model forward/backward
 parity or better accuracy for65. The live64 source/checkpoint verifier still passes.
 No reserved TEST or final reviewer evaluation is opened.
+
+
+## Authored language pilot and prepared screen (study66)
+
+A separate assistant-authored TRAIN-only pilot contains64 drafts in16 bilingual
+contrast families, with no topic-wrapper expansion. Mechanical checks find no
+exact normalized reply overlap with the enumerated existing TRAIN and exposed
+DEV/diagnostic sources. No reserved TEST contents are read. Assistant inspection
+flags the Romanian use of “pretind” in one unsupported-claim draft; a separately
+retained revision changes that reply and its Ukrainian counterpart to parallel
+direct verification claims. Original drafts and both inspections remain retained;
+labels, families, contexts and partitions do not change. The pilot still reuses
+existing concepts, has formulaic unsupported contrasts and is not independently
+annotated. It is not training-ready and is absent from studies64 and65.
+
+Amendment64 prepares the existing blinded screen using the cached, frozen
+Qwen3-4B-Instruct-2507-bf16 revision. This judge differs from the Gemma candidate;
+its reliability as a label/fluency judge is unestablished, and it previously failed
+language-quality checks as a generator. All eight model-file hashes match the
+retained inventory. Actual tokenization preflight covers all32 family/language
+queries, with a maximum403 tokens, without loading model weights. Expected
+category metadata does not enter the prompts. Hash-selected ordering puts the
+problematic reply first25 times and the appropriate reply first7 times, so order
+varies but is not balanced.
+
+Every raw judgment, disagreement and malformed output will be retained. There is
+one deterministic judgment per language pair and no retry merely to gain agreement.
+All32 judgments must agree with the intended pair labels and mark both sentences
+natural before considering later materialization; unresolved assistant-inspection
+issues also prevent it. Even agreement remains machine screening, not independent
+gold labels or v10 qualification. A separate materialization/fitting registration
+would still be required. No screen is queued or launched while64 runs; no final
+human-review stage is opened. Public source metadata explicitly identifies
+assistant authorship, not a pinned local-generator run.
