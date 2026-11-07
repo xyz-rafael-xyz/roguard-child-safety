@@ -988,3 +988,44 @@ identities. Its 35 queue source bindings verify, and the live queue is waiting.
 Runs 65 and 73 remain unchanged. This registers feature extraction, not a new fit;
 a subsequent matched training protocol is still required. Author-curated labels
 remain synthetic, reserved TEST stays closed, and no release gate is satisfied.
+
+Amendment 69 registers `matched-assertion-readout-79`, conditionally admitting the
+curated 864 TRAIN variants to a matched synthetic fitting experiment after feature
+78 passes its audit. The full 9,936-row expansion remains excluded. Each arm has
+29,793 TRAIN rows and the unchanged 8,837 DEV rows. The control repeats original
+parent features and teacher logits; the treatment uses the rewritten inputs'
+features and teacher logits. Both append rows in the same order with identical
+labels. Sample order, class weights, original-v9 initialization, random seed,
+objective, optimizer, dropout and update budget are held constant across arms.
+The teacher distributions induced by the wording are part of the intervention.
+
+Each arm trains 12 passes per language on CPU: 11,184 total updates and 715,032
+presentations. All 52 heads and their DEV logits are retained. The language settings
+are fixed prospectively to the previously selected study 75 choices: policy-loss
+coefficient 0.25/dropout 0.1 for Romanian and coefficient 1/dropout 0 for Ukrainian.
+The objective is identical to study 75. Per-arm and overall selections use its
+unchanged DEV ranking and earliest-tie rule; controls winning selection would not
+establish a wording benefit. Both binary and joint-field DEV perfection remain
+prerequisites for broader qualification.
+
+Thirty numerical, alignment and corruption tests pass, including bit-identical
+updates on identical inputs in both arms with dropout enabled and disabled. The
+portable environment passes nine tests and skips 21 optional numerical tests.
+Static preflight checks every currently available source, parent mapping and
+schedule; actual future feature checks remain pending. An explicit ready-to-fit
+check rejects the missing feature-audit proof before creating training outputs.
+
+The independent completed-78 verifier checks all metadata and source identities,
+recounts the 108 saved parent anchors, and replays original-v9 heads on all 972
+extracted representations on CPU. Head-logit error must be at most 0.001. Any CPU
+threshold-decision differences are reported; the recorded GPU teacher logits
+remain the distillation targets. Parent anchor served decisions must match the
+original store. This does not independently validate gold labels or rerun the
+encoder. The actual completed-78 audit has not yet run.
+
+The live CPU-fit queue waits for 78 to finish and exit, runs that audit, then binds
+its actual report, protocol, proof and feature checksums before fitting. It checks
+those identities again at completion. Fifty queue source bindings verify. Runs
+65, 73 and 78 remain unchanged. A completed-79 all-checkpoint and paired accuracy
+audit is still required after fitting; no model result or release qualification
+is claimed by this registration.

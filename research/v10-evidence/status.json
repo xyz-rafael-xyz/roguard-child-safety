@@ -2150,11 +2150,12 @@
       "maximum": 543
     },
     "full_expansion_training_admitted": false,
-    "curated_training_admitted": false,
+    "curated_training_admitted": true,
     "training_performed": false,
     "encoder_loaded": false,
     "independent_language_or_label_validation": false,
-    "qualified": false
+    "qualified": false,
+    "curated_training_admission_scope": "Registered79 synthetic comparison only, conditional on completed78 feature audit; no independent label validation."
   },
   "assertion_variation_features_78": {
     "status": "registered_and_queued_after_attention73_completion_audit",
@@ -2173,6 +2174,30 @@
     "queue_launched": true,
     "encoder_launched": false,
     "new_model_fitting_registered": false,
+    "qualified": false
+  },
+  "matched_assertion_readout_79": {
+    "status": "registered_queued_after_feature78_completion_and_audit",
+    "amendment": "protocol-amendment-69.json",
+    "preflight": "matched-assertion-preflight-79/report.json",
+    "tests_verification": "matched-assertion-preflight-79/tests-verification.json",
+    "future_guard_verification": "matched-assertion-preflight-79/future-feature-guard-verification.json",
+    "execution_decision": "matched-assertion-preflight-79/execution-decision.json",
+    "queued_verification": "matched-assertion-preflight-79/queued-verification.json",
+    "sequence": "matched-assertion-readout-sequence-79/report.json",
+    "training_rows_per_arm": 29793,
+    "development_rows": 8837,
+    "arms": 2,
+    "epochs_per_arm": 12,
+    "registered_updates": 11184,
+    "registered_presentations": 715032,
+    "registered_checkpoints": 52,
+    "all_checkpoint_dev_logits_retained": true,
+    "tests_passed": 30,
+    "queue_launched": true,
+    "training_launched": false,
+    "actual_feature78_audit_performed": false,
+    "encoder_loaded": false,
     "qualified": false
   }
 }
