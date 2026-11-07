@@ -1,10 +1,10 @@
 {
   "status": "implementation_prepared_not_registered",
-  "source_sha256": "fa425ffe6ead61e3dd04884aa4468547c7a86eb52a4e708ac38b37f6e09136f6",
+  "source_sha256": "a2002592fad3edaa11675ca514f71383586044711c7418c693acbe26deba3e44",
   "helper_sha256": "8d079615421263901062b7cf754a42b5e01be1b69a542b97e7ff66bdaca229fc",
   "tests_sha256": "65444d0ec30b9c23ec0bcefcfa6e8dd1eaf88840ea270f77f7c1b994bde9ec56",
   "new_tests_passed": 18,
-  "focused_numerical_tests_passed": 76,
+  "focused_numerical_tests_passed": 150,
   "full_loop_fixture": {
     "architecture": "Small real Gemma4 42-layer model on CPU, 16 hidden dimensions",
     "languages": 2,
@@ -20,7 +20,7 @@
     "verified": true,
     "guard": "actual incomplete88 rejected before encoder or training output",
     "error": "Runtime reference extraction is incomplete or has invalid scope",
-    "source_sha256": "fa425ffe6ead61e3dd04884aa4468547c7a86eb52a4e708ac38b37f6e09136f6",
+    "source_sha256": "a2002592fad3edaa11675ca514f71383586044711c7418c693acbe26deba3e44",
     "helper_sha256": "8d079615421263901062b7cf754a42b5e01be1b69a542b97e7ff66bdaca229fc",
     "encoder_loaded": false,
     "training_launched": false
@@ -37,10 +37,11 @@
       "uk": 0.0
     }
   },
-  "limitations": "Fixture validates code behavior, not model accuracy or full-size numerical parity. Completed88/89/90 reference binding, exact registration, independent completion audit and actual full-size initialization remain required before fitting.",
+  "limitations": "Fixture validates code behavior, not model accuracy or full-size numerical parity. Completed88/89/90 reference binding, exact registration and actual full-size initialization remain required before fitting. The independent completion audit is implemented and tested separately in preparation92; it has not audited a large fit.",
   "training_registered": false,
   "training_queued": false,
   "large_training_launched": false,
   "held_out_test_opened": false,
-  "qualified": false
+  "qualified": false,
+  "retained_reload_outputs": "Save and hash selected-reload DEV logits per language for independent audit, before marking training complete."
 }

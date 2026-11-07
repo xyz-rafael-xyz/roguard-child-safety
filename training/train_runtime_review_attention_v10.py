@@ -248,8 +248,11 @@ def main():
         reloaded = infer(dev, check_full=True, stage='selected-reload')
         selected_spec = json.loads((a.study/(lang+'-review.json')).read_text())
         parity = check_decisions(reloaded, saved, selected_spec)
+        reload_path = a.private/(lang+'-selected-reload-dev-logits.npy')
+        np.save(reload_path, reloaded, allow_pickle=False)
         record.update(complete=True, selected_reload_maximum_logit_error=parity['maximum_logit_error'],
-                      selected_reload_decision_parity=parity)
+                      selected_reload_decision_parity=parity,
+                      selected_reload_logits_sha256=file_sha(reload_path))
         persist()
         del engine, model, prefix, optimizer, rate_groups, value_grad, objective, selected, features, teacher
         gc.collect(); mx.clear_cache()
