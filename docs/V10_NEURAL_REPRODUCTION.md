@@ -426,3 +426,14 @@ initialization, so the registered rule retains epoch0 despite its39 total errors
 The epoch1 checkpoint and metrics snapshot are retained and hash-checked.
 No nonselected per-case predictions were recomputed. The six-epoch run continues;
 training and selection remain incomplete and this checkpoint fails acceptance.
+
+The warm-head epoch2 observation has12/592 DEV errors:8 historical and4
+generated. All four generated errors have the Ukrainian unsupported gold
+category; predicted categories and paired identities were not recomputed.
+The worst group remains Romanian boundary (4/8 errors), so its0.5 error rate
+still loses to initialization under the unchanged rule. The checkpoint hash,
+all recorded group totals and selection rank are verified in
+`warm-response-attention-observation-64-epoch2`. This is worse than fresh-head
+study59 epoch2 (5 total errors, worst-group rate0.25) on the same DEV inputs.
+The warm-head run continues into epoch3; neither comparison qualifies, and no
+reserved TEST or reviewer evaluation is opened.
