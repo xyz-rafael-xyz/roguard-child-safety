@@ -1,0 +1,24 @@
+{
+  "format": "roguard-assertion-variation-quality-plan-1",
+  "selection_source_sha256": "01b22f6f24c8b2bbe87a15b61816039078b9f7ea90ec08c0f7a97cfa7d8f4a36",
+  "private": {
+    "assertion-variation-77/actual/additional-train.jsonl": "42e1ad1dc5c0c887a65a0979ccb06276b3bca9b70514b9fe027852e889cbda85",
+    "assertion-variation-77/actual/matched-control.jsonl": "66732b883b87a34fabcc786396268f0fc0cb8cdfdd5d3237e5ff0235f5ec1e57",
+    "assertion-variation-77/actual/parents.jsonl": "d3a74c1610368d3287ec9c407911535cfb0caf561c2b752ce26a3b4c7c797265",
+    "assertion-variation-77/verification/runtime-inputs.jsonl": "ff9f17818d6ba2bc0b213dfbd587f2566ebb2f3a4b334bea25c46646584c9569",
+    "assertion-variation-77/verification/verification.json": "aa87ad50194691fa7a717a35edae3d72adeb450025c6fb320bad7173be07954d"
+  },
+  "motivation": "Inspection after structural verification found inherited quoted questions (not truth-apt descriptions), explicit temporal cores combined with conflicting outer times, and other-person/fictional cores under SELF wrappers. Do not admit the full expansion merely because source labels were conserved.",
+  "selection": "Prospectively restrict this additional-data slice to 22 explicitly listed present first-person declarative cores per language and outer SELF/CURRENT only. No labels or text change. Preserve all eight variants and matched original repetitions for each retained parent. No selection uses model outputs.",
+  "operator_author_review": "All 32 operators were inspected as author-written intended stance equivalents. AFFIRMED explicitly confirms truth; NEGATED explicitly rejects truth; UNCERTAIN leaves truth unresolved; RETRACTED withdraws the actual prior statement. The two negation-marker forms per stance contain explicit final disambiguation. This is not independent linguistic validation.",
+  "core_author_review": "The retained statements describe current first-person states/actions, including current worry about tomorrow and current difficulty with a past calculation. They are not bare questions or directly third-person/fictional descriptions. An inner negation or uncertainty may remain inside an explicitly asserted quoted proposition. Ordinary task difficulty retains the original controlled benign label; no clinical conclusion is claimed.",
+  "limitations": [
+    "The full original training population already contains these parent ambiguities; this curation prevents multiplying them as extra training, and does not repair or revalidate the original corpus.",
+    "Excluded samples are not automatically mislabeled. The selection is a conservative author judgment.",
+    "The narrow SELF/CURRENT slice cannot establish generalization to OTHER, FICTIONAL, PAST or HYPOTHETICAL.",
+    "Candidate labels are inherited synthetic gold, not independently annotated real-world truth.",
+    "No data is fitted or automatically admitted by this curation. A matched fitting experiment still needs a prospective protocol."
+  ],
+  "held_out_test_opened": false,
+  "qualified": false
+}

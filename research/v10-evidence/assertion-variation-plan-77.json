@@ -1,0 +1,64 @@
+{
+  "format": "roguard-matched-assertion-data-plan-1",
+  "scope": "Prospective TRAIN-only assertion-operator variation after exposed DEV audit76. Data preparation only; no model fitting or automatic admission.",
+  "public": {
+    "training/prepare_assertion_variation_v10.py": "d0da7631b05d91e1f3ed4e59ef8b7259753df18fad065b37eea6d43ddc0bfb86",
+    "tests/test_assertion_variation_v10.py": "1ae31a9e2d029c2f5e0063f5a6d8e9a1c8e5a0394fd56629d59c95692dc1bcc0",
+    "training/evidence_v8.py": "835b7a4bedd080b4b9876902f4e1c04bd068639ef85dde5750051627dd3444f9",
+    "training/prepare_instruction_sft_v8.py": "c9f7b2fdeee4e3f135d508f436f2e7b2bcdf1e184472130e36fa40f4d00b2aec",
+    "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+    "src/roguard/trajectory_data.py": "a046974c382ac31da80aaec1172f0d36d87112683111904a489c6cb5f201ec55",
+    "src/roguard/assurance.py": "9baaa5d7949b562a0a4966fa33ca8ddc4bf49bb138531a5187899f7ae81b653a",
+    "research/v10-evidence/semantic-coverage-audit-76/report.json": "5b1e8d1229c2daced56a4b6c2d59025a41b81922aab496c8d0f484e7864f42e7",
+    "research/v10-evidence/large-review-input-recovery-72/report.json": "88422257a63ace9f2eb1e36d41af7921ae6ef91a28f5d2b712862cab6233f8f1",
+    "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a"
+  },
+  "private": {
+    "large-review-input-recovery-72/actual/inputs.jsonl": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a"
+  },
+  "recovered_inputs": "large-review-input-recovery-72/actual/inputs.jsonl",
+  "historical_sources": [
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz"
+  ],
+  "parent_selection": "Existing recovered TRAIN only, controlled_composition_v8 with exact original source hash, payload and labels. One original parent per language, normalized quoted core and full gold-world tuple, choosing lowest source-row digest. No selection by errors or held-out text.",
+  "variation": {
+    "operators_per_assertion_language": 4,
+    "operator_negation_marker": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "quote_positions": [
+      "before",
+      "after"
+    ],
+    "variants_per_parent": 8,
+    "assertions": [
+      "AFFIRMED",
+      "NEGATED",
+      "UNCERTAIN",
+      "RETRACTED"
+    ]
+  },
+  "matched_control": "Repeat each selected original input eight times with the same paired identities, labels, contexts and factors. A future fitting comparison must match sample count, initialization, order, objective and update budget; do not confuse added repetitions with wording treatment.",
+  "invariants": [
+    "Exact quoted core, surrounding subject/time clauses and every earlier turn remain unchanged.",
+    "All six parent attributes and binary disposition remain unchanged.",
+    "No reserved TEST inputs are read. Existing exposed TRAIN/DEV focal strings are used only for exact-overlap rejection.",
+    "No modification of active65 or queued73.",
+    "Core and family counts, repetition and imperfect synthetic provenance must be reported."
+  ],
+  "validation": "Before fitting, independently recover parents, conserve all labels/context/core, recount complete treatment/control records and descriptor balance, reproduce artifact bytes, check all runtime tokens and fixed prefix. Structural tests are not semantic or language validation.",
+  "label_quality": "Operators are assistant-authored intended equivalences. Source gold labels and cross-language wording are not independently annotated. Preserve this limitation and inspect all operator families and represented contexts before a prospective fitting decision.",
+  "novelty": "This is a controlled augmentation experiment, not a new learning algorithm. Earlier scope/query studies20,22\u201324,30,33 failed qualification and remain retained.",
+  "qualified": false,
+  "training_admitted": false
+}

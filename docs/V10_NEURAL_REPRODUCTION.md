@@ -925,3 +925,40 @@ the complete log prefix. The trainer saves per-case logits only when selection
 changes, so this observation does not independently replay epoch 2 predictions.
 Four registered passes remain; training settings and qualification gates remain
 unchanged.
+
+`assertion-variation-77` prepares a controlled response to the wording association
+found in audit 76. It selects one existing TRAIN parent per language, quoted core
+and gold world by the smallest source-row digest, without consulting model errors.
+Four operators per language/assertion and two quote positions yield eight variants
+per parent. Each assertion has two operators with and two without a standalone
+negation marker. The matched control repeats the original input eight times.
+Quoted content, surrounding subject/time clauses, prior turns and all labels stay
+fixed. This is a prospective data intervention, not a new learning algorithm.
+
+The full expansion has 9,936 rows per arm from 1,242 parents and 36 quoted cores
+per language. All 19,872 records and parent choices are independently checked;
+all treatment runtime tokens and 1,242 unique control token sequences verify.
+Treatment inputs have 473–543 tokens, the exact runtime prefix, and zero token
+identity overlap with the existing TRAIN/DEV corpus. Thirty-three structural tests
+pass. Fresh generation reproduces all three artifacts and the report byte for
+byte, and overwriting existing output is rejected. These checks verify construction
+and source conservation, not independent semantic truth.
+
+Content inspection finds inherited ambiguity in some parents: quoted questions
+are not truth-apt descriptions, explicit dates can conflict with outer time
+clauses, and third-person or fictional cores can conflict with SELF wrappers.
+The full expansion is not admitted to training. A separately frozen quality plan
+selects only explicitly listed present first-person declarative cores with outer
+SELF/CURRENT labels. It retains 108 parents, 864 variants and 864 matched controls,
+covering 21 Romanian and 22 Ukrainian cores. All 1,242 parent decisions and every
+selected record are independently checked against the verified full artifacts.
+This conservative author curation does not imply every excluded row is mislabeled,
+and it does not repair the existing training population's ambiguity.
+
+Both full and curated artifacts remain retained privately with public checksums
+and reproducible sources. The 32 operators and retained core inventory have author
+inspection only; no independent language or label validation is claimed. The
+curated slice is not yet admitted or fitted. A future matched fitting protocol must
+hold initialization, order, objectives and update budget constant across arms.
+Scope outside SELF/CURRENT remains an evaluation requirement. No reserved TEST,
+final-reviewer or release gate opens, and runs 65 and 73 remain unchanged.
