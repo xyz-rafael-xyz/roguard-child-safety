@@ -2268,5 +2268,21 @@
     "training_admitted": false,
     "independent_annotation": false,
     "qualified": false
+  },
+  "response_diversity_screen_audit_82": {
+    "decision": "QUEUED_AFTER_COMPLETED81",
+    "plan": "response-diversity-screen-audit-82/plan.json",
+    "verifier": "eval/verify_response_diversity_screen_v10.py",
+    "tests_passed": 90,
+    "new_verifier_tests": 60,
+    "query_tokens_reconstructed": 128,
+    "registered_token_digest_matches": true,
+    "incomplete_screen_guard_verified": true,
+    "rows": 128,
+    "families": 32,
+    "actual_completed_screen_audited": false,
+    "training_admitted": false,
+    "qualified": false,
+    "scope": "Independent software recount and tokenizer replay of all retained raw outputs. A rejected machine screen can pass integrity verification. This is not independent language or semantic validation."
   }
 }
