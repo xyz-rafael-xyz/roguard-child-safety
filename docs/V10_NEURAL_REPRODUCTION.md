@@ -332,10 +332,14 @@ limits and unqualified diagnostic semantics as the frozen-head interface.
 The local research wheel passes44 installed tests outside the checkout and all
 177 package files match the archive. Small actual-Gemma tests verify prediction
 changes under active adapters, cached/full parity and exact original outputs
-after restoration. Full-size installed verification is still pending. The
-verification command checks every mapped DEV input against the selected saved
-logits and independent full forwards; it never opens reserved TEST. A local
-export of failed study49 provides a verification fixture, not an accepted model.
+after restoration. Full-size installed verification passes on all 80 DEV inputs
+from the rejected study49 fixture. Labels match the saved selected logits,
+maximum probability difference is 2.22e-16, and maximum independent full-forward
+logit difference is 0.00021314620971679688. Original binary outputs and all
+reference adapter/head parameters remain exact after success and injected
+failure. Reserved TEST stays unopened. This verifies faithful execution of an
+inaccurate fixture; it does not qualify the model or complete the separate
+study63 check of the selected larger-data model.
 
 ## Crossed binary scope contrasts (studies61–62)
 
@@ -356,8 +360,9 @@ Study62 appends these features to57 for28,929 TRAIN and8,837 DEV inputs. It
 keeps the same v9 initialization, three registered readout configurations,
 12-epoch optimization and development selection rule. Assessment separates
 historical DEV, composition56 DEV and crossed61 DEV; the original regression
-and fresh44 challenge checks remain required. The bound queue waits for
-response59 and attention-runtime60 verification. Neither reserved TEST set
+and fresh44 challenge checks remain required. The bound queue has started
+feature extraction after response59 and attention-runtime60 verification
+completed. Neither reserved TEST set
 opens unless every required preceding error/regression gate passes.
 
 ## Selected large response package verification (study63)
