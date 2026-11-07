@@ -719,3 +719,25 @@ label cues, empty context and category imbalance. Labels and native-language
 quality are not independently validated. These remain drafts pending a registered
 fitting decision; none enters the live65 run. The failed66 screen is unchanged,
 no judge is rerun, no reserved TEST is opened, and no qualification is claimed.
+
+`binary-train-fit-audit-70` evaluates only the 28,929 TRAIN representations from
+the completed62 experiment with its frozen selected heads and original-v9 heads.
+It uses the CPU and loads no encoder. Original-v9 head logits match their cached
+TRAIN values within 0.000030518 and all binary decisions agree. A separate
+standard-Python recount verifies every TRAIN identity, source label, saved-score
+threshold decision and all51 language/source-group summaries.
+
+Selected62 has60 binary TRAIN misses (13 Romanian,47 Ukrainian), all false
+negatives in generated data, and12 joint-field TRAIN errors. In59 of the60 binary
+misses, every field argmax is correct. The served coupled-policy decision uses
+full probabilities and saved thresholds, so correct categorical interpretations
+alone do not guarantee the same binary decision. This audit changes neither
+thresholds nor labels. These are fitting diagnostics, not held-out accuracy.
+
+The existing loss supervises separate binary and field outputs, while the selected
+serving mode computes a coupled-policy score. A prospective experiment could add
+direct supervision of that score after numerical probability and gradient checks.
+No such experiment is registered or launched by this audit. The finding does not
+establish causality or promise improvement, and the1433 retained DEV joint-field
+errors remain a separate generalization failure. Live65 and all qualification
+requirements stay unchanged.

@@ -1,0 +1,1750 @@
+{
+  "complete": true,
+  "plan_sha256": "e631727e8cc6ab192b1a2c4b37021149042682c21d9ae2bff1fd8616b997013a",
+  "source_sha256": "6c4f1eaca3a4e6b0704c3637436ce5ed50ba82b7945e7bf1da8d0fe2ba736111",
+  "bindings": {
+    "feature_report": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+    "selected_report": "7da0e7bda7b0a43f37cd1043ec53dedbe70a152854dd3701e81de2853b530641",
+    "fit_protocol": "8ca8023ef2b70419545cfa447c677dad5df84363a2e0c610a353080aa51887e9",
+    "head_source": "e5c791e8c20523f7fce7dbe76a448edc1eff358245d23b4fd9cfec75d0acb7ed",
+    "field_source": "5bdd1ece3562d9105ae0a4895e45aa5d5faf915f8bce98bd3152ac72380ffb8e",
+    "runtime_score_source": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "ro_candidate_spec": "5fea37263d76fcbe7d087c442010828bec1c2d5c4e574463511a68d8960af3db",
+    "ro_v9_spec": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+    "ro_candidate_weights": "010e61e135743d13fd6909ebb1499c495c7602ba5d091c1addfdea771a01f686",
+    "ro_v9_weights": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09",
+    "uk_candidate_spec": "2c77dcf51da9d60dc48ddad15dd10826ae01c0d86b70f005c56b857c351c2300",
+    "uk_v9_spec": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+    "uk_candidate_weights": "fc8645dc9760e138f25b4d4617c81914fe063a2476b50add7293ca960fef1b13",
+    "uk_v9_weights": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+  },
+  "languages": {
+    "ro": {
+      "training_rows": 13174,
+      "cached_v9_maximum_logit_error": 2.288818359375e-05,
+      "cached_v9_binary_disagreements": 0,
+      "modes": {
+        "v9": {
+          "mode": "policy",
+          "threshold": 0.8659504636108948
+        },
+        "candidate": {
+          "mode": "coupled_policy",
+          "threshold": 0.8679165686734354
+        }
+      },
+      "groups": {
+        "all": {
+          "rows": 13174,
+          "v9": {
+            "binary_errors": 722,
+            "false_positive": 530,
+            "false_negative": 192,
+            "joint_field_errors": 1298,
+            "field_errors": {
+              "subject": 189,
+              "time": 181,
+              "assertion": 281,
+              "source": 203,
+              "relation": 9,
+              "concern": 841
+            }
+          },
+          "candidate": {
+            "binary_errors": 13,
+            "false_positive": 0,
+            "false_negative": 13,
+            "joint_field_errors": 7,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 1,
+              "source": 1,
+              "relation": 0,
+              "concern": 6
+            }
+          },
+          "fixed": 709,
+          "introduced": 0
+        },
+        "origin:crossed61": {
+          "rows": 3840,
+          "v9": {
+            "binary_errors": 512,
+            "false_positive": 418,
+            "false_negative": 94,
+            "joint_field_errors": 864,
+            "field_errors": {
+              "subject": 129,
+              "time": 2,
+              "assertion": 133,
+              "source": 136,
+              "relation": 0,
+              "concern": 659
+            }
+          },
+          "candidate": {
+            "binary_errors": 1,
+            "false_positive": 0,
+            "false_negative": 1,
+            "joint_field_errors": 3,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 3
+            }
+          },
+          "fixed": 511,
+          "introduced": 0
+        },
+        "origin:generated56": {
+          "rows": 2304,
+          "v9": {
+            "binary_errors": 207,
+            "false_positive": 110,
+            "false_negative": 97,
+            "joint_field_errors": 428,
+            "field_errors": {
+              "subject": 58,
+              "time": 179,
+              "assertion": 147,
+              "source": 64,
+              "relation": 9,
+              "concern": 179
+            }
+          },
+          "candidate": {
+            "binary_errors": 12,
+            "false_positive": 0,
+            "false_negative": 12,
+            "joint_field_errors": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 2
+            }
+          },
+          "fixed": 195,
+          "introduced": 0
+        },
+        "origin:historical": {
+          "rows": 7030,
+          "v9": {
+            "binary_errors": 3,
+            "false_positive": 2,
+            "false_negative": 1,
+            "joint_field_errors": 6,
+            "field_errors": {
+              "subject": 2,
+              "time": 0,
+              "assertion": 1,
+              "source": 3,
+              "relation": 0,
+              "concern": 3
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 2,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 1,
+              "source": 1,
+              "relation": 0,
+              "concern": 1
+            }
+          },
+          "fixed": 3,
+          "introduced": 0
+        },
+        "source:authored_hesitancy_contrasts_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 1,
+            "false_positive": 1,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 1
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 1
+            }
+          },
+          "fixed": 1,
+          "introduced": 0
+        },
+        "source:authored_scope_contrasts_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:context_interventions_v8": {
+          "rows": 99,
+          "v9": {
+            "binary_errors": 1,
+            "false_positive": 1,
+            "false_negative": 0,
+            "joint_field_errors": 3,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 1,
+              "relation": 0,
+              "concern": 2
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 1,
+          "introduced": 0
+        },
+        "source:controlled-crossed-scope-composition": {
+          "rows": 3840,
+          "v9": {
+            "binary_errors": 512,
+            "false_positive": 418,
+            "false_negative": 94,
+            "joint_field_errors": 864,
+            "field_errors": {
+              "subject": 129,
+              "time": 2,
+              "assertion": 133,
+              "source": 136,
+              "relation": 0,
+              "concern": 659
+            }
+          },
+          "candidate": {
+            "binary_errors": 1,
+            "false_positive": 0,
+            "false_negative": 1,
+            "joint_field_errors": 3,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 3
+            }
+          },
+          "fixed": 511,
+          "introduced": 0
+        },
+        "source:controlled-synthetic-scope-composition": {
+          "rows": 2304,
+          "v9": {
+            "binary_errors": 207,
+            "false_positive": 110,
+            "false_negative": 97,
+            "joint_field_errors": 428,
+            "field_errors": {
+              "subject": 58,
+              "time": 179,
+              "assertion": 147,
+              "source": 64,
+              "relation": 9,
+              "concern": 179
+            }
+          },
+          "candidate": {
+            "binary_errors": 12,
+            "false_positive": 0,
+            "false_negative": 12,
+            "joint_field_errors": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 2
+            }
+          },
+          "fixed": 195,
+          "introduced": 0
+        },
+        "source:controlled_composition_v8": {
+          "rows": 1107,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:focus_boundary_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:freeform_scope_v9": {
+          "rows": 60,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 1,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 1,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:indirect_distress_v9": {
+          "rows": 1272,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:morphology_scope_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:natural_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:paired_scope_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:revision_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:scope_operators_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:temporal_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:time_scope_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:train": {
+          "rows": 3192,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:training_only_authored_paraphrases_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:training_scope_separation_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 1,
+            "false_positive": 0,
+            "false_negative": 1,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 0,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 1,
+          "introduced": 0
+        },
+        "source:v7_training_frame_projection": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        }
+      }
+    },
+    "uk": {
+      "training_rows": 15755,
+      "cached_v9_maximum_logit_error": 3.0517578125e-05,
+      "cached_v9_binary_disagreements": 0,
+      "modes": {
+        "v9": {
+          "mode": "binary",
+          "threshold": 0.6608994271813364
+        },
+        "candidate": {
+          "mode": "coupled_policy",
+          "threshold": 0.8438963330173364
+        }
+      },
+      "groups": {
+        "all": {
+          "rows": 15755,
+          "v9": {
+            "binary_errors": 759,
+            "false_positive": 148,
+            "false_negative": 611,
+            "joint_field_errors": 1097,
+            "field_errors": {
+              "subject": 291,
+              "time": 57,
+              "assertion": 251,
+              "source": 287,
+              "relation": 0,
+              "concern": 526
+            }
+          },
+          "candidate": {
+            "binary_errors": 47,
+            "false_positive": 0,
+            "false_negative": 47,
+            "joint_field_errors": 5,
+            "field_errors": {
+              "subject": 3,
+              "time": 0,
+              "assertion": 2,
+              "source": 3,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 712,
+          "introduced": 0
+        },
+        "origin:crossed61": {
+          "rows": 3840,
+          "v9": {
+            "binary_errors": 394,
+            "false_positive": 128,
+            "false_negative": 266,
+            "joint_field_errors": 686,
+            "field_errors": {
+              "subject": 221,
+              "time": 11,
+              "assertion": 98,
+              "source": 213,
+              "relation": 0,
+              "concern": 379
+            }
+          },
+          "candidate": {
+            "binary_errors": 21,
+            "false_positive": 0,
+            "false_negative": 21,
+            "joint_field_errors": 2,
+            "field_errors": {
+              "subject": 2,
+              "time": 0,
+              "assertion": 0,
+              "source": 2,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 373,
+          "introduced": 0
+        },
+        "origin:generated56": {
+          "rows": 2304,
+          "v9": {
+            "binary_errors": 365,
+            "false_positive": 20,
+            "false_negative": 345,
+            "joint_field_errors": 410,
+            "field_errors": {
+              "subject": 69,
+              "time": 46,
+              "assertion": 153,
+              "source": 73,
+              "relation": 0,
+              "concern": 147
+            }
+          },
+          "candidate": {
+            "binary_errors": 26,
+            "false_positive": 0,
+            "false_negative": 26,
+            "joint_field_errors": 3,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 2,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 339,
+          "introduced": 0
+        },
+        "origin:historical": {
+          "rows": 9611,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 0,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:authored_scope_contrasts_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:authored_uk_scope_contrasts_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:bare_distress_repair_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:context_interventions_v8": {
+          "rows": 88,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 1,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 0,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:controlled-crossed-scope-composition": {
+          "rows": 3840,
+          "v9": {
+            "binary_errors": 394,
+            "false_positive": 128,
+            "false_negative": 266,
+            "joint_field_errors": 686,
+            "field_errors": {
+              "subject": 221,
+              "time": 11,
+              "assertion": 98,
+              "source": 213,
+              "relation": 0,
+              "concern": 379
+            }
+          },
+          "candidate": {
+            "binary_errors": 21,
+            "false_positive": 0,
+            "false_negative": 21,
+            "joint_field_errors": 2,
+            "field_errors": {
+              "subject": 2,
+              "time": 0,
+              "assertion": 0,
+              "source": 2,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 373,
+          "introduced": 0
+        },
+        "source:controlled-synthetic-scope-composition": {
+          "rows": 2304,
+          "v9": {
+            "binary_errors": 365,
+            "false_positive": 20,
+            "false_negative": 345,
+            "joint_field_errors": 410,
+            "field_errors": {
+              "subject": 69,
+              "time": 46,
+              "assertion": 153,
+              "source": 73,
+              "relation": 0,
+              "concern": 147
+            }
+          },
+          "candidate": {
+            "binary_errors": 26,
+            "false_positive": 0,
+            "false_negative": 26,
+            "joint_field_errors": 3,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 2,
+              "source": 1,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 339,
+          "introduced": 0
+        },
+        "source:controlled_composition_v8": {
+          "rows": 1095,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:distress_repair_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:focus_boundary_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:freeform_scope_v9": {
+          "rows": 60,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:indirect_distress_v9": {
+          "rows": 1272,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:morphology_scope_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:natural_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:needs_repair_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:paired_scope_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:revision_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:scope_operators_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:temporal_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:time_scope_contrasts_v9": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:train": {
+          "rows": 5496,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:training_only_authored_paraphrases_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:training_scope_separation_v8": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        },
+        "source:v7_training_frame_projection": {
+          "rows": 100,
+          "v9": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "candidate": {
+            "binary_errors": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "joint_field_errors": 0,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            }
+          },
+          "fixed": 0,
+          "introduced": 0
+        }
+      }
+    }
+  },
+  "prediction_rows": 28929,
+  "predictions_sha256": "d2fd66c6f87b85c274c26124fc9333931ef85007dc9e7e8bb005580c91a3fb00",
+  "scope": "Observed TRAIN fit of fixed selected62 and original-v9 heads, with saved thresholds. No fitted or selected parameters.",
+  "cpu_only": true,
+  "encoder_loaded": false,
+  "training_launched": false,
+  "development_logits_evaluated": false,
+  "held_out_accuracy_claimed": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}
