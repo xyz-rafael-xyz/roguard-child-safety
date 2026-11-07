@@ -294,7 +294,12 @@ no paired fix/regression counts are claimed for epoch3. Training continues.
 Epoch4 has7/592 DEV errors:5 historical and2 generated. Its worst-group error
 rate remains37.5%, and epoch2 remains selected. The failed checkpoint and
 progress snapshot are retained; no per-case claims are made for this
-nonselected checkpoint. Epoch5 is running under the unchanged protocol.
+nonselected checkpoint.
+
+Epoch 5 also has 7/592 DEV errors: 5 historical and 2 generated, with the same
+37.5% worst-group error rate. Epoch 2 remains selected. The epoch 5 checkpoint
+and progress snapshot are retained without recomputing nonselected per-case
+predictions. The sixth and final epoch is running under the unchanged protocol.
 
 A CPU-only diagnostic applies the retained epoch2 head to the original bound
 frozen features:48 DEV errors, versus5 with its matching attention updates and
