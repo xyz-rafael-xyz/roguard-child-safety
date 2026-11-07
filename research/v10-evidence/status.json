@@ -1714,17 +1714,65 @@
     "preflight": "crossed-review-preflight-62/report.json",
     "token_preflight": "crossed-review-preflight-62/token-report.json",
     "sequence": "crossed-review-sequence-62/report.json",
-    "status": "running_feature_extraction",
+    "status": "completed_rejected",
     "training_inputs": 28929,
     "development_inputs": 8837,
-    "qualified": false
+    "qualified": false,
+    "source": "crossed-review-qualification-62/report.json",
+    "feature_extraction_complete": true,
+    "training_complete": true,
+    "development_totals": {
+      "rows": 8837,
+      "candidate_errors": 26,
+      "v9_errors": 310,
+      "fixed": 293,
+      "introduced": 9
+    },
+    "regression": {
+      "broad": {
+        "rows": 5022,
+        "candidate_errors": 2,
+        "v9_errors": 2,
+        "fixed": 2,
+        "introduced": 2
+      },
+      "dev": {
+        "rows": 348,
+        "candidate_errors": 1,
+        "v9_errors": 2,
+        "fixed": 1,
+        "introduced": 0
+      },
+      "challenge": {
+        "rows": 32,
+        "candidate_errors": 0,
+        "v9_errors": 0,
+        "fixed": 0,
+        "introduced": 0
+      },
+      "v9-regression": {
+        "rows": 600,
+        "candidate_errors": 2,
+        "v9_errors": 0,
+        "fixed": 0,
+        "introduced": 2
+      }
+    },
+    "challenge": {
+      "rows": 72,
+      "candidate_errors": 5,
+      "v9_errors": 7,
+      "fixed": 2,
+      "introduced": 0
+    },
+    "held_out_test_opened": false
   },
   "selected_response_runtime_63": {
     "protocol": "protocol-amendment-61.json",
     "preflight": "selected-response-runtime-preflight-63/report.json",
     "software": "selected-response-runtime-preflight-63/software-checks.json",
     "sequence": "selected-response-runtime-sequence-63/report.json",
-    "status": "queued_after_crossed_review62",
+    "status": "running_installed_verification",
     "model_source": "large_response_attention_59",
     "development_inputs": 592,
     "full_model_parity_completed": false,

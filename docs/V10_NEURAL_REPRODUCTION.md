@@ -360,10 +360,18 @@ Study62 appends these features to57 for28,929 TRAIN and8,837 DEV inputs. It
 keeps the same v9 initialization, three registered readout configurations,
 12-epoch optimization and development selection rule. Assessment separates
 historical DEV, composition56 DEV and crossed61 DEV; the original regression
-and fresh44 challenge checks remain required. The bound queue has started
-feature extraction after response59 and attention-runtime60 verification
-completed. Neither reserved TEST set
-opens unless every required preceding error/regression gate passes.
+and fresh44 challenge checks remain required. All five queued steps completed
+successfully, but the selected models are rejected. Romanian distilled epoch11
+has19 DEV errors and Ukrainian distilled epoch12 has7. Across8,837 DEV inputs,
+v9 has310 errors: the candidate fixes293 and introduces9, leaving26.
+
+The5,022-case broad regression fixes two Romanian errors but introduces two
+Ukrainian errors. Trajectory DEV has one remaining error after one fix; the
+original32-case challenge remains error-free. The600-case v9 regression gains
+two errors, and the fresh72-case challenge retains five misses after two fixes.
+Selected weight hashes, selection ranks and all paired counts were rechecked
+against retained predictions. Neither reserved TEST set was opened. These
+results fail zero-error/no-regression acceptance despite aggregate improvements.
 
 ## Selected large response package verification (study63)
 
@@ -377,7 +385,7 @@ restoration of original binary outputs and parameters after success and failure.
 Preflight confirms the installed runtime is outside the checkout, matches the
 audited source and receives exactly the bound592 DEV inputs. It rejects an
 incorrect population count and checkout shadowing, without loading an encoder.
-Full verification remains pending. A passing execution check would not qualify
+Full verification is running after the completed study62 sequence. A passing execution check would not qualify
 the model or open reserved tests or final human review.
 
 ## Queued response initialization comparison (study64)

@@ -19,11 +19,37 @@
     "training/preflight_crossed_review_v10.py": "51df6e351380ac636c21d3d3958fce25abda7413c394bf63303fd30b3e39d9db",
     "research/v10-evidence/crossed-review-preflight-62/token-report.json": "05c1046537970da819bf38683013ca49f163c6cf506078d94a30e6218f55e0c5"
   },
-  "execution_complete": false,
-  "completed_steps": [],
-  "phase": "running",
+  "execution_complete": true,
+  "completed_steps": [
+    {
+      "name": "extract-review62",
+      "exit_code": 0,
+      "seconds": 2545.5095427092165
+    },
+    {
+      "name": "fit-review62",
+      "exit_code": 0,
+      "seconds": 151.96110549988225
+    },
+    {
+      "name": "assess-review62-development",
+      "exit_code": 0,
+      "seconds": 3.41947575006634
+    },
+    {
+      "name": "evaluate-review62-regressions",
+      "exit_code": 0,
+      "seconds": 3.355749708134681
+    },
+    {
+      "name": "evaluate-review62-challenge44",
+      "exit_code": 0,
+      "seconds": 64.20378804160282
+    }
+  ],
+  "phase": "finished",
   "stable_release_ready": false,
   "promotion_performed": false,
   "dependency_report_sha256": "539b1c6e329aeddb664a26660d3c28ab4830046006da7efa6bf2497982cbbdbe",
-  "active_step": "extract-review62"
+  "active_step": null
 }

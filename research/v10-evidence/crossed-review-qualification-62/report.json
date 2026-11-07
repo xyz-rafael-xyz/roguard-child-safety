@@ -1,0 +1,167 @@
+{
+  "complete": true,
+  "decision": "REJECT",
+  "sources": {
+    "crossed-review-features-62": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+    "crossed-review-readout-62": "7da0e7bda7b0a43f37cd1043ec53dedbe70a152854dd3701e81de2853b530641",
+    "crossed-review-assessment-62": "45ff68e94310e8d0df4e3ce80d72ba7affcf5369445669ddb870ba2b2381f352",
+    "crossed-review-regression-62": "f98b67f6619df3e565efd8b6f51d922fb8fe1a50e666a63a2d3409c91386af9a",
+    "crossed-review-challenge-62": "81ba5faddbe3ac588e82b231e51a3e3e762f17cacb9f12b39ed1a70aea938efd",
+    "crossed-review-sequence-62": "e635d91be1ed0e21a2bf0ca8566b7a663e736aacba0776268887e5a5298b6c85"
+  },
+  "training_inputs": 28929,
+  "development_inputs": 8837,
+  "selected": {
+    "ro": {
+      "candidate": "large-semantic-distilled",
+      "epoch": 11,
+      "binary_errors": 19,
+      "joint_argmax_errors": 759,
+      "field_errors": [
+        59,
+        16,
+        584,
+        56,
+        3,
+        90
+      ],
+      "mean_field_cross_entropy": 0.251206927485469,
+      "mode": "coupled_policy",
+      "threshold": 0.8679165686734354,
+      "score_margin": 0.0,
+      "selection_rank": [
+        19,
+        759,
+        0.251206927485469,
+        -0.0
+      ],
+      "adapter_sha256": "010e61e135743d13fd6909ebb1499c495c7602ba5d091c1addfdea771a01f686"
+    },
+    "uk": {
+      "candidate": "large-semantic-distilled",
+      "epoch": 12,
+      "binary_errors": 7,
+      "joint_argmax_errors": 674,
+      "field_errors": [
+        33,
+        47,
+        576,
+        36,
+        0,
+        45
+      ],
+      "mean_field_cross_entropy": 0.21756544454265217,
+      "mode": "coupled_policy",
+      "threshold": 0.8438963330173364,
+      "score_margin": 0.0,
+      "selection_rank": [
+        7,
+        674,
+        0.21756544454265217,
+        -0.0
+      ],
+      "adapter_sha256": "fc8645dc9760e138f25b4d4617c81914fe063a2476b50add7293ca960fef1b13"
+    }
+  },
+  "development": {
+    "historical:ro": {
+      "rows": 2954,
+      "candidate_errors": 3,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 3
+    },
+    "generated:ro": {
+      "rows": 288,
+      "candidate_errors": 3,
+      "v9_errors": 16,
+      "fixed": 13,
+      "introduced": 0
+    },
+    "crossed:ro": {
+      "rows": 960,
+      "candidate_errors": 13,
+      "v9_errors": 169,
+      "fixed": 159,
+      "introduced": 3
+    },
+    "historical:uk": {
+      "rows": 3387,
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "generated:uk": {
+      "rows": 288,
+      "candidate_errors": 6,
+      "v9_errors": 38,
+      "fixed": 35,
+      "introduced": 3
+    },
+    "crossed:uk": {
+      "rows": 960,
+      "candidate_errors": 1,
+      "v9_errors": 87,
+      "fixed": 86,
+      "introduced": 0
+    }
+  },
+  "development_totals": {
+    "rows": 8837,
+    "candidate_errors": 26,
+    "v9_errors": 310,
+    "fixed": 293,
+    "introduced": 9
+  },
+  "regression": {
+    "broad": {
+      "rows": 5022,
+      "candidate_errors": 2,
+      "v9_errors": 2,
+      "fixed": 2,
+      "introduced": 2
+    },
+    "dev": {
+      "rows": 348,
+      "candidate_errors": 1,
+      "v9_errors": 2,
+      "fixed": 1,
+      "introduced": 0
+    },
+    "challenge": {
+      "rows": 32,
+      "candidate_errors": 0,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 0
+    },
+    "v9-regression": {
+      "rows": 600,
+      "candidate_errors": 2,
+      "v9_errors": 0,
+      "fixed": 0,
+      "introduced": 2
+    }
+  },
+  "challenge": {
+    "rows": 72,
+    "candidate_errors": 5,
+    "v9_errors": 7,
+    "fixed": 2,
+    "introduced": 0
+  },
+  "verification": {
+    "selected_weight_hashes_match": true,
+    "selected_ranks_rechecked": true,
+    "development_paired_counts_recomputed": true,
+    "regression_paired_counts_recomputed": true,
+    "challenge_paired_counts_recomputed": true,
+    "maximum_batch_single_logit_error": 1.1444091796875e-05,
+    "batch_single_decision_disagreements": 0
+  },
+  "held_out_test_opened": false,
+  "reason": "26 development errors including nine introduced errors; two broad-regression errors, one trajectory development error, two v9 regression errors, and five challenge misses. Improvements do not satisfy zero-error/no-regression acceptance.",
+  "independent_validation": false,
+  "stable_release_ready": false
+}
