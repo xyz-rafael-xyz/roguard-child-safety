@@ -962,3 +962,29 @@ curated slice is not yet admitted or fitted. A future matched fitting protocol m
 hold initialization, order, objectives and update budget constant across arms.
 Scope outside SELF/CURRENT remains an evaluation requirement. No reserved TEST,
 final-reviewer or release gate opens, and runs 65 and 73 remain unchanged.
+
+Amendment 68 registers `assertion-variation-features-78` on the curated 864-row
+TRAIN slice only: 440 Romanian and 424 Ukrainian inputs. It uses the frozen,
+released-v9 encoder and retains 2,560 features plus 19 teacher logits per input.
+Before extracting treatment inputs, it replays all 108 unique matched control
+parents against their exact cached feature positions. Feature/logit differences
+must be at most 0.001 and served binary decisions must agree. The replayed parent
+arrays are retained so that this check can be independently recounted later.
+Intentional repeated controls remain linked to their original feature indices.
+
+Preflight verifies every actual input's labels, parent position, complete factor
+cells, quoted core, preceding context, payload and token identity without loading
+an encoder. Twenty-seven tests cover source corruption, incorrect partitions,
+missing/repeated factors, process-exit guards and the completed study 73 audit's
+actual schema and current output bindings. These are preparation checks; actual
+encoder replay and feature extraction have not run.
+
+The extraction queue waits for study 73 to finish, waits briefly for its queue
+process to exit, and invokes the independent all-eight-checkpoint verifier before
+loading another encoder. A failed audit stops the queue; a successfully executed
+but scientifically rejected model remains retained. The extractor independently
+rechecks dependency completion, absent PID and the proof's source/report/protocol
+identities. Its 35 queue source bindings verify, and the live queue is waiting.
+Runs 65 and 73 remain unchanged. This registers feature extraction, not a new fit;
+a subsequent matched training protocol is still required. Author-curated labels
+remain synthetic, reserved TEST stays closed, and no release gate is satisfied.
