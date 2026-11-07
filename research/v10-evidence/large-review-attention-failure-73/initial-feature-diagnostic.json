@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "diagnostics": [
+    {
+      "run": 1,
+      "private_source_sha256": "a64664572ab4a1fdfc8b5a30732116ba7fac164194fd86eeafeff9fa22fc29d5",
+      "private_report_sha256": "6bf16e239d703f773561bed4ce75b56b0fd9eb82fa92fd80076780c7b3e26428",
+      "checked_rows": 541,
+      "case_id": "pair117-ro-dev-151",
+      "feature_index": 1473,
+      "group": "scope_dev",
+      "errors_vs_reference": {
+        "materialized": 0.00170135498046875,
+        "lazy_capture": 0.00170135498046875,
+        "fresh_prefix_materialized": 0.00170135498046875,
+        "full_forward": 0.000385284423828125
+      },
+      "errors_vs_prefix_replay": {
+        "materialized": 0.0,
+        "lazy_capture": 0.0,
+        "fresh_prefix_materialized": 0.0,
+        "full_forward": 0.001316070556640625
+      }
+    },
+    {
+      "run": 2,
+      "private_source_sha256": "a0268ede13acd303225be4e7fb99a297beb45da29f2fe66ae3b528b5a04c2a5c",
+      "private_report_sha256": "89a45c4a998d44ae6f779545de797042864f4a7e262813ee9a3a542e1c2c50fe",
+      "checked_rows": 1,
+      "case_id": "pair117-ro-dev-151",
+      "feature_index": 1473,
+      "group": "scope_dev",
+      "errors_vs_reference": {
+        "materialized": 0.00170135498046875,
+        "lazy_capture": 0.00170135498046875,
+        "fresh_prefix_materialized": 0.00170135498046875,
+        "full_forward": 0.000385284423828125,
+        "no_prefix_materialized": 0.000362396240234375,
+        "no_prefix_lazy": 0.000362396240234375
+      },
+      "errors_vs_prefix_replay": {
+        "materialized": 0.0,
+        "lazy_capture": 0.0,
+        "fresh_prefix_materialized": 0.0,
+        "full_forward": 0.001316070556640625,
+        "no_prefix_materialized": 0.001338958740234375,
+        "no_prefix_lazy": 0.001338958740234375
+      },
+      "head_decisions_sha256": "e7eab7e610e05a73c160e872306ba2f087f2282bcc8fe98b95a6c8309ec45515",
+      "head_decisions": {
+        "materialized": {
+          "maximum_logit_error_vs_initial71": 0.0010318756103515625,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.551870015944025,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "lazy_capture": {
+          "maximum_logit_error_vs_initial71": 0.0010318756103515625,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.551870015944025,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "fresh_prefix_materialized": {
+          "maximum_logit_error_vs_initial71": 0.0010318756103515625,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.551870015944025,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "full_forward": {
+          "maximum_logit_error_vs_initial71": 0.0002422332763671875,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.5520356705956232,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "no_prefix_materialized": {
+          "maximum_logit_error_vs_initial71": 0.0002422332763671875,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.5520420652410966,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "no_prefix_lazy": {
+          "maximum_logit_error_vs_initial71": 0.0002422332763671875,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.5520420652410966,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        },
+        "reference": {
+          "maximum_logit_error_vs_initial71": 9.5367431640625e-06,
+          "field_and_binary_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "reference_argmax": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "score": 0.5520874706092976,
+          "reference_score": 0.5520900609186331,
+          "decision": 0,
+          "reference_decision": 0
+        }
+      }
+    }
+  ],
+  "original_feature_tolerance": 0.001,
+  "original_initial_logit_tolerance": 0.001,
+  "original_full_replay_tolerance": 0.001,
+  "interpretation": "The first observed Romanian mismatch reproduces in isolation. Lazy versus materialized capture and a fresh prefix cache give identical results. Uncached replay and full forward are closer to the retained feature. All tested variants preserve the seven argmax outputs and fixed-threshold review decision on this one case. The source of the numerical difference and its extent across the corpus remain under investigation; one case does not validate a repair.",
+  "next_diagnostic": "large-review-replay-diagnostic-83/protocol.json",
+  "optimizer_updates": 0,
+  "training_changed": false,
+  "tolerances_changed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

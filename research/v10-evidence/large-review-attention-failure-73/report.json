@@ -1,0 +1,61 @@
+{
+  "complete": true,
+  "decision": "INITIALIZATION_FAILED_NO_TRAINING",
+  "failure": "Initial encoder differs from the bound larger feature store",
+  "failure_location": "train_large_review_attention_v10.py infer(initial_check=True), called by evaluate(0)",
+  "actual_protocol_sha256": "7e1eaef993abc111698117e3fa5314cac08b8dea66496f40eb9af3d30a78a7a5",
+  "registered_source_sha256": "2a08071aecf3c87ddd627056b1ce35611ea706c2591965adc413ca1db2376ef3",
+  "completed_training_updates": 0,
+  "saved_checkpoints": 0,
+  "initialization_completed": false,
+  "preceding65_paired_audit": "PASS",
+  "preceding65_counter_audit": "PASS",
+  "sequences": {
+    "large-review-attention-sequence-73": {
+      "phase": "step_failed",
+      "execution_complete": false,
+      "report_sha256": "8b92b8e0bbe0f013fa659dc1b148ea0695bf6b04a3947a0369624e8339c2bde3",
+      "log_sha256": "9601ab2cb6b70b0bfba24c752cfe353e423d6ecd2fcbb3c8655ddd5dd3f269c9",
+      "process_exited": true
+    },
+    "assertion-variation-features-sequence-78": {
+      "phase": "dependency_failed",
+      "execution_complete": false,
+      "report_sha256": "b6bc3ac137413914ce989177cc41cf70f2fa99cf9660697fb94082d266988cd5",
+      "log_sha256": "f2fef3519f6873143e9b19b6b0472b0a6ba51933fe50cc32b85610d6a5f85dfc",
+      "process_exited": true
+    },
+    "matched-assertion-readout-sequence-79": {
+      "phase": "dependency_failed",
+      "execution_complete": false,
+      "report_sha256": "d82c34d988f62da84bb71cbda087af4b4f4bf727e2dc7da7491966efb93059be",
+      "log_sha256": "f2fef3519f6873143e9b19b6b0472b0a6ba51933fe50cc32b85610d6a5f85dfc",
+      "process_exited": true
+    },
+    "matched-assertion-audit-sequence-80": {
+      "phase": "dependency_failed",
+      "execution_complete": false,
+      "report_sha256": "b970b93ad7d6caddf333be439bbc07294da9bc3ca4ae7edfd7010b92a3e103e8",
+      "log_sha256": "f2fef3519f6873143e9b19b6b0472b0a6ba51933fe50cc32b85610d6a5f85dfc",
+      "process_exited": true
+    },
+    "response-diversity-screen-sequence-81": {
+      "phase": "dependency_failed",
+      "execution_complete": false,
+      "report_sha256": "691693add43382e70b9ddae415661437931e19e50900095eaa184b6f2803d31f",
+      "log_sha256": "f2fef3519f6873143e9b19b6b0472b0a6ba51933fe50cc32b85610d6a5f85dfc",
+      "process_exited": true
+    },
+    "response-diversity-screen-audit-sequence-82": {
+      "phase": "dependency_failed",
+      "execution_complete": false,
+      "report_sha256": "5c50a304f8797acfd21b6b41b1f31098e256d7341e423c7f97d6a36048007c31",
+      "log_sha256": "f2fef3519f6873143e9b19b6b0472b0a6ba51933fe50cc32b85610d6a5f85dfc",
+      "process_exited": true
+    }
+  },
+  "interpretation": "The registered feature tolerance was exceeded during epoch-zero inference. No optimizer update occurred. The failure is retained and every dependent queue stopped before its work. Root cause and exact numerical discrepancy require a separate diagnostic; the tolerance and original registration remain unchanged pending investigation.",
+  "training_restarted": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

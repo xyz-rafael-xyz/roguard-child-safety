@@ -40,11 +40,17 @@
     "../../.cache/roguard-v10-training/mixed-large-response-attention-65-command.json": "856f2e0b13b548040bab1638a4daff86d8bf8bb587d4a0e8fe8b55bf23a9dea7",
     "research/v10-evidence/mixed-large-response-attention-preflight-65/execution-decision.json": "54a5ee5fc777d83f67dd6f95a6103d057bb7344432b3c93150e2c4036c5ce3ec"
   },
-  "execution_complete": false,
-  "completed_steps": [],
-  "phase": "running",
+  "execution_complete": true,
+  "completed_steps": [
+    {
+      "name": "train-mixed-large-response-attention65",
+      "exit_code": 0,
+      "seconds": 31045.685684832744
+    }
+  ],
+  "phase": "finished",
   "stable_release_ready": false,
   "promotion_performed": false,
   "dependency_report_sha256": "7a000f3ff3774e8937896f3c2247c75a8901d76f7b3ebe31391575dca37c46de",
-  "active_step": "train-mixed-large-response-attention65"
+  "active_step": null
 }

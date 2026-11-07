@@ -1872,7 +1872,7 @@
     }
   },
   "mixed_large_response_attention_65": {
-    "status": "running_training",
+    "status": "completed_rejected",
     "protocol": "protocol-amendment-63.json",
     "preflight": "mixed-large-response-attention-preflight-65/report.json",
     "comparison": "mixed-large-response-attention-preflight-65/comparison.json",
@@ -1892,19 +1892,21 @@
     "initialization_verification": "mixed-response-initialization-65/report.json",
     "initial_epoch0_arrays_bit_identical_to59": true,
     "latest_completed_epoch_observation": {
-      "epoch": 5,
-      "selected_epoch": 4,
-      "development_errors": 12,
+      "epoch": 6,
+      "selected_epoch": 6,
+      "development_errors": 11,
       "historical_errors": 4,
-      "generated_errors": 8,
-      "optimizer_updates_completed": 15360,
-      "training_presentations_completed": 122880,
-      "observation": "mixed-response-epoch5-observation-65/report.json",
-      "snapshot": "mixed-response-epoch5-observation-65/progress-snapshot.json",
-      "verification": "mixed-response-epoch5-observation-65/progress-verification.json",
-      "epoch5_per_case_predictions_replayed": false,
-      "selected_logits_unchanged_since_epoch4": true,
-      "training_continues": true,
+      "generated_errors": 7,
+      "optimizer_updates_completed": 18432,
+      "training_presentations_completed": 147456,
+      "observation": "mixed-response-epoch6-observation-65/report.json",
+      "snapshot": "mixed-response-epoch6-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch6-observation-65/selected-logits-verification.json",
+      "paired_comparison": "mixed-response-epoch6-observation-65/paired-comparison.json",
+      "selected_dev_logits_recounted": true,
+      "fixes_vs_previous_selection": 1,
+      "introductions_vs_previous_selection": 0,
+      "training_continues": false,
       "qualified": false
     },
     "second_completed_checkpoint": {
@@ -1965,7 +1967,30 @@
       "selected_dev_logits_recounted": true,
       "training_continues": true,
       "qualified": false
-    }
+    },
+    "fifth_completed_checkpoint": {
+      "epoch": 5,
+      "selected_epoch": 4,
+      "development_errors": 12,
+      "historical_errors": 4,
+      "generated_errors": 8,
+      "optimizer_updates_completed": 15360,
+      "training_presentations_completed": 122880,
+      "observation": "mixed-response-epoch5-observation-65/report.json",
+      "snapshot": "mixed-response-epoch5-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch5-observation-65/progress-verification.json",
+      "epoch5_per_case_predictions_replayed": false,
+      "selected_logits_unchanged_since_epoch4": true,
+      "training_continues": true,
+      "qualified": false
+    },
+    "decision": "REJECT",
+    "complete": true,
+    "qualification": "mixed-response-attention-qualification-65/report.json",
+    "development_errors": 11,
+    "context_errors": 7,
+    "old_diagnostic_errors": 0,
+    "selected_epoch": 6
   },
   "authored_response_screen_66": {
     "status": "complete_rejected",
@@ -2099,7 +2124,7 @@
     "qualified": false
   },
   "large_review_attention_73": {
-    "status": "registered_queued_after_response65_completion_and_audits",
+    "status": "initialization_failed",
     "amendment": "protocol-amendment-66.json",
     "preflight": "large-review-attention-preflight-73/report.json",
     "numerical_verification": "large-review-attention-preflight-73/numerical-verification.json",
@@ -2114,8 +2139,12 @@
     "registered_checkpoints": 8,
     "initialization": "selected71 heads with originalv9 attention adapters",
     "training_queue_launched": true,
-    "training_launched": false,
-    "qualified": false
+    "training_launched": true,
+    "qualified": false,
+    "completed_training_updates": 0,
+    "trained_checkpoints": 0,
+    "failure_report": "large-review-attention-failure-73/report.json",
+    "actual_protocol_sha256": "7e1eaef993abc111698117e3fa5314cac08b8dea66496f40eb9af3d30a78a7a5"
   },
   "attention_development_audit_74": {
     "status": "audit_prepared_and_saved71_outputs_recounted",
@@ -2207,7 +2236,7 @@
     "curated_training_admission_scope": "Registered79 synthetic comparison only, conditional on completed78 feature audit; no independent label validation."
   },
   "assertion_variation_features_78": {
-    "status": "registered_and_queued_after_attention73_completion_audit",
+    "status": "dependency_failed",
     "amendment": "protocol-amendment-68.json",
     "preflight": "assertion-variation-features-preflight-78/report.json",
     "tests_verification": "assertion-variation-features-preflight-78/tests-verification.json",
@@ -2223,10 +2252,11 @@
     "queue_launched": true,
     "encoder_launched": false,
     "new_model_fitting_registered": false,
-    "qualified": false
+    "qualified": false,
+    "dependency_failure_report": "large-review-attention-failure-73/report.json"
   },
   "matched_assertion_readout_79": {
-    "status": "registered_queued_after_feature78_completion_and_audit",
+    "status": "dependency_failed",
     "amendment": "protocol-amendment-69.json",
     "preflight": "matched-assertion-preflight-79/report.json",
     "tests_verification": "matched-assertion-preflight-79/tests-verification.json",
@@ -2247,10 +2277,11 @@
     "training_launched": false,
     "actual_feature78_audit_performed": false,
     "encoder_loaded": false,
-    "qualified": false
+    "qualified": false,
+    "dependency_failure_report": "large-review-attention-failure-73/report.json"
   },
   "matched_assertion_audit_80": {
-    "status": "registered_and_queued_after_completed79",
+    "status": "dependency_failed",
     "plan": "matched-assertion-audit-80/plan.json",
     "tests_verification": "matched-assertion-audit-80/tests-verification.json",
     "incomplete_dependency_guard": "matched-assertion-audit-80/incomplete-dependency-guard.json",
@@ -2263,10 +2294,11 @@
     "queue_launched": true,
     "actual_completed79_audit_performed": false,
     "encoder_loaded": false,
-    "qualified": false
+    "qualified": false,
+    "dependency_failure_report": "large-review-attention-failure-73/report.json"
   },
   "response_diversity_screen_81": {
-    "status": "registered_and_queued_after_completed_audit80",
+    "status": "dependency_failed",
     "amendment": "protocol-amendment-70.json",
     "preflight": "response-diversity-screen-preflight-81/report.json",
     "tests_verification": "response-diversity-screen-preflight-81/tests-verification.json",
@@ -2283,10 +2315,11 @@
     "screen_launched": false,
     "training_admitted": false,
     "independent_annotation": false,
-    "qualified": false
+    "qualified": false,
+    "dependency_failure_report": "large-review-attention-failure-73/report.json"
   },
   "response_diversity_screen_audit_82": {
-    "decision": "QUEUED_AFTER_COMPLETED81",
+    "decision": "DEPENDENCY_FAILED_NO_AUDIT",
     "plan": "response-diversity-screen-audit-82/plan.json",
     "verifier": "eval/verify_response_diversity_screen_v10.py",
     "tests_passed": 90,
@@ -2299,6 +2332,23 @@
     "actual_completed_screen_audited": false,
     "training_admitted": false,
     "qualified": false,
-    "scope": "Independent software recount and tokenizer replay of all retained raw outputs. A rejected machine screen can pass integrity verification. This is not independent language or semantic validation."
+    "scope": "Independent software recount and tokenizer replay of all retained raw outputs. A rejected machine screen can pass integrity verification. This is not independent language or semantic validation.",
+    "status": "dependency_failed",
+    "dependency_failure_report": "large-review-attention-failure-73/report.json"
+  },
+  "large_review_replay_diagnostic_83": {
+    "status": "running",
+    "protocol": "large-review-replay-diagnostic-83/protocol.json",
+    "source": "eval/diagnose_large_review_replay_v10.py",
+    "development_rows": 8837,
+    "population": "All DEV and first TRAIN row per source group in each language",
+    "paths": [
+      "prefix",
+      "uncached"
+    ],
+    "full_forward_checks": "First row per partition/group and numerical outliers",
+    "optimizer_updates": 0,
+    "held_out_test_opened": false,
+    "qualified": false
   }
 }

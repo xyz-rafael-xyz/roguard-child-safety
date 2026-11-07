@@ -1,0 +1,46 @@
+{
+  "complete": true,
+  "observation": "Final sixth checkpoint, captured before completion of post-selection checks.",
+  "protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "progress_snapshot_sha256": "119946483ab4c479ec927739a8277df69281f22df068029a0bc7310e008b1353",
+  "progress_verification_sha256": "407c2ed8f685be68e1d29c999e4ae8e5653ce7558253452b5cc90a77359e2caa",
+  "selected_logits_verification_sha256": "d3aafae37f71b606e44501a213b3ad0284fc5256694f3c9dbf8ee153af43f3ba",
+  "paired_comparison_sha256": "5447d8f942f5fd056fbe8f5b85227da7382adfaf528b93ccd2fbf1a63bd0cc8f",
+  "epoch": 6,
+  "selected_epoch": 6,
+  "optimizer_updates_completed": 18432,
+  "training_presentations_completed": 147456,
+  "development_rows": 592,
+  "development_errors": 11,
+  "historical_errors": 4,
+  "generated_errors": 7,
+  "selection_rank": [
+    0.25,
+    0.05,
+    11,
+    0.7875064561021837
+  ],
+  "checkpoint_sha256": "56c62a54f98cd74fa16069b631807a74540df03c87f5939f6b2ab5a14eef0ec3",
+  "retained_selected_dev_logits_sha256": "64799cff5c9be2733ecb4bf66018e5a2c6933de72d4fc17b7c493f406135fe4a",
+  "seconds": 30871.316123125143,
+  "comparison_with_previous_selection": {
+    "previous_errors": 12,
+    "current_errors": 11,
+    "fixes": 1,
+    "introductions": 0,
+    "both_wrong": 11,
+    "both_correct": 580,
+    "changed_predictions": 1,
+    "changed_groups": [
+      "generated:uk:unsupported"
+    ]
+  },
+  "interpretation": "Epoch6 fixes one generated Ukrainian unsupported-claim DEV prediction relative to epoch4 and changes no other argmax predictions. Historical errors remain four; generated errors fall to seven. Eleven errors remain, so the zero-error prerequisite is not met.",
+  "scope": "Checkpoint identity/counter verification, selected DEV-logit recount and paired comparison on the same592 exposed development rows. No new model inference, broader regression or v9-superiority claim. Final post-selection diagnostic and execution checks remain separate.",
+  "remaining_registered_passes": 0,
+  "training_updates_complete": true,
+  "post_selection_checks_complete_at_capture": false,
+  "training_settings_changed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

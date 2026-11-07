@@ -43,8 +43,26 @@
     "training/train_policy_consistent_readout_v10.py": "ed4a92b5d157fd724dfb871edccc77228098fa9b7b3b66a0ccdf6d31f7761271"
   },
   "execution_complete": false,
-  "completed_steps": [],
-  "phase": "waiting_for_encoder",
+  "completed_steps": [
+    {
+      "name": "verify-completed-response65-paired",
+      "exit_code": 0,
+      "seconds": 0.10389429097995162
+    },
+    {
+      "name": "verify-completed-response65-counters-and-exit",
+      "exit_code": 0,
+      "seconds": 0.03737579099833965
+    },
+    {
+      "name": "train-large-review-attention73",
+      "exit_code": 1,
+      "seconds": 132.50046108290553
+    }
+  ],
+  "phase": "step_failed",
   "stable_release_ready": false,
-  "promotion_performed": false
+  "promotion_performed": false,
+  "dependency_report_sha256": "c889d780f266fe09348a2d9cf0ea360cdd11e7febe3f9277e20ae50518c50368",
+  "active_step": "train-large-review-attention73"
 }
