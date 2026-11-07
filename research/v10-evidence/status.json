@@ -1892,16 +1892,19 @@
     "initialization_verification": "mixed-response-initialization-65/report.json",
     "initial_epoch0_arrays_bit_identical_to59": true,
     "latest_completed_epoch_observation": {
-      "epoch": 1,
+      "epoch": 3,
       "selected_epoch": 1,
       "development_errors": 13,
       "historical_errors": 4,
       "generated_errors": 9,
-      "optimizer_updates_completed": 3072,
-      "training_presentations_completed": 24576,
-      "observation": "mixed-response-epoch1-observation-65/report.json",
-      "snapshot": "mixed-response-epoch1-observation-65/progress-snapshot.json",
-      "verification": "mixed-response-epoch1-observation-65/selected-logits-verification.json"
+      "optimizer_updates_completed": 9216,
+      "training_presentations_completed": 73728,
+      "observation": "mixed-response-epoch3-observation-65/report.json",
+      "snapshot": "mixed-response-epoch3-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch3-observation-65/progress-verification.json",
+      "epoch3_per_case_predictions_replayed": false,
+      "training_continues": true,
+      "qualified": false
     },
     "second_completed_checkpoint": {
       "epoch": 2,
@@ -1916,6 +1919,18 @@
       "epoch2_per_case_predictions_replayed": false,
       "training_continues": true,
       "qualified": false
+    },
+    "first_completed_checkpoint": {
+      "epoch": 1,
+      "selected_epoch": 1,
+      "development_errors": 13,
+      "historical_errors": 4,
+      "generated_errors": 9,
+      "optimizer_updates_completed": 3072,
+      "training_presentations_completed": 24576,
+      "observation": "mixed-response-epoch1-observation-65/report.json",
+      "snapshot": "mixed-response-epoch1-observation-65/progress-snapshot.json",
+      "verification": "mixed-response-epoch1-observation-65/selected-logits-verification.json"
     }
   },
   "authored_response_screen_66": {
@@ -2214,6 +2229,26 @@
     "queue_launched": true,
     "actual_completed79_audit_performed": false,
     "encoder_loaded": false,
+    "qualified": false
+  },
+  "response_diversity_screen_81": {
+    "status": "registered_and_queued_after_completed_audit80",
+    "amendment": "protocol-amendment-70.json",
+    "preflight": "response-diversity-screen-preflight-81/report.json",
+    "tests_verification": "response-diversity-screen-preflight-81/tests-verification.json",
+    "guard_verification": "response-diversity-screen-preflight-81/dependency-guard-verification.json",
+    "execution_decision": "response-diversity-screen-preflight-81/execution-decision.json",
+    "queued_verification": "response-diversity-screen-preflight-81/queued-verification.json",
+    "sequence": "response-diversity-screen-sequence-81/report.json",
+    "core_drafts": 128,
+    "bilingual_families": 32,
+    "judgments_registered": 128,
+    "tests_passed": 30,
+    "maximum_query_tokens": 505,
+    "queue_launched": true,
+    "screen_launched": false,
+    "training_admitted": false,
+    "independent_annotation": false,
     "qualified": false
   }
 }

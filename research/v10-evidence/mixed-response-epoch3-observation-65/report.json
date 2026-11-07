@@ -1,0 +1,41 @@
+{
+  "complete": true,
+  "observation": "Third completed checkpoint of the continuing registered six-pass response run 65.",
+  "protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "progress_snapshot_sha256": "3950e5da37f1dc3e6b19c915b8b37b2c6febe3a4da98757ed38f98c97ee9ea96",
+  "progress_verification_sha256": "a9717b484a11c62abc0813feefff7add54c592dcf33995f7baa78b3089435ee7",
+  "verifier_source": "mixed-response-epoch1-observation-65/progress-verifier.py",
+  "verifier_sha256": "1204dd694dbb52ad114be2dab67e49ec35934dd9ac6cde414a121154908efdd8",
+  "epoch": 3,
+  "selected_epoch": 1,
+  "optimizer_updates_completed": 9216,
+  "training_presentations_completed": 73728,
+  "development_rows": 592,
+  "development_errors": 13,
+  "historical_errors": 4,
+  "generated_errors": 9,
+  "selection_rank": [
+    0.25,
+    0.05,
+    13,
+    0.8037046913966314
+  ],
+  "checkpoint_sha256": "ec04e04b34ac34e5114f4fcc65e59ecefca5621500854b11aeb3b949ae6601b7",
+  "selected_development_errors": 13,
+  "selected_selection_rank": [
+    0.25,
+    0.05,
+    13,
+    0.6300822104004897
+  ],
+  "selected_checkpoint_sha256": "45b66771e1497aeb9ce026dd6bfb7da56d5ecf2ec87df0a44cdb8bd671d324fb",
+  "seconds": 15301.074304000009,
+  "interpretation": "The first three trained checkpoints have 13 total DEV errors. Epoch 1 remains selected under the registered rank. Equal counts do not establish identical per-case decisions.",
+  "scope": "Saved checkpoint identities, metric/count consistency, selection, counters and complete log prefix. Epoch 3 was not selected; its per-case DEV logits were not retained by the registered trainer, and no separate inference is performed here.",
+  "epoch3_per_case_predictions_replayed": false,
+  "remaining_registered_passes": 3,
+  "training_continues": true,
+  "held_out_test_opened": false,
+  "training_settings_changed": false,
+  "qualified": false
+}
