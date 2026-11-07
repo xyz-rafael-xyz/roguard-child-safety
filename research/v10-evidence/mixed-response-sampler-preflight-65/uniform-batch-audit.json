@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "scope": "CPU reconstruction of deterministic registered TRAIN permutations and sample weights; no model or gradient evaluation.",
+  "source_sha256": {
+    "curriculum25": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "contrast32": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "composition54": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd"
+  },
+  "protocol_sha256": "86fcbec84ee0f912288ea416de9568c29754dfeb9f5698305352b9e20a0bc1e3",
+  "audit_source_sha256": "c31c74aab49aef01e2094859768b8564e69c25d8d5a728e65a4eab5211c1bbff",
+  "train_rows": 12884,
+  "historical_rows": 596,
+  "generated_rows": 12288,
+  "groups": {
+    "generated:ro:appropriate": {
+      "rows": 3072,
+      "sample_weight": 0.20970052480697632
+    },
+    "generated:ro:boundary": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:ro:pressure": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:ro:privacy": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:ro:unsupported": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:uk:appropriate": {
+      "rows": 3072,
+      "sample_weight": 0.20970052480697632
+    },
+    "generated:uk:boundary": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:uk:pressure": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:uk:privacy": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "generated:uk:unsupported": {
+      "rows": 768,
+      "sample_weight": 0.8388020992279053
+    },
+    "historical:ro:appropriate": {
+      "rows": 98,
+      "sample_weight": 6.573469161987305
+    },
+    "historical:ro:boundary": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:ro:pressure": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:ro:privacy": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:ro:unsupported": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:uk:appropriate": {
+      "rows": 98,
+      "sample_weight": 6.573469161987305
+    },
+    "historical:uk:boundary": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:uk:pressure": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:uk:privacy": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    },
+    "historical:uk:unsupported": {
+      "rows": 50,
+      "sample_weight": 12.883999824523926
+    }
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1114,
+        "1": 406,
+        "2": 83,
+        "3": 8
+      },
+      "no_historical_batch_fraction": 0.691495965238982,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.344451904296875,
+        "max": 5.1984758377075195
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.8206059336662292,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    },
+    {
+      "epoch": 2,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1113,
+        "1": 410,
+        "2": 80,
+        "3": 6,
+        "4": 2
+      },
+      "no_historical_batch_fraction": 0.6908752327746741,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.58945894241333,
+        "max": 6.782763481140137
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.8327133655548096,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    },
+    {
+      "epoch": 3,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1095,
+        "1": 445,
+        "2": 63,
+        "3": 7,
+        "4": 1
+      },
+      "no_historical_batch_fraction": 0.6797020484171322,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.2658140659332275,
+        "max": 5.126492977142334
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.7936460375785828,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    },
+    {
+      "epoch": 4,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1096,
+        "1": 440,
+        "2": 70,
+        "3": 4,
+        "4": 1
+      },
+      "no_historical_batch_fraction": 0.68032278088144,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.2658140659332275,
+        "max": 5.119838237762451
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.7856771945953369,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    },
+    {
+      "epoch": 5,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1104,
+        "1": 426,
+        "2": 73,
+        "3": 8
+      },
+      "no_historical_batch_fraction": 0.6852886405959032,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.2658143043518066,
+        "max": 5.1984758377075195
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.7963216304779053,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    },
+    {
+      "epoch": 6,
+      "batches": 1611,
+      "historical_rows_per_batch_histogram": {
+        "0": 1098,
+        "1": 433,
+        "2": 77,
+        "3": 3
+      },
+      "no_historical_batch_fraction": 0.6815642458100558,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.20970052480697632,
+        "p05": 0.36697593331336975,
+        "median": 0.6028890609741211,
+        "p95": 2.2658143043518066,
+        "max": 4.409659385681152
+      },
+      "sample_weight_mass_coefficient_of_variation": 0.7935231328010559,
+      "historical_share_of_raw_weight_mass": 0.49999999082151386,
+      "all_train_rows_visited_once": true
+    }
+  ],
+  "gradient_variance_measured": false,
+  "causal_failure_mechanism_established": false,
+  "training_or_label_changes": false,
+  "reserved_test_opened": false,
+  "independent_validation": false,
+  "stable_release_ready": false
+}

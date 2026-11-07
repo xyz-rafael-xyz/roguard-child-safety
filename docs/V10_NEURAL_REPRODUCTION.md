@@ -467,3 +467,33 @@ source bindings and ranks pass verification in
 `warm-response-attention-observation-64-epoch4`. Training continues into epoch5.
 This checkpoint fails acceptance; reserved TEST and final reviewer evaluation
 remain closed.
+
+## Mixed response sampler preflight (study65)
+
+A TRAIN-only audit finds no conflicting gold labels among identical or
+NFKC/case/whitespace-normalized payloads or replies across the12,884 inputs.
+This mechanical result does not establish semantic label correctness.
+Reconstruction of the registered uniform shuffles shows67.97–69.15% of batches
+contain no historical examples, despite their receiving half of aggregate raw
+sample-weight mass. No gradient variance or causal failure mechanism was measured.
+
+`training/response_sampling_v10.py` prepares a separate sampler with two TRAIN
+examples from each origin/language in every eight-example update. Every generated
+row is visited once per pass; historical strata cycle through fresh shuffled
+permutations and repeat each row20 or21 times. Within-stratum category weights
+balance the objective in expectation, not every individual update. A pass has
+3,072 updates and24,576 presentations; six passes have147,456 presentations,
+1.907 times the six-pass uniform schedule. The batch size stays eight, but actual
+memory use, runtime, gradients and accuracy are unmeasured. Repetition adds no
+new independent data and could increase overfitting.
+
+The preflight in `mixed-response-sampler-preflight-65` checks the actual bound
+TRAIN identities across six simulated passes, exact generated coverage,
+historical repetition bounds, all four strata in every update, no within-batch
+duplicates, exclusion of DEV indices, exact seeded replay and exact agreement
+with the retained CPU-only simulation. First-pass sample-weight mass coefficient
+of variation is0.166 versus0.821 for the original uniform schedule; this is a
+weight statistic, not measured gradient variance. Eighteen new sampler tests and
+two existing weighting/selection tests pass in the NumPy environment. Live64
+sources and protocols remain unchanged. No study65 training protocol has yet
+been registered and no model has been trained or qualified with this sampler.

@@ -1,0 +1,174 @@
+{
+  "complete": true,
+  "verification": "PASS",
+  "scope": "TRAIN identities, coverage, repetition, batch composition, weights and seeded replay only; no encoder or gradient execution.",
+  "sampler_source_sha256": "1772ef80e7a1059db82b9b10d25274a131bb5f792260ea64b5d9a2e1d5c11541",
+  "verification_source_sha256": "9ab7a8588f9b6b9be241da34ba7a59f9ea1c3f738e441605bfaa0a4729efcc27",
+  "source_train_sha256": {
+    "curriculum25": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "contrast32": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "composition54": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd"
+  },
+  "identity_inventory_sha256": "6d4ecd0de0316c7079d23a3c4b16b273244b3dbc84920dc77b39f98c0aad97e0",
+  "prior_simulation_sha256": "7c0ad3ca872de005af78a7a58e712c04f85d933a1ca3b7956a945cf9522ee761",
+  "train_rows": 12884,
+  "batch_size": 8,
+  "epochs": [
+    {
+      "epoch": 1,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "afb8662e76910b28f9669acafce850784a8735615ebdab08a88ef3ff72ef04f4",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.165542870759964,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 2,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "f4dded832652d6d6860b86b259f47d538eb72ca8cc92e676ce78243d633e921d",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.1666790097951889,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 3,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "66ba96454069c7becfdd2b9a71271bddaf504324f1f189f574ac1459d308f4c1",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.1653493195772171,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 4,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "1b088630f025eda9a9129e13b0b7b534f4b16207689cf083cc0ed985b3be7886",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.1624389886856079,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7270612120628357,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 5,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "c18a42380fd1b9df82d6883dc12f3c71bae6f0598732d9b7b6b37fc7a8756653",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.16324175894260406,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 6,
+      "batches": 3072,
+      "presentations": 24576,
+      "ordered_case_ids_sha256": "a7be637d9e96a64243b53b663857cb611031d8d6047e28bf9f2674cdf6336b12",
+      "all_train_rows_visited": true,
+      "all_generated_rows_visited_once": true,
+      "historical_repetitions": [
+        20,
+        21
+      ],
+      "all_batches_have_two_per_stratum": true,
+      "duplicate_examples_within_batch": false,
+      "non_train_rows_used": false,
+      "seed_replay_exact": true,
+      "prior_simulation_statistics_exact": true,
+      "sample_weight_mass_coefficient_of_variation": 0.1651051938533783,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    }
+  ],
+  "six_pass_presentations": 147456,
+  "gradient_variance_measured": false,
+  "training_launched": false,
+  "model_qualified": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}
