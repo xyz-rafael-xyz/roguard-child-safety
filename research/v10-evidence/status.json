@@ -1734,13 +1734,15 @@
     "protocol": "protocol-amendment-62.json",
     "preflight": "warm-large-response-attention-preflight-64/report.json",
     "comparison": "warm-large-response-attention-preflight-64/comparison.json",
-    "status": "prepared_not_queued",
-    "execution_requires": "Completed59 result and completion of already queued work; prioritize reserved-test qualification if59 passes preceding gates.",
+    "status": "queued_after_selected_runtime63",
+    "execution_requires": "Completed59 is rejected; wait for successful completion of already queued crossed-review62 and selected-runtime63 before loading the encoder.",
     "training_inputs": 12884,
     "development_inputs": 592,
     "epochs": 6,
     "changed_training_setting": "fresh_response_head=false",
     "training_launched": false,
-    "qualified": false
+    "qualified": false,
+    "sequence": "warm-response-attention-sequence-64/report.json",
+    "execution_decision": "warm-large-response-attention-preflight-64/execution-decision.json"
   }
 }

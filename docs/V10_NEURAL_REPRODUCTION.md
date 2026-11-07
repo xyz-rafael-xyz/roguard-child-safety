@@ -380,7 +380,7 @@ incorrect population count and checkout shadowing, without loading an encoder.
 Full verification remains pending. A passing execution check would not qualify
 the model or open reserved tests or final human review.
 
-## Prepared response initialization comparison (study64)
+## Queued response initialization comparison (study64)
 
 Amendment62 registers a controlled follow-up before the final59 result. It
 starts from the learned26 response head instead of a fresh head, while retaining
@@ -390,7 +390,11 @@ one possible contributor to the observed false-alert/missed-problem tradeoff.
 The mechanism and any improvement remain unproven.
 
 Preflight validates all input and feature bindings without loading an encoder.
-This comparison is prepared, not queued or launched. Execution requires the
-completed59 result and completion of already queued work. If59 clears its
-development and exposed-diagnostic gates, its reserved-test qualification takes
-priority. All failed results remain retained and no reviewer gate changes.
+Study59 has now completed with a rejection, satisfying the registered condition
+for this comparison. The execution decision binds that final report and frozen
+selection, the existing preflight and all training sources. Study64 is queued
+after successful completion of the existing study62 and selected-runtime63
+sequence; training has not started. The queue stops on a dependency failure or
+source change and never loads a second encoder concurrently. Every failed
+result remains retained, reserved TEST stays unopened, and no reviewer gate
+changes.
