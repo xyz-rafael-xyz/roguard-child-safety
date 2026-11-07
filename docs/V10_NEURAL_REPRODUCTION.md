@@ -676,3 +676,23 @@ have target-language, annotation-provenance or task-definition gaps. This is not
 an exhaustive availability claim. No data files are downloaded or labels mapped;
 public card previews were seen, while project reserved TEST stays unopened.
 The live65 training inputs and qualification requirements are unchanged.
+
+
+A separate preparation in `fluency-reference-preparation-68` investigates whether
+external grammar references can diagnose the pilot judge's fluency decisions.
+The pinned [UA-GEC corpus](https://github.com/grammarly/ua-gec) supplies professionally
+corrected Ukrainian text under CC-BY-4.0. A retained plan is written before corpus
+text is fetched. Its first256 TRAIN annotation files yield10 eligible pairs,
+short of the32-pair target. All256 Git blob identities are checked; all20 official
+original/corrected files for the10 selected pairs also match their Git blobs and
+contain the extracted snippets exactly once. No TEST file is fetched.
+
+The preparation is not ready for a binary naturalness benchmark. Assistant
+inspection identifies context-dependent agreement, fragment/genre issues and
+mixed single- and multi-sentence lines. A proofreader's correction does not alone
+establish a context-free natural/unnatural label. References and all limitations
+are retained without rewriting text or assigning such labels. A future judge
+diagnostic needs a registered, context-preserving reference-comparison design.
+No judge is loaded or run, no data enter65, and these grammar annotations do not
+supply independent RoGuard behavior labels. Romanian candidates inspected so far
+are synthetic or have unresolved dataset reuse terms; none is imported.
