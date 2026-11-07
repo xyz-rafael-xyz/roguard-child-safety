@@ -664,3 +664,15 @@ wording and an unclear option. Family unsupported02 retains a possible temporal
 ambiguity about prior account access. No finding establishes a causal explanation
 for judge output or independent gold correctness. No labels are changed and no
 judgment is rerun; the rejected pilot remains outside training.
+
+
+A documentation-level external-data assessment is retained in
+`external-data-assessment-67`, with pinned source revisions and private document
+snapshots. Five sources were checked; none is admitted as RoGuard-specific gold
+data. RTP-LX reports native-speaker annotations for both target languages, but
+its toxicity labels differ from RoGuard tasks and Romanian lacks completions;
+component-specific reuse terms remain unresolved. The other inspected sources
+have target-language, annotation-provenance or task-definition gaps. This is not
+an exhaustive availability claim. No data files are downloaded or labels mapped;
+public card previews were seen, while project reserved TEST stays unopened.
+The live65 training inputs and qualification requirements are unchanged.
