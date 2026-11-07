@@ -1788,7 +1788,7 @@
     "protocol": "protocol-amendment-62.json",
     "preflight": "warm-large-response-attention-preflight-64/report.json",
     "comparison": "warm-large-response-attention-preflight-64/comparison.json",
-    "status": "running_training",
+    "status": "complete_rejected",
     "execution_requires": "Completed59 is rejected; wait for successful completion of already queued crossed-review62 and selected-runtime63 before loading the encoder.",
     "training_inputs": 12884,
     "development_inputs": 592,
@@ -1799,21 +1799,21 @@
     "sequence": "warm-response-attention-sequence-64/report.json",
     "execution_decision": "warm-large-response-attention-preflight-64/execution-decision.json",
     "latest_completed_epoch_observation": {
-      "source": "warm-response-attention-observation-64-epoch5/report.json",
+      "source": "warm-large-response-attention-64/progress.json",
       "complete": true,
-      "observation_scope": "Completed epoch metrics and retained checkpoint identity; no nonselected per-case predictions recomputed.",
-      "epoch": 5,
-      "adapter_sha256": "2fb678b4a2eff4d7097296e172d351263ead70d900e8aabe345a1b289775ff55",
-      "progress_snapshot_sha256": "8acf42b17b38ef1f5f5936d66cacc6455e3bfb14e374e40b88feef6d731ad0a4",
+      "observation_scope": "All seven saved checkpoints and final selected predictions verified; nonselected epoch6 paired predictions not recomputed.",
+      "epoch": 6,
+      "adapter_sha256": "2db9ca47a4763124ea6dcb45f598bc91eed8c82c1dca92540710a70aee01f5d6",
+      "progress_snapshot_sha256": "51b059b2a65ce2af6335e36a3218af4cf1eb8ea7748911c7fcec09b5fff7fcf0",
       "training_protocol_sha256": "86fcbec84ee0f912288ea416de9568c29754dfeb9f5698305352b9e20a0bc1e3",
-      "development_errors": 15,
-      "historical_development_errors": 7,
+      "development_errors": 14,
+      "historical_development_errors": 6,
       "generated_development_errors": 8,
       "selection_rank": [
         0.25,
-        0.0875,
-        15,
-        0.9189744620062504
+        0.075,
+        14,
+        0.9173331530562947
       ],
       "selected_epoch": 0,
       "selected_development_errors": 39,
@@ -1826,8 +1826,8 @@
       ],
       "selection_rule_preserved": true,
       "paired_nonselected_errors_computed": false,
-      "training_complete": false,
-      "selection_frozen": false,
+      "training_complete": true,
+      "selection_frozen": true,
       "stable_release_ready": false
     },
     "train_only_inspection": {
@@ -1835,7 +1835,14 @@
       "wording_flag_affected_rows": 256,
       "current_training_changed": false,
       "independent_validation": false
-    }
+    },
+    "complete": true,
+    "qualification": "warm-response-attention-qualification-64/report.json",
+    "verification": "warm-response-attention-qualification-64/verification.json",
+    "report": "warm-large-response-attention-64/report.json",
+    "selected_epoch": 0,
+    "selected_development_errors": 39,
+    "selected_context_errors": 19
   },
   "mixed_response_sampler_65": {
     "status": "sampler_preflight_pass_training_protocol_registered",
@@ -1851,7 +1858,7 @@
     ],
     "presentations_per_pass": 24576,
     "six_pass_presentations": 147456,
-    "training_launched": false,
+    "training_launched": true,
     "qualified": false,
     "reserved_test_opened": false,
     "full_training_gradient_variance_measured": false,
@@ -1865,7 +1872,7 @@
     }
   },
   "mixed_large_response_attention_65": {
-    "status": "prepared_not_queued",
+    "status": "running_initialization",
     "protocol": "protocol-amendment-63.json",
     "preflight": "mixed-large-response-attention-preflight-65/report.json",
     "comparison": "mixed-large-response-attention-preflight-65/comparison.json",
@@ -1875,12 +1882,16 @@
     "epochs": 6,
     "optimizer_updates": 18432,
     "training_presentations": 147456,
-    "training_launched": false,
+    "training_launched": true,
     "qualified": false,
-    "execution_requires": "Complete and independently verify final64; launch only if its selected response still has an error or introduced regression, with sources and final execution decision hash-bound."
+    "execution_requires": "Complete and independently verify final64; launch only if its selected response still has an error or introduced regression, with sources and final execution decision hash-bound.",
+    "sequence": "mixed-response-attention-sequence-65/report.json",
+    "execution_decision": "mixed-large-response-attention-preflight-65/execution-decision.json",
+    "started_verification": "mixed-large-response-attention-preflight-65/started-verification.json",
+    "actual_protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2"
   },
   "authored_response_screen_66": {
-    "status": "prepared_not_queued",
+    "status": "complete_rejected",
     "protocol": "protocol-amendment-64.json",
     "pilot": "authored-response-pilot-66/report.json",
     "preflight": "authored-response-screen-preflight-66/report.json",
@@ -1890,11 +1901,23 @@
     "planned_language_pair_judgments": 32,
     "maximum_query_tokens": 403,
     "judge": "mlx-community/Qwen3-4B-Instruct-2507-bf16",
-    "screen_launched": false,
+    "screen_launched": true,
     "training_ready": false,
     "semantic_labels_verified": false,
     "independent_annotation": false,
     "reserved_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "sequence": "authored-response-screen-sequence-66/report.json",
+    "execution_decision": "authored-response-screen-preflight-66/execution-decision.json",
+    "retained_failed_launcher": "authored-response-screen-preflight-66/launch-attempt1.json",
+    "complete": true,
+    "report": "authored-response-screen-66/report.json",
+    "qualification": "authored-response-screen-qualification-66/report.json",
+    "verification": "authored-response-screen-qualification-66/verification.json",
+    "accepted_language_pairs": 14,
+    "accepted_bilingual_families": 5,
+    "pairs_with_label_disagreement": 10,
+    "pairs_with_fluency_rejection": 11,
+    "malformed_judgments": 0
   }
 }

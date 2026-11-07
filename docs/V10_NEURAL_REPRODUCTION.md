@@ -400,7 +400,7 @@ failure. The completed report, all protocol hashes and592 unique expected case
 identities were independently rechecked. This establishes execution fidelity;
 the model remains rejected and reserved tests and final human review stay closed.
 
-## Queued response initialization comparison (study64)
+## Completed response initialization comparison (study64)
 
 Amendment62 registers a controlled follow-up before the final59 result. It
 starts from the learned26 response head instead of a fresh head, while retaining
@@ -424,8 +424,8 @@ The first warm-head epoch has20/592 DEV errors:11 historical and9 generated.
 Its worst origin/language/category error rate is0.5, compared with0.125 at
 initialization, so the registered rule retains epoch0 despite its39 total errors.
 The epoch1 checkpoint and metrics snapshot are retained and hash-checked.
-No nonselected per-case predictions were recomputed. The six-epoch run continues;
-training and selection remain incomplete and this checkpoint fails acceptance.
+No nonselected per-case predictions were recomputed. At this observation,
+training and selection were incomplete; the checkpoint fails acceptance.
 
 The warm-head epoch2 observation has12/592 DEV errors:8 historical and4
 generated. All four generated errors have the Ukrainian unsupported gold
@@ -435,7 +435,7 @@ still loses to initialization under the unchanged rule. The checkpoint hash,
 all recorded group totals and selection rank are verified in
 `warm-response-attention-observation-64-epoch2`. This is worse than fresh-head
 study59 epoch2 (5 total errors, worst-group rate0.25) on the same DEV inputs.
-The warm-head run continues into epoch3; neither comparison qualifies, and no
+The warm-head run continued into epoch3; neither comparison qualifies, and no
 reserved TEST or reviewer evaluation is opened.
 
 Warm-head epoch3 has10/592 DEV errors:9 historical and1 generated. The total
@@ -445,7 +445,7 @@ remaining generated error has the Ukrainian unsupported gold category; no
 nonselected per-case predictions or paired transitions were recomputed.
 The retained checkpoint and full metric snapshot pass identity, count and rank
 verification in `warm-response-attention-observation-64-epoch3`. Training
-continues into epoch4, with no qualification or reserved-test access.
+continued into epoch4, with no qualification or reserved-test access.
 
 A separate TRAIN-only inspection in `response-train-inspection-64` covers192
 core drafts across both languages and four problem categories. Mechanical
@@ -464,7 +464,7 @@ to8; these are aggregate counts, not paired case transitions. Its worst-group
 error rate improves to0.25 but remains above initialization at0.125, so the
 registered rule still selects epoch0. The retained weights, full metric snapshot,
 source bindings and ranks pass verification in
-`warm-response-attention-observation-64-epoch4`. Training continues into epoch5.
+`warm-response-attention-observation-64-epoch4`. Training continued into epoch5.
 This checkpoint fails acceptance; reserved TEST and final reviewer evaluation
 remain closed.
 
@@ -500,13 +500,14 @@ training regime described below; no model has been trained or qualified with
 this sampler.
 
 
-## Prepared mixed response attention training (study65)
+## Mixed response attention training (study65)
 
 Amendment63 registers a separate fresh-head run using the tested sampler after
 study64 completes and its final result is independently checked. Launch is
 conditional on that selected response candidate still having an error or an
 introduced regression; a response-development pass instead takes priority for
-reserved evaluation. No execution decision or queued training process exists yet.
+reserved evaluation. The verified64 rejection satisfies this condition. The
+registered run has now launched after the separate66 screen completed.
 
 The separate `training/train_mixed_response_attention_v10.py` reuses the unchanged
 input loader and shared model/optimizer helpers. Data preflight confirms the same
@@ -521,11 +522,11 @@ schedule. Checkpoints record actual completed updates and presentations.
 Preflight validates source and amendment hashes without constructing an encoder.
 Seven trainer configuration/preflight tests and the20 sampler/weighting/selection
 checks pass together (27 total). These do not establish full-model forward/backward
-parity or better accuracy for65. The live64 source/checkpoint verifier still passes.
+parity or better accuracy for65. Study64 is now complete and rejected.
 No reserved TEST or final reviewer evaluation is opened.
 
 
-## Authored language pilot and prepared screen (study66)
+## Authored language pilot and screen (study66)
 
 A separate assistant-authored TRAIN-only pilot contains64 drafts in16 bilingual
 contrast families, with no topic-wrapper expansion. Mechanical checks find no
@@ -554,8 +555,8 @@ All32 judgments must agree with the intended pair labels and mark both sentences
 natural before considering later materialization; unresolved assistant-inspection
 issues also prevent it. Even agreement remains machine screening, not independent
 gold labels or v10 qualification. A separate materialization/fitting registration
-would still be required. No screen is queued or launched while64 runs; no final
-human-review stage is opened. Public source metadata explicitly identifies
+would still be required. The screen was launched only after64 completed and its
+saved predictions were verified. No final human-review stage is opened. Public source metadata explicitly identifies
 assistant authorship, not a pinned local-generator run.
 
 
@@ -564,9 +565,9 @@ The historical count rises from6 to7 relative to epoch4; the generated count
 stays8. These are aggregate counts, not paired error transitions. Its worst-group
 rate remains0.25 and the registered selection retains epoch0 (worst-group0.125).
 `warm-response-attention-observation-64-epoch5` retains the verified weight hash,
-full metric snapshot, source bindings and rank checks. The sixth and final epoch
-is running. This checkpoint fails acceptance; no reserved TEST or final human
-review is opened, and studies65/66 remain prepared but unqueued.
+full metric snapshot, source bindings and rank checks. This checkpoint fails
+acceptance; the completed six-epoch result is retained below. No reserved TEST
+or final human review is opened.
 
 
 The subsequent CPU-only diagnostic in `initial-head-gradient-audit-65` evaluates
@@ -587,3 +588,52 @@ batch means slightly different from the full objective. These observations suppo
 testing the already registered sampler; they neither establish a causal account
 of earlier failures nor predict better accuracy. No protocol, input label, model
 selection or reserved-test access changes.
+
+
+## Study64 completion and pilot-screen execution
+
+Study64 completed all six epochs in16,975.99 seconds and is rejected. Epoch6
+has14/592 DEV errors (six historical, eight generated), with worst-group rate0.25.
+All trained epochs rank below initialization under the registered worst-group
+selection rule, which freezes epoch0. Its saved predictions have3/80 historical
+DEV errors,36/512 generated DEV errors,19/120 context errors and0/10 old-diagnostic
+errors. All four populations have zero paired fixes and zero introduced errors
+relative to response head26. This is not a binary-review comparison against v9.
+
+`warm-response-attention-qualification-64` verifies all seven checkpoint identities,
+source bindings, group counts and ranks, selected weights, exact prediction/gold
+identities, probabilities, losses and paired counts. The sequence exits zero.
+Initial feature error and selected reload error are zero; maximum full/replay
+logit difference is0.000743866. These numerical checks do not qualify the failed
+model. Reserved TEST and final reviewer evaluation remain closed.
+
+The final rejection satisfies the registered prerequisites for the small66 screen
+and the separate mixed-batch65 comparison. The66 launch decision binds the final64
+report, selection and verification, source corpus, all eight judge files and
+registered screen settings. The first launcher fails before creating a sequence
+or loading a model because its repository import path is missing. Its plan, log
+and PID are retained; `launch-attempt1.json` records the failure. A new plan/log/PID
+revision supplies the runner's repository PYTHONPATH and starts the screen. No
+judgment was generated by the failed launcher, and the registered screen settings
+are unchanged. The sequence also runs a separate saved-output verifier after
+screening. None of the pilot's drafts are inputs to65.
+
+
+The66 screen and its saved-output verifier both complete successfully, but the
+pilot fails acceptance:14/32 language-pair judgments and5/16 bilingual families
+pass. Ten pairs have label disagreements and11 have fluency rejections, with
+three pairs in both sets. No judgment is malformed. The verifier checks raw
+JSON parsing, source/query hashes, intended label order, every saved decision,
+all family results and report counts. All raw judgments remain private and
+hash-bound; public verification retains the complete label/fluency outcomes.
+These are machine disagreements, not proof of which labels or language judgments
+are correct. The pilot is not trained, scaled or relabeled to obtain agreement.
+
+Study65 starts only after both66 steps exit zero and both prior processes end.
+Its36 queue bindings include the final64 rejection and verification, final66
+execution, source and input preflights, amendment and explicit execution decision.
+Actual started-protocol verification matches59's optimizer, fresh-head setting,
+prompt, labels, all input bindings and feature-input ordering, and confirms
+all current helper hashes. The registered mixed schedule has18,432 updates and
+147,456 presentations. Initial weight identity, numerical checks and accuracy
+remain to be measured by the actual run. No pilot66 drafts enter its corpus.

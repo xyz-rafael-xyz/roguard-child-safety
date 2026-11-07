@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "execution": "FAILED_BEFORE_SEQUENCE_AND_MODEL_LOAD",
+  "plan_sha256": "4502e8b7ec74dbe78dd0577e676a9efe486259e863dc0ebd4ec9dca8517b5aa0",
+  "log_sha256": "e4d6ea6fa42a082c6c6bc8a6a9caee311336119391a72e5cff489b697f11593a",
+  "sequence_pid": 18025,
+  "process_gone": true,
+  "failure": "ModuleNotFoundError: scripts; runner process lacked repository PYTHONPATH.",
+  "sequence_created": false,
+  "model_loaded": false,
+  "judgments_generated": 0,
+  "correction": "Set the runner process PYTHONPATH to repository src and root, matching its child-process plan. Retain original plan, log and PID; use a new revision plan/log/PID.",
+  "registered_screen_settings_changed": false,
+  "stable_release_ready": false
+}
