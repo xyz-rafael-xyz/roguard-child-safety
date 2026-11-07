@@ -291,6 +291,19 @@ selection rule retains epoch2. The epoch3 checkpoint and a complete progress
 snapshot are retained. Nonselected per-case predictions were not recomputed;
 no paired fix/regression counts are claimed for epoch3. Training continues.
 
+Epoch4 has7/592 DEV errors:5 historical and2 generated. Its worst-group error
+rate remains37.5%, and epoch2 remains selected. The failed checkpoint and
+progress snapshot are retained; no per-case claims are made for this
+nonselected checkpoint. Epoch5 is running under the unchanged protocol.
+
+A CPU-only diagnostic applies the retained epoch2 head to the original bound
+frozen features:48 DEV errors, versus5 with its matching attention updates and
+39 for head26. Float32/float64 decisions agree; the smallest head-only top-two
+logit margin exceeds0.74. This is a transplant of a coadapted head, not a
+separately trained candidate or an estimate of a learned causal mechanism.
+It reinforces the need to package and verify the matching adapter and head
+together. No training, selection or reserved-test access changes.
+
 ## Packaged response attention runtime (study60)
 
 `Gemma4ResponseAttentionModel` supports the selected attention-adapted response

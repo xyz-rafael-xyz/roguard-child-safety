@@ -1648,13 +1648,22 @@
       "qualified": false
     },
     "latest_completed_epoch_observation": {
-      "source": "response-attention-observation-59-epoch3/report.json",
-      "epoch": 3,
-      "development_errors": 6,
+      "source": "response-attention-observation-59-epoch4/report.json",
+      "epoch": 4,
+      "development_errors": 7,
       "historical_development_errors": 5,
-      "generated_development_errors": 1,
+      "generated_development_errors": 2,
       "selected_epoch_retained": 2,
       "training_complete": false,
+      "qualified": false
+    },
+    "epoch2_head_ablation": {
+      "source": "response-head-ablation-59-epoch2/report.json",
+      "scope": "Diagnostic transplant of coadapted head onto original frozen features.",
+      "baseline26_errors": 39,
+      "adapted_head_frozen_features_errors": 48,
+      "full_adapted_epoch2_errors": 5,
+      "training_or_selection_changed": false,
       "qualified": false
     }
   },
