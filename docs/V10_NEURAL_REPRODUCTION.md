@@ -267,9 +267,8 @@ handoff. One full encoder is active at a time.
 
 The retained epoch1 observation has19/592 DEV errors:11 historical and8
 generated, versus3 and36 for head26. Paired comparison shows36 fixes and16
-introduced errors. This checkpoint fails acceptance. Training and selection
-are still ongoing; the observation does not establish final selection,
-checkpoint reload parity or a completed accuracy assessment.
+introduced errors. This checkpoint fails acceptance. This interim observation preceded final
+selection and checkpoint reload checks; the completed result is recorded below.
 
 The error-type analysis shows a tradeoff: across592 DEV inputs, appropriate
 replies flagged as problematic fall from31 to0, while problematic replies
@@ -282,14 +281,14 @@ it fixes37 errors and introduces3. It corrects15 epoch1 mistakes while adding1
 new mistake. The remaining errors are four problematic replies called
 appropriate and one appropriate reply flagged as unsupported. Epoch2 becomes
 the provisional selection under the unchanged rule, but still fails acceptance.
-Training continues; context diagnostics, final reload and package verification
-are not yet complete.
+This interim observation preceded the completed context diagnostics and final
+reload checks below. Installed verification of this selected model remains queued.
 
 Epoch3 worsens to6/592 DEV errors:5 historical and1 generated. Its worst
 origin/language/category error rate rises from25% to37.5%, so the registered
 selection rule retains epoch2. The epoch3 checkpoint and a complete progress
 snapshot are retained. Nonselected per-case predictions were not recomputed;
-no paired fix/regression counts are claimed for epoch3. Training continues.
+no paired fix/regression counts are claimed for epoch3.
 
 Epoch4 has7/592 DEV errors:5 historical and2 generated. Its worst-group error
 rate remains37.5%, and epoch2 remains selected. The failed checkpoint and
@@ -299,7 +298,19 @@ nonselected checkpoint.
 Epoch 5 also has 7/592 DEV errors: 5 historical and 2 generated, with the same
 37.5% worst-group error rate. Epoch 2 remains selected. The epoch 5 checkpoint
 and progress snapshot are retained without recomputing nonselected per-case
-predictions. The sixth and final epoch is running under the unchanged protocol.
+predictions. Epoch 6 also has 7/592 DEV errors (5 historical and 2 generated);
+all seven checkpoints, including initialization, are retained.
+
+The completed six-epoch run rejects the selected epoch 2 model: 4/80 historical
+DEV errors, 1/512 generated DEV error, 6/120 context-diagnostic errors and 0/10
+original-diagnostic errors. Against head26 it fixes 37 DEV errors while
+introducing 3. On the context diagnostic it fixes 15 and introduces 2, compared
+with 19 baseline errors. These gains do not pass zero-error/no-regression
+acceptance. Selection was frozen before the diagnostics, and checkpoint reload
+reproduces the saved DEV logits exactly. Maximum full/replay logit difference
+is 0.0008587837219238281. The reserved test remains unopened. The final report,
+selection and model specification are retained in `large-response-attention-59`;
+installed verification of this selected model remains queued as study63.
 
 A CPU-only diagnostic applies the retained epoch2 head to the original bound
 frozen features:48 DEV errors, versus5 with its matching attention updates and

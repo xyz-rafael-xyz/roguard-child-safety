@@ -1629,7 +1629,7 @@
     "protocol": "protocol-amendment-57.json",
     "preflight": "large-response-attention-preflight-59/report.json",
     "sequence": "runtime-attention-sequence-59/report.json",
-    "status": "running",
+    "status": "completed_rejected",
     "training_inputs": 12884,
     "development_inputs": 592,
     "epochs": 6,
@@ -1648,13 +1648,13 @@
       "qualified": false
     },
     "latest_completed_epoch_observation": {
-      "source": "response-attention-observation-59-epoch5/report.json",
-      "epoch": 5,
+      "source": "large-response-attention-59/selection.json",
+      "epoch": 6,
       "development_errors": 7,
       "historical_development_errors": 5,
       "generated_development_errors": 2,
       "selected_epoch_retained": 2,
-      "training_complete": false,
+      "training_complete": true,
       "qualified": false
     },
     "epoch2_head_ablation": {
@@ -1665,6 +1665,26 @@
       "full_adapted_epoch2_errors": 5,
       "training_or_selection_changed": false,
       "qualified": false
+    },
+    "source": "large-response-attention-59/report.json",
+    "selection": "large-response-attention-59/selection.json",
+    "training_complete": true,
+    "selection_frozen": true,
+    "final_assessment": {
+      "source": "large-response-attention-59/report.json",
+      "selected_epoch": 2,
+      "historical_development_errors": 4,
+      "generated_development_errors": 1,
+      "fixed_vs_head26": 37,
+      "introduced_vs_head26": 3,
+      "context_diagnostic_errors": 6,
+      "context_fixed_vs_head26": 15,
+      "context_introduced_vs_head26": 2,
+      "original_diagnostic_errors": 0,
+      "selected_reload_maximum_logit_error": 0.0,
+      "reserved_test_opened": false,
+      "decision": "REJECT",
+      "qualified": false
     }
   },
   "response_attention_runtime_60": {
@@ -1674,7 +1694,7 @@
     "full_model_parity_completed": false,
     "model_qualified": false,
     "sequence": "response-attention-runtime-sequence-60/report.json",
-    "status": "queued_after_response59"
+    "status": "running"
   },
   "crossed_review_61": {
     "source": "crossed-review-61/report.json",
