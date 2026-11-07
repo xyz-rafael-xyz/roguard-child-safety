@@ -857,3 +857,20 @@ update log. It does not repeat encoder inference or independently validate sourc
 gold labels. Its completed73 audit has not run:65 is still training and73 remains
 queued. No training settings, labels, thresholds or qualification requirements
 change as part of this preparation.
+
+Amendment67 registers `dropout-readout-75`, a CPU-only comparison on the same
+28,929 TRAIN and8,837 DEV representations. It tests hidden dropout0,0.1 and0.3,
+holding the selected71 policy coefficients0.25 Romanian/1 Ukrainian fixed. Every
+configuration starts from the original-v9 head. The matched zero-dropout control
+uses the same initialization, objective, CPU backend, minibatches and seed as the
+corresponding71 configurations. Each configuration trains12 passes per language:
+16,308 updates and1,041,444 presentations in total, with78 retained checkpoints.
+
+Dropout acts after hidden GELU during training. Evaluation and export use the
+unchanged four-tensor128-hidden-unit head, so no runtime architecture changes.
+Ten preflight tests verify exact evaluation outputs and parameter inventory,
+seeded training masks, disabled evaluation masks and exact zero-dropout objective
+and gradients. Actual-data preflight verifies all existing feature/source bindings.
+The comparison tests an uncertain generalization hypothesis; it makes no novelty
+claim for dropout. No encoder is loaded, and65/73 remain unchanged. Zero binary
+and joint-field DEV errors remain prerequisites for broader qualification.
