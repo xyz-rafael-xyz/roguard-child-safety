@@ -1,0 +1,83 @@
+{
+  "format": "roguard-runtime-review-baseline-plan-1",
+  "experiment": "runtime-review-baseline-88",
+  "source_sha256": "7d61282563c1e09505902164c210bdf37c3e54c07cc8f7d432f6264c2adf5512",
+  "input_bindings": {
+    "input_report_sha256": "88422257a63ace9f2eb1e36d41af7921ae6ef91a28f5d2b712862cab6233f8f1",
+    "input_verification_sha256": "fcd2a3f12948d820cd34cb254c4f67a70d8a92b32bb3a105cda28e09e1ec11d0",
+    "inputs_sha256": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a",
+    "feature_report_sha256": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+    "initial_report_sha256": "bea0fe9ffc9f19691edd6bcb9f7427c09f98ceba02900207ccc15052462181a5",
+    "helpers": {
+      "training/large_review_attention_v10.py": "3611c07d7184bcc0a9331da1b0f96104371d34fa4fc2c7d6ba273bc80cb8b8ab",
+      "training/coupled_policy_loss_v10.py": "36f340d9880dba40ce28ff7319331039e811fc31579a4d7c550d5027b168b9de",
+      "training/native_fields_v9.py": "5bdd1ece3562d9105ae0a4895e45aa5d5faf915f8bce98bd3152ac72380ffb8e",
+      "training/separation_frontier_v9.py": "211d9add4add10a6ed8f8c6faab561837e41f602510549746237bb7857acfb12",
+      "training/balanced_headroom_frontier_v9.py": "28543561c75efe93082b42f88cc202934511d15795ed13c2dfab556326f309d0",
+      "src/roguard/gemma4_attention.py": "c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6",
+      "src/roguard/gemma4_review.py": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+      "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+      "src/roguard/native_fields.py": "e89eb365c7c8a586d3ab6e7aeb0697a7bf436608f5e7ac48fd57c098d2a66078",
+      "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+      "eval/run_trajectory_v10.py": "6db8b630caaaafeee2042051eb9168e8ae28ea83c2e25e5372f59651ebb6b849"
+    },
+    "ro": {
+      "feature_artifacts": {
+        "features.npy": "19823e47f6e856214a06792e9f72eba75c989b095dbf35bbbe6cb89b74a5eca8",
+        "logits.npy": "03907d092ce158042e2bcaf3681f22fa52af2b064a9783ba39f6e3e992410ab7",
+        "rows.jsonl": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351"
+      },
+      "original_weights_sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09",
+      "original_spec_sha256": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+      "initial_weights_sha256": "56224ba1937cadf11c9029bccf2d7d3851aa481ebcf8b573854936b0dc988942",
+      "initial_spec_sha256": "effdfd9e0690694d702b69040f9705ffe977aa8e50d4d56232893fd8c21a67ec",
+      "initial_dev_logits_sha256": "6dcc8d74fea88f5353f8ac56f08a800f568c320ba11ea9c4b4cb9a629477acfd"
+    },
+    "uk": {
+      "feature_artifacts": {
+        "features.npy": "765ebdf8425770c43dd6ed84f29b657472b885535b108fedef578cea4ff001fc",
+        "logits.npy": "2686bad1c4807c54b4cbf426b4e07429d51d795d825e4f4df693fe3200eb7d31",
+        "rows.jsonl": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5"
+      },
+      "original_weights_sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f",
+      "original_spec_sha256": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+      "initial_weights_sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+      "initial_spec_sha256": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27",
+      "initial_dev_logits_sha256": "056b2753f25f6ed8f9c409b186c0c7f10e8d001d2823e67e6bf024c7b64d2bf2"
+    }
+  },
+  "public": {
+    "training/extract_runtime_review_baseline_v10.py": "7d61282563c1e09505902164c210bdf37c3e54c07cc8f7d432f6264c2adf5512",
+    "training/train_large_review_attention_v10.py": "2a08071aecf3c87ddd627056b1ce35611ea706c2591965adc413ca1db2376ef3",
+    "training/shared_tail_training_v9.py": "e5c791e8c20523f7fce7dbe76a448edc1eff358245d23b4fd9cfec75d0acb7ed",
+    "tests/test_runtime_review_baseline_v10.py": "afbe00c659eb9d249a1dad3ca28ea63c0062da737e6bcadef98f131595dc3a37",
+    "eval/diagnose_large_review_replay_v10.py": "6e4da0356afc8978d2c6c06e157a6a1abe2c53ae8db26c8992c6bae929c80d4a",
+    "research/v10-evidence/large-review-replay-diagnostic-83/report.json": "3d3166015f574b20d791b9c8739b9479a1e0367efea3ae9dbd6c9b6c3ef446ff",
+    "research/v10-evidence/large-review-replay-diagnostic-83/protocol.json": "cef89c232f2ff0699258bc05783ba94bcbc968b73f11c338aa6b69bb7324b048",
+    "research/v10-evidence/large-review-replay-diagnostic-83/verification.json": "c18a1338ee5034549909891b4211a5785b84159122eb0401997c2d5c14c71d4e",
+    "research/v10-evidence/execution-layer-diagnostic-84/report.json": "bc31c4fc34156683588d8304adc3ce764730433d7e0b04a377f4b990ce76f543",
+    "research/v10-evidence/execution-layer-diagnostic-84/verification.json": "23c4610c47dc29247f8056eca4ca6e16c222d52f220dd4a97a9d7e6caab2a69d",
+    "research/v10-evidence/matched-assertion-readout-86/report.json": "5254d6354ffefd036147a9a43a67c5c23840f2f3566b6804907be7eaa7da0f4b",
+    "research/v10-evidence/matched-assertion-audit-87/verification.json": "d368a080f30b9b1df900c77df65f87b9fec646bc130300980c767354c2b9ba59"
+  },
+  "runtime_reference_hashes": {
+    "ro": "32fe52ff0f5e2a86a2f88cc257e951cc7d35e4812a7c9ad2897001c2f9f920df",
+    "uk": "fda2205f83693bebf66629fa7d0b61e67175a1bca1b99445309d1b46b84f053e"
+  },
+  "rows": 37766,
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "native_replay_tolerance": 0.001,
+  "warm_start_logit_tolerance": 1e-05,
+  "runtime_score_tolerance": 1e-10,
+  "motivation": "Matched86 completes715032 presentations but its wording treatment has25 binary DEV errors versus19 for controls. Frozen-head wording augmentation is insufficient in this experiment. Before a new attention fit, rebuild uniform fixed-prefix references instead of comparing batch-one runtime representations against a heterogeneous historical feature cache.",
+  "path": "Original-v9 body and head, batch-one387-token prefix capture/replay exactly as served by the experimental runtime. Independent native cached-suffix full forward on EVERY row; direct engine.scores on every partition/source-group first row.",
+  "comparisons": "Every DEV selected71-head logit must match the retained83 prefix-execution reference within1e-5. Every row must pass cached-native versus replay feature parity within the unchanged1e-3 tolerance. Retain historical feature differences and original-v9 binary decision changes explicitly. Historical mixed-batch feature agreement and uncached-native agreement are not asserted or relabeled as passing.",
+  "outputs": "Retain fresh2560 features,19 original-v9 teacher logits, every DEV warm-start71 logit, exact original metadata, and per-row discrepancy observations. Recheck all source/input hashes at completion.",
+  "data_policy": "Exactly the unchanged72/62 TRAIN and exposedDEV inputs. No TEST, newly generated rows, reannotation, reviewer contact or optimizer updates. The generation expansion and failed86 remain retained.",
+  "qualification": "Reference extraction only; never qualifies a model. Original accuracy, no-regression, joint-set, response, sealed-evaluation, reviewer and runtime requirements remain. A separately registered attention experiment is required before fitting. Failed73 and divergent native execution evidence remain visible.",
+  "resources": "One full encoder at a time; previous84/85 encoder processes must have exited before launch. Preserve8GiB disk reserve; no overwrite or automatic restart.",
+  "training_performed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

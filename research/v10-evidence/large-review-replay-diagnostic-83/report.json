@@ -1,0 +1,509 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "complete": true,
+      "development_rows": 4202,
+      "training_probes": 20,
+      "checked": 4222,
+      "full_forward_checks": 76,
+      "paths": {
+        "prefix": {
+          "maximum_feature_error": 0.0018846988677978516,
+          "feature_tolerance_failures": 3,
+          "maximum_dev_logit_error": 0.0011782646179199219,
+          "dev_logit_tolerance_failures": 2,
+          "dev_field_or_binary_argmax_changes": 0,
+          "dev_fixed_threshold_decision_changes": 0,
+          "maximum_full_replay_error": 0.14516901969909668,
+          "full_replay_tolerance_failures": 40,
+          "summary": {
+            "binary_errors": 17,
+            "joint_argmax_errors": 746,
+            "field_errors": [
+              57,
+              16,
+              585,
+              58,
+              1,
+              81
+            ],
+            "mean_field_cross_entropy": 0.2495651045169901,
+            "mode": "coupled_policy",
+            "threshold": 0.8824145967571901,
+            "score_margin": 0.0,
+            "selection_rank": [
+              17,
+              746,
+              0.2495651045169901,
+              -0.0
+            ],
+            "fixed_v9": 173,
+            "introduced_v9": 5,
+            "groups": {
+              "controlled-crossed-scope-composition": {
+                "rows": 960,
+                "errors": 11,
+                "introduced": 1
+              },
+              "controlled-synthetic-scope-composition": {
+                "rows": 288,
+                "errors": 2,
+                "introduced": 0
+              },
+              "conversational": {
+                "rows": 458,
+                "errors": 0,
+                "introduced": 0
+              },
+              "formal": {
+                "rows": 2000,
+                "errors": 3,
+                "introduced": 3
+              },
+              "grounding_dev": {
+                "rows": 120,
+                "errors": 0,
+                "introduced": 0
+              },
+              "referent_dev": {
+                "rows": 52,
+                "errors": 0,
+                "introduced": 0
+              },
+              "scope_dev": {
+                "rows": 180,
+                "errors": 1,
+                "introduced": 1
+              },
+              "transition_dev": {
+                "rows": 144,
+                "errors": 0,
+                "introduced": 0
+              }
+            }
+          },
+          "initial_error_counts_equal": true
+        },
+        "uncached": {
+          "maximum_feature_error": 0.14518356323242188,
+          "feature_tolerance_failures": 46,
+          "maximum_dev_logit_error": 0.05831480026245117,
+          "dev_logit_tolerance_failures": 3,
+          "dev_field_or_binary_argmax_changes": 0,
+          "dev_fixed_threshold_decision_changes": 0,
+          "maximum_full_replay_error": 0.00016021728515625,
+          "full_replay_tolerance_failures": 0,
+          "summary": {
+            "binary_errors": 17,
+            "joint_argmax_errors": 746,
+            "field_errors": [
+              57,
+              16,
+              585,
+              58,
+              1,
+              81
+            ],
+            "mean_field_cross_entropy": 0.24956517025428002,
+            "mode": "coupled_policy",
+            "threshold": 0.8824150440815719,
+            "score_margin": 0.0,
+            "selection_rank": [
+              17,
+              746,
+              0.24956517025428002,
+              -0.0
+            ],
+            "fixed_v9": 173,
+            "introduced_v9": 5,
+            "groups": {
+              "controlled-crossed-scope-composition": {
+                "rows": 960,
+                "errors": 11,
+                "introduced": 1
+              },
+              "controlled-synthetic-scope-composition": {
+                "rows": 288,
+                "errors": 2,
+                "introduced": 0
+              },
+              "conversational": {
+                "rows": 458,
+                "errors": 0,
+                "introduced": 0
+              },
+              "formal": {
+                "rows": 2000,
+                "errors": 3,
+                "introduced": 3
+              },
+              "grounding_dev": {
+                "rows": 120,
+                "errors": 0,
+                "introduced": 0
+              },
+              "referent_dev": {
+                "rows": 52,
+                "errors": 0,
+                "introduced": 0
+              },
+              "scope_dev": {
+                "rows": 180,
+                "errors": 1,
+                "introduced": 1
+              },
+              "transition_dev": {
+                "rows": 144,
+                "errors": 0,
+                "introduced": 0
+              }
+            }
+          },
+          "initial_error_counts_equal": true
+        }
+      },
+      "reference_summary": {
+        "binary_errors": 17,
+        "joint_argmax_errors": 746,
+        "field_errors": [
+          57,
+          16,
+          585,
+          58,
+          1,
+          81
+        ],
+        "mean_field_cross_entropy": 0.24956508522717843,
+        "mode": "coupled_policy",
+        "threshold": 0.8824137277018487,
+        "score_margin": 0.0,
+        "selection_rank": [
+          17,
+          746,
+          0.24956508522717843,
+          -0.0
+        ],
+        "fixed_v9": 173,
+        "introduced_v9": 5,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 11,
+            "introduced": 1
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 2,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 458,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 3,
+            "introduced": 3
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        }
+      },
+      "artifacts": {
+        "ro-observations.jsonl": "2dd67e995a008e5be44470f2a0990066f8ad4cd101325faecc47489128a758f5",
+        "ro-prefix-dev-logits.npy": "32fe52ff0f5e2a86a2f88cc257e951cc7d35e4812a7c9ad2897001c2f9f920df",
+        "ro-uncached-dev-logits.npy": "e69f972a96f2112f5e8c55d404254e3ddb8310e8938f8adffd15e07b9203baf6"
+      }
+    },
+    "uk": {
+      "complete": true,
+      "development_rows": 4635,
+      "training_probes": 23,
+      "checked": 4658,
+      "full_forward_checks": 35,
+      "paths": {
+        "prefix": {
+          "maximum_feature_error": 0.0038003921508789062,
+          "feature_tolerance_failures": 1,
+          "maximum_dev_logit_error": 0.0016388893127441406,
+          "dev_logit_tolerance_failures": 1,
+          "dev_field_or_binary_argmax_changes": 0,
+          "dev_fixed_threshold_decision_changes": 0,
+          "maximum_full_replay_error": 0.0010328292846679688,
+          "full_replay_tolerance_failures": 1,
+          "summary": {
+            "binary_errors": 2,
+            "joint_argmax_errors": 645,
+            "field_errors": [
+              34,
+              46,
+              578,
+              32,
+              0,
+              20
+            ],
+            "mean_field_cross_entropy": 0.22575400020138114,
+            "mode": "coupled_policy",
+            "threshold": 0.9274289100413864,
+            "score_margin": 0.0,
+            "selection_rank": [
+              2,
+              645,
+              0.22575400020138114,
+              -0.0
+            ],
+            "fixed_v9": 124,
+            "introduced_v9": 1,
+            "groups": {
+              "controlled-crossed-scope-composition": {
+                "rows": 960,
+                "errors": 1,
+                "introduced": 0
+              },
+              "controlled-synthetic-scope-composition": {
+                "rows": 288,
+                "errors": 0,
+                "introduced": 0
+              },
+              "conversational": {
+                "rows": 387,
+                "errors": 0,
+                "introduced": 0
+              },
+              "formal": {
+                "rows": 2000,
+                "errors": 0,
+                "introduced": 0
+              },
+              "grounding_dev": {
+                "rows": 120,
+                "errors": 0,
+                "introduced": 0
+              },
+              "referent_dev": {
+                "rows": 52,
+                "errors": 0,
+                "introduced": 0
+              },
+              "reported_support_dev": {
+                "rows": 288,
+                "errors": 0,
+                "introduced": 0
+              },
+              "scope_dev": {
+                "rows": 180,
+                "errors": 1,
+                "introduced": 1
+              },
+              "stress": {
+                "rows": 216,
+                "errors": 0,
+                "introduced": 0
+              },
+              "transition_dev": {
+                "rows": 144,
+                "errors": 0,
+                "introduced": 0
+              }
+            }
+          },
+          "initial_error_counts_equal": true
+        },
+        "uncached": {
+          "maximum_feature_error": 0.0030241012573242188,
+          "feature_tolerance_failures": 2,
+          "maximum_dev_logit_error": 0.0013833045959472656,
+          "dev_logit_tolerance_failures": 1,
+          "dev_field_or_binary_argmax_changes": 0,
+          "dev_fixed_threshold_decision_changes": 0,
+          "maximum_full_replay_error": 0.00014495849609375,
+          "full_replay_tolerance_failures": 0,
+          "summary": {
+            "binary_errors": 2,
+            "joint_argmax_errors": 645,
+            "field_errors": [
+              34,
+              46,
+              578,
+              32,
+              0,
+              20
+            ],
+            "mean_field_cross_entropy": 0.22575390154845273,
+            "mode": "coupled_policy",
+            "threshold": 0.9274256939152736,
+            "score_margin": 0.0,
+            "selection_rank": [
+              2,
+              645,
+              0.22575390154845273,
+              -0.0
+            ],
+            "fixed_v9": 124,
+            "introduced_v9": 1,
+            "groups": {
+              "controlled-crossed-scope-composition": {
+                "rows": 960,
+                "errors": 1,
+                "introduced": 0
+              },
+              "controlled-synthetic-scope-composition": {
+                "rows": 288,
+                "errors": 0,
+                "introduced": 0
+              },
+              "conversational": {
+                "rows": 387,
+                "errors": 0,
+                "introduced": 0
+              },
+              "formal": {
+                "rows": 2000,
+                "errors": 0,
+                "introduced": 0
+              },
+              "grounding_dev": {
+                "rows": 120,
+                "errors": 0,
+                "introduced": 0
+              },
+              "referent_dev": {
+                "rows": 52,
+                "errors": 0,
+                "introduced": 0
+              },
+              "reported_support_dev": {
+                "rows": 288,
+                "errors": 0,
+                "introduced": 0
+              },
+              "scope_dev": {
+                "rows": 180,
+                "errors": 1,
+                "introduced": 1
+              },
+              "stress": {
+                "rows": 216,
+                "errors": 0,
+                "introduced": 0
+              },
+              "transition_dev": {
+                "rows": 144,
+                "errors": 0,
+                "introduced": 0
+              }
+            }
+          },
+          "initial_error_counts_equal": true
+        }
+      },
+      "reference_summary": {
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mean_field_cross_entropy": 0.225754005720482,
+        "mode": "coupled_policy",
+        "threshold": 0.9274248149759536,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          645,
+          0.225754005720482,
+          -0.0
+        ],
+        "fixed_v9": 124,
+        "introduced_v9": 1,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 1,
+            "introduced": 0
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 387,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 0,
+            "introduced": 0
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "reported_support_dev": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "stress": {
+            "rows": 216,
+            "errors": 0,
+            "introduced": 0
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        }
+      },
+      "artifacts": {
+        "uk-observations.jsonl": "4e76f97d92f9d9120ec374d8953e3e4b97374e4728cb9a2bcc7d0261a8bf7b15",
+        "uk-prefix-dev-logits.npy": "fda2205f83693bebf66629fa7d0b61e67175a1bca1b99445309d1b46b84f053e",
+        "uk-uncached-dev-logits.npy": "a3fc11967d1c3991558b195f0ca571458c0bf4ff5a7d19c6888da64a7e73b396"
+      }
+    }
+  },
+  "optimizer_updates": 0,
+  "training_changed": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "seconds": 10169.921539792325,
+  "decision": "DIAGNOSTIC_ONLY_NO_MODEL_QUALIFICATION"
+}

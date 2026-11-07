@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "report_sha256": "bc31c4fc34156683588d8304adc3ce764730433d7e0b04a377f4b990ce76f543",
+  "verification_sha256": "23c4610c47dc29247f8056eca4ca6e16c222d52f220dd4a97a9d7e6caab2a69d",
+  "cases": 14,
+  "observations": [
+    "All selected capture boundaries matched the corresponding native layer23 final token exactly.",
+    "All four instrumented paths matched their uninstrumented outputs exactly.",
+    "Within each execution path, final-token replay matched native inference within the unchanged0.001 tolerance on all14 selected cases.",
+    "Native cached versus native uncached differences reproduce the large discrepancy. This localizes it outside the replay-only operation; the underlying numerical cause is not established.",
+    "The actual packaged experimental Gemma4 engine uses the fixed-prefix capture/replay path for these inputs. Historical features include differently batched extraction paths.",
+    "This does not repair failed73 initialization, eliminate19 binary/1391 joint DEV errors, or qualify v10."
+  ],
+  "largest_native_discrepancy": {
+    "language": "ro",
+    "feature_index": 16497,
+    "tokens": 508,
+    "native_cached_vs_uncached": 0.14517581462860107,
+    "replay_errors": {
+      "prefix": 5.7220458984375e-05,
+      "full": 7.82012939453125e-05
+    },
+    "first_hidden_layer_above_001": 23,
+    "layer28_hidden_difference": 0.08055830001831055,
+    "layer30_hidden_difference": 0.4503326416015625
+  },
+  "scope": "14 deterministically selected exposedDEV cases, including first controls and worst prior discrepancies. Not an all-input equivalence proof. No tolerance increase, weights update, TEST access or promotion.",
+  "next_experiment": "Separately registered85 extracts the already curated864 TRAIN wording variants using frozen v9, with all108 parent anchors retaining existing0.001 feature/logit tolerances and exact binary decisions;86 performs matched CPU training only after the feature audit passes.",
+  "qualified": false
+}

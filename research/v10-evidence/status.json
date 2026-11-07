@@ -860,8 +860,8 @@
     "Run all baselines on the independent population"
   ],
   "software_verification": {
-    "passed_tests": 1196,
-    "skipped_optional_tests": 84,
+    "passed_tests": 1566,
+    "skipped_optional_tests": 187,
     "passed_subtests": 129,
     "studio_note": "Full local suite completed in one run with loopback access",
     "installed_wheel_smoke_python": [
@@ -871,7 +871,7 @@
     ],
     "wheel_sha256": "7a51771a2a7f32a5d55de27d8e15cb11a593edff5e5675f0fef5414d748adecd",
     "host": "macOS arm64",
-    "cross_platform_ci": "Both hosted runs for 313b453 pass all16 jobs; the stronger response gate awaits its own CI run.",
+    "cross_platform_ci": "Both runs for a341039 passed all32 jobs. New continuation code awaits its own exact-commit CI checks.",
     "wheel_published": false,
     "legacy_encoding_cli_smoke": true,
     "durable_session_tests": 16,
@@ -885,7 +885,10 @@
       "uk"
     ],
     "response_gate_verification": "response-gate-software/report.json",
-    "wheel_note": "Earlier wheel_sha256 binds the neural integration check; response_gate_verification binds the subsequent portable gate wheel separately."
+    "wheel_note": "Earlier wheel_sha256 binds the neural integration check; response_gate_verification binds the subsequent portable gate wheel separately.",
+    "latest_suite_seconds": 36.91,
+    "additional_runtime_baseline_and_layer_tests_passed": 7,
+    "latest_full_suite_scope": "Full1566-test suite preceded the new baseline88 extractor; its numerical safeguards and actual tiny-Gemma layer checks subsequently passed7 tests."
   },
   "interpretation": "All current model populations are exposed synthetic engineering evidence. No independent validation, measured child benefit, universal perfection or release qualification is established.",
   "calibration_overlap_audit": {
@@ -2233,7 +2236,7 @@
     "encoder_loaded": false,
     "independent_language_or_label_validation": false,
     "qualified": false,
-    "curated_training_admission_scope": "Registered79 synthetic comparison only, conditional on completed78 feature audit; no independent label validation."
+    "curated_training_admission_scope": "Originally registered79 did not run. Separately registered86 synthetic comparison follows completed85 feature audit PASS; no independent label validation."
   },
   "assertion_variation_features_78": {
     "status": "dependency_failed",
@@ -2337,7 +2340,7 @@
     "dependency_failure_report": "large-review-attention-failure-73/report.json"
   },
   "large_review_replay_diagnostic_83": {
-    "status": "running",
+    "status": "complete",
     "protocol": "large-review-replay-diagnostic-83/protocol.json",
     "source": "eval/diagnose_large_review_replay_v10.py",
     "development_rows": 8837,
@@ -2348,6 +2351,99 @@
     ],
     "full_forward_checks": "First row per partition/group and numerical outliers",
     "optimizer_updates": 0,
+    "held_out_test_opened": false,
+    "qualified": false,
+    "report": "large-review-replay-diagnostic-83/report.json",
+    "verification": "large-review-replay-diagnostic-83/verification.json",
+    "training_probes": 43,
+    "actual_full_forward_checks": 111,
+    "binary_errors_unchanged": 19,
+    "joint_argmax_errors_unchanged": 1391,
+    "argmax_changes": 0,
+    "fixed_threshold_decision_changes": 0
+  },
+  "execution_layer_diagnostic_84": {
+    "status": "complete",
+    "report": "execution-layer-diagnostic-84/report.json",
+    "verification": "execution-layer-diagnostic-84/verification.json",
+    "findings": "execution-layer-diagnostic-84/findings.json",
+    "selected_development_cases": 14,
+    "maximum_within_path_replay_error": 0.00016021728515625,
+    "maximum_native_cached_uncached_error": 0.14517581462860107,
+    "maximum_instrumentation_error": 0.0,
+    "optimizer_updates": 0,
+    "qualified": false
+  },
+  "assertion_variation_features_85": {
+    "status": "complete_verified",
+    "amendment": "protocol-amendment-71.json",
+    "report": "assertion-variation-features-85/report.json",
+    "verification": "assertion-variation-features-85/verification.json",
+    "continued_from": 78,
+    "treatment_rows": 864,
+    "unique_control_parents": 108,
+    "parent_binary_decision_disagreements": 0,
+    "maximum_parent_feature_error": 0.0002219676971435547,
+    "maximum_parent_logit_error": 5.7220458984375e-05,
+    "training_performed": false,
+    "qualified": false
+  },
+  "matched_assertion_readout_86": {
+    "status": "complete_rejected",
+    "amendment": "protocol-amendment-72.json",
+    "preflight": "matched-assertion-preflight-86/report.json",
+    "preflight_verification": "matched-assertion-preflight-86/verification.json",
+    "continued_from": 79,
+    "training_rows_per_arm": 29793,
+    "development_rows": 8837,
+    "arms": 2,
+    "epochs_per_arm": 12,
+    "registered_updates": 11184,
+    "registered_presentations": 715032,
+    "registered_checkpoints": 52,
+    "training_launched": true,
+    "actual_feature85_audit_performed": true,
+    "encoder_loaded": false,
+    "held_out_test_opened": false,
+    "qualified": false,
+    "report": "matched-assertion-readout-86/report.json",
+    "binary_errors": 19,
+    "joint_argmax_errors": 1368,
+    "selected_arm": {
+      "ro": "matched-control",
+      "uk": "matched-control"
+    },
+    "treatment_binary_errors": 25,
+    "treatment_joint_argmax_errors": 1330
+  },
+  "matched_assertion_audit_87": {
+    "status": "complete_verified_rejected",
+    "plan": "matched-assertion-audit-87/plan.json",
+    "preflight": "matched-assertion-audit-87/preflight.json",
+    "continued_from": 80,
+    "checkpoint_heads": 52,
+    "checkpoint_dev_predictions": 229762,
+    "paired_dev_rows": 8837,
+    "tests_passed": 48,
+    "actual_completed86_audit_performed": true,
+    "encoder_loaded": false,
+    "qualified": false,
+    "verification": "matched-assertion-audit-87/verification.json",
+    "paired_predictions": "matched-assertion-audit-87/paired-dev.jsonl",
+    "maximum_checkpoint_replay_error": 0.0
+  },
+  "runtime_review_baseline_88": {
+    "status": "running",
+    "amendment": "protocol-amendment-73.json",
+    "preflight": "runtime-review-baseline-preflight-88/report.json",
+    "source": "training/extract_runtime_review_baseline_v10.py",
+    "rows": 37766,
+    "training_rows": 28929,
+    "development_rows": 8837,
+    "native_cached_forward_checks_planned": 37766,
+    "native_replay_tolerance": 0.001,
+    "warm_start_reference_tolerance": 1e-05,
+    "training_performed": false,
     "held_out_test_opened": false,
     "qualified": false
   }
