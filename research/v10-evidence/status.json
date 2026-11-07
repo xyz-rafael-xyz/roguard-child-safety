@@ -1838,7 +1838,7 @@
     }
   },
   "mixed_response_sampler_65": {
-    "status": "sampler_preflight_pass_training_not_registered",
+    "status": "sampler_preflight_pass_training_protocol_registered",
     "source": "mixed-response-sampler-preflight-65/report.json",
     "sampler": "training/response_sampling_v10.py",
     "train_rows": 12884,
@@ -1855,5 +1855,20 @@
     "gradient_variance_measured": false,
     "qualified": false,
     "reserved_test_opened": false
+  },
+  "mixed_large_response_attention_65": {
+    "status": "prepared_not_queued",
+    "protocol": "protocol-amendment-63.json",
+    "preflight": "mixed-large-response-attention-preflight-65/report.json",
+    "comparison": "mixed-large-response-attention-preflight-65/comparison.json",
+    "trainer": "training/train_mixed_response_attention_v10.py",
+    "training_inputs": 12884,
+    "development_inputs": 592,
+    "epochs": 6,
+    "optimizer_updates": 18432,
+    "training_presentations": 147456,
+    "training_launched": false,
+    "qualified": false,
+    "execution_requires": "Complete and independently verify final64; launch only if its selected response still has an error or introduced regression, with sources and final execution decision hash-bound."
   }
 }

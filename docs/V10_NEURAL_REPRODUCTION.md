@@ -495,5 +495,31 @@ with the retained CPU-only simulation. First-pass sample-weight mass coefficient
 of variation is0.166 versus0.821 for the original uniform schedule; this is a
 weight statistic, not measured gradient variance. Eighteen new sampler tests and
 two existing weighting/selection tests pass in the NumPy environment. Live64
-sources and protocols remain unchanged. No study65 training protocol has yet
-been registered and no model has been trained or qualified with this sampler.
+sources and protocols remain unchanged. Amendment63 now registers the proposed
+training regime described below; no model has been trained or qualified with
+this sampler.
+
+
+## Prepared mixed response attention training (study65)
+
+Amendment63 registers a separate fresh-head run using the tested sampler after
+study64 completes and its final result is independently checked. Launch is
+conditional on that selected response candidate still having an error or an
+introduced regression; a response-development pass instead takes priority for
+reserved evaluation. No execution decision or queued training process exists yet.
+
+The separate `training/train_mixed_response_attention_v10.py` reuses the unchanged
+input loader and shared model/optimizer helpers. Data preflight confirms the same
+12,884 TRAIN and592 DEV identities and all11 input bindings as59. The optimizer
+configuration and fresh-head setting match59. Source comparison confirms unchanged
+inference, weighted-loss calculation and paired diagnostic functions. Sampling,
+weights, historical repetition and update count change, so this compares training
+regimes rather than isolating a causal effect of batch variance. The six passes
+contain18,432 updates; warmup and decay use the same fractions over this longer
+schedule. Checkpoints record actual completed updates and presentations.
+
+Preflight validates source and amendment hashes without constructing an encoder.
+Seven trainer configuration/preflight tests and the20 sampler/weighting/selection
+checks pass together (27 total). These do not establish full-model forward/backward
+parity or better accuracy for65. The live64 source/checkpoint verifier still passes.
+No reserved TEST or final reviewer evaluation is opened.

@@ -1,0 +1,32 @@
+{
+  "complete": true,
+  "verification": "PASS",
+  "source_sha256": "4665bec42581273d05ec0ac9dec8f775083a667efdda1c749ca9b560c8a7a4dd",
+  "reference_source_sha256": "85da17a59a94497c4e3880b09cf45359a81c570a2134d3b8bf6115698bf98d57",
+  "reference_protocol_sha256": "fb22a79938232dc3cdb7cc3160182cc84b389237cb9947ad323d83cbd5a77155",
+  "amendment_sha256": "6ab6c0e254b4edb3b4d7eba716da18f171fb684211084f67df76012cf748ebfd",
+  "preflight_sha256": "18d0d1e6fd8488c358ddfca78cc6eb7710f2602f9c0bcc11212d5331f16a3f2c",
+  "same_optimizer_configuration": true,
+  "same_fresh_head_initialization_setting": true,
+  "same_all_input_bindings": true,
+  "unchanged_reference_helper_sources": true,
+  "retained_registration_bindings_verified": true,
+  "source_equivalent_core_functions": {
+    "infer": true,
+    "loss_fn": true,
+    "evaluate": true
+  },
+  "scope_limit": "Source/configuration equivalence and data preflight, not numerical forward/backward or accuracy verification of the new trainer.",
+  "changed_training_regime": [
+    "four origin/language strata in each batch",
+    "historical repetition",
+    "within-stratum sample weights",
+    "more updates and longer warmup/decay schedule"
+  ],
+  "registered_updates": 18432,
+  "registered_presentations": 147456,
+  "training_launched": false,
+  "model_qualified": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

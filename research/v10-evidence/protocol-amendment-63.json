@@ -1,0 +1,40 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "mixed-large-response-attention-65",
+  "motivation": "Study59 completes with errors and regressions; current64 also has errors through epoch4. TRAIN-only reconstruction shows 67.97\u201369.15% of uniform batches omit historical data despite its half-share of raw objective weight mass. Test a mixed-origin/language schedule; neither gradient variance nor a causal failure mechanism has been measured.",
+  "fresh_response_head": true,
+  "data": "Exactly12884 TRAIN and592 DEV rows bound to completed55, including all12288 generated TRAIN variants. Preserve frame/topic partitions; generated counts are correlated expansions of192 TRAIN core sentences. No new gold labels or TEST access. Historical context34 and old ten diagnostics only after frozen selection.",
+  "initialization": "Pinned Gemma base, v9 rank8 q/o LoRA basis with all B outputs zeroed, fresh five-category linear response head at seed1059. Bind old frozen features/head26 as baseline; check all initial DEV features and sampled full/replay parity.",
+  "optimization": {
+    "epochs": 6,
+    "learning_rate": 1e-05,
+    "head_learning_rate": 0.001,
+    "seed": 1059,
+    "batch_size": 8,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0,
+    "teacher_kl_weight": 0.0
+  },
+  "objective": "Weighted cross-entropy with the same equal-group objective in expectation. Each eight-example update takes two rows from each historical/generated x Romanian/Ukrainian stratum. Generated strata are visited without replacement once per pass; historical strata cycle through fresh shuffled permutations to the same length. Within-stratum label weights are stratum_rows/(5*group_rows). This repeats each historical row20 or21 times per pass. Zero teacher KL; no DEV optimization.",
+  "selection": "Epoch0 and six completed epochs. Same55 lexicographic maximum origin/language/category error rate, maximum per-origin error rate, total errors, mean per-origin cross-entropy. Exact ties earliest epoch. Retain every checkpoint; freeze selection before context diagnostics.",
+  "verification": "74 registered trainable tensors only; finite gradients and tensors; initial frozen-feature and actual full/replay error <=1e-3; selected logits reload <=1e-5 with identical decisions. Recompute baseline26 on context and original diagnostics with zero adapter outputs; restore selected tensors afterwards. Paired fixes/regressions for every population.",
+  "resources": "One full encoder, only after study64 finishes successfully and its final frozen report has been independently checked. Keep the batch at eight, no persistent body-state cache, and preserve8GiB free disk. Retain every epoch checkpoint and failed result; no silent overwrite or result-based restart. No assumption of constant peak memory or proportional wall time.",
+  "qualification": "Any error or introduced regression rejects. Even zero errors on development and old diagnostics requires a separate frozen reserved-TEST evaluation before any response engineering pass. No final reviewer handoff until complete candidate passes every required population. Independent human validation and measured utility remain outstanding. Stable v9 unchanged.",
+  "stable_release_ready": false,
+  "sampling": {
+    "kind": "four-stratum-cyclic-v1",
+    "examples_per_stratum": 2,
+    "batches_per_pass": 3072,
+    "presentations_per_pass": 24576
+  },
+  "comparison": "Fresh-head initialization, six passes, architecture, learning rates, seed, batch size, optimizer parameters, prompt, input labels, evaluation and selection match59. Sampling, historical repetition, sample weights and total update count change:18432 updates and147456 presentations versus9666 and77304. Warmup/decay fractions remain5%/10% floor but span the longer schedule. This compares training regimes, not an isolated causal effect of batch variance; overfitting from repetition remains possible.",
+  "execution_condition": "Prepared only. Do not launch until study64 has completed, all dependencies and code checks pass, and its final selected response candidate still has an error or introduced regression. If64 passes response development prerequisites, prioritize its reserved evaluation instead. Register and hash-bind the final execution decision and sources before queueing.",
+  "retained_bindings": {
+    "large-response-attention-59/report.json": "333876d9008c721f316833ea30c5df6bdc684e10afc192f5be3025324aa6b754",
+    "large-response-attention-59/selection.json": "9b594af47b6b3e3dd2b55656e4b464942fc2410e71ec868bee5c0fa376af8ab3",
+    "warm-response-attention-observation-64-epoch4/report.json": "07e8cd7b636246d6cd88aa480797b4a528f33a147fa564695832f85c9a6991ef",
+    "mixed-response-sampler-preflight-65/report.json": "c907f82b74f1f4c42d17ef85d75938ed33fb6f23bf7070e960cc379557f6bd02",
+    "mixed-response-sampler-preflight-65/uniform-batch-audit.json": "0b5c984a53fbb4e8511b93da9e1d74d770031965c32c90cd105cffe0954e32c3",
+    "mixed-response-sampler-preflight-65/mixed-batch-simulation.json": "7c0ad3ca872de005af78a7a58e712c04f85d933a1ca3b7956a945cf9522ee761"
+  }
+}
