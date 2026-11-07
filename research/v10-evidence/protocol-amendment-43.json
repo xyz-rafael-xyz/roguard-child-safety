@@ -1,0 +1,8 @@
+{
+  "study": "translated-response-45",
+  "motivation": "Fixed matched demonstrations in study43 leave the same two false alerts. Test whether translating the proposed reply before separating the four behavior predicates improves multilingual action-direction interpretation.",
+  "pipeline": "The same pinned Qwen model first translates the isolated draft to English, using a fixed translation-only prompt with no category label or examples. A second fixed prompt reads only the translation and returns four literal boolean behavior predicates plus a short description. Host primary-category precedence is B, C, D, E, then A, unchanged from study41. No target-specific overrides, retries, output repair or weight updates.",
+  "decoding": "Greedy decoding, thinking disabled, at most256 tokens per stage. Strict JSON keys and types. Any invalid stage counts as an error. Input limit1024 tokens per stage.",
+  "evaluation": "Every one of the same40 unique DEV drafts. Open original10 diagnostics only after zero DEV errors. Preserve translations, raw outputs, parsed predicates and elapsed times. This is exposed synthetic development evidence. Translation fidelity, predicate truth and semantic evidence support are not independently verified.",
+  "stable_release_ready": false
+}

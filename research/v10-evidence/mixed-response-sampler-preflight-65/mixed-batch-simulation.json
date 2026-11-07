@@ -1,0 +1,141 @@
+{
+  "complete": true,
+  "scope": "Hypothetical four-stratum sampler simulation on bound TRAIN inputs; no model loaded, fitted, selected or evaluated.",
+  "source_sha256": {
+    "curriculum25": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "contrast32": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "composition54": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd"
+  },
+  "prior_batch_audit_sha256": "0b5c984a53fbb4e8511b93da9e1d74d770031965c32c90cd105cffe0954e32c3",
+  "simulation_source_sha256": "857260cb9080f492efca782cf6f1da3fb65f99476ae706a8903cbc872568dad8",
+  "proposed_batch_size": 8,
+  "per_batch_origin_language_counts": {
+    "historical:ro": 2,
+    "historical:uk": 2,
+    "generated:ro": 2,
+    "generated:uk": 2
+  },
+  "group_loss_weight_formula": "stratum_rows / (5 * origin_language_gold_group_rows)",
+  "generated_coverage_policy": "Every generated row exactly once per pass; historical strata cycle through independent shuffled permutations to match the generated length.",
+  "within_batch_order": "historical ro, historical uk, generated ro, generated uk; two independent-example losses per stratum, not a concatenated conversation",
+  "epochs": [
+    {
+      "epoch": 1,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.165542870759964,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 2,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.1666790097951889,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 3,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.1653493195772171,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 4,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.1624389886856079,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7270612120628357,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 5,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.16324175894260406,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    },
+    {
+      "epoch": 6,
+      "batches": 3072,
+      "row_presentations": 24576,
+      "all_unique_train_rows_visited": true,
+      "generated_presentations_per_row": 1,
+      "historical_presentations_per_row_min": 20,
+      "historical_presentations_per_row_max": 21,
+      "batches_missing_any_origin_language_stratum": 0,
+      "sample_weight_mass_coefficient_of_variation": 0.1651051938533783,
+      "mean_sample_weight_per_batch_quantiles": {
+        "min": 0.5040816068649292,
+        "p05": 0.7230203747749329,
+        "median": 1.0230203866958618,
+        "p95": 1.2500407695770264,
+        "max": 1.3960000276565552
+      }
+    }
+  ],
+  "six_pass_row_presentations": 147456,
+  "presentation_ratio_to_six_uniform_passes": 1.9074821484011177,
+  "peak_examples_per_update_unchanged": true,
+  "actual_training_memory_or_time_measured": false,
+  "gradient_variance_measured": false,
+  "causal_failure_mechanism_established": false,
+  "training_launched": false,
+  "training_or_label_changes": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

@@ -1,0 +1,48 @@
+{
+  "format": "roguard-review-agreement-1",
+  "source_sha256": "9de3e492285e47c6464fdcd423ff07c4eb9f87db0e1ca1e96634b0c06aa6e57a",
+  "amendment_sha256": "8cc380e3c4619cb25e1aa6e0ff9000609856df1cccf86203701f595c65d50041",
+  "parent_reports": {
+    "research/v10-evidence/base-reference-features-18b": "7ba88c9176901412ae3f1d5c8c53ea781d45969d33bfb5236cf4f6fd26ebebba",
+    "research/v10-evidence/semantic-readout-11": "5c079e56a057b0e9708ca7d4837533c141fe27b425b6f0ada5120d200fb7f9b2",
+    "research/v10-evidence/semantic-tail-14": "3ba70585644ce746d4a773620fd030b1621d2f18c926bc9821672210daf0cf2f",
+    "research/v10-evidence/semantic-regression-11": "e55cc62dc4e2887484ea7476a5dbe552051ed0943203c7403c3fcf7ed37919cd",
+    "research/v10-evidence/semantic-tail-regression-14": "dcbf28b0138b1af3b803f59f48e7dc514a0af2b10816701e85d15d244376a1f7"
+  },
+  "component_specs": {
+    "research/v10-evidence/semantic-readout-11/ro-review.json": "1f488fd13f81b9c7a94c3e394c6e4e5854e72448fe69e1a42b54c3794169bb88",
+    "research/v10-evidence/semantic-readout-11/uk-review.json": "32c483011502c3c34506a92c40a0df1147bcb529486d73a78fb3d661569f59b4",
+    "research/v10-evidence/semantic-tail-14/ro-review.json": "cd5c679677435006f1bb028246dbbf65bd4da2805dff96669a18b46a2141dd83",
+    "research/v10-evidence/semantic-tail-14/uk-review.json": "9d144ff5cc2c008546dc2c6c52903c1f09f324348f9c6dac6568f25788b2b951"
+  },
+  "rules": [
+    "unanimous-three-models"
+  ],
+  "inputs": {
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a",
+    "research/v10-evidence/data/dev.jsonl": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "research/v10-evidence/semantic-regression-11/dev-baseline.jsonl": "af468f231e1bcf40a5e054749428efd0cd62e19dd388ce7468578aaecefde5e1",
+    "research/v10-evidence/semantic-regression-11/dev-candidate.jsonl": "d1bd95dd5b55b1f4289f02ba04bc2fc98c8344d2d51bacced185083dc93b36a3",
+    "research/v10-evidence/semantic-tail-regression-14/dev-candidate.jsonl": "bddf436bab497bf3e9de575ef29d2bd88b15c298ca11b1fe6fd090bf9e3018fa",
+    "research/v10-evidence/broad-v9-regression/cases.jsonl": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "research/v10-evidence/semantic-regression-11/broad-baseline.jsonl": "7ef94982c2c306b39a4e6da7c0826b641f9d4af7a6f43d99f2d2d3636b3bff80",
+    "research/v10-evidence/semantic-regression-11/broad-candidate.jsonl": "1ea0aa804163fdcf574c1c2dec1d252d076c08c44fa288aef578201dc7341802",
+    "research/v10-evidence/semantic-tail-regression-14/broad-candidate.jsonl": "e57036c4793df1f4c9f079961bd16dcaa893090a779940baafa6d22b2cfa8858",
+    "research/v10-evidence/data/challenge.jsonl": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "research/v10-evidence/semantic-regression-11/challenge-baseline.jsonl": "090cf3168a1968903dc1c0b749cd4d821de922317e9c264ff1356019f713c132",
+    "research/v10-evidence/semantic-regression-11/challenge-candidate.jsonl": "2e493e64c65cfe51794789d9bb288eec3f8f01a104ae8421ac71326f4fcc96b5",
+    "research/v10-evidence/semantic-tail-regression-14/challenge-candidate.jsonl": "91814e9c5076753e95a6efc216d54e2c99ea74502f85f263459aa39c435eec85",
+    "research/v10-evidence/data/v9-regression.jsonl": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "research/v10-evidence/semantic-regression-11/v9-regression-baseline.jsonl": "9ee628154a6eb41d213f7d06d1be548d4fabf241081e7effbf36ce812e568b68",
+    "research/v10-evidence/semantic-regression-11/v9-regression-candidate.jsonl": "9c3f1418331838bd61ad336d1415b3957b36ef2644c8292c4a4953847042681c",
+    "research/v10-evidence/semantic-tail-regression-14/v9-regression-candidate.jsonl": "6443fc53b91fb6d828c4686ddf6f46f026951da35b35799cf01cc36225045373"
+  },
+  "fitting_performed": false,
+  "threshold_selection_performed": false,
+  "regression_informed_motivation": true,
+  "independent_test": false,
+  "stable_release_ready": false
+}

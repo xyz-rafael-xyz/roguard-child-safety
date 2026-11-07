@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "tests_passed": 10,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "junit_sha256": "3d7c2764f24034b1161aaf08eea992e4e466fa98db96255e5dddf9b01c6ab662",
+  "sources": {
+    "training/dropout_readout_v10.py": "5d49283c84fd3aa0a017ea4b247c5b12ab761d1a594ce92a8bd348715dbc5005",
+    "training/train_dropout_readout_v10.py": "5a5be1ff80869281afa29fac5167388c9a2613b61369746d8db55f4d43b78f2e",
+    "tests/test_dropout_readout_v10.py": "b252654714b28aadb4c85a341dd0fdcd3114ee5f89b4e4b3027603d57669440e",
+    "training/train_policy_consistent_readout_v10.py": "ed4a92b5d157fd724dfb871edccc77228098fa9b7b3b66a0ccdf6d31f7761271"
+  },
+  "checks": [
+    "Evaluation logits and the four-parameter head inventory are exactly unchanged at dropout0,0.1,0.3.",
+    "Nonzero training masks change outputs, reproduce under the same seed, differ under another seed and disappear during evaluation.",
+    "Actual zero-dropout loss and every parameter gradient exactly match the preceding71 objective.",
+    "Invalid probabilities fail before MLX initialization."
+  ],
+  "encoder_loaded": false,
+  "candidate_training_performed": false,
+  "qualified": false
+}

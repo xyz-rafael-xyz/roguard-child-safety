@@ -1,0 +1,12 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-scope-17",
+  "motivation": "The plain lexical semantic probe performs poorly. Test explicit separation of quoted content from its surrounding assertion frame, so words inside a quote do not dominate the representation of the speaker's stance toward that quote.",
+  "training": "Same 19202 TRAIN prefixes and eligible development as semantic-sparse-16. No calibration, challenge or regression data is fitted or used for feature selection.",
+  "representation": "Mechanical paired quotation segmentation using guillemets, curly double quotes, Romanian low quotes and ASCII double quotes. Keep the original text as a separate channel. No language-specific keyword rules, case exceptions or label changes.",
+  "channel_weights": {"original_focus": 1.0, "focus_frame": 2.0, "focus_quotation": 1.0, "original_history": 0.5, "history_frame": 0.5, "history_quotation": 0.5},
+  "normalization": "L2 normalize log-count features independently within each channel, apply the declared weights, then L2 normalize the combined 32768-dimensional vector.",
+  "registered_fit": {"regularization_C": 8.0, "max_iterations": 800, "solver": "lbfgs", "class_weight": "balanced", "seed": 1016},
+  "outputs": "Semantic marginals only; the neural binary review decision remains separate.",
+  "stable_release_ready": false
+}

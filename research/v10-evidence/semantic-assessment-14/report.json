@@ -1,0 +1,122 @@
+{
+  "format": "roguard-semantic-candidate-assessment-1",
+  "source_sha256": "d8b13c769a00532cc542aefdad3c0bf33373871f9622a81d1e9164abe60fa77f",
+  "regression_report_sha256": "dcbf28b0138b1af3b803f59f48e7dc514a0af2b10816701e85d15d244376a1f7",
+  "protocol_sha256": "c8af40d95dc2cb7853a1461393dd549e20e10e5784dab2df9351df197da47fb6",
+  "populations": {
+    "broad": {
+      "checkpoints": 5022,
+      "binary_errors": [
+        "broad-ro-exposed-ro-7-0:0",
+        "broad-ro-formal-cal-ro-16-33-0-1-1-1-1:2"
+      ],
+      "fixed_binary_errors": [
+        "broad-ro-exposed-ro-5-0:0"
+      ],
+      "introduced_binary_errors": [
+        "broad-ro-formal-cal-ro-16-33-0-1-1-1-1:2"
+      ],
+      "paired_comparison": {
+        "candidate_only_correct": 1,
+        "baseline_only_correct": 1,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          -0.00025,
+          0.005681818181818182
+        ],
+        "comparison_digest": "0893e214bf5295396c662ce3f34413df9cc433b986d1dd9e99bdf24b45d332e8",
+        "real_world_superiority_established": false
+      },
+      "uncalibrated_joint_argmax_errors": {
+        "ro": 55,
+        "uk": 18
+      }
+    },
+    "dev": {
+      "checkpoints": 348,
+      "binary_errors": [],
+      "fixed_binary_errors": [
+        "v10-pair117-ro-train-476:0",
+        "v10-pair117-ro-train-478:13"
+      ],
+      "introduced_binary_errors": [],
+      "paired_comparison": {
+        "candidate_only_correct": 2,
+        "baseline_only_correct": 0,
+        "strict_accuracy_delta": 0.005747126436781609,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.01694915254237288
+        ],
+        "comparison_digest": "c7e598f7f5b848cb14993a26dc3e18816a16b70c33bd0e7a5b4ddf364a2d2ab5",
+        "real_world_superiority_established": false
+      },
+      "uncalibrated_joint_argmax_errors": {
+        "ro": 0,
+        "uk": 0
+      }
+    },
+    "challenge": {
+      "checkpoints": 32,
+      "binary_errors": [],
+      "fixed_binary_errors": [],
+      "introduced_binary_errors": [],
+      "paired_comparison": {
+        "candidate_only_correct": 0,
+        "baseline_only_correct": 0,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.0
+        ],
+        "comparison_digest": "41f9841db5bcd0d0bf5313c4bce5c7cd069caa845e7a867049614cf4ed736eeb",
+        "real_world_superiority_established": false
+      },
+      "uncalibrated_joint_argmax_errors": {
+        "ro": 0,
+        "uk": 0
+      }
+    },
+    "v9-regression": {
+      "checkpoints": 600,
+      "binary_errors": [],
+      "fixed_binary_errors": [],
+      "introduced_binary_errors": [],
+      "paired_comparison": {
+        "candidate_only_correct": 0,
+        "baseline_only_correct": 0,
+        "strict_accuracy_delta": 0.0,
+        "paired_family_bootstrap_delta_95_interval": [
+          0.0,
+          0.0
+        ],
+        "comparison_digest": "2525c6f884daf6db85fe2933ead374c32c7f5438ee03f8399758006f20d5c584",
+        "real_world_superiority_established": false
+      },
+      "uncalibrated_joint_argmax_errors": {
+        "ro": 0,
+        "uk": 21
+      }
+    }
+  },
+  "engineering_failures": [
+    "broad:BINARY_ERRORS",
+    "broad:NEW_BINARY_REGRESSIONS",
+    "broad:SEMANTIC_ARGMAX_ERRORS",
+    "v9-regression:SEMANTIC_ARGMAX_ERRORS"
+  ],
+  "fitting_performed": false,
+  "independent_test": false,
+  "stable_release_ready": false,
+  "decision": "REJECT",
+  "external_requirements": [
+    "FRESH_CALIBRATION",
+    "INDEPENDENT_FINAL_EVALUATION",
+    "QUALIFIED_RESPONSE_CHECKING",
+    "MEASURED_REVIEWER_BENEFIT",
+    "INDEPENDENT_STRONG_BASELINES",
+    "TARGET_PLATFORM_RUNTIME_CHECKS"
+  ],
+  "maximum_saved_score_difference": 0.0,
+  "reason": "Exposed development gains do not override regression errors or missing independent evidence."
+}

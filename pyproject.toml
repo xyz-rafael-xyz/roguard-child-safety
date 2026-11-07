@@ -33,6 +33,7 @@ Documentation = "https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/mai
 Issues = "https://github.com/xyz-rafael-xyz/roguard-child-safety/issues"
 
 [project.scripts]
+roguard-v10 = "roguard.trajectory_cli:main"
 roguard-assure = "roguard.assurance:main"
 roguard-evaluate-review = "roguard.review_evaluation:main"
 roguard-evidence = "roguard.evidence:main"
@@ -74,6 +75,7 @@ roguard-v1-author-check = "roguard.v1_author_check:main"
 roguard-message-screen = "roguard.message_model:main"
 
 [project.optional-dependencies]
+trajectory-train = ["numpy>=1.26,<3", "scipy>=1.11,<2", "scikit-learn>=1.5,<2"]
 adapted = ["torch>=2.6,<3", "transformers>=4.57,<5", "numpy>=1.26,<3", "peft>=0.13,<1"]
 gateway = ["cryptography>=44,<51", "uvicorn>=0.30,<1"]
 observability = ["opentelemetry-sdk>=1.30,<2", "opentelemetry-exporter-otlp-proto-http>=1.30,<2"]
@@ -89,7 +91,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["model-profiles.json", "model-download-*.json", "review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css"]
+roguard = ["model-profiles.json", "model-download-*.json", "review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css", "trajectory-annotation.html", "trajectory-annotation.js"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

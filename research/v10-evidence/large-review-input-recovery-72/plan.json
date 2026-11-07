@@ -1,0 +1,29 @@
+{
+  "complete": true,
+  "purpose": "Recover exact TRAIN/DEV source payloads and token identities for the bound large review62 feature population, preparing a possible later encoder-adaptation experiment without persistent body caches.",
+  "rows": 37766,
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "sources": [
+    "four original v9 TRAIN/DEV input inventories bound by semantic-features11",
+    "composition56 TRAIN andDEV",
+    "crossed61 TRAIN andDEV",
+    "feature62 per-language row metadata"
+  ],
+  "source_policy": "Read only enumerated TRAIN/DEV files and original inventories; do not load reservedTEST, calibration or diagnostic data. Preserve all original IDs, partitions, payloads, gold fields and binary targets.",
+  "checks": [
+    "Verify original inventories and generated TRAIN/DEV identities against their source reports.",
+    "Require exact one-to-one source coverage of feature62 metadata by language/case ID, matching labels, partition, source group and token identity.",
+    "Recreate model tokens using the pinned local tokenizer and public runtime classifier serialization; require hashes identical to the frozen feature metadata and original lengths where available.",
+    "Retain source payloads/tokens privately and publish only aggregate/hash evidence; no weights or fullencoder are loaded."
+  ],
+  "feature_report_sha256": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+  "original_protocol_sha256": "12a5df2bb0d8c4102fc8dab60a7d13a7a11b80b75c08983df2badd1b930dcbf8",
+  "runtime_tokenizer_source_sha256": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+  "scope": "Input recovery and compatibility only. It does not supply new meanings, establish data-label correctness or qualify a model.",
+  "training_experiment_registered": false,
+  "training_launched": false,
+  "encoder_loaded": false,
+  "held_out_test_opened": false,
+  "stable_release_ready": false
+}

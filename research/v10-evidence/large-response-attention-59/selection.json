@@ -1,0 +1,992 @@
+{
+  "complete": true,
+  "selected": {
+    "epoch": 2,
+    "development": {
+      "populations": {
+        "historical": {
+          "rows": 80,
+          "unique_drafts": 40,
+          "correct": 76,
+          "errors": 4,
+          "cross_entropy": 0.8446247779358931,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:boundary": {
+              "errors": 2,
+              "total": 8
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 8
+            }
+          },
+          "selection_rank": [
+            0.25,
+            4,
+            0.8446247779358931
+          ]
+        },
+        "generated": {
+          "rows": 512,
+          "unique_drafts": 256,
+          "correct": 511,
+          "errors": 1,
+          "cross_entropy": 0.005149398147640947,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 128
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:pressure": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:appropriate": {
+              "errors": 1,
+              "total": 128
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:pressure": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 32
+            }
+          },
+          "selection_rank": [
+            0.0078125,
+            1,
+            0.005149398147640947
+          ]
+        }
+      },
+      "selection_rank": [
+        0.25,
+        0.05,
+        5,
+        0.424887088041767
+      ],
+      "errors": 5
+    },
+    "adapter_sha256": "9206896b6b9025865f0579a954b913a186380edd936239114ac178145474b848"
+  },
+  "epochs": [
+    {
+      "epoch": 0,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 18,
+            "errors": 62,
+            "cross_entropy": 1.686655610361548,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 7,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 7,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 7,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 8,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 2,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 5,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 7,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 8,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 8,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 3,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              1.0,
+              62,
+              1.686655610361548
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 115,
+            "errors": 397,
+            "cross_entropy": 1.7236863625886114,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 102,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 30,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 32,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 32,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 4,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 97,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 32,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 32,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 32,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 4,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              1.0,
+              397,
+              1.7236863625886114
+            ]
+          }
+        },
+        "selection_rank": [
+          1.0,
+          0.775390625,
+          459,
+          1.7051709864750797
+        ],
+        "errors": 459
+      },
+      "adapter_sha256": "414797c0d67d30fe7e63b7cdec4f387ab16547c01803996df370e02d1c39017f"
+    },
+    {
+      "epoch": 1,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 69,
+            "errors": 11,
+            "cross_entropy": 1.3561980416579746,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 4,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 2,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 2,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.5,
+              11,
+              1.3561980416579746
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 504,
+            "errors": 8,
+            "cross_entropy": 0.1452100892816416,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 2,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 6,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.1875,
+              8,
+              0.1452100892816416
+            ]
+          }
+        },
+        "selection_rank": [
+          0.5,
+          0.1375,
+          19,
+          0.7507040654698082
+        ],
+        "errors": 19
+      },
+      "adapter_sha256": "2665941b75de1a5cfe6ce89a4fa4eb68bcfa0db41d4f0eb27d710042966916f4"
+    },
+    {
+      "epoch": 2,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 76,
+            "errors": 4,
+            "cross_entropy": 0.8446247779358931,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 2,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.25,
+              4,
+              0.8446247779358931
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 511,
+            "errors": 1,
+            "cross_entropy": 0.005149398147640947,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 1,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.0078125,
+              1,
+              0.005149398147640947
+            ]
+          }
+        },
+        "selection_rank": [
+          0.25,
+          0.05,
+          5,
+          0.424887088041767
+        ],
+        "errors": 5
+      },
+      "adapter_sha256": "9206896b6b9025865f0579a954b913a186380edd936239114ac178145474b848"
+    },
+    {
+      "epoch": 3,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 75,
+            "errors": 5,
+            "cross_entropy": 1.3746989932064602,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 3,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.375,
+              5,
+              1.3746989932064602
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 511,
+            "errors": 1,
+            "cross_entropy": 0.005430618793788787,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 1,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.03125,
+              1,
+              0.005430618793788787
+            ]
+          }
+        },
+        "selection_rank": [
+          0.375,
+          0.0625,
+          6,
+          0.6900648060001244
+        ],
+        "errors": 6
+      },
+      "adapter_sha256": "703b63435c98313831b4c3730b5af9c4183e3b25fe72a2dedc2dff1d9290b20a"
+    },
+    {
+      "epoch": 4,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 75,
+            "errors": 5,
+            "cross_entropy": 1.491777366521995,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 3,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.375,
+              5,
+              1.491777366521995
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 510,
+            "errors": 2,
+            "cross_entropy": 0.01514694839132804,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 2,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.0625,
+              2,
+              0.01514694839132804
+            ]
+          }
+        },
+        "selection_rank": [
+          0.375,
+          0.0625,
+          7,
+          0.7534621574566616
+        ],
+        "errors": 7
+      },
+      "adapter_sha256": "d53748dd2cc273604b8a84a83a3406fcb6ff7cfae2d01058a9903ff775271170"
+    },
+    {
+      "epoch": 5,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 75,
+            "errors": 5,
+            "cross_entropy": 1.4954122390260445,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 3,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.375,
+              5,
+              1.4954122390260445
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 510,
+            "errors": 2,
+            "cross_entropy": 0.016033521329752613,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 2,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.0625,
+              2,
+              0.016033521329752613
+            ]
+          }
+        },
+        "selection_rank": [
+          0.375,
+          0.0625,
+          7,
+          0.7557228801778986
+        ],
+        "errors": 7
+      },
+      "adapter_sha256": "356d43ef66d9883b647ddd64aeeb4e045a9e35ad3150fee4e8991e531dcc80c4"
+    },
+    {
+      "epoch": 6,
+      "development": {
+        "populations": {
+          "historical": {
+            "rows": 80,
+            "unique_drafts": 40,
+            "correct": 75,
+            "errors": 5,
+            "cross_entropy": 1.4989563071803047,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:boundary": {
+                "errors": 3,
+                "total": 8
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "ro:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 8
+              },
+              "uk:pressure": {
+                "errors": 1,
+                "total": 8
+              },
+              "uk:unsupported": {
+                "errors": 0,
+                "total": 8
+              }
+            },
+            "selection_rank": [
+              0.375,
+              5,
+              1.4989563071803047
+            ]
+          },
+          "generated": {
+            "rows": 512,
+            "unique_drafts": 256,
+            "correct": 510,
+            "errors": 2,
+            "cross_entropy": 0.016716005114401602,
+            "groups": {
+              "ro:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "ro:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "ro:unsupported": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:appropriate": {
+                "errors": 0,
+                "total": 128
+              },
+              "uk:boundary": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:privacy": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:pressure": {
+                "errors": 0,
+                "total": 32
+              },
+              "uk:unsupported": {
+                "errors": 2,
+                "total": 32
+              }
+            },
+            "selection_rank": [
+              0.0625,
+              2,
+              0.016716005114401602
+            ]
+          }
+        },
+        "selection_rank": [
+          0.375,
+          0.0625,
+          7,
+          0.7578361561473531
+        ],
+        "errors": 7
+      },
+      "adapter_sha256": "d6168a551f40c05cd9180e3f8223fcf532c7fbf83a50e73a82dabaca67e84b51"
+    }
+  ],
+  "maximum_initial_feature_error": 0.0,
+  "maximum_full_replay_error": 0.0008401870727539062,
+  "diagnostics_opened": false
+}

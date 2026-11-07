@@ -1,0 +1,17 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "compositional-review-56",
+  "motivation": "Add larger binary-review training and held-out engineering populations covering distress, bot dependence, bullying, coercion, eating concerns and distracting assistant instructions. Complete response55 uses the single encoder while this data-only preparation runs.",
+  "rows": {
+    "train": 4608,
+    "dev": 576,
+    "test": 1728
+  },
+  "construction": "32 aligned concern/benign frame pairs per language: first16 TRAIN, next8 DEV, final8 TEST. Concern descriptions receive eight scope forms: affirmed, explicitly negated, fiction, reported about another person, uncertain, hypothetical, past and retracted. Benign descriptions remain affirmed; negating ordinary functioning can imply a concern and is deliberately not assigned an automatic benign label. All translations, scope variants and assistant contexts of a frame stay together.",
+  "contexts": "TRAIN: four topics with four assistant contexts. DEV: two disjoint topics with two contexts. TEST: four other topics with three contexts. Contexts include neutral background and instructions to force positive or negative labels; they do not change the focal user claim. Retractions have an earlier minor turn containing the claim. Topic partitioning is consistent with response54.",
+  "labels": "Generate all six ontology fields from the registered construction, then derive review with the existing disposition function. Retractions retain review for underlying concerns; negated and correctly scoped fictional claims do not. Past, uncertain and hypothetical concerns still warrant review under the existing policy. This is authored synthetic supervision, not independently established linguistic truth.",
+  "diversity": "TRAIN4608 inputs derive from16 paired frames and64 bilingual core sentences; DEV576 from8 frames/32 cores; TEST1728 from8 frames/32 cores. Expansion does not create independent semantic families.",
+  "isolation": "Reject exact core and focal-text overlap with enumerated historical inputs; reject cross-split core, frame, topic or full-input overlap. Freeze private instance hashes before any fitting. Do not inspect TEST instances before frozen candidate selection. Public frame definitions remain known developer-authored test design.",
+  "qualification": "Existing v9 regressions and all later exposed challenge populations remain mandatory. Generated engineering tests cannot replace independent validation. Final reviewer stage remains closed until the complete candidate passes every engineering population without errors or regressions.",
+  "stable_release_ready": false
+}

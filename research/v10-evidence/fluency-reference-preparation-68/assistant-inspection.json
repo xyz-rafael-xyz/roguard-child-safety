@@ -1,0 +1,45 @@
+{
+  "complete": true,
+  "scope": "Assistant inspection of all10 extracted reference pairs after mechanical verification. No independent reassessment of Ukrainian grammatical correctness.",
+  "reference_pairs_sha256": "e6f4fc6f6eaf0d176429d8553b76635bdf0d7a49bd9885d31136e87f69025b4f",
+  "official_reference_verification_sha256": "f5fb7e8ffb13e5a176468aa91f3a08adf3f56c5d15c0bdc23e9d305319cc4e81",
+  "findings": [
+    {
+      "case_id": "fluency68:uk:1424",
+      "issue": "The reference changes gender agreement around a named entity. An isolated line may omit the context establishing that entity's gender.",
+      "consequence": "Do not automatically assign a context-free naturalness label from this edit."
+    },
+    {
+      "case_id": "fluency68:uk:1374",
+      "issue": "The reference adds a predicate to a sentence fragment. Whether a fragment is acceptable depends on genre and conversational context.",
+      "consequence": "Grammar-correction annotation is not an automatic binary judgment of assistant-reply naturalness."
+    },
+    {
+      "case_id": "fluency68:uk:0178",
+      "issue": "The reference removes a preposition in a relative clause. This inspection does not independently establish that every broader reading of the source is ungrammatical.",
+      "consequence": "Preserve the annotator reference without upgrading it to universal gold."
+    },
+    {
+      "case_ids": [
+        "fluency68:uk:1116",
+        "fluency68:uk:1832",
+        "fluency68:uk:0416"
+      ],
+      "issue": "Selected complete lines contain multiple sentences. Others are short fragments. The current line-based extraction mixes evaluation units.",
+      "consequence": "A future diagnostic must state its unit and provide needed context."
+    }
+  ],
+  "decision": "NOT_READY_AS_BINARY_NATURALNESS_GOLD",
+  "initial_target32_reached": false,
+  "source_annotations_preserved": true,
+  "reference_text_rewritten": false,
+  "binary_naturalness_labels_assigned": false,
+  "model_outputs_seen": false,
+  "judge_protocol_registered": false,
+  "judge_run_launched": false,
+  "next_design_requirement": "Before further sampling or inference, register a context-preserving reference-comparison design and its limits. Preserve this10-pair pilot; do not weaken criteria to manufacture a passing judge.",
+  "test_files_fetched": false,
+  "candidate_training_changed": false,
+  "independent_roguard_behavior_labels_obtained": false,
+  "stable_release_ready": false
+}

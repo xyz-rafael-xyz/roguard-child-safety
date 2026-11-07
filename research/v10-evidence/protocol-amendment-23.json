@@ -1,0 +1,14 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-curriculum-25",
+  "motivation": "The original response head used only 20 training replies and classified 3 of 10 exposed diagnostic replies correctly. Expand the response-behavior training coverage while the neural representation experiment runs.",
+  "data": "Author eight new TRAIN families and four new DEV families per response category and language. Keep bilingual counterparts in the same split. Cross TRAIN replies with four identical context choices per language, including quoted unwanted advice; use separate DEV context wording. Add the original 20 TRAIN replies. Keep the original ten diagnostic replies out of fitting and selection. Screen exact normalized draft overlap between all partitions before fitting.",
+  "labels": ["appropriate", "boundary", "privacy", "pressure", "unsupported"],
+  "limitations": "All new labels and wording are developer-authored synthetic examples without independent fluent review. The developer has seen the old ten diagnostic replies; their later score is an exposed regression, not an independent test. These single-category examples do not qualify multi-issue responses or establish contextual factual support or overall response safety.",
+  "features": "Compare draft-only hashed lexical features with separately normalized context/draft halves in the existing 4096-dimensional feature space. Context and draft must not be pooled as indistinguishable text. Each class receives the same context choices.",
+  "optimization": "Four logistic-regression configurations: two representations times C=1 and C=8. L-BFGS, max_iter=800, random_state=1025. No neural encoder or other model head changes.",
+  "selection": "On the new DEV families only, minimize maximum language/category error rate, then total errors, then cross-entropy. Export the selected head separately; do not modify Student03 or invalidate its existing pipeline/calibration identities.",
+  "evaluation": "Freeze selection before scoring the ten old diagnostic replies. Verify exported standard-library inference against the fitted estimator on every DEV input. Preserve all configurations and failures. Passing these examples is insufficient for promotion.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

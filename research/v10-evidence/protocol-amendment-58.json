@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-attention-runtime-60",
+  "purpose": "Package the attention-adapted response architecture used by49 and59 without claiming either model qualifies. No training data, labels, source selection or model parameters are changed.",
+  "runtime": "Same pinned Gemma base and fixed response prompt. Reuse a validated reference encoder under its runtime lock. Validate all72 q/o adapter tensors and two linear-head tensors against their checksum and exact inventory. Activate all72 adapters only for response inference and restore original array references on success or failure. Binary head stays separate.",
+  "verification": "Portable input/schema/context/identity checks; actual small42-layer Gemma verifies active adapters change predictions, shared-KV prefix/replay matches full inference and original outputs return exactly after failure. Packaged head logits match training implementation. Installed wheel file parity and tests run outside checkout. Full-size verification remains pending until an encoder is available; verifier covers every bound DEV input with recorded selected logits and independent full forwards, then injects failure and checks original binary parameters/output.",
+  "artifact": "Local research export of selected failed49 checkpoint for runtime verification; model qualified remainsfalse. Same exporter supports completed59 artifacts. Version metadata remains9.0.0; no public package-index publication.",
+  "qualification": "Faithful execution and software tests do not establish accuracy. Final reviewer evaluation remains closed until full candidate zero-error/no-regression gates pass. No reserved TEST access in this study.",
+  "stable_release_ready": false
+}

@@ -1,0 +1,49 @@
+{
+  "format": "roguard-local-experiment-sequence-1",
+  "plan_sha256": "f96579d7ee3acaf0b9ea45e4cc641062728b357fe1e151f467bf1eb7717918d7",
+  "source_sha256": "0c4fad29e3531f60af59a20c9c5acb5592be5cd15b42ff8451bbcc7029b95589",
+  "source_hashes": {
+    "eval/assess_large_review_v10.py": "4d76cc9d8c213065bf4fbd43dd7536e4cc3c2f6ea719b6a2dbdd3feb9236e8d2",
+    "eval/evaluate_readout_challenge_v10.py": "02d2344f6697bc3620305fb97384a36548c3b50c37d6d4f59dce461a6e2e28a2",
+    "research/v10-evidence/protocol-amendment-55.json": "a73da194115715f31c47894009a964ebbf38abcaaa3375ec4ef6e3876ae8ce13",
+    "scripts/run_large_data_sequence_v10.py": "0c4fad29e3531f60af59a20c9c5acb5592be5cd15b42ff8451bbcc7029b95589",
+    "training/compositional_review_frames_v10.py": "0cdae34b2c79992f131f260195a06cd57c74e378c34553893d9a173b1a8306fa",
+    "training/evaluate_cached_semantic_v10.py": "c4c8cf2d7bda8fa8048219ee9973e82e7a4d29c2aacc9fa49f1fa20ed6530f8d",
+    "training/extract_large_review_v10.py": "20518520e3a6b6ee50212b97eec25a7379667f0b9c47f514aac65e774197f103",
+    "training/prepare_compositional_review_v10.py": "92d96db55b4bfe094122e64a3044a51319ab0524346672571c093f87ff009bf0",
+    "training/train_semantic_readout_v10.py": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6"
+  },
+  "execution_complete": true,
+  "completed_steps": [
+    {
+      "name": "extract-review57",
+      "exit_code": 0,
+      "seconds": 1275.6801814171486
+    },
+    {
+      "name": "fit-review57",
+      "exit_code": 0,
+      "seconds": 101.8093202081509
+    },
+    {
+      "name": "assess-review57-development",
+      "exit_code": 0,
+      "seconds": 2.520380667410791
+    },
+    {
+      "name": "evaluate-review57-regressions",
+      "exit_code": 0,
+      "seconds": 3.3671515421010554
+    },
+    {
+      "name": "evaluate-review57-challenge44",
+      "exit_code": 0,
+      "seconds": 65.18155712494627
+    }
+  ],
+  "phase": "finished",
+  "stable_release_ready": false,
+  "promotion_performed": false,
+  "dependency_report_sha256": "08a7ca955f4bf5bc8389d51ad4c43b185300835ab6363582ea1b0c9e23e22fd1",
+  "active_step": null
+}

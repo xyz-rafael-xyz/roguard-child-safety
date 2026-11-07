@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "tests_passed": 17,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "junit_sha256": "46e4e151c3ac00ed23d865de25276232451ad601b5d2c76f6cb6719b84bfb480",
+  "source_sha256": {
+    "training/coupled_policy_loss_v10.py": "36f340d9880dba40ce28ff7319331039e811fc31579a4d7c550d5027b168b9de",
+    "training/train_policy_consistent_readout_v10.py": "ed4a92b5d157fd724dfb871edccc77228098fa9b7b3b66a0ccdf6d31f7761271",
+    "tests/test_coupled_policy_loss_v10.py": "6a79613251d44a937c5a64bf8753178c80d28d4afccbb393b81253bf008ec2e0",
+    "tests/test_policy_consistent_readout_v10.py": "d3bf62f50776b3168eb56872ff093190d2079c2049b01ae22734934c2e1bb4a1",
+    "training/differentiable_policy_v9.py": "f3b0f06a1734a615a4f8c3ac50025c7353305671d03a8acf2896eac82fc907fc",
+    "training/train_semantic_readout_v10.py": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6"
+  },
+  "checks": [
+    "MLX probabilities match independent semantic-world enumeration and served runtime probability within2e-6 for random and actual RO/UK coupling tables, including near-deterministic logits.",
+    "MLX policy-loss gradients match all-coordinate finite differences of the independent enumeration and the existing PyTorch implementation within2e-6.",
+    "A gradient step lowers the fixture policy loss; time-field policy gradient remains exactly zero, as required by the unchanged policy.",
+    "Endpoint BCE and gradients are finite; invalid coupling shapes/values and query shapes are rejected.",
+    "The actual nested CPU-control training objective and all fixture parameter gradients are bit-identical to the old objective.",
+    "Actual nested objectives for coefficients0.25 and1 add only the specified policy loss and gradient within2e-6."
+  ],
+  "encoder_loaded": false,
+  "candidate_training_performed": false,
+  "held_out_accuracy_claimed": false,
+  "stable_release_ready": false
+}

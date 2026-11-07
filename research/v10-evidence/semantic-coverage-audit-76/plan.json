@@ -1,0 +1,42 @@
+{
+  "format": "roguard-semantic-support-audit-1",
+  "scope": "Following exploratory inspection of exposed75 DEV confusion, count complete TRAIN/DEV semantic support and exact source provenance; infer only cached TRAIN heads, reuse saved DEV logits. No fitting, newlabels, reservedTEST or fullencoder.",
+  "public": {
+    "research/v10-evidence/semantic-coverage-audit-76/source.py": "4ce64aec4718c3294e611fda08ae2bb05a1a2978c86e4e094d83ddbf9118d86f",
+    "research/v10-evidence/dropout-readout-75/report.json": "c17c856da7a2a432e443e3f1058a5b846ecd5a429584191207bea802bae31fb2",
+    "research/v10-evidence/dropout-readout-qualification-75/report.json": "9d507cbd421dd50ceec33964d5164aa5fdc22e64a8626928ecf49ce8b17728bb",
+    "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+    "src/roguard/gemma4_review.py": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "training/shared_tail_training_v9.py": "e5c791e8c20523f7fce7dbe76a448edc1eff358245d23b4fd9cfec75d0acb7ed",
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a",
+    "research/v10-evidence/dropout-readout-75/ro-review.json": "5fdeae97843d873755ed41a02453b5c29823fd8028508c3e99d1586175c8f4a9",
+    "research/v10-evidence/crossed-review-features-62/v9-binding/ro-review.json": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+    "research/v10-evidence/dropout-readout-75/uk-review.json": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27",
+    "research/v10-evidence/crossed-review-features-62/v9-binding/uk-review.json": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed"
+  },
+  "private": {
+    "large-review-input-recovery-72/actual/inputs.jsonl": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a",
+    "crossed-review-features-62/ro-features.npy": "19823e47f6e856214a06792e9f72eba75c989b095dbf35bbbe6cb89b74a5eca8",
+    "crossed-review-features-62/ro-logits.npy": "03907d092ce158042e2bcaf3681f22fa52af2b064a9783ba39f6e3e992410ab7",
+    "crossed-review-features-62/ro-rows.jsonl": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351",
+    "dropout-readout-75/ro-selected.safetensors": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3",
+    "dropout-readout-75/ro-selected-dev-logits.npy": "79abcd2baba59b4cf0f1c7b8ef2ed04efb178a1c5aa0b53d7874c7d11e94df96",
+    "crossed-review-features-62/uk-features.npy": "765ebdf8425770c43dd6ed84f29b657472b885535b108fedef578cea4ff001fc",
+    "crossed-review-features-62/uk-logits.npy": "2686bad1c4807c54b4cbf426b4e07429d51d795d825e4f4df693fe3200eb7d31",
+    "crossed-review-features-62/uk-rows.jsonl": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5",
+    "dropout-readout-75/uk-selected.safetensors": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+    "dropout-readout-75/uk-selected-dev-logits.npy": "056b2753f25f6ed8f9c409b186c0c7f10e8d001d2823e67e6bf024c7b64d2bf2"
+  },
+  "questions": [
+    "Does any DEV gold world lack TRAIN support?",
+    "Which field confusions dominate, and are corresponding TRAIN predictions already correct?",
+    "How do literal quote and pre-quote negation descriptors differ by source, assertion and split?"
+  ],
+  "wording_descriptor_limit": "Literal negation_before_first_quote only; not a complete scope parser, fluency judgment, semantic label or causal proof. Some outer wording follows the quote.",
+  "resources": "CPU only, two requested BLAS/OpenMP threads, no additional encoder; preserveexisting65/73 sources and schedules.",
+  "candidate_training_changed": false,
+  "qualified": false
+}

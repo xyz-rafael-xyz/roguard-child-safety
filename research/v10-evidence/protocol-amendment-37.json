@@ -1,0 +1,8 @@
+{
+  "study": "probability-floor-39",
+  "problem": "The existing one-minus-probability nonconformity rounds distinct tiny positive probabilities to 1.0 in floating point. A rounded calibration quantile can then include every world although many probabilities are strictly below the actual calibration cutoff.",
+  "change": "Add an explicit probability-floor calibration method. Aggregate the minimum true-world probability per family, sort descending and use the same finite-sample rank ceil((n+1)*(1-alpha)). Include a world when p >= floor. Undersized calibration uses floor0 and still returns all worlds. Preserve existing default method and all existing calibration artifacts.",
+  "mathematical_scope": "This is the monotone-equivalent finite-sample rule evaluated without subtractive cancellation. It does not alter the rank, alpha, model probabilities, labels, family grouping or exchangeability assumptions. It cannot recover probabilities already underflowed to zero.",
+  "verification": "Test tiny-probability distinction, inclusive ties, minimum-over-family aggregation, insufficient calibration, invalid inputs, artifact binding, and equivalence to the old method away from cancellation. No model qualification or narrower real-world coverage guarantee follows.",
+  "stable_release_ready": false
+}

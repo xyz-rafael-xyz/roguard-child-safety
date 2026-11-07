@@ -1,0 +1,35 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "generated-corpus-53",
+  "motivation": "The native-language Qwen3.5 pilot still shows malformed Romanian and questionable intended labels in TRAIN. Compare the already cached unquantized Qwen3-4B-Instruct model with the identical native prompts and strict screening before any scale-up.",
+  "generator": {
+    "model": "mlx-community/Qwen3-4B-Instruct-2507-bf16",
+    "revision": "f9e77d4283734966e9cd641bf35547f0cff5d427",
+    "seed": 1053,
+    "temperature": 0.35,
+    "top_p": 0.9,
+    "maximum_output_tokens": 384,
+    "attempts_per_family": 3,
+    "compute_dtype": "native"
+  },
+  "quotas_per_task": {
+    "train": 512,
+    "dev": 64,
+    "test": 128
+  },
+  "tasks": [
+    "binary_review",
+    "response_behavior"
+  ],
+  "family_contents": "Each request groups one Romanian contrast pair and one independently generated Ukrainian contrast pair, sharing metadata and partition. They are not translations and need not depict an identical scenario. There are 1,408 requested groups, at most 2,816 language-specific pairs and 5,632 distinct texts. Keep all scope/context derivatives of each group in its original partition.",
+  "planned_training_expansion": "The 512 response TRAIN families can produce 2,048 distinct drafts and 8,192 inputs at four contexts per draft. The 512 binary TRAIN families can produce 1,024 concern statements and 1,024 matched benign statements; registered scope/context expansion will be specified after generation-quality inspection, before training. Report distinct base texts separately from expanded examples.",
+  "generation_quality": "Require exact JSON schema, bounded strings, correct writing-system predominance, distinct pair texts, and no exact normalized overlap with enumerated historical text or accepted earlier families. Retain every attempt, rejection and failed family. This is structural screening, not semantic verification. Independently screen intended labels with a different frozen model before materialization; do not use the candidate being trained as its own label verifier.",
+  "pilot": "Generate the first16 TRAIN groups, covering both tasks and all four response categories. Inspect TRAIN only. Require usable language and credible intended label contrasts before scaling; structural acceptance alone is insufficient. Freeze all source/settings before launch; retain failed groups and all raw attempts.",
+  "isolation": "Store generated instances outside the public repository. Generate and hash separate TRAIN/DEV/TEST files. Do not inspect generated TEST examples or use their labels to select a model. Before training, freeze a materialization protocol, family/duplicate audit, final tests, training configuration and selection rule. Existing v9 and v10 regressions remain mandatory. A failed test becomes regression evidence, never a target for a hidden threshold adjustment.",
+  "resume": "Bind source, manifest, model file hashes and historical screening inputs. Append attempt records, recover a completed attempt after interruption, and never regenerate completed families merely because their contents are inconvenient. Refuse concurrent writers. A process observation timeout alone is not permission to restart. Bind all regular snapshot files, including chat templates and tokenizer assets, rather than only JSON/weight files.",
+  "resources": "One full encoder at a time on the16GB host. No persistent body-state cache. Preserve an8GiB free-disk reserve and all earlier evidence. No paid external compute or communications are part of this run.",
+  "qualification": "All generated data remains synthetic and semantically unverified until its separate screen. Family IDs and exact text screening do not prove semantic or author independence. Final human reviewer evaluation remains closed until the complete candidate has zero observed errors and zero regressions on every required engineering population. Generation, model agreement or a bigger dataset does not qualify v10.",
+  "stable_release_ready": false,
+  "family_prefix": "bulk53",
+  "native_generation": true
+}

@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "review-agreement-27",
+  "motivation": "Earlier exposed regressions show different false alerts from frozen v9, readout 11 and attention 14. This motivates a general agreement/routing diagnostic, not an independent confirmatory hypothesis. No case-specific wording, IDs or regression-fitted thresholds are permitted.",
+  "registered_rules": {
+    "agreement": "Propose review only when both frozen v9 and readout 11 propose review at their already frozen thresholds.",
+    "contract-routed-agreement": "Use the agreement rule when the full original prefix fits v9's 12-turn and 1024-token input contract; otherwise use the frozen attention-14 classifier on its already evaluated memory view. Routing uses input length only, never a label, score, case ID or topic."
+  },
+  "selection": "Evaluate both rules on the same 6668 eligible DEV inputs used by attention 14. Exclude the 21 trajectory prefixes previously found in training. Rank by maximum language error count, then total errors, then registered rule order. Freeze before any new broad/challenge/600-case combination scoring. If no rule has zero eligible DEV errors, retain the failure and do not advance this study to regression scoring.",
+  "verification": "Verify saved parent study, prediction, input and selected-model identities. Recompute original DEV v9 scores from verified logits. Verify every reused score against its parent threshold and every trajectory prefix against its input digest. Compute length routing with the pinned tokenizer and the unchanged v9 classifier contract, without truncation.",
+  "scope": "Binary review component only. Agreement can miss concerns when one component is wrong and is not a safety guarantee. No interpretation or response qualification is implied. No runtime default changes. Existing independent final-study and full-pipeline requirements remain.",
+  "exposure": "All source evaluations and the motivation have already been exposed during model development. A later zero-error result on them is engineering evidence, not proof of independent superiority.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

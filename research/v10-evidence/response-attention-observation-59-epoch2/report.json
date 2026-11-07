@@ -1,0 +1,75 @@
+{
+  "complete": true,
+  "epoch": 2,
+  "adapter_sha256": "9206896b6b9025865f0579a954b913a186380edd936239114ac178145474b848",
+  "recorded_logits_sha256": "f85571e462d5dd4da1e3eba2e0315625943c5116c5825e82e4af70d79b1aa149",
+  "source_prediction_hashes": {
+    "historical": "f5ff36c3cba6ff0ef4ef8af0747173289c7f777510c092666d6f40a025bfe32f",
+    "generated": "e21c25f6cd8d3739344ecf46e93fb79bd716f3793d92134a2ad386200329312a"
+  },
+  "baseline_report_sha256": "08a7ca955f4bf5bc8389d51ad4c43b185300835ab6363582ea1b0c9e23e22fd1",
+  "observer_sha256": "71f8c46b16fdc0e1b65e6ca74353fe8833248f1003472d29b2e324d52394b7ec",
+  "metrics": {
+    "historical": {
+      "rows": 80,
+      "candidate_errors": 4,
+      "baseline26_errors": 3,
+      "fixed": 1,
+      "introduced": 2
+    },
+    "generated": {
+      "rows": 512,
+      "candidate_errors": 1,
+      "baseline26_errors": 36,
+      "fixed": 36,
+      "introduced": 1
+    }
+  },
+  "remaining_errors": [
+    {
+      "case_id": "dev:boundary:2:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "appropriate",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:boundary:2:ro:1",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "boundary",
+      "predicted": "appropriate",
+      "baseline26": "boundary"
+    },
+    {
+      "case_id": "dev:pressure:0:ro:0",
+      "language": "ro",
+      "origin": "historical",
+      "gold": "pressure",
+      "predicted": "appropriate",
+      "baseline26": "appropriate"
+    },
+    {
+      "case_id": "dev:pressure:0:uk:0",
+      "language": "uk",
+      "origin": "historical",
+      "gold": "pressure",
+      "predicted": "appropriate",
+      "baseline26": "appropriate"
+    },
+    {
+      "case_id": "composition54:unsupported:14:uk:0:17:0",
+      "language": "uk",
+      "origin": "generated",
+      "gold": "appropriate",
+      "predicted": "unsupported",
+      "baseline26": "appropriate"
+    }
+  ],
+  "training_complete": false,
+  "selection_frozen": false,
+  "selected_runtime_reload_verified": false,
+  "diagnostics_opened_by_observation": false,
+  "stable_release_ready": false
+}

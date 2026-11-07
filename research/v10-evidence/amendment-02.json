@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-development-amendment-2",
+  "reason": "User requires zero observed errors and demonstrated superiority before promotion. Candidate 1 failed joint-set coverage; candidate 2 corrected the small diagnostic but failed development binary accuracy and one Romanian interpretation.",
+  "exposure": "The 32-case challenge and 348-case development set are now explicitly development diagnostics. Neither can serve as an independent or sealed final test.",
+  "candidate_2_changes": ["joint interpretation classifier", "minimum learned relevance score 0.5"],
+  "candidate_3_changes": ["class-balanced relevance fitting", "separate focal/history feature channels", "policy probability from the joint interpretation distribution"],
+  "selection": "Select using development only, minimize misses then false reviews; preserve all failures. Calibration partition remains excluded from fitting and selection.",
+  "promotion": "Zero binary errors and abstentions on every required evaluation, complete annotated joint coverage, non-vacuous sets, no v9 regression, and measured paired improvement over v9 and its retrieval comparator. Independent labels and reviewer benefit remain external requirements.",
+  "no_automatic_release": true
+}

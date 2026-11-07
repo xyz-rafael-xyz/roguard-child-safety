@@ -21,7 +21,7 @@ A 28-second illustrated workflow with actual v9 outputs and fictional messages.
 ## RoGuard 9.0: local review and decision assurance
 
 **[9.0.0 is the latest stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0)**
-and the default on [PyPI](https://pypi.org/project/roguard-child-safety/).
+and is published on [PyPI as `roguard-child-safety`](https://pypi.org/project/roguard-child-safety/).
 [Verified publication and fresh-install record](research/v9-stabilization/stable-release-200/publication.json).
 
 V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
@@ -67,6 +67,16 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Decision assurance and review UI](docs/V9_ASSURANCE.md) ·
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
+
+**V10 is unreleased research and has no PyPI package release.** It adds experimental long-conversation evidence
+selection, durable review sessions, semantic training, interpretation-set evaluation and a recorded improvement loop.
+Its experimental shared-encoder committee fixes the two v9 broad-audit false alerts,
+with zero errors across 6,002 fresh checkpoint inferences on exposed engineering data.
+A later 72-checkpoint authored challenge exposes seven errors shared with v9; the committee
+fails that new diagnostic and remains unqualified.
+[Committee results and local research bundle](docs/V10_COMMITTEE.md).
+[Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
+The published stable package remains **v9.0.0**.
 
 ## Earlier workflows retained in v9
 

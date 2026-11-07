@@ -1,0 +1,19 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "robust-semantic-tail-47",
+  "motivation": "Readout46 fixes none of seven fresh44 misses and adds a broad regression. Four of its selected old TRAIN parents also match older trajectory DEV/calibration inputs; all such parents must be excluded from the next augmentation before prefixing. Adapt contextual attention rather than repeating a head-only fit.",
+  "training": "Generate the same registered1204-row augmentation as46, but choose parent TRAIN examples only after excluding all protected original/view keys. Replace excluded parents by the next deterministic hash-ranked eligible example. Same six new bot-use phrases, scope variants and balanced four assistant instructions. Do not use fresh44 labels in training. Retain the original TRAIN corpus and its known historical exposure; this is not fresh independent calibration.",
+  "initialization": "Published v9 language-specific weights. Retain unchanged epoch-zero release as a candidate.",
+  "trainable": "Final18 shared-KV layers, query/output rank8 LoRA and active language head. Embeddings, first24 layers, KV sources and inactive language head stay frozen.",
+  "registered_configuration": {
+    "epochs": 1, "learning_rate": 0.000005, "seed": 1047, "batch_size": 8,
+    "weight_decay": 0.01, "gradient_norm_clip": 1.0,
+    "semantic_ce_weight": 1.0, "binary_ce_weight": 3.0, "teacher_kl_weight": 0.2
+  },
+  "objective": "The existing attention fitter with three times binary CE, mean class-weighted six-field CE and0.2 mean teacher KL. Equal total old/new by binary-label TRAIN mass. The weighting emphasizes the observed binary robustness failure; it does not qualify semantics.",
+  "features_and_cache": "Fresh frozen-v9 representations of the screened TRAIN augmentation, appended to verified original features. Frozen-body states must replay those features within1e-5. Preserve an8GiB free-disk reserve; never delete older evidence to force completion.",
+  "selection": "Same eligible original plus trajectory DEVELOPMENT population from studies14/12: original6341 plus327 prior-screened trajectory points. Select at epoch0,0.5,1 by binary errors, joint errors, field cross-entropy, then score margin. Epoch zero retains the published mode/threshold. New training must remain disjoint from these selected DEV token inputs.",
+  "evaluation": "Attention changes require fresh neural regression; frozen final-hidden feature reuse is forbidden. Preserve all failures, evaluate existing regressions and fresh44, and do not reinterpret any of them as independent validation.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

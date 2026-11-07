@@ -1,0 +1,108 @@
+{
+  "format": "roguard-v10-promotion-gate-1",
+  "engineering_failures": [
+    "STRICT_PAIRED_SUPERIORITY_NOT_SHOWN",
+    "V9_REGRESSION_MISSING",
+    "RESPONSE_EVALUATION_ERRORS"
+  ],
+  "external_requirements": [
+    "INDEPENDENT_SEALED_EVALUATION_REQUIRED",
+    "MEASURED_REVIEWER_BENEFIT_REQUIRED",
+    "LARGER_CONTEXT_COMPARATOR_REQUIRED",
+    "CROSS_PLATFORM_INSTALLED_RUNTIME_REQUIRED"
+  ],
+  "engineering_pass": false,
+  "promotion_pass": false,
+  "stable_release_ready": false,
+  "comparison": {
+    "candidate_only_correct": 0,
+    "baseline_only_correct": 0,
+    "strict_accuracy_delta": 0.0,
+    "paired_family_bootstrap_delta_95_interval": [
+      0.0,
+      0.0
+    ],
+    "comparison_digest": "ad5102798d5449a776bf98df94772d030e077bc960041cd6f83ae9bff79408dd",
+    "real_world_superiority_established": false
+  },
+  "evaluation": {
+    "format": "roguard-trajectory-evaluation-v10-research1",
+    "groups": {
+      "ro": {
+        "checkpoints": 16,
+        "conversations": 16,
+        "families": 4,
+        "strict_accuracy": 1.0,
+        "coverage": 1.0,
+        "abstentions": 0,
+        "positive_checkpoints": 8,
+        "negative_checkpoints": 8,
+        "recall_including_abstentions": 1.0,
+        "benign_checkpoint_burden": 0.0,
+        "benign_conversations": 8,
+        "false_alerts_per_1000_benign_conversations": 0.0,
+        "review_or_abstention_per_1000_benign_conversations": 0.0,
+        "eligible_conversations": 8,
+        "detected_conversations": 8,
+        "missed_conversations": 0,
+        "premature_alert_conversations": 0,
+        "mean_detection_delay_turns_among_detected": 0,
+        "delay_scope": "annotated checkpoints only; misses reported separately",
+        "joint_set_coverage": 1.0,
+        "outside_ontology_cases": 0,
+        "outside_ontology_abstentions": 0,
+        "mean_set_size": 1.9375,
+        "annotated_evidence_retention": 1.0,
+        "candidate_evidence_overlap_precision": 0.11356466876971609,
+        "mean_declared_question_cost": 0.6875,
+        "p95_latency_seconds": 0.014056959189474583,
+        "family_bootstrap_accuracy_95_interval": [
+          1.0,
+          1.0
+        ]
+      },
+      "uk": {
+        "checkpoints": 16,
+        "conversations": 16,
+        "families": 4,
+        "strict_accuracy": 1.0,
+        "coverage": 1.0,
+        "abstentions": 0,
+        "positive_checkpoints": 8,
+        "negative_checkpoints": 8,
+        "recall_including_abstentions": 1.0,
+        "benign_checkpoint_burden": 0.0,
+        "benign_conversations": 8,
+        "false_alerts_per_1000_benign_conversations": 0.0,
+        "review_or_abstention_per_1000_benign_conversations": 0.0,
+        "eligible_conversations": 8,
+        "detected_conversations": 8,
+        "missed_conversations": 0,
+        "premature_alert_conversations": 0,
+        "mean_detection_delay_turns_among_detected": 0,
+        "delay_scope": "annotated checkpoints only; misses reported separately",
+        "joint_set_coverage": 1.0,
+        "outside_ontology_cases": 0,
+        "outside_ontology_abstentions": 0,
+        "mean_set_size": 2.375,
+        "annotated_evidence_retention": 1.0,
+        "candidate_evidence_overlap_precision": 0.10140845070422536,
+        "mean_declared_question_cost": 1.1875,
+        "p95_latency_seconds": 0.012814667075872421,
+        "family_bootstrap_accuracy_95_interval": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "cases_digest": "4b40b68654c2c39626910ca74a525ea0e499d0b554d3043eadf9c281c6a20633",
+    "predictions_digest": "76416ba42dcd00bf234f880958da2dd572b9922247692f511c61940cefacae76",
+    "synthetic_only": true,
+    "independently_validated": false,
+    "stable_release_ready": false,
+    "interpretation": "Descriptive experiment; no measured child benefit."
+  },
+  "regression": null,
+  "decision": "REJECT",
+  "reason": "All required evidence must pass; no override from a perfect aggregate score."
+}

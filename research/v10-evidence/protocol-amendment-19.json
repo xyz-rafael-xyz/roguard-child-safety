@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "language-specialists-21",
+  "motivation": "Scope-fit-20 has zero binary development errors in both languages. Its Romanian semantic error count improves over the earlier candidates, while its Ukrainian semantic error count is worse than attention-14. Apply the same development-only language selection criterion before examining any scope-fit-20 regression predictions.",
+  "candidates": ["semantic-tail-14", "scope-fit-20"],
+  "selection": "Identical development IDs and gold labels are required. Per language, minimize binary errors, joint semantic argmax errors, field cross-entropy and negative binary margin, in that order. The previously selected reference-18 candidate is already dominated on this development rank.",
+  "evaluation": "Reuse only checksum-verified paired representations whose selected input, pinned v9 encoder, zero-adapter view implementation and population identities match. The paired cache was independently replayed with all 6002 prediction records exactly equal to fresh inference. Reuse attention-14 results only for an attention-selected language, retaining complete artifact/input bindings. No threshold or head is fit to regression labels.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

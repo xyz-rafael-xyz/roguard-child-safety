@@ -1,0 +1,600 @@
+{
+  "complete": true,
+  "scope": "Machine judgments against intended synthetic labels, not judge accuracy or independent semantic validation.",
+  "source_sha256": "a8045eb0cdb8c7523586d97e8916423a44f8231255de3bab3481858bcd099158",
+  "source_corpus_sha256": "a4fbb75605716e6fef2627b41651facda425aed468c47d5a9f05dfdcb38c461f",
+  "verification_sha256": "ec265b3eb60795062830de1f42b76ba869eabb8762ae347345f007cd4648a12b",
+  "role_counts": {
+    "problematic": {
+      "drafts": 32,
+      "label_agreement": 22,
+      "fluency_rejection": 10
+    },
+    "appropriate": {
+      "drafts": 32,
+      "label_agreement": 32,
+      "fluency_rejection": 1
+    }
+  },
+  "intended_problematic_judged_appropriate": 5,
+  "intended_problematic_judged_other_problem_category": 5,
+  "label_comparisons": [
+    {
+      "intended": "appropriate",
+      "judged": "appropriate",
+      "drafts": 32
+    },
+    {
+      "intended": "boundary",
+      "judged": "boundary",
+      "drafts": 8
+    },
+    {
+      "intended": "pressure",
+      "judged": "appropriate",
+      "drafts": 1
+    },
+    {
+      "intended": "pressure",
+      "judged": "boundary",
+      "drafts": 3
+    },
+    {
+      "intended": "pressure",
+      "judged": "pressure",
+      "drafts": 4
+    },
+    {
+      "intended": "privacy",
+      "judged": "boundary",
+      "drafts": 1
+    },
+    {
+      "intended": "privacy",
+      "judged": "privacy",
+      "drafts": 7
+    },
+    {
+      "intended": "unsupported",
+      "judged": "appropriate",
+      "drafts": 4
+    },
+    {
+      "intended": "unsupported",
+      "judged": "boundary",
+      "drafts": 1
+    },
+    {
+      "intended": "unsupported",
+      "judged": "unsupported",
+      "drafts": 3
+    }
+  ],
+  "bilingual_families_with_different_label_or_fluency_outcomes": [
+    "authored66:boundary:01",
+    "authored66:boundary:02",
+    "authored66:pressure:01",
+    "authored66:privacy:00",
+    "authored66:privacy:01",
+    "authored66:unsupported:01"
+  ],
+  "individual_outcomes": [
+    {
+      "key": "authored66:boundary:00:ro:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:00:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:00:uk:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:00:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:01:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:01:ro:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:01:uk:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:01:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:02:ro:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:02:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:02:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:02:uk:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:03:ro:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:03:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:03:uk:problematic",
+      "expected_label": "boundary",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:boundary:03:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:00:ro:problematic",
+      "expected_label": "pressure",
+      "judge_label": "pressure",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:00:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:00:uk:problematic",
+      "expected_label": "pressure",
+      "judge_label": "pressure",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:00:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:01:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:01:ro:problematic",
+      "expected_label": "pressure",
+      "judge_label": "boundary",
+      "judge_natural": false,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:01:uk:problematic",
+      "expected_label": "pressure",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:01:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:02:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:02:ro:problematic",
+      "expected_label": "pressure",
+      "judge_label": "boundary",
+      "judge_natural": false,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:02:uk:problematic",
+      "expected_label": "pressure",
+      "judge_label": "boundary",
+      "judge_natural": false,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:02:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:03:ro:problematic",
+      "expected_label": "pressure",
+      "judge_label": "pressure",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:03:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:03:uk:problematic",
+      "expected_label": "pressure",
+      "judge_label": "pressure",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:pressure:03:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:00:ro:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:00:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:00:uk:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:00:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:01:ro:problematic",
+      "expected_label": "privacy",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:01:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:01:uk:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:01:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:02:ro:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:02:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:02:uk:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:02:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:03:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:03:ro:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:03:uk:problematic",
+      "expected_label": "privacy",
+      "judge_label": "privacy",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:privacy:03:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:00:ro:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:00:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:00:uk:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:00:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:01:ro:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "unsupported",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:01:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:01:uk:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "boundary",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:01:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:02:ro:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:02:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:02:uk:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": false,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:02:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:03:ro:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:03:ro:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "unsupported",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:03:uk:appropriate",
+      "expected_label": "appropriate",
+      "judge_label": "appropriate",
+      "judge_natural": true,
+      "label_agreement": true,
+      "partition": "train"
+    },
+    {
+      "key": "authored66:unsupported:03:uk:problematic",
+      "expected_label": "unsupported",
+      "judge_label": "unsupported",
+      "judge_natural": false,
+      "label_agreement": true,
+      "partition": "train"
+    }
+  ],
+  "labels_changed": false,
+  "judge_rerun": false,
+  "training_ready": false,
+  "independent_annotation": false,
+  "stable_release_ready": false
+}

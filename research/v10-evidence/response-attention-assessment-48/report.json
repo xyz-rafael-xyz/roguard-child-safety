@@ -1,0 +1,39 @@
+{
+  "complete": true,
+  "source_sha256": "3ec4fc7ff8c1bd097a3e504b249152c1ccd96c9be31ddbe35f5b7b8e442bde97",
+  "report_sha256": "b2bd98672ce3b992ce518d6c7f00be7dbc16521cc299b153c62bc703f5776323",
+  "selection_sha256": "c09b125b2f5d73c7d2e63932dc35f04b7a6144f789074a387a56f1ffcb75371c",
+  "inputs": {
+    "research/v10-evidence/response-curriculum-25/dev.jsonl": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+    "research/v10-evidence/neural-response-26/development-predictions.jsonl": "0aaf9f05b2c3fd4aff8e3bd1b182297914af6b7db966d4a9453cce6fb5aed4d4",
+    "research/v10-evidence/response-attention-48/development-predictions.jsonl": "558c056fa969fe82dad63da69562d8c9f2bada99492d1f7d56764a0c05d9a1e9",
+    "research/v10-evidence/response-context-34/inputs.jsonl": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+    "research/v10-evidence/response-context-34/baseline26-predictions.jsonl": "a4d18985b229ccd5cc0146d285abc5581017bf1d592eec6891ec9ba0705e1613",
+    "research/v10-evidence/response-attention-48/context-predictions.jsonl": "f00b30977c8255f972fc152c4c181953d000af654d523397fcf9a59093391a55"
+  },
+  "metrics": {
+    "development": {
+      "rows": 80,
+      "distinct_language_drafts": 40,
+      "baseline_errors": 3,
+      "candidate_errors": 3,
+      "fixed": 0,
+      "introduced": 0,
+      "changed_cases": []
+    },
+    "context": {
+      "rows": 120,
+      "distinct_language_drafts": 40,
+      "baseline_errors": 19,
+      "candidate_errors": 19,
+      "fixed": 0,
+      "introduced": 0,
+      "changed_cases": []
+    }
+  },
+  "decision": "REJECT",
+  "baseline": "response head26, not the v9 binary classifier",
+  "limitation": "Exposed synthetic development diagnostics; context variants share drafts and are not independent samples.",
+  "independent_validation": false,
+  "stable_release_ready": false
+}

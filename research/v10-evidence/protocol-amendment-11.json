@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-tail-14",
+  "motivation": "Two preregistered head-only training studies do not correct the large uncertainty-interpretation development failure. Adapt contextual attention rather than continue fitting scores to the same frozen representation.",
+  "training": "All original verified TRAIN entries plus the 2561 screened semantic-training-12 prefixes. No regression, calibration or test labels enter training.",
+  "initialization": "Released v9 language-specific adapter and both heads; retain unchanged epoch-zero release as a candidate.",
+  "trainable": "Final 18 shared-KV layers, q/o rank-8 LoRA only, plus the active language head. Frozen embeddings, first 24 layers, KV sources and other-language head.",
+  "registered_configuration": {"epochs": 1, "learning_rate": 0.000005, "seed": 1014, "batch_size": 8, "weight_decay": 0.01, "gradient_norm_clip": 1.0, "semantic_ce_weight": 3.0, "binary_ce_weight": 1.0, "teacher_kl_weight": 0.2},
+  "objective": "Binary CE plus three times mean class-weighted six-field CE plus 0.2 mean seven-distribution KL to frozen v9 logits. Inverse-square-root field class weights capped at four and normalized on TRAIN. Equal total old/new by binary-label training mass. Teacher logits and targets are training-only.",
+  "execution": "Single-example attention backward calls within joint minibatches, preserving the v9 Metal gradient workaround. Five-percent learning-rate warmup and linear decay to 10 percent. Frozen-body new-input states must replay the original feature extraction within 1e-5 before training.",
+  "selection": "Original development only at epoch zero, half epoch and one epoch. Minimize binary errors, then joint argmax errors, then mean field cross-entropy, then maximize score margin. Select binary/policy/coupled-policy mode and threshold on development for trained checkpoints; epoch zero retains the actual released mode and threshold.",
+  "evaluation": "Any selected attention change requires new neural regression inference; the old final-hidden-state cache cannot be reused. Preserve all failed checkpoints and report zero-regression failures.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

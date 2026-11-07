@@ -1,0 +1,33 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "large-review-57",
+  "motivation": "Train binary/semantic readouts with4608 generated TRAIN inputs and576 disjoint generated DEV inputs. This follows failed1204-input robust augmentation and preserves the unchanged encoder as a directly comparable baseline.",
+  "new_train_rows": 4608,
+  "new_dev_rows": 576,
+  "total_train_rows": 21249,
+  "total_dev_rows": 6917,
+  "features": "Reuse all checksum-bound semantic-features-11 representations:16641 original TRAIN and6341 original DEV. Append fresh frozen-v9 representations for TRAIN and DEV from composition56. Use one encoder at a time after response55 finishes. Hash resumable chunks and reject repeated token inputs across old/new data. Do not load generated TEST instances.",
+  "registered_candidates": [
+    {
+      "name": "large-semantic-ce",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.0
+    },
+    {
+      "name": "large-semantic-distilled",
+      "learning_rate": 0.0001,
+      "teacher_kl": 0.2
+    },
+    {
+      "name": "large-semantic-conservative",
+      "learning_rate": 3e-05,
+      "teacher_kl": 0.5
+    }
+  ],
+  "fit": "Use unchanged train_semantic_readout_v10.py:12 epochs, seed1011, batch64, initial v9 head and frozen encoder. Cross-entropy for binary and six class-weighted semantic fields plus registered teacher KL. Retain every checkpoint, including epoch zero.",
+  "selection": "Existing fitter selects on combined registered DEV only by binary errors, joint errors, field cross-entropy, then score margin. Binary/policy/coupled-policy mode and threshold are chosen exclusively on this DEV population before frozen diagnostics. None of the new TEST or exposed challenge44 labels enters optimization or selection.",
+  "evaluation": "Freeze selected weights and metadata. Evaluate all prior required regressions and challenge44 with the existing comparable runtime, plus new generated DEV with original-v9 paired comparisons. Only after all required engineering diagnostics are error-free and nonregressing may the1728 reserved composition56 TEST instances be opened. A failed or incomplete gate rejects the candidate; no final reviewer handoff.",
+  "resources": "One full encoder at a time on16GB host. Cache only final hidden features and logits, not full body states. Preserve8GiB disk reserve and every previous artifact.",
+  "qualification": "Composed patterns are correlated synthetic evidence, not independent human labels. This subtask cannot qualify a full v10 on its own. Stable package remains v9; final reviewer evaluation remains closed until all complete-candidate engineering gates pass.",
+  "stable_release_ready": false
+}

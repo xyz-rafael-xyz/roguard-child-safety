@@ -1,0 +1,11 @@
+{
+  "study": "qwen-response-37",
+  "motivation": "Gemma-based response fits continue to confuse a small set of intrinsic behaviors even after contrast training, regularization and context isolation. Compare the already cached and hash-pinned Qwen3.5-9B encoder on the same isolated drafts, with the unchanged five-category prompt.",
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit at 938d8919941c6e7efd3c7150eff7fe9d12afa631, verified against the existing qwen-control-87 manifest. No new download or base-weight update.",
+  "inputs": "164 distinct TRAIN drafts and 40 distinct DEV drafts from study32, each with empty user context. Keep original labels. No fitting on the ten original diagnostic drafts or the exposed context34 variants.",
+  "candidates": "Unchanged native five-answer-letter scores, plus six class-balanced multinomial logistic heads on the final-token hidden representation, per-row RMS normalized. C = 1e-5, 1e-4, 1e-3, 1e-2, 0.1, 1.0; lbfgs, max_iter 2000, tol 1e-9, seed1037.",
+  "selection": "Unique 40-draft DEV only: worst bilingual-category error rate, total errors, cross entropy. Freeze model kind and serialized coefficients before fresh extraction/scoring of the ten old diagnostic drafts.",
+  "verification": "Single-token A-E template alignment, complete unique input identities, no TRAIN/DEV token overlap, finite native and fitted outputs, convergence and serialized probability parity within 1e-10. Save exact frozen features and source bindings.",
+  "scope": "Draft-intrinsic behavior component only. Context isolation makes context34 variants identical inputs; do not count repetitions as new independent evidence. No claim about contextual factual support, overall safety or release qualification.",
+  "stable_release_ready": false
+}

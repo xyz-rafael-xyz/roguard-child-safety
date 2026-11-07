@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "report_sha256": "5b1e8d1229c2daced56a4b6c2d59025a41b81922aab496c8d0f484e7864f42e7",
+  "verification_sha256": "c0c7303439e638d38f257741f37f9ac871b70af20c99d2c4ef2b86f6371c68eb",
+  "findings": [
+    {
+      "finding": "Every current DEV gold world has TRAIN support. Both languages contain 72 distinct TRAIN and 72 DEV gold worlds out of 432 ontology combinations.",
+      "limit": "This concerns the existing corpus only; it is not complete coverage of all ontology combinations or real-world language."
+    },
+    {
+      "finding": "Selected study 75 heads have 11 binary and 9 joint-field TRAIN errors, versus 16 binary and 1,344 joint-field DEV errors. All 11 TRAIN binary errors have correct argmax for every field.",
+      "limit": "TRAIN fit is not held-out accuracy; categorical correctness does not ensure the fixed served probability crosses its selected threshold."
+    },
+    {
+      "finding": "Of 1,344 DEV joint errors, 1,155 include formal UNCERTAIN\u2192AFFIRMED collapse: 578 Romanian and 577 Ukrainian.",
+      "limit": "This is an exposed DEV diagnosis, not independent validation."
+    },
+    {
+      "finding": "Within controlled_composition_v8, all 356 Romanian and 317 Ukrainian UNCERTAIN TRAIN rows have a literal negation before the first quote and zero assertion errors. All 579 Romanian and 579 Ukrainian matching DEV rows lack that literal marker; 578/577 are wrong.",
+      "limit": "The descriptor ignores wording after the first quote and is not a semantic scope label. This association does not establish causality."
+    },
+    {
+      "finding": "Across all TRAIN sources, quoted UNCERTAIN examples without pre-quote negation do exist: 279 Romanian and 291 Ukrainian.",
+      "limit": "Do not claim positive uncertainty is globally absent from TRAIN."
+    }
+  ],
+  "next_intervention_hypothesis": "A prospective TRAIN-only intervention should vary uncertainty wording and quote scope more independently of assertion class, including non-negating uncertainty and affirmed claims containing negation. Reuse only TRAIN payloads or newly authored cores; keep exposed DEV text/families out of fitting, retain a matched control, and audit language/label quality. More copies of the same operator templates would not test this hypothesis.",
+  "prior_related_experiments": "Assertion/query studies 22\u201324, 30 and 33 already failed qualification; do not repeat them unchanged or describe this diagnosis as a novel algorithm.",
+  "candidate_training_changed": false,
+  "source_labels_changed": false,
+  "thresholds_changed": false,
+  "new_generated_data_admitted": false,
+  "independent_validation": false,
+  "qualified": false
+}

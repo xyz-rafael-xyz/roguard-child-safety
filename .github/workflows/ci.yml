@@ -4,8 +4,33 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  trajectory-portable:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.9', '3.12']
+        exclude:
+          - os: ubuntu-latest
+            python-version: '3.9'
+        include:
+          - os: ubuntu-24.04
+            python-version: '3.9'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install '.[test]'
+      - run: python -m pytest tests/test_trajectory_v10.py tests/test_trajectory_annotation.py tests/test_trajectory_gate.py tests/test_trajectory_store.py tests/test_gemma4_committee.py tests/test_committee_bundle.py tests/test_committee_trajectory.py tests/test_trajectory_probability_floor.py -q
+      - run: >-
+          python scripts/smoke_trajectory_v10.py
+          --artifact research/v10-evidence/student-02/student.json.gz
+          --calibration research/v10-evidence/memory-contract-v2/portable-calibration.json
+
   unit:
-    runs-on: ubuntu-latest
+    # setup-python has no Python 3.9 build for Ubuntu 26.04.
+    runs-on: ${{ matrix.python-version == '3.9' && 'ubuntu-24.04' || 'ubuntu-latest' }}
     strategy:
       matrix:
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
@@ -104,9 +129,11 @@ jobs:
           tests/test_shared_tail_cache.py
           tests/test_shared_tail_qualification.py
           tests/test_gemma4_review.py
+          tests/test_gemma4_committee.py
+          tests/test_reference_frontier_v10.py
 
   wheel-install:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.python-version == '3.9' && 'ubuntu-24.04' || 'ubuntu-latest' }}
     strategy:
       matrix:
         python-version: ['3.9', '3.12', '3.14']

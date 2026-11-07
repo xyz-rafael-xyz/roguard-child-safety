@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "source_sha256": "839177f1f264aa755029e90ced74a10bdc74f7e6ffd1318e5cc9f698237b65d8",
+  "epoch": 2,
+  "adapter_sha256": "9206896b6b9025865f0579a954b913a186380edd936239114ac178145474b848",
+  "feature_sha256": "86797263a6cf71ac48298cccca0f90533fd4bb939898d199d3ac038237efbf7b",
+  "full_logits_sha256": "f85571e462d5dd4da1e3eba2e0315625943c5116c5825e82e4af70d79b1aa149",
+  "rows": 592,
+  "metrics": {
+    "baseline26": {
+      "populations": {
+        "historical": {
+          "rows": 80,
+          "unique_drafts": 40,
+          "correct": 77,
+          "errors": 3,
+          "cross_entropy": 2.2871269569368473,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 8
+            }
+          },
+          "selection_rank": [
+            0.125,
+            3,
+            2.2871269569368473
+          ]
+        },
+        "generated": {
+          "rows": 512,
+          "unique_drafts": 256,
+          "correct": 476,
+          "errors": 36,
+          "cross_entropy": 1.8473352774900276,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 14,
+              "total": 128
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 32
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:appropriate": {
+              "errors": 16,
+              "total": 128
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:pressure": {
+              "errors": 4,
+              "total": 32
+            },
+            "uk:unsupported": {
+              "errors": 1,
+              "total": 32
+            }
+          },
+          "selection_rank": [
+            0.125,
+            36,
+            1.8473352774900276
+          ]
+        }
+      },
+      "selection_rank": [
+        0.125,
+        0.0703125,
+        39,
+        2.0672311172134377
+      ],
+      "errors": 39
+    },
+    "adapted_head_frozen_features": {
+      "populations": {
+        "historical": {
+          "rows": 80,
+          "unique_drafts": 40,
+          "correct": 68,
+          "errors": 12,
+          "cross_entropy": 5.11082377535862,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:boundary": {
+              "errors": 2,
+              "total": 8
+            },
+            "ro:privacy": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:unsupported": {
+              "errors": 2,
+              "total": 8
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:pressure": {
+              "errors": 4,
+              "total": 8
+            },
+            "uk:unsupported": {
+              "errors": 2,
+              "total": 8
+            }
+          },
+          "selection_rank": [
+            0.5,
+            12,
+            5.11082377535862
+          ]
+        },
+        "generated": {
+          "rows": 512,
+          "unique_drafts": 256,
+          "correct": 476,
+          "errors": 36,
+          "cross_entropy": 1.6227616731981005,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 128
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:pressure": {
+              "errors": 8,
+              "total": 32
+            },
+            "ro:unsupported": {
+              "errors": 8,
+              "total": 32
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 128
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:pressure": {
+              "errors": 12,
+              "total": 32
+            },
+            "uk:unsupported": {
+              "errors": 8,
+              "total": 32
+            }
+          },
+          "selection_rank": [
+            0.375,
+            36,
+            1.6227616731981005
+          ]
+        }
+      },
+      "selection_rank": [
+        0.5,
+        0.15,
+        48,
+        3.36679272427836
+      ],
+      "errors": 48
+    },
+    "full_adapted_epoch2": {
+      "populations": {
+        "historical": {
+          "rows": 80,
+          "unique_drafts": 40,
+          "correct": 76,
+          "errors": 4,
+          "cross_entropy": 0.8446247779358931,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:boundary": {
+              "errors": 2,
+              "total": 8
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "ro:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:appropriate": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 8
+            },
+            "uk:pressure": {
+              "errors": 1,
+              "total": 8
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 8
+            }
+          },
+          "selection_rank": [
+            0.25,
+            4,
+            0.8446247779358931
+          ]
+        },
+        "generated": {
+          "rows": 512,
+          "unique_drafts": 256,
+          "correct": 511,
+          "errors": 1,
+          "cross_entropy": 0.005149398147640947,
+          "groups": {
+            "ro:appropriate": {
+              "errors": 0,
+              "total": 128
+            },
+            "ro:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:pressure": {
+              "errors": 0,
+              "total": 32
+            },
+            "ro:unsupported": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:appropriate": {
+              "errors": 1,
+              "total": 128
+            },
+            "uk:boundary": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:privacy": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:pressure": {
+              "errors": 0,
+              "total": 32
+            },
+            "uk:unsupported": {
+              "errors": 0,
+              "total": 32
+            }
+          },
+          "selection_rank": [
+            0.0078125,
+            1,
+            0.005149398147640947
+          ]
+        }
+      },
+      "selection_rank": [
+        0.25,
+        0.05,
+        5,
+        0.424887088041767
+      ],
+      "errors": 5
+    }
+  },
+  "head_only_float32_float64_decisions_equal": true,
+  "head_only_maximum_float32_float64_logit_difference": 9.848417458613312e-05,
+  "head_only_minimum_top_two_logit_margin": 0.7433489466166776,
+  "full_vs_head_only": {
+    "fixed": 44,
+    "introduced": 1
+  },
+  "interpretation": "Diagnostic transplant of a coadapted head onto frozen pretraining features. It is not a separately trained candidate or a controlled estimate of a learned causal mechanism.",
+  "encoder_loaded": false,
+  "training_or_selection_changed": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

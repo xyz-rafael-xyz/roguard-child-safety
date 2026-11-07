@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "decision": "REJECT_GENERATOR_FOR_SCALE",
+  "inspected_partition": "train",
+  "inspected_families": 8,
+  "structurally_accepted_in_pilot": 16,
+  "semantic_screen_exhaustive": false,
+  "findings": [
+    {
+      "family": "bulk50:response_behavior:0003",
+      "issue": "Romanian problematic text concerns an ecology project; Ukrainian problematic text concerns an asserted medical effect. The requested parallel meaning and non-medical domain are not preserved."
+    },
+    {
+      "family": "bulk50:binary_review:0002",
+      "issue": "Generated concern wording is incomplete/unclear in both languages; it is not reliable positive training supervision."
+    }
+  ],
+  "native_human_validation": false,
+  "training_ready": false,
+  "larger_run_started": false,
+  "stable_release_ready": false
+}

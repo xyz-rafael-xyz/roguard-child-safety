@@ -1,0 +1,96 @@
+{
+  "format": "roguard-compositional-response-1",
+  "complete": true,
+  "source_sha256": "9d9583f3ae1ce98024d77033e46e5e234d0877f8cc7c7b68f2f6d28173e7dc77",
+  "frames_sha256": "8deb68e212f184f6b35eb65ea42bbe636dfce2de68c477bba18efe4d382faf83",
+  "amendment_sha256": "1a720dede561891012d85d325bb6f79f644cae0c6a4fa2e75e9d1a3be59e38f1",
+  "artifacts": {
+    "train": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd",
+    "dev": "b885e697175a9f44399e5110ee7df2a61e9fac2ab66ac7e36d74d466a43d3a9a",
+    "test": "9cecc43b0427988db0a64bf8ddda940ebd5ec39411f1ede5ffa0daf5248a157f"
+  },
+  "populations": {
+    "train": {
+      "rows": 12288,
+      "distinct_drafts": 3072,
+      "distinct_core_sentences": 192,
+      "paired_frames": 48,
+      "counts": {
+        "ro:appropriate": 3072,
+        "ro:boundary": 768,
+        "ro:privacy": 768,
+        "ro:pressure": 768,
+        "ro:unsupported": 768,
+        "uk:appropriate": 3072,
+        "uk:boundary": 768,
+        "uk:privacy": 768,
+        "uk:pressure": 768,
+        "uk:unsupported": 768
+      }
+    },
+    "dev": {
+      "rows": 512,
+      "distinct_drafts": 256,
+      "distinct_core_sentences": 64,
+      "paired_frames": 16,
+      "counts": {
+        "ro:appropriate": 128,
+        "ro:boundary": 32,
+        "ro:privacy": 32,
+        "ro:pressure": 32,
+        "ro:unsupported": 32,
+        "uk:appropriate": 128,
+        "uk:boundary": 32,
+        "uk:privacy": 32,
+        "uk:pressure": 32,
+        "uk:unsupported": 32
+      }
+    },
+    "test": {
+      "rows": 1536,
+      "distinct_drafts": 512,
+      "distinct_core_sentences": 64,
+      "paired_frames": 16,
+      "counts": {
+        "ro:appropriate": 384,
+        "ro:boundary": 96,
+        "ro:privacy": 96,
+        "ro:pressure": 96,
+        "ro:unsupported": 96,
+        "uk:appropriate": 384,
+        "uk:boundary": 96,
+        "uk:privacy": 96,
+        "uk:pressure": 96,
+        "uk:unsupported": 96
+      }
+    }
+  },
+  "historical_bindings": {
+    "research/v10-evidence/response-curriculum-25/train.jsonl": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "research/v10-evidence/response-curriculum-25/dev.jsonl": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+    "research/v10-evidence/response-curriculum-25/old-diagnostic.jsonl": "222f34075fa5c31af96f3d6fa63346b53a08760a476d6e023c6c4100075bed9b",
+    "research/v10-evidence/contrast-response-32/additional-train.jsonl": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "research/v10-evidence/response-context-34/inputs.jsonl": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+    "research/v10-evidence/data/calibration.jsonl": "ee82649d61631e16a10898159c413d3da6634add32111cda16f05945b6c10a26",
+    "research/v10-evidence/data/challenge.jsonl": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "research/v10-evidence/data/dev.jsonl": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "research/v10-evidence/data/train.jsonl": "c62d610bc951fc26e2a152d837b8b747eebcc76eee92ed268b660db8afc9dad0",
+    "research/v10-evidence/data/v9-regression.jsonl": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "research/v10-evidence/broad-v9-regression/cases.jsonl": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "research/v10-evidence/committee-challenge-data-44/cases.jsonl": "28bbca4da6f4f511434c5cdf8ed40d8e2487e89d0a96f3de72b8723b1b1d856f",
+    "research/v10-evidence/robust-training-47/train.jsonl": "39f0f4d8c225340d2ea572a2c365b871c8d85377990dc9667fea99f503f7b8ba",
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a"
+  },
+  "historical_exact_core_overlap": 0,
+  "exact_cross_partition_core_overlap": 0,
+  "cross_partition_frame_overlap": 0,
+  "cross_partition_topic_overlap": 0,
+  "synthetic_only": true,
+  "independent_annotation": false,
+  "test_instances_opened_for_model_selection": false,
+  "limitation": "Public authored frame definitions and related paraphrases are not independent test authorship. Thousands of expanded inputs share only 48 TRAIN contrast frames. Report core and expanded counts separately.",
+  "stable_release_ready": false
+}

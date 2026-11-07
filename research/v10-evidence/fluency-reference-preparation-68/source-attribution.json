@@ -1,0 +1,37 @@
+{
+  "source": "UA-GEC: Grammatical Error Correction and Fluency Corpus for the Ukrainian Language",
+  "authors": [
+    "Oleksiy Syvokon",
+    "Olena Nahorna",
+    "Pavlo Kuchmiichuk",
+    "Nastasiia Osidach"
+  ],
+  "paper": "https://aclanthology.org/2023.unlp-1.12/",
+  "repository": "https://github.com/grammarly/ua-gec",
+  "revision": "4757f72f192c4a41e4c8fb1d9690a948f87cf6d6",
+  "license": "CC-BY-4.0",
+  "license_url": "https://github.com/grammarly/ua-gec/blob/4757f72f192c4a41e4c8fb1d9690a948f87cf6d6/LICENSE",
+  "readme_sha256": "e0aa163c7471ff9e876f5f294252b9e406b2ec832b10a6ded894ea322796e875",
+  "license_sha256": "f5b745ef98087f531e719ee8ca6a96809444573ecc7173c6fa68eaad39b3cc3f",
+  "data_partition": "TRAIN only, gec-fluency layer",
+  "transformations": "Extracted at most one eligible complete line per document and rendered the single marked edit into its original and corrected form. Exact appearances in official source and target files verified. No text rewriting.",
+  "reference_text_distributed_in_this_public_directory": false,
+  "source_annotation_scope": "Professionally corrected grammar/fluency references, not RoGuard behavior or concern labels.",
+  "romanian_source_checks": [
+    {
+      "repository": "upb-nlp/gec-ro-comments",
+      "revision": "f892fc204da38d3b24b2a1a3b248727efa775eef",
+      "finding": "Inspected metadata has no card/license entry and repository file list has only .gitattributes and train/dev/test text files. No data file imported; reuse terms unresolved by this inspection."
+    },
+    {
+      "repository": "upb-nlp/gec_ro_cna",
+      "revision": "6d5a2a40b778acf29607ce5d9787e4e056fc22dc",
+      "finding": "Inspected metadata has no card/license entry. No data file imported; reuse terms unresolved by this inspection."
+    },
+    {
+      "repository": "andreidiaconu/ro_gec_dataset",
+      "revision": "784f3580c48916679fdfd0ae063f228d11f94871",
+      "finding": "Dataset card describes synthetic corruption and no human annotation; not selected as independent human references."
+    }
+  ]
+}

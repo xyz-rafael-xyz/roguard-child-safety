@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "purpose": "Prepare a small grammar-reference diagnostic for the synthetic-data quality judge, not RoGuard response or concern qualification.",
+  "source": "grammarly/ua-gec",
+  "revision": "4757f72f192c4a41e4c8fb1d9690a948f87cf6d6",
+  "partition": "train",
+  "annotation_layer": "gec-fluency",
+  "declared_license": "CC-BY-4.0",
+  "source_directory": "data/gec-fluency/train/annotated",
+  "directory_only_inventory": true,
+  "document_order": "Ascending SHA256 of utf8(\"roguard-fluency68:\" + document_filename).",
+  "maximum_documents_to_fetch_initially": 256,
+  "expected_reference_selection": "Up to32 different documents, at most one complete line per document with exactly one explicit grammar-tag annotation and no other annotation or unexplained markup; source and corrected text must differ. Character length40..400 and6..60 whitespace tokens. Retain original and corrected strings exactly, without rewriting.",
+  "grammar_categories": [
+    "G/Case",
+    "G/Gender",
+    "G/Number",
+    "G/UngrammaticalStructure"
+  ],
+  "pair_order": "First eligible line in each deterministically ordered document. Do not select by any model output.",
+  "limitations": "Grammar-reference comparison only. A proofreader edit does not establish absolute naturalness; domain and severity differ from assistant replies. No independent RoGuard behavior labels are inferred.",
+  "model_loaded": false,
+  "judge_protocol_registered": false,
+  "judge_run_launched": false,
+  "test_files_fetched": false,
+  "candidate_training_changed": false,
+  "stable_release_ready": false
+}

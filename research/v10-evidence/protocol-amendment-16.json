@@ -1,0 +1,11 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "language-specialists-19",
+  "motivation": "The base-reference study has zero Romanian binary development errors and fewer joint semantic errors than attention-14, but its Ukrainian candidate has one binary development error. Compare language-specific choices using the same eligible development population.",
+  "candidates": ["semantic-tail-14", "base-reference-fit-18"],
+  "selection": "For each language independently, choose the completed candidate with the lexicographically smallest existing development selection_rank: binary errors, joint argmax errors, mean field cross-entropy, negative binary margin. Check development IDs and gold labels are identical. No regression predictions or labels are loaded by the selector.",
+  "evaluation": "Freeze choices and classifier identities before exposed regression evaluation. Perform fresh base-view inference for selected base-reference languages. Reuse completed attention-14 predictions only for languages selected from attention-14, after checking exact input populations, selector, prediction hashes, selected adapter and runtime metadata. Retain all failures and report every new regression against unchanged v9.",
+  "calibration": "No previous calibration transfers to this mixed pipeline. Fresh calibration and independent final evidence are still required.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

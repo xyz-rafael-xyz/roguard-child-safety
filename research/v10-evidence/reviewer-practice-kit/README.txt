@@ -1,0 +1,1 @@
+Distribute only the annotator JSON to its assigned annotator. Keep PRIVATE-key files with the study coordinator. These practice cases are developer-authored, not the independent sealed test. The source code cannot authenticate authors or reviewers.
