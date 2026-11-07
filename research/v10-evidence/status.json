@@ -2483,26 +2483,33 @@
     "qualified": false
   },
   "runtime_attention_preparation_91": {
-    "status": "implementation_prepared_not_registered",
+    "status": "preregistered_queued",
     "verification": "runtime-attention-preparation-91/verification.json",
     "trainer": "training/train_runtime_review_attention_v10.py",
     "helper": "training/runtime_attention_v10.py",
     "new_tests_passed": 18,
     "focused_numerical_tests_passed": 150,
-    "training_registered": false,
-    "training_queued": false,
+    "training_queued": true,
     "large_training_launched": false,
-    "qualified": false
+    "qualified": false,
+    "training_preregistered": true,
+    "actual_input_registration_complete": false,
+    "registration": "runtime-attention-registration-91/plan.json",
+    "registration_preflight": "runtime-attention-registration-91/preflight.json",
+    "registration_verification": "runtime-attention-registration-91/verification.json",
+    "registered_updates": 10851,
+    "registered_presentations": 86787
   },
   "runtime_attention_audit_preparation_92": {
-    "status": "implementation_prepared_not_registered",
+    "status": "registered_queued_after91",
     "verification": "runtime-attention-audit-preparation-92/verification.json",
     "verifier": "eval/verify_runtime_review_attention_v10.py",
     "new_tests_passed": 44,
     "focused_numerical_tests_passed": 150,
-    "audit_registered": false,
-    "audit_queued": false,
+    "audit_registered": true,
+    "audit_queued": true,
     "actual_large_fit_audited": false,
-    "qualified": false
+    "qualified": false,
+    "plan": "runtime-attention-audit-92/plan.json"
   }
 }
