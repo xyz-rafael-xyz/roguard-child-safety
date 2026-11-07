@@ -1,0 +1,90 @@
+{
+  "decision": "REJECT",
+  "complete": true,
+  "reason": "Selected heads retain16 binary and1344 joint-field DEV errors and introduce six binary errors againstv9. Zero-error/no-regression prerequisites fail.",
+  "fit_report_sha256": "c17c856da7a2a432e443e3f1058a5b846ecd5a429584191207bea802bae31fb2",
+  "checkpoint_verification_sha256": "3a9ff4e0dd4617ddfdc01aebcff29f310324ad55a332c7ffb8f702d7c65d17f6",
+  "assessment_verification_sha256": "3705d892649fd260f51a0fbc5e932266d791171b91507a1a27a75aa2c9ec2ed9",
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "optimizer_updates": 16308,
+  "training_presentations": 1041444,
+  "checkpoints_retained_and_replayed": 78,
+  "development_predictions_replayed": 344643,
+  "matched_control_checkpoints_bit_identical_to71": 26,
+  "binary_dev_errors": 16,
+  "matched_control_binary_dev_errors": 19,
+  "joint_field_dev_errors": 1344,
+  "matched_control_joint_field_dev_errors": 1391,
+  "fixed_v9_binary_errors": 300,
+  "introduced_binary_errors": 6,
+  "historical_introductions": 3,
+  "maximum_selected_reload_error": 0.0,
+  "maximum_batch_single_logit_error": 2.47955322265625e-05,
+  "batch_single_decision_disagreements": 0,
+  "seconds": 168.35422208392993,
+  "selected": {
+    "ro": {
+      "candidate": "dropout-tenth",
+      "epoch": 12,
+      "binary_errors": 14,
+      "joint_argmax_errors": 699,
+      "field_errors": [
+        53,
+        19,
+        589,
+        55,
+        0,
+        31
+      ],
+      "mean_field_cross_entropy": 0.22215545411575302,
+      "mode": "coupled_policy",
+      "threshold": 0.7517333793124337,
+      "score_margin": 0.0,
+      "selection_rank": [
+        14,
+        699,
+        0.22215545411575302,
+        -0.0
+      ],
+      "checkpoint_sha256": "33a1447090b7240f2be3fe597be70b892bf0296010120f14410707b7ad7e3d51",
+      "completed_training_updates": 2472,
+      "completed_training_presentations": 158088,
+      "adapter_sha256": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3"
+    },
+    "uk": {
+      "candidate": "dropout-control",
+      "epoch": 12,
+      "binary_errors": 2,
+      "joint_argmax_errors": 645,
+      "field_errors": [
+        34,
+        46,
+        578,
+        32,
+        0,
+        20
+      ],
+      "mean_field_cross_entropy": 0.225754005720482,
+      "mode": "coupled_policy",
+      "threshold": 0.9274248149759536,
+      "score_margin": 0.0,
+      "selection_rank": [
+        2,
+        645,
+        0.225754005720482,
+        -0.0
+      ],
+      "checkpoint_sha256": "3342de5c109f8b07107b4169939886302c26d3d60d4653c947c122695c53c1a4",
+      "completed_training_updates": 2964,
+      "completed_training_presentations": 189060,
+      "adapter_sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7"
+    }
+  },
+  "full_encoder_loaded": false,
+  "broader_regressions_opened": false,
+  "held_out_test_opened": false,
+  "final_reviewers_opened": false,
+  "qualified": false,
+  "stable_release_ready": false
+}

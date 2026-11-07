@@ -874,3 +874,20 @@ and gradients. Actual-data preflight verifies all existing feature/source bindin
 The comparison tests an uncertain generalization hypothesis; it makes no novelty
 claim for dropout. No encoder is loaded, and65/73 remain unchanged. Zero binary
 and joint-field DEV errors remain prerequisites for broader qualification.
+
+Study75 completes in168.35 seconds. The selected Romanian head uses dropout0.1
+at epoch12, with14 binary and699 joint-field DEV errors; Ukrainian retains the
+zero-dropout epoch12 control, with two binary and645 joint-field errors. Together,
+16 binary errors improve on the matched control's19, but six introductions
+against v9 remain. The candidate fixes300 v9 binary errors and introduces three
+errors on the historical population and three on crossed generated inputs.
+It is rejected; broader regressions, reserved TEST and final reviewers stay closed.
+
+All78 saved heads are reloaded and replayed on their complete DEV populations,
+covering344,643 checkpoint predictions. The independent threshold/world audit
+reproduces every saved DEV statistic, and all26 no-dropout control checkpoints
+are bit-identical to their matching71 checkpoints. Selected reload error is zero.
+Independent single-input assessment differs from batched logits by at most
+0.0000247955 and changes no decisions; its8,837 paired records are independently
+recounted. All failures and weights remain retained. The fullencoder65 run and
+the separately registered73 initialization/schedule remain unchanged.

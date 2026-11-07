@@ -2069,7 +2069,7 @@
     "qualified": false
   },
   "dropout_readout_75": {
-    "status": "registered_preflight_passed_cpu_fit_not_started",
+    "status": "completed_rejected",
     "amendment": "protocol-amendment-67.json",
     "preflight": "dropout-readout-preflight-75/report.json",
     "numerical_verification": "dropout-readout-preflight-75/numerical-verification.json",
@@ -2081,8 +2081,20 @@
     "registered_optimizer_updates": 16308,
     "registered_training_presentations": 1041444,
     "registered_checkpoints": 78,
-    "training_launched": false,
+    "training_launched": true,
     "encoder_loaded": false,
-    "qualified": false
+    "qualified": false,
+    "complete": true,
+    "report": "dropout-readout-75/report.json",
+    "sequence": "dropout-readout-sequence-75/report.json",
+    "assessment": "dropout-readout-assessment-75/report.json",
+    "verification": "dropout-readout-qualification-75/verification.json",
+    "qualification": "dropout-readout-qualification-75/report.json",
+    "binary_dev_errors": 16,
+    "joint_field_dev_errors": 1344,
+    "fixed_v9_binary_errors": 300,
+    "introduced_binary_errors": 6,
+    "matched_control_checkpoints_exact": 26,
+    "checkpoints_replayed": 78
   }
 }
