@@ -1,0 +1,10 @@
+{
+  "tests_passed": 16,
+  "subtests_passed": 34,
+  "seconds": 0.5,
+  "numerical_tests_executed": true,
+  "command": "env PYTHONPATH=src:.:.venv/lib/python3.12/site-packages VECLIB_MAXIMUM_THREADS=2 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 <ML_PYTHON> -m pytest -q tests/test_role_diversity_runtime_v10.py tests/test_role_framed_diversity_v10.py",
+  "runtime_test_sha256": "154b0ade3d7dacc70d4c15d095daf4da4426d0a8a43efc1844b2789779a234f1",
+  "framing_test_sha256": "43350ded841f4f656d04bd63bd2b642981dc04fbfcb7537ee48f6957d00891e1",
+  "scope": "Source/weight identity, field/gold/token alignment, reference order, duplicate/missing records, dtype/shape/nonfinite rejection, changed populations/tolerances, and role-framing invariants. No full-encoder numerical result is claimed from these tests."
+}
