@@ -2554,7 +2554,7 @@
     "dependency_failure_report": "runtime-attention-failure-91/report.json"
   },
   "runtime_attention_continuation_95": {
-    "status": "registered_sequence_launched",
+    "status": "complete_rejected",
     "continued_from": 91,
     "registration": "runtime-attention-registration-95/plan.json",
     "amendment": "protocol-amendment-77.json",
@@ -2569,18 +2569,38 @@
     "focused_tests_passed": 103,
     "actual_input_registration_complete": true,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "complete": true,
+    "training_launched": true,
+    "report": "runtime-review-attention-95/report.json",
+    "protocol": "runtime-review-attention-95/protocol.json",
+    "selected_epochs": {
+      "ro": 2,
+      "uk": 0
+    },
+    "binary_errors": 12,
+    "joint_argmax_errors": 1338,
+    "fixed_v9": 299,
+    "introduced_v9": 1,
+    "completed_updates": 10851,
+    "completed_presentations": 86787,
+    "selected_reload_maximum_logit_error": 0.0
   },
   "runtime_attention_audit_96": {
-    "status": "queued_after95",
+    "status": "complete_verified_rejected",
     "continued_from": 92,
     "plan": "runtime-attention-audit-96/plan.json",
     "queue": "runtime-attention-audit-96/queue.json",
     "sequence": "runtime-attention-audit-sequence-96/report.json",
     "checkpoint_dev_predictions": 35348,
     "reload_dev_predictions": 8837,
-    "actual_fit_audited": false,
-    "qualified": false
+    "actual_fit_audited": true,
+    "qualified": false,
+    "verification": "runtime-attention-audit-96/verification.json",
+    "checkpoint_count": 8,
+    "training_events": 900,
+    "maximum_policy_enumeration_error": 6.661338147750939e-16,
+    "encoder_loaded": false
   },
   "response_diversity_screen_97": {
     "status": "queued_after96",
