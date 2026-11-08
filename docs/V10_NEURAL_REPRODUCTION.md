@@ -1110,3 +1110,21 @@ arrays are byte-identical to the retained95 arrays. CPU head replay changes no
 argmax or served decisions; its largest logit difference is 0.00002861. Native
 encoder maxima remain producer observations. This numerical PASS preserves
 diagnostic evidence and does not override semantic admission stop 110.
+
+Probe preparation 111 adds structural safeguards before any replacement bank
+can enter fitting. It reconstructs partitions from declared operator/meaning
+families and withheld combinations, requires every assertion, translation and
+context sibling, and rejects duplicated normalized role-preserving inputs.
+Normalization uses NFKC, case folding and whitespace folding. Each input must
+end at its declared focal minor turn, and numeric field proposals must agree
+with their named labels. Protected inputs can be supplied explicitly; a caller
+that supplies none has not established protected-population separation.
+
+The original 1,728-row draft fails because its actual partitions mark every row
+as training. An in-memory partition correction passes structural checking but
+does not repair its semantic defects; no corrected dataset was written or
+admitted. The checker always reports semantic validation, training admission,
+token checking and qualification as false. Family withholding concerns only the
+proposed additional fitting, not independence from earlier model training.
+All 28 focused portable tests and ten additional agent corruption checks pass.
+The full local suite passes 1,868 tests and 202 subtests with 379 optional skips.
