@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "original75": {
+        "rows": 4202,
+        "binary_errors": 14,
+        "joint_argmax_errors": 699,
+        "field_errors": [
+          53,
+          19,
+          589,
+          55,
+          0,
+          31
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.7517333793124337
+      },
+      "runtime75": {
+        "rows": 4202,
+        "binary_errors": 14,
+        "joint_argmax_errors": 699,
+        "field_errors": [
+          53,
+          19,
+          589,
+          55,
+          0,
+          31
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.7517333793124337
+      },
+      "runtime71": {
+        "rows": 4202,
+        "binary_errors": 17,
+        "joint_argmax_errors": 746,
+        "field_errors": [
+          57,
+          16,
+          585,
+          58,
+          1,
+          81
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.8824137277018487
+      },
+      "cpu_replay": {
+        "maximum_logit_error": 1.52587890625e-05,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "gpu_reload": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "historical_logit_difference": {
+        "maximum_logit_error": 0.001247406005859375,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "runtime75_vs_original75": {
+        "rows": 4202,
+        "baseline_errors": 14,
+        "candidate_errors": 14,
+        "fixes": 0,
+        "introductions": 0,
+        "both_wrong": 14,
+        "both_correct": 4188
+      },
+      "runtime75_vs_runtime71": {
+        "rows": 4202,
+        "baseline_errors": 17,
+        "candidate_errors": 14,
+        "fixes": 5,
+        "introductions": 2,
+        "both_wrong": 12,
+        "both_correct": 4183
+      },
+      "artifacts": {
+        "ro-cpu-dev-logits.npy": "4ac35d0b5b4df62b81572879f135e6069ff15eab67dd298a4b79a3201c1cd824",
+        "ro-dev-rows.jsonl": "3c77c44b88802afcea1b52e557325c9252e066d85f5d99dc1647039f6060f5cf",
+        "ro-selected-dev-logits.npy": "0b153a6c86a87c1a74fcdef7a2002e72f89d1f8042ed5bc5c7a614e2916bd2d5",
+        "ro-selected.safetensors": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3"
+      }
+    },
+    "uk": {
+      "original75": {
+        "rows": 4635,
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.9274248149759536
+      },
+      "runtime75": {
+        "rows": 4635,
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.9274248149759536
+      },
+      "runtime71": {
+        "rows": 4635,
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mode": "coupled_policy",
+        "threshold": 0.9274248149759536
+      },
+      "cpu_replay": {
+        "maximum_logit_error": 2.288818359375e-05,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "gpu_reload": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "historical_logit_difference": {
+        "maximum_logit_error": 0.0016388893127441406,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "runtime75_vs_original75": {
+        "rows": 4635,
+        "baseline_errors": 2,
+        "candidate_errors": 2,
+        "fixes": 0,
+        "introductions": 0,
+        "both_wrong": 2,
+        "both_correct": 4633
+      },
+      "runtime75_vs_runtime71": {
+        "rows": 4635,
+        "baseline_errors": 2,
+        "candidate_errors": 2,
+        "fixes": 0,
+        "introductions": 0,
+        "both_wrong": 2,
+        "both_correct": 4633
+      },
+      "artifacts": {
+        "uk-cpu-dev-logits.npy": "ac0f53c6e0e93e3de862192f96d2eb83920ebe20e4a2c15af53be551c0c05b86",
+        "uk-dev-rows.jsonl": "62af5de173b0a4710caa9e6ef35ffb0690015bf73ed28a489c1ebb3d1ebe76bc",
+        "uk-selected-dev-logits.npy": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+        "uk-selected.safetensors": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7"
+      }
+    }
+  },
+  "encoder_loaded": false,
+  "training_performed": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "decision": "WARM_START_REFERENCE_ONLY_NO_MODEL_QUALIFICATION"
+}

@@ -1,0 +1,37 @@
+{
+  "decision": "REGISTRATION_FAILED_BEFORE_ENCODER_OR_OPTIMIZER",
+  "reason": "The input guard required historical study75 logits to be float32; retained historical logits are float64. Fresh runtime GPU, CPU and study71 references are float32. All arrays have the expected shape and finite values.",
+  "failed_source_sha256": "8d079615421263901062b7cf754a42b5e01be1b69a542b97e7ff66bdaca229fc",
+  "sequence_reports": {
+    "runtime-review-baseline-audit-sequence-89": "c114b13a157b5c71dc287d456e228a2e37b70ef91d78fa142132d55e5bbf516e",
+    "runtime-warm-start-sequence-90": "fc6652448d284a6fac96ac6a0a55b39c405a9a85092428744ea5656150474ebd",
+    "runtime-review-attention-sequence-91": "c41aaf3cf623f4cba7aac73652b5d463afca3bfdefecb7c49fb1d67caf8936dc",
+    "runtime-attention-audit-sequence-92": "2e53d10d0c1583dc0e40f8089b112b2f9bdedc508bcc6c13e4bf537f545a06bd",
+    "response-diversity-screen-sequence-93": "2e4a782a0e22e189e9d876e3f79510b56a561c7c15bf5c4fec32459b9a7fa96f",
+    "response-diversity-screen-audit-sequence-94": "825ab83dedd105b4e375b3906dc57aa90cc33abbede9c065a0a5b71c4f020246"
+  },
+  "private_log_sha256": "9812c9b9784bb89dc2229dc184b365fab6461f658ab2a4f2f0fd4fbadf2056fc",
+  "historical_logits": {
+    "ro": {
+      "dtype": "float64",
+      "rows": 4202,
+      "columns": 19,
+      "sha256": "79abcd2baba59b4cf0f1c7b8ef2ed04efb178a1c5aa0b53d7874c7d11e94df96"
+    },
+    "uk": {
+      "dtype": "float64",
+      "rows": 4635,
+      "columns": 19,
+      "sha256": "056b2753f25f6ed8f9c409b186c0c7f10e8d001d2823e67e6bf024c7b64d2bf2"
+    }
+  },
+  "baseline_audit": "PASS",
+  "warm_start_binary_errors": 16,
+  "warm_start_joint_argmax_errors": 1344,
+  "warm_start_historical_decision_changes": 0,
+  "optimizer_updates": 0,
+  "encoder_loaded": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "continuation": "Separate study95 preserves historical precision, requires exact artifact-specific dtypes, and keeps optimization, data, thresholds and parity limits unchanged. Studies91-94 remain terminal and are not restarted."
+}

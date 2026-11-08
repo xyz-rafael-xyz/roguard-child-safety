@@ -2433,7 +2433,7 @@
     "maximum_checkpoint_replay_error": 0.0
   },
   "runtime_review_baseline_88": {
-    "status": "running",
+    "status": "complete_verified",
     "amendment": "protocol-amendment-73.json",
     "preflight": "runtime-review-baseline-preflight-88/report.json",
     "source": "training/extract_runtime_review_baseline_v10.py",
@@ -2445,10 +2445,12 @@
     "warm_start_reference_tolerance": 1e-05,
     "training_performed": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "report": "runtime-review-baseline-88/report.json",
+    "native_cached_forward_checks_completed": 37766
   },
   "runtime_review_baseline_audit_89": {
-    "status": "queued",
+    "status": "complete_verified",
     "plan": "runtime-review-baseline-audit-89/plan.json",
     "preflight": "runtime-review-baseline-audit-89/preflight.json",
     "verifier": "eval/verify_runtime_review_baseline_v10.py",
@@ -2458,12 +2460,13 @@
     "tests_passed": 31,
     "new_verifier_tests": 27,
     "incomplete_extraction_guard_verified": true,
-    "actual_completed88_audit_performed": false,
+    "actual_completed88_audit_performed": true,
     "encoder_loaded": false,
-    "qualified": false
+    "qualified": false,
+    "verification": "runtime-review-baseline-audit-89/verification.json"
   },
   "runtime_warm_start_90": {
-    "status": "queued",
+    "status": "complete_reference_only",
     "amendment": "protocol-amendment-74.json",
     "preflight": "runtime-warm-start-preflight-90/report.json",
     "verification": "runtime-warm-start-preflight-90/verification.json",
@@ -2476,20 +2479,24 @@
     "cpu_head_rows": 8837,
     "new_tests_passed": 17,
     "incomplete_extraction_guard_verified": true,
-    "actual_runtime_projection_performed": false,
+    "actual_runtime_projection_performed": true,
     "encoder_loaded": false,
     "training_performed": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "report": "runtime-warm-start-90/report.json",
+    "runtime_binary_errors": 16,
+    "runtime_joint_argmax_errors": 1344,
+    "historical_decision_changes": 0
   },
   "runtime_attention_preparation_91": {
-    "status": "preregistered_queued",
+    "status": "registration_failed",
     "verification": "runtime-attention-preparation-91/verification.json",
     "trainer": "training/train_runtime_review_attention_v10.py",
     "helper": "training/runtime_attention_v10.py",
     "new_tests_passed": 18,
     "focused_numerical_tests_passed": 150,
-    "training_queued": true,
+    "training_queued": false,
     "large_training_launched": false,
     "qualified": false,
     "training_preregistered": true,
@@ -2498,10 +2505,12 @@
     "registration_preflight": "runtime-attention-registration-91/preflight.json",
     "registration_verification": "runtime-attention-registration-91/verification.json",
     "registered_updates": 10851,
-    "registered_presentations": 86787
+    "registered_presentations": 86787,
+    "failure_report": "runtime-attention-failure-91/report.json",
+    "optimizer_updates": 0
   },
   "runtime_attention_audit_preparation_92": {
-    "status": "registered_queued_after91",
+    "status": "dependency_failed",
     "verification": "runtime-attention-audit-preparation-92/verification.json",
     "verifier": "eval/verify_runtime_review_attention_v10.py",
     "new_tests_passed": 44,
@@ -2510,10 +2519,11 @@
     "audit_queued": true,
     "actual_large_fit_audited": false,
     "qualified": false,
-    "plan": "runtime-attention-audit-92/plan.json"
+    "plan": "runtime-attention-audit-92/plan.json",
+    "dependency_failure_report": "runtime-attention-failure-91/report.json"
   },
   "response_diversity_screen_93": {
-    "status": "queued_after92",
+    "status": "dependency_failed",
     "continued_from": 81,
     "amendment": "protocol-amendment-76.json",
     "preflight": "response-diversity-screen-preflight-93/report.json",
@@ -2527,10 +2537,11 @@
     "training_ready": false,
     "independent_annotation": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "dependency_failure_report": "runtime-attention-failure-91/report.json"
   },
   "response_diversity_screen_audit_94": {
-    "status": "queued_after93",
+    "status": "dependency_failed",
     "continued_from": 82,
     "plan": "response-diversity-screen-audit-94/plan.json",
     "queue": "response-diversity-screen-audit-94/queue.json",
@@ -2539,6 +2550,36 @@
     "new_continuation_tests_passed": 20,
     "actual_screen_audited": false,
     "encoder_loaded": false,
+    "qualified": false,
+    "dependency_failure_report": "runtime-attention-failure-91/report.json"
+  },
+  "runtime_attention_continuation_95": {
+    "status": "registered_sequence_launched",
+    "continued_from": 91,
+    "registration": "runtime-attention-registration-95/plan.json",
+    "amendment": "protocol-amendment-77.json",
+    "preflight": "runtime-attention-preflight-95/report.json",
+    "verification": "runtime-attention-registration-95/verification.json",
+    "queue": "runtime-attention-registration-95/queue.json",
+    "sequence": "runtime-review-attention-sequence-95/report.json",
+    "training_rows": 28929,
+    "development_rows": 8837,
+    "registered_updates": 10851,
+    "registered_presentations": 86787,
+    "focused_tests_passed": 103,
+    "actual_input_registration_complete": true,
+    "held_out_test_opened": false,
+    "qualified": false
+  },
+  "runtime_attention_audit_96": {
+    "status": "queued_after95",
+    "continued_from": 92,
+    "plan": "runtime-attention-audit-96/plan.json",
+    "queue": "runtime-attention-audit-96/queue.json",
+    "sequence": "runtime-attention-audit-sequence-96/report.json",
+    "checkpoint_dev_predictions": 35348,
+    "reload_dev_predictions": 8837,
+    "actual_fit_audited": false,
     "qualified": false
   }
 }
