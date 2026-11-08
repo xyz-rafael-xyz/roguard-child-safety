@@ -2603,7 +2603,7 @@
     "encoder_loaded": false
   },
   "response_diversity_screen_97": {
-    "status": "queued_after96",
+    "status": "complete_rejected_for_fitting",
     "continued_from": 93,
     "amendment": "protocol-amendment-78.json",
     "preflight": "response-diversity-screen-preflight-97/report.json",
@@ -2613,19 +2613,52 @@
     "families": 32,
     "same_drafts_prompts_judge_order_seed_acceptance": true,
     "all_query_tokens_match_original81": true,
-    "actual_generations_performed": false,
+    "actual_generations_performed": true,
     "qualified": false,
-    "held_out_test_opened": false
+    "held_out_test_opened": false,
+    "report": "response-diversity-screen-97/report.json",
+    "accepted_rows": 115,
+    "label_disagreements": 13,
+    "malformed_outputs": 0,
+    "language_flags": 0,
+    "accepted_families": 25,
+    "decision": "REJECT_FOR_FITTING_UNDER_THIS_SCREEN",
+    "training_ready": false
   },
   "response_diversity_screen_audit_98": {
-    "status": "queued_after97",
+    "status": "complete_verified_rejected",
     "continued_from": 94,
     "plan": "response-diversity-screen-audit-98/plan.json",
     "queue": "response-diversity-screen-audit-98/queue.json",
     "sequence": "response-diversity-screen-audit-sequence-98/report.json",
     "focused_tests_passed": 110,
     "new_continuation_tests_passed": 20,
-    "actual_screen_audited": false,
+    "actual_screen_audited": true,
+    "qualified": false,
+    "verification": "response-diversity-screen-audit-98/verification.json",
+    "token_replays": 128,
+    "label_disagreements": 13,
+    "training_ready": false
+  },
+  "semantic_diversity_99": {
+    "status": "complete_structurally_verified_not_admitted",
+    "plan": "semantic-diversity-plan-99.json",
+    "report": "semantic-diversity-99/report.json",
+    "verification": "semantic-diversity-99/verification.json",
+    "author_review": "semantic-diversity-99/author-review.json",
+    "rows": 3168,
+    "families": 24,
+    "distinct_cores_per_language": 48,
+    "token_range": [
+      426,
+      543
+    ],
+    "exact_existing_input_overlap": 0,
+    "focused_tests_passed": 15,
+    "fiction_rows_requiring_explicit_minor_framing": 1536,
+    "training_admitted": false,
+    "independent_language_or_label_validation": false,
+    "held_out_test_opened": false,
     "qualified": false
   }
 }

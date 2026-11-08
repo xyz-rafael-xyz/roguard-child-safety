@@ -1,0 +1,21 @@
+{
+  "format": "roguard-semantic-diversity-author-review-1",
+  "decision": "DO_NOT_ADMIT_REVISE_FICTION_FRAMING",
+  "manifest_sha256": "d352f2249e219a3966b6775f54273477f7f86451add846c35c53c7e14a2dbeb6",
+  "rows_sha256": "565f3a27f6e5a84f60df85599dbad2cbc9c2f6d7322d4d512bdbf88f8489c384",
+  "structural_audit": "verification.json",
+  "rows": 3168,
+  "fiction_rows_requiring_revision": 1536,
+  "direct_rows": 1632,
+  "reviewer": "generating assistant; author review only",
+  "independent_human_review": false,
+  "core_intent": "The 24 paired themes contain current first-person declarative statements. Benign examples describe ordinary worry or functioning; contrast examples explicitly describe distress, threat, coercion or self-injury. These are intended synthetic concern labels, not diagnoses or independently verified gold.",
+  "issue": "The fictional designation is supplied only by the assistant context. The minor quotes and evaluates a statement without explicitly identifying it as a fictional line. Even if the intended scene reading is plausible, this may teach suppression of an actual disclosure based on assistant framing. Structural policy agreement cannot resolve that ambiguity.",
+  "required_revision": "Create a separate retained continuation. In fictional rows, make the minor explicitly identify the character/line as fictional in both prior and focal messages; preserve every core, label, factor combination and direct input. Preserve actual prior quoted statements for retractions. Re-tokenize and independently verify the entire continued population.",
+  "policy_note": "The unchanged policy conservatively requests review for retraction of a concern even within fiction. Labels must not be changed to force fictional retractions negative.",
+  "training_admitted": false,
+  "training_performed": false,
+  "independent_language_or_label_validation": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}
