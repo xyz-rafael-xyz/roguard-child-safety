@@ -2747,7 +2747,7 @@
     "qualified": false
   },
   "matched_role_training_preparation_104": {
-    "status": "prepared_not_registered_or_launched",
+    "status": "prospective_pipeline_queued_actual_registration_pending",
     "report": "matched-role-training-preparation-104/report.json",
     "train_rows_per_arm": 32097,
     "development_rows": 8837,
@@ -2758,6 +2758,38 @@
     "training_admitted": false,
     "full_model_training_performed": false,
     "held_out_test_opened": false,
+    "qualified": false
+  },
+  "matched_role_pipeline_105_106": {
+    "status": "queued_after_actual_reference_audit103",
+    "prospective": "matched-role-attention-prospective-104.json",
+    "queue": "matched-role-pipeline-preflight-104/queue.json",
+    "sequence": "matched-role-attention-sequence-105-106/report.json",
+    "bootstrap": "matched-role-pipeline-preflight-104/bootstrap-verification.json",
+    "incomplete_dependency_guard": "matched-role-pipeline-preflight-104/incomplete-dependency-guard.json",
+    "tests": "matched-role-pipeline-preflight-104/tests-verification.json",
+    "train_rows_per_arm": 32097,
+    "development_rows": 8837,
+    "planned_updates_both_arms": 24078,
+    "planned_presentations_both_arms": 192582,
+    "training_registration_created": false,
+    "full_model_training_started": false,
+    "held_out_test_opened": false,
+    "qualified": false
+  },
+  "matched_role_audit_107": {
+    "status": "queued_after_paired_pipeline_exit",
+    "queue": "matched-role-pipeline-preflight-104/audit-queue.json",
+    "sequence": "matched-role-attention-audit-sequence-107/report.json",
+    "actual_population_verification": "matched-role-audit-preparation-107/population-verification.json",
+    "expected_checkpoints": 16,
+    "checkpoint_dev_rows": 70696,
+    "reload_rows": 17674,
+    "initial_new_rows": 6336,
+    "retained_private_artifacts": 52,
+    "focused_tests_passed": 50,
+    "complete_artifact_fixture_passed": true,
+    "actual_model_audit_complete": false,
     "qualified": false
   }
 }
