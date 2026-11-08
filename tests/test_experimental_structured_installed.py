@@ -14,6 +14,8 @@ W=Path(runtime.__file__).parent
 def installed_fixture(directory):
  root=Path(directory);_,_,_,r=fixture(root);r['scope']='installed_candidate';r['registered']=True
  assets=r['assets']
+ for name in ('leaf','parent'):del assets[name]
+ r['asset_edges']=[]
  def add(name,content):
   p=root/(name.replace(':','_')+'.json');p.write_bytes(content);assets[name]=dict(path=str(p),**w.file_record(p))
  add('selector',gzip.compress(json.dumps({'min_relevance':None}).encode(),mtime=0))
@@ -28,9 +30,9 @@ def installed_fixture(directory):
  binary=root/'native_fixture.so';binary.write_bytes(b'synthetic binary, never imported');r['native_dependencies']={'synthetic_native':dict(path=str(binary),**w.file_record(binary))}
  pins75={};pins9={};components={}
  for lang in ('ro','uk'):
-  for name in ('weights75','adapter9','residual_tensors','selected_checkpoint','fit_plan','feature_manifest','selection_proof'):add(lang+'_'+name,('synthetic '+lang+name).encode())
+  for name in ('weights75','adapter9','residual_tensors'):add(lang+'_'+name,('synthetic '+lang+name).encode())
   pins75[lang]=assets[lang+'_weights75']['sha256'];pins9[lang]=assets[lang+'_adapter9']['sha256']
-  manifest=dict(language=lang,tensor_sha256=assets[lang+'_residual_tensors']['sha256'],runtime_source_sha256=packages['roguard']['files']['experimental_role_residual.py']['sha256'],alignment_source_sha256=packages['roguard']['files']['role_alignment.py']['sha256'],parent={'original_v9_adapter_sha256':pins9[lang],'original_v9_spec_sha256':w.SPEC9[lang],'head75_source_sha256':pins75[lang],'spec_sha256':w.SPEC75[lang]},provenance={key:assets[lang+'_'+name]['sha256'] for name,key in [('selected_checkpoint','selected_checkpoint_sha256'),('fit_plan','training_plan_sha256'),('feature_manifest','feature_manifest_sha256'),('selection_proof','selection_proof_sha256')]})
+  manifest=dict(language=lang,tensor_sha256=assets[lang+'_residual_tensors']['sha256'],runtime_source_sha256=packages['roguard']['files']['experimental_role_residual.py']['sha256'],alignment_source_sha256=packages['roguard']['files']['role_alignment.py']['sha256'],parent={'original_v9_adapter_sha256':pins9[lang],'original_v9_spec_sha256':w.SPEC9[lang],'head75_source_sha256':pins75[lang],'spec_sha256':w.SPEC75[lang]},provenance={key:w.hashlib.sha256(('synthetic uninstalled research '+lang+key).encode()).hexdigest() for key in w.PROVENANCE_KEYS})
   add(lang+'_residual_manifest',json.dumps(manifest).encode())
   residual=object.__new__(runtime.ResidualArrays);residual._manifest=copy.deepcopy(manifest);residual.identity=assets[lang+'_residual_manifest']['sha256']
   engine=object.__new__(runtime.OptionalResidualEngine);engine.enabled=True;engine.residual=residual;engine.spec=w.read(assets[lang+'_spec75']['path']);engine.v9spec=w.read(assets[lang+'_spec9']['path']);engine.spec_identity=w.digest(engine.spec);engine.v9_spec_identity=w.digest(engine.v9spec);engine.alignment=types.SimpleNamespace(__file__=str(root/'roguard/role_alignment.py'))

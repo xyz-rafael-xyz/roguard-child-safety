@@ -27,7 +27,7 @@ def fixture(root,mode='direct-first',routes=None,active_language='ro'):
   add(lang+'_residual_manifest',json.dumps({'synthetic':lang}).encode())
  add('selector',b'{"synthetic":"selector"}')
  add('leaf',b'{"synthetic":"leaf"}');add('parent',json.dumps({'child_sha':assets['leaf']['sha256']}).encode())
- registration=dict(format='roguard-structured-installed-closure-1',qualified=False,scope='synthetic_fixture',registered=False,packages={'synthetic_runtime':dict(root=str(package),files=w.python_inventory(package),distribution=None,version=None)},assets=assets,required_asset_ids=list(assets),asset_edges=[dict(**{'from':'parent'},keys=['child_sha'],to='leaf')],native_dependencies={},declared_supported_runtime_contract={'python_minimum':'3.12','platform':'AppleSilicon','native_backend':'MLX'})
+ registration=dict(format='roguard-structured-installed-closure-2',qualified=False,scope='synthetic_fixture',registered=False,packages={'synthetic_runtime':dict(root=str(package),files=w.python_inventory(package),distribution=None,version=None)},assets=assets,required_asset_ids=list(assets),asset_edges=[dict(**{'from':'parent'},keys=['child_sha'],to='leaf')],native_dependencies={},declared_supported_runtime_contract={'python_minimum':'3.12','platform':'AppleSilicon','native_backend':'MLX'})
  p=root/'closure.json';p.write_text(json.dumps(registration));c=w.Closure(p,w.sha(p));components={lang:Fake(lang,c,route=(routes or {}).get(lang,'residual')) for lang in ('ro','uk')};selector=Selector(c.asset_sha('selector'));wrapper=w.StructuredWrapper({active_language:components[active_language]},selector,c,active_language=active_language,mode=mode);return wrapper,components,c,registration
 
 def payload(lang='ro',text='Acesta este mesajul meu.'):

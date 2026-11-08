@@ -7,7 +7,7 @@ from roguard import experimental_role_residual as residual
 from roguard import role_alignment
 
 def test_reviewed_structured_source_is_packaged_byte_identically():
-    assert hashlib.sha256(Path(structured.__file__).read_bytes()).hexdigest() == '4cd50de67e072d9382a7ecab1a6c4ab5a332cf145ac2d54ffcbb001b7673291a'
+    assert hashlib.sha256(Path(structured.__file__).read_bytes()).hexdigest() == '3dbf7a8f20fd37247ef54de1c13fdd4dc3d0c2f9c14455f6353c3d544c6cca8c'
     assert hashlib.sha256(Path(residual.__file__).read_bytes()).hexdigest() == 'f7baa18a4a7eff8949aab420f18a9b30a85b3fc045bd180e0a9d2f94445a963d'
     assert hashlib.sha256(Path(role_alignment.__file__).read_bytes()).hexdigest() == '0c65cfcb800a445c52e9c880475e485ea9d35e8241468c92b7f861c37658ad6a'
 

@@ -22,6 +22,16 @@ PIN75W={'ro':'1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3',
 PIN9W={'ro':'114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09','uk':'0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f'}
 SELECTOR_SHA='81493f522678301dfc3196345cd18a577ad39d3b4cc386260cd10866d85a6eea'
 MASS_ATOL=2e-14
+PROVENANCE_KEYS=('selected_checkpoint_sha256','training_plan_sha256','feature_manifest_sha256','selection_proof_sha256')
+
+def runtime_asset_ids():
+ return {'selector'}|{'base:'+name for name in BASE_FILES}|{lang+'_'+suffix for lang in ('ro','uk') for suffix in ('spec75','spec9','weights75','adapter9','residual_manifest','residual_tensors')}
+
+def valid_sha256(value):return type(value) is str and len(value)==64 and all(c in '0123456789abcdef' for c in value)
+
+def resolved_asset_path(value):
+ # HF snapshot links resolve to immutable-content blobs; bind bytes, not host paths.
+ path=Path(value).resolve(strict=True);require(path.is_file() and not path.is_symlink(),'Asset must resolve to a regular file');return path
 
 def require(x,m):
  if not x:raise ValueError(m)
@@ -50,19 +60,20 @@ class Closure:
  """
  def __init__(self,registration_path,expected_sha256):
   self._path=Path(registration_path);self._sha=expected_sha256;require(sha(self._path)==expected_sha256,'Closure registration changed');self._registration=read(self._path);self._registration_digest=digest(self._registration)
-  r=self._registration;require(r['format']=='roguard-structured-installed-closure-1' and r['qualified'] is False and r['scope'] in ('synthetic_fixture','installed_candidate'),'Invalid closure scope')
+  r=self._registration;require(r['format']=='roguard-structured-installed-closure-2' and r['qualified'] is False and r['scope'] in ('synthetic_fixture','installed_candidate'),'Invalid closure scope')
   require(isinstance(r['packages'],dict) and r['packages'] and isinstance(r['assets'],dict) and r['assets'],'Explicit packages and assets required')
   require(set(r['assets'])==set(r['required_asset_ids']),'Exact transitive asset inventory required')
   if r['scope']=='installed_candidate':
    require(r['registered'] is True and {'roguard','mlx_lm','mlx','numpy','transformers','tokenizers','huggingface_hub','safetensors'}<=set(r['packages']),'Registered installed runtime/dependency roots required')
    versions={p['distribution']:p['version'] for p in r['packages'].values()}
    require(all(versions.get(name)==version for name,version in RUNTIME_VERSIONS.items()),'Pinned runtime dependency versions required')
-   require(set(r['required_runtime_assets'])<=set(r['assets']) and r['native_dependencies'],'Runtime and native dependency closure required')
+   expected=runtime_asset_ids()
+   require(set(r['assets'])==expected and type(r['required_asset_ids']) is list and len(r['required_asset_ids'])==len(expected) and type(r['required_runtime_assets']) is list and len(r['required_runtime_assets'])==len(expected) and set(r['required_runtime_assets'])==expected and r['native_dependencies'],'Exact portable runtime assets and native closure required; research files belong to external lineage')
   self.verify();self.receipt=self._receipt();self.identity=digest(self.receipt)
  def _receipt(self):
   r=self._registration
-  return dict(format='roguard-verified-structured-closure-receipt-1',scope=r['scope'],packages={name:{'files':v['files'],'distribution':v.get('distribution'),'version':v.get('version')} for name,v in r['packages'].items()},assets={name:{k:v[k] for k in ('bytes','sha256')} for name,v in r['assets'].items()},asset_edges=r['asset_edges'],native_dependencies={name:{k:v[k] for k in ('bytes','sha256')} for name,v in r['native_dependencies'].items()},declared_supported_runtime_contract=r['declared_supported_runtime_contract'])
- def asset_path(self,name):return Path(self._registration['assets'][name]['path'])
+  return dict(format='roguard-verified-structured-closure-receipt-2',scope=r['scope'],research_provenance_verification='declared_digests_only_external_verification_required',packages={name:{'files':v['files'],'distribution':v.get('distribution'),'version':v.get('version')} for name,v in r['packages'].items()},assets={name:{k:v[k] for k in ('bytes','sha256')} for name,v in r['assets'].items()},asset_edges=r['asset_edges'],native_dependencies={name:{k:v[k] for k in ('bytes','sha256')} for name,v in r['native_dependencies'].items()},declared_supported_runtime_contract=r['declared_supported_runtime_contract'])
+ def asset_path(self,name):return resolved_asset_path(self._registration['assets'][name]['path'])
  def asset_sha(self,name):return self._registration['assets'][name]['sha256']
  def cheap_verify(self):
   require(digest(self._registration)==self._registration_digest,'Closure configuration mutated')
@@ -97,7 +108,7 @@ class Closure:
       else:require(any(Path(b['path']).resolve()==actual and canonical(file_record(actual))==canonical({k:b[k] for k in ('bytes','sha256')}) for b in r['native_dependencies'].values()),'Uninventoried imported native module')
   for group in ('assets','native_dependencies'):
    for name,b in r[group].items():
-    path=Path(b['path']);require(path.is_file() and not path.is_symlink() and canonical(file_record(path))==canonical({k:b[k] for k in ('bytes','sha256')}),'Asset bytes differ: '+name)
+    path=resolved_asset_path(b['path']) if group=='assets' else Path(b['path']);require(path.is_file() and not path.is_symlink() and canonical(file_record(path))==canonical({k:b[k] for k in ('bytes','sha256')}),'Asset bytes differ: '+name)
   for edge in r['asset_edges']:
    value=read(self.asset_path(edge['from']))
    for part in edge['keys']:value=value[part]
@@ -167,7 +178,7 @@ class StructuredWrapper:
     require(manifest['runtime_source_sha256']==packagefiles['experimental_role_residual.py']['sha256'] and manifest['alignment_source_sha256']==packagefiles['role_alignment.py']['sha256'],'Installed residual source closure differs')
     expected_parent={'original_v9_adapter_sha256':PIN9W[lang],'original_v9_spec_sha256':SPEC9[lang],'head75_source_sha256':PIN75W[lang],'spec_sha256':SPEC75[lang]}
     require(all(manifest['parent'].get(k)==v for k,v in expected_parent.items()),'Residual parent asset closure differs')
-    for name,key in [('selected_checkpoint','selected_checkpoint_sha256'),('fit_plan','training_plan_sha256'),('feature_manifest','feature_manifest_sha256'),('selection_proof','selection_proof_sha256')]:require(manifest['provenance'][key]==closure.asset_sha(lang+'_'+name),'Selected provenance closure differs')
+    require(type(manifest.get('provenance')) is dict and all(valid_sha256(manifest['provenance'].get(key)) for key in PROVENANCE_KEYS),'Four declared research provenance digests required; actual files verified by external study')
    for name,b in BASE_FILES.items():require(closure.asset_sha('base:'+name)==b['sha256'] and closure._registration['assets']['base:'+name]['bytes']==b['bytes'],'Pinned base asset closure differs')
   for lang in ('ro','uk'):
    self.specs[lang]={}
