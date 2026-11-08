@@ -1029,3 +1029,30 @@ those identities again at completion. Fifty queue source bindings verify. Runs
 65, 73 and 78 remain unchanged. A completed-79 all-checkpoint and paired accuracy
 audit is still required after fitting; no model result or release qualification
 is claimed by this registration.
+
+Native regression preparation 108 adds `eval.evaluate_native_regressions_v10`
+for candidates that pass paired audit 107. An integrity PASS with any selected
+binary, joint-field or introduced DEV error is rejected before encoder loading.
+Admission reruns the completed paired audit against the current retained files
+and requires the same proof. The selected control or treatment arm must pass
+individually; neither inherits the other arm's result.
+
+The evaluator preserves all 6,074 exposed checkpoints: 5,022 broad regressions,
+348 trajectory DEV, 32 challenge, 600 original regressions and 72 fresh44 cases.
+Both original v9 and the candidate receive fresh inference through the unchanged
+published-v9 serving engine, with the same frozen selector and complete-turn
+1,200-character memory view. Identical selected inputs may share a serving call;
+all checkpoint denominators remain intact. The 72 fresh44 cases and 48 broad
+regressions have binary labels only, so their absent field labels are reported
+as unannotated. Singleton
+field argmax outputs remain uncalibrated diagnostics. Abstentions count as errors.
+
+Preparation verifies source equality with tag `v9.0.0`, population hashes and
+historical input/view identities. Tests exercise admission failures, corruption
+after a saved audit, retained abstentions, missing predictions, inference cleanup
+and complete CLI pass/fail paths using fake serving outputs. Actual paired
+training and audit completion remain prerequisites; preparation launches no
+regression encoder and admits no model. Even an exposed-regression pass leaves
+response qualification, independent calibration/evaluation, measured reviewer
+benefit and installed-runtime qualification outstanding. Reserved TEST stays
+closed and reviewers remain gated.
