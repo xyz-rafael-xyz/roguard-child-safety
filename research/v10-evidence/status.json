@@ -2681,7 +2681,9 @@
     "training_admitted": false,
     "independent_language_or_label_validation": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "current_training_admission": "REVOKED_PENDING_SEMANTIC_REVISION110",
+    "superseding_evidence": "semantic-admission-stop-110/report.json"
   },
   "role_diversity_runtime_101": {
     "status": "bootstrap_failed_before_encoder",
@@ -2761,7 +2763,7 @@
     "qualified": false
   },
   "matched_role_pipeline_105_106": {
-    "status": "queued_after_actual_reference_audit103",
+    "status": "STOPPED_BEFORE_FITTING_SEMANTIC_ADMISSION_FAILURE110",
     "prospective": "matched-role-attention-prospective-104.json",
     "queue": "matched-role-pipeline-preflight-104/queue.json",
     "sequence": "matched-role-attention-sequence-105-106/report.json",
@@ -2775,10 +2777,11 @@
     "training_registration_created": false,
     "full_model_training_started": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "superseding_evidence": "semantic-admission-stop-110/report.json"
   },
   "matched_role_audit_107": {
-    "status": "queued_after_paired_pipeline_exit",
+    "status": "STOPPED_BEFORE_FITTING_SEMANTIC_ADMISSION_FAILURE110",
     "queue": "matched-role-pipeline-preflight-104/audit-queue.json",
     "sequence": "matched-role-attention-audit-sequence-107/report.json",
     "actual_population_verification": "matched-role-audit-preparation-107/population-verification.json",
@@ -2790,6 +2793,16 @@
     "focused_tests_passed": 50,
     "complete_artifact_fixture_passed": true,
     "actual_model_audit_complete": false,
-    "qualified": false
+    "qualified": false,
+    "superseding_evidence": "semantic-admission-stop-110/report.json"
+  },
+  "semantic_admission_stop_110": {
+    "decision": "DATASET100_NOT_ADMITTED_FOR_FITTING_PENDING_SEMANTIC_REVISION",
+    "report": "semantic-admission-stop-110/report.json",
+    "optimizer_updates": 0,
+    "reference102_audit103_integrity_only": true,
+    "restart105_107_prohibited": true,
+    "new_semantic_review_required": true,
+    "stable_release_ready": false
   }
 }

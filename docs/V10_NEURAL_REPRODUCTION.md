@@ -1083,3 +1083,22 @@ bound pipeline. A fresh local research-wheel installation verifies 177 package
 files, all 40 entrypoints, bilingual/session/planner smokes and both ownership
 regressions. No neural model inference or cross-platform qualification is
 claimed. The wheel retains research version metadata 9.0.0 and is unpublished.
+
+Semantic admission stop 110 invalidates the proposed fitting admission of
+dataset 100. Parallel semantic review found that negating reassuring benign
+propositions can express concern, while denying a compound or universal claim
+does not deny every concerning component or occurrence. The retained review
+highlights 32 benign-negation and 40 concern-negation cases; it does not justify
+automatically flipping their labels. Numerical consistency with the limited
+ontology did not establish full-utterance gold accuracy.
+
+The waiting producer 105–106 and audit 107 were terminated before registration,
+child processes or optimizer updates. Their original plans, data, labels and
+last waiting-state reports remain retained. Do not restart these queues or
+invoke registration 104. Reference extraction 102 and integrity audit 103 may
+finish for diagnostic preservation; an integrity PASS cannot restore fitting
+admission. The separate 1,728-row operator draft is also excluded for semantic
+and grouping/shortcut issues. Neutral benign replacements alone are insufficient:
+concern negation needs separate atomization or explicit componentwise denial.
+A revised dataset must pass new semantic/software checks and receive a separate
+registration. The v10 goal remains active, and no model or release qualifies.
