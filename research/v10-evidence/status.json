@@ -860,8 +860,8 @@
     "Run all baselines on the independent population"
   ],
   "software_verification": {
-    "passed_tests": 1567,
-    "skipped_optional_tests": 217,
+    "passed_tests": 1695,
+    "skipped_optional_tests": 339,
     "passed_subtests": 129,
     "studio_note": "Full local suite completed in one run with loopback access",
     "installed_wheel_smoke_python": [
@@ -871,7 +871,7 @@
     ],
     "wheel_sha256": "7a51771a2a7f32a5d55de27d8e15cb11a593edff5e5675f0fef5414d748adecd",
     "host": "macOS arm64",
-    "cross_platform_ci": "Both hosted runs for39e6ee4 passed all32 jobs. New audit89 code awaits exact-commit CI verification.",
+    "cross_platform_ci": "Exact5a7b14f passed all32 jobs across push42445141876 and PR42445146799. Continuation97/98 awaits its own commit CI.",
     "wheel_published": false,
     "legacy_encoding_cli_smoke": true,
     "durable_session_tests": 16,
@@ -886,9 +886,9 @@
     ],
     "response_gate_verification": "response-gate-software/report.json",
     "wheel_note": "Earlier wheel_sha256 binds the neural integration check; response_gate_verification binds the subsequent portable gate wheel separately.",
-    "latest_suite_seconds": 36.13,
+    "latest_suite_seconds": 40.79,
     "additional_runtime_baseline_and_layer_tests_passed": 7,
-    "latest_full_suite_scope": "Includes baseline88 and audit89. The numerical baseline/verifier checks separately passed31 tests in the ML environment."
+    "latest_full_suite_scope": "Includes response continuation97/98. Focused screening/audit tests pass110; prior focused numerical attention95/96 tests pass103."
   },
   "interpretation": "All current model populations are exposed synthetic engineering evidence. No independent validation, measured child benefit, universal perfection or release qualification is established.",
   "calibration_overlap_audit": {
@@ -2580,6 +2580,32 @@
     "checkpoint_dev_predictions": 35348,
     "reload_dev_predictions": 8837,
     "actual_fit_audited": false,
+    "qualified": false
+  },
+  "response_diversity_screen_97": {
+    "status": "queued_after96",
+    "continued_from": 93,
+    "amendment": "protocol-amendment-78.json",
+    "preflight": "response-diversity-screen-preflight-97/report.json",
+    "queue": "response-diversity-screen-preflight-97/queue.json",
+    "sequence": "response-diversity-screen-sequence-97/report.json",
+    "rows": 128,
+    "families": 32,
+    "same_drafts_prompts_judge_order_seed_acceptance": true,
+    "all_query_tokens_match_original81": true,
+    "actual_generations_performed": false,
+    "qualified": false,
+    "held_out_test_opened": false
+  },
+  "response_diversity_screen_audit_98": {
+    "status": "queued_after97",
+    "continued_from": 94,
+    "plan": "response-diversity-screen-audit-98/plan.json",
+    "queue": "response-diversity-screen-audit-98/queue.json",
+    "sequence": "response-diversity-screen-audit-sequence-98/report.json",
+    "focused_tests_passed": 110,
+    "new_continuation_tests_passed": 20,
+    "actual_screen_audited": false,
     "qualified": false
   }
 }
