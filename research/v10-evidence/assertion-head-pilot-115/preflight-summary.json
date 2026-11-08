@@ -1,0 +1,68 @@
+{
+  "format": "roguard-assertion-head-pilot-preflight-1",
+  "verification": "PASS",
+  "plan_sha256": "af3727d901acd2ca6eccf932035b905f7981fe1a56399e15d21869d2ecf4432c",
+  "source_sha256": "58d539ede896c904baf9603f6fd463f2015253ddf8dc63509af040f559e3648a",
+  "feature_audit_bindings": {
+    "new_feature_audit": {
+      "sha256": "b1fa4e915a53b05c89dc166fcc97aaeda34692508cbb12a7533ef28f75e8cf4d"
+    },
+    "new_feature_auditor": {
+      "sha256": "8360bf292845d219bd3c5531faf46e3fdefe66932af2daf8b83443d1ea8fbec0"
+    },
+    "new_feature_audit_plan": {
+      "sha256": "4ff6820e330e30df434546543a5aad47aba740d7665207c85086fbac2dc73f5a"
+    },
+    "new_extraction_plan": {
+      "sha256": "f558cf7b3ef3d9ba360000b54ae9806d149290a910285b60778e27016e1e51d1"
+    },
+    "new_feature_report": {
+      "sha256": "a72d4fd7a737ce25244fedcdbecab3b17684acc29f24388ca99e926d7f312586"
+    },
+    "ro_new_rows": {
+      "sha256": "ff71e94e0ead92add64c3c519f57db4dbfab92143a560be91ac394d6c9550f8d"
+    },
+    "ro_new_features": {
+      "sha256": "f58e3175aeabfc49e6cb00737d35d0d62659ddce8d8c6ad468a6c41073f4f4f1"
+    },
+    "ro_new_logits": {
+      "sha256": "1340917e625d282284bb1f1d4bd047332f983ef3a730eeaca0bd604cc46bfa91"
+    },
+    "ro_v9_weights": {
+      "sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09"
+    },
+    "uk_new_rows": {
+      "sha256": "e1b96c24a99372e5e35dc0b7eb871e2c3c12ecd1e42c9647d0285a8529fc8b71"
+    },
+    "uk_new_features": {
+      "sha256": "c471f083d94e86e86da3fe284b44e62cffcd5c3ef7f4fe32575cad0638d76e18"
+    },
+    "uk_new_logits": {
+      "sha256": "a7e4390c0556bca0204202eb4689fdf81fb43e89ebf136f8f2c782911114ec2c"
+    },
+    "uk_v9_weights": {
+      "sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+    }
+  },
+  "all_language_preflight": {
+    "ro": {
+      "maximum_logit_error": 1.52587890625e-05,
+      "argmax_rows_differing": 0,
+      "fixed_threshold_decision_differences": 0
+    },
+    "uk": {
+      "maximum_logit_error": 2.288818359375e-05,
+      "argmax_rows_differing": 0,
+      "fixed_threshold_decision_differences": 0
+    }
+  },
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "training_performed": false,
+  "probe_scores_produced": false,
+  "probe_accuracy_summaries_produced": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "original_preflight_sha256": "58b78981fca2e93deb7d57e2c6cb6b1b1ce7d1192bf72322fa78e0efe07789fd",
+  "redaction": "Absolute local binding paths omitted; original proof hash and file digests retained."
+}

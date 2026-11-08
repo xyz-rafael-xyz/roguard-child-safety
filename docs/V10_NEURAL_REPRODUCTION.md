@@ -1168,5 +1168,48 @@ the encoder. Seven guard tests exercise source/review binding, disk reserve and
 cleanup even when inference and buffer flushes fail together. Each language is
 loaded separately, with native feature comparison on every row and serving-score
 parity across 45 groups per language. No new probe accuracy summaries are
-produced during extraction. A completed numerical audit and a separate fitting
-registration are still required; the proposed four-arm head pilot has not run.
+produced during extraction. The subsequent audit and separately registered
+head-pilot results follow.
+
+Reference 113 finished all 306 rows in 352.19 seconds. Audit 114 independently
+re-tokenizes them and replays every saved head output on CPU. The largest logit
+difference is 0.00002098, with no seven-head argmax or binary-decision changes.
+Native encoder comparisons remain producer observations. This establishes
+numerical integrity, not semantic gold accuracy or release qualification.
+
+Pilot 115 compares original-TRAIN repeats against the 96 new fitting inputs,
+each with full teacher distillation or assertion-only disagreement masking.
+Each new input appears 32 times; matching uses the same six fields and binary
+label, with original parents chosen per occurrence by a frozen round-robin rule.
+These are 3,072 added occurrences, not 3,072 independent new meanings. Every arm
+uses 32,001 TRAIN occurrences and the unchanged 8,837 original DEV rows. Selected75
+heads initialize the frozen original-v9 features; both languages pass complete
+metadata, tensor and initial-output preflight before any optimizer exists.
+
+All four arms completed 12 passes: 24,048 updates and 1,536,048 presentations in
+94.62 seconds. The original thresholds and coupling tables remain fixed. All
+104 checkpoints and their DEV outputs are retained; eight checkpoints are
+selected using original DEV only, before any new fitting/probe/panel accuracy
+is scored. The fit admits only the 96 declared synthetic fitting inputs for
+this controlled experiment. It does not validate human gold or admit a model.
+
+Evaluator 116 independently replays all 104 checkpoints and 459,524 DEV outputs,
+reconstructs fitting rows and teacher masks, and reselects all eight winners.
+The largest replay difference is 0.00001335, with class and served-decision parity.
+Only after this complete selection barrier does it score the new populations.
+Saved predictions are reread exactly and must reproduce every reported group.
+This is retained-checkpoint verification, not a replay of optimizer updates;
+class weights are reconstructed from bound source and labels, not compared to
+an observed saved weight vector.
+
+Numerical integrity passes, but the primary experiment is **rejected**. Its
+combined original-DEV result is 14 binary and 1,361 joint-field errors, versus
+13 and 1,326 for the selected full-teacher control. The primary candidate solves
+its 96 fitting inputs and all 18 counterfoils. However, the control already has
+zero assertion errors across the withheld-operator populations in each language;
+the primary candidate introduces two Romanian assertion errors there. The
+original-DEV and per-partition nonregression gates also fail. Secondary results
+remain reported and cannot replace the failed primary comparison. No long
+attention-fit escalation or v10 promotion is authorized by this result. The
+next hypothesis must address collateral field drift and the diagnostic ceiling;
+the failed gate, labels, inputs and checkpoints remain unchanged.

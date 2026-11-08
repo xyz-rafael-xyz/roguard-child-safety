@@ -1,0 +1,46 @@
+{
+  "format": "roguard-assertion-probe-features-audit-plan-1",
+  "authorization": "ROOT_REVIEWED_CPU_FEATURE_AUDIT_ONLY",
+  "source_sha256": "8360bf292845d219bd3c5531faf46e3fdefe66932af2daf8b83443d1ea8fbec0",
+  "cpu_logit_tolerance": 0.001,
+  "bindings": {
+    "extraction_plan": {
+      "base": "private",
+      "path": "assertion-pilot-next/candidate-extraction113-plan.json",
+      "sha256": "f558cf7b3ef3d9ba360000b54ae9806d149290a910285b60778e27016e1e51d1"
+    },
+    "producer_report": {
+      "base": "private",
+      "path": "assertion-probe-features-113/report.json",
+      "sha256": "a72d4fd7a737ce25244fedcdbecab3b17684acc29f24388ca99e926d7f312586"
+    },
+    "source_review": {
+      "base": "private",
+      "path": "parallel-review-20261108/candidate-feature-audit-prototype-v1/independent-review-v1.json",
+      "sha256": "d050894601fea3bc79c70af51e460519b0a83599281b33daa52ad725573b9e6c"
+    },
+    "guard_review": {
+      "base": "private",
+      "path": "parallel-review-20261108/extractor-guard-review-v1/report.json",
+      "sha256": "73483f6772ae188adb06aed240a7c3ac2805ecdef59fdc88a744e055edfa9048"
+    },
+    "integration_tests": {
+      "base": "private",
+      "path": "parallel-review-20261108/candidate-feature-audit-tests-v2/report.json",
+      "sha256": "82b84c3cc6d57b985002f7546466b3b1460a1ed7180c2ea43c7e4d4e0d3c7d94"
+    },
+    "integration_review": {
+      "base": "private",
+      "path": "parallel-review-20261108/audit-integration-evidence-review-v1/report.json",
+      "sha256": "9f284c1a38888f69ba4a20338a3d1242cc8fd2df7b7f436c152e868d6dd6cd65"
+    }
+  },
+  "extraction_plan_binding": "extraction_plan",
+  "producer_report_binding": "producer_report",
+  "extraction_output": "assertion-probe-features-113",
+  "registered_utc": "2026-11-08T16:08:58.786016+00:00",
+  "encoder_loaded": false,
+  "probe_accuracy_summaries_permitted": false,
+  "training_admitted": false,
+  "qualified": false
+}
