@@ -1128,3 +1128,21 @@ token checking and qualification as false. Family withholding concerns only the
 proposed additional fitting, not independence from earlier model training.
 All 28 focused portable tests and ten additional agent corruption checks pass.
 The full local suite passes 1,868 tests and 202 subtests with 379 optional skips.
+
+Teacher-loss preparation 112 implements a prospective narrow distillation
+ablation. On original TRAIN only, the frozen v9 teacher disagrees with the
+assertion label on 281 Romanian and 251 Ukrainian rows. These counts do not
+prove that distillation causes development errors. The proposed ablation keeps
+the assertion KL term only where teacher argmax agrees with TRAIN gold; it
+leaves the other five field terms and binary term unchanged, with the original
+seven-term denominator.
+
+Agent review found that an initial general mask interface could silently change
+unrelated terms. The corrected loss accepts only a boolean assertion-keep vector;
+other terms cannot be masked through this interface. All 27 numerical tests and
+14 additional agent checks pass, including independent value/gradient checks.
+The portable suite passes 1,868 tests and 202 subtests with 406 optional skips;
+the new numerical tests ran separately in the numerical environment. A future
+trainer must still bind admitted TRAIN rows, teacher outputs and mask order and
+gather them with identical batch indices. No encoder or optimizer ran, no new
+dataset was admitted, and the proposed four-arm comparison remains unregistered.

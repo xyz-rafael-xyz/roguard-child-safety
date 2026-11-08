@@ -1,0 +1,126 @@
+{
+  "format": "roguard-assertion-teacher-loss-preparation-1",
+  "complete": true,
+  "sources": {
+    "training/assertion_teacher_loss_v10.py": "1cf188fc4cd141255da608f7f99af0217d39013ae3c1f6e6747c5739c0f18b9c",
+    "tests/test_assertion_teacher_loss_v10.py": "0e351c63192fba544158c4becfbff30d30fde791761b9eedd72ca4298d309aec"
+  },
+  "tests": {
+    "focused_numerical": 27,
+    "additional_agent_checks": 14,
+    "full_portable_passed": 1868,
+    "full_portable_skipped": 406,
+    "full_portable_subtests": 202,
+    "full_seconds": 35.75,
+    "full_log_sha256": "073b236bbe23c3ec9c8b17ff718ad1c842e926f30503bc7caf1d5ba88fd20483",
+    "scope": "The 27 numerical tests ran in the optional numerical environment. They skip in the portable environment; neither count is model accuracy."
+  },
+  "agent_review_sha256": "6d3b841ec91625e144ac841c96927c77d40d4271a98b6396fa08e9853a173adf",
+  "agent_execution_sha256": "d8f706267cb616c3e24c224ffd8303e336f414ef6208dcdc5b2b987b940019b7",
+  "initial_api_defect": "A general seven-column mask could silently change unrelated distillation terms. Five independent malformed-mask probes reproduced this before correction.",
+  "resolution": "Loss accepts only a one-dimensional boolean assertion-keep mask. Only the assertion term can be disabled; all six other terms retain 1/7 strength. Seven independent isolated-term value/gradient tests and seven malformed-mask tests pass.",
+  "original_train_teacher_diagnostic": {
+    "format": "roguard-original-train-teacher-disagreement-1",
+    "scope": "TRAIN-only counts of potential assertion KL masking; no fit, no DEV scoring, no labels changed. Other field and binary KL terms remain untouched in proposed ablation.",
+    "languages": {
+      "ro": {
+        "train_rows": 13174,
+        "assertion_teacher_mismatches": 281,
+        "mask_fraction": 0.021329892211932596,
+        "gold_by_teacher_matrix": [
+          [
+            8095,
+            0,
+            0,
+            8
+          ],
+          [
+            1,
+            1909,
+            0,
+            0
+          ],
+          [
+            135,
+            137,
+            2240,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            649
+          ]
+        ],
+        "assertion_order": [
+          "AFFIRMED",
+          "NEGATED",
+          "UNCERTAIN",
+          "RETRACTED"
+        ],
+        "input_sha256": {
+          "ro-rows.jsonl": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351",
+          "ro-logits.npy": "4ee39cc0ec3b433b4af6c1fdda6caca94b920c185d39930bee311c0b3e24a41b"
+        }
+      },
+      "uk": {
+        "train_rows": 15755,
+        "assertion_teacher_mismatches": 251,
+        "mask_fraction": 0.015931450333227546,
+        "gold_by_teacher_matrix": [
+          [
+            8907,
+            21,
+            0,
+            1
+          ],
+          [
+            0,
+            2563,
+            0,
+            0
+          ],
+          [
+            27,
+            202,
+            2819,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1215
+          ]
+        ],
+        "assertion_order": [
+          "AFFIRMED",
+          "NEGATED",
+          "UNCERTAIN",
+          "RETRACTED"
+        ],
+        "input_sha256": {
+          "uk-rows.jsonl": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5",
+          "uk-logits.npy": "1de694884741ba0c21f4663041ec1f8f4a349aef7f909ac5db15e22d8e9bcb5e"
+        }
+      }
+    },
+    "encoder_loaded": false,
+    "optimizer_started": false,
+    "held_out_test_opened": false,
+    "qualified": false
+  },
+  "original_train_teacher_diagnostic_sha256": "12a952e3a46ba1d2513eedf71f3d860e5258bd5c3865ec5d06c76dda92928d62",
+  "future_trainer_requirements": [
+    "Bind separately admitted TRAIN rows, frozen original-v9 teacher outputs and computed mask to exact input hashes and order.",
+    "Gather features, gold and teacher masks with the same batch indices. No DEV/probe labels may construct masks.",
+    "Preserve the fixed seven-term denominator and all non-assertion KL terms.",
+    "Register and audit the four-arm data/distillation comparison before fitting; new grid and counterfoils still require semantic/token/protected-source checks."
+  ],
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "new_dataset_admitted": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}
