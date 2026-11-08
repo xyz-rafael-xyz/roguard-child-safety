@@ -1,0 +1,1007 @@
+{
+  "format": "roguard-train-oracle-feasibility-1",
+  "complete": true,
+  "plan_sha256": "374275b8cc977607af2c4692c4bb1711e6bfe58dc1b4df09dd6514222e35c562",
+  "source_sha256": "b1c57ecde2b80feb20be71e077e53604e67e8b7e22786f4eb0232ad88b31a847",
+  "languages": {
+    "ro": {
+      "total_metadata_rows": 17376,
+      "train_rows": 13174,
+      "dev_metadata_rows_skipped": 4202,
+      "train_order_sha256": "adeb369e339dc25b4d6523564ad597c67950365666b7e0a9b1f21655f48a573c",
+      "train_groups": {
+        "v7_training_frame_projection": 100,
+        "authored_hesitancy_contrasts_v8": 100,
+        "paired_scope_v9": 100,
+        "authored_scope_contrasts_v8": 100,
+        "natural_contrasts_v9": 100,
+        "indirect_distress_v9": 1272,
+        "freeform_scope_v9": 60,
+        "focus_boundary_contrasts_v9": 100,
+        "temporal_contrasts_v9": 100,
+        "scope_operators_v9": 100,
+        "morphology_scope_v9": 100,
+        "revision_contrasts_v9": 100,
+        "time_scope_contrasts_v9": 100,
+        "context_interventions_v8": 99,
+        "train": 3192,
+        "controlled_composition_v8": 1107,
+        "training_scope_separation_v8": 100,
+        "training_only_authored_paraphrases_v8": 100,
+        "controlled-synthetic-scope-composition": 2304,
+        "controlled-crossed-scope-composition": 3840
+      },
+      "complete": true,
+      "rows_processed": 13174,
+      "groups": {
+        "all": {
+          "rows": 13174,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 1,
+          "oracle_assertion_errors": 1,
+          "parent_binary_errors": 4,
+          "oracle_binary_errors": 4,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.0033364614698609962,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 13173,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 1
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:0": {
+          "rows": 8103,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 2,
+          "oracle_binary_errors": 2,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.018460039752736135,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 8103
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:v7_training_frame_projection": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.16838084774427464,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:authored_hesitancy_contrasts_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.23559517793057216,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:paired_scope_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.19319898476898345,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:authored_scope_contrasts_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.2444226616757742,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:2": {
+          "rows": 2512,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 1,
+          "oracle_binary_errors": 1,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.0033364614698609962,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 2512
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:natural_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.2355805478082459,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:indirect_distress_v9": {
+          "rows": 1272,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24448851548973494,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1272
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:freeform_scope_v9": {
+          "rows": 60,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 1,
+          "oracle_assertion_errors": 1,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24619226244028658,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 59,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 1
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:1": {
+          "rows": 1910,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 1,
+          "oracle_assertion_errors": 1,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.6681487736854275,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1909,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 1
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:focus_boundary_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.2400113287868313,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:temporal_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.19932538400065114,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:scope_operators_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24568991527533401,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:morphology_scope_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24016694791490756,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:3": {
+          "rows": 649,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 1,
+          "oracle_binary_errors": 1,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07664015081788778,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 649
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:revision_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24356877632080431,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:time_scope_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.24007277319255838,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:context_interventions_v8": {
+          "rows": 99,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.22829213314968522,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 99
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:train": {
+          "rows": 3192,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.22841896767403802,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 3192
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled_composition_v8": {
+          "rows": 1107,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.23974438756685246,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1107
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:training_scope_separation_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 1,
+          "oracle_binary_errors": 1,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.0033364614698609962,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:training_only_authored_paraphrases_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.2359229376932651,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled-synthetic-scope-composition": {
+          "rows": 2304,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 3,
+          "oracle_binary_errors": 3,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.018460039752736135,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 2304
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled-crossed-scope-composition": {
+          "rows": 3840,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.12443619241726434,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 3840
+          },
+          "fallback_reasons": {}
+        }
+      },
+      "artifacts": {
+        "ro-oracle-logits.npy": "eed32144cebd5861f3d7a5bcbc661d19924fd423159f088e4a063291248996e6",
+        "ro-parent-logits.npy": "eed32144cebd5861f3d7a5bcbc661d19924fd423159f088e4a063291248996e6",
+        "ro-results.jsonl": "aedbbf68edafbcc910f3389bd4f324751f48e7e24d510df1208c342cd2585d41",
+        "ro-rows.jsonl": "160b06e3a786cce0e22ec777b0b75fe80a5b3563755573590df0764028a138e6"
+      }
+    },
+    "uk": {
+      "total_metadata_rows": 20390,
+      "train_rows": 15755,
+      "dev_metadata_rows_skipped": 4635,
+      "train_order_sha256": "4c2ff29fd703625b6492629941ea1cbef2b8bbba1973d858757e3082bd98847f",
+      "train_groups": {
+        "bare_distress_repair_v9": 100,
+        "v7_training_frame_projection": 100,
+        "paired_scope_v9": 100,
+        "distress_repair_v9": 100,
+        "natural_contrasts_v9": 100,
+        "needs_repair_v9": 100,
+        "authored_uk_scope_contrasts_v8": 100,
+        "indirect_distress_v9": 1272,
+        "scope_operators_v9": 100,
+        "focus_boundary_contrasts_v9": 100,
+        "freeform_scope_v9": 60,
+        "temporal_contrasts_v9": 100,
+        "authored_scope_contrasts_v8": 100,
+        "morphology_scope_v9": 100,
+        "revision_contrasts_v9": 100,
+        "time_scope_contrasts_v9": 100,
+        "context_interventions_v8": 88,
+        "train": 5496,
+        "controlled_composition_v8": 1095,
+        "training_only_authored_paraphrases_v8": 100,
+        "training_scope_separation_v8": 100,
+        "controlled-synthetic-scope-composition": 2304,
+        "controlled-crossed-scope-composition": 3840
+      },
+      "complete": true,
+      "rows_processed": 15755,
+      "groups": {
+        "all": {
+          "rows": 15755,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 3,
+          "oracle_assertion_errors": 3,
+          "parent_binary_errors": 7,
+          "oracle_binary_errors": 7,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.001954447396296466,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 15752,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 3
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:0": {
+          "rows": 8929,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 3,
+          "oracle_assertion_errors": 3,
+          "parent_binary_errors": 6,
+          "oracle_binary_errors": 6,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.001954447396296466,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 8926,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 3
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:bare_distress_repair_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.06407753987899212,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:v7_training_frame_projection": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07171272092870973,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:paired_scope_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07240926402673131,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:distress_repair_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07162136014228426,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:natural_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.05910631491196172,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:needs_repair_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.06445355136421316,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:authored_uk_scope_contrasts_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07099831434650106,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:indirect_distress_v9": {
+          "rows": 1272,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07142041584871361,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1272
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:scope_operators_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.06975489539870394,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:focus_boundary_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07253837651292538,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:freeform_scope_v9": {
+          "rows": 60,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07257123448851976,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 60
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:2": {
+          "rows": 3048,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.003437348149280872,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 3048
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:temporal_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.06977587265052954,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:authored_scope_contrasts_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07245115372007538,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:morphology_scope_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.05946932290284146,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:1": {
+          "rows": 2563,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.9044579396350162,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 2563
+          },
+          "fallback_reasons": {}
+        },
+        "gold_assertion:3": {
+          "rows": 1215,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 1,
+          "oracle_binary_errors": 1,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.010040264653427222,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1215
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:revision_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07177816309406393,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:time_scope_contrasts_v9": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07245953156987395,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:context_interventions_v8": {
+          "rows": 88,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.0720835427477079,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 88
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:train": {
+          "rows": 5496,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.0620542213058034,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 5496
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled_composition_v8": {
+          "rows": 1095,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07246300253395122,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 1095
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:training_only_authored_paraphrases_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07216991648902538,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:training_scope_separation_v8": {
+          "rows": 100,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 0,
+          "oracle_binary_errors": 0,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.07110357315379556,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 100
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled-synthetic-scope-composition": {
+          "rows": 2304,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 3,
+          "oracle_assertion_errors": 3,
+          "parent_binary_errors": 2,
+          "oracle_binary_errors": 2,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.001954447396296466,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 2301,
+            "OUT_OF_SCOPE_ASSERTION_PAIR": 3
+          },
+          "fallback_reasons": {}
+        },
+        "source_group:controlled-crossed-scope-composition": {
+          "rows": 3840,
+          "eligible": 0,
+          "corrected": 0,
+          "introduced": 0,
+          "parent_assertion_errors": 0,
+          "oracle_assertion_errors": 0,
+          "parent_binary_errors": 5,
+          "oracle_binary_errors": 5,
+          "maximum_score_difference": 0.0,
+          "minimum_parent_threshold_distance": 0.003437348149280872,
+          "parent_within_1e_3_threshold_band": 0,
+          "statuses": {
+            "PARENT_ALREADY_CORRECT": 3840
+          },
+          "fallback_reasons": {}
+        }
+      },
+      "artifacts": {
+        "uk-oracle-logits.npy": "2702d93eb625004c73a512b840ff985ca071b9c4aa8750395ad38917bc5fccfb",
+        "uk-parent-logits.npy": "2702d93eb625004c73a512b840ff985ca071b9c4aa8750395ad38917bc5fccfb",
+        "uk-results.jsonl": "d6c706c895aa9f34138cca7a109e6ca90e959abb7c224d4275b28315c88c3a90",
+        "uk-rows.jsonl": "67278c162d2fa3bd9e7bba78b18fdd81bbd011598efe5d4907529fc998537745"
+      }
+    }
+  },
+  "oracle_not_learned": true,
+  "encoder_loaded": false,
+  "optimizer_run": false,
+  "dev_feature_rows_scored": 0,
+  "new_probe_rows_scored": 0,
+  "qualified": false,
+  "parent_backend": "Torch CPU exact-erf head replay; not newly verified native-serving parity",
+  "native_serving_parity_claimed": false,
+  "parent_threshold_diagnostic_band": 0.001,
+  "oracle_scope": "Swap parent AFFIRMED/UNCERTAIN probabilities only on wrong A/U TRAIN predictions; this is one specified target, not exhaustive reachability over all conservative targets.",
+  "diagnostic_band_rule": "Report all parent distances and count abs(score-threshold)<=1e-3; never filter rows or adapt thresholds.",
+  "decision": "TRAIN_ORACLE_REACHABILITY_ONLY_NOT_LEARNED_PERFORMANCE",
+  "parent_error_floor_unchanged": "Preserving initial75 binary decisions cannot eliminate its14RO/2UK originalDEV and1ROcounterfoil error; no such rows were scored here."
+}

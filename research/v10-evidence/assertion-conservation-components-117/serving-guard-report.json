@@ -1,0 +1,310 @@
+{
+  "format": "roguard-coupling-serving-adapter-stage0-tests-1",
+  "verification": "PASS",
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "synthetic_cases": 7432,
+  "groups": {
+    "ro": {
+      "conditional_random": {
+        "rows": 2000,
+        "accepted": 92,
+        "acceptance_fraction": 0.046,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 1908,
+          "FLOAT32_GUARDED_PROJECTION": 92
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 1908
+        },
+        "accepted_assertion_argmax_changes": 16,
+        "nonidentity_assertion_logit_changes": 92,
+        "maximum_final_score_error": 9.823530877639541e-13,
+        "maximum_attempted_score_error": 3.767399503473712e-08,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 2000
+      },
+      "dense_random_target": {
+        "rows": 400,
+        "accepted": 16,
+        "acceptance_fraction": 0.04,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 384,
+          "FLOAT32_GUARDED_PROJECTION": 16
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 383,
+          "zero_or_nonfinite_projected_probability": 1
+        },
+        "accepted_assertion_argmax_changes": 7,
+        "nonidentity_assertion_logit_changes": 16,
+        "maximum_final_score_error": 9.856698790500218e-13,
+        "maximum_attempted_score_error": 1.8847758576079343e-08,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 400
+      },
+      "extreme_parent": {
+        "rows": 300,
+        "accepted": 216,
+        "acceptance_fraction": 0.72,
+        "statuses": {
+          "FLOAT32_GUARDED_PROJECTION": 216,
+          "EXACT_PARENT_FALLBACK": 84
+        },
+        "fallback_reasons": {
+          "zero_or_nonfinite_projected_probability": 77,
+          "probability_projection:numerical_parent_constraint_inconsistency": 7
+        },
+        "accepted_assertion_argmax_changes": 157,
+        "nonidentity_assertion_logit_changes": 216,
+        "maximum_final_score_error": 3.6637359812630166e-15,
+        "maximum_attempted_score_error": 3.6637359812630166e-15,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 300
+      },
+      "fixed_threshold_neighbors": {
+        "rows": 900,
+        "accepted": 21,
+        "acceptance_fraction": 0.023333333333333334,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 879,
+          "FLOAT32_GUARDED_PROJECTION": 21
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 844,
+          "float32_threshold_crossing": 35
+        },
+        "accepted_assertion_argmax_changes": 3,
+        "nonidentity_assertion_logit_changes": 21,
+        "maximum_final_score_error": 8.928413564035509e-13,
+        "maximum_attempted_score_error": 1.5364239214221698e-08,
+        "attempted_sign_changes": 35,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 900
+      },
+      "independent_threshold_witness": {
+        "rows": 1,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 1
+        },
+        "fallback_reasons": {
+          "float32_threshold_crossing": 1
+        },
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 4.497694439109523e-10,
+        "attempted_sign_changes": 1,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 1
+      },
+      "sparse_target": {
+        "rows": 15,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 15
+        },
+        "fallback_reasons": {
+          "probability_projection:target_support_excludes_affine_constraint": 7,
+          "zero_or_nonfinite_projected_probability": 7,
+          "float32_score_tolerance": 1
+        },
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 8.698250480998482e-09,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 15
+      },
+      "zero_residual_identity": {
+        "rows": 100,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_IDENTITY": 100
+        },
+        "fallback_reasons": {},
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 0.0,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 100
+      }
+    },
+    "uk": {
+      "conditional_random": {
+        "rows": 2000,
+        "accepted": 86,
+        "acceptance_fraction": 0.043,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 1914,
+          "FLOAT32_GUARDED_PROJECTION": 86
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 1913,
+          "zero_or_nonfinite_projected_probability": 1
+        },
+        "accepted_assertion_argmax_changes": 11,
+        "nonidentity_assertion_logit_changes": 86,
+        "maximum_final_score_error": 9.738529427316678e-13,
+        "maximum_attempted_score_error": 3.9638245297179964e-08,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 2000
+      },
+      "dense_random_target": {
+        "rows": 400,
+        "accepted": 16,
+        "acceptance_fraction": 0.04,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 384,
+          "FLOAT32_GUARDED_PROJECTION": 16
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 383,
+          "zero_or_nonfinite_projected_probability": 1
+        },
+        "accepted_assertion_argmax_changes": 5,
+        "nonidentity_assertion_logit_changes": 16,
+        "maximum_final_score_error": 9.416911694870578e-13,
+        "maximum_attempted_score_error": 3.43497235655299e-08,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 400
+      },
+      "extreme_parent": {
+        "rows": 300,
+        "accepted": 234,
+        "acceptance_fraction": 0.78,
+        "statuses": {
+          "FLOAT32_GUARDED_PROJECTION": 234,
+          "EXACT_PARENT_FALLBACK": 66
+        },
+        "fallback_reasons": {
+          "zero_or_nonfinite_projected_probability": 61,
+          "probability_projection:numerical_parent_constraint_inconsistency": 3,
+          "probability_projection:objective_not_improved": 1,
+          "float32_score_tolerance": 1
+        },
+        "accepted_assertion_argmax_changes": 174,
+        "nonidentity_assertion_logit_changes": 234,
+        "maximum_final_score_error": 2.220446049250313e-16,
+        "maximum_attempted_score_error": 3.829170314162411e-10,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 300
+      },
+      "fixed_threshold_neighbors": {
+        "rows": 900,
+        "accepted": 39,
+        "acceptance_fraction": 0.043333333333333335,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 861,
+          "FLOAT32_GUARDED_PROJECTION": 39
+        },
+        "fallback_reasons": {
+          "float32_score_tolerance": 834,
+          "float32_threshold_crossing": 27
+        },
+        "accepted_assertion_argmax_changes": 12,
+        "nonidentity_assertion_logit_changes": 39,
+        "maximum_final_score_error": 8.613110225041964e-13,
+        "maximum_attempted_score_error": 1.3187742786691103e-08,
+        "attempted_sign_changes": 27,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 900
+      },
+      "independent_threshold_witness": {
+        "rows": 1,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 1
+        },
+        "fallback_reasons": {
+          "float32_threshold_crossing": 1
+        },
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 1.8508028443164903e-09,
+        "attempted_sign_changes": 1,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 1
+      },
+      "sparse_target": {
+        "rows": 15,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_FALLBACK": 15
+        },
+        "fallback_reasons": {
+          "probability_projection:target_support_excludes_affine_constraint": 8,
+          "zero_or_nonfinite_projected_probability": 6,
+          "float32_score_tolerance": 1
+        },
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 1.2294054663186671e-11,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 15
+      },
+      "zero_residual_identity": {
+        "rows": 100,
+        "accepted": 0,
+        "acceptance_fraction": 0.0,
+        "statuses": {
+          "EXACT_PARENT_IDENTITY": 100
+        },
+        "fallback_reasons": {},
+        "accepted_assertion_argmax_changes": 0,
+        "nonidentity_assertion_logit_changes": 0,
+        "maximum_final_score_error": 0.0,
+        "maximum_attempted_score_error": 0.0,
+        "attempted_sign_changes": 0,
+        "final_sign_changes": 0,
+        "immutable_other15_checks": 100
+      }
+    }
+  },
+  "adapter_sha256": "12754dca395eff37f087a41b049cdea0f966427dc558d72d476f6de37a992fa2",
+  "probability_projection_sha256": "aec96156c0c029c56c490c89802bc22b57e7c3cbe8cbd06b19e11276e99a2959",
+  "tests_sha256": "c984a5be4ec49dbbfe522bdd58ecd447fea92e0b7680f6bf3a359c858f95dc74",
+  "independent_witness_sha256": "396be187363ac0bf9d7bea390343b2fa6d6d2e2b1d1dade43b837f9cf6bdd28f",
+  "observations_sha256": "fc27b9604aca9eb5f3e74d8a9bc6d49fda13882561b5a6db410b8bd78f4555c1",
+  "original_score_tolerance": 1e-12,
+  "tolerance_relaxed": false,
+  "accepted": 720,
+  "assertion_argmax_changes": 385,
+  "maximum_final_score_error": 9.856698790500218e-13,
+  "maximum_attempted_score_error": 3.9638245297179964e-08,
+  "attempted_sign_changes": 64,
+  "final_sign_changes": 0,
+  "coupling_tables_identical": true,
+  "actual_model_inference": false,
+  "real_train_dev_probe_data_opened": false,
+  "encoder_loaded": false,
+  "optimizer_run": false,
+  "qualified": false,
+  "limitations": [
+    "Synthetic distribution rates are engineering feasibility evidence, not model accuracy or real-world acceptance estimates.",
+    "Projection is verified again afterfloat32 reconstruction through actual portable _score. Allfallbacks return entireparent19logits bitwise.",
+    "High score-tolerance rejection may make this strictlogit adapter insufficient as a useful learnedcomponent; no tolerance was relaxed.",
+    "Exact binary preservation retains initial75 oldDEV14RO/2UK and1ROcounterfoil error; thisstage cannotqualifyv10."
+  ],
+  "original_private_report_sha256": "7ffe73776c3f9ed230858099b7fcd974c976ec6eb053b5678ed0845f709e926b",
+  "public_redaction": "Absolute local paths replaced; all metrics and source/artifact digests retained."
+}

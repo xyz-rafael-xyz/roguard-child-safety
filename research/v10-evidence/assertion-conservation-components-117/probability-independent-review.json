@@ -1,0 +1,46 @@
+{
+  "format": "roguard-stage0-independent-math-review-1",
+  "status": "PROBABILITY_COMPONENT_NO_MATERIAL_DEFECT_FOUND_SERVING_ADAPTER_REQUIRED",
+  "qualified": false,
+  "actual_models_or_data_scored": false,
+  "tests": {
+    "command": "Local numerical Python with bound checkout sources; private command omitted.",
+    "passed": 6,
+    "coverage": [
+      "70-digit Decimal independently enumerated policy mass,80 synthetic parents/projections",
+      "80 positive-target optimality cases with960 independent feasible nullspace perturbations",
+      "30 threshold0/1/fixed plus extreme finite residual cases",
+      "sparse target support distinguished from global feasibility",
+      "exact retained RO/UK float32 threshold flips",
+      "source/plan/spec immutability and shared-coupling disclosure"
+    ]
+  },
+  "bound_files": {
+    "[local-path-omitted]/projection.py": "aec96156c0c029c56c490c89802bc22b57e7c3cbe8cbd06b19e11276e99a2959",
+    "[local-path-omitted]/head-pilot115-plan.json": "af3727d901acd2ca6eccf932035b905f7981fe1a56399e15d21869d2ecf4432c",
+    "research/v10-evidence/dropout-readout-75/ro-review.json": "5fdeae97843d873755ed41a02453b5c29823fd8028508c3e99d1586175c8f4a9",
+    "research/v10-evidence/dropout-readout-75/uk-review.json": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27"
+  },
+  "artifact_hashes": {
+    "test_independent.py": "18147f151b35a2c4060a1ba1ed106814e8307bedb77ca307430b8708ebc8317f",
+    "logit-roundtrip-witnesses.json": "396be187363ac0bf9d7bea390343b2fa6d6d2e2b1d1dade43b837f9cf6bdd28f"
+  },
+  "derivation": "S(q)=pc*(a.q)/(b.q), g=pc*a-Sparent*b; fixed-score slice is simplex intersect g.q=0. KL(p||target) interior optimizer has p_i proportional target_i*exp(-lambda*g_i), with derivative -Var(g). Structural-zero target support restrictions are not global infeasibility.",
+  "findings": [
+    {
+      "severity": "HIGH_IF_USED_WITHOUT_SERVING_GUARD",
+      "scope": "future float32 integration; not a defect in probability-only scope",
+      "finding": "Probability-preserving outputs can flip both fixed-threshold decisions after log(q)float32 reconstruction. RO actual delta -4.497694439109523e-10; UK -1.8508028443164903e-9; both1to0; other15 logits unchanged.",
+      "minimal_fix": "Re-evaluate exact served float32 logits through frozen scorer after reconstruction; preserve entire original float32 logits bitwise on score/sign failure; keep1e-12 contract. Author preparing versioned adapter."
+    }
+  ],
+  "limits": [
+    "Floating arithmetic tolerance is not symbolic exactness.",
+    "Both language matrices identical; thresholds differ.",
+    "No independent human validation or generalization evidence.",
+    "Conserved parent policy score cannot fix parent binary error floor;115/116 remains rejected.",
+    "Autograd, finite precision serving integration, effectiveness and runtime not established by probability math tests."
+  ],
+  "original_private_report_sha256": "f69cb738bc12308d36f02481a7dd0c7ca7bb2ab3b178707f4a9a5cc7ce80bc42",
+  "public_redaction": "Local filesystem paths and private execution commands omitted; all metrics and source/artifact digests retained."
+}

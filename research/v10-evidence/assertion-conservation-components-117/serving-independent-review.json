@@ -1,0 +1,44 @@
+{
+  "format": "roguard-stage0-independent-serving-review-1",
+  "verification": "PASS_SCOPED_NUMERICAL_GUARD",
+  "qualified": false,
+  "source_sha256": "12754dca395eff37f087a41b049cdea0f966427dc558d72d476f6de37a992fa2",
+  "test_report_sha256": "c16405466a1eb6f62b11d2945620a3bc1a2dacc9a20b86b0b79770dd96f8c317",
+  "test_source_sha256": "584f1d3ae10e6479e18cb20114f518c8fa45c6c18d04fefca82c01b58b992b41",
+  "command": "Local numerical Python with bound checkout sources; private command omitted.",
+  "tests": 7,
+  "synthetic_cases": 2024,
+  "before_after_all_bound_files_unchanged": true,
+  "resolved_finding": "Both retained probability-to-float32 threshold flips return original19 logits bitwise. Every checked output retains other15 logits bitwise, actual served score within unchanged1e-12 tolerance and fixed binary decision. Signed-zero readonly strided input identity and finite-maxfloat parents passed.",
+  "current_material_correctness_findings": [],
+  "feasibility_observation": {
+    "ro": {
+      "rows": 1000,
+      "accepted": 46,
+      "fraction": 0.046,
+      "assertion_argmax_changes": 3,
+      "fallbacks": {
+        "float32_score_tolerance": 954
+      }
+    },
+    "uk": {
+      "rows": 1000,
+      "accepted": 46,
+      "fraction": 0.046,
+      "assertion_argmax_changes": 3,
+      "fallbacks": {
+        "float32_score_tolerance": 954
+      }
+    }
+  },
+  "maximum_absolute_score_delta": 9.308109838457312e-13,
+  "scope_limits": [
+    "Only a generic probability/logit component; original spec and actual imported scorer identity require binding by any registered caller. Independent test evidence binds actual source/spec paths and hashes before and after.",
+    "4.6percent paired dense synthetic acceptance and0.3percent class changes do not establish real-model usefulness; all1000 cases perlanguage retained, no filtering or relaxed tolerance.",
+    "No neural fitting, no encoder, no real model/data scoring, no independent human labels.",
+    "Exact-parent fallback guards numerical violations; no symbolic floating equality claim.",
+    "Policy-preserving mechanism cannot repair parent binary error floor;115/116 rejection and v10 unqualified status remain."
+  ],
+  "original_private_report_sha256": "40fb3e0ac8546e309edab36a52db8cc3934ac02609d160c03bd12edf03208457",
+  "public_redaction": "Local filesystem paths and private execution commands omitted; all metrics and source/artifact digests retained."
+}

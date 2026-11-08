@@ -2813,7 +2813,7 @@
     "new_semantic_review_required": true,
     "stable_release_ready": false
   },
-  "current_research_phase": "NEXT_MECHANISM_RESEARCH_AFTER_REJECTED115_116_NO_ACTIVE_ENCODER_OR_OPTIMIZER",
+  "current_research_phase": "BALANCED_OPERATOR_BASELINE_AND_TRAIN_SCOPE_DEPENDENCE_PREPARATION_AFTER_INELIGIBLE117_NO_ACTIVE_ENCODER_OR_OPTIMIZER",
   "assertion_probe_preparation_111": {
     "status": "STRUCTURAL_CHECKS_PASS_NO_DATASET_ADMITTED",
     "report": "assertion-probe-preparation-111/report.json",
@@ -2888,6 +2888,43 @@
       "uk/original_dev/selected_control/joint_errors",
       "uk/original_dev/initial75/joint_errors"
     ],
+    "qualified": false
+  },
+  "assertion_train_swap_oracle_117": {
+    "status": "COMPLETE_NO_ELIGIBLE_AU_DISAGREEMENTS",
+    "report": "assertion-train-swap-oracle-117/report.json",
+    "registration": "assertion-train-swap-oracle-117/registration-summary.json",
+    "rows": 28929,
+    "eligible_disagreements": 0,
+    "eligible_acceptance_rate": null,
+    "interpretation": "No correction feasibility estimate; denominator0. CPU TRAIN parent only, no learned model.",
+    "parent_train_binary_errors": {
+      "ro": 4,
+      "uk": 7
+    },
+    "parent_train_assertion_errors": {
+      "ro": 1,
+      "uk": 3
+    },
+    "qualified": false
+  },
+  "assertion_train_swap_audit_118": {
+    "status": "PASS_SAVED_OUTPUT_CONSISTENCY",
+    "verification": "assertion-train-swap-audit-118/verification.json",
+    "rows_checked": 28929,
+    "deterministic_adapter_rows_replayed": 0,
+    "parent_head_replayed": false,
+    "native_serving_parity_claimed": false,
+    "qualified": false
+  },
+  "assertion_conservation_components_117": {
+    "status": "SYNTHETIC_GUARDS_PASS_NO_LEARNED_EFFECTIVENESS",
+    "evidence": "assertion-conservation-components-117/",
+    "conditional_synthetic_accepted": 178,
+    "conditional_synthetic_rows": 4000,
+    "conditional_synthetic_assertion_changes": 27,
+    "risk_tolerance": 1e-12,
+    "binary_flips_after_guard": 0,
     "qualified": false
   }
 }

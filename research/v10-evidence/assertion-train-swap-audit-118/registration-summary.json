@@ -1,0 +1,74 @@
+{
+  "study": 118,
+  "plan_sha256": "3c2be234d2d8139ef70b4d2c09b0b375be09c1404629759edbd15fa4f8187f6f",
+  "source_sha256": "1bb9e5d8b24ce703d857ea14668c97d6ac99c81daf83e53b4316badd635822b9",
+  "scope": "Recount every retained117 TRAIN output. No independent parent-head replay, native-parity proof, learned accuracy or full mathematical reachability claim.",
+  "software_evidence_sha256": {
+    "schema": "b57eb65b875b5de53bba97d0ca5615736e6b632070b0cc6070a49d5ae652154c",
+    "independent_review": "3bfb3fa91eac8a33af4cdb7afda69a848b5db9cbc3c106b0829096a96aa6f12d",
+    "author_synthetic_report": "dbc49eb4807a8cdcc6edd0dadb9ebb3c1e0abb3c067075546494adda8e7bdf62"
+  },
+  "bound_files": {
+    "producer_plan": {
+      "sha256": "374275b8cc977607af2c4692c4bb1711e6bfe58dc1b4df09dd6514222e35c562",
+      "artifact": "[local-path-omitted]/train-feasibility117-plan.json"
+    },
+    "producer_source": {
+      "sha256": "b1c57ecde2b80feb20be71e077e53604e67e8b7e22786f4eb0232ad88b31a847",
+      "artifact": "[local-path-omitted]/train-feasibility117-source.py"
+    },
+    "producer_report": {
+      "sha256": "9704c298b642de608df2db79c30c07542f9c7f7f93671bc8717d063b96ad04a8",
+      "artifact": "[local-path-omitted]/report.json"
+    },
+    "output:source.py": {
+      "sha256": "b1c57ecde2b80feb20be71e077e53604e67e8b7e22786f4eb0232ad88b31a847",
+      "artifact": "[local-path-omitted]/source.py"
+    },
+    "output:registered-plan.json": {
+      "sha256": "374275b8cc977607af2c4692c4bb1711e6bfe58dc1b4df09dd6514222e35c562",
+      "artifact": "[local-path-omitted]/registered-plan.json"
+    },
+    "output:ro-rows.jsonl": {
+      "sha256": "160b06e3a786cce0e22ec777b0b75fe80a5b3563755573590df0764028a138e6",
+      "artifact": "[local-path-omitted]/ro-rows.jsonl"
+    },
+    "output:ro-results.jsonl": {
+      "sha256": "aedbbf68edafbcc910f3389bd4f324751f48e7e24d510df1208c342cd2585d41",
+      "artifact": "[local-path-omitted]/ro-results.jsonl"
+    },
+    "output:ro-parent-logits.npy": {
+      "sha256": "eed32144cebd5861f3d7a5bcbc661d19924fd423159f088e4a063291248996e6",
+      "artifact": "[local-path-omitted]/ro-parent-logits.npy"
+    },
+    "output:ro-oracle-logits.npy": {
+      "sha256": "eed32144cebd5861f3d7a5bcbc661d19924fd423159f088e4a063291248996e6",
+      "artifact": "[local-path-omitted]/ro-oracle-logits.npy"
+    },
+    "output:uk-rows.jsonl": {
+      "sha256": "67278c162d2fa3bd9e7bba78b18fdd81bbd011598efe5d4907529fc998537745",
+      "artifact": "[local-path-omitted]/uk-rows.jsonl"
+    },
+    "output:uk-results.jsonl": {
+      "sha256": "d6c706c895aa9f34138cca7a109e6ca90e959abb7c224d4275b28315c88c3a90",
+      "artifact": "[local-path-omitted]/uk-results.jsonl"
+    },
+    "output:uk-parent-logits.npy": {
+      "sha256": "2702d93eb625004c73a512b840ff985ca071b9c4aa8750395ad38917bc5fccfb",
+      "artifact": "[local-path-omitted]/uk-parent-logits.npy"
+    },
+    "output:uk-oracle-logits.npy": {
+      "sha256": "2702d93eb625004c73a512b840ff985ca071b9c4aa8750395ad38917bc5fccfb",
+      "artifact": "[local-path-omitted]/uk-oracle-logits.npy"
+    }
+  },
+  "initial_launch_correction": {
+    "status": "INCORRECT_CLI_PLAN_DIGEST_REJECTED_BEFORE_OUTPUT_CREATION",
+    "incorrect_supplied_digest": "8c875c34acb7173c04aaee1dc9ea6caefb2494b42cdc69deaf43e0954c3b0528",
+    "actual_plan_sha256": "3c2be234d2d8139ef70b4d2c09b0b375be09c1404629759edbd15fa4f8187f6f",
+    "registered_plan_unchanged": true,
+    "output_existed": false,
+    "correction": "Invoke same immutable plan with verified actual digest; preserve rejected command log."
+  },
+  "qualified": false
+}

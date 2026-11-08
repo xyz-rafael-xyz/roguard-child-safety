@@ -1,0 +1,51 @@
+{
+  "status": "STAGE0_SYNTHETIC_COMPONENT_TESTED_NOT_A_MODEL_OR_QUALIFICATION",
+  "projection_sha256": "aec96156c0c029c56c490c89802bc22b57e7c3cbe8cbd06b19e11276e99a2959",
+  "test_report_sha256": "262b6779fccb9f5a50df46a283d33ceef32bd8ccbfff0678cffe7e0aca10bb2f",
+  "test_cases": 7490,
+  "maximum_actual_portable_score_difference": 6.8833827526759706e-15,
+  "binary_sign_changes": 0,
+  "statuses": {
+    "IDENTITY_TARGET": 200,
+    "KL_AFFINE_PROJECTION": 5311,
+    "BOUNDARY_FACE_PROJECTION": 373,
+    "NUMERICALLY_FLAT_CONSTRAINT": 1174,
+    "IDENTITY_FALLBACK": 432
+  },
+  "fallback_reasons": {
+    "objective_not_improved": 13,
+    "numerical_parent_constraint_inconsistency": 43,
+    "root_not_bracketed": 1,
+    "target_support_excludes_affine_constraint": 163,
+    "threshold_rounding": 210,
+    "iteration_limit": 2
+  },
+  "derivation": {
+    "fixed_coefficients": "For fixed other5field probabilities and couplingtables: b_i=sum_j relation_j*C_ij; a_i weights each assertionrow by the discretebinary review mass aftercoupled scope normalization. S(p)=concern1*(a dot p)/(b dot p).",
+    "affine_constraint": "g=concern1*a-S(parent)*b. Because bdotp>0 on the simplex, conserving the parent score is equivalent to gdotp=0.",
+    "kl_projection": "Minimize KL(p||target) on simplex intersected with gdotp=0. On positive target support spanning both signs, p_i proportional target_i*exp(-lambda*g_i); derivative of expectedg with respecttolambda is-negativevariance, so bracket/bisection finds the unique finite root.",
+    "boundary_and_support": "If zero is attained only on a face, renormalize target mass on that face. Structuralzero target entries stayexcluded; infeasible target support does not mean the fullscore-conserving simplex is infeasible. Same-sign coefficients over the entire simplex contradict parentfeasibility in exact arithmetic and are reported as numerical cancellation, not semantic infeasibility."
+  },
+  "tested_scope": [
+    "Both currentRO/UK specs and their distinct thresholds; couplingmatrices are actually identical.",
+    "Exactzero-residual identity and other5field vector equality.",
+    "Positive random and conditionalA/U targets, structuralzero support, extremeprobabilities, all432 one-hot worlds.",
+    "Direct scorer exact comparison to frozen repository scorer; coefficient check against exhaustive432world policy enumeration.",
+    "KKT stationarity and KL comparison against feasible mixtures withparent.",
+    "Threshold-adjacent probabilities, cappediteration failure, invalidinput rejection and sparse-vs-dense feasibility witness."
+  ],
+  "limits": [
+    "This projection can move NEGATED/RETRACTED assertion probabilities while preserving the scalarreview score; it does not guarantee assertion-class correctness or targetclass attainment.",
+    "No autograd/training integration exists in thisstage0 component. A differentiable or implicit-gradient implementation would need separateverification.",
+    "Floating-point guarantees are tested/guarded within1e-12 actualscore error and unchanged fixedthresholdsign, not a symbolic claim that allfloats are identical.",
+    "Identity fallbacks can limit learning/usablecorrections, especially nearthresholds; theircounts must remain visible byeverypartition.",
+    "Exactbinarypreservation retains initial75 originalDEV14RO/2UK and1ROpanel binaryerrors. A separatebinary-improvementmechanism remains necessary.",
+    "No realmodel/probe/train examples, optimizer orencoder used."
+  ],
+  "encoder_loaded": false,
+  "optimizer_run": false,
+  "actual_model_scoring": false,
+  "qualified": false,
+  "original_private_report_sha256": "b7030d7d7895412811b3b430da4274358b6f7b862ef1f04144bd6e055c938186",
+  "public_redaction": "Absolute local paths replaced; all metrics and source/artifact digests retained."
+}

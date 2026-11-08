@@ -1213,3 +1213,46 @@ remain reported and cannot replace the failed primary comparison. No long
 attention-fit escalation or v10 promotion is authorized by this result. The
 next hypothesis must address collateral field drift and the diagnostic ceiling;
 the failed gate, labels, inputs and checkpoints remain unchanged.
+
+
+The next assertion component projects a proposed probability vector while
+preserving the coupled-policy score and the other five field outputs. Independent
+synthetic tests exposed a serving integration problem: converting projected
+probabilities back to float32 logits can cross both fixed thresholds. The
+versioned adapter checks the reconstructed logits through the actual portable
+scorer and returns all original logits on failure. It retains the original
+1e-12 score tolerance. Only 178/4,000 ordinary conditional synthetic proposals
+were accepted, with 27 assertion-class changes; these rates describe that
+synthetic distribution, not model accuracy or expected production usefulness.
+
+Registered diagnostic 117 then replays original75 heads on all 28,929 original
+TRAIN features using Torch CPU and tests one specified gold-informed A/U swap
+on wrong A/U predictions. It finds **zero eligible disagreements**. The parent
+makes one Romanian and three Ukrainian assertion errors, all outside this
+pair, and four/seven binary errors. Every saved output is unchanged. Therefore
+eligible acceptance and correction rates are undefined (0/0): this result neither
+proves useful correction nor shows that every conservative target is infeasible.
+It is an oracle diagnostic, not a learned model or exhaustive reachability study.
+
+Audit 118 independently re-reads all 28,929 saved row/NPY/JSONL outputs, reproduces
+scores, fields, statuses, source/class groups, threshold distances and artifact
+bindings. It passes saved-output consistency. It does not independently replay
+the parent heads or establish new native-serving parity. No parent score lies
+within the declared 1e-3 diagnostic threshold band; no rows were filtered by it.
+The initial audit command supplied an incorrect plan digest and was rejected
+before output creation; the unchanged plan then ran with its verified digest.
+Both records are retained. No encoder, optimizer, new probe or reserved TEST ran
+in 117/118, and no v10 candidate is qualified.
+
+The next provisional construction bank has 3,072 correlated rows across four
+construction families, eight formal/short realizations and 16 underlying bilingual
+core propositions. Forty controls comprise 32 exact bank aliases and eight
+supplemental inputs; all 40 remain mapped and evaluable. Compositional AI reviews
+and technical screening cover 3,080 unique inputs at 458–563 tokens, with no
+protected full-input/token collisions across 12 explicit sources. The inherited
+1,391 unsupported raw-prefix token views remain disclosed; all 8,486 selected
+memory views are checked. These are engineering diagnostics, not independent
+human gold. All targets remain SELF/CURRENT/DIRECT and their focal wording alone
+identifies the class; the role contexts test distractor robustness. Prior-claim
+presence still predicts RETRACTED inside the main bank. Separate baseline
+profiling, fitting registration and final qualification remain outstanding.
