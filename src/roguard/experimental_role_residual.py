@@ -4,6 +4,7 @@ Disabled mode delegates the parent's original scoring method without loading
 numerical extras, alignment or residual weights. Enabled mode is experimental.
 """
 import hashlib, json, math, re, sys
+from collections import namedtuple
 from copy import deepcopy
 from pathlib import Path
 SHAPES = {'first.weight': (32, 5638), 'first.bias': (32,), 'last.weight': (17, 32), 'last.bias': (17,)}
@@ -11,6 +12,15 @@ ARCHITECTURE = 'qualified-q2560-role-value23-3x1024-metadata6-residual32-semanti
 NORMALIZATION = {'method': 'per-block-l2-to-sqrt-width', 'norm_dtype': 'float64', 'output_dtype': 'float32', 'minimum_norm': 1e-06, 'count_scale': 1024, 'gelu': 'exact-erf', 'legacy': 'unchanged-last2'}
 ALIGNMENT_SHA = '0c65cfcb800a445c52e9c880475e485ea9d35e8241468c92b7f861c37658ad6a'
 ALIGNMENT_LINEAGE_SHA = 'd684b8b592eed2e5241945211bf689097ca09a3bb44b58eb4dba3b7650bdbc5c'
+
+DetailedPrediction = namedtuple('DetailedPrediction', 'response logits route spec_sha256')
+DetailedPrediction.__doc__ = """Same-call experimental prediction details.
+
+The record fields and logits tuple are immutable. The response is the usual
+mutable public result dictionary. Logits are nineteen Python floats preserving
+an exact float32 roundtrip, or None for an unsupported input. No native arrays
+or conversation cache are retained in this record.
+"""
 
 def require(ok, message):
     if not ok:
@@ -173,7 +183,13 @@ class OptionalResidualEngine:
         with _LOCK:
             return self._predict_many(payloads, focuses=focuses)
 
-    def _predict_many(self, payloads, *, focuses=None):
+    def predict_detailed_many(self, payloads, *, focuses=None):
+        from roguard.gemma4_review import _LOCK
+        with _LOCK:
+            return self._predict_many(payloads, focuses=focuses, detailed=True)
+
+    def _predict_many(self, payloads, *, focuses=None, detailed=False):
+        require(type(detailed) is bool, 'Explicit Boolean detail flag required')
         require(self.enabled, 'Disabled engine delegates scores; use the configured parent public model for predictions')
         require(isinstance(payloads, list) and 1 <= len(payloads) <= 128, 'One to128 payloads required')
         if focuses is None:
@@ -231,7 +247,22 @@ class OptionalResidualEngine:
                         meta = np.asarray([len(p) / 1024 for p in a['role_pool_positions']] + list(map(float, a['shared_structural_role_presence'])), dtype=np.float32)
                         logits = self.residual(np.asarray(logits).copy(), np.asarray(feature).copy(), roles[None, :, :], meta[None, :])
                     score = _score(logits[0], spec)
-                output.append(render_result(score, spec, identity, model_identity, focus, format_name))
+                response = render_result(score, spec, identity, model_identity, focus, format_name)
+                if detailed:
+                    snapshot = None
+                    if route != 'original_v9_unsupported':
+                        values = np.asarray(logits[0])
+                        require(values.dtype == np.float32 and values.shape == (19,) and np.isfinite(values).all(),
+                                'Detailed logits require finite float32[19]')
+                        snapshot = tuple(float(value) for value in values)
+                        require(np.asarray(snapshot, dtype=np.float32).tobytes() == values.tobytes(),
+                                'Detailed float32 snapshot changed bytes')
+                        values = None
+                    spec_key = 'spec_sha256' if route == 'residual' else 'original_v9_spec_sha256'
+                    output.append(DetailedPrediction(response, snapshot, route,
+                                                     self.residual.manifest['parent'][spec_key]))
+                else:
+                    output.append(response)
                 state = feature = logits = value = key = None
                 mx.clear_cache()
         finally:
@@ -351,6 +382,18 @@ class ExperimentalRoleResidualModel:
 
     def predict_many(self, payloads, *, focuses=None):
         return self._parent.predict_many(payloads, focuses=focuses)
+
+    def predict_detailed(self, payload, *, focus=None):
+        return self.predict_detailed_many([payload], focuses=[focus])[0]
+
+    def predict_detailed_many(self, payloads, *, focuses=None):
+        """Return same-forward logits and route identity for explicit research use.
+
+        Disabled delegation cannot provide a parent's hidden logits. Use its
+        ordinary prediction methods instead; this method never loads a fallback.
+        """
+        require(self.enabled, 'Detailed logits unavailable for disabled parent delegation')
+        return self._parent.predict_detailed_many(payloads, focuses=focuses)
 
     @property
     def profile(self):

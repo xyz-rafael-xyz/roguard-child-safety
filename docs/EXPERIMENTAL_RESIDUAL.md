@@ -80,3 +80,19 @@ candidate still needs native numerical/decision parity, all retained full-data
 quality and regression gates, and the existing independent-review requirements.
 No accuracy, v9 superiority, calibration or production speed claim follows from
 this integration.
+
+## Same-call details for validation
+
+The explicit model also provides `predict_detailed` and `predict_detailed_many`.
+They use the same locked forward pass and return records with `response`,
+`logits`, `route`, and `spec_sha256`. `response` is the usual mutable result
+dictionary; the record fields and 19-float `logits` tuple are immutable.
+Converting the tuple to float32 preserves its original bytes, including signed
+zero. No native tensor or conversation cache is retained.
+
+The spec identity follows the actual route: frozen75 for the residual,
+original v9 for fallback. Unsupported inputs have `logits=None`. Disabled parent
+delegation does not expose logits and explicitly rejects these detailed methods.
+Ordinary prediction methods do not create these snapshots. Details do not add
+structured-set calibration or response-class predictions, and do not qualify a
+candidate.

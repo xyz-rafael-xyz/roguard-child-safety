@@ -193,3 +193,77 @@ def test_cleanup_does_not_mask_native_failure(tmp_path,monkeypatch):
  engine.parent.model.heads['ro']=broken;engine.parent.mx.clear_cache=bad_cleanup
  with pytest.raises(RuntimeError,match='original synthetic forward error') as caught:engine.predict_many([dict(language='ro',turns=[dict(role='minor',text='613')])])
  assert 'cleanup' in ' '.join(caught.value.__notes__)
+
+
+def test_detailed_same_forward_route_response_and_immutable_snapshot(tmp_path, monkeypatch):
+    engine, calls, _, spec9 = fake_enabled(tmp_path, monkeypatch)
+    z = np.zeros((1, 19), np.float32)
+    z[0, 0] = .5
+    z[0, 17] = np.float32(-0.)
+    engine.parent.model.heads['ro'] = lambda q: z.copy()
+    engine.original_head = lambda q: z.copy()
+    payloads = [dict(language='ro', turns=[dict(role='minor', text=str(n))])
+                for n in (613, 614, 1024, 1025)]
+    normal = engine.predict_many(payloads)
+    calls.clear()
+    detailed = engine.predict_detailed_many(payloads)
+    assert calls == [613, 614, 1024]
+    assert [d.response for d in detailed] == normal
+    assert [d.route for d in detailed] == ['residual', 'original_v9', 'original_v9', 'original_v9_unsupported']
+    for d in detailed[:3]:
+        assert type(d.logits) is tuple and len(d.logits) == 19
+        assert all(type(v) is float for v in d.logits)
+        assert np.asarray(d.logits, np.float32).tobytes() == z[0].tobytes()
+        with pytest.raises(AttributeError):
+            d.route = 'changed'
+        with pytest.raises(TypeError):
+            d.logits[0] = 0
+    assert detailed[0].spec_sha256 == engine.residual.manifest['parent']['spec_sha256']
+    assert all(d.spec_sha256 == spec9.sha256 for d in detailed[1:])
+    assert detailed[3].logits is None
+    # Normal response dictionaries deliberately retain their familiar mutability.
+    detailed[0].response['local_note'] = 'caller-owned'
+    assert 'local_note' not in normal[0]
+
+
+def test_default_path_never_builds_detailed_snapshot(tmp_path, monkeypatch):
+    engine, calls, _, _ = fake_enabled(tmp_path, monkeypatch)
+    def forbidden(*args):
+        raise AssertionError('default path built detail record')
+    monkeypatch.setattr(m, 'DetailedPrediction', forbidden)
+    result = engine.predict_many([dict(language='ro', turns=[dict(role='minor', text='613')])])
+    assert result[0]['predicted'] == 1 and calls == [613]
+
+
+def test_detailed_native_exception_propagates_without_fallback(tmp_path, monkeypatch):
+    engine, calls, _, _ = fake_enabled(tmp_path, monkeypatch)
+    def broken(q):
+        raise RuntimeError('same native failure')
+    engine.parent.model.heads['ro'] = broken
+    with pytest.raises(RuntimeError, match='same native failure'):
+        engine.predict_detailed_many([dict(language='ro', turns=[dict(role='minor', text='613')])])
+    assert calls == [613] and engine.parent.mx.clears >= 1
+
+
+def test_detailed_public_convenience_and_lock(tmp_path, monkeypatch):
+    engine, calls, review, _ = fake_enabled(tmp_path, monkeypatch)
+    class Lock:
+        active = False
+        entries = 0
+        def __enter__(self):
+            assert not self.active
+            self.active = True
+            self.entries += 1
+        def __exit__(self, *args):
+            self.active = False
+    lock = Lock()
+    monkeypatch.setattr(review, '_LOCK', lock)
+    original_head = engine.parent.model.heads['ro']
+    def checked_head(q):
+        assert lock.active
+        return original_head(q)
+    engine.parent.model.heads['ro'] = checked_head
+    model = m.ExperimentalRoleResidualModel(engine, enabled=True)
+    result = model.predict_detailed(dict(language='ro', turns=[dict(role='minor', text='613')]))
+    assert result.route == 'residual' and lock.entries == 1 and not lock.active
+    assert calls == [613]

@@ -111,3 +111,16 @@ def test_content_in_cached_prompt_is_rejected():
     span = {'start': 10, 'end': 20, 'pool': 'current_minor', 'role': 'minor', 'turn_index': 0}
     with pytest.raises(ValueError, match='cached prefix'):
         alignment.select_offsets([(10, 12)], [1], [span], set(), 1)
+
+
+def test_disabled_detailed_api_rejects_without_calling_parent():
+    class Parent:
+        def predict(self, *args, **kwargs):
+            raise AssertionError('must not request parent logits')
+        def predict_many(self, *args, **kwargs):
+            raise AssertionError('must not request parent logits')
+    model = load_experimental_role_residual(enabled=False, parent=Parent())
+    with pytest.raises(ValueError, match='unavailable'):
+        model.predict_detailed({})
+    with pytest.raises(ValueError, match='unavailable'):
+        model.predict_detailed_many([{}])
