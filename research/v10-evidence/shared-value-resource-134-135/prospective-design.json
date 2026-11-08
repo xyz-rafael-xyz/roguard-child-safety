@@ -1,0 +1,245 @@
+{
+  "format": "roguard-shared-value-resource-design-1",
+  "status": "PROSPECTIVE_DESIGN_ONLY_NOT_REGISTERED",
+  "study": null,
+  "source_review": {
+    "path": "[private-artifact]/parallel-review-20261108/shared-value-pooling-source-review-v1/review.json",
+    "sha256": "dcfe880e74d0596b3d4ae58fa4bef4a3b54e5d9be3cee9f1b93d5c38c0255eaf"
+  },
+  "inputs": {
+    "inventory": {
+      "path": "[private-artifact]/parallel-review-20261108/role-pooling-resource-pilot-design-v1/cases.jsonl",
+      "sha256": "14b46686a9ceceda17b01623cfc0eab1fcc8afb072b0ceeeb15b3272c5c0d370"
+    },
+    "alignments": {
+      "path": "[private-artifact]/parallel-review-20261108/role-pooling-resource-pilot-design-v1/alignment-records.jsonl",
+      "sha256": "81f688e9a47f42b32d4ac8469b77145bc90edec244fc99f1af3c650ac56f22b1"
+    },
+    "mask_census": {
+      "path": "[private-artifact]/parallel-review-20261108/role-pooling-resource-pilot-design-v1/mask-census.json",
+      "sha256": "f1031a09e80d5f534a57b570883e50888a5735480a11c81e1071ee6cfa6d9b85"
+    },
+    "tokenizer_provenance": {
+      "path": "[private-artifact]/parallel-review-20261108/role-pooling-resource-pilot-design-v1/tokenizer-provenance.json",
+      "sha256": "78f379a4f65d9f652b74fe7f4ac5ce6ecfd8ae0f2df22dc7caf995752bcf2f0c"
+    },
+    "alignment_source": {
+      "path": "[private-artifact]/parallel-review-20261108/role-token-alignment-stage0-v1/alignment.py",
+      "sha256": "d684b8b592eed2e5241945211bf689097ca09a3bb44b58eb4dba3b7650bdbc5c"
+    },
+    "alignment_freeze": {
+      "path": "[private-artifact]/parallel-review-20261108/role-token-alignment-stage0-v1/schema-and-freeze.json",
+      "sha256": "389c02b29e66e19815ed93ef56843efa3f753442d8792c1427f3433635c1901c"
+    },
+    "alignment_independent_review": {
+      "path": "[private-artifact]/parallel-review-20261108/role-token-alignment-independent-v1/review.json",
+      "sha256": "4bb887d52a99af4319ec57a18dfd42d6b52ad70a31cadedbd9ab61aa57ecd3b3"
+    },
+    "control_amendment": {
+      "path": "[private-artifact]/parallel-review-20261108/marginal-evidence-hypothesis-v2/prospective-control-amendment.json",
+      "sha256": "e7186eea9850bd39b9ef0df4999b505c6532d675c6ed7c4f5a412d93cb0c51f1"
+    },
+    "ro_weights": {
+      "path": "research/v9-stabilization/reported-tail-fit-196/actual/ro-selected.safetensors",
+      "sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09"
+    },
+    "uk_weights": {
+      "path": "research/v9-stabilization/reported-tail-fit-196/actual/uk-selected.safetensors",
+      "sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+    },
+    "ro_spec": {
+      "path": "research/v10-evidence/dropout-readout-75/ro-review.json",
+      "sha256": "5fdeae97843d873755ed41a02453b5c29823fd8028508c3e99d1586175c8f4a9"
+    },
+    "uk_spec": {
+      "path": "research/v10-evidence/dropout-readout-75/uk-review.json",
+      "sha256": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27"
+    },
+    "ro_parent_weights": {
+      "path": "[private-artifact]/runtime-warm-start-90/ro-selected.safetensors",
+      "sha256": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3"
+    },
+    "uk_parent_weights": {
+      "path": "[private-artifact]/runtime-warm-start-90/uk-selected.safetensors",
+      "sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7"
+    },
+    "warm_start90_report": {
+      "path": "research/v10-evidence/runtime-warm-start-90/report.json",
+      "sha256": "b8a46b3018217302e8a3c1627026e71fef0476f0cb33a8e16fcad08bbccb4f38"
+    },
+    "architecture_addendum": {
+      "path": "[private-artifact]/parallel-review-20261108/qualified-final-residual-architecture-addendum-v1.json",
+      "sha256": "cd5d1e7562227560e2da6496d3155103334e955914ee1da4ee9c23010b41975b"
+    }
+  },
+  "cases": {
+    "total": 16,
+    "per_language": 8,
+    "synthetic_unlabeled": true,
+    "new_examples_authored": false,
+    "chronological_mask_census_per_language": {
+      "identical": 5,
+      "different": 3
+    },
+    "no_case_filtering": true
+  },
+  "new_hypothesis": "Use existing global23 VALUE vectors as causal contextual evidence for role-conditioned residual inputs. These are 1024-dimensional normalized attention values, not2560-dimensional finalhidden features. Engineering parity/resource only; no learned residual, fitting, binary/field accuracy or qualification.",
+  "baseline": {
+    "parent": "Exact unchanged75 per-language head installed on original-v9 frozen serving backbone and tail as127.",
+    "path": "Frozen capture_with_prefix start24 followed by frozen replay and installed75head. Fresh shared387token prefix; frozen tokenizer/prepare_input focus contract.",
+    "zero_residual": "Return identical parent19logit object/bytes, including signedzero. Any nonNone residual request rejects; no residual computation implemented.",
+    "parent_parameters": "Exact4trainableheadtensor byte readback; nonparent trainable tensor hashes and full nonparent objectidentity/shape/dtype inventory before/after. This is not a full frozenbase value checksum.",
+    "spec_threshold": "Same frozen75spec/threshold perlanguage. No128positive-scale,125/131head ornewthreshold integration."
+  },
+  "representation": {
+    "source": 23,
+    "attention": "full_attention",
+    "existing_state_key": "state[shared][23][1]",
+    "shape": [
+      "1",
+      "2",
+      "classifier_length",
+      "512"
+    ],
+    "flattened_width": 1024,
+    "values": "v_proj(input-layernorm hidden), v_norm, transpose; no RoPE onvalues. Never pool rotatedkeys.",
+    "state_invariants": "state.start24/layers42/length=L, previous_kvs asbound model, global23sourcepresent, finitevaluearray exactshape1×2×L×512; L matches unchanged classifier tokens and<=1024.",
+    "mapping": "Alignmentglobaltoken indexi indexesvalueaxis2 directly. Do notsubtract387prefix. Transpose B,H,L,D to B,L,H,D beforeflatten, ormean L thenflattenH,D in fixedhead-major order.",
+    "prefix": "Only same frozen shared-prefix16cases for first pilot. Reject mismatchedprefix, unsupportedcachetype, shifted/trimmedvalues orposition ambiguity; no automatic fallback to another representation.",
+    "pooling": "Cast read-only selected values tofloat32 for native mean; no inplace update. Empty masks exactfloat32zero. Fivepools share reviewed content-interior/special-token exclusions."
+  },
+  "arrays": {
+    "qualified_final": {
+      "shape": [
+        16,
+        2560
+      ],
+      "dtype": "float32"
+    },
+    "value_pools": {
+      "shape": [
+        16,
+        5,
+        1024
+      ],
+      "dtype": "float32",
+      "order": [
+        "focal",
+        "aligned_prior_minor",
+        "aligned_prior_nonminor",
+        "chronological_prior1",
+        "chronological_prior2"
+      ]
+    },
+    "metadata": {
+      "shape": [
+        16,
+        6
+      ],
+      "dtype": "float32",
+      "order": [
+        "focal_eligible_count_div1024",
+        "prior_minor_eligible_count_div1024",
+        "prior_nonminor_eligible_count_div1024",
+        "focal_structural_presence",
+        "prior_minor_structural_presence",
+        "prior_nonminor_structural_presence"
+      ]
+    },
+    "logits": {
+      "shape": [
+        16,
+        2,
+        19
+      ],
+      "dtype": "float32",
+      "order": [
+        "qualified75_primary",
+        "qualified75_fresh_repeat"
+      ]
+    },
+    "per_case_global_values": {
+      "files": 16,
+      "shape": [
+        "2",
+        "classifier_length",
+        "512"
+      ],
+      "maximum_classifier_length": 600,
+      "dtype": "float32",
+      "layout": "head_major; axes H,L,D",
+      "conversion": "Read-only nativeVALUE23 cast tofloat32 only after qualifiedparent computed; retain native dtype and convertedshape. No fullhidden states orsecondpass."
+    }
+  },
+  "execution_order": [
+    "Globalpurepreflight binds all16case/mask/source/base/head/spec bytes, runtimeversions and diskreserve beforeanyencoder; retokenize using verifiedHFoffsettokenizer and exactruntimewrapperclassifier-ID comparison.",
+    "Load one language engine and install exact75head; freeze/prove parentparameter identity. Build fresh sharedprefix and preserve fingerprint.",
+    "Per case, verifyinputs/source and prefix; call unchangedcapture thenreplay then75head; evaluate andretain qualifiedfinal/parent19 beforeany auxiliarypool operation.",
+    "Read existing state.shared23values, checkcompleteglobalindexcontract and derive five nativepools plus commonmetadata; evaluatepoolresults, rechecksharedtuple/prefix unchanged. No additional encoderpass.",
+    "Read-only cast sourceVALUE23 tofloat32, retain eachcase2×L×512 NPY with exactbyte readback and hash. Independently compute NumPyfloat64means→float32 from retainedvaluebytes, recheck globalpositions/mapping and fivepool errors. Report conversion/nativepool/CPUaudit/persistence durations separately; primary latency excludes diskpersistence.",
+    "Fresh independent capture/replay75repeat and installedengine.scores withfreshprefix mustmatch primary outputs underfrozen gates. Repeat/auditoverheadtimedseparately. Prefix andmodelinventoryrechecked.",
+    "Release state/hostvalues/repeatfeatures aftereachcase; teardown firstlanguage beforesecond. Retain all16results/arrays, exactcaseorder; source/input/artifact/readback checks beforecomplete and afterfinalreportwrite."
+  ],
+  "fixed_gates": {
+    "primary_repeat_feature_absolute_error": 0.0,
+    "primary_repeat_logit_absolute_error": 0.0,
+    "zero_residual_logit_byte_identity": true,
+    "seven_head_argmax_differences": 0,
+    "binary_decision_differences": 0,
+    "qualified_score_vs_engine_max_absolute_error": 1e-10,
+    "native_pool_vs_numpy64_float32_max_absolute_error": 1e-05,
+    "empty_mask_max_absolute_value": 0.0,
+    "pool_reference_policy": "Same pre-existing1e-5meanparity and1e-10servingscore gates as127; no tolerance tuning afterpilot. Failclosed anynonfinite."
+  },
+  "limits": {
+    "maximum_seconds_per_language": 900,
+    "maximum_peak_process_rss_bytes": 12884901888,
+    "disk_reserve_bytes": 8589934592,
+    "maximum_output_bytes": 67108864,
+    "output_overwrite": false,
+    "single_encoder_at_a_time": true
+  },
+  "timings": {
+    "primary": "qualifiedcapture+finalreplay+75head+VALUEfloat32conversion+fiveVALUEpools+requiredsync. Diskpersistence excluded and reportedseparately; still no extraencoderpass.",
+    "separate": [
+      "engine_load_and75install",
+      "prefix_build",
+      "qualified_path_only",
+      "auxiliary_VALUE_pooling",
+      "CPU_mean_audit",
+      "fresh_qualified_repeat",
+      "engine_score_audit",
+      "retained_write_readback",
+      "native_VALUE_float32_conversion",
+      "VALUE_host_copy",
+      "percase_VALUE_NPY_persistence_and_readback"
+    ],
+    "comparison": "Record paired percase primary/baseline durations and perlanguage mean/median/max ratio; compute allrows includingfailures in incomplete reports. No speedup promised; no accuracy benefit inferred."
+  },
+  "memory": "Sample processRSS and availableMLXpeak/active/cache bytes includingliveKV aliases andpooloutputs; record samplinginterval andlimitations, diskminimum andexactnonreportoutputbytes. Source inference is not measuredcost.",
+  "saved_audit_scope": "Future independently registered savedartifact auditor must rederive all16case masks/tokens/metadata, baseline75CPUhead fromqualifiedfinal, all19logits/decisions, and fivepoolmeans directly from retainedfloat32globalVALUEarrays using globaltokenindices. This is independent savedpool arithmetic/mapping verification, not independentencoder/VALUEgeneration parity. Native dtype conversion remains producer observation.",
+  "excluded": [
+    "No stage24hidden tap orsourcecapture edits.",
+    "No sliding22concatenation arm inthispilot.",
+    "No widecache, fitting, privateTEST oraccuracy gating.",
+    "No claimrepairing rejected123/124 orreusing theirfeatures.",
+    "No semanticattributionunderstanding frommaskalignment; count/position/coherenceconfounds andlowactualmaskcontrastremain."
+  ],
+  "registered": false,
+  "execution_authorized": false,
+  "qualified": false,
+  "previous_design_sha256": "089c2bf6fd96b2fb948b2dc7d4095c930130b4291b87fc9d235526fff2cf292f",
+  "storage_preflight": {
+    "maximum_value_payload_bytes": 39321600,
+    "qualified_final_bytes": 163840,
+    "value_pool_bytes": 327680,
+    "metadata_bytes": 384,
+    "logit_bytes": 2432,
+    "numpy_header_allowance_bytes": 20480,
+    "source_plan_inventory_alignment_snapshots": "Exact byte sizes of bound inputfiles beforeencoder.",
+    "observation_and_report_allowance_bytes": 8388608,
+    "algorithm": "Sum actual16L value payloads +exactfixedarraypayloads+20KiBheaders+exactsnapshotbytes+8MiBJSONallowance. Reject unless<=64MiB beforeanyencoder. Checkactualtotal capaftereverywrite and finalcomplete."
+  },
+  "original_private_artifact_sha256": "0fbf35f40fd2bc8936ce5bc3261ef0883a4892440e65dea4cca675e9a21ddfbd",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

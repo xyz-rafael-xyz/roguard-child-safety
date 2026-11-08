@@ -1,0 +1,39 @@
+{
+  "verification": "PASS",
+  "scope": "Independent source review and synthetic saved-output audit tests only; actual134 artifacts not opened.",
+  "source": "[local-path-omitted:165406aec4f9]",
+  "source_sha256": "0e3f74dbcc6b2bfb8c791eb4e8ea09db12dc39fb0cc6a53b5d3bb76faca13704",
+  "retained_source_sha256": "0e3f74dbcc6b2bfb8c791eb4e8ea09db12dc39fb0cc6a53b5d3bb76faca13704",
+  "tests_sha256": "648b9207e316e76acfbcf479e54109b5987cf0b8b7251916e77416214e8b1b33",
+  "test_result": {
+    "passed": 30,
+    "failed": 0,
+    "seconds": 5.52
+  },
+  "sensitivity_control": {
+    "source": "[local-path-omitted:794f39fff3af]",
+    "source_sha256": "693caeba8a4d2703efbad2b175a8cfa990def0ddd1269207c0e34d348a793a00",
+    "passed": 27,
+    "failed": 3,
+    "finding": "Missing global source/input/artifact/inventory barrier after alignment import allowed16 tokenizer calls before detecting late mutation. V2 adds barrier immediately after import and all three cases now reject before any tokenizer call."
+  },
+  "coverage": [
+    "Complete16-case40-artifact fake producer fixture,80 independent scalar pool means and16 tiny TorchCPU head replays",
+    "Global VALUE axis/index/head-major flatten, prefix-subtraction and value-order corruptions",
+    "Nonfinite/shape/dtype, empty positive zero and signed-zero repeat corruption",
+    "Exact metadata/counts, finite positive feature norms and pool-error observations",
+    "Missing/extra/failure artifacts and exact-int successful producer terminal condition",
+    "Both-language postimport mutation barrier and zero tokenizer calls on mutation",
+    "NPY header/readback, copied source bytes, report corruption and late finalization failure markers"
+  ],
+  "limitations": [
+    "Producer preflight/origin closure and tokenizer are mocked; these tests do not independently execute real provenance/tokenization. Source review covers their placement and contracts.",
+    "Head weights and vectors are synthetic; real NumPy/Torch and portable policy scorer are used. No actual134 values, encoder, optimizer or actual model predictions were read or generated.",
+    "Saved VALUE origin, repeat feature identity, installation, zero-residual object identity and timings/resource values remain producer observations. Auditor independently recomputes saved-value means and saved-final CPU heads, not encoder provenance."
+  ],
+  "remaining_material_findings": [],
+  "qualified": false,
+  "training_admitted": false,
+  "original_private_artifact_sha256": "add85b64952a1339f9e950a0aa70f430685013c1b3eb97eeb4626710f140d4bd",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

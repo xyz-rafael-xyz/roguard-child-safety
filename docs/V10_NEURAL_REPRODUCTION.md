@@ -1392,3 +1392,21 @@ sources are retained in `research/v10-evidence/semantic-teacher-mask-131-132/`.
 These experiments remain exposed engineering work. Reserved TEST is closed,
 final human review remains gated, package metadata stays 9.0.0, and there is no
 qualified public v10 release.
+
+Study 134 tests a separate representation: five role/control pools from existing
+global attention VALUE vectors, with the qualified study 75 final feature kept
+separate. All 16 synthetic cases have zero baseline serving-score and repeated
+feature/logit differences; repeated logits are also byte-identical. Audit 135
+independently retokenizes all inputs, recomputes
+all 80 pool means from retained token-level VALUE arrays, and replays all 16
+study 75 heads on CPU. The maximum pool error is 4.77e-7 against a 1e-5 limit;
+CPU head and decision checks pass under their separate numerical contract.
+No encoder replay, learned residual or accuracy improvement is claimed.
+
+Measured conversion and pooling components add about 2.22 milliseconds in
+Romanian and 1.65 milliseconds in Ukrainian. Primary versus baseline-component
+means are 1.04598/1.04377 seconds and 1.16539/1.16374 seconds respectively. These
+are same-run component timings, not end-to-end or cross-study speedups; earlier
+study 127 had materially different baseline timings. Reports, exact sources,
+registration corrections and independent checks are retained in
+`research/v10-evidence/shared-value-resource-134-135/`.

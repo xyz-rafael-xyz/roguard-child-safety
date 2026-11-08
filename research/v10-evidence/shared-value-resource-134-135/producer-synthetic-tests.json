@@ -1,0 +1,30 @@
+{
+  "verification": "PASS",
+  "source_sha256": "06a3c20298c00c2865b1ade93c4411c43c07320e66ff303c9cbcd34f42eddc53",
+  "tests": 34,
+  "subtests": 55,
+  "seconds": 12.7,
+  "log_sha256": "387522d1e500630b92db99c04f6ad916ff4ec576211a41afa6f94274c2fce9d5",
+  "command": "env PYTHONPATH=src:[local-path-omitted:5d3f9685d7c9] OPENBLAS_NUM_THREADS=2 [local-path-omitted:24012a67504f] -m pytest -q shared-value-resource-producer-v2",
+  "previous_source_sha256": "c5a0c414b11ab7d8cedcc44d8e8d3e8ff89521f7c7d221a06dcf8b58f2e8d7d5",
+  "previous_report_sha256": "adebb01b24758f6005040e5566b80b49309dab04bf440514396ecdd2e45283ab",
+  "changed_function_asts": [
+    "preflight"
+  ],
+  "unchanged_runtime": "All other function/class ASTs including run, pooling, parent capture/replay, outputwrite/readback and failureguards are unchanged fromv1.",
+  "revision": "Exact canonical numerical/resource plan dictionaries now required beforebindings/imports/encoder. No runtime gate relaxation. Cleanprospective134 metadata;127 historicalprovenance nested separately.",
+  "tests_files": {
+    "test_plan_limits.py": "e668cbc3f98997ee06989bbd4b064ed5cff11e1025ab0538adbc118c02e7adeb",
+    "test_head_cpu.py": "642935e60cf1cfa020e019d0a736b9444466ea8a1507cee45bde51e539cc78f1",
+    "test_producer.py": "3d7822eef5c3bffad63703e20a1d9af77f2e36b9cd573e4c0de703acb33e7ad7",
+    "test_cache_cpu.py": "6dc93d53840e61dd9244acdc1b1c0185918dc58c8ff3c805160997a4dfbe0937",
+    "test_value_cpu.py": "e1bb251ca4260168d589b9aa60bd22b622be4c07445521fb4f3954a9a4014f21",
+    "test_runtime_tokenizer.py": "dac0415ca62e10b6ac7d0ba16a2415c891947df0b0b6ac8945937f80f6b7ea61"
+  },
+  "actual_encoder_run": false,
+  "actual_model_weights_loaded": false,
+  "actual_model_scoring": false,
+  "qualified": false,
+  "original_private_artifact_sha256": "679af962ba663c4a15cc4e132cd2ebc82897c96f8f0a8c65955dd6d6cc8d7013",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}
