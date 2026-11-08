@@ -1102,3 +1102,11 @@ and grouping/shortcut issues. Neutral benign replacements alone are insufficient
 concern negation needs separate atomization or explicit componentwise denial.
 A revised dataset must pass new semantic/software checks and receive a separate
 registration. The v10 goal remains active, and no model or release qualifies.
+
+Reference 102 and audit 103 subsequently completed and exited. All 16 retained
+artifacts were rehashed; the audit replays 6,336 TRAIN head outputs and checks
+8,837 DEV outputs plus 154 ordered progress events. Both fresh selected95 DEV
+arrays are byte-identical to the retained95 arrays. CPU head replay changes no
+argmax or served decisions; its largest logit difference is 0.00002861. Native
+encoder maxima remain producer observations. This numerical PASS preserves
+diagnostic evidence and does not override semantic admission stop 110.

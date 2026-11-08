@@ -2710,7 +2710,7 @@
     "sequence_report_created": false
   },
   "role_diversity_runtime_102": {
-    "status": "reference_extraction_running",
+    "status": "COMPLETE_REFERENCE_INTEGRITY_ONLY_DATASET_ADMISSION_REVOKED110",
     "continued_from": 101,
     "unchanged_plan": "role-diversity-runtime-plan-101.json",
     "continuation": "role-diversity-runtime-preflight-102/continuation.json",
@@ -2728,10 +2728,13 @@
     "independent_reference_audit_complete": false,
     "training_performed": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "report": "role-diversity-runtime-102/report.json",
+    "dev_rows_byte_identical": 8837,
+    "training_admitted": false
   },
   "role_diversity_runtime_audit_103": {
-    "status": "queued_after_reference102",
+    "status": "PASS_REFERENCE_INTEGRITY_ONLY",
     "plan": "role-diversity-runtime-audit-103/plan.json",
     "queue": "role-diversity-runtime-audit-103/queue.json",
     "sequence": "role-diversity-runtime-audit-sequence-103/report.json",
@@ -2746,7 +2749,12 @@
     "actual_reference_audit_complete": false,
     "training_performed": false,
     "held_out_test_opened": false,
-    "qualified": false
+    "qualified": false,
+    "verification": "role-diversity-runtime-audit-103/verification.json",
+    "artifact_count": 16,
+    "development_rows_compared": 8837,
+    "training_admitted": false,
+    "superseding_semantic_admission": "semantic-admission-stop-110/report.json"
   },
   "matched_role_training_preparation_104": {
     "status": "prospective_pipeline_queued_actual_registration_pending",
@@ -2804,5 +2812,6 @@
     "restart105_107_prohibited": true,
     "new_semantic_review_required": true,
     "stable_release_ready": false
-  }
+  },
+  "current_research_phase": "SEMANTIC_DATA_REVISION_AFTER_STOP110_NO_ACTIVE_ENCODER_OR_OPTIMIZER"
 }
