@@ -1,0 +1,57 @@
+{
+  "format": "roguard-assertion-probe-reference-registration-1",
+  "status": "RUNNING_ORIGINAL_V9_REFERENCES_ONLY",
+  "plan_sha256": "f558cf7b3ef3d9ba360000b54ae9806d149290a910285b60778e27016e1e51d1",
+  "source_sha256": "131b82405bf85d07bfc2eb39b5c593857a45d3d4ef70a52e9234eb9e1e66cba0",
+  "grid_rows": 288,
+  "counterfoil_rows": 18,
+  "rows": 306,
+  "per_language": 153,
+  "partitions": {
+    "fit": 96,
+    "probe_operator": 64,
+    "probe_meaning": 64,
+    "probe_combination": 32,
+    "probe_both": 32,
+    "counterfoil": 18
+  },
+  "unique_core_propositions_per_language_in_grid": 6,
+  "unique_fit_core_propositions_per_language": 4,
+  "token_range": [
+    475,
+    539
+  ],
+  "maximum_allowed_tokens": 600,
+  "protected_sources": 11,
+  "protected_unique_normalized_inputs": 50983,
+  "protected_unique_token_inputs": 52292,
+  "unsupported_raw_views": 1391,
+  "unsupported_scope": "Only raw prefixes exceeding the native12-turn limit; all retained in normalized role-preserving overlap checks. All8486 selected-memory views token-checked. No exhaustive raw-token comparison claim for unsupported views.",
+  "repeated_control": "Both uncertainty counterfoil translations remain repeated semantic controls; the original Ukrainian proposal duplicated one nonfitting grid input. Versioned neutral context removes full-input equality but does not create new semantic evidence.",
+  "semantic_review": "AI peer read all distinct bilingual core/operator patterns and checked all288 rendered grid matches, then read all18 complete counterfoil payloads. No independent human gold or universal accuracy claim.",
+  "evidence_sha256": {
+    "candidate-grid-and-panel-review-v1.json": "57e681915495820420b7a592d13dd379ed5930a68bcad6facbf1ffb6785aa38a",
+    "candidate-grid-independent-checks-v1.json": "8a0d190fee3f214140119d301255ae044803d8b980a0b74df4bf81230ecda91d",
+    "overlap-token-tooling-v1/grid-panel-check-v3/report.json": "d2d4e7399924c5033cf7f024ed3be653a5b91e50162f4526bf848cc3ab82483c",
+    "overlap-token-tooling-v1/grid-panel-check-v3/token-records.jsonl": "060383d796194e383499a6d7ba8346eff397472e1fd93688e7ca42f8fc2ab7da",
+    "overlap-token-tooling-v1/unsupported-view-explanation-v1/report.json": "27e7ec9e58a684468960927aacc254c4971735ebe9db619dd282455ae203206a",
+    "extractor-guard-review-v1/report.json": "73483f6772ae188adb06aed240a7c3ac2805ecdef59fdc88a744e055edfa9048"
+  },
+  "software_checks": {
+    "token_screen_tests": 7,
+    "extractor_guard_tests": 7,
+    "registered_preflight": "PASS929bindings",
+    "extraction_cpu_audit": "PENDING_ACTUAL_ARTIFACTS"
+  },
+  "workload": {
+    "captured_forwards": 306,
+    "native_feature_comparisons": 306,
+    "serving_score_parity_groups": 90
+  },
+  "probe_accuracy_summaries_produced": false,
+  "training_admitted": false,
+  "optimizer_started": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "scope": "Frozen original-v9 reference extraction only. Numerical CPU audit and separate four-arm fit registration remain required. Dataset100 and prior1728draft remain revoked/rejected; old105–107 queues must not restart."
+}

@@ -1146,3 +1146,27 @@ the new numerical tests ran separately in the numerical environment. A future
 trainer must still bind admitted TRAIN rows, teacher outputs and mask order and
 gather them with identical batch indices. No encoder or optimizer ran, no new
 dataset was admitted, and the proposed four-arm comparison remains unregistered.
+
+Reference extraction 113 is separately registered for 288 reviewed grid inputs
+and 18 focal counterfoil inputs, using only the frozen original-v9 encoder.
+The grid withholds complete operator/meaning blocks from prospective fitting;
+its 96 fit inputs represent only four underlying core propositions per language.
+The remaining 192 grid inputs and all counterfoils cannot enter fitting or
+checkpoint selection. The uncertainty counterfoil pair is a disclosed repeated
+semantic control, not additional independent evidence. The multi-world focal
+quotation proposal was excluded before model scoring because its target was
+ambiguous.
+
+All 306 inputs pass the reviewed technical screen at 475–539 tokens. Protected
+overlap checks cover 11 explicitly allowlisted sources. The 1,391 raw views
+without token checks exceed the native 12-turn limit; all retain normalized
+role-preserving checks. Every selected-memory view was token-checked. Neither
+exact overlap absence nor AI semantic review establishes independent human gold.
+
+The full extraction preflight verifies 929 source/input bindings before loading
+the encoder. Seven guard tests exercise source/review binding, disk reserve and
+cleanup even when inference and buffer flushes fail together. Each language is
+loaded separately, with native feature comparison on every row and serving-score
+parity across 45 groups per language. No new probe accuracy summaries are
+produced during extraction. A completed numerical audit and a separate fitting
+registration are still required; the proposed four-arm head pilot has not run.
