@@ -1,0 +1,55 @@
+{
+  "format": "roguard-train-transport-bounds-plan-1",
+  "registered": true,
+  "authorization": "ROOT_REGISTERED_TRAIN_TRANSPORT_BOUNDS_ONLY",
+  "source_sha256": "f15d5ed19e16da68b156aa74e940d4fce2231624c6053d5f2cafcd6e488eebb2",
+  "numerical_guard_policy": "TRANSPORT_V2_GUARD_PLUS_CAP_AND_PARENT_CONTRADICTION_UNRESOLVED",
+  "encoder_loaded": false,
+  "optimizer_run": false,
+  "new_probe_scoring": false,
+  "qualified": false,
+  "files": {
+    "audit118_plan": {
+      "path": "[private-artifact]/assertion-pilot-next/train-oracle-audit118-plan.json",
+      "sha256": "3c2be234d2d8139ef70b4d2c09b0b375be09c1404629759edbd15fa4f8187f6f"
+    },
+    "audit118_source": {
+      "path": "[private-artifact]/assertion-pilot-next/train-oracle-audit118-source.py",
+      "sha256": "1bb9e5d8b24ce703d857ea14668c97d6ac99c81daf83e53b4316badd635822b9"
+    },
+    "audit118_report": {
+      "path": "[private-artifact]/assertion-train-swap-audit-118/report.json",
+      "sha256": "0c7b05708a7d9d0837f779f85e1ba162090dabb172d5edad4c3ca457ef709ae5"
+    },
+    "audit118_saved_plan": {
+      "path": "[private-artifact]/assertion-train-swap-audit-118/audit-plan.json",
+      "sha256": "3c2be234d2d8139ef70b4d2c09b0b375be09c1404629759edbd15fa4f8187f6f"
+    },
+    "audit118_saved_source": {
+      "path": "[private-artifact]/assertion-train-swap-audit-118/audit-source.py",
+      "sha256": "1bb9e5d8b24ce703d857ea14668c97d6ac99c81daf83e53b4316badd635822b9"
+    },
+    "transport_source": {
+      "path": "[private-artifact]/parallel-review-20261108/transport-reachability-stage0-v2/transport.py",
+      "sha256": "59932304d46d8ee85ca7f376538a2a6d46c138d2e6352cb2694d5343fd86218b"
+    },
+    "transport_report": {
+      "path": "[private-artifact]/parallel-review-20261108/transport-reachability-stage0-v2/report.json",
+      "sha256": "539c81add76ab77e55014d1b0386433da09c5c26afe7c784e79412c7e820524e"
+    },
+    "transport_review": {
+      "path": "[private-artifact]/parallel-review-20261108/scope-concern-transport-independent-v2/bounds-review.json",
+      "sha256": "691e5715f42509b67f4acbc40bc81ebdef25b424380daca109fe728e0a52a8dd"
+    }
+  },
+  "study": 119,
+  "software_evidence_sha256": {
+    "schema": "95ebcb6134ec5384c06753380a7cf2553ebea90d8de4554c8ecbacf90212c6d5",
+    "author_report": "c00a3112162985abec062d0393e1f14c7bea50253b443717cca25ba4f8257fdf",
+    "independent_review": "e6be2a3caefabcbfa9d35122638f62ca9ed2f77e0c7023a3ed717a871fc7df07"
+  },
+  "scope": "All original TRAIN scope–concern transportation bounds on audited117 parents; numerical diagnostic only, no learned transport or certified served-optimum claim.",
+  "held_out_test_opened": false,
+  "original_private_plan_sha256": "dbc444c743e36dbcf8fb736036842f62972c7d97474ab04dda73e1329542a4ce",
+  "public_redaction": "Local paths replaced. This summary is not an executable plan."
+}

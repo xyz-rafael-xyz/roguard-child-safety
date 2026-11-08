@@ -1256,3 +1256,30 @@ human gold. All targets remain SELF/CURRENT/DIRECT and their focal wording alone
 identifies the class; the role contexts test distractor robustness. Prior-claim
 presence still predicts RETRACTED inside the main bank. Separate baseline
 profiling, fitting registration and final qualification remain outstanding.
+
+
+Registered diagnostic119 evaluates all28,929 original TRAIN parent predictions
+from117/118. It holds the effective scope and concern probabilities fixed and
+computes the minimum and maximum policy risk obtainable by changing their
+joint dependence. All11 remaining binary errors (four Romanian, seven Ukrainian)
+are false negatives outside that diagnostic attainable range: nine are limited
+by concern probability and two by scope. Zero rows fall in the numerical boundary
+category. An independent recount checks every row and enumerates the extrema
+of all11 error cases using70-digit Decimal arithmetic. The minimum gap below
+the fixed threshold is0.0033327884 for Romanian and0.0097380870 for Ukrainian.
+
+This rules out that fixed-marginal route as a complete repair on these TRAIN
+predictions. It does not rule out changes to the underlying predictions. The
+bounds use explicitly noncertified floating-point guards; the Decimal cross-check
+applies to supplied decimal probabilities and is not a native-serving certificate.
+No learned transport model, parent-head replay or new accuracy improvement is
+claimed. The other28,918 extrema were not independently replayed. The source,
+full report, numerical boundary witnesses and scoped verification are retained
+in `research/v10-evidence/train-transport-bounds-119/`.
+
+Reference extraction120 is separately registered for all3,080 screened inputs,
+using the original v9 encoder and heads. Its preflight checks955 immutable
+bindings before numerical imports. It performs no fitting or label-accuracy
+summaries. Completion still requires independent feature audit121 and a
+separately registered baseline profile. Metadata and public package version
+remain9.0.0; this work does not qualify a v10 release.

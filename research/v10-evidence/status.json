@@ -2813,7 +2813,7 @@
     "new_semantic_review_required": true,
     "stable_release_ready": false
   },
-  "current_research_phase": "BALANCED_OPERATOR_BASELINE_AND_TRAIN_SCOPE_DEPENDENCE_PREPARATION_AFTER_INELIGIBLE117_NO_ACTIVE_ENCODER_OR_OPTIMIZER",
+  "current_research_phase": "BALANCED_OPERATOR_REFERENCE120_RUNNING_AFTER_FIXED_MARGINAL_TRANSPORT119_LIMIT",
   "assertion_probe_preparation_111": {
     "status": "STRUCTURAL_CHECKS_PASS_NO_DATASET_ADMITTED",
     "report": "assertion-probe-preparation-111/report.json",
@@ -2925,6 +2925,31 @@
     "conditional_synthetic_assertion_changes": 27,
     "risk_tolerance": 1e-12,
     "binary_flips_after_guard": 0,
+    "qualified": false
+  },
+  "train_transport_bounds_119": {
+    "status": "COMPLETE_ALL11_TRAIN_ERRORS_OUTSIDE_DIAGNOSTIC_FIXED_MARGINAL_RANGE",
+    "report": "train-transport-bounds-119/report.json",
+    "interpretation": "train-transport-bounds-119/interpretation.json",
+    "independent_recount": "train-transport-bounds-119/root-recount.json",
+    "rows": 28929,
+    "parent_binary_errors": {
+      "ro": 4,
+      "uk": 7
+    },
+    "numerical_boundary_rows": 0,
+    "learned_module": false,
+    "numerical_certificate": false,
+    "qualified": false
+  },
+  "balanced_operator_reference_120": {
+    "status": "REGISTERED_RUNNING_NOT_YET_AUDITED",
+    "plan_sha256": "e8198243ecb865012f64dc404636a755498a26298241beb3a9a71013db7c659c",
+    "source_sha256": "4476f0862bcd3d579e70f738bf6cf5a2eec978454aa3a7a04a8070166bb24de1",
+    "unique_inputs": 3080,
+    "rows_per_language": 1540,
+    "independent_human_gold": false,
+    "training_admitted": false,
     "qualified": false
   }
 }

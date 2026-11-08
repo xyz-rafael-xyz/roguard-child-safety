@@ -1,0 +1,167 @@
+{
+  "status": "PASS_FULL_POPULATION_RECOUNT_AND_11_ERROR_VERTEX_CHECKS",
+  "source_sha256": "c22e27bbec244a82b7122c48a8bcc1a289081ed4546c84e5070723a9990fb662",
+  "producer_report_sha256": "db14ba791ca0c2cc69b7caba93f946087915467fa6ed4517d64c023152880fa8",
+  "files": {
+    "[private-artifact]/train-transport-bounds-119/report.json": "db14ba791ca0c2cc69b7caba93f946087915467fa6ed4517d64c023152880fa8",
+    "[private-artifact]/parallel-review-20261108/scope-concern-transport-independent-v2/oracle.py": "ced780d06c1313954238579c6350d3b03cbff6cfb9035bf59c3a59651a2d4ce0",
+    "[private-artifact]/assertion-train-swap-oracle-117/ro-rows.jsonl": "160b06e3a786cce0e22ec777b0b75fe80a5b3563755573590df0764028a138e6",
+    "[private-artifact]/train-transport-bounds-119/ro-bounds.jsonl": "5cd8b655cba152d3a5790bbf5899b74af7797fce357cee0816e28c0b906fc1be",
+    "[private-artifact]/assertion-train-swap-oracle-117/uk-rows.jsonl": "67278c162d2fa3bd9e7bba78b18fdd81bbd011598efe5d4907529fc998537745",
+    "[private-artifact]/train-transport-bounds-119/uk-bounds.jsonl": "52473c844e8cf7b92bef91d4f8826a295b36238035f0a4c1c7c8597e1afd2f08"
+  },
+  "languages": {
+    "ro": {
+      "rows_recounted": 13174,
+      "parent_binary_errors": 4,
+      "gold_reachability": {
+        "FEASIBLE_OUTSIDE_GUARD": 8696,
+        "FEASIBLE_CONCERN_CAP": 4474,
+        "IMPOSSIBLE_OUTSIDE_GUARD": 1,
+        "IMPOSSIBLE_CONCERN_CAP": 3
+      },
+      "boundary_rows": 0,
+      "all_error_rows_outside_attainable_diagnostic_range": true,
+      "minimum_error_gap": 0.0033327884049414447,
+      "independent_error_bounds": [
+        {
+          "case_id": "train-ro-2-15-0-2-2-1-2-paraphrase-scope",
+          "group": "training_scope_separation_v8",
+          "fixed_threshold": 0.7517333793124337,
+          "independent_decimal_maximum": "0.748400590907492233708364563191930819161642354025",
+          "maximum": 0.7484005909074922,
+          "gap_to_threshold": 0.0033327884049414447,
+          "reason": "IMPOSSIBLE_OUTSIDE_GUARD",
+          "feasible_vertices_enumerated": 128
+        },
+        {
+          "case_id": "composition56:review:01:ro:0:affirmed:1:0",
+          "group": "controlled-synthetic-scope-composition",
+          "fixed_threshold": 0.7517333793124337,
+          "independent_decimal_maximum": "0.73327333956454895885280760463755936484533325408",
+          "maximum": 0.733273339564549,
+          "gap_to_threshold": 0.018460039747884682,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition56:review:01:ro:0:affirmed:2:0",
+          "group": "controlled-synthetic-scope-composition",
+          "fixed_threshold": 0.7517333793124337,
+          "independent_decimal_maximum": "0.67944636411056110418809935806543767791409980968",
+          "maximum": 0.6794463641105611,
+          "gap_to_threshold": 0.07228701520187253,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition56:review:01:ro:0:retracted:1:0",
+          "group": "controlled-synthetic-scope-composition",
+          "fixed_threshold": 0.7517333793124337,
+          "independent_decimal_maximum": "0.6750932284945460324906785124910452890922088193",
+          "maximum": 0.675093228494546,
+          "gap_to_threshold": 0.07664015081788766,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        }
+      ]
+    },
+    "uk": {
+      "rows_recounted": 15755,
+      "parent_binary_errors": 7,
+      "gold_reachability": {
+        "FEASIBLE_OUTSIDE_GUARD": 10015,
+        "FEASIBLE_CONCERN_CAP": 5733,
+        "IMPOSSIBLE_CONCERN_CAP": 6,
+        "IMPOSSIBLE_OUTSIDE_GUARD": 1
+      },
+      "boundary_rows": 0,
+      "all_error_rows_outside_attainable_diagnostic_range": true,
+      "minimum_error_gap": 0.009738087031960219,
+      "independent_error_bounds": [
+        {
+          "case_id": "composition56:review:01:uk:0:retracted:1:2",
+          "group": "controlled-synthetic-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.91738455032252640",
+          "maximum": 0.9173845503225264,
+          "gap_to_threshold": 0.010040264653427222,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition56:review:03:uk:0:affirmed:2:3",
+          "group": "controlled-synthetic-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.8700234332239014409935359624744300203527447247569",
+          "maximum": 0.8700234332239014,
+          "gap_to_threshold": 0.05740138175205223,
+          "reason": "IMPOSSIBLE_OUTSIDE_GUARD",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition61:review:01:uk:0:AFFIRMED:SELF:CURRENT:0:1:0",
+          "group": "controlled-crossed-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.891834184267879223199780389464935392303699148949579933",
+          "maximum": 0.8918341842678792,
+          "gap_to_threshold": 0.035590630708074444,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition61:review:01:uk:0:AFFIRMED:SELF:CURRENT:0:1:1",
+          "group": "controlled-crossed-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.9165752942786605172570227358066211136751545438259195424",
+          "maximum": 0.9165752942786606,
+          "gap_to_threshold": 0.010849520697293169,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition61:review:01:uk:0:AFFIRMED:SELF:PAST:0:1:0",
+          "group": "controlled-crossed-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.8755577023164493335759943443437249454433056555236469989",
+          "maximum": 0.8755577023164494,
+          "gap_to_threshold": 0.05186711265950428,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition61:review:01:uk:0:AFFIRMED:SELF:PAST:0:1:1",
+          "group": "controlled-crossed-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.91768672794399340771849816247123747083300521609173746095",
+          "maximum": 0.9176867279439934,
+          "gap_to_threshold": 0.009738087031960219,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        },
+        {
+          "case_id": "composition61:review:01:uk:0:AFFIRMED:OTHER:PAST:0:1:1",
+          "group": "controlled-crossed-scope-composition",
+          "fixed_threshold": 0.9274248149759536,
+          "independent_decimal_maximum": "0.883483815355513931920195514776578317357719048074846698",
+          "maximum": 0.8834838153555139,
+          "gap_to_threshold": 0.043940999620439736,
+          "reason": "IMPOSSIBLE_CONCERN_CAP",
+          "feasible_vertices_enumerated": 256
+        }
+      ]
+    }
+  },
+  "decision": "DO_NOT_FIT_FIXED_MARGINAL_TRANSPORT_AS_A_COMPLETE_REPAIR_FOR_THESE_PARENT_TRAIN_ERRORS",
+  "interpretation": "All11 current TRAIN binary errors remain outside the constrained scope–concern optimum. Nine are limited by concern probability; two by remaining fixed scope/policy mass. A correction path must change relevant marginals or the evidence/representation producing them.",
+  "limits": [
+    "Independent Decimal enumeration covers11 known TRAIN error inputs only; other28918 extrema not independently replayed here.",
+    "Decimal oracle treats supplied decimal probability representations as its mathematical input. This is not a native-serving numerical certificate or independent parent-head replay.",
+    "No implication that all possible richer models, other data populations or changed-marginal models are incapable. No threshold changes or candidate fitting performed."
+  ],
+  "qualified": false,
+  "learned_module": false,
+  "encoder_loaded": false,
+  "original_private_report_sha256": "b7c7e4a200cd0bb392b5bfe3b6f7c0a25c4694e464190cf578bef7edd7a1ac4c",
+  "public_redaction": "Local path strings replaced; all original numeric/bool/null values, source digests and artifact digests retained."
+}
