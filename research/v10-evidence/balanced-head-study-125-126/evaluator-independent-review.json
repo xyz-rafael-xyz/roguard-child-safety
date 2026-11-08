@@ -1,0 +1,30 @@
+{
+  "verification": "PASS",
+  "source_sha256": "127ff31e5985eb8698188d69e741f388027797dac4371cff0c028a519cf98a8f",
+  "test_sources": {
+    "test_independent.py": "08443e7691de4e569246fd367579cd6cacace4fa69491b0530bc81df7315d545",
+    "test_metadata.py": "0f5d28ed7ebaf6a1ec405495bee9a4df24b268303f3924509229cd0e12e9f287"
+  },
+  "independent_synthetic_tests_passed": 15,
+  "resolved_findings": [
+    "Finite positive squared norm verified before normalization; synthetic1e38 overflow rejects.",
+    "Canonical JSON readback before metadata snapshots; substituted row-order, panel-order and selection-proof bytes reject."
+  ],
+  "review_scope": [
+    "Source review of fixed122 immutable audit/provenance/artifact bindings and original75 initialization",
+    "Six strict comparator/equality tests across both languages; no cross-language compensation or secondary substitution",
+    "All1540 rows and every partition independently recounted by scalar confusion oracle",
+    "20 panel responses per language retain bank alias errors",
+    "Truncated and changed saved NPY arrays reject before outcome use"
+  ],
+  "limits": [
+    "Synthetic functions and actual source reviewed; no whole actual125 evaluation replay performed.",
+    "No actual125 probe scoring, model weights or numerical inference accessed."
+  ],
+  "actual_model_scoring": false,
+  "optimizer_started": false,
+  "encoder_loaded": false,
+  "qualified": false,
+  "original_private_report_sha256": "ca25bbba961d2efcefcd0af8f27c773626f89e5a796ebe0d423d4ec33bf6502e",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

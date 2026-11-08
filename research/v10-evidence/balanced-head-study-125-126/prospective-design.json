@@ -1,0 +1,141 @@
+{
+  "format": "roguard-balanced-operator-head-prospective-1",
+  "registered": false,
+  "gate_contract": {
+    "primary": "new-mask_wrong_assertion",
+    "control": "control-full_teacher",
+    "strict_assertion_partitions": [
+      "probe_operator",
+      "probe_both"
+    ],
+    "strict_rows_per_language": 768,
+    "strict_references": [
+      "control-full_teacher",
+      "unchanged-initial75",
+      "original-v9"
+    ],
+    "probe_nonregression_partitions": [
+      "probe_operator",
+      "probe_meaning",
+      "probe_combination",
+      "probe_both"
+    ],
+    "probe_nonregression_metrics": [
+      "binary_errors",
+      "joint_errors",
+      "assertion_errors"
+    ],
+    "probe_nonregression_reference": "control-full_teacher",
+    "original_dev_nonregression_metrics": [
+      "binary_errors",
+      "joint_errors",
+      "introduced_v9"
+    ],
+    "original_dev_nonregression_references": [
+      "control-full_teacher",
+      "unchanged-initial75"
+    ],
+    "panel_rows": 40,
+    "panel_alias_rows": 32,
+    "panel_unique_supplemental_rows": 8,
+    "panel_binary_errors": 0,
+    "panel_joint_errors": 0,
+    "secondary_cannot_replace_primary": true,
+    "independent_human_validation": false,
+    "qualification": false
+  },
+  "configuration": {
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "dropout": {
+      "ro": 0.1,
+      "uk": 0.0
+    },
+    "teacher_kl": 0.2,
+    "policy_ce": {
+      "ro": 0.25,
+      "uk": 1.0
+    }
+  },
+  "scheduled_budget": {
+    "train_occurrences_per_language_per_arm": {
+      "ro": 22390,
+      "uk": 24971
+    },
+    "updates_per_language_per_arm": {
+      "ro": 4200,
+      "uk": 4692
+    },
+    "train_occurrences_per_arm": 47361,
+    "updates_per_arm": 8892,
+    "updates_all4arms": 35568,
+    "presentations_per_arm": 568332,
+    "presentations_all4arms": 2273328,
+    "development_rows": 8837,
+    "new_unique_fit_inputs": 576,
+    "new_core_propositions_per_language_in_fit": 8,
+    "occurrences_are_not_independent_examples": true
+  },
+  "hypothesis": "Controlled formal/short assertion composition: matched added supervision plus assertion-teacher disagreement masking; primary is a joint intervention, not an isolated causal data effect.",
+  "primary": {
+    "candidate": "new-mask_wrong_assertion",
+    "control": "control-full_teacher",
+    "interpretation": "Joint data+distillation intervention; this primary contrast alone does not attribute causal effects to either component."
+  },
+  "secondary_comparisons": [
+    [
+      "new-full_teacher",
+      "control-full_teacher"
+    ],
+    [
+      "new-mask_wrong_assertion",
+      "control-mask_wrong_assertion"
+    ],
+    [
+      "control-mask_wrong_assertion",
+      "control-full_teacher"
+    ],
+    [
+      "new-mask_wrong_assertion",
+      "new-full_teacher"
+    ]
+  ],
+  "secondary_interpretation": "Report every secondary even if primary fails; contradictory matched-mask comparison prevents an unqualified causal data-benefit claim. No secondary can replace the primary.",
+  "selection": "Retain epoch0 and all12 checkpoints. Choose separately per language/arm using unchanged original exposed DEV only, ranking fixed-threshold binary errors, joint-field errors, mean field cross entropy, then earlier epoch. Use selected75 coupled-policy thresholds and couplings unchanged; no threshold search. Freeze all selected checkpoint identities before scoring any new probe or counterfoil outputs.",
+  "exposure": "Baseline122 already scored all3080 and full40 aliases. These are exposed engineering diagnostics, not sealed or independent final validation. All trained probes remain unscored until eight selected checkpoints freeze.",
+  "admission": "Prospective only: exactly576 unique FIT IDs,288/language, subject to root registration. No probes or supplemental controls enter fitting, class weights, teacher masks, or checkpoint selection. No row labels change.",
+  "panel": {
+    "total40": 40,
+    "bank_aliases32": 32,
+    "supplemental8": 8,
+    "partitions": {
+      "probe_operator": 16,
+      "probe_both": 16,
+      "counterfoil": 8
+    },
+    "fit_aliases": 0,
+    "independent_examples_claim": false
+  },
+  "fixed_baseline_transfer_assertion_errors": {
+    "original-v9": {
+      "ro": 343,
+      "uk": 274
+    },
+    "unchanged-initial75": {
+      "ro": 357,
+      "uk": 296
+    }
+  },
+  "limits": [
+    "Generated engineering labels have compositional AI review, not independent human validation.",
+    "576 FIT payloads contain eight core propositions per language;32 repetitions are optimizer occurrences, not new examples.",
+    "Scripted metalinguistic families do not establish broad natural child language competence.",
+    "Main-grid prior-presence and retraction-cue shortcuts persist; full40 control panel is mandatory but32 entries repeat bank inputs.",
+    "This escalation gate is not v10 qualification; any failed primary criterion rejects escalation."
+  ],
+  "held_out_test_opened": false,
+  "qualified": false,
+  "original_private_report_sha256": "f50cf9ae82dc44a3b4c568a115b881e59b6045f5ceedacce9700d55581aa9eac",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

@@ -1,0 +1,81 @@
+{
+  "format": "roguard-balanced-operator-head-study-preflight-1",
+  "verification": "PASS",
+  "plan_sha256": "322c832596daaacd053f535c36c366ed24eff5fae275642ea67dc515cdc755ac",
+  "source_sha256": "ba12fe1f957307326ed3d42b3a46c234fef4b830ce750f93ef55908ad344882c",
+  "feature_audit_bindings": {
+    "new_feature_audit": {
+      "path": "[private-artifact]/balanced-operator-features120-verification-for121.json",
+      "sha256": "19ed5abe58a13989804454838b1477f20067cbfe4d55c224160c56c5a9f12522"
+    },
+    "new_feature_auditor": {
+      "path": "[private-artifact]/parallel-review-20261108/balanced-feature-audit-prototype-v3/audit.py",
+      "sha256": "288e7484da55467e315b7e3f2397206033c3b658a16aa4d3eea83df637272d2c"
+    },
+    "new_feature_audit_plan": {
+      "path": "[private-artifact]/assertion-pilot-next/balanced-feature-audit121-plan.json",
+      "sha256": "9fb541df1f6a8a6b051711cbb4aac79b84732b4e867d546021d380ba298d1944"
+    },
+    "new_extraction_plan": {
+      "path": "[private-artifact]/assertion-pilot-next/balanced-extraction120-plan.json",
+      "sha256": "e8198243ecb865012f64dc404636a755498a26298241beb3a9a71013db7c659c"
+    },
+    "new_feature_report": {
+      "path": "[private-artifact]/balanced-operator-features-120/report.json",
+      "sha256": "f55022a01f155341534e9f3b6289f2fcfc9b6d25fba9d846b7d5bedf3cd54872"
+    },
+    "ro_new_rows": {
+      "path": "[private-artifact]/balanced-operator-features-120/ro-rows.jsonl",
+      "sha256": "a2c466cb823f82f34fa62af2c67e4800ea84251a51b976f5e6402e45b4a431d8"
+    },
+    "ro_new_features": {
+      "path": "[private-artifact]/balanced-operator-features-120/ro-features.npy",
+      "sha256": "4642f437ef4b7a81acbd74eb08b4ad8999adeb23f428a833fb17a7718a58129b"
+    },
+    "ro_new_logits": {
+      "path": "[private-artifact]/balanced-operator-features-120/ro-logits.npy",
+      "sha256": "78d0a8c9f381ebf7bc1a331e60093a6366e5ba09ee8ab14bc7067d2d51e5fbcd"
+    },
+    "ro_v9_weights": {
+      "path": "research/v9-stabilization/reported-tail-fit-196/actual/ro-selected.safetensors",
+      "sha256": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09"
+    },
+    "uk_new_rows": {
+      "path": "[private-artifact]/balanced-operator-features-120/uk-rows.jsonl",
+      "sha256": "45afedabbc9b34cbc3b7ea941631226505f0c877833906b656af7856575f0c1f"
+    },
+    "uk_new_features": {
+      "path": "[private-artifact]/balanced-operator-features-120/uk-features.npy",
+      "sha256": "904961d6425258fb27b635699a5c5cd25ed9f36265a9818f9dfe3c903fc33520"
+    },
+    "uk_new_logits": {
+      "path": "[private-artifact]/balanced-operator-features-120/uk-logits.npy",
+      "sha256": "3a58edf5a32593b369dd8f884eb8a8ac995de75949955ad3738433e4a33ceb6f"
+    },
+    "uk_v9_weights": {
+      "path": "research/v9-stabilization/reported-tail-fit-196/actual/uk-selected.safetensors",
+      "sha256": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+    }
+  },
+  "all_language_preflight": {
+    "ro": {
+      "maximum_logit_error": 1.52587890625e-05,
+      "argmax_rows_differing": 0,
+      "fixed_threshold_decision_differences": 0
+    },
+    "uk": {
+      "maximum_logit_error": 2.288818359375e-05,
+      "argmax_rows_differing": 0,
+      "fixed_threshold_decision_differences": 0
+    }
+  },
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "training_performed": false,
+  "probe_scores_produced": false,
+  "probe_accuracy_summaries_produced": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "original_private_report_sha256": "2df5f761e6bd5a59a266d3cd4446ffbf66262e798f584c18b89b36f3e10d2cdc",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

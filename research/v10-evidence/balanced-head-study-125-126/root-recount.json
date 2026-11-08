@@ -1,0 +1,1227 @@
+{
+  "verification": "PASS",
+  "producer_report_sha256": "bfeb305d06e91398c0bd450d689dcdaafc13c06035e6705a45d66b11511abd7c",
+  "source_sha256": "565445b99d12a951f03e00318cb689c1d91d368a39cc42f8a079104e620d8e32",
+  "predictions_recounted": 18480,
+  "panel_responses_recounted": 240,
+  "partition_tables_recounted": 72,
+  "failures": [
+    "ro/original_dev/selected_control/joint_errors",
+    "ro/full_panel/joint_errors",
+    "uk/full_panel/binary_errors",
+    "uk/full_panel/joint_errors"
+  ],
+  "all_partition_and_panel_error_counts_exact": true,
+  "gate_matches": true,
+  "tables": {
+    "ro": {
+      "control-full_teacher": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 1,
+          "assertion_errors": 1,
+          "field_errors": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 30,
+          "joint_errors": 134,
+          "assertion_errors": 79,
+          "field_errors": [
+            86,
+            0,
+            79,
+            85,
+            81,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 48,
+          "joint_errors": 213,
+          "assertion_errors": 170,
+          "field_errors": [
+            98,
+            0,
+            170,
+            97,
+            134,
+            4
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 11,
+          "joint_errors": 46,
+          "assertion_errors": 26,
+          "field_errors": [
+            26,
+            0,
+            26,
+            26,
+            25,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 41,
+          "joint_errors": 178,
+          "assertion_errors": 107,
+          "field_errors": [
+            106,
+            0,
+            107,
+            106,
+            106,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 42,
+          "joint_errors": 219,
+          "assertion_errors": 175,
+          "field_errors": [
+            106,
+            0,
+            175,
+            103,
+            131,
+            1
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 4,
+          "joint_errors": 14,
+          "assertion_errors": 13,
+          "field_errors": [
+            6,
+            0,
+            13,
+            6,
+            11,
+            0
+          ]
+        }
+      },
+      "control-mask_wrong_assertion": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 1,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 31,
+          "joint_errors": 131,
+          "assertion_errors": 73,
+          "field_errors": [
+            87,
+            0,
+            73,
+            87,
+            67,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 49,
+          "joint_errors": 208,
+          "assertion_errors": 165,
+          "field_errors": [
+            93,
+            0,
+            165,
+            95,
+            119,
+            5
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 12,
+          "joint_errors": 43,
+          "assertion_errors": 25,
+          "field_errors": [
+            26,
+            0,
+            25,
+            26,
+            19,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 43,
+          "joint_errors": 175,
+          "assertion_errors": 103,
+          "field_errors": [
+            106,
+            0,
+            103,
+            106,
+            89,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 44,
+          "joint_errors": 218,
+          "assertion_errors": 174,
+          "field_errors": [
+            103,
+            0,
+            174,
+            104,
+            122,
+            0
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 4,
+          "joint_errors": 14,
+          "assertion_errors": 12,
+          "field_errors": [
+            6,
+            0,
+            12,
+            6,
+            11,
+            0
+          ]
+        }
+      },
+      "new-full_teacher": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 2,
+          "assertion_errors": 1,
+          "field_errors": [
+            0,
+            0,
+            1,
+            0,
+            2,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 22,
+          "joint_errors": 102,
+          "assertion_errors": 84,
+          "field_errors": [
+            1,
+            0,
+            84,
+            1,
+            5,
+            15
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 0,
+          "joint_errors": 2,
+          "assertion_errors": 2,
+          "field_errors": [
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 1,
+          "joint_errors": 4,
+          "assertion_errors": 1,
+          "field_errors": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 9,
+          "joint_errors": 87,
+          "assertion_errors": 85,
+          "field_errors": [
+            0,
+            0,
+            85,
+            0,
+            9,
+            0
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 1,
+          "joint_errors": 8,
+          "assertion_errors": 7,
+          "field_errors": [
+            0,
+            0,
+            7,
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "new-mask_wrong_assertion": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 2,
+          "assertion_errors": 1,
+          "field_errors": [
+            0,
+            0,
+            1,
+            0,
+            2,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 18,
+          "joint_errors": 74,
+          "assertion_errors": 54,
+          "field_errors": [
+            2,
+            0,
+            54,
+            2,
+            8,
+            12
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 2,
+          "joint_errors": 3,
+          "assertion_errors": 0,
+          "field_errors": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 8,
+          "joint_errors": 59,
+          "assertion_errors": 52,
+          "field_errors": [
+            1,
+            0,
+            52,
+            1,
+            8,
+            0
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 0,
+          "joint_errors": 6,
+          "assertion_errors": 3,
+          "field_errors": [
+            0,
+            0,
+            3,
+            0,
+            4,
+            0
+          ]
+        }
+      },
+      "initial75": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 1,
+          "assertion_errors": 1,
+          "field_errors": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 35,
+          "joint_errors": 142,
+          "assertion_errors": 91,
+          "field_errors": [
+            84,
+            0,
+            91,
+            82,
+            87,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 51,
+          "joint_errors": 224,
+          "assertion_errors": 177,
+          "field_errors": [
+            95,
+            0,
+            177,
+            92,
+            142,
+            11
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 12,
+          "joint_errors": 50,
+          "assertion_errors": 32,
+          "field_errors": [
+            26,
+            0,
+            32,
+            26,
+            32,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 46,
+          "joint_errors": 189,
+          "assertion_errors": 121,
+          "field_errors": [
+            107,
+            0,
+            121,
+            105,
+            116,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 41,
+          "joint_errors": 223,
+          "assertion_errors": 180,
+          "field_errors": [
+            103,
+            0,
+            180,
+            105,
+            138,
+            4
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 4,
+          "joint_errors": 14,
+          "assertion_errors": 13,
+          "field_errors": [
+            6,
+            0,
+            13,
+            6,
+            12,
+            0
+          ]
+        }
+      },
+      "v9": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 2,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 29,
+          "joint_errors": 144,
+          "assertion_errors": 76,
+          "field_errors": [
+            89,
+            0,
+            76,
+            93,
+            88,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 47,
+          "joint_errors": 221,
+          "assertion_errors": 170,
+          "field_errors": [
+            107,
+            0,
+            170,
+            116,
+            127,
+            4
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 11,
+          "joint_errors": 48,
+          "assertion_errors": 24,
+          "field_errors": [
+            29,
+            0,
+            24,
+            28,
+            27,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 35,
+          "joint_errors": 190,
+          "assertion_errors": 92,
+          "field_errors": [
+            113,
+            0,
+            92,
+            116,
+            109,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 42,
+          "joint_errors": 224,
+          "assertion_errors": 173,
+          "field_errors": [
+            116,
+            0,
+            173,
+            118,
+            134,
+            0
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 4,
+          "joint_errors": 15,
+          "assertion_errors": 12,
+          "field_errors": [
+            6,
+            0,
+            12,
+            7,
+            13,
+            0
+          ]
+        }
+      }
+    },
+    "uk": {
+      "control-full_teacher": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 36,
+          "joint_errors": 127,
+          "assertion_errors": 58,
+          "field_errors": [
+            109,
+            0,
+            58,
+            104,
+            53,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 49,
+          "joint_errors": 236,
+          "assertion_errors": 149,
+          "field_errors": [
+            175,
+            0,
+            149,
+            173,
+            133,
+            0
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 12,
+          "joint_errors": 41,
+          "assertion_errors": 18,
+          "field_errors": [
+            36,
+            0,
+            18,
+            36,
+            17,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 52,
+          "joint_errors": 171,
+          "assertion_errors": 65,
+          "field_errors": [
+            148,
+            0,
+            65,
+            148,
+            64,
+            0
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 43,
+          "joint_errors": 227,
+          "assertion_errors": 147,
+          "field_errors": [
+            172,
+            0,
+            147,
+            173,
+            122,
+            1
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 6,
+          "joint_errors": 13,
+          "assertion_errors": 8,
+          "field_errors": [
+            12,
+            0,
+            8,
+            11,
+            7,
+            0
+          ]
+        }
+      },
+      "control-mask_wrong_assertion": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 34,
+          "joint_errors": 127,
+          "assertion_errors": 54,
+          "field_errors": [
+            110,
+            0,
+            54,
+            103,
+            53,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 52,
+          "joint_errors": 232,
+          "assertion_errors": 142,
+          "field_errors": [
+            172,
+            0,
+            142,
+            173,
+            123,
+            1
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 12,
+          "joint_errors": 39,
+          "assertion_errors": 15,
+          "field_errors": [
+            33,
+            0,
+            15,
+            33,
+            18,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 56,
+          "joint_errors": 167,
+          "assertion_errors": 56,
+          "field_errors": [
+            145,
+            0,
+            56,
+            143,
+            61,
+            1
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 44,
+          "joint_errors": 226,
+          "assertion_errors": 143,
+          "field_errors": [
+            171,
+            0,
+            143,
+            168,
+            123,
+            1
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 5,
+          "joint_errors": 13,
+          "assertion_errors": 9,
+          "field_errors": [
+            11,
+            0,
+            9,
+            11,
+            9,
+            0
+          ]
+        }
+      },
+      "new-full_teacher": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 13,
+          "joint_errors": 82,
+          "assertion_errors": 73,
+          "field_errors": [
+            5,
+            0,
+            73,
+            8,
+            17,
+            0
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 1,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 12,
+          "joint_errors": 3,
+          "assertion_errors": 2,
+          "field_errors": [
+            0,
+            0,
+            2,
+            0,
+            1,
+            0
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 8,
+          "joint_errors": 80,
+          "assertion_errors": 74,
+          "field_errors": [
+            0,
+            0,
+            74,
+            2,
+            20,
+            0
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 1,
+          "joint_errors": 3,
+          "assertion_errors": 2,
+          "field_errors": [
+            1,
+            0,
+            2,
+            1,
+            2,
+            0
+          ]
+        }
+      },
+      "new-mask_wrong_assertion": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 28,
+          "joint_errors": 80,
+          "assertion_errors": 50,
+          "field_errors": [
+            13,
+            0,
+            50,
+            20,
+            20,
+            0
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 1,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 17,
+          "joint_errors": 3,
+          "assertion_errors": 0,
+          "field_errors": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 18,
+          "joint_errors": 75,
+          "assertion_errors": 52,
+          "field_errors": [
+            6,
+            0,
+            52,
+            7,
+            24,
+            1
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 1,
+          "joint_errors": 3,
+          "assertion_errors": 2,
+          "field_errors": [
+            1,
+            0,
+            2,
+            1,
+            2,
+            0
+          ]
+        }
+      },
+      "initial75": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 36,
+          "joint_errors": 127,
+          "assertion_errors": 58,
+          "field_errors": [
+            109,
+            0,
+            58,
+            104,
+            53,
+            0
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 49,
+          "joint_errors": 236,
+          "assertion_errors": 149,
+          "field_errors": [
+            175,
+            0,
+            149,
+            173,
+            133,
+            0
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 12,
+          "joint_errors": 41,
+          "assertion_errors": 18,
+          "field_errors": [
+            36,
+            0,
+            18,
+            36,
+            17,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 52,
+          "joint_errors": 171,
+          "assertion_errors": 65,
+          "field_errors": [
+            148,
+            0,
+            65,
+            148,
+            64,
+            0
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 43,
+          "joint_errors": 227,
+          "assertion_errors": 147,
+          "field_errors": [
+            172,
+            0,
+            147,
+            173,
+            122,
+            1
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 6,
+          "joint_errors": 13,
+          "assertion_errors": 8,
+          "field_errors": [
+            12,
+            0,
+            8,
+            11,
+            7,
+            0
+          ]
+        }
+      },
+      "v9": {
+        "counterfoil": {
+          "rows": 4,
+          "binary_errors": 0,
+          "joint_errors": 0,
+          "assertion_errors": 0,
+          "field_errors": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fit": {
+          "rows": 288,
+          "binary_errors": 20,
+          "joint_errors": 134,
+          "assertion_errors": 58,
+          "field_errors": [
+            105,
+            0,
+            58,
+            107,
+            64,
+            1
+          ]
+        },
+        "probe_both": {
+          "rows": 384,
+          "binary_errors": 25,
+          "joint_errors": 235,
+          "assertion_errors": 136,
+          "field_errors": [
+            160,
+            0,
+            136,
+            159,
+            133,
+            5
+          ]
+        },
+        "probe_combination": {
+          "rows": 96,
+          "binary_errors": 4,
+          "joint_errors": 41,
+          "assertion_errors": 16,
+          "field_errors": [
+            34,
+            0,
+            16,
+            35,
+            21,
+            0
+          ]
+        },
+        "probe_meaning": {
+          "rows": 384,
+          "binary_errors": 33,
+          "joint_errors": 176,
+          "assertion_errors": 66,
+          "field_errors": [
+            140,
+            0,
+            66,
+            141,
+            83,
+            7
+          ]
+        },
+        "probe_operator": {
+          "rows": 384,
+          "binary_errors": 23,
+          "joint_errors": 227,
+          "assertion_errors": 138,
+          "field_errors": [
+            167,
+            0,
+            138,
+            167,
+            130,
+            2
+          ]
+        },
+        "full_panel": {
+          "rows": 20,
+          "binary_errors": 2,
+          "joint_errors": 14,
+          "assertion_errors": 8,
+          "field_errors": [
+            9,
+            0,
+            8,
+            10,
+            9,
+            0
+          ]
+        }
+      }
+    }
+  },
+  "inputs_and_outputs_unchanged": true,
+  "limits": "Independent saved-logit error recount and gate arithmetic. Uses pinned public policy scorer. DEV metrics taken from completed independent126 replay, not replayed again here. No optimizer or encoder replay, no semantic gold validation.",
+  "qualified": false,
+  "original_private_report_sha256": "22c2191bad63590c0abe8ea5fe32fc5f0cef5cc5058d4dd43cf97fc28a16ac8a",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

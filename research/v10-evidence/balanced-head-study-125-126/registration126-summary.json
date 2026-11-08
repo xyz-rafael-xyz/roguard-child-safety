@@ -1,0 +1,131 @@
+{
+  "format": "roguard-balanced-operator-head-evaluation-1",
+  "registered": true,
+  "held_out_test_opened": false,
+  "source_sha256": "127ff31e5985eb8698188d69e741f388027797dac4371cff0c028a519cf98a8f",
+  "fit_plan": {
+    "path": "[private-artifact]/assertion-pilot-next/balanced-head125-plan.json",
+    "sha256": "322c832596daaacd053f535c36c366ed24eff5fae275642ea67dc515cdc755ac"
+  },
+  "trainer_source": {
+    "path": "[private-artifact]/assertion-pilot-next/balanced-head125-source.py",
+    "sha256": "ba12fe1f957307326ed3d42b3a46c234fef4b830ce750f93ef55908ad344882c"
+  },
+  "fit_output": "[private-artifact]/balanced-head-study-125",
+  "fit_report_sha256": "963588178f11e94e3f547e869843d35a286e74b094b95d47c54576f1ae3e3bef",
+  "selection_sha256": "60eeaf03f5ccbf251354ec6d9f0ed421f920b640be87b936575764e455ff9477",
+  "replay_tolerance": 0.001,
+  "prospective_design": {
+    "path": "[private-artifact]/parallel-review-20261108/larger-balanced-head-study-v1/prospective-design.json",
+    "sha256": "f50cf9ae82dc44a3b4c568a115b881e59b6045f5ceedacce9700d55581aa9eac"
+  },
+  "gelu_contract": {
+    "path": "[local-path-omitted]",
+    "file_sha256": "153660ac19d4fe93d6ca15f67ad8527ed03b0e860e36192f3815e1d3daf73ed1",
+    "function_source_sha256": "b89b4f643ff7dc2dcfdaab70fe11b0a7641de17740a1fc0ae8713006bf09850e"
+  },
+  "original_lineage": [
+    {
+      "role": "original88",
+      "file_key": "original_feature_report",
+      "expected_values": {
+        "/complete": true,
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/languages/ro/artifacts/ro-rows.jsonl": "ro_original_rows",
+        "/languages/ro/artifacts/ro-features.npy": "ro_original_features",
+        "/languages/ro/artifacts/ro-logits.npy": "ro_original_logits",
+        "/languages/uk/artifacts/uk-rows.jsonl": "uk_original_rows",
+        "/languages/uk/artifacts/uk-features.npy": "uk_original_features",
+        "/languages/uk/artifacts/uk-logits.npy": "uk_original_logits"
+      }
+    },
+    {
+      "role": "audit89",
+      "file_key": "original_feature_audit",
+      "expected_values": {
+        "/verification": "PASS",
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/report_sha256": "original_feature_report",
+        "/artifacts/ro-rows.jsonl": "ro_original_rows",
+        "/artifacts/ro-features.npy": "ro_original_features",
+        "/artifacts/ro-logits.npy": "ro_original_logits",
+        "/artifacts/uk-rows.jsonl": "uk_original_rows",
+        "/artifacts/uk-features.npy": "uk_original_features",
+        "/artifacts/uk-logits.npy": "uk_original_logits"
+      }
+    },
+    {
+      "role": "warm90",
+      "file_key": "initial_reference_report",
+      "expected_values": {
+        "/complete": true,
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/languages/ro/artifacts/ro-selected.safetensors": "ro_initial_weights",
+        "/languages/ro/artifacts/ro-selected-dev-logits.npy": "ro_initial_dev_logits",
+        "/languages/ro/artifacts/ro-dev-rows.jsonl": "ro_initial_dev_rows",
+        "/languages/uk/artifacts/uk-selected.safetensors": "uk_initial_weights",
+        "/languages/uk/artifacts/uk-selected-dev-logits.npy": "uk_initial_dev_logits",
+        "/languages/uk/artifacts/uk-dev-rows.jsonl": "uk_initial_dev_rows"
+      }
+    }
+  ],
+  "files": {
+    "evaluator_source": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-balanced-evaluator-v3/evaluator.py",
+      "sha256": "127ff31e5985eb8698188d69e741f388027797dac4371cff0c028a519cf98a8f"
+    },
+    "gelu_source": {
+      "path": "[local-path-omitted]",
+      "sha256": "153660ac19d4fe93d6ca15f67ad8527ed03b0e860e36192f3815e1d3daf73ed1"
+    },
+    "artifact_review": {
+      "path": "[private-artifact]/parallel-review-20261108/postfit-evaluator-independent-review-v2/report.json",
+      "sha256": "e1ff1129b68ac19a7ca73c07b5f799ec5083ca66326c68e52cc4e3dec91bbb63"
+    },
+    "metric_review": {
+      "path": "[private-artifact]/parallel-review-20261108/postfit-evaluator-training-review-v1/v2-review.json",
+      "sha256": "0aae13fc48a43cca5eecdfc889f4889fbad70f256b1e133a2004d8d4f0651a20"
+    },
+    "software_manifest": {
+      "path": "[private-artifact]/parallel-review-20261108/postfit-evaluator-prototype-v2/manifest.json",
+      "sha256": "dff480ea88faf438d8c3d2d855d00700ee1e38a268464edd2af0db8d46a7fd12"
+    },
+    "evaluator_test:test_evaluator.py": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-balanced-evaluator-v3/test_evaluator.py",
+      "sha256": "37f741b9debe558f2882962c64aa69a43a52ab8346bc4fda14fd1223d0bf6e56"
+    },
+    "evaluator_test:test_larger_contract.py": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-balanced-evaluator-v3/test_larger_contract.py",
+      "sha256": "b74ad01b059c2290b778a12832368d859d3448a541193cd611e1e34d6ef9d337"
+    },
+    "evaluator_test:test_feature_norm.py": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-balanced-evaluator-v3/test_feature_norm.py",
+      "sha256": "d6afb9308296705d0729a1a002596e4fc28796c06a5644cb4cd123dbbd514ba4"
+    },
+    "evaluator_test:test_metadata_readback.py": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-balanced-evaluator-v3/test_metadata_readback.py",
+      "sha256": "c9a49267364b2cc6c9d2e85f28619fa001fd8dfca5f1c9cf68a1d0433a1437c3"
+    },
+    "final_independent_evaluator_review": {
+      "path": "[private-artifact]/parallel-review-20261108/larger-evaluator-training-review-v1/v3-review.json",
+      "sha256": "ca25bbba961d2efcefcd0af8f27c773626f89e5a796ebe0d423d4ec33bf6502e"
+    }
+  },
+  "fit_producer_exited": true,
+  "encoder_loaded": false,
+  "qualified": false,
+  "study": 126,
+  "status": "ROOT_REGISTERED_INDEPENDENT125_CHECKPOINT_REPLAY_AND_FROZEN_PROBE_EVALUATION",
+  "fit_terminal_exit_code": 0,
+  "registered_utc": "2026-11-08T18:49:26.960746+00:00",
+  "preparation_draft_sha256": "d478db828f594b019605595edc25f4eeaa9a97fedb3abef0946827bb2441f2b8",
+  "root_review": "Exact125 terminalreport,104checkpoints and8selections verified. All scalaroriginalDEV metrics independently recomputed before any trainedprobe. Fixedprimary gates unchanged. Normoverflow and savedJSONreadback defects fixed with15independenttests; no newtrainer or threshold changes. This may rejectescalation and cannot qualifyv10.",
+  "original_private_report_sha256": "447ad05b860ab097310f659c34fe6245c4e417fea27e40f9fbcf34b0d3257e9a",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

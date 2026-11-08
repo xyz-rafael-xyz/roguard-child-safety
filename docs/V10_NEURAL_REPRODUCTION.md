@@ -1319,3 +1319,25 @@ for improvement, not an improved model. No fitting or selection occurred.
 The probes are now exposed engineering diagnostics. The full reports, exact
 producer/auditor sources and scoped checks are retained in
 `research/v10-evidence/balanced-operator-reference-120-122/`.
+
+
+Larger training125 completed35,568 updates and2,273,328 presentations using576
+distinct new FIT inputs. Independent evaluation126 replays104 checkpoints and
+459,524 originalDEV outputs before trained-probe scoring. Primary transfer
+assertion errors improve to106RO/102UK, beating matched control345/296,
+unchanged75 357/296 and originalv9 343/274. Per-probe nonregression passes.
+Acceptance still fails: Romanian originalDEV joint errors675 exceed control673;
+the full40 panel has RO0binary/6joint and UK1binary/3joint errors. Primaryoriginal
+DEV retains13binary errors. All576 FIT rows have zero errors. No secondary
+replaces the failed primary. The root saved-output recount confirms18,480
+predictions,240panelresponses and72partitiontables. Reports and exact source are
+in `research/v10-evidence/balanced-head-study-125-126/`.
+
+Bounded runtime123 failed before a checkedcase on a tokenizer-wrapper interface.
+After a versioned real-wrapper-tested fix,124 checked seven Romanian cases and
+failed on the eighth: native-final score drift8.484203506842897e-9 exceeds the
+frozen1e-10 tolerance. Ukrainian cases did not run. The unchanged limit rejects
+native-final interchangeability. Both partial failures are retained in
+`research/v10-evidence/role-resource-failures-123-124/`. A future separate design
+must preserve the exact qualified baseline path and measure added native-pooling
+cost. No v10 package or final human-review admission follows from this work.

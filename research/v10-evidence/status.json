@@ -2813,7 +2813,7 @@
     "new_semantic_review_required": true,
     "stable_release_ready": false
   },
-  "current_research_phase": "LARGER_BALANCED_TRAINING_PREPARATION_AFTER_AUDITED_REFERENCE120_122",
+  "current_research_phase": "LARGER125_TRANSFER_GAIN_BUT126_REJECTED_QUALIFIED_FINAL_RESOURCE_AND_TRAIN_SCALING_PREPARATION",
   "assertion_probe_preparation_111": {
     "status": "STRUCTURAL_CHECKS_PASS_NO_DATASET_ADMITTED",
     "report": "assertion-probe-preparation-111/report.json",
@@ -2981,6 +2981,29 @@
     },
     "new_model_improvement": false,
     "training_admitted": false,
+    "qualified": false
+  },
+  "larger_balanced_head125_evaluation126": {
+    "status": "INTEGRITY_PASS_REJECT_ESCALATION",
+    "report": "balanced-head-study-125-126/evaluation126-report.json",
+    "interpretation": "balanced-head-study-125-126/interpretation.json",
+    "primary_transfer_assertion_errors": {
+      "ro": 106,
+      "uk": 102
+    },
+    "primary_dev_binary_errors": 13,
+    "primary_dev_joint_errors": 1309,
+    "gate_failures": [
+      "ro/original_dev/selected_control/joint_errors",
+      "ro/full_panel/joint_errors",
+      "uk/full_panel/binary_errors",
+      "uk/full_panel/joint_errors"
+    ],
+    "qualified": false
+  },
+  "role_resource123_124": {
+    "status": "BOTH_FAILED_RETAINED_NO_TOLERANCE_RELAXATION",
+    "interpretation": "role-resource-failures-123-124/interpretation.json",
     "qualified": false
   }
 }
