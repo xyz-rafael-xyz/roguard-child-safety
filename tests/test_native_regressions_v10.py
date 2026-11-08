@@ -50,23 +50,32 @@ def test_missing_audit_stops_before_process_or_output(tmp_path, monkeypatch):
     assert list(tmp_path.iterdir()) == []
 
 
-@pytest.mark.parametrize('mutation', ['none', 'current_artifacts', 'retained_proof'])
+@pytest.mark.parametrize('mutation', ['none', 'current_artifacts', 'retained_proof', 'review_spec'])
 def test_admission_reaudits_current_artifacts(tmp_path, monkeypatch, mutation):
+    from training.register_matched_role_attention_v10 import OUTPUTS
     proof = passing_proof(); path = tmp_path/admission.PROOF
     path.write_text(json.dumps(proof))
     prospective = tmp_path/admission.PROSPECTIVE; prospective.parent.mkdir(parents=True)
     prospective.write_text('{}'); monkeypatch.setattr(admission, 'PROSPECTIVE_SHA', file_sha(prospective))
-    def run(command, *, cwd, check):
+    specs = {lang: tmp_path/OUTPUTS['treatment']['study']/(lang+'-review.json') for lang in ('ro', 'uk')}
+    for spec in specs.values():
+        spec.parent.mkdir(parents=True, exist_ok=True); spec.write_text('{}')
+    admitted = {lang: file_sha(spec) for lang, spec in specs.items()}
+    def run(command, *, cwd, check, env):
         assert cwd == tmp_path and check
+        import os
+        assert env['PYTHONPATH'] == os.pathsep.join((str(tmp_path/'src'), str(tmp_path)))
+        assert env['PYTHONNOUSERSITE'] == '1'
         assert command[1] == 'scripts/audit_registered_matched_role_v10.py'
         assert command[command.index('--producer-pid')+1] == '123'
         fresh = deepcopy(proof)
         if mutation == 'current_artifacts': fresh['arms']['treatment']['languages']['uk']['binary_errors'] = 1
         if mutation == 'retained_proof': path.write_text(json.dumps(proof)+'\n')
+        if mutation == 'review_spec': specs['ro'].write_text('{"threshold":0.123}')
         Path(command[command.index('--output')+1]).write_text(json.dumps(fresh))
     monkeypatch.setattr(admission.subprocess, 'run', run)
     if mutation == 'none':
-        assert admission.revalidate_admission(tmp_path, tmp_path, 'treatment', 123) == (proof, file_sha(path))
+        assert admission.revalidate_admission(tmp_path, tmp_path, 'treatment', 123) == (proof, file_sha(path), admitted)
     else:
         with pytest.raises(ValueError, match='differ|changed'):
             admission.revalidate_admission(tmp_path, tmp_path, 'treatment', 123)
@@ -193,8 +202,9 @@ def test_public_engine_used_and_released_on_error(monkeypatch):
     assert component._engine is None and engines[-1].model.heads['ro'] is original_head
 
 
-@pytest.mark.parametrize('candidate_fails', [False, True])
-def test_complete_cli_records_results_without_release_admission(tmp_path, monkeypatch, candidate_fails):
+@pytest.mark.parametrize('candidate_fails,corrupt_retained,corrupt_spec',
+                         [(False, False, False), (True, False, False), (False, True, False), (False, False, True)])
+def test_complete_cli_records_results_without_release_admission(tmp_path, monkeypatch, candidate_fails, corrupt_retained, corrupt_spec):
     import sys
     from types import SimpleNamespace
     from eval import run_trajectory_v10
@@ -208,12 +218,14 @@ def test_complete_cli_records_results_without_release_admission(tmp_path, monkey
                  'src/roguard/trajectory_data.py', 'src/roguard/trajectory_evaluation.py'):
         target = root/name; target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((actual_root/name).read_bytes())
+    monkeypatch.setattr(runner, '__file__', str(root/'eval/evaluate_native_regressions_v10.py'))
     selector = root/'selector'; selector.write_bytes(b'fixture')
     cases = [make_case('a', 0), make_case('b', 1, 'uk', world=False)]
     inputs = [make_input(c) for c in cases]
     case_path = root/'cases.jsonl'; case_path.write_text(''.join(json.dumps(c)+'\n' for c in cases))
     monkeypatch.setattr(runner, 'POPULATIONS', {'fixture': ('cases.jsonl', file_sha(case_path), 2)})
     monkeypatch.setattr(runner, 'PUBLISHED_RUNTIME', {})
+    monkeypatch.setattr(runner, 'PUBLISHED_CATALOG', {})
     monkeypatch.setattr(runner, 'SELECTOR_SHA', file_sha(selector))
     monkeypatch.setattr(runner, 'verify_runtime', lambda root: None)
     monkeypatch.setattr(runner, 'load_inputs', lambda *a: ({'fixture': cases}, inputs))
@@ -224,7 +236,13 @@ def test_complete_cli_records_results_without_release_admission(tmp_path, monkey
         proof['arms']['treatment']['languages'][lang]['artifacts'] = {path.name: file_sha(path)}
         spec = root/OUTPUTS['treatment']['study']/(lang+'-review.json')
         spec.parent.mkdir(parents=True, exist_ok=True); spec.write_text('{}')
-    monkeypatch.setattr(runner, 'revalidate_admission', lambda *a: (proof, 'admission-fixture'))
+    proof_path = private/admission.PROOF; proof_path.write_text(json.dumps(proof))
+    admitted_specs = {lang: file_sha(root/OUTPUTS['treatment']['study']/(lang+'-review.json')) for lang in ('ro', 'uk')}
+    def admitted(*args):
+        if corrupt_spec:
+            (root/OUTPUTS['treatment']['study']/'ro-review.json').write_text('{"threshold":0.123}')
+        return proof, file_sha(proof_path), admitted_specs
+    monkeypatch.setattr(runner, 'revalidate_admission', admitted)
     class Frozen:
         def __init__(self, base, candidate, staging):
             staging.mkdir()
@@ -235,6 +253,8 @@ def test_complete_cli_records_results_without_release_admission(tmp_path, monkey
     seen = []
     def inference(component, rows, progress):
         seen.append((component.identity, rows[0]['language']))
+        if corrupt_retained and component.identity == 'candidate' and rows[0]['language'] == 'uk':
+            (study/'baseline.jsonl').write_text('')
         def predict(payload):
             value = int(payload['language'] == 'uk')
             if candidate_fails and component.identity == 'candidate': value = 1-value
@@ -244,6 +264,16 @@ def test_complete_cli_records_results_without_release_admission(tmp_path, monkey
     argv = ['runner', '--root', str(root), '--private-root', str(private), '--base', str(root/'base'),
         '--selector', str(selector), '--study', str(study), '--arm', 'treatment', '--producer-pid', '123']
     monkeypatch.setattr(sys, 'argv', argv)
+    if corrupt_spec:
+        with pytest.raises(ValueError, match='specification changed after admission'):
+            runner.main()
+        assert not study.exists() and seen == []
+        return
+    if corrupt_retained:
+        with pytest.raises(ValueError, match='Retained regression predictions changed'):
+            runner.main()
+        assert not (study/'report.json').exists()
+        return
     runner.main()
     report = json.loads((study/'report.json').read_text())
     assert seen == [('baseline-ro', 'ro'), ('candidate', 'ro'), ('baseline-uk', 'uk'), ('candidate', 'uk')]
@@ -254,3 +284,55 @@ def test_complete_cli_records_results_without_release_admission(tmp_path, monkey
     for kind in ('baseline', 'candidate'):
         assert file_sha(study/(kind+'.jsonl')) == report['prediction_sha256'][kind]
     with pytest.raises(ValueError, match='overwrite'): runner.main()
+
+
+def test_joint_diagnostic_denominator_includes_abstention():
+    cases = [make_case('a', 0), make_case('b', 0)]
+    inputs = [make_input(c, i == 1) for i, c in enumerate(cases)]
+    rows, _ = runner.predict_records(inputs, lambda p: (dict(predicted=0, score=.5), [0.]*19), 'fixture')
+    report = runner.assess(cases, rows, rows)
+    for kind in ('baseline', 'candidate'):
+        group = report[kind]['groups']['ro']
+        assert group['conditional_singleton_match_among_nonabstentions'] == 1.
+        assert group['joint_argmax_accuracy_including_abstentions'] == .5
+        assert group['joint_argmax_annotated_denominator'] == 2
+        assert group['joint_set_coverage'] is None
+
+
+@pytest.mark.parametrize('name', ['roguard.gemma4_review', 'eval.native_regression_inputs_v10',
+                                 'roguard.trajectory_memory', 'training.fake', '__main__'])
+def test_shadow_project_import_is_rejected(tmp_path, monkeypatch, name):
+    import sys
+    from types import SimpleNamespace
+    root = Path(admission.__file__).resolve().parents[1]
+    module = SimpleNamespace(__file__=str(tmp_path/'shadow.py'))
+    if name == '__main__': module.__spec__ = SimpleNamespace(name='eval.evaluate_native_regressions_v10')
+    monkeypatch.setitem(sys.modules, name, module)
+    with pytest.raises(ValueError, match='outside the bound checkout'):
+        admission.verify_module_origins(root)
+
+
+def test_split_project_namespace_is_rejected(tmp_path, monkeypatch):
+    import sys
+    from types import SimpleNamespace
+    root = Path(admission.__file__).resolve().parents[1]
+    monkeypatch.setitem(sys.modules, 'training', SimpleNamespace(__path__=[str(root/'training'), str(tmp_path)]))
+    with pytest.raises(ValueError, match='namespace differs'):
+        admission.verify_module_origins(root)
+
+
+def test_current_project_origins_and_lazy_source_snapshot():
+    root = Path(admission.__file__).resolve().parents[1]
+    admission.verify_runtime(root)
+    snapshot = admission.source_snapshot(root)
+    assert snapshot[root/'src/roguard/gemma4_attention.py'] == admission.PUBLISHED_RUNTIME['src/roguard/gemma4_attention.py']
+    assert snapshot[root/'eval/evaluate_native_regressions_v10.py'] == file_sha(root/'eval/evaluate_native_regressions_v10.py')
+
+
+def test_modified_published_catalog_rejected(tmp_path, monkeypatch):
+    monkeypatch.setattr(admission, 'verify_module_origins', lambda root: None)
+    monkeypatch.setattr(admission, 'PUBLISHED_RUNTIME', {})
+    for name in admission.PUBLISHED_CATALOG:
+        path = tmp_path/name; path.parent.mkdir(parents=True); path.write_text('{}')
+    with pytest.raises(ValueError, match='source changed'):
+        admission.verify_runtime(tmp_path)

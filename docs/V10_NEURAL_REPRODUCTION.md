@@ -1056,3 +1056,30 @@ regression encoder and admits no model. Even an exposed-regression pass leaves
 response qualification, independent calibration/evaluation, measured reviewer
 benefit and installed-runtime qualification outstanding. Reserved TEST stays
 closed and reviewers remain gated.
+
+Parallel review continuation 109 supersedes preparation 108's software checks;
+the original evidence remains retained. Review found that checking a checkout's
+files did not prove those modules were imported, saved predictions could differ
+from the arrays used for metrics, and a review specification could change just
+after admission. The evaluator now checks executing/imported module origins,
+pins the released-v9 catalog, freezes local Python sources before inference,
+binds review specifications across the complete re-audit, and computes metrics
+and hashes from the same reread prediction bytes. The re-audit subprocess uses
+the absolute checkout paths. A late prediction/specification change fails.
+
+Singleton field diagnostics now use all annotated checkpoints in their
+denominator, including abstentions. Their conditional match rate is explicitly
+named; calibrated joint-set coverage is left unassessed. Five independent agent
+CPU checks reproduce the corrected behaviors. These are software reviews, not
+independent human language validation.
+
+The packaging review also found that `NeuralTrajectoryModel` retained its
+caller's selector and component dictionary. It now owns a deep copy of the
+selector and a copy of the dictionary, matching the committee wrapper's
+ownership model. This constructor is outside the live training source bindings;
+all queued experiments remain unchanged. Portable tests show that mutating the
+caller's selector or replacing a dictionary entry cannot change an already
+bound pipeline. A fresh local research-wheel installation verifies 177 package
+files, all 40 entrypoints, bilingual/session/planner smokes and both ownership
+regressions. No neural model inference or cross-platform qualification is
+claimed. The wheel retains research version metadata 9.0.0 and is unpublished.

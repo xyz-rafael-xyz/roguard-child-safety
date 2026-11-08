@@ -1,5 +1,7 @@
 """Frozen exposed regression inputs and admission after the paired DEV audit."""
 import json
+import importlib
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -31,6 +33,10 @@ PUBLISHED_RUNTIME = {
     'src/roguard/gemma4_review.py': '259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715',
     'src/roguard/gemma4_attention.py': 'c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6',
     'src/roguard/gemma4_contract.py': '34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200',
+}
+PUBLISHED_CATALOG = {
+    'src/roguard/model-download-v9-gemma4-20261019.json':
+        '90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb',
 }
 
 
@@ -72,15 +78,22 @@ def revalidate_admission(root, private, arm, producer_pid):
     proof = read(proof_path)
     require_development_pass(proof, arm)
     require(file_sha(root/PROSPECTIVE) == PROSPECTIVE_SHA, 'Prospective training plan changed')
+    from training.register_matched_role_attention_v10 import OUTPUTS
+    spec_paths = {lang: root/OUTPUTS[arm]['study']/(lang+'-review.json') for lang in ('ro', 'uk')}
+    admitted_specs = {lang: file_sha(path) for lang, path in spec_paths.items()}
     with tempfile.TemporaryDirectory(prefix='roguard-regression-admission-') as temp:
         output = Path(temp)/'verification.json'
         subprocess.run([sys.executable, 'scripts/audit_registered_matched_role_v10.py',
             '--root', str(root), '--private-root', str(private), '--prospective', str(root/PROSPECTIVE),
             '--prospective-sha256', PROSPECTIVE_SHA, '--producer-pid', str(producer_pid),
-            '--output', str(output)], cwd=root, check=True)
+            '--output', str(output)], cwd=root, check=True,
+            env=dict(os.environ, PYTHONPATH=os.pathsep.join((str(root.resolve()/'src'), str(root.resolve()))),
+                     PYTHONNOUSERSITE='1'))
         require(read(output) == proof, 'Current paired artifacts differ from completed audit107')
     require(file_sha(proof_path) == proof_sha, 'Admission proof changed during recount')
-    return proof, proof_sha
+    require(all(file_sha(path) == admitted_specs[lang] for lang, path in spec_paths.items()),
+            'Selected review specification changed during admission')
+    return proof, proof_sha, admitted_specs
 
 
 def load_inputs(root, selector_path):
@@ -113,5 +126,35 @@ def load_inputs(root, selector_path):
 
 
 def verify_runtime(root):
-    for name, expected in PUBLISHED_RUNTIME.items():
+    for name in ('roguard.gemma4_review', 'roguard.gemma4_attention', 'roguard.gemma4_contract'):
+        importlib.import_module(name)
+    verify_module_origins(root)
+    for name, expected in {**PUBLISHED_RUNTIME, **PUBLISHED_CATALOG}.items():
         require(file_sha(root/name) == expected, 'Published-v9 runtime source changed: '+name)
+
+
+def verify_module_origins(root):
+    """Hashing a checkout cannot attest code imported from another checkout."""
+    root = root.resolve()
+    for name, module in list(sys.modules.items()):
+        if name == '__main__':
+            spec = getattr(module, '__spec__', None)
+            name = getattr(spec, 'name', None) or ''
+        top = name.split('.')[0]
+        if top not in ('roguard', 'eval', 'training', 'scripts') or module is None:
+            continue
+        expected = (root/'src' if top == 'roguard' else root).joinpath(*name.split('.'))
+        source = getattr(module, '__file__', None)
+        if source is not None:
+            actual = Path(source).resolve()
+            target = expected/'__init__.py' if actual.name == '__init__.py' else expected.with_suffix('.py')
+            require(actual == target, 'Imported project module is outside the bound checkout: '+name)
+        else:
+            paths = {Path(p).resolve() for p in getattr(module, '__path__', [])}
+            require(paths == {expected}, 'Project namespace differs from the bound checkout: '+name)
+
+
+def source_snapshot(root):
+    """Freeze lazy local imports too, before any inference starts."""
+    return {path: file_sha(path) for relative in ('src/roguard', 'eval', 'training', 'scripts')
+            for path in (root/relative).rglob('*.py')}

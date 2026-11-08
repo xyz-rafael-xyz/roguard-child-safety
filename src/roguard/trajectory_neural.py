@@ -138,7 +138,7 @@ class NeuralTrajectoryModel:
     def __init__(self,components,selector,*,budget=1200,selection_mode='overflow'):
         if set(components)!={'ro','uk'}:raise ValueError('Both frozen language components are required')
         if selection_mode not in ('overflow','uniform'):raise ValueError('Unknown neural selection mode')
-        self.components=components;self.selector=selector;self.budget=budget;self.active=None
+        self.components=dict(components);self.selector=deepcopy(selector);self.budget=budget;self.active=None
         self.selection_mode=selection_mode
         contract={'components':{k:v.identity for k,v in components.items()},'selector':selector.identity,
                   'budget':budget,'bridge':'frozen-v9-fields-extractive-v2'}

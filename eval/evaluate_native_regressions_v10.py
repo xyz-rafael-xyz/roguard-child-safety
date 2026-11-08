@@ -5,13 +5,14 @@ reviewer admission or release qualification is performed by this program.
 """
 import argparse
 import gc
+import hashlib
 import json
 import math
 from pathlib import Path
 import time
 
-from eval.native_regression_inputs_v10 import (POPULATIONS, PUBLISHED_RUNTIME, SELECTOR_SHA,
-    load_inputs, require, revalidate_admission, verify_runtime)
+from eval.native_regression_inputs_v10 import (POPULATIONS, PROOF, PUBLISHED_CATALOG, PUBLISHED_RUNTIME, SELECTOR_SHA,
+    load_inputs, require, revalidate_admission, source_snapshot, verify_runtime)
 from roguard.trajectory_data import file_sha, write_jsonl
 from roguard.trajectory_evaluation import checkpoint_id, evaluate, paired_compare
 
@@ -96,6 +97,19 @@ def assess(cases, baseline, candidate):
     candidate_report = evaluate(cases, candidate, bootstrap=0)
     paired = paired_compare(cases, baseline, candidate)
     old = {r['checkpoint_id']: r for r in baseline}; new = {r['checkpoint_id']: r for r in candidate}
+    # The generic evaluator's coverage conditions on a prediction set being
+    # present. Here singleton argmax is diagnostic and abstention must not vanish.
+    for report, predictions in ((baseline_report, old), (candidate_report, new)):
+        for lang, group in report['groups'].items():
+            annotated = [(point['world'], predictions[checkpoint_id(case, point)])
+                         for case in cases if case['language'] == lang
+                         for point in case['checkpoints'] if point.get('world') is not None]
+            correct = sum(row['field_logits'] is not None and world_from_logits(row['field_logits']) == world
+                          for world, row in annotated)
+            group['conditional_singleton_match_among_nonabstentions'] = group['joint_set_coverage']
+            group['joint_set_coverage'] = None  # No calibrated interpretation set is being evaluated.
+            group['joint_argmax_accuracy_including_abstentions'] = correct/len(annotated) if annotated else None
+            group['joint_argmax_annotated_denominator'] = len(annotated)
     totals = dict(rows=0, candidate_errors=0, v9_errors=0, fixed_v9=0, introduced_v9=0,
                   annotated_worlds=0, joint_argmax_errors=0, unannotated_worlds=0)
     groups = {}
@@ -117,6 +131,17 @@ def assess(cases, baseline, candidate):
                 paired=paired)
 
 
+def retained_outputs(study, expected):
+    """Metrics and hashes must describe the same retained prediction bytes."""
+    retained, hashes = {}, {}
+    for kind, rows in expected.items():
+        raw = (study/(kind+'.jsonl')).read_bytes()
+        saved = [json.loads(line) for line in raw.decode('utf-8').splitlines() if line.strip()]
+        require(saved == rows, 'Retained regression predictions changed: '+kind)
+        retained[kind] = saved; hashes[kind] = hashlib.sha256(raw).hexdigest()
+    return retained, hashes
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('root', 'private_root', 'base', 'selector', 'study'):
@@ -126,25 +151,28 @@ def main():
     parser.add_argument('--preflight', action='store_true')
     a = parser.parse_args()
     require(not a.study.exists(), 'Refusing to overwrite native regression study')
-    proof, proof_sha = revalidate_admission(a.root, a.private_root, a.arm, a.producer_pid)
+    require(Path(__file__).resolve() == a.root.resolve()/'eval/evaluate_native_regressions_v10.py',
+            'Executing evaluator is outside the bound checkout')
     verify_runtime(a.root)
+    proof, proof_sha, admitted_specs = revalidate_admission(a.root, a.private_root, a.arm, a.producer_pid)
     cases, inputs = load_inputs(a.root, a.selector)
+    verify_runtime(a.root)
     from training.register_matched_role_attention_v10 import OUTPUTS
     selected_study = a.root/OUTPUTS[a.arm]['study']; selected = a.private_root/OUTPUTS[a.arm]['private']
     fixed = {a.root/name: sha for name, sha in PUBLISHED_RUNTIME.items()}
+    fixed.update({a.root/name: sha for name, sha in PUBLISHED_CATALOG.items()})
     fixed.update({a.root/path: sha for path, sha, _ in POPULATIONS.values()})
     fixed[a.selector] = SELECTOR_SHA
-    for relative in ('eval/native_regression_inputs_v10.py', 'eval/evaluate_native_regressions_v10.py',
-                     'eval/run_trajectory_v10.py', 'src/roguard/trajectory_model.py',
-                     'src/roguard/trajectory_memory.py', 'src/roguard/trajectory_neural.py',
-                     'src/roguard/trajectory_data.py', 'src/roguard/trajectory_evaluation.py'):
-        fixed[a.root/relative] = file_sha(a.root/relative)
+    fixed[a.private_root/PROOF] = proof_sha
+    fixed.update(source_snapshot(a.root))
     for lang in ('ro', 'uk'):
         path = selected/(lang+'-selected.safetensors')
         require(file_sha(path) == proof['arms'][a.arm]['languages'][lang]['artifacts'][path.name],
                 'Selected adapter changed after admission')
         fixed[path] = file_sha(path)
-        path = selected_study/(lang+'-review.json'); fixed[path] = file_sha(path)
+        path = selected_study/(lang+'-review.json')
+        require(file_sha(path) == admitted_specs[lang], 'Selected review specification changed after admission')
+        fixed[path] = admitted_specs[lang]
     if a.preflight:
         print(json.dumps(dict(preflight='PASS', arm=a.arm, checkpoints=len(inputs),
             unsupported=sum(r['unsupported'] for r in inputs), encoder_loaded=False, model_qualified=False)))
@@ -157,7 +185,7 @@ def main():
     frozen = LocalFrozenV9(a.base, a.root/'research/v9-stabilization/reported-tail-fit-196', a.study/'v9-binding')
     protocol = dict(format='roguard-native-regression-1', arm=a.arm, admission_sha256=proof_sha,
         inputs={name: sha for name, (_, sha, _) in POPULATIONS.items()}, selector_sha256=SELECTOR_SHA,
-        runtime_sources=PUBLISHED_RUNTIME, checkpoints=len(inputs), memory_budget=1200,
+        runtime_sources=PUBLISHED_RUNTIME, published_catalog=PUBLISHED_CATALOG, checkpoints=len(inputs), memory_budget=1200,
         preserve_complete_turns=True, fresh_v9_and_candidate=True, persistent_body_cache=False,
         sources={str(p.relative_to(a.root)): sha for p, sha in fixed.items() if p.is_relative_to(a.root)
                  and p.suffix == '.py'},
@@ -181,14 +209,18 @@ def main():
             outputs[kind].extend(records); forwards[lang+':'+kind] = calls
             write_jsonl(a.study/(kind+'.jsonl'), outputs[kind])
             del component; gc.collect()
+    outputs, prediction_hashes = retained_outputs(a.study, outputs)
     populations = {name: assess(rows, *[[r for r in outputs[k] if r['population'] == name]
                                       for k in ('baseline', 'candidate')]) for name, rows in cases.items()}
+    verify_runtime(a.root)
     require(all(file_sha(path) == sha for path, sha in fixed.items()), 'Bound regression assets changed during inference')
+    require(all(file_sha(a.study/(kind+'.jsonl')) == sha for kind, sha in prediction_hashes.items()),
+            'Retained regression predictions changed during assessment')
     failed = any(p['totals'][k] for p in populations.values()
                  for k in ('candidate_errors', 'introduced_v9', 'joint_argmax_errors'))
     report = dict(complete=True, populations=populations, fresh_serving_calls=forwards,
         decision='REJECT' if failed else 'EXPOSED_REGRESSION_PASS_ONLY',
-        prediction_sha256={k: file_sha(a.study/(k+'.jsonl')) for k in outputs},
+        prediction_sha256=prediction_hashes,
         seconds=time.monotonic()-started, held_out_test_opened=False, independent_validation=False,
         stable_release_ready=False, reviewers_admitted=False,
         limitations='Synthetic exposed engineering populations. Singleton argmax is uncalibrated; '
