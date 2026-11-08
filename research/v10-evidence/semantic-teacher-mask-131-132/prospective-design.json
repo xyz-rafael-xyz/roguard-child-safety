@@ -1,0 +1,133 @@
+{
+  "format": "roguard-new-fit-semantic-mask-prospective-1",
+  "registered": false,
+  "gate_contract": {
+    "primary": "new-mask_wrong_new_fit_semantics",
+    "control": "new-mask_wrong_assertion",
+    "strict_assertion_partitions": [
+      "probe_operator",
+      "probe_both"
+    ],
+    "strict_rows_per_language": 768,
+    "strict_references": [
+      "new-mask_wrong_assertion",
+      "frozen125-primary",
+      "frozen125-control-full_teacher",
+      "unchanged-initial75",
+      "original-v9"
+    ],
+    "strict_frozen125_primary_assertion_errors": {
+      "ro": 106,
+      "uk": 102
+    },
+    "probe_nonregression_partitions": [
+      "probe_operator",
+      "probe_meaning",
+      "probe_combination",
+      "probe_both"
+    ],
+    "probe_nonregression_metrics": [
+      "binary_errors",
+      "joint_errors",
+      "assertion_errors"
+    ],
+    "probe_nonregression_references": [
+      "new-mask_wrong_assertion",
+      "frozen125-primary",
+      "frozen125-control-full_teacher"
+    ],
+    "original_dev_nonregression_metrics": [
+      "binary_errors",
+      "joint_errors",
+      "introduced_v9"
+    ],
+    "original_dev_nonregression_references": [
+      "new-mask_wrong_assertion",
+      "frozen125-primary",
+      "frozen125-control-full_teacher",
+      "unchanged-initial75"
+    ],
+    "fixed_original_dev_ceilings": {
+      "ro": {
+        "binary_errors": 12,
+        "joint_errors": 673,
+        "introduced_v9": 2
+      },
+      "uk": {
+        "binary_errors": 1,
+        "joint_errors": 634,
+        "introduced_v9": 0
+      }
+    },
+    "control_reproduction_required": true,
+    "control_reproduction_tolerance": 0.001,
+    "panel_rows": 40,
+    "panel_alias_rows": 32,
+    "panel_unique_supplemental_rows": 8,
+    "panel_binary_errors": 0,
+    "panel_joint_errors": 0,
+    "secondary_cannot_replace_primary": true,
+    "independent_human_validation": false,
+    "qualification": false
+  },
+  "configuration": {
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "dropout": {
+      "ro": 0.1,
+      "uk": 0.0
+    },
+    "teacher_kl": 0.2,
+    "policy_ce": {
+      "ro": 0.25,
+      "uk": 1.0
+    }
+  },
+  "scheduled_budget": {
+    "train_occurrences_per_language_per_arm": {
+      "ro": 22390,
+      "uk": 24971
+    },
+    "updates_per_language_per_arm": {
+      "ro": 4200,
+      "uk": 4692
+    },
+    "train_occurrences_per_arm": 47361,
+    "updates_per_arm": 8892,
+    "updates_all2arms": 17784,
+    "presentations_per_arm": 568332,
+    "presentations_all2arms": 1136664,
+    "development_rows": 8837,
+    "new_unique_fit_inputs": 576,
+    "new_core_propositions_per_language_in_fit": 8,
+    "occurrences_are_not_independent_examples": true
+  },
+  "hypothesis": "Expanded semantic teacher-disagreement masking only on newly admitted FIT occurrences, leaving originalTRAIN assertion-only masking unchanged. One loss intervention, no new data or labels.",
+  "fields": [
+    "subject",
+    "time",
+    "assertion",
+    "source",
+    "relation",
+    "concern",
+    "legacy_binary"
+  ],
+  "mask": "N x7 boolean keep. Control matches125 assertion-only mask. Treatment additionally removes each wrong nonassertion semantic KL only on newFIT; originalTRAIN mask unchanged and legacy binary alwaysTrue. Fixed denominator7 and teacherKL weight0.2.",
+  "selection": "Retain epoch0 and all12 checkpoints. Choose separately per language/arm using unchanged original exposed DEV only, ranking fixed-threshold binary errors, joint-field errors, mean field cross entropy, then earlier epoch. Use selected75 coupled-policy thresholds and couplings unchanged; no threshold search. Freeze all four selected checkpoint identities before scoring any new probe or counterfoil outputs.",
+  "control_reproduction": "Before interpreting treatment: reproduce original125 new-mask_wrong_assertion at each of13 oldDEV checkpoints within1e-3 logits and exact seven argmax/served decisions, then require same selected epoch. Retain complete comparison records. No probe scoring before all52 oldDEV checkpoint replays and all4 selections freeze.",
+  "primary": "new-mask_wrong_new_fit_semantics versus exact125-equivalent new-mask_wrong_assertion. Every GATE_CONTRACT condition is conjunctive; prior126 rejection remains unchanged.",
+  "fixed_old_floor": "Preserve original125 full-teacher matched-control and initial75 floors, additionally never worsen frozen125 primary or new control. Hence fixed oldDEV ceilings RO12binary/673joint/2introduced-v9 and UK1/634/0. Strict operator+both assertion errors must be below106RO/102UK as well as new control and all old references. Zero full40 panel binary/joint remains mandatory.",
+  "exposure": "All126 probe and panel results are exposed diagnostics. No independent generalization or qualification claim; future fresh reviewed families/independent validation remain required.",
+  "causal_limit": "Expanded conditional masking also lowers teacher regularization. Two arms identify this intervention, not a separation between contradiction removal and generic reduced KL.",
+  "loss_tests": "Require exact forward loss and student-logit gradient equality against existing125 control on synthetic random/equal/tied/extreme inputs before registration.",
+  "admission": "Exact same576 existing FIT IDs and original28929TRAIN only; no new labels, roles, exclusions or examples. Same repetitions32,12epochs,seed1011,batch64,optimizer/class weights/dropout/supervised losses/fixed policy.",
+  "source_census": {
+    "path": "[private-artifact]/parallel-review-20261108/fit-teacher-disagreement-census-v1/report.json",
+    "sha256": "d4799022821476a73d337ba22f62416b4e2a31c59228dd577ec5b0c75cf7106c"
+  },
+  "held_out_test_opened": false,
+  "qualified": false,
+  "original_private_artifact_sha256": "459eb91f8fa9316968219d91bafd8c0ccb96c4a24f9d791be6649feb8c3acd6d",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

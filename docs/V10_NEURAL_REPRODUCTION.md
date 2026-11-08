@@ -1341,3 +1341,54 @@ native-final interchangeability. Both partial failures are retained in
 `research/v10-evidence/role-resource-failures-123-124/`. A future separate design
 must preserve the exact qualified baseline path and measure added native-pooling
 cost. No v10 package or final human-review admission follows from this work.
+
+Study 127 preserves the qualified capture/replay baseline and computes native
+role pools separately. All 16 synthetic cases pass with zero repeated baseline
+feature, logit and serving-score differences. Independent saved-output audit 130
+retokenizes all inputs and replays the study 75 heads on CPU. Its CPU score
+differences are not claimed to satisfy the separate native 1e-10 tolerance.
+The measured two-path phase costs about 3.24 times the baseline phase in Romanian
+and 2.94 times in Ukrainian; these are phase timings, not production latency.
+There is no trained residual or demonstrated accuracy benefit. The initial null
+report binding failed before encoder loading; the corrected registration and
+both attempts are retained in
+`research/v10-evidence/qualified-role-resource-127-130/`.
+
+Study 128 selects positive scales using only the 28,929 original TRAIN rows.
+Frozen scales of 2.0 for Romanian and 1.5 for Ukrainian remove all 11 binary
+TRAIN errors while preserving every unary prediction, including nine wrong
+field tuples. Independent audit 129 checks all 202,503 candidate-row outcomes
+and transformations. These are fitting results, not independent accuracy or
+calibration. Sources and reports are in
+`research/v10-evidence/train-positive-scale-128-129/`.
+
+Evaluation 133 applies those frozen scales to all 8,837 original DEV and 3,080
+larger-bank inputs. DEV binary errors increase from 14 to 18 in Romanian and
+from 2 to 7 in Ukrainian: 13 previously correct study 75 predictions become
+wrong and four errors are fixed. Larger-bank errors change from 185 to 187 and
+192 to 188 respectively. All field predictions remain unchanged, and the full
+panel still has four Romanian and six Ukrainian binary errors. The settings
+fail the no-regression and zero-error requirements; they were not retuned after
+evaluation. The report preserves all groups and comparisons with original v9
+in `research/v10-evidence/frozen-scale-evaluation-133/`.
+Its separate saved-output audit verifies all 35,751 candidate/reference
+predictions, 576 group summaries and 120 mapped panel responses. All candidate
+token hashes are distinct. This audit uses an independent transform/outcome
+implementation and separate grouping code; it does not regenerate the heads
+or encoder or establish calibration.
+
+The separate training study 131 expands wrong-teacher masking across six
+semantic fields on the 576 new FIT inputs. Its assertion-only control reproduces
+all 26 study 125 checkpoints and DEV arrays byte for byte. Evaluation 132 replays
+52 checkpoints and 229,762 DEV outputs before scoring the larger bank. The new
+primary has 12 DEV binary errors and 1,325 joint-field errors, against 13 and
+1,309 for its control. Transfer assertion errors worsen from 106 to 107 in
+Romanian and from 102 to 104 in Ukrainian. The full panel improves to zero
+binary errors in both languages, but retains six Romanian and two Ukrainian
+joint-field errors. A newly introduced Ukrainian DEV error, field regressions
+and failed transfer gates prevent acceptance. The exact failed predicates and
+sources are retained in `research/v10-evidence/semantic-teacher-mask-131-132/`.
+
+These experiments remain exposed engineering work. Reserved TEST is closed,
+final human review remains gated, package metadata stays 9.0.0, and there is no
+qualified public v10 release.

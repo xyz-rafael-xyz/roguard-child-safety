@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "[private-artifact]/assertion-pilot-next/qualified-resource127-source.py", line 485, in <module>
+    args=parser.parse_args();run(args.plan,args.plan_sha256,args.output)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[private-artifact]/assertion-pilot-next/qualified-resource127-source.py", line 327, in run
+    plan,paths,inventory,records=preflight(plan_path,plan_sha)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[private-artifact]/assertion-pilot-next/qualified-resource127-source.py", line 109, in preflight
+    bindings(plan);paths={k:Path(v['path']) for k,v in plan['files'].items()}
+    ^^^^^^^^^^^^^^
+  File "[private-artifact]/assertion-pilot-next/qualified-resource127-source.py", line 61, in bindings
+    require(Path(item['path']).is_absolute() and sha(item['path'])==item['sha256'],'Changed bound file: '+key)
+            ^^^^^^^^^^^^^^^^^^
+  File "[local-path-omitted:58780fa7218e]", line 1162, in __init__
+    super().__init__(*args)
+  File "[local-path-omitted:58780fa7218e]", line 373, in __init__
+    raise TypeError(
+TypeError: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'

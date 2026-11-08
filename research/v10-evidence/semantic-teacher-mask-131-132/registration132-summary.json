@@ -1,0 +1,144 @@
+{
+  "format": "roguard-semantic-mask-head-evaluation-1",
+  "registered": true,
+  "held_out_test_opened": false,
+  "source_sha256": "5763e7a9e12174356b8c55a187e4d1a9bd75f2b45be3d70b208a52dfc9a0c671",
+  "fit_plan": {
+    "path": "[private-artifact]/assertion-pilot-next/semantic-fit-mask131-plan.json",
+    "sha256": "968982f9aa997af87b8e751dae93119939e38d16c40c598c2910b7221c2ba42e"
+  },
+  "trainer_source": {
+    "path": "[private-artifact]/assertion-pilot-next/semantic-fit-mask131-source.py",
+    "sha256": "9a8df3d2475452b8eb21ac12d30de5cc4895673f4b62abcdbc3f5de6860275c3"
+  },
+  "fit_output": "[private-artifact]/semantic-fit-mask-study-131",
+  "fit_report_sha256": "12861120e175c341e8b1b9d0e109c9ac582a41d7d79d8af4f0c09e7a87133fd6",
+  "selection_sha256": "901ab6533044822fae0bc67a3643176f382a2698f118db4d61a707721404549a",
+  "replay_tolerance": 0.001,
+  "prospective_design": {
+    "path": "[private-artifact]/parallel-review-20261108/new-fit-semantic-mask-study-v3/prospective-design.json",
+    "sha256": "459eb91f8fa9316968219d91bafd8c0ccb96c4a24f9d791be6649feb8c3acd6d"
+  },
+  "gelu_contract": {
+    "path": "[local-path-omitted:0a77fbb2d799]",
+    "file_sha256": "153660ac19d4fe93d6ca15f67ad8527ed03b0e860e36192f3815e1d3daf73ed1",
+    "function_source_sha256": "b89b4f643ff7dc2dcfdaab70fe11b0a7641de17740a1fc0ae8713006bf09850e"
+  },
+  "original_lineage": [
+    {
+      "role": "original88",
+      "file_key": "original_feature_report",
+      "expected_values": {
+        "/complete": true,
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/languages/ro/artifacts/ro-rows.jsonl": "ro_original_rows",
+        "/languages/ro/artifacts/ro-features.npy": "ro_original_features",
+        "/languages/ro/artifacts/ro-logits.npy": "ro_original_logits",
+        "/languages/uk/artifacts/uk-rows.jsonl": "uk_original_rows",
+        "/languages/uk/artifacts/uk-features.npy": "uk_original_features",
+        "/languages/uk/artifacts/uk-logits.npy": "uk_original_logits"
+      }
+    },
+    {
+      "role": "audit89",
+      "file_key": "original_feature_audit",
+      "expected_values": {
+        "/verification": "PASS",
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/report_sha256": "original_feature_report",
+        "/artifacts/ro-rows.jsonl": "ro_original_rows",
+        "/artifacts/ro-features.npy": "ro_original_features",
+        "/artifacts/ro-logits.npy": "ro_original_logits",
+        "/artifacts/uk-rows.jsonl": "uk_original_rows",
+        "/artifacts/uk-features.npy": "uk_original_features",
+        "/artifacts/uk-logits.npy": "uk_original_logits"
+      }
+    },
+    {
+      "role": "warm90",
+      "file_key": "initial_reference_report",
+      "expected_values": {
+        "/complete": true,
+        "/qualified": false
+      },
+      "artifact_bindings": {
+        "/languages/ro/artifacts/ro-selected.safetensors": "ro_initial_weights",
+        "/languages/ro/artifacts/ro-selected-dev-logits.npy": "ro_initial_dev_logits",
+        "/languages/ro/artifacts/ro-dev-rows.jsonl": "ro_initial_dev_rows",
+        "/languages/uk/artifacts/uk-selected.safetensors": "uk_initial_weights",
+        "/languages/uk/artifacts/uk-selected-dev-logits.npy": "uk_initial_dev_logits",
+        "/languages/uk/artifacts/uk-dev-rows.jsonl": "uk_initial_dev_rows"
+      }
+    }
+  ],
+  "files": {
+    "gelu_source": {
+      "path": "[local-path-omitted:0a77fbb2d799]",
+      "sha256": "153660ac19d4fe93d6ca15f67ad8527ed03b0e860e36192f3815e1d3daf73ed1"
+    },
+    "software_manifest": {
+      "path": "[private-artifact]/parallel-review-20261108/postfit-evaluator-prototype-v2/manifest.json",
+      "sha256": "dff480ea88faf438d8c3d2d855d00700ee1e38a268464edd2af0db8d46a7fd12"
+    },
+    "evaluator_source": {
+      "path": "[private-artifact]/parallel-review-20261108/semantic-mask-evaluator-v3/evaluator.py",
+      "sha256": "5763e7a9e12174356b8c55a187e4d1a9bd75f2b45be3d70b208a52dfc9a0c671"
+    },
+    "frozen125:ro:new-mask_wrong_assertion:selected-dev": {
+      "path": "[private-artifact]/balanced-head-study-125/ro/new-mask_wrong_assertion/epoch-11-dev.npy",
+      "sha256": "31e29562ed6f66c30a04ae88f13902fe9003e344cf3998ab264d6a97528ae174"
+    },
+    "frozen126:ro:new-mask_wrong_assertion:logits": {
+      "path": "[private-artifact]/balanced-head-evaluation-126/ro/new-mask_wrong_assertion-all-new.npy",
+      "sha256": "aa174fe80ca5c5a55bffb2dcd1ba4a9092885d35a8fd1ac92637a51d0019a7d8"
+    },
+    "frozen125:ro:control-full_teacher:selected-dev": {
+      "path": "[private-artifact]/balanced-head-study-125/ro/control-full_teacher/epoch-6-dev.npy",
+      "sha256": "95ecaa79e5007fd2c9572115dabb932d2be3c57f54638b83f48131c574a824d1"
+    },
+    "frozen126:ro:control-full_teacher:logits": {
+      "path": "[private-artifact]/balanced-head-evaluation-126/ro/control-full_teacher-all-new.npy",
+      "sha256": "42db124af5ab03e433a9cfdb2879f8ce29eab3c4ea9e2c4df908eb55d84e0100"
+    },
+    "frozen125:uk:new-mask_wrong_assertion:selected-dev": {
+      "path": "[private-artifact]/balanced-head-study-125/uk/new-mask_wrong_assertion/epoch-12-dev.npy",
+      "sha256": "1d2811e9539fb3930ec601f527377fd6d2d9f35e337a87563cb7deae21800a62"
+    },
+    "frozen126:uk:new-mask_wrong_assertion:logits": {
+      "path": "[private-artifact]/balanced-head-evaluation-126/uk/new-mask_wrong_assertion-all-new.npy",
+      "sha256": "a97240c733ad693e1599c6032fa1f7d38ba9742e0f950ec9a502d3fb54a770e9"
+    },
+    "frozen125:uk:control-full_teacher:selected-dev": {
+      "path": "[private-artifact]/balanced-head-study-125/uk/control-full_teacher/epoch-0-dev.npy",
+      "sha256": "ac0f53c6e0e93e3de862192f96d2eb83920ebe20e4a2c15af53be551c0c05b86"
+    },
+    "frozen126:uk:control-full_teacher:logits": {
+      "path": "[private-artifact]/balanced-head-evaluation-126/uk/control-full_teacher-all-new.npy",
+      "sha256": "8e16607ff000c68e5bc8f74cb74b7d47dbfa8d98d1d265c31363b2f9f9871ada"
+    },
+    "final_independent_review": {
+      "path": "[private-artifact]/parallel-review-20261108/semantic_mask_evaluator_independent_v1/review-v3.json",
+      "sha256": "3f44cbf58e8f1211b7817fd38320b1d73fc6aae262de96a1f4fd02286fed7f56"
+    }
+  },
+  "fit_producer_exited": true,
+  "encoder_loaded": false,
+  "qualified": false,
+  "status": "ROOT_REGISTERED_INDEPENDENT125_CHECKPOINT_REPLAY_AND_FROZEN_PROBE_EVALUATION",
+  "fit_terminal_exit_code": 0,
+  "root_review": "Independent52checkpoint/229762DEV replay, Nx7originalTRAIN/newFITmask proof,26control125reproduction checks,all4selections frozen beforetrainedprobe. Fixed131gates andhistoricalfloorsunchanged. Exact114fitartifactinventory andsourcechain required;119syntheticpeer+authorchecksPASS. Nooptimizer/encoderorqualification.",
+  "fit_producer_exit_code": 0,
+  "remaining_before_registration": [
+    "Independent source/tests review",
+    "Root final132 registration before any new trained probe evaluation"
+  ],
+  "study": 132,
+  "registered_utc": "2026-11-08T19:22:55.766761+00:00",
+  "preparation_draft_sha256": "839b2f3519017cfe1ee6e0ab3929f7463fcf9e8f1f7c4a619b2cb120520905d1",
+  "original_private_artifact_sha256": "26d586c5516b8cad04141c0a269f398cdd487c6bb54b4e74b5031e0c67afef87",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans. A nonsecret provenance string uses underscores to avoid a credential-scanner false positive; the original artifact digest remains authoritative."
+}

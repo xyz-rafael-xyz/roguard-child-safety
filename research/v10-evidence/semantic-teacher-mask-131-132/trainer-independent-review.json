@@ -1,0 +1,44 @@
+{
+  "verification": "PASS_SYNTHETIC_INDEPENDENT_REVIEW",
+  "trainer_sha256": "9a8df3d2475452b8eb21ac12d30de5cc4895673f4b62abcdbc3f5de6860275c3",
+  "loss_sha256": "cf1d918a8b3fce288d3035d0c02090c2ece299d1170cbc14bc1c62695e7765ee",
+  "prior_review_sha256": "ddab10ec97765835c61940ad468c0525c365b25b63eeda752baa93e9e8baa98d",
+  "test_sources": {
+    "test_loss_oracle_v3.py": "8c50c26446a695995e11bc74573fe6e76113508f8ebf7bd4870f8654119ee2cf",
+    "test_v3_retention.py": "ea4003189d1ec6b81bb8d77f973010e2b0dcaec783687e937ae0b009eee402fd"
+  },
+  "tests": {
+    "author_rerun": 70,
+    "independent_loss": 4,
+    "independent_retention": 5,
+    "failures": 0
+  },
+  "resolved": [
+    "Legacybinary KL structurally unconditional; retainedNx7matrixfinalcolumn remainsTrue andtrainerrejectsmalformedmask beforeoptimizer.",
+    "Immediate savedmask exactshape/dtype/bytereadback beforeoptimizer closes truncatedmaskfalsepass.",
+    "Finalcompletion report/artifact/input/sourcechecks pluspreserved rejectedfinalandincompletefailure marker close writerfalsepass."
+  ],
+  "loss_evidence": [
+    "128rows spanningall64fielddisagreementpatterns×2origins confirmoriginalTRAINmaskunchanged,onlynewFITnonassertionsemanticmaskextension.",
+    "IndependentNumPyfloat64 KL andanalyticstudentgradient matchrealMLXCPU fixed7denominator.",
+    "Original125control exactforward/gradient equality verifiedbyrerunrandom/equal/tied/extremeauthorfixtures.",
+    "Unconditionallegacyterm remainsactive evenarbitraryfalsecallercolumn; DEV/probe/testrowspartitions reject."
+  ],
+  "trainer_scope": [
+    "Same576uniqueFIT IDs,288/lang,repeat32; original28929TRAIN retained. No newlabels orselection/filtering.",
+    "Control replaysall13 original125DEV checkpoints perlanguage at1e-3+exact7argmax/serveddecisions; same selectedepoch required. All4selections freeze beforeanynewtrainedprobe.",
+    "Supervisedsemantic/binary/policyloss,optimizer/dropout/classweights/seeds/batches/epochs unchanged; teacherregularizationreducedonlydeclarednewFITdisagreements.",
+    "Initial75+frozen125controls/primary floors remain; strict106RO/102UK transferceiling andzero40panel remain required.",
+    "No scale128/133 component importedorcombined."
+  ],
+  "limitations": [
+    "No mainfit/optimizer oractualfeature/model scoring executed; fulltrainingcontrolreproduction remains mandatoryruntimegate.",
+    "This tests thedeclaredintervention, notwhether removingcontradictions versuslessregularization causesimprovement.",
+    "All126groups exposed; not independentgold/generalization orqualification."
+  ],
+  "remaining_material_findings": [],
+  "optimizer_started": false,
+  "qualified": false,
+  "original_private_artifact_sha256": "722c57882e8148b8f710b2430befac716e188390a8173657ceb139114f231978",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}
