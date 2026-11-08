@@ -1,0 +1,45 @@
+{
+  "verification": "PASS_REVIEWED_SYNTHETIC_ONLY",
+  "source": "[private-artifact]/parallel-review-20261108/balanced-baseline-profile-prototype-v3/profile.py",
+  "source_sha256": "55601bd5402bb3e24cfd0fd5d47ed655db9f90e083fbbbd25383c6ad5a64a6d0",
+  "independent_test": "[private-artifact]/parallel-review-20261108/balanced-baseline-independent-v1/test_review_v3.py",
+  "independent_test_sha256": "cff161a91e78f5bd0ce14a66ed8f66c2928dab009f13f3d56b92fd019d0614a8",
+  "prior_review_sha256": "0286f6a7f821098b1914d8c871d4ad3d21c599ef2081219aa39db466f6ffca9c",
+  "commands": [
+    "python -m unittest discover -s balanced-baseline-profile-prototype-v3 -p 'test_*.py' -v",
+    "python balanced-baseline-independent-v1/test_review_v3.py"
+  ],
+  "results": {
+    "author_tests_rerun": 15,
+    "independent_tests": 5,
+    "failures": 0,
+    "errors": 0
+  },
+  "resolved_findings": [
+    "Truncated saved UK initial75 NPY now fails before complete.",
+    "Emptied saved RO v9 outcomes now fail before complete.",
+    "Additional mutation after complete saved-output readback fails final artifact snapshot comparison.",
+    "Author corruption controls cover full40 panels and source/plan snapshots."
+  ],
+  "confirmed": [
+    "All3080 unique rows retained per reference,1540/language; six partition denominators and768 transfer rows/language unchanged.",
+    "Full40 panel per reference comprises32 repeated main-bank aliases and8 supplements, reported separately from3080.",
+    "Every outcome/six-field/joint/binary metric and primary eligibility gate recomputed from saved arrays and compared canonically; all4 language/reference arrays validated.",
+    "Independent128-row scalar oracle covers every emitted stratum and all64 combinations of six-field errors; binary/joint distinction and threshold ties correct.",
+    "All six language/reference weight/spec pin substitutions rejected, including alternate95 marker.",
+    "Finite1e38 normoverflow andzero norm reject; exact-erf microhead check passes.",
+    "No actual original weights/features/predictions accessed; all full-run tests use synthetic data, fake scorer, micro-heads and mocked preflight/origin/pin identities."
+  ],
+  "limitations": [
+    "Actual complete121 evidence/plan preflight remains required; synthetic full run mocks preflight.",
+    "Original-v9 uses retained121-audited logits; initial75 CPU replay does not establish new native75 parity.",
+    "Exact saved array equality is numeric-value equality, not signed-zero bitwise identity.",
+    "Primary75 nonzero assertion error indicates only headroom for the registered study, not attainable gain over original-v9.",
+    "No training admission, independent human gold or v10 qualification."
+  ],
+  "remaining_material_findings": [],
+  "actual_model_scoring": false,
+  "qualified": false,
+  "original_private_report_sha256": "3fd689117cfb04aec35184d67c7f8f6a97d44cf746cecf0ae2e33191c485a17b",
+  "public_redaction": "Local paths replaced; all original numeric/bool/null values and digests retained."
+}

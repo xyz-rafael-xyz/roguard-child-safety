@@ -1,0 +1,24 @@
+{
+  "rows": 37766,
+  "structurally_possible_different_masks": 936,
+  "guaranteed_identical_masks": 36830,
+  "counts": {
+    "ro": {
+      "train": 256,
+      "dev": 32
+    },
+    "uk": {
+      "train": 544,
+      "dev": 104
+    }
+  },
+  "meaning": "Different aligned/count-matched-chronological prior pools require a nonminor turn before a later minor turn. Empty/excluded content tokens can reduce even936; this is an upper bound, not a tokenizer-based mask census.",
+  "consequence": "Preserve allrows. A wide fit needs separately reviewed role/order/content-balanced contrasts to test alignment meaningfully. Do not select only936 or the11 previously observed binary errors.",
+  "limits": [
+    "Potential differences concentrate in a few exposed source groups.",
+    "Identical pools do not imply identical predictions from separately trained heads.",
+    "Global gain cannot alone establish broad speaker-role understanding.",
+    "No model features, logits, training, test opening or new performance result."
+  ],
+  "qualified": false
+}

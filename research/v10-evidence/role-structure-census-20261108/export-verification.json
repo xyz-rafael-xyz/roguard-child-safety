@@ -1,0 +1,24 @@
+{
+  "status": "PASS_NUMERIC_PRESERVATION_AND_FUNCTION_AST_IDENTITY",
+  "exports": [
+    {
+      "artifact": "report.json",
+      "original_sha256": "38103d6b3e695f0a331ad2736425f3654dc72935dc94b788616afcee39d45ba0",
+      "public_sha256": "e810542017d4da29be970a62194688cec5a834b8b18538de4a8bfc0385d18b67",
+      "numeric_bool_null_leaves_preserved": 205
+    },
+    {
+      "artifact": "independent-review.json",
+      "original_sha256": "d1875caecff0a214215d24fae018862b4b3188f605b7ba01fc1adc719e9ee228",
+      "public_sha256": "2f0b161de0bdd92cdf154087942f4c2ae24d4e7aad737288a5e4f6e1e1c21ce0",
+      "numeric_bool_null_leaves_preserved": 38
+    }
+  ],
+  "source_export": {
+    "original_private_sha256": "310533e355f3d0c2d4c184cb0cd76875654e6f6a6e08095f877cdcce47eaf1b3",
+    "public_sha256": "c0e318455a2465551385a0338ea14f38fc82c3e58bae069758e53ab5ed7c02fe",
+    "change": "Only root paths move to explicit environment variables and os is imported. Every function AST is identical. Public environment-configured variant was not rerun on actual data.",
+    "function_ast_identity": true
+  },
+  "qualified": false
+}

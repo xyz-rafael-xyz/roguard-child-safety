@@ -1,0 +1,100 @@
+{
+  "format": "roguard-independent-role-structure-census-1",
+  "verification": "PASS_FULL_METADATA_RECOUNT_AND_STRUCTURAL_PREDICATE",
+  "source_sha256": "f2ec21a8eb78d818eee2c6a2061583bf84e5391a04289b8e873bd36264a1de6a",
+  "root_report_sha256": "38103d6b3e695f0a331ad2736425f3654dc72935dc94b788616afcee39d45ba0",
+  "files": {
+    "[private-artifact]/large-review-input-recovery-72/actual/inputs.jsonl": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a",
+    "research/v10-evidence/large-review-input-recovery-72/report.json": "88422257a63ace9f2eb1e36d41af7921ae6ef91a28f5d2b712862cab6233f8f1",
+    "research/v10-evidence/runtime-review-baseline-88/report.json": "994294da48c2fc230e9f59b51e5cfb9a8ce425580159ebfdc09b76e9a83a8dfa",
+    "[private-artifact]/parallel-review-20261108/role-structure-census-v1/census.py": "310533e355f3d0c2d4c184cb0cd76875654e6f6a6e08095f877cdcce47eaf1b3",
+    "[private-artifact]/runtime-review-baseline-88/ro-rows.jsonl": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351",
+    "[private-artifact]/runtime-review-baseline-88/uk-rows.jsonl": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5",
+    "[private-artifact]/parallel-review-20261108/role-structure-census-v1/report.json": "38103d6b3e695f0a331ad2736425f3654dc72935dc94b788616afcee39d45ba0",
+    "[private-artifact]/parallel-review-20261108/role-structure-census-v1/input-registration.json": "b63fe87058b273bfc5040649f7761afe8ce6be712054afe8ecd120396baedbe8",
+    "[private-artifact]/parallel-review-20261108/role-structure-census-v1/rows.jsonl": "dc4740b2fc86dbb6943eeb3c09e55ba7198a28be49a86ba63ea3d41243807fe9",
+    "[private-artifact]/parallel-review-20261108/role-structure-census-independent-v1/review.py": "f2ec21a8eb78d818eee2c6a2061583bf84e5391a04289b8e873bd36264a1de6a",
+    "src/roguard/assurance.py": "9baaa5d7949b562a0a4966fa33ca8ddc4bf49bb138531a5187899f7ae81b653a",
+    "src/roguard/context.py": "b29a2369b861d9180e199cb363bc0bce131028cf59f443e550e6be045ba149e9"
+  },
+  "verified_rows_sha256": "0c12b162397b5af919f87a9ab2d28ec4a9c73f691c1c1022684cf7dd26380f53",
+  "total_rows": 37766,
+  "cached_token_lists_rehashed": 37766,
+  "every72_row_matched_to88_and_retained_census": true,
+  "structural_upper_bound": 936,
+  "necessarily_identical_masks": 36830,
+  "upper_bound_percentage": 2.478419742625642,
+  "necessarily_identical_percentage": 97.52158025737435,
+  "language_partitions": {
+    "ro": {
+      "train": {
+        "rows": 13174,
+        "structurally_possible_mask_difference": 256,
+        "necessarily_identical_masks": 12918,
+        "possible_percentage": 1.9432214968878094,
+        "possible_by_source_group": {
+          "controlled-synthetic-scope-composition": 256
+        }
+      },
+      "dev": {
+        "rows": 4202,
+        "structurally_possible_mask_difference": 32,
+        "necessarily_identical_masks": 4170,
+        "possible_percentage": 0.7615421227986673,
+        "possible_by_source_group": {
+          "controlled-synthetic-scope-composition": 32
+        }
+      }
+    },
+    "uk": {
+      "train": {
+        "rows": 15755,
+        "structurally_possible_mask_difference": 544,
+        "necessarily_identical_masks": 15211,
+        "possible_percentage": 3.4528721040939385,
+        "possible_by_source_group": {
+          "train": 288,
+          "controlled-synthetic-scope-composition": 256
+        }
+      },
+      "dev": {
+        "rows": 4635,
+        "structurally_possible_mask_difference": 104,
+        "necessarily_identical_masks": 4531,
+        "possible_percentage": 2.243797195253506,
+        "possible_by_source_group": {
+          "reported_support_dev": 72,
+          "controlled-synthetic-scope-composition": 32
+        }
+      }
+    }
+  },
+  "abstract_predicate_verification": {
+    "binary_role_patterns_lengths0to11": 4095,
+    "token_allocation_cases_lengths0to6": 55987,
+    "possible_orderings_collapsed_by_empty_tokens": 13827,
+    "argument": "If no nonminor precedes a later minor, all prior minor content lies before nonminor content. Removing excluded tokens cannot introduce an inversion, so the first n_minor eligible positions are exactly the aligned minor mask. If an inversion exists, masks can differ, but empty/excluded spans can remove it.",
+    "no_actual_tokenization": true
+  },
+  "design_consequences": [
+    "Only2.48percent is even structurally capable of distinguishing the current aligned and count-matched chronological prior masks; actual token exclusions can reduce this upper bound.",
+    "The possible rows are concentrated in a few source groups, not broad evidence for role-attribution generalization. Existing TRAIN/DEV alone is a weak mechanism-discriminating design.",
+    "Do not filter, relabel or discard the36,830 guaranteed-identical inputs. Report complete-population outcomes and predeclared structural subgroup counts.",
+    "Identical input masks/features do not imply identical predictions from separately trained models: parameter updates on differing rows can change outputs elsewhere. Therefore global improvement alone cannot prove a broad alignment mechanism.",
+    "Before any wide fit, separately author/review/admit role-order/content contrasts with both unchanged and changed semantics as appropriate. Counterbalance prior role order, current focal text and benign/concern content; keep full scenario/translation families within splits.",
+    "New contrasts require actual token-mask census before fitting, cannot be copies selected from the11 errors, and remain generated developer probes rather than independent gold.",
+    "The16-case resource/parity pilot remains a valid engineering question and makes no accuracy or mechanism-superiority claim."
+  ],
+  "limits": [
+    "No tokenizer executed; cached token IDs were hashed only. No actual token-mask differences measured.",
+    "No feature/logit arrays, encoder, head, inference or accuracy computation. Labels used solely for immutable lineage matching.",
+    "Actual data scope is the complete original72 recovered TRAIN/DEV population; no reserved TEST access."
+  ],
+  "encoder_loaded": false,
+  "tokenizer_loaded": false,
+  "arrays_opened": false,
+  "new_model_scoring": false,
+  "qualified": false,
+  "original_private_report_sha256": "d1875caecff0a214215d24fae018862b4b3188f605b7ba01fc1adc719e9ee228",
+  "public_redaction": "Local paths replaced. All original numerical/bool/null values retained."
+}

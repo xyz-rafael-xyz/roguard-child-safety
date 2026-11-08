@@ -1,0 +1,4581 @@
+{
+  "format": "roguard-balanced-baseline-profile-1",
+  "complete": true,
+  "plan_sha256": "ae05acf87c3298b0250fd944fb2eefece14e131f439f2e8598eebae0b965d8dc",
+  "source_sha256": "55601bd5402bb3e24cfd0fd5d47ed655db9f90e083fbbbd25383c6ad5a64a6d0",
+  "languages": {
+    "ro": {
+      "original-v9": {
+        "all": {
+          "all": {
+            "rows": 1540,
+            "field_errors": {
+              "subject": 454,
+              "time": 0,
+              "assertion": 535,
+              "source": 471,
+              "relation": 487,
+              "concern": 5
+            },
+            "binary_errors": 164,
+            "joint_errors": 829,
+            "assertion_errors": 535,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          }
+        },
+        "partition": {
+          "probe_combination": {
+            "rows": 96,
+            "field_errors": {
+              "subject": 29,
+              "time": 0,
+              "assertion": 24,
+              "source": 28,
+              "relation": 27,
+              "concern": 0
+            },
+            "binary_errors": 11,
+            "joint_errors": 48,
+            "assertion_errors": 24,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0037029821942601293
+          },
+          "fit": {
+            "rows": 288,
+            "field_errors": {
+              "subject": 89,
+              "time": 0,
+              "assertion": 76,
+              "source": 93,
+              "relation": 88,
+              "concern": 0
+            },
+            "binary_errors": 29,
+            "joint_errors": 144,
+            "assertion_errors": 76,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06971098851873958
+          },
+          "probe_meaning": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 113,
+              "time": 0,
+              "assertion": 92,
+              "source": 116,
+              "relation": 109,
+              "concern": 1
+            },
+            "binary_errors": 35,
+            "joint_errors": 190,
+            "assertion_errors": 92,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014795830985748548
+          },
+          "probe_operator": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 116,
+              "time": 0,
+              "assertion": 173,
+              "source": 118,
+              "relation": 134,
+              "concern": 0
+            },
+            "binary_errors": 42,
+            "joint_errors": 224,
+            "assertion_errors": 173,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "probe_both": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 107,
+              "time": 0,
+              "assertion": 170,
+              "source": 116,
+              "relation": 127,
+              "concern": 4
+            },
+            "binary_errors": 47,
+            "joint_errors": 221,
+            "assertion_errors": 170,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03720842469876828
+          },
+          "counterfoil": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 2,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 2,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13404949422498347
+          }
+        },
+        "gold_assertion": {
+          "AFFIRMED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 71,
+              "time": 0,
+              "assertion": 195,
+              "source": 75,
+              "relation": 185,
+              "concern": 1
+            },
+            "binary_errors": 3,
+            "joint_errors": 210,
+            "assertion_errors": 195,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08069303484529544
+          },
+          "UNCERTAIN": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 113,
+              "time": 0,
+              "assertion": 89,
+              "source": 114,
+              "relation": 100,
+              "concern": 1
+            },
+            "binary_errors": 35,
+            "joint_errors": 189,
+            "assertion_errors": 89,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0037029821942601293
+          },
+          "NEGATED": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 121,
+              "time": 0,
+              "assertion": 251,
+              "source": 123,
+              "relation": 202,
+              "concern": 0
+            },
+            "binary_errors": 124,
+            "joint_errors": 268,
+            "assertion_errors": 251,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "RETRACTED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 149,
+              "time": 0,
+              "assertion": 0,
+              "source": 159,
+              "relation": 0,
+              "concern": 3
+            },
+            "binary_errors": 2,
+            "joint_errors": 162,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09778871645623477
+          }
+        },
+        "block_id": {
+          "preposed_quoted_status:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 14,
+              "source": 16,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 26,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.057449042758160984
+          },
+          "preposed_quoted_status:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 10,
+              "source": 15,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09850114949885258
+          },
+          "preposed_quoted_status:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 10,
+              "source": 14,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 18,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11411826674279135
+          },
+          "preposed_quoted_status:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 13,
+              "source": 14,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 22,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11435992902996883
+          },
+          "preposed_quoted_status:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 11,
+              "source": 14,
+              "relation": 12,
+              "concern": 1
+            },
+            "binary_errors": 5,
+            "joint_errors": 23,
+            "assertion_errors": 11,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09778871645623477
+          },
+          "preposed_quoted_status:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 9,
+              "source": 15,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 9,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11075630866627473
+          },
+          "preposed_quoted_status:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 12,
+              "source": 15,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 22,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11746636422720425
+          },
+          "preposed_quoted_status:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 10,
+              "source": 14,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.10101653998340088
+          },
+          "postposed_quoted_comment:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 16,
+              "source": 19,
+              "relation": 19,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 30,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12764585877166512
+          },
+          "postposed_quoted_comment:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 13,
+              "source": 17,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 28,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06971098851873958
+          },
+          "postposed_quoted_comment:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 10,
+              "source": 12,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 22,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0037029821942601293
+          },
+          "postposed_quoted_comment:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 14,
+              "source": 14,
+              "relation": 18,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 25,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.1285969044704255
+          },
+          "postposed_quoted_comment:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 14,
+              "source": 14,
+              "relation": 18,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 27,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.015664680622412774
+          },
+          "postposed_quoted_comment:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 13,
+              "source": 16,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 27,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014795830985748548
+          },
+          "postposed_quoted_comment:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 12,
+              "source": 16,
+              "relation": 14,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 24,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08069303484529544
+          },
+          "postposed_quoted_comment:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 11,
+              "source": 12,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 25,
+            "assertion_errors": 11,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.10569733606744003
+          },
+          "embedded_finite_clause:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 30,
+              "source": 19,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 37,
+            "assertion_errors": 30,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11103311174166897
+          },
+          "embedded_finite_clause:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 29,
+              "source": 18,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 35,
+            "assertion_errors": 29,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08882448765067985
+          },
+          "embedded_finite_clause:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 29,
+              "source": 16,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 33,
+            "assertion_errors": 29,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.1294354951958121
+          },
+          "embedded_finite_clause:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 27,
+              "source": 15,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 31,
+            "assertion_errors": 27,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.010096741552372501
+          },
+          "embedded_finite_clause:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 30,
+              "source": 15,
+              "relation": 23,
+              "concern": 4
+            },
+            "binary_errors": 9,
+            "joint_errors": 37,
+            "assertion_errors": 30,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.10181583984624776
+          },
+          "embedded_finite_clause:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 30,
+              "source": 17,
+              "relation": 21,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 35,
+            "assertion_errors": 30,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13362227882063038
+          },
+          "embedded_finite_clause:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 26,
+              "source": 19,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 33,
+            "assertion_errors": 26,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13345020483734016
+          },
+          "embedded_finite_clause:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 28,
+              "source": 16,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 32,
+            "assertion_errors": 28,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12962852103659606
+          },
+          "polar_question_self_answer:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 15,
+              "source": 14,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 23,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08705352013653322
+          },
+          "polar_question_self_answer:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 14,
+              "source": 15,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 23,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "polar_question_self_answer:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 11,
+              "time": 0,
+              "assertion": 16,
+              "source": 12,
+              "relation": 8,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 23,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08132698064710175
+          },
+          "polar_question_self_answer:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 9,
+              "time": 0,
+              "assertion": 13,
+              "source": 9,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 19,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12767464007543583
+          },
+          "polar_question_self_answer:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 10,
+              "time": 0,
+              "assertion": 14,
+              "source": 11,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 21,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12707255571097498
+          },
+          "polar_question_self_answer:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 13,
+              "source": 13,
+              "relation": 7,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 20,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09288509398921752
+          },
+          "polar_question_self_answer:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 15,
+              "source": 15,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 23,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07143967654809391
+          },
+          "polar_question_self_answer:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 8,
+              "time": 0,
+              "assertion": 14,
+              "source": 10,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 20,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03720842469876828
+          },
+          "supplemental-genuine-prior:snack": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.8659504607659277
+          },
+          "supplemental-genuine-prior:music": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13404949422498347
+          }
+        },
+        "register": {
+          "formal": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 185,
+              "time": 0,
+              "assertion": 209,
+              "source": 193,
+              "relation": 184,
+              "concern": 5
+            },
+            "binary_errors": 71,
+            "joint_errors": 343,
+            "assertion_errors": 209,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.010096741552372501
+          },
+          "short": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 269,
+              "time": 0,
+              "assertion": 326,
+              "source": 278,
+              "relation": 301,
+              "concern": 0
+            },
+            "binary_errors": 93,
+            "joint_errors": 484,
+            "assertion_errors": 326,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "conversational_explicit": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 2,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 2,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13404949422498347
+          }
+        },
+        "operator_family": {
+          "preposed_quoted_status": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 114,
+              "time": 0,
+              "assertion": 89,
+              "source": 117,
+              "relation": 96,
+              "concern": 1
+            },
+            "binary_errors": 41,
+            "joint_errors": 174,
+            "assertion_errors": 89,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.057449042758160984
+          },
+          "postposed_quoted_comment": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 117,
+              "time": 0,
+              "assertion": 103,
+              "source": 120,
+              "relation": 128,
+              "concern": 0
+            },
+            "binary_errors": 34,
+            "joint_errors": 208,
+            "assertion_errors": 103,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0037029821942601293
+          },
+          "embedded_finite_clause": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 130,
+              "time": 0,
+              "assertion": 229,
+              "source": 135,
+              "relation": 187,
+              "concern": 4
+            },
+            "binary_errors": 43,
+            "joint_errors": 273,
+            "assertion_errors": 229,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.010096741552372501
+          },
+          "polar_question_self_answer": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 93,
+              "time": 0,
+              "assertion": 114,
+              "source": 99,
+              "relation": 74,
+              "concern": 0
+            },
+            "binary_errors": 46,
+            "joint_errors": 172,
+            "assertion_errors": 114,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "separate_genuine_prior_control": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 2,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 2,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13404949422498347
+          }
+        },
+        "meaning_family": {
+          "friends": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 69,
+              "time": 0,
+              "assertion": 75,
+              "source": 68,
+              "relation": 68,
+              "concern": 0
+            },
+            "binary_errors": 24,
+            "joint_errors": 116,
+            "assertion_errors": 75,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.057449042758160984
+          },
+          "sports": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 62,
+              "time": 0,
+              "assertion": 66,
+              "source": 65,
+              "relation": 63,
+              "concern": 0
+            },
+            "binary_errors": 18,
+            "joint_errors": 107,
+            "assertion_errors": 66,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "snack": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 53,
+              "time": 0,
+              "assertion": 65,
+              "source": 54,
+              "relation": 55,
+              "concern": 0
+            },
+            "binary_errors": 21,
+            "joint_errors": 97,
+            "assertion_errors": 65,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0037029821942601293
+          },
+          "recitation": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 50,
+              "time": 0,
+              "assertion": 67,
+              "source": 52,
+              "relation": 64,
+              "concern": 0
+            },
+            "binary_errors": 19,
+            "joint_errors": 97,
+            "assertion_errors": 67,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.010096741552372501
+          },
+          "waking": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 51,
+              "time": 0,
+              "assertion": 69,
+              "source": 54,
+              "relation": 62,
+              "concern": 5
+            },
+            "binary_errors": 25,
+            "joint_errors": 108,
+            "assertion_errors": 69,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.015664680622412774
+          },
+          "music": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 61,
+              "time": 0,
+              "assertion": 65,
+              "source": 61,
+              "relation": 53,
+              "concern": 0
+            },
+            "binary_errors": 19,
+            "joint_errors": 104,
+            "assertion_errors": 65,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014795830985748548
+          },
+          "mistakes": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 59,
+              "time": 0,
+              "assertion": 65,
+              "source": 65,
+              "relation": 61,
+              "concern": 0
+            },
+            "binary_errors": 19,
+            "joint_errors": 102,
+            "assertion_errors": 65,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07143967654809391
+          },
+          "grades": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 49,
+              "time": 0,
+              "assertion": 63,
+              "source": 52,
+              "relation": 61,
+              "concern": 0
+            },
+            "binary_errors": 19,
+            "joint_errors": 98,
+            "assertion_errors": 63,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03720842469876828
+          }
+        },
+        "core_type": {
+          "neutral": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 219,
+              "time": 0,
+              "assertion": 252,
+              "source": 232,
+              "relation": 212,
+              "concern": 5
+            },
+            "binary_errors": 4,
+            "joint_errors": 394,
+            "assertion_errors": 252,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09778871645623477
+          },
+          "concern": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 235,
+              "time": 0,
+              "assertion": 283,
+              "source": 239,
+              "relation": 275,
+              "concern": 0
+            },
+            "binary_errors": 160,
+            "joint_errors": 435,
+            "assertion_errors": 283,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          }
+        },
+        "context": {
+          "neutral_listener": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 64,
+              "source": 0,
+              "relation": 4,
+              "concern": 4
+            },
+            "binary_errors": 24,
+            "joint_errors": 68,
+            "assertion_errors": 64,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.010096741552372501
+          },
+          "assistant_neutral_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 31,
+              "time": 0,
+              "assertion": 236,
+              "source": 38,
+              "relation": 244,
+              "concern": 1
+            },
+            "binary_errors": 49,
+            "joint_errors": 297,
+            "assertion_errors": 236,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.051404448357725174
+          },
+          "minor_reports_assistant_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 423,
+              "time": 0,
+              "assertion": 235,
+              "source": 433,
+              "relation": 237,
+              "concern": 0
+            },
+            "binary_errors": 91,
+            "joint_errors": 462,
+            "assertion_errors": 235,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          },
+          "genuine_prior_same_core": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 2,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 2,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.13404949422498347
+          }
+        },
+        "primary_transfer": {
+          "all": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 223,
+              "time": 0,
+              "assertion": 343,
+              "source": 234,
+              "relation": 261,
+              "concern": 4
+            },
+            "binary_errors": 89,
+            "joint_errors": 445,
+            "assertion_errors": 343,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.002273352264410944
+          }
+        }
+      },
+      "unchanged-initial75": {
+        "all": {
+          "all": {
+            "rows": 1540,
+            "field_errors": {
+              "subject": 415,
+              "time": 0,
+              "assertion": 602,
+              "source": 410,
+              "relation": 516,
+              "concern": 16
+            },
+            "binary_errors": 185,
+            "joint_errors": 829,
+            "assertion_errors": 602,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          }
+        },
+        "partition": {
+          "probe_combination": {
+            "rows": 96,
+            "field_errors": {
+              "subject": 26,
+              "time": 0,
+              "assertion": 32,
+              "source": 26,
+              "relation": 32,
+              "concern": 0
+            },
+            "binary_errors": 12,
+            "joint_errors": 50,
+            "assertion_errors": 32,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.21043611238721138
+          },
+          "fit": {
+            "rows": 288,
+            "field_errors": {
+              "subject": 84,
+              "time": 0,
+              "assertion": 91,
+              "source": 82,
+              "relation": 87,
+              "concern": 0
+            },
+            "binary_errors": 35,
+            "joint_errors": 142,
+            "assertion_errors": 91,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "probe_meaning": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 107,
+              "time": 0,
+              "assertion": 121,
+              "source": 105,
+              "relation": 116,
+              "concern": 1
+            },
+            "binary_errors": 46,
+            "joint_errors": 189,
+            "assertion_errors": 121,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.005227045313686007
+          },
+          "probe_operator": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 103,
+              "time": 0,
+              "assertion": 180,
+              "source": 105,
+              "relation": 138,
+              "concern": 4
+            },
+            "binary_errors": 41,
+            "joint_errors": 223,
+            "assertion_errors": 180,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.004062352277755976
+          },
+          "probe_both": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 95,
+              "time": 0,
+              "assertion": 177,
+              "source": 92,
+              "relation": 142,
+              "concern": 11
+            },
+            "binary_errors": 51,
+            "joint_errors": 224,
+            "assertion_errors": 177,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "counterfoil": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 1,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 1,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24825756390977616
+          }
+        },
+        "gold_assertion": {
+          "AFFIRMED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 58,
+              "time": 0,
+              "assertion": 233,
+              "source": 54,
+              "relation": 190,
+              "concern": 2
+            },
+            "binary_errors": 0,
+            "joint_errors": 239,
+            "assertion_errors": 233,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "UNCERTAIN": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 110,
+              "time": 0,
+              "assertion": 84,
+              "source": 110,
+              "relation": 91,
+              "concern": 1
+            },
+            "binary_errors": 33,
+            "joint_errors": 160,
+            "assertion_errors": 84,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03211015442974674
+          },
+          "NEGATED": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 116,
+              "time": 0,
+              "assertion": 285,
+              "source": 116,
+              "relation": 235,
+              "concern": 3
+            },
+            "binary_errors": 147,
+            "joint_errors": 289,
+            "assertion_errors": 285,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "RETRACTED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 131,
+              "time": 0,
+              "assertion": 0,
+              "source": 130,
+              "relation": 0,
+              "concern": 10
+            },
+            "binary_errors": 5,
+            "joint_errors": 141,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.018112297131609667
+          }
+        },
+        "block_id": {
+          "preposed_quoted_status:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 16,
+              "source": 14,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 25,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.23518833523176264
+          },
+          "preposed_quoted_status:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 13,
+              "source": 14,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 22,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16408302582672263
+          },
+          "preposed_quoted_status:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 12,
+              "source": 14,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 20,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.01240058454810189
+          },
+          "preposed_quoted_status:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 11,
+              "time": 0,
+              "assertion": 13,
+              "source": 10,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08203909892877659
+          },
+          "preposed_quoted_status:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 15,
+              "source": 13,
+              "relation": 13,
+              "concern": 1
+            },
+            "binary_errors": 8,
+            "joint_errors": 24,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2238233913319566
+          },
+          "preposed_quoted_status:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 12,
+              "source": 14,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 21,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.21594784394986277
+          },
+          "preposed_quoted_status:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 14,
+              "source": 14,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 23,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.005227045313686007
+          },
+          "preposed_quoted_status:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 12,
+              "source": 12,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08393563298165951
+          },
+          "postposed_quoted_comment:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 18,
+              "source": 17,
+              "relation": 17,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 29,
+            "assertion_errors": 18,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.22901083620347662
+          },
+          "postposed_quoted_comment:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 16,
+              "source": 14,
+              "relation": 18,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 24,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.20773102665044474
+          },
+          "postposed_quoted_comment:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 16,
+              "source": 12,
+              "relation": 17,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 25,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.21043611238721138
+          },
+          "postposed_quoted_comment:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 19,
+              "source": 13,
+              "relation": 20,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 26,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "postposed_quoted_comment:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 17,
+              "source": 12,
+              "relation": 19,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 25,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24720195519072474
+          },
+          "postposed_quoted_comment:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 17,
+              "source": 13,
+              "relation": 17,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 25,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.22875866073029838
+          },
+          "postposed_quoted_comment:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 17,
+              "source": 15,
+              "relation": 19,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 26,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.1792088580111839
+          },
+          "postposed_quoted_comment:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 17,
+              "source": 12,
+              "relation": 14,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 24,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2409720212819475
+          },
+          "embedded_finite_clause:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 27,
+              "source": 18,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 33,
+            "assertion_errors": 27,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04956421680738676
+          },
+          "embedded_finite_clause:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 26,
+              "source": 16,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 30,
+            "assertion_errors": 26,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.038305262096952064
+          },
+          "embedded_finite_clause:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 26,
+              "source": 13,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 30,
+            "assertion_errors": 26,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2102516693058779
+          },
+          "embedded_finite_clause:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 25,
+              "source": 15,
+              "relation": 23,
+              "concern": 2
+            },
+            "binary_errors": 2,
+            "joint_errors": 29,
+            "assertion_errors": 25,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.09761329794960572
+          },
+          "embedded_finite_clause:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 27,
+              "source": 12,
+              "relation": 23,
+              "concern": 7
+            },
+            "binary_errors": 9,
+            "joint_errors": 37,
+            "assertion_errors": 27,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "embedded_finite_clause:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 28,
+              "source": 15,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 32,
+            "assertion_errors": 28,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.19180355448984365
+          },
+          "embedded_finite_clause:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 26,
+              "source": 16,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 30,
+            "assertion_errors": 26,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06932221762995805
+          },
+          "embedded_finite_clause:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 26,
+              "source": 12,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 30,
+            "assertion_errors": 26,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.18297052941417558
+          },
+          "polar_question_self_answer:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 13,
+              "time": 0,
+              "assertion": 18,
+              "source": 14,
+              "relation": 11,
+              "concern": 1
+            },
+            "binary_errors": 7,
+            "joint_errors": 27,
+            "assertion_errors": 18,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16825661968756966
+          },
+          "polar_question_self_answer:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 19,
+              "source": 14,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 27,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03588474967191879
+          },
+          "polar_question_self_answer:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 8,
+              "time": 0,
+              "assertion": 19,
+              "source": 8,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 23,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.004062352277755976
+          },
+          "polar_question_self_answer:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 7,
+              "time": 0,
+              "assertion": 20,
+              "source": 7,
+              "relation": 12,
+              "concern": 1
+            },
+            "binary_errors": 5,
+            "joint_errors": 24,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.042573951645741404
+          },
+          "polar_question_self_answer:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 8,
+              "time": 0,
+              "assertion": 17,
+              "source": 8,
+              "relation": 12,
+              "concern": 4
+            },
+            "binary_errors": 8,
+            "joint_errors": 26,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.018112297131609667
+          },
+          "polar_question_self_answer:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 12,
+              "time": 0,
+              "assertion": 17,
+              "source": 12,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 23,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11409348427990618
+          },
+          "polar_question_self_answer:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 11,
+              "time": 0,
+              "assertion": 19,
+              "source": 11,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 25,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.10582554064247518
+          },
+          "polar_question_self_answer:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 7,
+              "time": 0,
+              "assertion": 17,
+              "source": 6,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 21,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0881355313419181
+          },
+          "supplemental-genuine-prior:snack": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.7517320170747125
+          },
+          "supplemental-genuine-prior:music": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 1,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 1,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24825756390977616
+          }
+        },
+        "register": {
+          "formal": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 167,
+              "time": 0,
+              "assertion": 248,
+              "source": 168,
+              "relation": 215,
+              "concern": 10
+            },
+            "binary_errors": 85,
+            "joint_errors": 352,
+            "assertion_errors": 248,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "short": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 248,
+              "time": 0,
+              "assertion": 353,
+              "source": 242,
+              "relation": 300,
+              "concern": 6
+            },
+            "binary_errors": 100,
+            "joint_errors": 476,
+            "assertion_errors": 353,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.01240058454810189
+          },
+          "conversational_explicit": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 1,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 1,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24825756390977616
+          }
+        },
+        "operator_family": {
+          "preposed_quoted_status": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 108,
+              "time": 0,
+              "assertion": 107,
+              "source": 105,
+              "relation": 94,
+              "concern": 1
+            },
+            "binary_errors": 50,
+            "joint_errors": 177,
+            "assertion_errors": 107,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.005227045313686007
+          },
+          "postposed_quoted_comment": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 109,
+              "time": 0,
+              "assertion": 137,
+              "source": 108,
+              "relation": 141,
+              "concern": 0
+            },
+            "binary_errors": 43,
+            "joint_errors": 204,
+            "assertion_errors": 137,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "embedded_finite_clause": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 118,
+              "time": 0,
+              "assertion": 211,
+              "source": 117,
+              "relation": 187,
+              "concern": 9
+            },
+            "binary_errors": 41,
+            "joint_errors": 251,
+            "assertion_errors": 211,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "polar_question_self_answer": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 80,
+              "time": 0,
+              "assertion": 146,
+              "source": 80,
+              "relation": 93,
+              "concern": 6
+            },
+            "binary_errors": 51,
+            "joint_errors": 196,
+            "assertion_errors": 146,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.004062352277755976
+          },
+          "separate_genuine_prior_control": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 1,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 1,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24825756390977616
+          }
+        },
+        "meaning_family": {
+          "friends": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 63,
+              "time": 0,
+              "assertion": 79,
+              "source": 63,
+              "relation": 67,
+              "concern": 1
+            },
+            "binary_errors": 25,
+            "joint_errors": 114,
+            "assertion_errors": 79,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04956421680738676
+          },
+          "sports": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 58,
+              "time": 0,
+              "assertion": 74,
+              "source": 58,
+              "relation": 65,
+              "concern": 0
+            },
+            "binary_errors": 24,
+            "joint_errors": 103,
+            "assertion_errors": 74,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03588474967191879
+          },
+          "snack": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 47,
+              "time": 0,
+              "assertion": 73,
+              "source": 47,
+              "relation": 59,
+              "concern": 0
+            },
+            "binary_errors": 21,
+            "joint_errors": 98,
+            "assertion_errors": 73,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.004062352277755976
+          },
+          "recitation": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 45,
+              "time": 0,
+              "assertion": 77,
+              "source": 45,
+              "relation": 66,
+              "concern": 3
+            },
+            "binary_errors": 18,
+            "joint_errors": 100,
+            "assertion_errors": 77,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "waking": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 45,
+              "time": 0,
+              "assertion": 76,
+              "source": 45,
+              "relation": 67,
+              "concern": 12
+            },
+            "binary_errors": 31,
+            "joint_errors": 112,
+            "assertion_errors": 76,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "music": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 54,
+              "time": 0,
+              "assertion": 75,
+              "source": 54,
+              "relation": 64,
+              "concern": 0
+            },
+            "binary_errors": 23,
+            "joint_errors": 102,
+            "assertion_errors": 75,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.11409348427990618
+          },
+          "mistakes": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 56,
+              "time": 0,
+              "assertion": 76,
+              "source": 56,
+              "relation": 68,
+              "concern": 0
+            },
+            "binary_errors": 22,
+            "joint_errors": 104,
+            "assertion_errors": 76,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.005227045313686007
+          },
+          "grades": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 47,
+              "time": 0,
+              "assertion": 72,
+              "source": 42,
+              "relation": 60,
+              "concern": 0
+            },
+            "binary_errors": 21,
+            "joint_errors": 96,
+            "assertion_errors": 72,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.08393563298165951
+          }
+        },
+        "core_type": {
+          "neutral": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 201,
+              "time": 0,
+              "assertion": 281,
+              "source": 198,
+              "relation": 219,
+              "concern": 13
+            },
+            "binary_errors": 6,
+            "joint_errors": 395,
+            "assertion_errors": 281,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.016549802841617334
+          },
+          "concern": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 214,
+              "time": 0,
+              "assertion": 321,
+              "source": 212,
+              "relation": 297,
+              "concern": 3
+            },
+            "binary_errors": 179,
+            "joint_errors": 434,
+            "assertion_errors": 321,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          }
+        },
+        "context": {
+          "neutral_listener": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 76,
+              "source": 0,
+              "relation": 10,
+              "concern": 8
+            },
+            "binary_errors": 36,
+            "joint_errors": 83,
+            "assertion_errors": 76,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.01240058454810189
+          },
+          "assistant_neutral_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 259,
+              "source": 13,
+              "relation": 226,
+              "concern": 6
+            },
+            "binary_errors": 54,
+            "joint_errors": 282,
+            "assertion_errors": 259,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0029422974412739444
+          },
+          "minor_reports_assistant_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 401,
+              "time": 0,
+              "assertion": 266,
+              "source": 397,
+              "relation": 279,
+              "concern": 2
+            },
+            "binary_errors": 95,
+            "joint_errors": 463,
+            "assertion_errors": 266,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.038305262096952064
+          },
+          "genuine_prior_same_core": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 1,
+              "source": 0,
+              "relation": 1,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 1,
+            "assertion_errors": 1,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.24825756390977616
+          }
+        },
+        "primary_transfer": {
+          "all": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 198,
+              "time": 0,
+              "assertion": 357,
+              "source": 197,
+              "relation": 280,
+              "concern": 15
+            },
+            "binary_errors": 92,
+            "joint_errors": 447,
+            "assertion_errors": 357,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.004062352277755976
+          }
+        }
+      }
+    },
+    "uk": {
+      "original-v9": {
+        "all": {
+          "all": {
+            "rows": 1540,
+            "field_errors": {
+              "subject": 606,
+              "time": 0,
+              "assertion": 414,
+              "source": 609,
+              "relation": 431,
+              "concern": 15
+            },
+            "binary_errors": 105,
+            "joint_errors": 813,
+            "assertion_errors": 414,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          }
+        },
+        "partition": {
+          "probe_combination": {
+            "rows": 96,
+            "field_errors": {
+              "subject": 34,
+              "time": 0,
+              "assertion": 16,
+              "source": 35,
+              "relation": 21,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 41,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.14408429692257052
+          },
+          "fit": {
+            "rows": 288,
+            "field_errors": {
+              "subject": 105,
+              "time": 0,
+              "assertion": 58,
+              "source": 107,
+              "relation": 64,
+              "concern": 1
+            },
+            "binary_errors": 20,
+            "joint_errors": 134,
+            "assertion_errors": 58,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.035749492952519724
+          },
+          "probe_meaning": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 140,
+              "time": 0,
+              "assertion": 66,
+              "source": 141,
+              "relation": 83,
+              "concern": 7
+            },
+            "binary_errors": 33,
+            "joint_errors": 176,
+            "assertion_errors": 66,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03664880629314338
+          },
+          "probe_operator": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 167,
+              "time": 0,
+              "assertion": 138,
+              "source": 167,
+              "relation": 130,
+              "concern": 2
+            },
+            "binary_errors": 23,
+            "joint_errors": 227,
+            "assertion_errors": 138,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.05418789984781647
+          },
+          "probe_both": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 160,
+              "time": 0,
+              "assertion": 136,
+              "source": 159,
+              "relation": 133,
+              "concern": 5
+            },
+            "binary_errors": 25,
+            "joint_errors": 235,
+            "assertion_errors": 136,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "counterfoil": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3391005728186549
+          }
+        },
+        "gold_assertion": {
+          "AFFIRMED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 125,
+              "time": 0,
+              "assertion": 201,
+              "source": 125,
+              "relation": 141,
+              "concern": 0
+            },
+            "binary_errors": 11,
+            "joint_errors": 215,
+            "assertion_errors": 201,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07328780709771321
+          },
+          "UNCERTAIN": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 150,
+              "time": 0,
+              "assertion": 59,
+              "source": 148,
+              "relation": 118,
+              "concern": 0
+            },
+            "binary_errors": 28,
+            "joint_errors": 208,
+            "assertion_errors": 59,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "NEGATED": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 160,
+              "time": 0,
+              "assertion": 154,
+              "source": 161,
+              "relation": 172,
+              "concern": 1
+            },
+            "binary_errors": 48,
+            "joint_errors": 204,
+            "assertion_errors": 154,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014201436379616905
+          },
+          "RETRACTED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 171,
+              "time": 0,
+              "assertion": 0,
+              "source": 175,
+              "relation": 0,
+              "concern": 14
+            },
+            "binary_errors": 18,
+            "joint_errors": 186,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0693163155587333
+          }
+        },
+        "block_id": {
+          "preposed_quoted_status:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 6,
+              "source": 18,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 2,
+            "joint_errors": 19,
+            "assertion_errors": 6,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.32038596960881427
+          },
+          "preposed_quoted_status:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 7,
+              "source": 16,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 2,
+            "joint_errors": 19,
+            "assertion_errors": 7,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.038562863919381574
+          },
+          "preposed_quoted_status:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 3,
+              "source": 15,
+              "relation": 3,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 17,
+            "assertion_errors": 3,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.18246702979986928
+          },
+          "preposed_quoted_status:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 8,
+              "source": 15,
+              "relation": 8,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 20,
+            "assertion_errors": 8,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.14478377281385169
+          },
+          "preposed_quoted_status:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 15,
+              "time": 0,
+              "assertion": 6,
+              "source": 16,
+              "relation": 8,
+              "concern": 0
+            },
+            "binary_errors": 1,
+            "joint_errors": 19,
+            "assertion_errors": 6,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16538912747143109
+          },
+          "preposed_quoted_status:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 14,
+              "time": 0,
+              "assertion": 6,
+              "source": 14,
+              "relation": 7,
+              "concern": 0
+            },
+            "binary_errors": 1,
+            "joint_errors": 17,
+            "assertion_errors": 6,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07205520396220055
+          },
+          "preposed_quoted_status:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 21,
+              "time": 0,
+              "assertion": 7,
+              "source": 21,
+              "relation": 9,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 22,
+            "assertion_errors": 7,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2603176721450512
+          },
+          "preposed_quoted_status:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 4,
+              "source": 17,
+              "relation": 5,
+              "concern": 3
+            },
+            "binary_errors": 9,
+            "joint_errors": 21,
+            "assertion_errors": 4,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0693163155587333
+          },
+          "postposed_quoted_comment:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 24,
+              "time": 0,
+              "assertion": 13,
+              "source": 24,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 27,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.33544330367095376
+          },
+          "postposed_quoted_comment:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 13,
+              "source": 19,
+              "relation": 14,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 26,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.035749492952519724
+          },
+          "postposed_quoted_comment:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 10,
+              "source": 17,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 2,
+            "joint_errors": 22,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.14408429692257052
+          },
+          "postposed_quoted_comment:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 14,
+              "source": 18,
+              "relation": 15,
+              "concern": 1
+            },
+            "binary_errors": 3,
+            "joint_errors": 25,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16870967317243346
+          },
+          "postposed_quoted_comment:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 13,
+              "source": 16,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 23,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03664880629314338
+          },
+          "postposed_quoted_comment:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 11,
+              "source": 17,
+              "relation": 14,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 23,
+            "assertion_errors": 11,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3285809088753242
+          },
+          "postposed_quoted_comment:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 11,
+              "source": 22,
+              "relation": 14,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 26,
+            "assertion_errors": 11,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.23539794173174838
+          },
+          "postposed_quoted_comment:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 8,
+              "source": 18,
+              "relation": 11,
+              "concern": 4
+            },
+            "binary_errors": 6,
+            "joint_errors": 25,
+            "assertion_errors": 8,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07328780709771321
+          },
+          "embedded_finite_clause:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 20,
+              "source": 20,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 28,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2670067830587076
+          },
+          "embedded_finite_clause:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 23,
+              "source": 23,
+              "relation": 22,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 31,
+            "assertion_errors": 23,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2929378858888778
+          },
+          "embedded_finite_clause:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 19,
+              "source": 16,
+              "relation": 19,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 28,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.1747727010597795
+          },
+          "embedded_finite_clause:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 20,
+              "source": 22,
+              "relation": 23,
+              "concern": 1
+            },
+            "binary_errors": 0,
+            "joint_errors": 28,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16085253048863324
+          },
+          "embedded_finite_clause:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 22,
+              "source": 18,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 1,
+            "joint_errors": 30,
+            "assertion_errors": 22,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3197950371636361
+          },
+          "embedded_finite_clause:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 23,
+              "source": 16,
+              "relation": 22,
+              "concern": 0
+            },
+            "binary_errors": 2,
+            "joint_errors": 30,
+            "assertion_errors": 23,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3269734900616411
+          },
+          "embedded_finite_clause:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 16,
+              "source": 21,
+              "relation": 21,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 28,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.32945409769481604
+          },
+          "embedded_finite_clause:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 15,
+              "source": 17,
+              "relation": 19,
+              "concern": 3
+            },
+            "binary_errors": 5,
+            "joint_errors": 29,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0803190625103527
+          },
+          "polar_question_self_answer:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 24,
+              "time": 0,
+              "assertion": 13,
+              "source": 23,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 27,
+            "assertion_errors": 13,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.05418789984781647
+          },
+          "polar_question_self_answer:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 21,
+              "time": 0,
+              "assertion": 14,
+              "source": 21,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 27,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.2703566092903539
+          },
+          "polar_question_self_answer:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 21,
+              "time": 0,
+              "assertion": 15,
+              "source": 22,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 29,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.1581861218419709
+          },
+          "polar_question_self_answer:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 14,
+              "source": 20,
+              "relation": 14,
+              "concern": 1
+            },
+            "binary_errors": 7,
+            "joint_errors": 29,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12491823648857658
+          },
+          "polar_question_self_answer:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 15,
+              "source": 19,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 3,
+            "joint_errors": 29,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "polar_question_self_answer:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 15,
+              "source": 21,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 2,
+            "joint_errors": 28,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04945168893716645
+          },
+          "polar_question_self_answer:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 24,
+              "time": 0,
+              "assertion": 16,
+              "source": 24,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 31,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014201436379616905
+          },
+          "polar_question_self_answer:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 14,
+              "source": 23,
+              "relation": 8,
+              "concern": 2
+            },
+            "binary_errors": 8,
+            "joint_errors": 30,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.16787072208158738
+          },
+          "supplemental-genuine-prior:snack": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.6608994271813349
+          },
+          "supplemental-genuine-prior:music": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3391005728186549
+          }
+        },
+        "register": {
+          "formal": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 284,
+              "time": 0,
+              "assertion": 148,
+              "source": 288,
+              "relation": 176,
+              "concern": 4
+            },
+            "binary_errors": 40,
+            "joint_errors": 379,
+            "assertion_errors": 148,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.035749492952519724
+          },
+          "short": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 322,
+              "time": 0,
+              "assertion": 266,
+              "source": 321,
+              "relation": 255,
+              "concern": 11
+            },
+            "binary_errors": 65,
+            "joint_errors": 434,
+            "assertion_errors": 266,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "conversational_explicit": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3391005728186549
+          }
+        },
+        "operator_family": {
+          "preposed_quoted_status": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 129,
+              "time": 0,
+              "assertion": 47,
+              "source": 132,
+              "relation": 58,
+              "concern": 3
+            },
+            "binary_errors": 25,
+            "joint_errors": 154,
+            "assertion_errors": 47,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.038562863919381574
+          },
+          "postposed_quoted_comment": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 150,
+              "time": 0,
+              "assertion": 93,
+              "source": 151,
+              "relation": 110,
+              "concern": 5
+            },
+            "binary_errors": 32,
+            "joint_errors": 197,
+            "assertion_errors": 93,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.035749492952519724
+          },
+          "embedded_finite_clause": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 152,
+              "time": 0,
+              "assertion": 158,
+              "source": 153,
+              "relation": 165,
+              "concern": 4
+            },
+            "binary_errors": 12,
+            "joint_errors": 232,
+            "assertion_errors": 158,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0803190625103527
+          },
+          "polar_question_self_answer": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 175,
+              "time": 0,
+              "assertion": 116,
+              "source": 173,
+              "relation": 98,
+              "concern": 3
+            },
+            "binary_errors": 36,
+            "joint_errors": 230,
+            "assertion_errors": 116,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "separate_genuine_prior_control": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3391005728186549
+          }
+        },
+        "meaning_family": {
+          "friends": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 86,
+              "time": 0,
+              "assertion": 52,
+              "source": 85,
+              "relation": 53,
+              "concern": 0
+            },
+            "binary_errors": 16,
+            "joint_errors": 101,
+            "assertion_errors": 52,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.05418789984781647
+          },
+          "sports": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 78,
+              "time": 0,
+              "assertion": 57,
+              "source": 79,
+              "relation": 58,
+              "concern": 0
+            },
+            "binary_errors": 8,
+            "joint_errors": 103,
+            "assertion_errors": 57,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.035749492952519724
+          },
+          "snack": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 67,
+              "time": 0,
+              "assertion": 47,
+              "source": 70,
+              "relation": 44,
+              "concern": 0
+            },
+            "binary_errors": 10,
+            "joint_errors": 96,
+            "assertion_errors": 47,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.14408429692257052
+          },
+          "recitation": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 75,
+              "time": 0,
+              "assertion": 56,
+              "source": 75,
+              "relation": 60,
+              "concern": 3
+            },
+            "binary_errors": 13,
+            "joint_errors": 102,
+            "assertion_errors": 56,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.12491823648857658
+          },
+          "waking": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 69,
+              "time": 0,
+              "assertion": 56,
+              "source": 69,
+              "relation": 61,
+              "concern": 0
+            },
+            "binary_errors": 10,
+            "joint_errors": 101,
+            "assertion_errors": 56,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "music": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 69,
+              "time": 0,
+              "assertion": 55,
+              "source": 68,
+              "relation": 56,
+              "concern": 0
+            },
+            "binary_errors": 9,
+            "joint_errors": 98,
+            "assertion_errors": 55,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04945168893716645
+          },
+          "mistakes": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 88,
+              "time": 0,
+              "assertion": 50,
+              "source": 88,
+              "relation": 56,
+              "concern": 0
+            },
+            "binary_errors": 11,
+            "joint_errors": 107,
+            "assertion_errors": 50,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014201436379616905
+          },
+          "grades": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 74,
+              "time": 0,
+              "assertion": 41,
+              "source": 75,
+              "relation": 43,
+              "concern": 12
+            },
+            "binary_errors": 28,
+            "joint_errors": 105,
+            "assertion_errors": 41,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0693163155587333
+          }
+        },
+        "core_type": {
+          "neutral": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 268,
+              "time": 0,
+              "assertion": 146,
+              "source": 273,
+              "relation": 107,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 338,
+            "assertion_errors": 146,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.6608957559555175
+          },
+          "concern": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 338,
+              "time": 0,
+              "assertion": 268,
+              "source": 336,
+              "relation": 324,
+              "concern": 15
+            },
+            "binary_errors": 105,
+            "joint_errors": 475,
+            "assertion_errors": 268,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          }
+        },
+        "context": {
+          "neutral_listener": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 1,
+              "time": 0,
+              "assertion": 24,
+              "source": 0,
+              "relation": 1,
+              "concern": 5
+            },
+            "binary_errors": 7,
+            "joint_errors": 30,
+            "assertion_errors": 24,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0693163155587333
+          },
+          "assistant_neutral_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 107,
+              "time": 0,
+              "assertion": 184,
+              "source": 111,
+              "relation": 196,
+              "concern": 5
+            },
+            "binary_errors": 42,
+            "joint_errors": 285,
+            "assertion_errors": 184,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.014201436379616905
+          },
+          "minor_reports_assistant_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 498,
+              "time": 0,
+              "assertion": 206,
+              "source": 498,
+              "relation": 234,
+              "concern": 5
+            },
+            "binary_errors": 56,
+            "joint_errors": 498,
+            "assertion_errors": 206,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          },
+          "genuine_prior_same_core": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.3391005728186549
+          }
+        },
+        "primary_transfer": {
+          "all": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 327,
+              "time": 0,
+              "assertion": 274,
+              "source": 326,
+              "relation": 263,
+              "concern": 7
+            },
+            "binary_errors": 48,
+            "joint_errors": 462,
+            "assertion_errors": 274,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0016236283334711832
+          }
+        }
+      },
+      "unchanged-initial75": {
+        "all": {
+          "all": {
+            "rows": 1540,
+            "field_errors": {
+              "subject": 640,
+              "time": 0,
+              "assertion": 437,
+              "source": 634,
+              "relation": 389,
+              "concern": 1
+            },
+            "binary_errors": 192,
+            "joint_errors": 802,
+            "assertion_errors": 437,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          }
+        },
+        "partition": {
+          "probe_combination": {
+            "rows": 96,
+            "field_errors": {
+              "subject": 36,
+              "time": 0,
+              "assertion": 18,
+              "source": 36,
+              "relation": 17,
+              "concern": 0
+            },
+            "binary_errors": 12,
+            "joint_errors": 41,
+            "assertion_errors": 18,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.009399941337190243
+          },
+          "fit": {
+            "rows": 288,
+            "field_errors": {
+              "subject": 109,
+              "time": 0,
+              "assertion": 58,
+              "source": 104,
+              "relation": 53,
+              "concern": 0
+            },
+            "binary_errors": 36,
+            "joint_errors": 127,
+            "assertion_errors": 58,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0046046101233483405
+          },
+          "probe_meaning": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 148,
+              "time": 0,
+              "assertion": 65,
+              "source": 148,
+              "relation": 64,
+              "concern": 0
+            },
+            "binary_errors": 52,
+            "joint_errors": 171,
+            "assertion_errors": 65,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "probe_operator": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 172,
+              "time": 0,
+              "assertion": 147,
+              "source": 173,
+              "relation": 122,
+              "concern": 1
+            },
+            "binary_errors": 43,
+            "joint_errors": 227,
+            "assertion_errors": 147,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.02144353258031584
+          },
+          "probe_both": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 175,
+              "time": 0,
+              "assertion": 149,
+              "source": 173,
+              "relation": 133,
+              "concern": 0
+            },
+            "binary_errors": 49,
+            "joint_errors": 236,
+            "assertion_errors": 149,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          },
+          "counterfoil": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257518085240366
+          }
+        },
+        "gold_assertion": {
+          "AFFIRMED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 127,
+              "time": 0,
+              "assertion": 186,
+              "source": 127,
+              "relation": 125,
+              "concern": 0
+            },
+            "binary_errors": 12,
+            "joint_errors": 201,
+            "assertion_errors": 186,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "UNCERTAIN": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 173,
+              "time": 0,
+              "assertion": 81,
+              "source": 158,
+              "relation": 85,
+              "concern": 0
+            },
+            "binary_errors": 63,
+            "joint_errors": 202,
+            "assertion_errors": 81,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0046046101233483405
+          },
+          "NEGATED": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 165,
+              "time": 0,
+              "assertion": 170,
+              "source": 167,
+              "relation": 179,
+              "concern": 1
+            },
+            "binary_errors": 112,
+            "joint_errors": 215,
+            "assertion_errors": 170,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          },
+          "RETRACTED": {
+            "rows": 386,
+            "field_errors": {
+              "subject": 175,
+              "time": 0,
+              "assertion": 0,
+              "source": 182,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 184,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.013615578766334346
+          }
+        },
+        "block_id": {
+          "preposed_quoted_status:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 8,
+              "source": 18,
+              "relation": 7,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 19,
+            "assertion_errors": 8,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.05729157892409986
+          },
+          "preposed_quoted_status:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 7,
+              "source": 15,
+              "relation": 6,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 18,
+            "assertion_errors": 7,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.01923983388548034
+          },
+          "preposed_quoted_status:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 2,
+              "source": 15,
+              "relation": 2,
+              "concern": 0
+            },
+            "binary_errors": 8,
+            "joint_errors": 17,
+            "assertion_errors": 2,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06303559169074846
+          },
+          "preposed_quoted_status:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 7,
+              "source": 15,
+              "relation": 6,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 17,
+            "assertion_errors": 7,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.018114731626627356
+          },
+          "preposed_quoted_status:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 5,
+              "source": 16,
+              "relation": 4,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 18,
+            "assertion_errors": 5,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.054453842910017425
+          },
+          "preposed_quoted_status:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 6,
+              "source": 16,
+              "relation": 5,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 18,
+            "assertion_errors": 6,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.020609150230207707
+          },
+          "preposed_quoted_status:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 8,
+              "source": 21,
+              "relation": 4,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 21,
+            "assertion_errors": 8,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "preposed_quoted_status:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 16,
+              "time": 0,
+              "assertion": 4,
+              "source": 17,
+              "relation": 3,
+              "concern": 0
+            },
+            "binary_errors": 8,
+            "joint_errors": 18,
+            "assertion_errors": 4,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0342483194299501
+          },
+          "postposed_quoted_comment:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 14,
+              "source": 22,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 26,
+            "assertion_errors": 14,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06222237676399667
+          },
+          "postposed_quoted_comment:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 20,
+              "time": 0,
+              "assertion": 12,
+              "source": 19,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 25,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0046046101233483405
+          },
+          "postposed_quoted_comment:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 10,
+              "source": 18,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 22,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.009399941337190243
+          },
+          "postposed_quoted_comment:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 16,
+              "source": 18,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 24,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06607909625551345
+          },
+          "postposed_quoted_comment:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 11,
+              "source": 18,
+              "relation": 15,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 24,
+            "assertion_errors": 11,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.040494605958113494
+          },
+          "postposed_quoted_comment:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 12,
+              "source": 19,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 24,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06088012456016201
+          },
+          "postposed_quoted_comment:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 24,
+              "time": 0,
+              "assertion": 10,
+              "source": 24,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 26,
+            "assertion_errors": 10,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04293177562852757
+          },
+          "postposed_quoted_comment:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 18,
+              "time": 0,
+              "assertion": 9,
+              "source": 17,
+              "relation": 10,
+              "concern": 0
+            },
+            "binary_errors": 9,
+            "joint_errors": 22,
+            "assertion_errors": 9,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.05214584165176628
+          },
+          "embedded_finite_clause:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 22,
+              "source": 21,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 29,
+            "assertion_errors": 22,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257053656870782
+          },
+          "embedded_finite_clause:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 24,
+              "source": 22,
+              "relation": 22,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 31,
+            "assertion_errors": 24,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07201570530760193
+          },
+          "embedded_finite_clause:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 20,
+              "source": 19,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 29,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06520134913097764
+          },
+          "embedded_finite_clause:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 22,
+              "source": 22,
+              "relation": 24,
+              "concern": 1
+            },
+            "binary_errors": 3,
+            "joint_errors": 29,
+            "assertion_errors": 22,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03065311787381586
+          },
+          "embedded_finite_clause:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 21,
+              "source": 22,
+              "relation": 24,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 32,
+            "assertion_errors": 21,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          },
+          "embedded_finite_clause:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 19,
+              "time": 0,
+              "assertion": 24,
+              "source": 18,
+              "relation": 23,
+              "concern": 0
+            },
+            "binary_errors": 4,
+            "joint_errors": 30,
+            "assertion_errors": 24,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07200780588686717
+          },
+          "embedded_finite_clause:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 20,
+              "source": 22,
+              "relation": 22,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 29,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07063856689668713
+          },
+          "embedded_finite_clause:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 17,
+              "time": 0,
+              "assertion": 20,
+              "source": 18,
+              "relation": 16,
+              "concern": 0
+            },
+            "binary_errors": 5,
+            "joint_errors": 28,
+            "assertion_errors": 20,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.013615578766334346
+          },
+          "polar_question_self_answer:friends": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 15,
+              "source": 24,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 28,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04113700387512165
+          },
+          "polar_question_self_answer:sports": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 15,
+              "source": 22,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 28,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.06556880194433445
+          },
+          "polar_question_self_answer:snack": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 12,
+              "source": 22,
+              "relation": 8,
+              "concern": 0
+            },
+            "binary_errors": 8,
+            "joint_errors": 25,
+            "assertion_errors": 12,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0533663269562491
+          },
+          "polar_question_self_answer:recitation": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 21,
+              "time": 0,
+              "assertion": 17,
+              "source": 21,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 28,
+            "assertion_errors": 17,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.02144353258031584
+          },
+          "polar_question_self_answer:waking": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 15,
+              "source": 22,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 28,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03880781489531526
+          },
+          "polar_question_self_answer:music": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 23,
+              "time": 0,
+              "assertion": 15,
+              "source": 23,
+              "relation": 13,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 29,
+            "assertion_errors": 15,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.067013877796958
+          },
+          "polar_question_self_answer:mistakes": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 25,
+              "time": 0,
+              "assertion": 18,
+              "source": 26,
+              "relation": 11,
+              "concern": 0
+            },
+            "binary_errors": 7,
+            "joint_errors": 31,
+            "assertion_errors": 18,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.042338712939782974
+          },
+          "polar_question_self_answer:grades": {
+            "rows": 48,
+            "field_errors": {
+              "subject": 22,
+              "time": 0,
+              "assertion": 16,
+              "source": 22,
+              "relation": 12,
+              "concern": 0
+            },
+            "binary_errors": 9,
+            "joint_errors": 29,
+            "assertion_errors": 16,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.026810429081539522
+          },
+          "supplemental-genuine-prior:snack": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.927424808529462
+          },
+          "supplemental-genuine-prior:music": {
+            "rows": 2,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257518085240366
+          }
+        },
+        "register": {
+          "formal": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 298,
+              "time": 0,
+              "assertion": 157,
+              "source": 298,
+              "relation": 151,
+              "concern": 0
+            },
+            "binary_errors": 92,
+            "joint_errors": 371,
+            "assertion_errors": 157,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "short": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 342,
+              "time": 0,
+              "assertion": 280,
+              "source": 336,
+              "relation": 238,
+              "concern": 1
+            },
+            "binary_errors": 100,
+            "joint_errors": 431,
+            "assertion_errors": 280,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.009399941337190243
+          },
+          "conversational_explicit": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257518085240366
+          }
+        },
+        "operator_family": {
+          "preposed_quoted_status": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 134,
+              "time": 0,
+              "assertion": 47,
+              "source": 133,
+              "relation": 37,
+              "concern": 0
+            },
+            "binary_errors": 47,
+            "joint_errors": 146,
+            "assertion_errors": 47,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "postposed_quoted_comment": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 159,
+              "time": 0,
+              "assertion": 94,
+              "source": 155,
+              "relation": 97,
+              "concern": 0
+            },
+            "binary_errors": 53,
+            "joint_errors": 193,
+            "assertion_errors": 94,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0046046101233483405
+          },
+          "embedded_finite_clause": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 165,
+              "time": 0,
+              "assertion": 173,
+              "source": 164,
+              "relation": 163,
+              "concern": 1
+            },
+            "binary_errors": 34,
+            "joint_errors": 237,
+            "assertion_errors": 173,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          },
+          "polar_question_self_answer": {
+            "rows": 384,
+            "field_errors": {
+              "subject": 182,
+              "time": 0,
+              "assertion": 123,
+              "source": 182,
+              "relation": 92,
+              "concern": 0
+            },
+            "binary_errors": 58,
+            "joint_errors": 226,
+            "assertion_errors": 123,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.02144353258031584
+          },
+          "separate_genuine_prior_control": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257518085240366
+          }
+        },
+        "meaning_family": {
+          "friends": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 86,
+              "time": 0,
+              "assertion": 59,
+              "source": 85,
+              "relation": 47,
+              "concern": 0
+            },
+            "binary_errors": 22,
+            "joint_errors": 102,
+            "assertion_errors": 59,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.04113700387512165
+          },
+          "sports": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 81,
+              "time": 0,
+              "assertion": 58,
+              "source": 78,
+              "relation": 51,
+              "concern": 0
+            },
+            "binary_errors": 21,
+            "joint_errors": 102,
+            "assertion_errors": 58,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.0046046101233483405
+          },
+          "snack": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 73,
+              "time": 0,
+              "assertion": 44,
+              "source": 74,
+              "relation": 36,
+              "concern": 0
+            },
+            "binary_errors": 27,
+            "joint_errors": 93,
+            "assertion_errors": 44,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.009399941337190243
+          },
+          "recitation": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 77,
+              "time": 0,
+              "assertion": 62,
+              "source": 76,
+              "relation": 58,
+              "concern": 1
+            },
+            "binary_errors": 21,
+            "joint_errors": 98,
+            "assertion_errors": 62,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.018114731626627356
+          },
+          "waking": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 81,
+              "time": 0,
+              "assertion": 52,
+              "source": 78,
+              "relation": 55,
+              "concern": 0
+            },
+            "binary_errors": 24,
+            "joint_errors": 102,
+            "assertion_errors": 52,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          },
+          "music": {
+            "rows": 194,
+            "field_errors": {
+              "subject": 77,
+              "time": 0,
+              "assertion": 57,
+              "source": 76,
+              "relation": 54,
+              "concern": 0
+            },
+            "binary_errors": 22,
+            "joint_errors": 101,
+            "assertion_errors": 57,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.020609150230207707
+          },
+          "mistakes": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 92,
+              "time": 0,
+              "assertion": 56,
+              "source": 93,
+              "relation": 47,
+              "concern": 0
+            },
+            "binary_errors": 24,
+            "joint_errors": 107,
+            "assertion_errors": 56,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "grades": {
+            "rows": 192,
+            "field_errors": {
+              "subject": 73,
+              "time": 0,
+              "assertion": 49,
+              "source": 74,
+              "relation": 41,
+              "concern": 0
+            },
+            "binary_errors": 31,
+            "joint_errors": 97,
+            "assertion_errors": 49,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.013615578766334346
+          }
+        },
+        "core_type": {
+          "neutral": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 261,
+              "time": 0,
+              "assertion": 169,
+              "source": 266,
+              "relation": 124,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 339,
+            "assertion_errors": 169,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.8781882699219326
+          },
+          "concern": {
+            "rows": 770,
+            "field_errors": {
+              "subject": 379,
+              "time": 0,
+              "assertion": 268,
+              "source": 368,
+              "relation": 265,
+              "concern": 1
+            },
+            "binary_errors": 192,
+            "joint_errors": 463,
+            "assertion_errors": 268,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          }
+        },
+        "context": {
+          "neutral_listener": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 2,
+              "time": 0,
+              "assertion": 19,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 6,
+            "joint_errors": 21,
+            "assertion_errors": 19,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.03370309632664048
+          },
+          "assistant_neutral_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 141,
+              "time": 0,
+              "assertion": 201,
+              "source": 137,
+              "relation": 183,
+              "concern": 1
+            },
+            "binary_errors": 71,
+            "joint_errors": 284,
+            "assertion_errors": 201,
+            "within_1e_3_threshold_band": 1,
+            "minimum_threshold_distance": 0.00092628405382289
+          },
+          "minor_reports_assistant_quote": {
+            "rows": 512,
+            "field_errors": {
+              "subject": 497,
+              "time": 0,
+              "assertion": 217,
+              "source": 497,
+              "relation": 206,
+              "concern": 0
+            },
+            "binary_errors": 115,
+            "joint_errors": 497,
+            "assertion_errors": 217,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.009399941337190243
+          },
+          "genuine_prior_same_core": {
+            "rows": 4,
+            "field_errors": {
+              "subject": 0,
+              "time": 0,
+              "assertion": 0,
+              "source": 0,
+              "relation": 0,
+              "concern": 0
+            },
+            "binary_errors": 0,
+            "joint_errors": 0,
+            "assertion_errors": 0,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.07257518085240366
+          }
+        },
+        "primary_transfer": {
+          "all": {
+            "rows": 768,
+            "field_errors": {
+              "subject": 347,
+              "time": 0,
+              "assertion": 296,
+              "source": 346,
+              "relation": 255,
+              "concern": 1
+            },
+            "binary_errors": 92,
+            "joint_errors": 463,
+            "assertion_errors": 296,
+            "within_1e_3_threshold_band": 0,
+            "minimum_threshold_distance": 0.011477963719290663
+          }
+        }
+      }
+    }
+  },
+  "encoder_loaded": false,
+  "training_performed": false,
+  "selection_performed": false,
+  "held_out_test_opened": false,
+  "training_admitted": false,
+  "qualified": false,
+  "original_v9_backend": "Audited retained original-v9 logits from120; audit121 independently replayed its heads.",
+  "initial75_backend": "CPU exact-erf head replay on original-v9 encoder features; no newly established native75 parity.",
+  "threshold_band": "All distances retained;1e-3 is diagnostic only and never filters examples or changes thresholds.",
+  "panel_scope": "40mapped panel rows are a separate diagnostic report;32are bank aliases and are not added to3080unique-input metrics.",
+  "panel": {
+    "original-v9": {
+      "ro": {
+        "rows": 20,
+        "bank_aliases": 16,
+        "field_errors": {
+          "subject": 6,
+          "time": 0,
+          "assertion": 12,
+          "source": 7,
+          "relation": 13,
+          "concern": 0
+        },
+        "binary_errors": 4,
+        "joint_errors": 15,
+        "assertion_errors": 12
+      },
+      "uk": {
+        "rows": 20,
+        "bank_aliases": 16,
+        "field_errors": {
+          "subject": 9,
+          "time": 0,
+          "assertion": 8,
+          "source": 10,
+          "relation": 9,
+          "concern": 0
+        },
+        "binary_errors": 2,
+        "joint_errors": 14,
+        "assertion_errors": 8
+      }
+    },
+    "unchanged-initial75": {
+      "ro": {
+        "rows": 20,
+        "bank_aliases": 16,
+        "field_errors": {
+          "subject": 6,
+          "time": 0,
+          "assertion": 13,
+          "source": 6,
+          "relation": 12,
+          "concern": 0
+        },
+        "binary_errors": 4,
+        "joint_errors": 14,
+        "assertion_errors": 13
+      },
+      "uk": {
+        "rows": 20,
+        "bank_aliases": 16,
+        "field_errors": {
+          "subject": 12,
+          "time": 0,
+          "assertion": 8,
+          "source": 11,
+          "relation": 7,
+          "concern": 0
+        },
+        "binary_errors": 6,
+        "joint_errors": 13,
+        "assertion_errors": 8
+      }
+    }
+  },
+  "eligibility": {
+    "primary_reference": "unchanged-initial75",
+    "partitions": [
+      "probe_operator",
+      "probe_both"
+    ],
+    "rows_per_language": 768,
+    "assertion_errors": {
+      "original-v9": {
+        "ro": 343,
+        "uk": 274
+      },
+      "unchanged-initial75": {
+        "ro": 357,
+        "uk": 296
+      }
+    },
+    "strict_improvement_study_eligible": true,
+    "ineligible_languages": [],
+    "zero_ceiling_flags": {
+      "original-v9": [],
+      "unchanged-initial75": []
+    },
+    "decision": "PARENT_ERROR_HEADROOM_ONLY_NOT_TRAINING_ADMISSION",
+    "rule": "Either initial75 language atzero makes the intended strict-improvement registration ineligible. No row deletion, easier-reference substitution, training or checkpoint selection follows.",
+    "qualified": false
+  },
+  "artifacts": {
+    "ro-unchanged-initial75-logits.npy": "8c169cf619c5d871131003cb124c63292715b2c934b7d045fb05d99f898cabe3",
+    "uk-original-v9-logits.npy": "3a58edf5a32593b369dd8f884eb8a8ac995de75949955ad3738433e4a33ceb6f",
+    "ro-unchanged-initial75-results.jsonl": "da59c8a94bd2fbb91d254dfd3ffc9265de4ca4d42d9d9fc742a000f6d1bf9bc3",
+    "uk-unchanged-initial75-logits.npy": "8e16607ff000c68e5bc8f74cb74b7d47dbfa8d98d1d265c31363b2f9f9871ada",
+    "ro-original-v9-logits.npy": "78d0a8c9f381ebf7bc1a331e60093a6366e5ba09ee8ab14bc7067d2d51e5fbcd",
+    "uk-original-v9-results.jsonl": "a1c0e840b11f99b3e8d3dacb65eceafcdb1e0793bc9ad4688da3eb9bbc592eef",
+    "original-v9-full40-panel.jsonl": "56cd7b2055f7a348c8c1947432f05a71a6e41eb67d8cf766330afc5876cd9f5f",
+    "uk-unchanged-initial75-results.jsonl": "5356ca0b3a847e39df41f13901858d75d08276c159517f44d18a3d2dcf841823",
+    "registered-plan.json": "ae05acf87c3298b0250fd944fb2eefece14e131f439f2e8598eebae0b965d8dc",
+    "ro-original-v9-results.jsonl": "d6f95d5bd55e6aa50c650246d99d0396f603829299b45222baba401435c06c0e",
+    "unchanged-initial75-full40-panel.jsonl": "6f6a1af2b11c2ae749e8d92c5dbca67b7af31ed3220f896a775aa67b8202bae7",
+    "source.py": "55601bd5402bb3e24cfd0fd5d47ed655db9f90e083fbbbd25383c6ad5a64a6d0"
+  },
+  "retained_output_validation": {
+    "logit_rows": 6160,
+    "outcome_rows": 6160,
+    "panel_rows": 80,
+    "exact_saved_array_value_equality": true,
+    "metrics_recomputed_from_saved_logits": true,
+    "source_plan_snapshots_verified": true
+  },
+  "data_now_exposed_engineering_diagnostics": true,
+  "decision": "COMPLETE_FIXED_REFERENCE_PROFILE_ONLY_NO_SELECTION_OR_FITTING",
+  "original_private_report_sha256": "c9c4b3698655b56f74e7c786439339b54414600e8a51a39abc659b1d59da1bb8",
+  "public_redaction": "Local paths replaced; all original numeric/bool/null values and digests retained."
+}

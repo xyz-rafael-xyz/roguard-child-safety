@@ -1283,3 +1283,39 @@ bindings before numerical imports. It performs no fitting or label-accuracy
 summaries. Completion still requires independent feature audit121 and a
 separately registered baseline profile. Metadata and public package version
 remain9.0.0; this work does not qualify a v10 release.
+
+
+A structural census checks whether the original 37,766 inputs can distinguish
+role-aligned prior-token pools from a chronological control with matching pool
+sizes. Only 936 inputs can differ by prior-role order: Romanian TRAIN/DEV has
+256/32 and Ukrainian TRAIN/DEV has 544/104. The remaining 36,830 necessarily
+produce identical masks. Empty or excluded content tokens can reduce the 936,
+so this is an upper bound on informative cases, not a measured token-mask census.
+Independent verification matches every recovered input to the audited metadata,
+rehashes every cached token list, recounts every saved census row and checks the
+structural predicate across 4,095 abstract role patterns and 55,987 token-allocation
+cases. No tokenizer, feature array or model was run for this census.
+
+Potential differences are concentrated in a few exposed source groups. A wider
+fit needs separately reviewed role/order/content-balanced contrasts, with all
+original rows retained. Identical pooled features do not force identical outputs
+from separately trained heads; a global gain would not alone establish broad
+speaker-role understanding. The reports and scoped source export are retained
+in `research/v10-evidence/role-structure-census-20261108/`. This finding provides
+no new model-accuracy or release-qualification result.
+
+
+Reference extraction120 and independent audit121 have now completed all 3,080
+inputs. The audit retokenized each input and replayed each original v9 head on
+CPU, with unchanged seven-head argmax and binary decisions. Native encoder
+parity observations were recounted, not independently reproduced.
+
+Baseline122 then evaluated original v9 and unchanged study75. An independent
+audit recounted all 6,160 predictions and 80 panel responses and replayed all
+3,080 study75 head outputs on MLX CPU against Torch CPU. On the fixed transfer
+population of 768 rows per language, v9 makes 343 Romanian and 274 Ukrainian
+assertion errors; unchanged study75 makes 357 and 296. This establishes room
+for improvement, not an improved model. No fitting or selection occurred.
+The probes are now exposed engineering diagnostics. The full reports, exact
+producer/auditor sources and scoped checks are retained in
+`research/v10-evidence/balanced-operator-reference-120-122/`.
