@@ -24,6 +24,8 @@ BASE = {'README.md', 'chat_template.jinja', 'config.json',
         'model.safetensors.index.json', 'processor_config.json',
         'tokenizer.json', 'tokenizer_config.json'}
 KINDS = {
+    'focal_reader': ('roguard-focal-reader-installed-closure-1',
+                     'roguard-focal-reader-closure-receipt-1'),
     'native_response': ('roguard-native-response-installed-closure-1',
                         'roguard-native-response-installed-receipt-1'),
     'native_tail': ('roguard-native-tail-installed-closure-1',
@@ -85,6 +87,11 @@ def _record(value):
 
 def _asset_ids(kind):
     base = {'base:' + name for name in BASE}
+    if kind == 'focal_reader':
+        return base | {'selector'} | {lang + '_' + suffix
+            for lang in ('ro', 'uk') for suffix in
+            ('manifest', 'spec9', 'adapter9', 'reader_weights', 'reader_stats',
+             'residual_weights', 'residual_stats')}
     if kind == 'native_response':
         return base | {'manifest', 'native_spec', 'native_adapter', 'reference_spec', 'reference_weights'}
     if kind == 'native_tail':
@@ -301,7 +308,7 @@ def rebase_closure(approved_path, *, expected_sha256, bundle_root, output_path):
         assets={}, native_dependencies={}, asset_edges=approved['asset_edges'],
         required_asset_ids=sorted(approved['assets']), required_runtime_assets=sorted(approved['assets']),
         declared_supported_runtime_contract=approved['declared_supported_runtime_contract'])
-    if approved['kind'] in ('native_tail', 'native_response'):
+    if approved['kind'] in ('native_tail', 'native_response', 'focal_reader'):
         registration['bundle_root'] = str(bundle)
     for name, value in approved['assets'].items():
         loc = value['location']; root = bundle if loc['root'] == 'bundle' else roots['roguard']
@@ -457,6 +464,14 @@ class NativeTailClosure:
         require(language in ('ro', 'uk'), 'Language closure required')
         self.verify()
         return _NativeLanguageClosure(self, language)
+
+
+class FocalReaderClosure(NativeTailClosure):
+    """Verify focal-reader assets without granting model release qualification."""
+    KIND = 'focal_reader'
+
+    def language_view(self, language):
+        raise ValueError('Focal-reader components use explicit language assets')
 
 
 class NativeResponseClosure(NativeTailClosure):
