@@ -18,6 +18,7 @@ import unicodedata
 FORMAT = 'roguard-public-v10-bundle-1'
 NATIVE_FORMAT = 'roguard-public-v10-bundle-2'
 NATIVE_RESPONSE_FORMAT = 'roguard-public-v10-bundle-3'
+FOCAL_READER_FORMAT = 'roguard-public-v10-bundle-4'
 _LEASE_LOCK = threading.RLock()
 _OWNER = None
 _POISONED = False
@@ -85,15 +86,16 @@ def _relative(root, binding, maximum):
 
 def _schema(spec):
     _require(type(spec) is dict and set(spec) == {'format', 'qualified', 'languages', 'inventories', 'structured', 'response', 'calibration'}, 'Exact v10 bundle schema required')
-    _require(spec['format'] in (FORMAT, NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT) and spec['qualified'] is False and spec['languages'] == ['ro', 'uk'], 'Explicit experimental bilingual bundle required')
+    _require(spec['format'] in (FORMAT, NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT) and spec['qualified'] is False and spec['languages'] == ['ro', 'uk'], 'Explicit experimental bilingual bundle required')
     _require(type(spec['inventories']) is dict and set(spec['inventories']) == {'structured', 'response'}, 'Both approved runtime inventories required')
     s = spec['structured']; r = spec['response']
     structured_keys = {'mode', 'budget', 'pipeline_digest'}
-    if spec['format'] in (NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT):
+    if spec['format'] in (NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT):
         structured_keys.add('backend')
-        _require(type(s) is dict and s.get('backend') == 'native_tail19', 'Explicit native-tail backend required')
+        expected_backend = 'focal_reader19' if spec['format'] == FOCAL_READER_FORMAT else 'native_tail19'
+        _require(type(s) is dict and s.get('backend') == expected_backend, 'Explicit structured backend required')
     _require(type(s) is dict and set(s) == structured_keys and s['mode'] in ('direct-first', 'uniform') and type(s['budget']) is int and s['budget'] == 1200 and _valid_sha(s['pipeline_digest']), 'Structured mode/identity contract differs')
-    if spec['format'] == NATIVE_RESPONSE_FORMAT:
+    if spec['format'] in (NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT):
         _require(type(r) is dict and set(r) == {'backend', 'reference_identity', 'model_identity', 'artifact_identity'} and
                  r['backend'] == 'native_attention74' and all(_valid_sha(r[k]) for k in
                  ('reference_identity', 'model_identity', 'artifact_identity')), 'Explicit native74 identities required')
@@ -155,7 +157,8 @@ class _Backend:
                 self.wrapper.components.clear()
             if self.component is not None:
                 from roguard.native_tail import NativeTail
-                if type(self.component) is NativeTail:
+                from roguard.focal_reader_residual import FocalReaderResidualModel
+                if type(self.component) in (NativeTail, FocalReaderResidualModel):
                     self.component.close()
                 else:
                     self.component._parent = None
@@ -202,8 +205,11 @@ class _ActualFactory:
         if native:
             from roguard.v10_closure import NativeTailClosure
             structured_cls = NativeTailClosure
+        if spec['format'] == FOCAL_READER_FORMAT:
+            from roguard.v10_closure import FocalReaderClosure
+            structured_cls = FocalReaderClosure
         response_cls = ResponseClosure
-        if spec['format'] == NATIVE_RESPONSE_FORMAT:
+        if spec['format'] in (NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT):
             from roguard.v10_closure import NativeResponseClosure
             response_cls = NativeResponseClosure
         for kind, cls in (('structured', structured_cls), ('response', response_cls)):
@@ -211,7 +217,9 @@ class _ActualFactory:
             approved = _relative(root, binding, 32 << 20)
             bound = rebase_closure(approved, expected_sha256=binding['sha256'], bundle_root=root, output_path=directory / (kind + '.json'))
             expected_kind = 'native_tail' if native and kind == 'structured' else kind
-            if kind == 'response' and spec['format'] == NATIVE_RESPONSE_FORMAT:
+            if kind == 'structured' and spec['format'] == FOCAL_READER_FORMAT:
+                expected_kind = 'focal_reader'
+            if kind == 'response' and spec['format'] in (NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT):
                 expected_kind = 'native_response'
             _require(bound.kind == expected_kind, 'Approved inventory task differs')
             closure = cls(bound.path, bound.sha256)
@@ -230,7 +238,23 @@ class _ActualFactory:
         _require(shutil.disk_usage(tempfile.gettempdir()).free >= 8 * 1024 ** 3 + sum(v['bytes'] for v in FILES.values()), 'Insufficient native temporary-copy reserve')
         backend = _Backend(closure)
         try:
-            if task == 'structured' and spec['format'] in (NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT):
+            if task == 'structured' and spec['format'] == FOCAL_READER_FORMAT:
+                from roguard.focal_reader_residual import FocalReaderResidualModel
+                from roguard.focal_reader_structured import FocalReaderStructuredWrapper
+                from roguard.trajectory_model import TrajectoryModel
+                backend.component = FocalReaderResidualModel(
+                    manifest=closure.asset_path(language + '_manifest'),
+                    expected_manifest_sha256=closure.asset_sha(language + '_manifest'), base=base,
+                    parent_adapter=closure.asset_path(language + '_adapter9'),
+                    parent_spec=closure.asset_path(language + '_spec9'),
+                    **{role: closure.asset_path(language + '_' + role) for role in
+                       ('reader_weights', 'reader_stats', 'residual_weights', 'residual_stats')})
+                selector = TrajectoryModel(closure.asset_path('selector'), expected_sha256=closure.asset_sha('selector'))
+                backend.wrapper = FocalReaderStructuredWrapper({language: backend.component}, selector, closure,
+                    active_language=language, mode=spec['structured']['mode'], budget=spec['structured']['budget'])
+                _require(backend.wrapper.identity == spec['structured']['pipeline_digest'],
+                         'Actual focal structured pipeline differs')
+            elif task == 'structured' and spec['format'] in (NATIVE_FORMAT, NATIVE_RESPONSE_FORMAT):
                 from roguard.native_tail import load
                 from roguard.native_tail_structured import NativeTailStructuredWrapper
                 from roguard.trajectory_model import TrajectoryModel
@@ -258,7 +282,7 @@ class _ActualFactory:
                 selector = TrajectoryModel(closure.asset_path('selector'), expected_sha256=closure.asset_sha('selector'))
                 backend.wrapper = StructuredWrapper({language: backend.component}, selector, closure, active_language=language, mode=spec['structured']['mode'], budget=spec['structured']['budget'])
                 _require(backend.wrapper.identity == spec['structured']['pipeline_digest'], 'Actual structured pipeline differs')
-            elif spec['format'] == NATIVE_RESPONSE_FORMAT:
+            elif spec['format'] in (NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT):
                 from roguard.native_response import load
                 backend.offset = load(enabled=True, closure=closure, expected_closure_identity=closure.identity)
                 backend.parent = backend.offset.parent
@@ -430,7 +454,8 @@ class V10Bundle:
 
     def review_response_many(self, rows):
         """Native74 only: bounded sequential forwards, shared closure verification."""
-        _require(self._spec['format'] == NATIVE_RESPONSE_FORMAT, 'Response batches require explicit bundle3')
+        _require(self._spec['format'] in (NATIVE_RESPONSE_FORMAT, FOCAL_READER_FORMAT),
+                 'Response batches require explicit bundle3 or bundle4 native-response backend')
         from roguard.native_response import NativeResponse
         rows = NativeResponse._requests(rows)
         with _native_lock(), _LEASE_LOCK:
