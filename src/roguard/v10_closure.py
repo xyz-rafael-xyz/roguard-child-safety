@@ -18,6 +18,7 @@ import unicodedata
 FORMAT = 'roguard-portable-runtime-closure-1'
 PACKAGES = {'roguard', 'mlx_lm', 'mlx', 'numpy', 'transformers',
             'tokenizers', 'huggingface_hub', 'safetensors'}
+NATIVE_SUFFIXES = {'.so', '.dylib', '.pyd', '.metallib'}
 BASE = {'README.md', 'chat_template.jinja', 'config.json',
         'generation_config.json', 'model.safetensors',
         'model.safetensors.index.json', 'processor_config.json',
@@ -129,11 +130,15 @@ def _validate(value):
             require(loc['root'] == 'bundle', 'Runtime asset must be bundle-relative')
     require(type(value['native_dependencies']) is dict and value['native_dependencies'],
             'Explicit native dependency inventory required')
+    native_locations = set()
     for entry in value['native_dependencies'].values():
         require(type(entry) is dict and set(entry) == {'package', 'relative_path', 'bytes', 'sha256'}
                 and entry['package'] in PACKAGES, 'Invalid native dependency location')
-        require(_relative(entry['relative_path']).suffix in ('.so', '.dylib', '.pyd'),
+        require(_relative(entry['relative_path']).suffix in NATIVE_SUFFIXES,
                 'Native dependency must be a declared native library')
+        location = (entry['package'], entry['relative_path'])
+        require(location not in native_locations, 'Duplicate native dependency location')
+        native_locations.add(location)
         _record({key: entry[key] for key in ('bytes', 'sha256')})
     require(type(value['asset_edges']) is list, 'Explicit asset edges required')
     for edge in value['asset_edges']:
@@ -193,22 +198,33 @@ def _roots(approved):
         raw = Path(next(iter(found.submodule_search_locations)))
         require(not raw.is_symlink(), 'Linked package root is not admitted')
         root = raw.resolve(strict=True)
+        require(raw == root, 'Package root must be an absolute resolved path')
         distribution = importlib.metadata.distribution(package['distribution'])
         require(distribution.version == package['version']
                 and root.is_relative_to(Path(distribution.locate_file('')).resolve()),
                 'Installed distribution identity/root differs')
         roots[name] = root
+    require(not any(a.is_relative_to(b) for x, a in roots.items()
+                    for y, b in roots.items() if x != y),
+            'Installed package roots overlap')
     return roots
 
 
 def _verify(registration, roots, bundle):
+    observed_native = set()
     for name, package in registration['packages'].items():
         root = roots[name]
+        require(not root.is_symlink() and root.resolve(strict=True) == root
+                and root.is_dir(), 'Installed package root changed before traversal')
         observed = set()
         for path in root.rglob('*'):
             require(not path.is_symlink(), 'Package symlink is not admitted')
             if path.is_file() and path.suffix == '.py':
                 observed.add(path.relative_to(root).as_posix())
+            if path.is_file() and path.suffix in NATIVE_SUFFIXES:
+                # Physical package ownership matters: mlx-metal installs its
+                # dylibs/Metal library under mlx, outside mlx's own RECORD.
+                observed_native.add(path)
         require(observed == set(package['files']), 'Installed Python inventory differs')
         for relative, expected in package['files'].items():
             _check_file(_contained(root, relative), expected)
@@ -224,6 +240,11 @@ def _verify(registration, roots, bundle):
                     require(path.relative_to(root).as_posix() in package['files'] or any(
                         Path(v['path']) == path for v in registration['native_dependencies'].values()),
                         'Uninventoried loaded module')
+    declared_native = [Path(entry['path']) for entry in
+                       registration['native_dependencies'].values()]
+    require(len(declared_native) == len(set(declared_native))
+            and observed_native == set(declared_native),
+            'Installed native inventory differs')
     for group in ('assets', 'native_dependencies'):
         for entry in registration[group].values():
             path = Path(entry['path'])

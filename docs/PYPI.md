@@ -41,7 +41,9 @@ Measurements describe project-authored synthetic inputs. They do not establish a
 
 ## Explicit v10 bundle API
 
-The package includes an opt-in loader for local structured-review and five-class response-review bundles. The `gemma4-v10` extra pins the native dependencies, including Safetensors; install it from the exact wheel identified by your validation or release record, in a separate Apple Silicon Python 3.12-or-later environment. The loader requires a complete bundle and approved runtime inventories matching that installation. Model assets are separate from the wheel. These instructions do not imply that a candidate, downloadable v10 profile or public v10 release has qualified.
+The package includes an opt-in loader for local structured-review and five-class response-review bundles. The `gemma4-v10` extra pins the native dependencies, including Safetensors; install it from the exact wheel identified by your validation or release record. Model assets are separate from the wheel.
+
+The native extra requires Apple Silicon and Python 3.12 or later. Use the Python minor version, macOS version and dependency builds specified by the bundle's approved runtime inventory. Each runtime variant requires its own inventory and native validation. The loader verifies the complete bundle and matching installed files, including MLX's Metal libraries. These instructions do not imply that a candidate, downloadable v10 profile or public v10 release has qualified.
 
 Obtain the bundle checksum from its verified external record and set `ROGUARD_BUNDLE_SHA256`. Loading verifies local assets without downloading them; prediction loads the native model when needed.
 

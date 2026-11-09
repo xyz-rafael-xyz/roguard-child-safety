@@ -175,3 +175,93 @@ def test_no_overwrite_and_approved_hash(fixture,tmp_path):
     with pytest.raises(ValueError,match='digest'):m.rebase_closure(source,expected_sha256='0'*64,bundle_root=bundle,output_path=out)
     with pytest.raises(ValueError,match='overwrite'):m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,output_path=out)
     assert out.read_text()=='retain'
+
+
+def test_mlx_metal_physical_files_are_required_and_bound(fixture, tmp_path):
+    roots,bundle,make,freeze=fixture; value=make()
+    for relative in ('lib/libmlx.dylib', 'lib/libjaccl.dylib', 'lib/mlx.metallib'):
+        path=roots['mlx']/relative; path.parent.mkdir(exist_ok=True)
+        raw=('synthetic '+relative).encode(); path.write_bytes(raw)
+        value['native_dependencies']['mlx:'+relative]=dict(
+            package='mlx', relative_path=relative, **record(raw))
+    source,sha=freeze(value)
+    result=m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                            output_path=tmp_path/'complete.json')
+    assert result.receipt_sha256==value['expected_receipt_sha256']
+    del value['native_dependencies']['mlx:lib/mlx.metallib']
+    source,sha=freeze(value)
+    with pytest.raises(ValueError,match='native inventory'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'incomplete.json')
+
+
+@pytest.mark.parametrize('package', sorted(m.PACKAGES))
+def test_extra_native_rejected_in_every_approved_root(fixture,tmp_path,package):
+    roots,bundle,make,freeze=fixture; source,sha=freeze(make())
+    (roots[package]/'unapproved.metallib').write_bytes(b'synthetic')
+    with pytest.raises(ValueError,match='native inventory'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
+    assert not (tmp_path/'local.json').exists()
+
+
+def test_duplicate_native_location_rejected_before_discovery(fixture,tmp_path,monkeypatch):
+    _,bundle,make,freeze=fixture; value=make()
+    value['native_dependencies']['alias']=copy.deepcopy(value['native_dependencies']['numpy_core'])
+    source,sha=freeze(value)
+    monkeypatch.setattr(m,'_roots',lambda _:pytest.fail('discovery before duplicate rejection'))
+    with pytest.raises(ValueError,match='Duplicate native'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
+
+
+def test_late_extra_native_rejects_closing_barrier(fixture,tmp_path,monkeypatch):
+    roots,bundle,make,freeze=fixture; source,sha=freeze(make()); old=m._verify; calls=[]
+    def verify(*args):
+        calls.append(1)
+        if len(calls)==2:(roots['mlx']/'late.metallib').write_bytes(b'late')
+        return old(*args)
+    monkeypatch.setattr(m,'_verify',verify)
+    with pytest.raises(ValueError,match='native inventory'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
+    assert len(calls)==2
+
+
+@pytest.mark.parametrize('nested', [False, True])
+def test_package_roots_must_be_disjoint(fixture,tmp_path,monkeypatch,nested):
+    roots,bundle,make,freeze=fixture; source,sha=freeze(make())
+    roots['mlx']=roots['numpy']/('nested' if nested else '.')
+    roots['mlx'].mkdir(exist_ok=True)
+    monkeypatch.setattr(m,'_check_file',lambda *args:pytest.fail('Read before root rejection'))
+    with pytest.raises(ValueError,match='overlap'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
+
+
+def test_linked_package_root_ancestor_rejected(fixture,tmp_path,monkeypatch):
+    roots,bundle,make,freeze=fixture; source,sha=freeze(make())
+    link=tmp_path/'linked-site';link.symlink_to(roots['mlx'].parent,target_is_directory=True)
+    roots['mlx']=link/'mlx'
+    monkeypatch.setattr(m,'_check_file',lambda *args:pytest.fail('Read before root rejection'))
+    with pytest.raises(ValueError,match='absolute resolved'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
+
+
+def test_late_root_replacement_rejected_before_traversal(fixture,tmp_path,monkeypatch):
+    roots,bundle,make,freeze=fixture; source,sha=freeze(make()); old=m._verify
+    original=roots['mlx']; outside=tmp_path/'unopened-root';outside.mkdir(); calls=[]
+    def verify(*args):
+        calls.append(1)
+        if len(calls)==2:
+            original.rename(tmp_path/'retained-root'); original.symlink_to(outside,target_is_directory=True)
+        return old(*args)
+    rglob=Path.rglob
+    def guarded(path,*args,**kwargs):
+        assert not (path==original and path.is_symlink()), 'Traversed substituted root'
+        return rglob(path,*args,**kwargs)
+    monkeypatch.setattr(m,'_verify',verify);monkeypatch.setattr(Path,'rglob',guarded)
+    with pytest.raises(ValueError,match='root changed before traversal'):
+        m.rebase_closure(source,expected_sha256=sha,bundle_root=bundle,
+                         output_path=tmp_path/'local.json')
