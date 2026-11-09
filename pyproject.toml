@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roguard-child-safety"
-version = "9.0.0"
+version = "10.0.0"
 description = "Romanian and Ukrainian AI interaction testing, permission controls and guardrails"
 readme = "docs/PYPI.md"
 requires-python = ">=3.9"
@@ -84,6 +84,7 @@ train = ["numpy>=1.26", "pyyaml>=6", "torch>=2.3", "transformers>=4.46,<5", "pef
 mlx = ["mlx-lm>=0.31.3,<0.32"]
 fusion = ["torch>=2.14,<2.15", "transformers>=5.17,<5.18", "numpy>=1.26,<3", "mlx-lm>=0.31.3,<0.32"]
 gemma4 = ["mlx==0.32.2", "mlx-lm==0.31.3", "transformers==5.17.0", "tokenizers==0.23.2", "huggingface-hub==1.33.0", "numpy==2.5.3"]
+gemma4-v10 = ["mlx==0.32.2", "mlx-lm==0.31.3", "transformers==5.17.0", "tokenizers==0.23.2", "huggingface-hub==1.33.0", "numpy==2.5.3", "safetensors==0.8.0"]
 test = ["pytest>=8", "jsonschema>=4.23,<5"]
 message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 
