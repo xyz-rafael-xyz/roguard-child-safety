@@ -16,6 +16,7 @@ import traceback
 import unicodedata
 
 FORMAT = 'roguard-public-v10-bundle-1'
+NATIVE_FORMAT = 'roguard-public-v10-bundle-2'
 _LEASE_LOCK = threading.RLock()
 _OWNER = None
 _POISONED = False
@@ -83,10 +84,14 @@ def _relative(root, binding, maximum):
 
 def _schema(spec):
     _require(type(spec) is dict and set(spec) == {'format', 'qualified', 'languages', 'inventories', 'structured', 'response', 'calibration'}, 'Exact v10 bundle schema required')
-    _require(spec['format'] == FORMAT and spec['qualified'] is False and spec['languages'] == ['ro', 'uk'], 'Explicit experimental bilingual bundle required')
+    _require(spec['format'] in (FORMAT, NATIVE_FORMAT) and spec['qualified'] is False and spec['languages'] == ['ro', 'uk'], 'Explicit experimental bilingual bundle required')
     _require(type(spec['inventories']) is dict and set(spec['inventories']) == {'structured', 'response'}, 'Both approved runtime inventories required')
     s = spec['structured']; r = spec['response']
-    _require(type(s) is dict and set(s) == {'mode', 'budget', 'pipeline_digest'} and s['mode'] in ('direct-first', 'uniform') and type(s['budget']) is int and s['budget'] == 1200 and _valid_sha(s['pipeline_digest']), 'Structured mode/identity contract differs')
+    structured_keys = {'mode', 'budget', 'pipeline_digest'}
+    if spec['format'] == NATIVE_FORMAT:
+        structured_keys.add('backend')
+        _require(type(s) is dict and s.get('backend') == 'native_tail19', 'Explicit native-tail backend required')
+    _require(type(s) is dict and set(s) == structured_keys and s['mode'] in ('direct-first', 'uniform') and type(s['budget']) is int and s['budget'] == 1200 and _valid_sha(s['pipeline_digest']), 'Structured mode/identity contract differs')
     _require(type(r) is dict and set(r) == {'reference_identity', 'parent_identity', 'artifact_identity'} and all(_valid_sha(v) for v in r.values()), 'Response identities required')
 
 
@@ -143,7 +148,11 @@ class _Backend:
             if self.wrapper is not None:
                 self.wrapper.components.clear()
             if self.component is not None:
-                self.component._parent = None
+                from roguard.native_tail import NativeTail
+                if type(self.component) is NativeTail:
+                    self.component.close()
+                else:
+                    self.component._parent = None
             if self.optional is not None:
                 self.optional.parent = self.optional.original_head = self.optional.residual = self.optional.alignment = None
             if self.offset is not None:
@@ -180,11 +189,17 @@ class _ActualFactory:
         from roguard.experimental_structured import Closure as StructuredClosure
         from roguard.response_offset.closure import Closure as ResponseClosure
         result = {}
-        for kind, cls in (('structured', StructuredClosure), ('response', ResponseClosure)):
+        native = spec['format'] == NATIVE_FORMAT
+        structured_cls = StructuredClosure
+        if native:
+            from roguard.v10_closure import NativeTailClosure
+            structured_cls = NativeTailClosure
+        for kind, cls in (('structured', structured_cls), ('response', ResponseClosure)):
             binding = spec['inventories'][kind]
             approved = _relative(root, binding, 32 << 20)
             bound = rebase_closure(approved, expected_sha256=binding['sha256'], bundle_root=root, output_path=directory / (kind + '.json'))
-            _require(bound.kind == kind, 'Approved inventory task differs')
+            expected_kind = 'native_tail' if native and kind == 'structured' else kind
+            _require(bound.kind == expected_kind, 'Approved inventory task differs')
             closure = cls(bound.path, bound.sha256)
             _require(closure.identity == bound.receipt_sha256, 'Rebased runtime receipt differs')
             result[kind] = closure
@@ -201,7 +216,18 @@ class _ActualFactory:
         _require(shutil.disk_usage(tempfile.gettempdir()).free >= 8 * 1024 ** 3 + sum(v['bytes'] for v in FILES.values()), 'Insufficient native temporary-copy reserve')
         backend = _Backend(closure)
         try:
-            if task == 'structured':
+            if task == 'structured' and spec['format'] == NATIVE_FORMAT:
+                from roguard.native_tail import load
+                from roguard.native_tail_structured import NativeTailStructuredWrapper
+                from roguard.trajectory_model import TrajectoryModel
+                language_closure = closure.language_view(language)
+                backend.component = load(enabled=True, closure=language_closure,
+                    expected_closure_identity=language_closure.identity)
+                selector = TrajectoryModel(closure.asset_path('selector'), expected_sha256=closure.asset_sha('selector'))
+                backend.wrapper = NativeTailStructuredWrapper({language: backend.component}, selector, closure,
+                    active_language=language, mode=spec['structured']['mode'], budget=spec['structured']['budget'])
+                _require(backend.wrapper.identity == spec['structured']['pipeline_digest'], 'Actual native structured pipeline differs')
+            elif task == 'structured':
                 from roguard.experimental_role_residual import load_experimental_role_residual
                 from roguard.experimental_structured import StructuredWrapper
                 from roguard.trajectory_model import TrajectoryModel
@@ -282,7 +308,7 @@ class V10Bundle:
 
     @property
     def profile(self):
-        return dict(format=FORMAT, qualified=False, inference_identity=self.inference_identity,
+        return dict(format=self._spec['format'], qualified=False, inference_identity=self.inference_identity,
             bundle_sha256=self.bundle_sha256, structured_pipeline_digest=self._spec['structured']['pipeline_digest'],
             response_artifact_identity=self._spec['response']['artifact_identity'],
             mode=self._spec['structured']['mode'], automatic_downloads=False,
