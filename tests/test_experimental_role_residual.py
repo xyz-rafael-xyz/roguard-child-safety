@@ -61,13 +61,15 @@ def test_explicit_enable_is_required_and_no_default_profile_is_registered():
     assert 'role-residual' not in profiles
 
 
-def test_packaged_alignment_preserves_reviewed_pure_function_ast():
+def test_packaged_alignment_preserves_reviewed_source_bytes_and_lineage():
     proof = json.loads((Path(__file__).parent/'fixtures/role_alignment_lineage.json').read_text())
     raw = Path(alignment.__file__).read_bytes()
     assert hashlib.sha256(raw).hexdigest() == proof['packaged_source_sha256'] == residual.ALIGNMENT_SHA
-    actual = {n.name: hashlib.sha256(ast.dump(n, include_attributes=False).encode()).hexdigest()
-              for n in ast.parse(raw).body if isinstance(n, ast.FunctionDef)}
-    assert actual == proof['functions']
+    # The historical function digests use CPython 3.12's ast.dump format.
+    # AST fields/empty-field rendering differ across supported Python versions;
+    # the exact reviewed source-byte check above binds every function instead.
+    actual = {n.name for n in ast.parse(raw).body if isinstance(n, ast.FunctionDef)}
+    assert actual == set(proof['functions'])
     assert alignment.RESEARCH_SOURCE_SHA256 == residual.ALIGNMENT_LINEAGE_SHA == proof['research_source_sha256']
     assert b'/Users/' not in raw and b'REPO =' not in raw
 
