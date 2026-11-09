@@ -24,6 +24,8 @@ BASE = {'README.md', 'chat_template.jinja', 'config.json',
         'model.safetensors.index.json', 'processor_config.json',
         'tokenizer.json', 'tokenizer_config.json'}
 KINDS = {
+    'native_response': ('roguard-native-response-installed-closure-1',
+                        'roguard-native-response-installed-receipt-1'),
     'native_tail': ('roguard-native-tail-installed-closure-1',
                     'roguard-native-tail-closure-receipt-1'),
     'structured': ('roguard-structured-installed-closure-2',
@@ -83,6 +85,8 @@ def _record(value):
 
 def _asset_ids(kind):
     base = {'base:' + name for name in BASE}
+    if kind == 'native_response':
+        return base | {'manifest', 'native_spec', 'native_adapter', 'reference_spec', 'reference_weights'}
     if kind == 'native_tail':
         return base | {'selector'} | {lang + '_' + suffix
             for lang in ('ro', 'uk') for suffix in
@@ -297,7 +301,7 @@ def rebase_closure(approved_path, *, expected_sha256, bundle_root, output_path):
         assets={}, native_dependencies={}, asset_edges=approved['asset_edges'],
         required_asset_ids=sorted(approved['assets']), required_runtime_assets=sorted(approved['assets']),
         declared_supported_runtime_contract=approved['declared_supported_runtime_contract'])
-    if approved['kind'] == 'native_tail':
+    if approved['kind'] in ('native_tail', 'native_response'):
         registration['bundle_root'] = str(bundle)
     for name, value in approved['assets'].items():
         loc = value['location']; root = bundle if loc['root'] == 'bundle' else roots['roguard']
@@ -333,6 +337,8 @@ class NativeTailClosure:
     The expected registration digest comes from rebase_closure's approved input.
     This class observes no files for approval and authenticates no release proof.
     """
+    KIND = 'native_tail'
+
     def __init__(self, registration_path, expected_sha256):
         self._path = Path(registration_path)
         self._sha = _sha(expected_sha256)
@@ -346,7 +352,7 @@ class NativeTailClosure:
                     'native_dependencies', 'asset_edges', 'required_asset_ids',
                     'required_runtime_assets', 'declared_supported_runtime_contract', 'bundle_root'}
         require(type(r) is dict and set(r) == required and
-                r['format'] == KINDS['native_tail'][0] and r['qualified'] is False and
+                r['format'] == KINDS[self.KIND][0] and r['qualified'] is False and
                 r['scope'] == 'installed_candidate' and r['registered'] is True,
                 'Explicit approved native-tail registration required')
         require(type(r['packages']) is dict and set(r['packages']) == PACKAGES,
@@ -381,15 +387,15 @@ class NativeTailClosure:
             key = owners[0]
             natives[name] = dict(package=key, relative_path=path.relative_to(self._roots[key]).as_posix(),
                                 **{k: value[k] for k in ('bytes', 'sha256')})
-        expected = _asset_ids('native_tail')
+        expected = _asset_ids(self.KIND)
         require(type(r['required_asset_ids']) is list and
                 len(r['required_asset_ids']) == len(expected) and set(r['required_asset_ids']) == expected and
                 type(r['required_runtime_assets']) is list and
                 len(r['required_runtime_assets']) == len(expected) and set(r['required_runtime_assets']) == expected,
                 'Exact native runtime asset inventory')
-        self.receipt = receipt(r, 'native_tail')
+        self.receipt = receipt(r, self.KIND)
         self.identity = digest(self.receipt)
-        self._approved = dict(format=FORMAT, kind='native_tail',
+        self._approved = dict(format=FORMAT, kind=self.KIND,
             packages={name: {k: p[k] for k in ('distribution', 'version', 'files')}
                       for name, p in r['packages'].items()}, assets=assets, native_dependencies=natives,
             asset_edges=r['asset_edges'], declared_supported_runtime_contract=r['declared_supported_runtime_contract'],
@@ -412,7 +418,7 @@ class NativeTailClosure:
                 {k: str(v) for k, v in self._roots.items()} ==
                 {k: v['root'] for k, v in self._registration['packages'].items()}, 'Closure derived state changed')
         require(digest(self._registration) == self._state and digest(self.receipt) == self.identity and
-                digest(receipt(self._registration, 'native_tail')) == self.identity, 'Closure state changed')
+                digest(receipt(self._registration, self.KIND)) == self.identity, 'Closure state changed')
         require(_roots(self._approved) == self._roots, 'Installed package roots changed')
         require(not self._bundle.is_symlink() and self._bundle.resolve(strict=True) == self._bundle and
                 self._bundle.is_dir(), 'Bundle root changed')
@@ -451,6 +457,21 @@ class NativeTailClosure:
         require(language in ('ro', 'uk'), 'Language closure required')
         self.verify()
         return _NativeLanguageClosure(self, language)
+
+
+class NativeResponseClosure(NativeTailClosure):
+    """Finite native74 assets under the same externally approved byte closure."""
+    KIND = 'native_response'
+
+    def language_view(self, language):
+        raise ValueError('Response closure is one bilingual model, not a language view')
+
+    def base_path(self):
+        paths = [self.asset_path('base:' + name) for name in BASE]
+        root = paths[0].parent
+        require(all(path == root / name for path, name in zip(paths, BASE)),
+                'Original base files must share one directory')
+        return root
 
 
 class _NativeLanguageClosure:
