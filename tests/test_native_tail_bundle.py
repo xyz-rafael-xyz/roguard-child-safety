@@ -1,4 +1,5 @@
 import copy
+import sys
 import types
 import pytest
 from test_v10_bundle import fixture, write, payload, Factory, reset_lease
@@ -79,6 +80,7 @@ def test_actual_native_activation_interface_and_nested_cleanup(tmp_path, monkeyp
     assert backend.component is None and backend.wrapper is None
 
 
+@pytest.mark.skipif(sys.version_info < (3, 12), reason='Native exception cleanup contract requires Python 3.12+')
 def test_actual_cleanup_still_releases_native_after_closure_failure(tmp_path, monkeypatch):
     from roguard import native_tail
     events=[]; component=object.__new__(native_tail.NativeTail)
