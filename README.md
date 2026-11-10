@@ -68,19 +68,53 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
 
-**V10 adds an opt-in joint-feature reviewer.** It combines the pinned v9 Gemma 4 final token and focal
-message features with four packaged, checksum-bound heads. On 120 frozen,
-project-authored Romanian and Ukrainian cases, its installed wheel made zero
-binary and concern errors; v9 made six of each per language. A separate label
-correction records 20 hypothetical personal concerns that the initial authored
-gold had mistakenly marked negative despite the existing policy. A separate
-40-case frozen challenge also had zero v10 errors in those outputs and nine v9
-errors combined. Earlier v10 candidates failed 14 authored challenges, all
-retained in the [challenge record](research/v10-evidence/fresh-self-challenges-20261110/README.md).
-These synthetic results do not establish real-world accuracy; independent
-case-level human validation is still unavailable. [Wins, losses and model details](docs/V10_RELEASE_NOTES.md) · [Release evidence and
-local setup](docs/V10_RELEASE_CANDIDATE.md) · [Earlier committee research and
-rejected candidates](docs/V10_COMMITTEE.md) · [Research history](docs/V10_RESEARCH.md).
+## What v10 adds over v9
+
+**V10 is an optional, local second review path.** It keeps the exact pinned v9
+Gemma 4 backbone and v9 review head. It does not retrain Gemma 4 or change the
+default `roguard-review` behavior. The new path:
+
+1. Captures the v9 classifier's final-token vector **and** the mean hidden state
+   of the focal minor message's tokens from the frozen body. V9 uses the final
+   classifier representation alone for its review proposal.
+2. Applies four small, portable radial-basis-function (RBF) heads to that joint
+   feature: a binary review head and a separate concern-topic head for each of
+   Romanian and Ukrainian. Their exact files and the reused v9 base are
+   checksum-bound. The heads ship in the Python wheel; the approximately
+   5.18 GB v9 base is fetched separately and reused.
+3. Combines the two head margins with the v9 decision through a guarded rule.
+   An override needs supporting evidence; narrow, auditable cues handle direct
+   food or water deprivation, explicit denials, and media references. The
+   concern field can remain positive for a denied or fictional safety topic
+   while the binary decision is negative under the declared policy. The other
+   five structured fields remain v9 outputs.
+
+Use this path on native Apple Silicon with Python 3.12 or later:
+
+```sh
+pip install 'roguard-child-safety[gemma4-v10]==10.0.0'
+roguard-fetch fetch
+roguard-review --v10 --language ro --text 'Pot cere ajutor când sunt speriat.'
+roguard-review --v10 --language uk --text 'Можу попросити допомоги, коли мені страшно.'
+```
+
+On the installed wheel, v10 made **zero binary and concern errors** on a
+120-case project-authored bilingual panel; v9 made six errors in each output per
+language. A separate, frozen 40-case authored challenge had zero v10 errors in
+those outputs versus five v9 binary and four v9 concern errors. The panel's
+original labels wrongly marked 20 hypothetical personal concerns negative; a
+separate manifest records their correction under the existing policy. Earlier
+v10 candidates failed 14 authored challenges, retained in the
+[challenge record](research/v10-evidence/fresh-self-challenges-20261110/README.md).
+The [wheel downloaded from PyPI](research/v10-evidence/stable-release-20261110/publication.json)
+reproduced the 40-case result after a fresh install.
+
+These finite synthetic results do not establish perfect accuracy on real
+children's messages. Independent case-level human validation is still
+unavailable. The margins are uncalibrated review proposals and authorize no
+notification or other external action. [Wins, losses and model details](docs/V10_RELEASE_NOTES.md)
+· [Release evidence](docs/V10_RELEASE_CANDIDATE.md) · [Earlier committee
+research](docs/V10_COMMITTEE.md) · [Research history](docs/V10_RESEARCH.md).
 
 ## Earlier workflows retained in v9
 
