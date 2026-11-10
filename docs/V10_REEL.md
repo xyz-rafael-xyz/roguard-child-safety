@@ -1,8 +1,8 @@
 # RoGuard 10.0 reel
 
-The project and profile READMEs embed a **silent, infinitely looping animated WebP** made from the supplied `roguard_reel_27s.mov`. The source filename says “27s”, but the actual MOV is **45.47 seconds** long. The animation covers the full reel at 960 × 540 and 15 frames per second, with an opening title frame so it is recognizable while loading. The linked MP4 is 1280 × 720 at 30 frames per second and retains the source audio. The poster is a frame from the opening orange RoGuard title.
+The project and profile READMEs embed a **silent, infinitely looping animated WebP** made from the supplied `roguard_reel_27s.mov`. The source filename says “27s”, but the actual MOV is **45.47 seconds** long. The animation preserves the full sequence at 960 × 540 and **30 frames per second**, matching the source frame rate without an added title hold. The linked MP4 is 1280 × 720 at 30 frames per second and retains the source audio. The poster is a frame from the opening orange RoGuard title.
 
-[Looping animation](../media/roguard-v10-reel-loop.webp) · [Video with playback controls and audio](../media/roguard-v10-reel.mp4) · [Still poster](../media/roguard-v10-reel-poster.png)
+[Looping animation](../media/roguard-v10-reel-30fps.webp) · [Video with playback controls and audio](../media/roguard-v10-reel.mp4) · [Still poster](../media/roguard-v10-reel-poster.png)
 
 ## What the reel shows
 
@@ -15,7 +15,7 @@ The 33 errors are **output counts**, not necessarily distinct messages: v9 made 
 | File | SHA-256 |
 | --- | --- |
 | Supplied `roguard_reel_27s.mov` | `3cf25d8104ad4c15f1858251fe83ee1b52ad8222313c2673d34caff712d4012e` |
-| [`roguard-v10-reel-loop.webp`](../media/roguard-v10-reel-loop.webp) | `05f541affc823825cb0ef739584f97501ff7b4b1de1d04b894f9377f2666e8a2` |
+| [`roguard-v10-reel-30fps.webp`](../media/roguard-v10-reel-30fps.webp) | `55dfdda1c9d4c890b7859e7f6143833dfe5846b6c2a1373d0f96d41ec5de4f77` |
 | [`roguard-v10-reel.mp4`](../media/roguard-v10-reel.mp4) | `28e71375be8f52db4245a7c570d68c2f0a6e0d1bd4a3b7771841db84f746e49c` |
 | [`roguard-v10-reel-poster.png`](../media/roguard-v10-reel-poster.png) | `84fa051e73f651512a52f122d43011f1b8f2c6720fb3577261bebb6a416b2f87` |
 

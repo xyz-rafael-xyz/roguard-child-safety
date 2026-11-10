@@ -12,7 +12,7 @@
 [![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
 [![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
 
-[![RoGuard 10.0 orange-and-black animated reel: the reused Gemma 4 body, four RBF heads, a guarded review decision, and authored synthetic comparisons](media/roguard-v10-reel-loop.webp)](media/roguard-v10-reel.mp4)
+[![RoGuard 10.0 orange-and-black animated reel: the reused Gemma 4 body, four RBF heads, a guarded review decision, and authored synthetic comparisons](media/roguard-v10-reel-30fps.webp)](media/roguard-v10-reel.mp4)
 
 **RoGuard 10.0 in motion** · [Watch / pause the full video](media/roguard-v10-reel.mp4) · [Still preview](media/roguard-v10-reel-poster.png) · [Reel notes and evidence](docs/V10_REEL.md)
 
