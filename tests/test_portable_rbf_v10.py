@@ -31,6 +31,25 @@ class PortableRBFTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Expected finite float32'):
                 model.margin(first.astype(np.float64))
 
+    def test_joint_feature_normalizes_each_source_independently(self):
+        with tempfile.TemporaryDirectory() as directory:
+            vectors = np.zeros((2, 3584), dtype=np.float64)
+            vectors[0, 0], vectors[0, 2560] = 2 ** -.5, 2 ** -.5
+            vectors[1, 1], vectors[1, 2561] = 2 ** -.5, 2 ** -.5
+            asset = Path(directory) / 'joint.npz'
+            np.savez_compressed(asset, support_vectors=vectors,
+                                dual_coef=np.array([[-1., 1.]], dtype=np.float64),
+                                intercept=np.array([0.], dtype=np.float64),
+                                gamma=np.array([1.], dtype=np.float64))
+            model = PortableRBF(asset, expected_sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),
+                                feature_mode='joint')
+            first = np.zeros(3584, dtype=np.float32)
+            second = np.zeros(3584, dtype=np.float32)
+            first[0], first[2560] = 10, 1
+            second[1], second[2561] = 1, 10
+            self.assertLess(model.margin(first), 0)
+            self.assertGreater(model.margin(second), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

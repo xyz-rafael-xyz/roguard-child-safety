@@ -19,11 +19,14 @@ class Gemma4RBFV10Model:
             raise TypeError('Expected a pinned Gemma4 parent')
         self.parent = parent
         self.language = parent.language
-        self.binary = PortableRBF(binary_asset, expected_sha256=binary_sha256)
-        self.concern = PortableRBF(concern_asset, expected_sha256=concern_sha256)
+        self.binary = PortableRBF(binary_asset, expected_sha256=binary_sha256,
+                                  feature_mode='joint')
+        self.concern = PortableRBF(concern_asset, expected_sha256=concern_sha256,
+                                   feature_mode='joint')
         binding = json.dumps({'format': 'roguard-gemma4-rbf-v10', 'parent': parent.identity,
                               'language': self.language, 'binary': self.binary.identity,
-                              'concern': self.concern.identity}, sort_keys=True, separators=(',', ':'))
+                              'concern': self.concern.identity, 'feature_mode': 'joint'},
+                             sort_keys=True, separators=(',', ':'))
         self.identity = hashlib.sha256(binding.encode('utf-8')).hexdigest()
 
     @classmethod
@@ -73,7 +76,8 @@ class Gemma4RBFV10Model:
             if self.parent._engine is None:
                 self.parent._engine = _Engine(*self.parent._args)
             outputs = self.parent._engine.scores([p[0] for p in prepared], self.parent._spec,
-                                                 return_logits=True, return_features=True)
+                                                 return_logits=True, return_features=True,
+                                                 return_focal=True)
         if not isinstance(outputs, list) or len(outputs) != len(prepared):
             raise ValueError('Incomplete Gemma4 RBF review output')
         results = []
@@ -87,7 +91,9 @@ class Gemma4RBFV10Model:
                                     reason='INPUT_EXCEEDS_MODEL_CONTEXT', fields=None,
                                     review_requested=True, scope_evidence=None))
                 continue
-            raw, feature = item
+            import numpy as np
+            raw, final, focal = item
+            feature = np.concatenate((final, focal)).astype(np.float32, copy=False)
             _, evidence = correct_logits(raw, text=prefix['turns'][-1]['text'],
                                          language=self.language, spec=self.parent._spec, score_fn=_score)
             parent_predicted = int(evidence['score'] >= self.parent._spec['threshold'])

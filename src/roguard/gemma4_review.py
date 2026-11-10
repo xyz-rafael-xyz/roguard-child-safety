@@ -129,12 +129,16 @@ class _Engine:
             mx.eval(self.model.parameters())
         del original, tensors, raw
 
-    def scores(self, prefixes, spec, *, return_logits=False, return_features=False):
+    def scores(self, prefixes, spec, *, return_logits=False, return_features=False,
+               return_focal=False):
         from .gemma4_attention import capture, capture_with_prefix, replay
-        if return_features and not return_logits:
-            raise ValueError('Feature capture requires raw logits')
+        if (return_features and not return_logits) or (return_focal and not return_features):
+            raise ValueError('Focal feature capture requires raw logits and final features')
         if return_logits:
             import numpy as np
+        if return_focal:
+            from .focal_reader_residual import native_focal_mean
+            from .role_alignment import align
         mx = self.mx
         sequences = [classifier_tokens(self.tokenizer, p) for p in prefixes]
         # Match the qualified extraction path, including its fixed prefix length.
@@ -145,7 +149,7 @@ class _Engine:
             cache = self.make_cache(self.model.base)
             mx.eval(self.model.base.model(mx.array([PREFIX_TOKENS]), cache=cache))
         output = []
-        for sequence in sequences:
+        for prefix, sequence in zip(prefixes, sequences):
             if len(sequence) > 1024:
                 output.append(None)
                 continue
@@ -157,8 +161,19 @@ class _Engine:
             logits = self.model.heads[spec['language']](features)
             mx.eval(logits)
             if return_features:
-                output.append((np.asarray(logits[0], dtype=np.float32).copy(),
-                               np.asarray(features[0], dtype=np.float32).copy()))
+                values = (np.asarray(logits[0], dtype=np.float32).copy(),
+                          np.asarray(features[0], dtype=np.float32).copy())
+                if return_focal:
+                    alignment = align(prefix, getattr(self.tokenizer, '_tokenizer', self.tokenizer))
+                    if alignment['classifier_token_ids'] != sequence:
+                        raise ValueError('Focal token alignment differs')
+                    converted = state['shared'][23][1].astype(mx.float32)
+                    mx.eval(converted)
+                    focal, present = native_focal_mean(mx, converted, alignment)
+                    if not present:
+                        raise ValueError('Focal minor content absent')
+                    values += (focal,)
+                output.append(values)
             else:
                 output.append(np.asarray(logits[0], dtype=np.float32).copy() if return_logits else _score(logits[0], spec))
             del state, features, logits
