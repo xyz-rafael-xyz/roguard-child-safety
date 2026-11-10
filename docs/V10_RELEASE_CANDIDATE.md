@@ -17,7 +17,7 @@ The Python API is `Gemma4RBFV10Model.from_installed_v9(language='ro')` from `rog
 
 ## Engineering result
 
-The frozen candidate has zero binary and concern errors on all 39,010 exposed fit cases. On a separate 120-case authored mixed-scope panel, v10 had zero errors in both outputs for both languages. V9 had six binary and six concern errors per language on the same panel. An installed wheel replayed all 120 cases with the same results.
+The frozen candidate has zero binary and concern errors on all 39,010 exposed fit cases. On a separate 120-case authored mixed-scope panel, v10 had zero errors in both outputs for both languages. V9 had six binary and six concern errors per language on the same panel. All v9 errors there were false alerts on safe cases; v9 had no missed positive cases on this panel, so the observed improvement is specificity rather than recall. An installed wheel replayed all 120 cases with the same results.
 
 The panel was frozen before scoring. Its first authored labels mistakenly marked 20 hypothetical personal concerns as negative. The preexisting v9 policy explicitly counts hypothetical personal concerns as review proposals. A separate correction manifest records the 20 case IDs, original and corrected input hashes, and the policy hash; the original panel and first evaluation remain intact. Neither model was fitted on this panel.
 

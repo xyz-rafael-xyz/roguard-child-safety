@@ -17,7 +17,7 @@ This is a new feature extraction and head-training pipeline, not a retraining of
 | Binary errors, 60 authored Ukrainian cases | 6 | 0 | Same panel |
 | Concern errors, 60 authored Ukrainian cases | 6 | 0 | Same panel |
 
-The frozen candidate also had zero binary and concern errors on 39,010 exposed training and diagnostic cases. A fresh installation of the rebuilt wheel replayed all 120 policy-corrected panel cases with zero v10 errors in those two outputs. The panel was not used to fit the four heads. The original panel and first evaluation are retained: 20 hypothetical personal concerns were originally mislabeled negative, and a separate manifest records the correction against the preexisting policy.
+The frozen candidate also had zero binary and concern errors on 39,010 exposed training and diagnostic cases. A fresh installation of the rebuilt wheel replayed all 120 policy-corrected panel cases with zero v10 errors in those two outputs. All six v9 error cases per language were safe statements that v9 falsely flagged in both outputs; v9 had no missed positive cases on this panel. The measured gain here is fewer false alerts, with no demonstrated recall gain. The panel was not used to fit the four heads. The original panel and first evaluation are retained: 20 hypothetical personal concerns were originally mislabeled negative, and a separate manifest records the correction against the preexisting policy.
 
 ## Losses, rejected approaches and limits
 
