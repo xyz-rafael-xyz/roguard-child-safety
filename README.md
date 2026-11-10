@@ -75,7 +75,7 @@ project-authored Romanian and Ukrainian cases, its installed wheel made zero
 binary and concern errors; v9 made six of each per language. A separate label
 correction records 20 hypothetical personal concerns that the initial authored
 gold had mistakenly marked negative despite the existing policy. Independent
-human validation and public publication remain pending. [Candidate evidence and
+human validation and public publication remain pending. [Wins, losses and model details](docs/V10_RELEASE_NOTES.md) · [Candidate evidence and
 local setup](docs/V10_RELEASE_CANDIDATE.md) · [Earlier committee research and
 rejected candidates](docs/V10_COMMITTEE.md) · [Research history](docs/V10_RESEARCH.md).
 
