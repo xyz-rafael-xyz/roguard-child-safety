@@ -9,7 +9,8 @@ from roguard.assurance import policy_digest
 from roguard.gemma4_contract import BASE_MODEL, BASE_REVISION, POLICY_SHA256
 from roguard.gemma4_review import FORMAT, LORA
 from roguard.gemma4_review_v10 import Gemma4StructuredV10Model
-from roguard.review_scope_v10 import correct_logits, cues, explicit_meal_deprivation
+from roguard.review_scope_v10 import (correct_logits, cues, explicit_meal_deprivation,
+                                      explicit_reference_scope)
 
 
 def test_explicit_meal_deprivation_excludes_denials_and_fiction():
@@ -17,8 +18,21 @@ def test_explicit_meal_deprivation_excludes_denials_and_fiction():
     assert explicit_meal_deprivation('Учора мене відправили в кімнату без вечері.', 'uk')
     assert not explicit_meal_deprivation('Nu sunt trimis în cameră fără cină.', 'ro')
     assert not explicit_meal_deprivation('Батьки не лишають мене без їжі.', 'uk')
+    assert not explicit_meal_deprivation('Я не йду без обіду.', 'uk')
     assert not explicit_meal_deprivation('În roman, copilul este lăsat fără cină.', 'ro')
     assert not explicit_meal_deprivation('У фільмі мене відправили без вечері.', 'uk')
+
+
+def test_explicit_reference_scope_keeps_personal_disclosures_in_scope():
+    assert explicit_reference_scope('У фільмі сусід торкається дитини.', 'uk')
+    assert explicit_reference_scope('На дошці написано: «Скажи дорослому, якщо тобі погрожують».', 'uk')
+    assert explicit_reference_scope('O pagină de internet arată cum se raportează amenințările.', 'ro')
+    assert explicit_reference_scope('Ziarul povestește despre un copil pedepsit fără cină.', 'ro')
+    assert explicit_reference_scope('На дверях написано: «Скажи дорослому, якщо тобі погрожують».', 'uk')
+    assert not explicit_reference_scope('У фільмі таке трапилося, і мене теж торкається сусід.', 'uk')
+    assert not explicit_reference_scope('În film se întâmplă asta, iar eu pățesc la fel.', 'ro')
+    assert not explicit_reference_scope('Ziarul spune că prietena mea este amenințată.', 'ro')
+    assert not explicit_reference_scope('Газета пише, що моя подруга отримує погрози.', 'uk')
 
 
 def test_scope_reader_separates_outer_claim_from_quoted_words():

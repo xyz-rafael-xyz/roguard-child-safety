@@ -82,10 +82,24 @@ def explicit_meal_deprivation(text: str, language: str) -> bool:
                     and re.search(r'\b(?:fără\s+(?:cină|mâncare|prânz|masă|hrană|mic(?:ul)?\s+dejun)|nu\s+primesc\s+(?:mâncare|cina|prânzul|micul\s+dejun)|mi\s+se\s+refuză\s+(?:mâncarea|cina|prânzul))\b', value))
     if re.search(r'\b(?:роман|фільм|сценар|підручник|статт|сайт|плакат|буклет|брошур|казк|словник|енциклопеді|портал)\w*\b', value):
         return False
-    if re.search(r'\b(?:мене\s+(?:ніколи\s+)?не\s+(?:відправляють|позбавляють|залишають|лишають|карають)|я\s+не\s+(?:лягаю|залишаюся)|не\s+лишають)\b', value):
+    if re.search(r'\b(?:мене\s+(?:ніколи\s+)?не\s+(?:відправляють|позбавляють|залишають|лишають|карають)|я\s+не\s+(?:лягаю|залишаюся|йду|ходжу|виходжу)|не\s+лишають)\b', value):
         return False
     return bool(re.search(r'\b(?:мене|мені|я)\b', value)
                 and re.search(r'\b(?:без\s+(?:вечері|їжі|обіду|сніданку)|не\s+дають\s+(?:їсти|вечерю|їжі|сніданок|обід)|позбавили\s+(?:їжі|вечері|обіду|сніданку))\b', value))
+
+
+def explicit_reference_scope(text: str, language: str) -> bool:
+    """Recognize clearly framed media or textbook content without a personal claim."""
+    if not isinstance(text, str) or language not in ('ro', 'uk'):
+        raise ValueError('Expected Romanian or Ukrainian focal text')
+    value = unicodedata.normalize('NFC', text).casefold()
+    if language == 'ro':
+        marker = re.match(r'^(?:în\s+(?:film|roman|poveste|scenariu|carte|manual)|pe\s+(?:panou|site|afiș|perete|ușă)|o\s+pagină\s+de\s+internet|un\s+(?:portal|pliant|articol|ghid)|știrea|ziarul|manualul|profesorul\s+explică|clasa\s+discută|la\s+radio)\b', value)
+        personal = re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt|(?:prietenul|colegul|fratele)\s+meu|(?:prietena|colega|sora)\s+mea)\b', value)
+    else:
+        marker = re.match(r'^(?:у\s+(?:фільмі|романі|казці|книзі|підручнику|сценарії)|на\s+(?:дошці|сайті|плакаті|стіні|радіо|дверях)|вебсторінка|газета|новинний\s+портал|шкільна\s+брошура|посібник|стаття|учитель\s+пояснює|клас\s+обговорює)\b', value)
+        personal = re.search(r'\b(?:мене|мені|я|мій|моя|моєму|моєї)\b', value)
+    return bool(marker and not personal)
 
 
 def correct_logits(logits, *, text: str, language: str, spec: dict, score_fn):

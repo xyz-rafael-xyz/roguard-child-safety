@@ -10,7 +10,7 @@ from .gemma4_review import Gemma4ReviewModel, _LOCK, _score
 from .gemma4_review_v10 import V10FeatureEngine
 from .interpreter import prepare_input
 
-PACKAGED_MANIFEST_SHA256 = '52108c04b0313e246c4a63d029e07b8475600acd6fb3241d3d784387b3bb754b'
+PACKAGED_MANIFEST_SHA256 = '218c30ca502880919c99fccd1c5591f02ca83a3b38f3416576e8a251b23058a5'
 
 
 def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin: float,
@@ -19,9 +19,9 @@ def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin
     # the text still mentions a general safety concern. Weaker margins require
     # the concern head to agree, preserving difficult positive parent decisions.
     if parent_predicted == 1 and binary_margin <= 0.05:
-        if concern_margin < concern_threshold or binary_margin <= -0.8:
+        if concern_margin < concern_threshold or binary_margin <= -0.6:
             return 0
-    if parent_predicted == 0 and binary_margin >= 0.5 and concern_margin > concern_threshold:
+    if parent_predicted == 0 and binary_margin >= 0.4 and concern_margin > concern_threshold:
         return 1
     return parent_predicted
 
@@ -42,7 +42,7 @@ class Gemma4RBFV10Model:
         binding = json.dumps({'format': 'roguard-gemma4-rbf-v10', 'parent': parent.identity,
                               'language': self.language, 'binary': self.binary.identity,
                               'concern': self.concern.identity, 'feature_mode': 'joint',
-                              'decision_rule': 'guard-v3-ro0-uk0.05-meal-cue'},
+                              'decision_rule': 'guard-v6-ro0-uk0.1-binary0.4-clear-0.6-meal-and-reference-cues'},
                              sort_keys=True, separators=(',', ':'))
         self.identity = hashlib.sha256(binding.encode('utf-8')).hexdigest()
 
@@ -121,7 +121,8 @@ class Gemma4RBFV10Model:
 
     def interpret_many(self, payloads, *, focuses=None):
         from .evidence import ONTOLOGY
-        from .review_scope_v10 import correct_logits, explicit_meal_deprivation
+        from .review_scope_v10 import (correct_logits, explicit_meal_deprivation,
+                                       explicit_reference_scope)
 
         if not isinstance(payloads, list) or not 1 <= len(payloads) <= 128:
             raise ValueError('Expected one to 128 conversations')
@@ -159,12 +160,15 @@ class Gemma4RBFV10Model:
             parent_predicted = int(evidence['score'] >= self.parent._spec['threshold'])
             binary_margin = self.binary.margin(feature)
             concern_margin = self.concern.margin(feature)
-            concern_threshold = 0.05 if self.language == 'uk' else 0.0
+            concern_threshold = 0.1 if self.language == 'uk' else 0.0
             predicted = _binary_decision(parent_predicted, binary_margin, concern_margin,
                                          concern_threshold)
             meal_deprivation = explicit_meal_deprivation(prefix['turns'][-1]['text'], self.language)
             if meal_deprivation:
                 predicted = 1
+            reference_scope = explicit_reference_scope(prefix['turns'][-1]['text'], self.language)
+            if reference_scope:
+                predicted = 0
             field_ids = list(evidence['fields'])
             field_ids[5] = int(concern_margin >= concern_threshold)
             if meal_deprivation:
@@ -178,5 +182,6 @@ class Gemma4RBFV10Model:
                                 parent_predicted=parent_predicted,
                                 scope_evidence={'cues': evidence['cues'],
                                                 'binary_guard_rejected': evidence['binary_guard_rejected'],
-                                                'explicit_meal_deprivation': meal_deprivation}))
+                                                'explicit_meal_deprivation': meal_deprivation,
+                                                'explicit_reference_scope': reference_scope}))
         return results
