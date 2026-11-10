@@ -21,13 +21,15 @@ The [animation facts](../scripts/demo/v10-facts.json) are bound to the [public-w
 
 ## Visual design and reproduction
 
-Midnight navy (`#071321`) anchors the interface. Electric cyan (`#43DDEB`) identifies the final-token path, violet (`#AA88FF`) the focal-message path, coral (`#FF674B`) draws attention to the v9/v10 comparison, and lime (`#C8F36A`) marks the retained topic signal. Cream and cobalt create distinct chapter backgrounds. Meaning is also written in words, never encoded by color alone. Motion is limited to easing, paths, feature pulses, and chart reveals; there is no flashing or invented confidence percentage.
+The palette is shared with the Notițe product, chosen to read as calm and trustworthy rather than alarming. Warm paper (`#F3F6F2`) and white alternate as chapter backgrounds, with a deep night (`#111A1C`) finale. Ink (`#1D2B2F`) carries text. Lake blue (`#1E6A86`) identifies the final-token path and Romanian, heather (`#5E4F95`) the focal-message path and Ukrainian, moss (`#3B7A52`) the retained topic signal and v10 results, ember (`#B5412A`) the v9 errors, and apricot (`#FCEBD8`) the no-review action. Meaning is also written in words, never encoded by color alone.
 
-The GIF is **960 × 540 at 20 frames per second**, the MP4 is **1280 × 720**, and the poster is a full-resolution frame. To reproduce them, install `playwright-core` for Node, local Chrome or Chromium, and `imageio-ffmpeg` for Python. Then run:
+Each chapter carries one idea and one accent color. Elements enter on a critically damped spring (about 2% overshoot), fade in while sharpening from a slight blur, and arrive in a short stagger. Chapters leave by lifting, softening and fading while the background cross-fades to the next one. The Romanian case visibly flips from the v9 call to the v10 call, error bars grow to scale and count up, and the install command types itself. A segmented progress bar shows position in the sequence. There is no flashing or invented confidence percentage.
+
+Type is Inter Display for headlines and Inter for text, rendered locally. The MP4 is **1280 × 720 at 50 frames per second**; the GIF is **960 × 540 at 25 frames per second**, every second frame of the same render; the poster is the frame at 2.8 seconds. To reproduce them, install `playwright-core` for Node, local Chrome or Chromium, the Inter font family, and `imageio-ffmpeg` for Python (`gifsicle` is optional and shrinks the GIF). Then run:
 
 ```sh
 node scripts/demo/render-v10.cjs /tmp/roguard-v10-frames
 python scripts/demo/encode-v10.py /tmp/roguard-v10-frames
 ```
 
-Set `CHROME_PATH` for a nonstandard browser location and `PLAYWRIGHT_MODULE` if the Node package is outside its default resolution path. `PREVIEW=1` renders six representative frames. The renderer uses a local canvas and the pinned facts file; it needs no model download or network request.
+Set `CHROME_PATH` for a nonstandard browser location and `PLAYWRIGHT_MODULE` if the Node package is outside its default resolution path. `PREVIEW=1` renders six representative frames. Without Inter installed the browser falls back to SF Pro or Helvetica, which shifts glyph widths slightly. The renderer uses a local canvas and the pinned facts file; it needs no model download or network request.

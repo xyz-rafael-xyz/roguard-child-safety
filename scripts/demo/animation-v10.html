@@ -1,52 +1,179 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>RoGuard 10.0.0 - a clearer review signal</title>
-<style>html,body{margin:0;background:#071321}canvas{display:block}</style>
+<style>html,body{margin:0;background:#F3F6F2}canvas{display:block}</style>
 <canvas width="1280" height="720" aria-label="RoGuard 10.0.0 animated review explainer"></canvas>
 <script>
+// Calm, low-arousal palette shared with the Notite product (paper, ink, lake, heather, moss, apricot, ember).
+// Motion: critically-damped springs (about 2% overshoot), staggered entrances, blur-to-sharp focus,
+// soft exits and background cross-fades. No flashing, no invented confidence percentages.
 const canvas=document.querySelector('canvas'),g=canvas.getContext('2d');
 const W=1280,H=720,TAU=Math.PI*2;
-const C={navy:'#071321',ink:'#112338',cream:'#F9F7EF',white:'#FFFFFF',pale:'#DAE9EA',muted:'#98B3BE',cyan:'#43DDEB',coral:'#FF674B',lime:'#C8F36A',purple:'#AA88FF',blue:'#3458DF',darkblue:'#10243B'};
-const clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},out=x=>1-Math.pow(1-clamp(x),3);
-function rect(x,y,w,h,fill,r=0,stroke=null,lw=1){g.beginPath();g.roundRect(x,y,w,h,r);g.fillStyle=fill;g.fill();if(stroke){g.strokeStyle=stroke;g.lineWidth=lw;g.stroke()}}
-function line(x,y,X,Y,color,width=2){g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(x,y);g.lineTo(X,Y);g.stroke()}
-function circle(x,y,r,fill,stroke=null,lw=1){g.beginPath();g.arc(x,y,r,0,TAU);if(fill){g.fillStyle=fill;g.fill()}if(stroke){g.strokeStyle=stroke;g.lineWidth=lw;g.stroke()}}
-function txt(s,x,y,size=24,color=C.cream,weight=500,align='left'){g.fillStyle=color;g.font=`${weight} ${size}px Arial,Helvetica,sans-serif`;g.textAlign=align;g.fillText(s,x,y);g.textAlign='left'}
-function wrapped(s,x,y,width,size=24,color=C.ink,weight=500,leading=32){g.font=`${weight} ${size}px Arial,Helvetica,sans-serif`;let row='',n=0;for(const word of s.split(' ')){const next=row?row+' '+word:word;if(row&&g.measureText(next).width>width){txt(row,x,y+n*leading,size,color,weight);row=word;n++}else row=next}if(row)txt(row,x,y+n*leading,size,color,weight);return(n+1)*leading}
-function pill(s,x,y,fill,color=C.ink,size=15){g.font=`700 ${size}px Arial,Helvetica,sans-serif`;const w=g.measureText(s).width+30;rect(x,y,w,34,fill,17);txt(s,x+15,y+23,size,color,700);return w}
-function reveal(t,delay,fn){const p=out((t-delay)/.65);g.save();g.globalAlpha*=p;g.translate(0,(1-p)*22);fn(p);g.restore()}
-function glow(x,y,r,color,alpha=.45){const grad=g.createRadialGradient(x,y,0,x,y,r);grad.addColorStop(0,color);grad.addColorStop(1,'transparent');g.save();g.globalAlpha=alpha;g.fillStyle=grad;g.fillRect(x-r,y-r,2*r,2*r);g.restore()}
-function arc(x,y,r,start,end,color,width=2){g.beginPath();g.arc(x,y,r,start,end);g.strokeStyle=color;g.lineWidth=width;g.stroke()}
-function arrow(x,y,X,Y,color,width=3){line(x,y,X,Y,color,width);g.fillStyle=color;g.beginPath();g.moveTo(X,Y);g.lineTo(X-12,Y-7);g.lineTo(X-12,Y+7);g.closePath();g.fill()}
-function waves(y,t,color,alpha=.2){g.save();g.globalAlpha=alpha;for(let j=0;j<5;j++){g.beginPath();for(let x=0;x<=1280;x+=12){const yy=y+j*34+Math.sin(x/95+t*.9+j*.8)*18;x?g.lineTo(x,yy):g.moveTo(x,yy)}g.strokeStyle=color;g.lineWidth=1.3;g.stroke()}g.restore()}
-function grid(color,alpha=.08){g.save();g.globalAlpha=alpha;for(let x=0;x<1280;x+=48)line(x,105,x,634,color,1);for(let y=106;y<634;y+=48)line(0,y,1280,y,color,1);g.restore()}
-function head(scene){rect(0,0,W,105,C.navy);line(0,104,1280,104,'#1E3549',1);txt('RoGuard',54,62,29,C.cream,800);pill('10.0.0  /  STABLE',212,35,C.cyan,C.navy,13);txt('ROMANIAN  +  UKRAINIAN',1220,58,14,C.muted,700,'right')}
-function foot(index,t){rect(0,634,W,86,C.navy);line(54,634,1226,634,'#274259',1);rect(54,634,1172*t/window.duration,3,C.coral);txt('LOCAL REVIEW  /  HUMAN CONTROL',54,682,12,C.muted,700);const names=['INTRO','FEATURES','CASES','SCOPE','EVIDENCE','INSTALL'];names.forEach((n,i)=>{const x=593+i*105;circle(x,677,4,i===index?C.coral:'#36516A');txt(n,x+11,682,10,i===index?C.cream:C.muted,700)})}
-function hero(t){rect(0,105,1280,529,C.navy);grid(C.cyan,.05);glow(1020,385,460,C.blue,.28);glow(1020,400,290,C.coral,.12);waves(170,t,C.cyan,.12);
- pill('NEW IN V10',64,143,C.coral,C.navy);txt('A clearer',64,257,78,C.cream,800);txt('review signal.',64,341,78,C.cream,800);rect(67,358,388,7,C.cyan,3);txt('Two views of one message.',66,413,27,C.pale,500);txt('One guarded decision.',66,449,27,C.pale,500);
- const cx=1016,cy=390;for(let j=0;j<3;j++)arc(cx,cy,175+j*37,t*.17+j,TAU*.73+t*.17+j,j===1?C.purple:C.cyan,j===1?2:1);g.save();g.lineWidth=5;g.strokeStyle=C.cream;g.font='800 242px Arial';g.strokeText('10',824,470);g.restore();circle(cx+194*Math.cos(t*.9),cy+194*Math.sin(t*.9),8,C.coral);circle(cx+240*Math.cos(-t*.55),cy+240*Math.sin(-t*.55),6,C.lime);
- reveal(t,.5,()=>{rect(720,193,218,50,C.darkblue,14,'#476477',1);txt('FINAL TOKEN',743,226,17,C.cyan,800)});
- reveal(t,1.05,()=>{rect(1000,516,220,50,C.darkblue,14,'#476477',1);txt('FOCAL MESSAGE',1022,549,17,C.purple,800)});
- txt('FROZEN v9 BODY  +  NEW v10 HEADS',67,560,17,C.lime,800)}
-function features(t){rect(0,105,1280,529,C.cream);grid(C.ink,.055);glow(230,500,280,C.cyan,.22);txt('01 / MODEL DESIGN',64,160,16,C.blue,800);txt('One backbone. Two views.',64,230,57,C.ink,800);pill('v9 BODY FROZEN',992,169,C.ink,C.cream,14);
- const p=out((t-.35)/.9);const cards=[{x:64,w:335,title:'FINAL TOKEN',sub:'Conversation-level view',color:C.cyan,num:'01'},{x:420,w:335,title:'FOCAL MESSAGE',sub:'Minor-turn token mean',color:C.purple,num:'02'}];
- cards.forEach((c,i)=>{g.save();g.globalAlpha=out((t-.25-i*.25)/.8);g.translate(0,(1-out((t-.25-i*.25)/.8))*24);rect(c.x,282,c.w,228,C.ink,22);rect(c.x,282,c.w,8,c.color,3);txt(c.num,c.x+25,337,18,c.color,800);txt(c.title,c.x+25,381,26,C.cream,800);txt(c.sub,c.x+25,417,20,C.pale,500);for(let k=0;k<18;k++){let h=12+Math.sin(k*.9+t*2+i)*8;rect(c.x+27+k*15,458-h,8,h,c.color,3)}g.restore()});
- arrow(765,394,829,394,C.blue,4);rect(848,282,367,228,C.white,22,'#B8C8CF',1.3);txt('FOUR PORTABLE HEADS',874,326,18,C.ink,800);[['RO','REVIEW'],['RO','TOPIC'],['UK','REVIEW'],['UK','TOPIC']].forEach((v,i)=>{const x=874+(i%2)*165,y=345+Math.floor(i/2)*61;rect(x,y,149,48,i%2?C.purple:C.cyan,12);txt(v[0]+' / '+v[1],x+13,y+31,15,C.ink,800)});txt('Checksum-bound in the wheel',874,492,16,C.blue,700);
- txt('The existing v9 model stays available as the default review path.',64,565,21,C.ink,500)}
-function cases(t){rect(0,105,1280,529,'#DDF0EE');grid(C.ink,.045);txt('02 / SELECTED CASES',64,160,16,C.blue,800);txt('Context changes the call.',64,225,58,C.ink,800);txt('Real outputs on fictional messages from the frozen 40-case check.',64,260,21,'#476071',500);
+const C={paper:'#F3F6F2',white:'#FFFFFF',ink:'#1D2B2F',ink2:'#4B5A5E',ink3:'#7C8A8D',line:'#D6DED9',
+ lake:'#1E6A86',lakeSoft:'#E1EEF3',heather:'#5E4F95',heatherSoft:'#ECE8F6',heatherTint:'#F2F0F8',
+ moss:'#3B7A52',mossSoft:'#E2F0E6',apricot:'#F4C38E',apricotSoft:'#FCEBD8',ember:'#B5412A',emberSoft:'#F8E3DD',
+ night:'#111A1C',nightCard:'#1A2528',nightLine:'#2C3A3D',nightInk:'#E5EEEC',nightInk2:'#A7B7B4',
+ lakeLight:'#72B9D4',heatherLight:'#AFA2E6',mossLight:'#7CC394'};
+const DISPLAY='"Inter Display","SF Pro Display",Inter,"Helvetica Neue",Arial,sans-serif';
+const TEXT='Inter,"SF Pro Text","Helvetica Neue",Arial,sans-serif';
+const MONO='"JetBrains Mono","SF Mono",Menlo,"DejaVu Sans Mono",monospace';
+window.ready=Promise.all(['700 80px "Inter Display"','600 20px "Inter Display"','400 20px Inter','500 20px Inter','600 20px Inter','700 20px Inter'].map(f=>document.fonts.load(f,'AăîșțБЖ')));
+
+// ---------- motion primitives ----------
+const clamp=x=>Math.max(0,Math.min(1,x));
+const smooth=x=>{x=clamp(x);return x*x*x*(x*(6*x-15)+10)};          // smootherstep
+const outQuint=x=>1-Math.pow(1-clamp(x),5);
+const inCubic=x=>{x=clamp(x);return x*x*x};
+function spring(t,z=.8,w=12){if(t<=0)return 0;const wd=w*Math.sqrt(1-z*z);return 1-Math.exp(-z*w*t)*(Math.cos(wd*t)+z*w/wd*Math.sin(wd*t))}
+let EXIT=0;  // 0..1, set per frame: scene-wide fade, lift and defocus on the way out
+
+function hex(c){const n=parseInt(c.slice(1),16);return[n>>16&255,n>>8&255,n&255]}
+function mix(a,b,t){const A=hex(a),B=hex(b);return'#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('')}
+function rgba(c,a){const[r,gg,b]=hex(c);return`rgba(${r},${gg},${b},${a})`}
+
+// enter(): spring position, quintic opacity, blur-to-sharp. Everything that appears goes through it.
+function enter(t,delay,fn,o={}){const dy=o.dy??26,blur=o.blur??9,sc=o.scale??1,ox=o.ox??0,oy=o.oy??0;
+ const s=spring(t-delay),a=outQuint((t-delay)/.55);if(a<=0)return;
+ const ex=inCubic(EXIT);g.save();g.globalAlpha*=a;
+ const b=(1-a)*blur+ex*7;if(b>.15)g.filter=`blur(${b.toFixed(2)}px)`;
+ g.translate(0,(1-s)*dy-ex*14);
+ if(sc!==1){const k=sc+(1-sc)*s;g.translate(ox,oy);g.scale(k,k);g.translate(-ox,-oy)}
+ fn(s,a);g.restore()}
+
+// ---------- drawing primitives ----------
+function rr(x,y,w,h,r){g.beginPath();g.roundRect(x,y,w,h,r)}
+function card(x,y,w,h,fill=C.white,r=24,lift=1){g.save();g.shadowColor=rgba(C.ink,.07*lift);g.shadowBlur=44;g.shadowOffsetY=16;rr(x,y,w,h,r);g.fillStyle=fill;g.fill();g.restore();
+ g.save();g.shadowColor=rgba(C.ink,.05*lift);g.shadowBlur=3;g.shadowOffsetY=1;rr(x,y,w,h,r);g.fillStyle=fill;g.fill();g.restore()}
+function font(size,weight=500,fam=TEXT,track=0){g.font=`${weight} ${size}px ${fam}`;g.letterSpacing=(track*size).toFixed(2)+'px'}
+function txt(s,x,y,size=22,color=C.ink,weight=500,align='left',fam=TEXT,track=0){font(size,weight,fam,track);g.fillStyle=color;g.textAlign=align;g.fillText(s,x,y);g.textAlign='left';g.letterSpacing='0px'}
+function display(s,x,y,size,color=C.ink,weight=700){txt(s,x,y,size,color,weight,'left',DISPLAY,-.032)}
+function gradientDisplay(s,x,y,size,a,b,weight=700){font(size,weight,DISPLAY,-.032);const w=g.measureText(s).width;const gr=g.createLinearGradient(x,0,x+w,0);gr.addColorStop(0,a);gr.addColorStop(1,b);g.fillStyle=gr;g.fillText(s,x,y);g.letterSpacing='0px'}
+function wrapped(s,x,y,width,size,color,weight=500,leading=34){font(size,weight);let row='',n=0;for(const word of s.split(' ')){const next=row?row+' '+word:word;if(row&&g.measureText(next).width>width){txt(row,x,y+n*leading,size,color,weight);font(size,weight);row=word;n++}else row=next}if(row)txt(row,x,y+n*leading,size,color,weight);return(n+1)*leading}
+function chip(s,x,y,fill,color,size=14,h=32,align='left'){font(size,600,TEXT,.01);const w=g.measureText(s).width+28;const X=align==='right'?x-w:x;rr(X,y,w,h,h/2);g.fillStyle=fill;g.fill();txt(s,X+14,y+h/2+size*.36,size,color,600,'left',TEXT,.01);return w}
+function eyebrow(s,x,y,color){txt(s,x,y,17,color,600,'left',TEXT,.005)}
+function blob(x,y,r,color,a){const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,rgba(color,a));gr.addColorStop(1,rgba(color,0));g.fillStyle=gr;g.fillRect(x-r,y-r,2*r,2*r)}
+function check(x,y,s,color,w=2.4){g.save();g.strokeStyle=color;g.lineWidth=w;g.lineCap='round';g.lineJoin='round';g.beginPath();g.moveTo(x-s*.45,y);g.lineTo(x-s*.12,y+s*.33);g.lineTo(x+s*.5,y-s*.38);g.stroke();g.restore()}
+// flowing connector: a hairline with soft travelling dots, reads as "data moves" without noise
+function flow(x,y,X,Y,t,color,on=1){g.save();g.globalAlpha*=on;g.strokeStyle=rgba(color,.28);g.lineWidth=2;g.lineCap='round';g.beginPath();g.moveTo(x,y);g.lineTo(X,Y);g.stroke();
+ for(let k=0;k<3;k++){const p=((t*.7+k/3)%1),e=smooth(p);g.globalAlpha=on*Math.sin(p*Math.PI);g.fillStyle=color;g.beginPath();g.arc(x+(X-x)*e,y+(Y-y)*e,4,0,TAU);g.fill()}g.restore()}
+
+// ---------- scenes ----------
+function hero(t){
+ blob(980+Math.sin(t*.5)*24,360,440,C.lake,.13);blob(1120,250+Math.cos(t*.4)*18,320,C.heather,.12);blob(260,620,360,C.apricot,.14);
+ enter(t,.10,()=>eyebrow('New in v10',64,208,C.heather));
+ enter(t,.20,()=>display('A clearer',60,300,88,C.ink));
+ enter(t,.32,()=>gradientDisplay('review signal.',60,394,88,C.lake,C.heather));
+ enter(t,.55,()=>txt('Two views of one message.',64,456,26,C.ink2,400));
+ enter(t,.65,()=>txt('One guarded decision.',64,492,26,C.ink2,400));
+ enter(t,.85,()=>{g.fillStyle=C.moss;g.beginPath();g.arc(70,573,4,0,TAU);g.fill();txt('Frozen v9 body  +  new v10 heads',84,579,16,C.moss,600)});
+ // two views converge into one decision
+ const c=smooth((t-.45)/2.1),br=Math.sin(t*1.7)*2.5,cy=372,R=118+br;
+ const x1=1000-96*(1-c)-42,x2=1000+96*(1-c)+42;
+ enter(t,.30,()=>{g.save();g.globalCompositeOperation='multiply';
+  [[x1,C.lake,C.lakeSoft],[x2,C.heather,C.heatherSoft]].forEach(([x,col,soft])=>{const gr=g.createRadialGradient(x-30,cy-40,10,x,cy,R);gr.addColorStop(0,'#FFFFFF');gr.addColorStop(1,soft);g.fillStyle=gr;g.beginPath();g.arc(x,cy,R,0,TAU);g.fill()});
+  g.restore();[[x1,C.lake],[x2,C.heather]].forEach(([x,col])=>{g.strokeStyle=rgba(col,.55);g.lineWidth=2;g.beginPath();g.arc(x,cy,R,0,TAU);g.stroke()})},{scale:.92,ox:1000,oy:cy,blur:14});
+ enter(t,.75,()=>{card(x1-150,206,184,46,C.white,23);g.fillStyle=C.lake;g.beginPath();g.arc(x1-128,229,5,0,TAU);g.fill();txt('Final token',x1-114,235,17,C.ink,600)},{dy:14});
+ enter(t,.95,()=>{card(x2-24,494,206,46,C.white,23);g.fillStyle=C.heather;g.beginPath();g.arc(x2-2,517,5,0,TAU);g.fill();txt('Focal message',x2+12,523,17,C.ink,600)},{dy:14});
+ enter(t,2.35,()=>{card(918,348,164,48,C.ink,24,1.6);check(944,372,14,C.mossLight);txt('One decision',962,378,17,C.nightInk,600)},{scale:.86,ox:1000,oy:372,dy:6})}
+
+function features(t){
+ blob(200,560,380,C.lake,.08);blob(1100,240,360,C.heather,.07);
+ enter(t,.10,()=>eyebrow('01  ·  Model design',64,166,C.lake));
+ enter(t,.20,()=>display('One backbone. Two views.',60,232,58,C.ink));
+ enter(t,.40,()=>chip('v9 body frozen',1216,186,C.paper,C.ink2,14,34,'right'),{dy:12});
+ const cards=[{x:64,title:'Final token',sub:'Conversation-level view',col:C.lake,soft:C.lakeSoft,num:'01'},{x:414,title:'Focal message',sub:'Minor-turn token mean',col:C.heather,soft:C.heatherSoft,num:'02'}];
+ cards.forEach((v,i)=>enter(t,.45+i*.14,()=>{card(v.x,284,330,228);chip(v.num,v.x+24,306,v.soft,v.col,13,28);txt(v.title,v.x+24,378,26,C.ink,600,'left',DISPLAY,-.015);txt(v.sub,v.x+24,410,18,C.ink2,400);
+  // smooth feature signal: a soft waveform with tinted fill
+  const y0=476,amp=18;g.save();g.beginPath();for(let x=0;x<=282;x+=4){const yy=y0-amp*(.55+.45*Math.sin(x/26+t*2.2+i*1.3)*Math.sin(x/61+t*.9+i))*smooth((t-.7-i*.14)/.8);x?g.lineTo(v.x+24+x,yy):g.moveTo(v.x+24,yy)}
+  g.strokeStyle=v.col;g.lineWidth=2.4;g.lineJoin='round';g.stroke();g.lineTo(v.x+306,y0+12);g.lineTo(v.x+24,y0+12);g.closePath();const gr=g.createLinearGradient(0,y0-amp,0,y0+12);gr.addColorStop(0,rgba(v.col,.18));gr.addColorStop(1,rgba(v.col,0));g.fillStyle=gr;g.fill();g.restore()}));
+ enter(t,.95,()=>flow(760,398,846,398,t,C.lake),{dy:0,blur:0});
+ enter(t,.85,()=>{card(862,284,354,228);txt('Four portable heads',886,328,18,C.ink,600)});
+ [['RO','review',C.lake,C.lakeSoft],['RO','topic',C.lake,C.lakeSoft],['UK','review',C.heather,C.heatherSoft],['UK','topic',C.heather,C.heatherSoft]].forEach((v,i)=>{const x=886+(i%2)*158,y=346+Math.floor(i/2)*60;
+  enter(t,1.35+i*.16,()=>{rr(x,y,148,48,14);g.fillStyle=v[3];g.fill();txt(v[0],x+16,y+30,15,v[2],700);txt(v[1],x+46,y+30,15,C.ink,500)},{scale:.9,ox:x+74,oy:y+24,dy:8})});
+ enter(t,2.15,()=>{check(894,486,13,C.moss);txt('Checksum-bound in the wheel',912,492,16,C.moss,600)},{dy:8});
+ enter(t,1.1,()=>txt('The existing v9 model stays available as the default review path.',64,572,20,C.ink2,400))}
+
+function cases(t){
+ blob(1180,640,360,C.apricot,.12);
  const f=window.facts.examples,a=f.find(x=>x.case_id==='self-o:ro:newspaper-stat'),b=f.find(x=>x.case_id==='self-o:uk:media-and-real');
- [{x:64,row:a,col:C.cyan,cap:'RO / NEWS REPORT',result:'NO REVIEW',detail:'v9 proposed review  →  v10 clears it'},{x:650,row:b,col:C.purple,cap:'UK / PERSONAL DISCLOSURE',result:'REVIEW',detail:'v9 and v10 both keep the signal'}].forEach((v,i)=>{const q=out((t-.4-i*.35)/.9);g.save();g.globalAlpha=q;g.translate(0,(1-q)*26);rect(v.x,304,566,251,C.ink,22);rect(v.x,304,566,7,v.col,3);pill(v.cap,v.x+23,326,v.col,C.ink,13);wrapped(v.row.text,v.x+24,410,514,24,C.cream,600,32);line(v.x+23,456,v.x+543,456,'#385568',1);txt(v.result,v.x+24,507,31,v.col,800);txt(v.detail,v.x+24,535,16,C.pale,500);g.restore()});
- txt('These examples do not establish accuracy outside the authored test.',64,600,18,C.ink,600)}
-function scope(t){rect(0,105,1280,529,C.darkblue);glow(1040,395,450,C.purple,.25);grid(C.cyan,.05);txt('03 / GUARDRAIL',64,160,16,C.cyan,800);txt('A topic is not an action.',64,232,59,C.cream,800);txt('Explicit denial of being locked in, on the Ukrainian challenge.',64,273,21,C.pale,500);
- const q=out((t-.45)/.85),row=window.facts.examples.find(x=>x.case_id==='self-o:uk:deny-lock');rect(64,315,544,212,'#1D3653',22,'#395E73',1);pill('UK / FOCAL MESSAGE',87,340,C.purple,C.ink,13);wrapped(row.text,88,422,493,26,C.cream,600,35);
- arrow(624,417,694,417,C.cyan,4);for(let i=0;i<2;i++){const x=714+i*252,col=i?C.coral:C.lime;rect(x,317,234,208,i?'#3C2D42':'#1D443F',22);txt(i?'REVIEW ACTION':'CONCERN TOPIC',x+20,362,15,col,800);txt(i?'0':'1',x+22,466,102,col,800);txt(i?'No review this turn':'Underlying topic present',x+21,499,16,C.cream,600)}
- g.save();g.globalAlpha=.55*(1-q);arc(820,421,107,t*.5,t*.5+Math.PI,C.cyan,3);g.restore();txt('A negative result does not close an earlier concern.',64,590,21,C.pale,600)}
-function evidence(t){rect(0,105,1280,529,C.coral);grid(C.ink,.07);glow(1220,565,390,C.lime,.2);txt('04 / MEASURED COMPARISON',64,158,16,C.ink,800);txt('Fewer errors. Same test.',64,222,59,C.ink,800);
- const a=window.facts.panel,b=window.facts.fresh_o;[{x:64,data:a,title:'FROZEN PANEL',base:24},{x:653,data:b,title:'FRESH CHALLENGE O',base:9}].forEach((v,i)=>{const p=ease((t-.3-i*.3)/1);rect(v.x,267,563,244,C.ink,22);txt(v.title,v.x+24,304,17,C.pale,800);txt(v.data.cases+' authored cases',v.x+24,338,25,C.cream,700);txt('v9',v.x+24,382,16,C.pale,700);rect(v.x+79,367,Math.max(1,306*p),22,C.purple,7);txt(String(v.base),v.x+505,386,22,C.cream,800,'right');txt('v10',v.x+24,435,16,C.pale,700);rect(v.x+79,420,306,22,'#34505D',7);circle(v.x+88,431,7,C.lime);txt('0',v.x+505,439,26,C.lime,800,'right');txt('binary + concern output errors',v.x+24,482,17,C.pale,500)});
- rect(64,546,1152,52,C.cream,14);txt('PROJECT-AUTHORED SYNTHETIC DATA  /  NOT REAL-WORLD ACCURACY',86,579,20,C.ink,800)}
-function install(t){rect(0,105,1280,529,C.blue);grid(C.cream,.06);glow(1080,330,400,C.cyan,.25);txt('05 / PUBLIC RELEASE',64,161,16,C.lime,800);txt('Build with v10.',64,247,77,C.cream,800);txt('Keep human control.',64,325,77,C.cream,800);pill('OPT-IN MODEL',66,358,C.lime,C.ink);pill('LOCAL INFERENCE',239,358,C.cyan,C.ink);
- rect(64,436,1152,112,C.navy,22);txt('$  pip install "roguard-child-safety[gemma4-v10]==10.0.0"',90,501,31,C.cream,700);const x=1120+Math.sin(t*2)*10;rect(x,471,5,38,C.coral,0);
- txt('Apple Silicon + Python 3.12 for model review. Fetch the pinned v9 base separately.',64,587,19,C.cream,500)}
-const scenes=[hero,features,cases,scope,evidence,install],durations=[4,5,5,4,5,4];window.duration=27;window.fps=20;
-window.render=function(time){if(!window.facts||window.facts.version!=='10.0.0'||!window.facts.synthetic_only)throw Error('Pinned v10 facts required');let t=((time%27)+27)%27,start=0,index=0;for(let i=0;i<durations.length;i++){if(t<start+durations[i]){index=i;break}start+=durations[i]}let local=t-start,cross=ease((local-durations[index]+.65)/.65);g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.clearRect(0,0,W,H);scenes[index](local);if(cross>0){g.save();g.globalAlpha=cross;scenes[(index+1)%scenes.length](0);g.restore()}head(index);foot(index,t)};
+ enter(t,.10,()=>eyebrow('02  ·  Selected cases',64,166,C.lake));
+ enter(t,.20,()=>display('Context changes the call.',60,230,58,C.ink));
+ enter(t,.36,()=>txt('Real outputs on fictional messages from the frozen 40-case check.',64,274,20,C.ink2,400));
+ [{x:64,row:a,col:C.lake,soft:C.lakeSoft,cap:'RO  ·  News report',flip:true,detail:'v9 proposed review  →  v10 clears it'},
+  {x:650,row:b,col:C.heather,soft:C.heatherSoft,cap:'UK  ·  Personal disclosure',flip:false,detail:'v9 and v10 both keep the signal'}].forEach((v,i)=>
+  enter(t,.5+i*.16,()=>{card(v.x,304,566,252);chip(v.cap,v.x+24,326,v.soft,v.col,13,30);wrapped(v.row.text,v.x+24,406,516,23,C.ink,500,32);
+   g.fillStyle=C.line;g.fillRect(v.x+24,452,518,1);
+   // verdict: the RO card visibly flips from the v9 call to the v10 call
+   const k=v.flip?smooth((t-1.75)/.6):1;
+   if(v.flip&&k<1){g.save();g.globalAlpha*=1-k;g.filter=`blur(${(k*6).toFixed(2)}px)`;g.translate(0,-k*10);txt('Review',v.x+24,500,30,C.ember,700,'left',DISPLAY,-.02);chip('v9',v.x+152,476,C.emberSoft,C.ember,12,26);g.restore()}
+   g.save();g.globalAlpha*=v.flip?k:1;if(v.flip&&k<1)g.filter=`blur(${((1-k)*6).toFixed(2)}px)`;g.translate(0,v.flip?(1-k)*12:0);
+   const label=v.flip?'No review':'Review';txt(label,v.x+24,500,30,v.col,700,'left',DISPLAY,-.02);font(30,700,DISPLAY,-.02);const lw=g.measureText(label).width;chip('v10',v.x+40+lw,476,v.soft,v.col,12,26);g.restore();
+   txt(v.detail,v.x+24,532,16,C.ink2,500)}));
+ enter(t,1.2,()=>txt('These examples do not establish accuracy outside the authored test.',64,604,17,C.ink3,500))}
+
+function scope(t){
+ blob(1050,400,460,C.heather,.10);
+ const row=window.facts.examples.find(x=>x.case_id==='self-o:uk:deny-lock');
+ enter(t,.10,()=>eyebrow('03  ·  Guardrail',64,166,C.heather));
+ enter(t,.20,()=>display('A topic is not an action.',60,232,58,C.ink));
+ enter(t,.36,()=>txt('Explicit denial of being locked in, on the Ukrainian challenge.',64,270,20,C.ink2,400));
+ enter(t,.45,()=>{card(64,312,544,214);chip('UK  ·  Focal message',88,336,C.heatherSoft,C.heather,13,30);wrapped(row.text,88,418,496,25,C.ink,500,35)});
+ enter(t,.8,()=>flow(622,419,696,419,t,C.heather),{dy:0,blur:0});
+ [{x:712,title:'Concern topic',val:'1',sub:'Underlying topic present',col:C.moss,soft:C.mossSoft},{x:964,title:'Review action',val:'0',sub:'No review this turn',col:C.ink2,soft:C.apricotSoft}].forEach((v,i)=>
+  enter(t,.95+i*.22,()=>{card(v.x,312,236,214,v.soft,24,.6);txt(v.title,v.x+22,354,16,v.col,600);txt(v.val,v.x+20,466,104,v.col,700,'left',DISPLAY,-.04);txt(v.sub,v.x+22,500,15,C.ink,500)},{scale:.94,ox:v.x+118,oy:419}));
+ enter(t,1.5,()=>txt('A negative result does not close an earlier concern.',64,590,20,C.ink2,500))}
+
+function evidence(t){
+ blob(160,600,380,C.ember,.06);blob(1160,220,360,C.moss,.07);
+ enter(t,.10,()=>eyebrow('04  ·  Measured comparison',64,162,C.ember));
+ enter(t,.20,()=>display('Fewer errors. Same test.',60,226,58,C.ink));
+ const err=d=>d.v9_binary_errors+d.v9_concern_errors,mine=d=>d.v10_binary_errors+d.v10_concern_errors;
+ const P=window.facts.panel,O=window.facts.fresh_o,max=Math.max(err(P),err(O));
+ [{x:64,d:P,title:'Frozen panel'},{x:653,d:O,title:'Fresh challenge O'}].forEach((v,i)=>enter(t,.45+i*.16,()=>{
+  card(v.x,266,563,246,C.paper,24,.5);txt(v.title,v.x+26,306,15,C.ink3,600,'left',TEXT,.01);txt(v.d.cases+' authored cases',v.x+26,342,26,C.ink,600,'left',DISPLAY,-.015);
+  const p=smooth((t-.9-i*.18)/1.25),full=330*err(v.d)/max;
+  txt('v9',v.x+26,388,16,C.ink2,600);rr(v.x+80,372,330,22,11);g.fillStyle=rgba(C.ink,.06);g.fill();
+  if(p>0){rr(v.x+80,372,Math.max(22,full*p),22,11);const gr=g.createLinearGradient(v.x+80,0,v.x+80+full,0);gr.addColorStop(0,'#D9725C');gr.addColorStop(1,C.ember);g.fillStyle=gr;g.fill()}
+  txt(String(Math.round(err(v.d)*p)),v.x+528,391,24,C.ember,700,'right',DISPLAY,-.02);
+  txt('v10',v.x+26,440,16,C.ink2,600);rr(v.x+80,424,330,22,11);g.fillStyle=rgba(C.ink,.06);g.fill();
+  const q=spring(t-1.6-i*.18);g.save();g.translate(v.x+91,435);g.scale(q,q);g.fillStyle=C.mossSoft;g.beginPath();g.arc(0,0,11,0,TAU);g.fill();check(0,0,10,C.moss,2.2);g.restore();
+  txt(String(mine(v.d)),v.x+528,444,26,C.moss,700,'right',DISPLAY,-.02);
+  txt('binary + concern output errors',v.x+26,486,16,C.ink2,500)}));
+ enter(t,1.4,()=>{rr(64,544,1152,54,27);g.fillStyle=C.ink;g.fill();txt('Project-authored synthetic data  ·  not real-world accuracy',640,577,18,C.nightInk,600,'center')},{dy:12})}
+
+function install(t){
+ blob(1040,300,480,C.lake,.22);blob(1180,560,320,C.heather,.18);
+ enter(t,.10,()=>eyebrow('05  ·  Public release',64,166,C.mossLight));
+ enter(t,.20,()=>display('Build with v10.',60,250,76,C.nightInk));
+ enter(t,.34,()=>gradientDisplay('Keep human control.',60,330,76,C.lakeLight,C.heatherLight));
+ enter(t,.55,()=>{[['Opt-in model',66],['Local inference',214]].forEach(([s,x])=>{font(14,600);const w=g.measureText(s).width+28;rr(x,358,w,32,16);g.strokeStyle=C.nightLine;g.lineWidth=1.5;g.stroke();txt(s,x+14,379,14,C.nightInk2,600)})},{dy:10});
+ enter(t,.70,()=>{rr(64,420,1152,128,22);g.fillStyle=C.nightCard;g.fill();g.strokeStyle=C.nightLine;g.lineWidth=1;g.stroke();
+  ['#E5806F','#E3BE6A','#7CC394'].forEach((c,i)=>{g.fillStyle=rgba(c,.85);g.beginPath();g.arc(92+i*20,446,5.5,0,TAU);g.fill()});
+  const cmd='pip install "roguard-child-safety[gemma4-v10]==10.0.0"',n=Math.round(cmd.length*smooth((t-1.0)/1.4));
+  txt('$',90,508,28,C.mossLight,500,'left',MONO);txt(cmd.slice(0,n),122,508,28,C.nightInk,500,'left',MONO);
+  font(28,500,MONO);const cx=122+g.measureText(cmd.slice(0,n)).width+4;const on=n<cmd.length||Math.floor(t*2.2)%2===0;if(on){rr(cx,484,3,32,1.5);g.fillStyle=C.lakeLight;g.fill()}});
+ enter(t,1.2,()=>txt('Apple Silicon + Python 3.12 for model review. Fetch the pinned v9 base separately.',64,592,18,C.nightInk2,400))}
+
+// ---------- chrome ----------
+function chrome(index,local,t,dark){
+ const ink=mix(C.ink,C.nightInk,dark),ink3=mix(C.ink3,C.nightInk2,dark),track=mix('#DCE3DE','#2C3A3D',dark);
+ txt('RoGuard',56,62,22,ink,700,'left',DISPLAY,-.02);
+ font(13,600);rr(160,42,74,26,13);g.fillStyle=mix(C.lakeSoft,'#1B3540',dark);g.fill();txt('10.0.0',172,60,13,mix(C.lake,C.lakeLight,dark),600);
+ txt('Romanian + Ukrainian',1224,60,14,ink3,500,'right');
+ // segmented progress, the story-style indicator people already know how to read
+ const names=['Intro','Features','Cases','Scope','Evidence','Install'],gap=8,sw=(1168-gap*5)/6;
+ names.forEach((n,i)=>{const x=56+i*(sw+gap),p=i<index?1:i>index?0:clamp(local/durations[index]);rr(x,664,sw,4,2);g.fillStyle=track;g.fill();if(p>0){rr(x,664,Math.max(4,sw*p),4,2);g.fillStyle=ink;g.fill()}});
+ txt('Local review  ·  human control',56,696,13,ink3,500);txt(names[index],1224,696,13,ink,600,'right')}
+
+const scenes=[hero,features,cases,scope,evidence,install],durations=[4,5,5,4,5,4];
+const bgs=[C.paper,C.white,C.paper,C.heatherTint,C.white,C.night],darks=[0,0,0,0,0,1];
+window.duration=27;window.fps=50;
+window.render=function(time){
+ if(!window.facts||window.facts.version!=='10.0.0'||!window.facts.synthetic_only)throw Error('Pinned v10 facts required');
+ let t=((time%27)+27)%27,start=0,index=0;for(let i=0;i<durations.length;i++){if(t<start+durations[i]){index=i;break}start+=durations[i]}
+ const local=t-start,next=(index+1)%scenes.length,X=.55;EXIT=clamp((local-(durations[index]-X))/X);
+ const k=smooth(EXIT);g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.filter='none';
+ g.fillStyle=mix(bgs[index],bgs[next],k);g.fillRect(0,0,W,H);
+ g.save();g.globalAlpha=1-inCubic(EXIT);scenes[index](local);g.restore();g.filter='none';
+ chrome(index,local,t,darks[index]+(darks[next]-darks[index])*k)};
 </script>
