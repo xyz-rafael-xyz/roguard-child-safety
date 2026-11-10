@@ -10,7 +10,20 @@ from .gemma4_review import Gemma4ReviewModel, _LOCK, _score
 from .gemma4_review_v10 import V10FeatureEngine
 from .interpreter import prepare_input
 
-PACKAGED_MANIFEST_SHA256 = '507192f632505267ccbb8bf98d4d5af507f0a7100d704f8e9cf92ca72ab77b2b'
+PACKAGED_MANIFEST_SHA256 = '52108c04b0313e246c4a63d029e07b8475600acd6fb3241d3d784387b3bb754b'
+
+
+def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin: float,
+                     concern_threshold: float = 0.0) -> int:
+    # A strong negative binary margin can clear an out-of-scope report even when
+    # the text still mentions a general safety concern. Weaker margins require
+    # the concern head to agree, preserving difficult positive parent decisions.
+    if parent_predicted == 1 and binary_margin <= 0.05:
+        if concern_margin < concern_threshold or binary_margin <= -0.8:
+            return 0
+    if parent_predicted == 0 and binary_margin >= 0.5 and concern_margin > concern_threshold:
+        return 1
+    return parent_predicted
 
 
 class Gemma4RBFV10Model:
@@ -28,7 +41,8 @@ class Gemma4RBFV10Model:
                                    feature_mode='joint')
         binding = json.dumps({'format': 'roguard-gemma4-rbf-v10', 'parent': parent.identity,
                               'language': self.language, 'binary': self.binary.identity,
-                              'concern': self.concern.identity, 'feature_mode': 'joint'},
+                              'concern': self.concern.identity, 'feature_mode': 'joint',
+                              'decision_rule': 'guard-v3-ro0-uk0.05-meal-cue'},
                              sort_keys=True, separators=(',', ':'))
         self.identity = hashlib.sha256(binding.encode('utf-8')).hexdigest()
 
@@ -107,7 +121,7 @@ class Gemma4RBFV10Model:
 
     def interpret_many(self, payloads, *, focuses=None):
         from .evidence import ONTOLOGY
-        from .review_scope_v10 import correct_logits
+        from .review_scope_v10 import correct_logits, explicit_meal_deprivation
 
         if not isinstance(payloads, list) or not 1 <= len(payloads) <= 128:
             raise ValueError('Expected one to 128 conversations')
@@ -145,12 +159,16 @@ class Gemma4RBFV10Model:
             parent_predicted = int(evidence['score'] >= self.parent._spec['threshold'])
             binary_margin = self.binary.margin(feature)
             concern_margin = self.concern.margin(feature)
-            predicted = (0 if parent_predicted == 1 and binary_margin <= 0.05
-                         and concern_margin < 0 else
-                         1 if parent_predicted == 0 and binary_margin >= 0.5
-                         and concern_margin > 0 else parent_predicted)
+            concern_threshold = 0.05 if self.language == 'uk' else 0.0
+            predicted = _binary_decision(parent_predicted, binary_margin, concern_margin,
+                                         concern_threshold)
+            meal_deprivation = explicit_meal_deprivation(prefix['turns'][-1]['text'], self.language)
+            if meal_deprivation:
+                predicted = 1
             field_ids = list(evidence['fields'])
-            field_ids[5] = int(concern_margin >= 0)
+            field_ids[5] = int(concern_margin >= concern_threshold)
+            if meal_deprivation:
+                field_ids[5] = 1
             fields = {field: ONTOLOGY[field][index] for field, index in zip(ONTOLOGY, field_ids)}
             results.append(dict(shared, predicted=predicted,
                                 decision='review' if predicted else 'no_signal',
@@ -159,5 +177,6 @@ class Gemma4RBFV10Model:
                                 binary_margin=binary_margin, concern_margin=concern_margin,
                                 parent_predicted=parent_predicted,
                                 scope_evidence={'cues': evidence['cues'],
-                                                'binary_guard_rejected': evidence['binary_guard_rejected']}))
+                                                'binary_guard_rejected': evidence['binary_guard_rejected'],
+                                                'explicit_meal_deprivation': meal_deprivation}))
         return results

@@ -9,7 +9,16 @@ from roguard.assurance import policy_digest
 from roguard.gemma4_contract import BASE_MODEL, BASE_REVISION, POLICY_SHA256
 from roguard.gemma4_review import FORMAT, LORA
 from roguard.gemma4_review_v10 import Gemma4StructuredV10Model
-from roguard.review_scope_v10 import correct_logits, cues
+from roguard.review_scope_v10 import correct_logits, cues, explicit_meal_deprivation
+
+
+def test_explicit_meal_deprivation_excludes_denials_and_fiction():
+    assert explicit_meal_deprivation('Aseară am fost trimis în cameră fără cină.', 'ro')
+    assert explicit_meal_deprivation('Учора мене відправили в кімнату без вечері.', 'uk')
+    assert not explicit_meal_deprivation('Nu sunt trimis în cameră fără cină.', 'ro')
+    assert not explicit_meal_deprivation('Батьки не лишають мене без їжі.', 'uk')
+    assert not explicit_meal_deprivation('În roman, copilul este lăsat fără cină.', 'ro')
+    assert not explicit_meal_deprivation('У фільмі мене відправили без вечері.', 'uk')
 
 
 def test_scope_reader_separates_outer_claim_from_quoted_words():
