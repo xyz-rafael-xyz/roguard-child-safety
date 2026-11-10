@@ -92,7 +92,7 @@ message-train = ["numpy>=1.26,<3", "scikit-learn>=1.5,<2"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-roguard = ["model-profiles.json", "model-download-*.json", "review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css", "trajectory-annotation.html", "trajectory-annotation.js"]
+roguard = ["model-profiles.json", "model-download-*.json", "review.html", "review.js", "evidence-*.json.gz", "evidence.html", "evidence.js", "context-*.json.gz", "context.html", "context.js", "v6-adapter.json.gz", "reliability.html", "reliability.js", "lab.html", "lab.css", "lab.js", "studio.html", "studio.css", "studio.js", "message-model-*.json.gz", "conversation*.json", "conversation-model-*.json.gz", "conversation.html", "conversation.js", "conversation.css", "trajectory-annotation.html", "trajectory-annotation.js", "v10_models/manifest.json", "v10_models/*.npz"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

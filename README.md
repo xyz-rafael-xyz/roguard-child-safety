@@ -68,15 +68,16 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
 
-**V10 is unreleased research and has no PyPI package release.** It adds experimental long-conversation evidence
-selection, durable review sessions, semantic training, interpretation-set evaluation and a recorded improvement loop.
-Its experimental shared-encoder committee fixes the two v9 broad-audit false alerts,
-with zero errors across 6,002 fresh checkpoint inferences on exposed engineering data.
-A later 72-checkpoint authored challenge exposes seven errors shared with v9; the committee
-fails that new diagnostic and remains unqualified.
-[Committee results and local research bundle](docs/V10_COMMITTEE.md).
-[Implementation, rejected candidates and remaining study requirements](docs/V10_RESEARCH.md).
-The published stable package remains **v9.0.0**.
+**V10 remains an unreleased candidate; PyPI still carries v9.0.0.** The new opt-in
+joint-feature reviewer combines the pinned v9 Gemma 4 final token and focal
+message features with four packaged, checksum-bound heads. On 120 frozen,
+project-authored Romanian and Ukrainian cases, its installed wheel made zero
+binary and concern errors; v9 made six of each per language. A separate label
+correction records 20 hypothetical personal concerns that the initial authored
+gold had mistakenly marked negative despite the existing policy. Independent
+human validation and public publication remain pending. [Candidate evidence and
+local setup](docs/V10_RELEASE_CANDIDATE.md) · [Earlier committee research and
+rejected candidates](docs/V10_COMMITTEE.md) · [Research history](docs/V10_RESEARCH.md).
 
 ## Earlier workflows retained in v9
 

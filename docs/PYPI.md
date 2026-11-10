@@ -39,6 +39,19 @@ The first neural evaluation of the reserved 600 synthetic cases passed the uncha
 
 Measurements describe project-authored synthetic inputs. They do not establish accuracy on real children's messages or measured human benefit. Scores are not calibrated safety probabilities. A negative prediction cannot close a concern; an overlong input requests clarification, and malformed model output is rejected. The binary review task is qualified separately from the auxiliary interpretation heads.
 
+## V10 joint reviewer candidate
+
+The opt-in v10 reviewer uses the pinned v9 Gemma 4 model's final token and focal message features with four checksum-bound heads included in the wheel. It keeps the v9 review command as the default. On native Apple Silicon with Python 3.12 or later:
+
+```sh
+pip install 'roguard-child-safety[gemma4-v10]==10.0.0'
+roguard-fetch fetch
+roguard-review --v10 --language ro --text 'Pot cere ajutor când sunt speriat.'
+roguard-review --v10 --language uk --text 'Можу попросити допомоги, коли мені страшно.'
+```
+
+The model runs locally after the pinned v9 base is fetched. Its Python entry point is `Gemma4RBFV10Model.from_installed_v9(language='ro')` from `roguard.gemma4_rbf_v10`. A frozen 120-case authored bilingual panel had zero v10 binary and concern errors after correcting 20 hypothetical-case labels to match the preexisting policy; v9 had six errors in each output per language. The corrected labels and original panel are both retained. This finite synthetic result does not establish accuracy on real children's messages. Independent human validation remains pending, so this candidate has not been published as a stable v10 release.
+
 ## Explicit v10 bundle API
 
 The package includes an opt-in loader for local structured-review and five-class response-review bundles. The `gemma4-v10` extra pins the native dependencies, including Safetensors; install it from the exact wheel identified by your validation or release record. Model assets are separate from the wheel.

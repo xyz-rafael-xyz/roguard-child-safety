@@ -9,6 +9,8 @@ from ._portable_rbf_v10 import PortableRBF
 from .gemma4_review import Gemma4ReviewModel, _LOCK, _Engine, _score
 from .interpreter import prepare_input
 
+PACKAGED_MANIFEST_SHA256 = '507192f632505267ccbb8bf98d4d5af507f0a7100d704f8e9cf92ca72ab77b2b'
+
 
 class Gemma4RBFV10Model:
     """Run two portable heads on the parent's exact final token feature."""
@@ -49,6 +51,49 @@ class Gemma4RBFV10Model:
         return cls(parent, assets['binary'], assets['concern'],
                    binary_sha256=_digest(manifest['binary_sha256']),
                    concern_sha256=_digest(manifest['concern_sha256']))
+
+    @classmethod
+    def from_v9_bundle(cls, bundle, *, language):
+        """Use the installed, pinned v9 backbone with packaged v10 heads."""
+        from .language_bundle import _read_manifest
+
+        if language not in ('ro', 'uk'):
+            raise ValueError('Expected Romanian or Ukrainian language')
+        assets = Path(__file__).with_name('v10_models')
+        manifest = _read_manifest(assets / 'manifest.json', PACKAGED_MANIFEST_SHA256)
+        if (not isinstance(manifest, dict) or set(manifest) != {
+                'format', 'feature_mode', 'parent_profile', 'parent_root_bundle_sha256',
+                'parent_language_bundle_sha256', 'models', 'engineering_fit_report_sha256',
+                'engineering_policy_recount_sha256', 'independent_human_validation'}
+                or manifest['format'] != 'roguard-gemma4-rbf-v10-packaged-assets-1'
+                or manifest['feature_mode'] != 'joint'
+                or manifest['parent_profile'] != 'v9-gemma4-20261019'
+                or set(manifest['parent_language_bundle_sha256']) != {'ro', 'uk'}
+                or set(manifest['models']) != {'ro', 'uk'}
+                or any(set(manifest['models'][lang]) != {'binary', 'concern'}
+                       for lang in ('ro', 'uk'))
+                or manifest['independent_human_validation'] is not False):
+            raise ValueError('Unsupported packaged v10 model contract')
+        bundle = Path(bundle).resolve()
+        _read_manifest(bundle, manifest['parent_root_bundle_sha256'])
+        parent_path = bundle.parent / (language + '-bundle.json')
+        parent = Gemma4ReviewModel.from_bundle(
+            parent_path,
+            expected_sha256=manifest['parent_language_bundle_sha256'][language])
+        return cls(parent, assets / (language + '-binary.npz'),
+                   assets / (language + '-concern.npz'),
+                   binary_sha256=manifest['models'][language]['binary'],
+                   concern_sha256=manifest['models'][language]['concern'])
+
+    @classmethod
+    def from_installed_v9(cls, *, language, cache=None):
+        """Load from a prior explicit `roguard-fetch fetch` installation."""
+        from .model_install import cache_directory, install, profile
+
+        raw, digest = profile('v9')
+        bundle, _ = install(raw, digest, cache_directory() if cache is None else cache,
+                            download=False)
+        return cls.from_v9_bundle(bundle, language=language)
 
     def predict(self, payload, *, focus=None):
         return self.predict_many([payload], focuses=[focus])[0]

@@ -14,9 +14,10 @@ def main():
     parser.add_argument('--language',choices=('ro','uk'),help='Required with --text')
     parser.add_argument('--focus',type=int,help='Zero-based focal turn; defaults to final turn')
     parser.add_argument('--profile',default='v9')
+    parser.add_argument('--v10',action='store_true',help='Use the packaged opt-in v10 joint review model')
     parser.add_argument('--cache',type=Path,default=cache_directory())
     args=parser.parse_args()
-    extra="fusion"
+    extra="gemma4-v10" if args.v10 else "fusion"
     try:
         if args.text is not None:
             if args.input is not None or args.language is None:
@@ -32,10 +33,15 @@ def main():
         prepare_input(payload,args.focus)
         raw,digest=profile(args.profile)
         bundle,bundle_sha=install(raw,digest,args.cache,download=False)
-        from .entailment_bundle import load_bundle
-        from .runtime_requirements import runtime_extra
-        extra=runtime_extra(bundle,bundle_sha)
-        model=load_bundle(bundle,expected_sha256=bundle_sha)
+        if args.v10:
+            if args.profile!='v9':raise ValueError('The v10 option requires the pinned v9 base profile')
+            from .gemma4_rbf_v10 import Gemma4RBFV10Model
+            model=Gemma4RBFV10Model.from_v9_bundle(bundle,language=payload['language'])
+        else:
+            from .entailment_bundle import load_bundle
+            from .runtime_requirements import runtime_extra
+            extra=runtime_extra(bundle,bundle_sha)
+            model=load_bundle(bundle,expected_sha256=bundle_sha)
         print(json.dumps(model.predict(payload,focus=args.focus),ensure_ascii=False))
     except ImportError:
         parser.error(f'Install the model runtime: pip install --upgrade "roguard-child-safety[{extra}]"')
