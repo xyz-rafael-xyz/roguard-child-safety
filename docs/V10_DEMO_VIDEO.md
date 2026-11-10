@@ -2,7 +2,7 @@
 
 The README opens with a silent **27-second looping GIF**. It is a designed explanation of the released v10 reviewer and recorded, project-authored synthetic results. It is not a screen recording or an independent human evaluation. No external action is performed.
 
-[Looping GIF](../media/roguard-v10-demo-loop.gif) · [Video with playback controls](../media/roguard-v10-demo.mp4) · [Still poster](../media/roguard-v10-poster.png)
+[Looping GIF](../media/roguard-v10-demo-apple-loop.gif) · [Video with playback controls](../media/roguard-v10-demo-apple.mp4) · [Still poster](../media/roguard-v10-demo-apple-poster.png)
 
 ## Transcript and factual basis
 
