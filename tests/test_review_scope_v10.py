@@ -1,7 +1,9 @@
 import hashlib
 import json
 
-import numpy as np
+import pytest
+
+np = pytest.importorskip('numpy')
 
 from roguard.assurance import policy_digest
 from roguard.gemma4_contract import BASE_MODEL, BASE_REVISION, POLICY_SHA256

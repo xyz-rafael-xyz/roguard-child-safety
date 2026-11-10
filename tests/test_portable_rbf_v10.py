@@ -4,7 +4,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import numpy as np
+import pytest
+
+np = pytest.importorskip('numpy')
 
 from roguard._portable_rbf_v10 import PortableRBF
 
