@@ -174,8 +174,12 @@ def test_engine_uses_fixed_qualified_prefix_and_abstains_without_truncation(monk
     sequences = [[1, 2, 3], [7, 8, 9], [1, 2]+[3]*1023]
     spec = dict(language='ro', mode='binary', couplings=None)
     result = engine.scores([dict(ids=v) for v in sequences], spec)
+    raw = engine.scores([dict(ids=v) for v in sequences], spec, return_logits=True)
     assert result[-1] is None
-    for tokens, score in zip(sequences[:2], result[:2]):
+    assert raw[-1] is None
+    for tokens, score, values in zip(sequences[:2], result[:2], raw[:2]):
         logits = model.heads['ro'](model.base.model(mx.array([tokens]))[:, -1, :])
         mx.eval(logits)
         assert abs(score-module._score(np.asarray(logits)[0], spec)) < 1e-6
+        assert values.shape == (19,) and np.isfinite(values).all()
+        assert np.max(np.abs(values - np.asarray(logits)[0])) < 1e-6
