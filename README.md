@@ -4,19 +4,19 @@
 
 
 [![CI](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xyz-rafael-xyz/roguard-child-safety/actions/workflows/ci.yml)
-[![PyPI version](https://img.shields.io/pypi/v/roguard-child-safety?color=7ee4c6)](https://pypi.org/project/roguard-child-safety/)
-[![Supported Python versions](https://img.shields.io/pypi/pyversions/roguard-child-safety?color=b8a5ff)](https://pypi.org/project/roguard-child-safety/)
-[![License](https://img.shields.io/github/license/xyz-rafael-xyz/roguard-child-safety?color=a6b6cb)](LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/roguard-child-safety?color=43ddeb)](https://pypi.org/project/roguard-child-safety/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/roguard-child-safety?color=aa88ff)](https://pypi.org/project/roguard-child-safety/)
+[![License](https://img.shields.io/github/license/xyz-rafael-xyz/roguard-child-safety?color=ff674b)](LICENSE)
 
 [![Languages: Romanian + Ukrainian](https://img.shields.io/badge/languages-Romanian%20%2B%20Ukrainian-b8a5ff)](docs/V6_RELEASE.md)
 [![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
 [![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
 
-[![RoGuard 9.0: a looping animated walkthrough of Romanian and Ukrainian review, conversation context, permission revocation, and the held-out synthetic evaluation](media/roguard-v9-demo-loop.gif)](media/roguard-v9-demo.mp4)
+[![RoGuard 10.0: animated explanation of the frozen v9 backbone, two v10 feature streams, guarded bilingual review, and authored synthetic comparisons](media/roguard-v10-demo-loop.gif)](media/roguard-v10-demo.mp4)
 
-**RoGuard 9.0 in motion** · [Watch / pause the video](media/roguard-v9-demo.mp4) · [Still preview](media/roguard-v9-poster.png) · [Transcript and captured outputs](docs/DEMO_VIDEO.md)
+**RoGuard 10.0 in motion** · [Watch / pause the video](media/roguard-v10-demo.mp4) · [Still preview](media/roguard-v10-poster.png) · [Transcript and evidence](docs/V10_DEMO_VIDEO.md)
 
-A 28-second illustrated workflow with actual v9 outputs and fictional messages.
+A 27-second illustrated walkthrough of v10's new model path and recorded outputs on fictional messages.
 
 ## RoGuard 10.0: local review and decision assurance
 
@@ -66,7 +66,8 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Model setup, conversation examples and Python API](docs/V9_MODEL.md) ·
 [Decision assurance and review UI](docs/V9_ASSURANCE.md) ·
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
-[Complete experiments and release evidence](docs/V9_STABILIZATION.md)
+[Complete experiments and release evidence](docs/V9_STABILIZATION.md) ·
+[V9 animated walkthrough](docs/DEMO_VIDEO.md)
 
 ## What v10 adds over v9
 
@@ -87,7 +88,8 @@ default `roguard-review` behavior. The new path:
    food or water deprivation, explicit denials, and media references. The
    concern field can remain positive for a denied or fictional safety topic
    while the binary decision is negative under the declared policy. The other
-   five structured fields remain v9 outputs.
+   five fields use v9 logits with explicit v10 scope-cue corrections; they
+   have no new trained heads or standalone accuracy claim.
 
 Use this path on native Apple Silicon with Python 3.12 or later:
 

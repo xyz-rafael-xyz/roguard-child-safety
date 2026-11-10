@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>RoGuard 10.0.0 - a clearer review signal</title>
+<style>html,body{margin:0;background:#071321}canvas{display:block}</style>
+<canvas width="1280" height="720" aria-label="RoGuard 10.0.0 animated review explainer"></canvas>
+<script>
+const canvas=document.querySelector('canvas'),g=canvas.getContext('2d');
+const W=1280,H=720,TAU=Math.PI*2;
+const C={navy:'#071321',ink:'#112338',cream:'#F9F7EF',white:'#FFFFFF',pale:'#DAE9EA',muted:'#98B3BE',cyan:'#43DDEB',coral:'#FF674B',lime:'#C8F36A',purple:'#AA88FF',blue:'#3458DF',darkblue:'#10243B'};
+const clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},out=x=>1-Math.pow(1-clamp(x),3);
+function rect(x,y,w,h,fill,r=0,stroke=null,lw=1){g.beginPath();g.roundRect(x,y,w,h,r);g.fillStyle=fill;g.fill();if(stroke){g.strokeStyle=stroke;g.lineWidth=lw;g.stroke()}}
+function line(x,y,X,Y,color,width=2){g.strokeStyle=color;g.lineWidth=width;g.beginPath();g.moveTo(x,y);g.lineTo(X,Y);g.stroke()}
+function circle(x,y,r,fill,stroke=null,lw=1){g.beginPath();g.arc(x,y,r,0,TAU);if(fill){g.fillStyle=fill;g.fill()}if(stroke){g.strokeStyle=stroke;g.lineWidth=lw;g.stroke()}}
+function txt(s,x,y,size=24,color=C.cream,weight=500,align='left'){g.fillStyle=color;g.font=`${weight} ${size}px Arial,Helvetica,sans-serif`;g.textAlign=align;g.fillText(s,x,y);g.textAlign='left'}
+function wrapped(s,x,y,width,size=24,color=C.ink,weight=500,leading=32){g.font=`${weight} ${size}px Arial,Helvetica,sans-serif`;let row='',n=0;for(const word of s.split(' ')){const next=row?row+' '+word:word;if(row&&g.measureText(next).width>width){txt(row,x,y+n*leading,size,color,weight);row=word;n++}else row=next}if(row)txt(row,x,y+n*leading,size,color,weight);return(n+1)*leading}
+function pill(s,x,y,fill,color=C.ink,size=15){g.font=`700 ${size}px Arial,Helvetica,sans-serif`;const w=g.measureText(s).width+30;rect(x,y,w,34,fill,17);txt(s,x+15,y+23,size,color,700);return w}
+function reveal(t,delay,fn){const p=out((t-delay)/.65);g.save();g.globalAlpha*=p;g.translate(0,(1-p)*22);fn(p);g.restore()}
+function glow(x,y,r,color,alpha=.45){const grad=g.createRadialGradient(x,y,0,x,y,r);grad.addColorStop(0,color);grad.addColorStop(1,'transparent');g.save();g.globalAlpha=alpha;g.fillStyle=grad;g.fillRect(x-r,y-r,2*r,2*r);g.restore()}
+function arc(x,y,r,start,end,color,width=2){g.beginPath();g.arc(x,y,r,start,end);g.strokeStyle=color;g.lineWidth=width;g.stroke()}
+function arrow(x,y,X,Y,color,width=3){line(x,y,X,Y,color,width);g.fillStyle=color;g.beginPath();g.moveTo(X,Y);g.lineTo(X-12,Y-7);g.lineTo(X-12,Y+7);g.closePath();g.fill()}
+function waves(y,t,color,alpha=.2){g.save();g.globalAlpha=alpha;for(let j=0;j<5;j++){g.beginPath();for(let x=0;x<=1280;x+=12){const yy=y+j*34+Math.sin(x/95+t*.9+j*.8)*18;x?g.lineTo(x,yy):g.moveTo(x,yy)}g.strokeStyle=color;g.lineWidth=1.3;g.stroke()}g.restore()}
+function grid(color,alpha=.08){g.save();g.globalAlpha=alpha;for(let x=0;x<1280;x+=48)line(x,105,x,634,color,1);for(let y=106;y<634;y+=48)line(0,y,1280,y,color,1);g.restore()}
+function head(scene){rect(0,0,W,105,C.navy);line(0,104,1280,104,'#1E3549',1);txt('RoGuard',54,62,29,C.cream,800);pill('10.0.0  /  STABLE',212,35,C.cyan,C.navy,13);txt('ROMANIAN  +  UKRAINIAN',1220,58,14,C.muted,700,'right')}
+function foot(index,t){rect(0,634,W,86,C.navy);line(54,634,1226,634,'#274259',1);rect(54,634,1172*t/window.duration,3,C.coral);txt('LOCAL REVIEW  /  HUMAN CONTROL',54,682,12,C.muted,700);const names=['INTRO','FEATURES','CASES','SCOPE','EVIDENCE','INSTALL'];names.forEach((n,i)=>{const x=593+i*105;circle(x,677,4,i===index?C.coral:'#36516A');txt(n,x+11,682,10,i===index?C.cream:C.muted,700)})}
+function hero(t){rect(0,105,1280,529,C.navy);grid(C.cyan,.05);glow(1020,385,460,C.blue,.28);glow(1020,400,290,C.coral,.12);waves(170,t,C.cyan,.12);
+ pill('NEW IN V10',64,143,C.coral,C.navy);txt('A clearer',64,257,78,C.cream,800);txt('review signal.',64,341,78,C.cream,800);rect(67,358,388,7,C.cyan,3);txt('Two views of one message.',66,413,27,C.pale,500);txt('One guarded decision.',66,449,27,C.pale,500);
+ const cx=1016,cy=390;for(let j=0;j<3;j++)arc(cx,cy,175+j*37,t*.17+j,TAU*.73+t*.17+j,j===1?C.purple:C.cyan,j===1?2:1);g.save();g.lineWidth=5;g.strokeStyle=C.cream;g.font='800 242px Arial';g.strokeText('10',824,470);g.restore();circle(cx+194*Math.cos(t*.9),cy+194*Math.sin(t*.9),8,C.coral);circle(cx+240*Math.cos(-t*.55),cy+240*Math.sin(-t*.55),6,C.lime);
+ reveal(t,.5,()=>{rect(720,193,218,50,C.darkblue,14,'#476477',1);txt('FINAL TOKEN',743,226,17,C.cyan,800)});
+ reveal(t,1.05,()=>{rect(1000,516,220,50,C.darkblue,14,'#476477',1);txt('FOCAL MESSAGE',1022,549,17,C.purple,800)});
+ txt('FROZEN v9 BODY  +  NEW v10 HEADS',67,560,17,C.lime,800)}
+function features(t){rect(0,105,1280,529,C.cream);grid(C.ink,.055);glow(230,500,280,C.cyan,.22);txt('01 / MODEL DESIGN',64,160,16,C.blue,800);txt('One backbone. Two views.',64,230,57,C.ink,800);pill('v9 BODY FROZEN',992,169,C.ink,C.cream,14);
+ const p=out((t-.35)/.9);const cards=[{x:64,w:335,title:'FINAL TOKEN',sub:'Conversation-level view',color:C.cyan,num:'01'},{x:420,w:335,title:'FOCAL MESSAGE',sub:'Minor-turn token mean',color:C.purple,num:'02'}];
+ cards.forEach((c,i)=>{g.save();g.globalAlpha=out((t-.25-i*.25)/.8);g.translate(0,(1-out((t-.25-i*.25)/.8))*24);rect(c.x,282,c.w,228,C.ink,22);rect(c.x,282,c.w,8,c.color,3);txt(c.num,c.x+25,337,18,c.color,800);txt(c.title,c.x+25,381,26,C.cream,800);txt(c.sub,c.x+25,417,20,C.pale,500);for(let k=0;k<18;k++){let h=12+Math.sin(k*.9+t*2+i)*8;rect(c.x+27+k*15,458-h,8,h,c.color,3)}g.restore()});
+ arrow(765,394,829,394,C.blue,4);rect(848,282,367,228,C.white,22,'#B8C8CF',1.3);txt('FOUR PORTABLE HEADS',874,326,18,C.ink,800);[['RO','REVIEW'],['RO','TOPIC'],['UK','REVIEW'],['UK','TOPIC']].forEach((v,i)=>{const x=874+(i%2)*165,y=345+Math.floor(i/2)*61;rect(x,y,149,48,i%2?C.purple:C.cyan,12);txt(v[0]+' / '+v[1],x+13,y+31,15,C.ink,800)});txt('Checksum-bound in the wheel',874,492,16,C.blue,700);
+ txt('The existing v9 model stays available as the default review path.',64,565,21,C.ink,500)}
+function cases(t){rect(0,105,1280,529,'#DDF0EE');grid(C.ink,.045);txt('02 / SELECTED CASES',64,160,16,C.blue,800);txt('Context changes the call.',64,225,58,C.ink,800);txt('Real outputs on fictional messages from the frozen 40-case check.',64,260,21,'#476071',500);
+ const f=window.facts.examples,a=f.find(x=>x.case_id==='self-o:ro:newspaper-stat'),b=f.find(x=>x.case_id==='self-o:uk:media-and-real');
+ [{x:64,row:a,col:C.cyan,cap:'RO / NEWS REPORT',result:'NO REVIEW',detail:'v9 proposed review  →  v10 clears it'},{x:650,row:b,col:C.purple,cap:'UK / PERSONAL DISCLOSURE',result:'REVIEW',detail:'v9 and v10 both keep the signal'}].forEach((v,i)=>{const q=out((t-.4-i*.35)/.9);g.save();g.globalAlpha=q;g.translate(0,(1-q)*26);rect(v.x,304,566,251,C.ink,22);rect(v.x,304,566,7,v.col,3);pill(v.cap,v.x+23,326,v.col,C.ink,13);wrapped(v.row.text,v.x+24,410,514,24,C.cream,600,32);line(v.x+23,456,v.x+543,456,'#385568',1);txt(v.result,v.x+24,507,31,v.col,800);txt(v.detail,v.x+24,535,16,C.pale,500);g.restore()});
+ txt('These examples do not establish accuracy outside the authored test.',64,600,18,C.ink,600)}
+function scope(t){rect(0,105,1280,529,C.darkblue);glow(1040,395,450,C.purple,.25);grid(C.cyan,.05);txt('03 / GUARDRAIL',64,160,16,C.cyan,800);txt('A topic is not an action.',64,232,59,C.cream,800);txt('Explicit denial of being locked in, on the Ukrainian challenge.',64,273,21,C.pale,500);
+ const q=out((t-.45)/.85),row=window.facts.examples.find(x=>x.case_id==='self-o:uk:deny-lock');rect(64,315,544,212,'#1D3653',22,'#395E73',1);pill('UK / FOCAL MESSAGE',87,340,C.purple,C.ink,13);wrapped(row.text,88,422,493,26,C.cream,600,35);
+ arrow(624,417,694,417,C.cyan,4);for(let i=0;i<2;i++){const x=714+i*252,col=i?C.coral:C.lime;rect(x,317,234,208,i?'#3C2D42':'#1D443F',22);txt(i?'REVIEW ACTION':'CONCERN TOPIC',x+20,362,15,col,800);txt(i?'0':'1',x+22,466,102,col,800);txt(i?'No review this turn':'Underlying topic present',x+21,499,16,C.cream,600)}
+ g.save();g.globalAlpha=.55*(1-q);arc(820,421,107,t*.5,t*.5+Math.PI,C.cyan,3);g.restore();txt('A negative result does not close an earlier concern.',64,590,21,C.pale,600)}
+function evidence(t){rect(0,105,1280,529,C.coral);grid(C.ink,.07);glow(1220,565,390,C.lime,.2);txt('04 / MEASURED COMPARISON',64,158,16,C.ink,800);txt('Fewer errors. Same test.',64,222,59,C.ink,800);
+ const a=window.facts.panel,b=window.facts.fresh_o;[{x:64,data:a,title:'FROZEN PANEL',base:24},{x:653,data:b,title:'FRESH CHALLENGE O',base:9}].forEach((v,i)=>{const p=ease((t-.3-i*.3)/1);rect(v.x,267,563,244,C.ink,22);txt(v.title,v.x+24,304,17,C.pale,800);txt(v.data.cases+' authored cases',v.x+24,338,25,C.cream,700);txt('v9',v.x+24,382,16,C.pale,700);rect(v.x+79,367,Math.max(1,306*p),22,C.purple,7);txt(String(v.base),v.x+505,386,22,C.cream,800,'right');txt('v10',v.x+24,435,16,C.pale,700);rect(v.x+79,420,306,22,'#34505D',7);circle(v.x+88,431,7,C.lime);txt('0',v.x+505,439,26,C.lime,800,'right');txt('binary + concern output errors',v.x+24,482,17,C.pale,500)});
+ rect(64,546,1152,52,C.cream,14);txt('PROJECT-AUTHORED SYNTHETIC DATA  /  NOT REAL-WORLD ACCURACY',86,579,20,C.ink,800)}
+function install(t){rect(0,105,1280,529,C.blue);grid(C.cream,.06);glow(1080,330,400,C.cyan,.25);txt('05 / PUBLIC RELEASE',64,161,16,C.lime,800);txt('Build with v10.',64,247,77,C.cream,800);txt('Keep human control.',64,325,77,C.cream,800);pill('OPT-IN MODEL',66,358,C.lime,C.ink);pill('LOCAL INFERENCE',239,358,C.cyan,C.ink);
+ rect(64,436,1152,112,C.navy,22);txt('$  pip install "roguard-child-safety[gemma4-v10]==10.0.0"',90,501,31,C.cream,700);const x=1120+Math.sin(t*2)*10;rect(x,471,5,38,C.coral,0);
+ txt('Apple Silicon + Python 3.12 for model review. Fetch the pinned v9 base separately.',64,587,19,C.cream,500)}
+const scenes=[hero,features,cases,scope,evidence,install],durations=[4,5,5,4,5,4];window.duration=27;window.fps=20;
+window.render=function(time){if(!window.facts||window.facts.version!=='10.0.0'||!window.facts.synthetic_only)throw Error('Pinned v10 facts required');let t=((time%27)+27)%27,start=0,index=0;for(let i=0;i<durations.length;i++){if(t<start+durations[i]){index=i;break}start+=durations[i]}let local=t-start,cross=ease((local-durations[index]+.65)/.65);g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.clearRect(0,0,W,H);scenes[index](local);if(cross>0){g.save();g.globalAlpha=cross;scenes[(index+1)%scenes.length](0);g.restore()}head(index);foot(index,t)};
+</script>

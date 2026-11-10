@@ -1,0 +1,65 @@
+{
+  "examples": [
+    {
+      "case_id": "self-o:ro:fear-help",
+      "gold_binary": 1,
+      "gold_concern": 1,
+      "language": "ro",
+      "text": "Sunt foarte neliniștită și am nevoie de ajutor.",
+      "v10_binary": 1,
+      "v10_concern": 1,
+      "v9_binary": 1
+    },
+    {
+      "case_id": "self-o:uk:media-and-real",
+      "gold_binary": 1,
+      "gold_concern": 1,
+      "language": "uk",
+      "text": "У фільмі когось б’ють, але й мене б’ють удома.",
+      "v10_binary": 1,
+      "v10_concern": 1,
+      "v9_binary": 1
+    },
+    {
+      "case_id": "self-o:ro:newspaper-stat",
+      "gold_binary": 0,
+      "gold_concern": 1,
+      "language": "ro",
+      "text": "Ziarul prezintă cifre despre amenințările la adresa elevilor.",
+      "v10_binary": 0,
+      "v10_concern": 1,
+      "v9_binary": 1
+    },
+    {
+      "case_id": "self-o:uk:deny-lock",
+      "gold_binary": 0,
+      "gold_concern": 1,
+      "language": "uk",
+      "text": "Я не замкнена вдома, можу вільно виходити.",
+      "v10_binary": 0,
+      "v10_concern": 1,
+      "v9_binary": 0
+    }
+  ],
+  "format": "roguard-v10-demo-facts-1",
+  "fresh_o": {
+    "cases": 40,
+    "v10_binary_errors": 0,
+    "v10_concern_errors": 0,
+    "v9_binary_errors": 5,
+    "v9_concern_errors": 4
+  },
+  "independent_human": false,
+  "panel": {
+    "cases": 120,
+    "v10_binary_errors": 0,
+    "v10_concern_errors": 0,
+    "v9_binary_errors": 12,
+    "v9_concern_errors": 12
+  },
+  "panel_result_sha256": "312400ac03f1928e62434e11f0c64afa6690d705220053f234c25eeacde84da1",
+  "public_challenge_result_sha256": "74c052e175fedc171ded953754638bc4f4d899e752857f2e11d4d971d660654b",
+  "pypi_wheel_sha256": "c471e34518d9808b8d96e3ce759799e6e90679057c9169be8e341643ca1da34e",
+  "synthetic_only": true,
+  "version": "10.0.0"
+}

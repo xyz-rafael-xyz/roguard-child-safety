@@ -1,6 +1,6 @@
 # RoGuard v10 qualification and release evidence
 
-RoGuard 10.0.0 provides an opt-in local joint-feature reviewer for Romanian and Ukrainian. It reads the pinned v9 Gemma 4 final-token and focal-message features, applies two checksum-bound RBF heads per language, and combines their margins with the v9 decision. The v9 model and threshold remain available through the default interface. The other five structured fields are inherited from v9.
+RoGuard 10.0.0 provides an opt-in local joint-feature reviewer for Romanian and Ukrainian. It reads the pinned v9 Gemma 4 final-token and focal-message features, applies two checksum-bound RBF heads per language, and combines their margins with the v9 decision. The v9 model and threshold remain available through the default interface. The other five structured fields use v9 logits with explicit v10 scope-cue corrections; they have no newly trained heads or standalone accuracy claim.
 
 ## Install and run
 
