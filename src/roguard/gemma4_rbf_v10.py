@@ -10,7 +10,7 @@ from .gemma4_review import Gemma4ReviewModel, _LOCK, _score
 from .gemma4_review_v10 import V10FeatureEngine
 from .interpreter import prepare_input
 
-PACKAGED_MANIFEST_SHA256 = '218c30ca502880919c99fccd1c5591f02ca83a3b38f3416576e8a251b23058a5'
+PACKAGED_MANIFEST_SHA256 = '7f6ac23d90d2620224434b248f502df85497b89afcf16df5e40ca1969963997c'
 
 
 def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin: float,
@@ -19,7 +19,7 @@ def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin
     # the text still mentions a general safety concern. Weaker margins require
     # the concern head to agree, preserving difficult positive parent decisions.
     if parent_predicted == 1 and binary_margin <= 0.05:
-        if concern_margin < concern_threshold or binary_margin <= -0.6:
+        if concern_margin < concern_threshold or binary_margin <= -0.45:
             return 0
     if parent_predicted == 0 and binary_margin >= 0.4 and concern_margin > concern_threshold:
         return 1
@@ -42,7 +42,7 @@ class Gemma4RBFV10Model:
         binding = json.dumps({'format': 'roguard-gemma4-rbf-v10', 'parent': parent.identity,
                               'language': self.language, 'binary': self.binary.identity,
                               'concern': self.concern.identity, 'feature_mode': 'joint',
-                              'decision_rule': 'guard-v6-ro0-uk0.1-binary0.4-clear-0.6-meal-and-reference-cues'},
+                              'decision_rule': 'guard-v7-ro0-uk0.1-binary0.4-clear-0.45-meal-and-reference-cues'},
                              sort_keys=True, separators=(',', ':'))
         self.identity = hashlib.sha256(binding.encode('utf-8')).hexdigest()
 

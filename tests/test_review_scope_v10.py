@@ -15,12 +15,15 @@ from roguard.review_scope_v10 import (correct_logits, cues, explicit_meal_depriv
 
 def test_explicit_meal_deprivation_excludes_denials_and_fiction():
     assert explicit_meal_deprivation('Aseară am fost trimis în cameră fără cină.', 'ro')
+    assert explicit_meal_deprivation('Sunt lăsat fără cină ca pedeapsă.', 'ro')
     assert explicit_meal_deprivation('Учора мене відправили в кімнату без вечері.', 'uk')
     assert not explicit_meal_deprivation('Nu sunt trimis în cameră fără cină.', 'ro')
     assert not explicit_meal_deprivation('Батьки не лишають мене без їжі.', 'uk')
     assert not explicit_meal_deprivation('Я не йду без обіду.', 'uk')
+    assert not explicit_meal_deprivation('Мене ніколи не відправляли спати без їжі.', 'uk')
     assert not explicit_meal_deprivation('În roman, copilul este lăsat fără cină.', 'ro')
     assert not explicit_meal_deprivation('У фільмі мене відправили без вечері.', 'uk')
+    assert not explicit_meal_deprivation('Sunt personaje fără cină în exercițiu.', 'ro')
 
 
 def test_explicit_reference_scope_keeps_personal_disclosures_in_scope():
@@ -33,6 +36,7 @@ def test_explicit_reference_scope_keeps_personal_disclosures_in_scope():
     assert not explicit_reference_scope('În film se întâmplă asta, iar eu pățesc la fel.', 'ro')
     assert not explicit_reference_scope('Ziarul spune că prietena mea este amenințată.', 'ro')
     assert not explicit_reference_scope('Газета пише, що моя подруга отримує погрози.', 'uk')
+    assert not explicit_reference_scope('Газета пише про мою однокласницю, якій погрожують удома.', 'uk')
 
 
 def test_scope_reader_separates_outer_claim_from_quoted_words():

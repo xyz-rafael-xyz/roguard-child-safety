@@ -10,10 +10,11 @@ from roguard.gemma4_rbf_v10 import _binary_decision
 def test_strong_negative_margin_clears_report_with_general_concern():
     assert _binary_decision(1, -1.0, 1.0) == 0
     assert _binary_decision(1, -0.61, 1.0) == 0
+    assert _binary_decision(1, -0.48, 1.0) == 0
 
 
 def test_ambiguous_margin_keeps_parent_report_with_personal_concern():
-    assert _binary_decision(1, -0.45, 0.6) == 1
+    assert _binary_decision(1, -0.40, 0.6) == 1
 
 
 def test_agreed_negative_margins_clear_parent_false_alert():

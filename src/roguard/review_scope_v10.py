@@ -78,11 +78,11 @@ def explicit_meal_deprivation(text: str, language: str) -> bool:
             return False
         if re.search(r'\bnu\s+(?:am\s+fost|sunt|rămân|mă|mi\s+se|mi\s+este|m-au)\b', value):
             return False
-        return bool(re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt|m-au)\b', value)
+        return bool(re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt\s+(?:lăsat|trimis|privat|ținut)|m-au)\b', value)
                     and re.search(r'\b(?:fără\s+(?:cină|mâncare|prânz|masă|hrană|mic(?:ul)?\s+dejun)|nu\s+primesc\s+(?:mâncare|cina|prânzul|micul\s+dejun)|mi\s+se\s+refuză\s+(?:mâncarea|cina|prânzul))\b', value))
     if re.search(r'\b(?:роман|фільм|сценар|підручник|статт|сайт|плакат|буклет|брошур|казк|словник|енциклопеді|портал)\w*\b', value):
         return False
-    if re.search(r'\b(?:мене\s+(?:ніколи\s+)?не\s+(?:відправляють|позбавляють|залишають|лишають|карають)|я\s+не\s+(?:лягаю|залишаюся|йду|ходжу|виходжу)|не\s+лишають)\b', value):
+    if re.search(r'\b(?:мене\s+(?:ніколи\s+)?не\s+(?:відправляють|відправляли|відправили|позбавляють|позбавляли|позбавили|залишають|залишали|залишили|лишають|лишали|лишили|карають|карали)|я\s+не\s+(?:лягаю|залишаюся|йду|ходжу|виходжу)|не\s+лишають)\b', value):
         return False
     return bool(re.search(r'\b(?:мене|мені|я)\b', value)
                 and re.search(r'\b(?:без\s+(?:вечері|їжі|обіду|сніданку)|не\s+дають\s+(?:їсти|вечерю|їжі|сніданок|обід)|позбавили\s+(?:їжі|вечері|обіду|сніданку))\b', value))
@@ -98,7 +98,7 @@ def explicit_reference_scope(text: str, language: str) -> bool:
         personal = re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt|(?:prietenul|colegul|fratele)\s+meu|(?:prietena|colega|sora)\s+mea)\b', value)
     else:
         marker = re.match(r'^(?:у\s+(?:фільмі|романі|казці|книзі|підручнику|сценарії)|на\s+(?:дошці|сайті|плакаті|стіні|радіо|дверях)|вебсторінка|газета|новинний\s+портал|шкільна\s+брошура|посібник|стаття|учитель\s+пояснює|клас\s+обговорює)\b', value)
-        personal = re.search(r'\b(?:мене|мені|я|мій|моя|моєму|моєї)\b', value)
+        personal = re.search(r'\b(?:мене|мені|я|мій|моя|мою|мого|моєму|моєї)\b', value)
     return bool(marker and not personal)
 
 
