@@ -1,8 +1,8 @@
 # RoGuard 10.0 reel
 
-The project and profile READMEs embed a **silent, infinitely looping animated WebP** made from the supplied `roguard_reel_27s.mov`. The source filename says “27s”, but the actual MOV is **45.47 seconds** long. The animation preserves the full sequence at 960 × 540 and **30 frames per second**, matching the source frame rate without an added title hold. The linked MP4 is 1280 × 720 at 30 frames per second and retains the source audio. The poster is a frame from the opening orange RoGuard title.
+The project and profile READMEs embed a **silent, infinitely looping GIF** made from the supplied `roguard_reel_27s.mp4`. Its filename says “27s”, but the actual video is **45.47 seconds** long. The GIF keeps all 1,364 source frames in order at 640 × 360, with the same 45.46-second playback duration and average **30 frames per second**. GIF timing is limited to 10-millisecond steps, so its individual frames alternate between 30 and 40 milliseconds. The source MP4 remains unchanged in Downloads.
 
-[Looping animation](../media/roguard-v10-reel-30fps.webp) · [Video with playback controls and audio](../media/roguard-v10-reel.mp4) · [Still poster](../media/roguard-v10-reel-poster.png)
+[Looping GIF](../media/roguard-v10-reel-mp4-loop.gif)
 
 ## What the reel shows
 
@@ -14,9 +14,7 @@ The 33 errors are **output counts**, not necessarily distinct messages: v9 made 
 
 | File | SHA-256 |
 | --- | --- |
-| Supplied `roguard_reel_27s.mov` | `3cf25d8104ad4c15f1858251fe83ee1b52ad8222313c2673d34caff712d4012e` |
-| [`roguard-v10-reel-30fps.webp`](../media/roguard-v10-reel-30fps.webp) | `55dfdda1c9d4c890b7859e7f6143833dfe5846b6c2a1373d0f96d41ec5de4f77` |
-| [`roguard-v10-reel.mp4`](../media/roguard-v10-reel.mp4) | `28e71375be8f52db4245a7c570d68c2f0a6e0d1bd4a3b7771841db84f746e49c` |
-| [`roguard-v10-reel-poster.png`](../media/roguard-v10-reel-poster.png) | `84fa051e73f651512a52f122d43011f1b8f2c6720fb3577261bebb6a416b2f87` |
+| [`roguard-v10-reel-mp4-loop.gif`](../media/roguard-v10-reel-mp4-loop.gif) | `005e7ae3269a055eb86e7c9d243037b9824fbc39357191c31b6f9d91f9ccaa6d` |
+| Supplied `roguard_reel_27s.mp4` (kept in Downloads) | `f9698f94cf3ee5810094cec2f6fe8bed4f0bd4c78bb05dcbbae4254607483bf6` |
 
 The older 27-second v10 GIF and its [design transcript](V10_DEMO_VIDEO.md) remain in the repository as historical assets. The READMEs now display this new reel.

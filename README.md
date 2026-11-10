@@ -12,11 +12,11 @@
 [![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
 [![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
 
-[![RoGuard 10.0 orange-and-black animated reel: the reused Gemma 4 body, four RBF heads, a guarded review decision, and authored synthetic comparisons](media/roguard-v10-reel-30fps.webp)](media/roguard-v10-reel.mp4)
+![RoGuard 10.0 orange-and-black animated reel: the reused Gemma 4 body, four RBF heads, a guarded review decision, and authored synthetic comparisons](media/roguard-v10-reel-mp4-loop.gif)
 
-**RoGuard 10.0 in motion** · [Watch / pause the full video](media/roguard-v10-reel.mp4) · [Still preview](media/roguard-v10-reel-poster.png) · [Reel notes and evidence](docs/V10_REEL.md)
+**RoGuard 10.0 in motion** · [Reel notes and evidence](docs/V10_REEL.md)
 
-A 45-second looping visual summary of v10's model path and recorded comparisons on fictional messages. The linked video includes the source audio; the embedded animation is silent.
+A 45-second silent GIF loop made from the supplied MP4, keeping its frame sequence and playback speed.
 
 ## RoGuard 10.0: local review and decision assurance
 
