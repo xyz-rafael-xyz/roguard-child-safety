@@ -15,6 +15,9 @@ def test_scope_reader_separates_outer_claim_from_quoted_words():
     assert cues('Așa se simte: «Poate că nu știu.»', 'ro')['uncertain'] is None
     assert cues('Nu știu dacă se numește amenințare, dar am auzit o amenințare.', 'ro')['uncertain'] is None
     assert cues('Nu știu dacă este adevărat: «x»', 'ro')['uncertain'] == 'nu știu dacă'
+    assert cues('Nu pot stabili dacă această descriere este adevărată despre mine: «x»', 'ro')['uncertain'] is not None
+    assert cues('Я не можу визначити, чи цей опис відповідає дійсності щодо мене: «x»', 'uk')['uncertain'] is not None
+    assert cues('Citez: «Nu pot stabili dacă această descriere este adevărată despre mine.»', 'ro')['uncertain'] is None
     assert cues('Compun un dialog pentru un roman: «Asta mă privește pe mine.»', 'ro')['role'] == 'fiction'
     assert cues('Asta mă privește pe mine. «citat neterminat', 'ro')['role'] is None
 

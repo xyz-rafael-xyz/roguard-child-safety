@@ -5,8 +5,8 @@ import re
 import unicodedata
 
 _MODAL = {
-    'ro': re.compile(r'\bpoate\s+că\b|\bmă\s+întreb\s+ce\s+s-ar\s+întâmpla\s+dacă\b|\bnu\s+știu\s+dacă\b|\bnu\s+exclud\b|\be\s+posibil\b'),
-    'uk': re.compile(r'\bможливо\b|\bне\s+знаю\s*,?\s*чи\b|\bне\s+впевнен\s*,?\s*чи\b|\bне\s+виключаю\b'),
+    'ro': re.compile(r'\bpoate\s+că\b|\bmă\s+întreb\s+ce\s+s-ar\s+întâmpla\s+dacă\b|\bnu\s+știu\s+dacă\b|\bnu\s+exclud\b|\be\s+posibil\b|\bnu\s+pot\s+stabili\s+dacă\s+această\s+descriere\s+este\s+adevărată\s+despre\s+mine\b'),
+    'uk': re.compile(r'\bможливо\b|\bне\s+знаю\s*,?\s*чи\b|\bне\s+впевнен\s*,?\s*чи\b|\bне\s+виключаю\b|\bя\s+не\s+можу\s+визначити\s*,?\s+чи\s+цей\s+опис\s+відповідає\s+дійсності\s+щодо\s+мене\b'),
 }
 _ROLE = {
     'ro': {
