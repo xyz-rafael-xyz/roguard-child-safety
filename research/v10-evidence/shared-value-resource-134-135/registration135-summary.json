@@ -1,0 +1,44 @@
+{
+  "format": "roguard-independent-shared-value-saved-audit-plan-1",
+  "registered": true,
+  "study": 135,
+  "producer_study": 134,
+  "producer_exit_code": 0,
+  "encoder_permitted": false,
+  "head_replay_permitted": true,
+  "training_permitted": false,
+  "source_sha256": "0e3f74dbcc6b2bfb8c791eb4e8ea09db12dc39fb0cc6a53b5d3bb76faca13704",
+  "registered_at": "2026-11-08T19:51:14.433937+00:00",
+  "versions": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "safetensors": "0.8.0"
+  },
+  "files": {
+    "producer_source": {
+      "path": "[private-artifact]/assertion-pilot-next/shared-value-resource134-source.py",
+      "sha256": "06a3c20298c00c2865b1ade93c4411c43c07320e66ff303c9cbcd34f42eddc53"
+    },
+    "producer_plan": {
+      "path": "[private-artifact]/assertion-pilot-next/shared-value-resource134-plan-r2.json",
+      "sha256": "1586b7af65d5f07ff8f1a2b6196703dfe45885b3b27f215ffccfcb5a77d85ec8"
+    },
+    "producer_report": {
+      "path": "[private-artifact]/shared-value-resource-134/report.json",
+      "sha256": "c7f8eb49de856de56117579d517df5c8bd8938ae06411f3a2e2ac6758c56af34"
+    },
+    "independent_source_review": {
+      "path": "[private-artifact]/parallel-review-20261108/shared-value135-independent-v2/review.json",
+      "sha256": "add85b64952a1339f9e950a0aa70f430685013c1b3eb97eeb4626710f140d4bd"
+    },
+    "author_synthetic_tests": {
+      "path": "[private-artifact]/parallel-review-20261108/shared-value135-author-tests-v2.json",
+      "sha256": "6768bf9a3c8f82096d6c7a411bc3aecb93218c9ace94b4a3f8ffbd72fdbfda25"
+    }
+  },
+  "scope": "Independent16retokenizations,80savedglobalVALUEpoolmeans and16TorchCPU75heads. Noencoder/optimizer/accuracylabels/nativeparityregeneration.",
+  "root_review": "Rootauthoredsource;12scalarreference/invalidinputchecksPASS;independent30fullfixture/corruptiontestsPASS. V1alignmentimportbarriergapfixedbeforeactualdata;v1retained.",
+  "qualified": false,
+  "original_private_artifact_sha256": "6f50337332254f51779df58e7378a939bfad4e070466cea8663c639c91b7dfbb",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

@@ -1,0 +1,36 @@
+{
+  "format": "roguard-assertion-specialist-fit-1",
+  "source_sha256": "3455327dcca3d84fc04a80aa45727b395192c2d4898e7eb4b441bb90a0d26760",
+  "amendment_sha256": "fe1c277b8b58cbd5670da64360ef21e5536866248c3f931cb1c63727959b14f2",
+  "feature_report_sha256": "fd0d16f2166367cdb2456d61c9c54d729f56b62a30b583f41ce725fa43a37ae4",
+  "configurations": [
+    {
+      "name": "query-linear",
+      "view": "query",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "query-mlp128",
+      "view": "query",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    }
+  ],
+  "optimization": {
+    "epochs": 40,
+    "batch_size": 128,
+    "seed": 1033,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0
+  },
+  "labels": [
+    "AFFIRMED",
+    "NEGATED",
+    "UNCERTAIN",
+    "RETRACTED"
+  ],
+  "binary_decision_changed": false,
+  "calibration_or_regression_loaded": false,
+  "stable_release_ready": false
+}

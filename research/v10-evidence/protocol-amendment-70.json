@@ -1,0 +1,76 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-diversity-screen-81",
+  "motivation": "Screen the already retained128 TRAIN drafts with aligned task definitions, one reply per judgment, and retained explanations. Study66 remains rejected; this is a distinct registered screen on new69 texts, not a rerun to reverse66.",
+  "source": "All128 immutable drafts from response-diversity-pilot69,32 bilingual contrast families. No wrapper expansion, label editing, candidate predictions or DEV/TEST input.",
+  "judge": {
+    "model": "mlx-community/Qwen3-4B-Instruct-2507-bf16",
+    "revision": "f9e77d4283734966e9cd641bf35547f0cff5d427",
+    "seed": 1081,
+    "temperature": 0,
+    "maximum_output_tokens": 256,
+    "compute_dtype": "native"
+  },
+  "software": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.31.3",
+    "transformers": "5.17.0",
+    "tokenizers": "0.23.2",
+    "numpy": "2.5.3"
+  },
+  "task_prompt_sha256": "a9399062a2e313d21e599bc26f3933fe143121663c9c64ec8de2a0948edd27f5",
+  "screen_prompt_sha256": "ab81ed3698232bc46aeb6ccf420e30df80c59a404943c4af4291f5da173745d1",
+  "prompt_change": "Preserve every classifier category definition; replace the one-letter output instruction with explicit JSON audit format, permit unclear, and separate language-form judgment from behavioral/factual correctness. Expected category, family, rationale, sibling reply and case identity are withheld.",
+  "order": "Sort all drafts by SHA256 canonical digest of {study:81,case_id}, with case_id as tie-breaker. No class-dependent batching.",
+  "screening": "One deterministic generation per draft,128 total, max256 output tokens, seed1081, temperature0. Preserve raw outputs, malformed results, explanations, disagreement and language flags. No automatic reruns or relabeling.",
+  "acceptance": "All128 judgments must match intended labels and language_ok=true to pass this machine screen. Any malformed or flagged result rejects fitting admission under this screen. Even complete machine agreement requires a separate materialization/fitting registration and is not independent gold validation.",
+  "limitations": "The4B judge has unestablished Romanian/Ukrainian screening reliability and previously failed authoring/screening tasks. Prompt alignment may change judgments without making them correct. Author and model errors can be correlated. Grammar reasons are machine assertions, not confirmed defects.",
+  "dependency_report": "research/v10-evidence/matched-assertion-audit-sequence-80/report.json",
+  "dependency_pid": 3774,
+  "dependency_steps": [
+    "wait-completed79-queue-exit",
+    "verify-completed-matched-assertion79"
+  ],
+  "resources": "Run after80 successfully completes and exits, preserving the existing65/73/78/79/80 sequence. One full model at a time. Native judge dtype,10GiB MLX memory limit,128MiB cache,8GiB free disk reserve.",
+  "public": {
+    "training/screen_response_diversity_v10.py": "7ee553e912af37d1c952813a2c59cbe4ad9a9f8e460d995ef628ea63a6d55903",
+    "tests/test_response_diversity_screen_v10.py": "e834ef315e80ae67517e126dc2c6dcf5ef6d94c41346b76e777ca337195c96e6",
+    "src/roguard/gemma4_response.py": "fafc3b8a0e7882f56dcc836ba22bf2d50afe27c9acdfbbe66879c4f52a444e82",
+    "src/roguard/trajectory_data.py": "a046974c382ac31da80aaec1172f0d36d87112683111904a489c6cb5f201ec55",
+    "src/roguard/assurance.py": "9baaa5d7949b562a0a4966fa33ca8ddc4bf49bb138531a5187899f7ae81b653a",
+    "scripts/run_report_sequence_v10.py": "cbdb73a92b2e7ecf14ed2b15b55fe92cc0e0a0589c61207799cb0153e587fad3",
+    "scripts/run_large_data_sequence_v10.py": "0c4fad29e3531f60af59a20c9c5acb5592be5cd15b42ff8451bbcc7029b95589",
+    "scripts/wait_completed_sequence_exit_v10.py": "8ac14e29be78ffedd1b75a073b51e9f3ab6354371357b6b6694283603c76838c",
+    "research/v10-evidence/response-diversity-pilot-69/assistant-inspection.json": "dc425e391aa439ae629653f05c44bb8bc24fc47e61ab61ab58298a0dd7225cc0",
+    "research/v10-evidence/response-diversity-pilot-69/audit-source.py": "33457282b5a3befb3c902e0b1603e842f7b110044b5c72ebd2db4a0ca9c88aa6",
+    "research/v10-evidence/response-diversity-pilot-69/draft-report.json": "e81f3d5dbecc103381d8ca1d1119cdca8fa9c1d0b1787e8e2631ebeaec53c962",
+    "research/v10-evidence/response-diversity-pilot-69/drafting-plan.json": "41cda4d642fcd914120ffa6bd378357e89e39bb8cbc16246904dbee6c9a958bf",
+    "research/v10-evidence/response-diversity-pilot-69/generator-replay.json": "28d9e25cf7aca496b278c2b6e2e5ce696d80145242efb68603cb63e32543d7c0",
+    "research/v10-evidence/response-diversity-pilot-69/source.py": "607098f08621103b9a042d0b3d4625e5f337d04c35301d11d489f3aefb593407",
+    "research/v10-evidence/response-diversity-pilot-69/structural-audit.json": "5440b26cb400f9f5eca5bc16e8b99bc5ea290aa78f8e1f8814add09a7c06c571",
+    "research/v10-evidence/response-diversity-pilot-69/token-envelope-source.py": "074f84082b06829fc7d073cbc828a5bd4f1b8ca404bfd5af4dad73cd407ea283",
+    "research/v10-evidence/response-diversity-pilot-69/token-envelope.json": "45e3092f09d2f689767c00308aa9b57243d413e4e8cf4688341bcc809c957890",
+    "research/v10-evidence/authored-response-screen-analysis-66/inspection.json": "053bef169edfec3b08ace0068608a9ef23a603599dbae2de0e79e8af6eee4259",
+    "research/v10-evidence/authored-response-screen-qualification-66/report.json": "0af1a36f34dffea2fa72e74e1080366b4c57fd210255a01bc1cd2f7ab3c54ec6"
+  },
+  "private": {
+    "response-diversity-pilot-69/train-draft.jsonl": "21ce54ac895696df963fc607f778abf455574e947aa089e51d18735ec8d6c511",
+    "response-diversity-pilot-69/intended-distinctions.json": "bc61956634ecb6844f913c259d59bfd6f18e3be4dfbc4fc932a62c2695560d08",
+    "matched-assertion-audit-sequence-80-plan.json": "e9bb4c2ccd75fc8f26cdb760fa3715bd10bfac2870fcf4d2331f4b5327b54d21"
+  },
+  "model_files": {
+    "chat_template.jinja": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+    "config.json": "e93e48b151e03b7ba7365f56852996336f8236a7f1be9b30dd25800e86486f66",
+    "generation_config.json": "835fffe355c9438e7a25be099b3fccaa98350b83451f9fd2d99512e74f1ade48",
+    "model-00001-of-00002.safetensors": "404ba1ac78aaba98239c541fa75caab730230c9f5ec96434a4a719639dd15351",
+    "model-00002-of-00002.safetensors": "35d82d9374e0e37622a5270d74d716c6bf01619e2444711ce633dc53a1c768f8",
+    "model.safetensors.index.json": "5e699a61da09415f33a625885364d3889a80acb6ab88aedaf6e195b2612addf4",
+    "tokenizer.json": "05d47c87966b4db779200053de490f89936ed529f8ab889244e271630715fcfe",
+    "tokenizer_config.json": "34ed6b4c114a09d2c73cc6dc48f2a83de2e3c0aef8dd6c743f74b42dd63cbd73"
+  },
+  "training_ready": false,
+  "independent_annotation": false,
+  "semantic_labels_verified": false,
+  "held_out_test_opened": false,
+  "stable_release_ready": false
+}

@@ -1,0 +1,61 @@
+{
+  "format": "roguard-frozen-train-scale-evaluation-design-1",
+  "status": "PROSPECTIVE_SOURCE_ONLY_NOT_REGISTERED",
+  "frozen_alpha": {
+    "ro": 2.0,
+    "uk": 1.5
+  },
+  "selection": "Exactly128TRAINchosen scalars, independently audited129; requirefixedselectionfile and129PASS beforeDEV/bank scoring. No newscale candidate/search or125/131model integration.",
+  "populations": {
+    "original_dev": {
+      "ro": 4202,
+      "uk": 4635,
+      "total": 8837
+    },
+    "larger_bank": {
+      "ro": 1540,
+      "uk": 1540,
+      "total": 3080
+    },
+    "panel": {
+      "rows": 40,
+      "aliases": 32,
+      "unique_supplemental_inputs": 8,
+      "already_in_larger_bank": true
+    }
+  },
+  "comparators": [
+    "unchanged-initial75",
+    "original-v9"
+  ],
+  "transformation": {
+    "source_sha256": "c9bccff28a36561211fddbd1722c66941ee53ad0a26f8f73a3c95f7f881d8d34",
+    "independent_oracle_sha256": "f8290afbd22edbbbe721c2159359c21197e90cb997be08519f3d48b14ffdfd4c",
+    "active_fields": [
+      "subject",
+      "assertion",
+      "source",
+      "relation",
+      "concern"
+    ],
+    "time_and_legacy_binary": "Exactfloat32bytes unchanged.",
+    "unary_point_labels": "All7argmax andtie sets mustremainidentical to75 for everyrow, includingfallbacks; six-fieldjointtuple unchanged.",
+    "coupled_joint_map": "May change; reportseparately, do notclaim semanticlabelcorrection orjointMAP preservation.",
+    "fallback": "Frozen128nonfinite/argmax/tie fallback; retainallrows andstatuscounts, no filtering."
+  },
+  "outputs": "Everycaseoriginal75/v9/candidate19logits+scores/labels/fieldNLL/Brier/binaryNLL/Brier/errors; originalDEVallsourcegroups andbankallpartitions/operator/meaning/register/core/context; full40responses viafrozenmapping withoutdoublecounting3080.",
+  "comparisons": "Introduced/fixedbinaryerrors against75andv9 for eachgroup andfullpanel; independentpolicyspec/threshold for eachreference. Candidatepointfielderrorcounts mustequal75.",
+  "interpretation": "Descriptive fixedparameter evaluation withexplicitnonregression summary. Noalpha selection orthresholdsearch afterDEV exposure. No learnedsemanticimprovement, inheritedconformalcoverage/calibration, native75parity orqualification.",
+  "lineage": "Bound128producerplan/source/report andselection,129auditplan/source/report, original88+audit89+warm90,122baseline/rootrecount/121featureaudit andfullpanelaliasmap; bindallactualconsumerarrays/rows andexecutingsources before/after.",
+  "caps": {
+    "disk_reserve_bytes": 8589934592,
+    "maximum_output_bytes": 268435456
+  },
+  "train_rows_scored": 0,
+  "encoder_loaded": false,
+  "head_replayed": false,
+  "optimizer_run": false,
+  "qualified": false,
+  "original_private_report_sha256": "d2d440d4233c90ae23e5a0053b12672b77b1b77d00acaba8537d5c0ddb19a8a5",
+  "public_redaction": "Local paths replaced. Original numbers, booleans, nulls and digests retained. Registrations are provenance summaries, not executable plans."
+}

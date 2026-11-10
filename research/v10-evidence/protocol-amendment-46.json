@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-attention-48",
+  "motivation": "Frozen response heads, prompt demonstrations and generated judgments retain errors. Adapt attention under the existing response prompt, rather than fitting another head to unchanged representations.",
+  "data": "Exactly study32's 596 TRAIN inputs (study25 TRAIN plus study32 augmentation) and unchanged80 DEV inputs. No new labels, context34 labels or original diagnostic labels enter training or selection. Preserve input and feature hashes.",
+  "initialization": "Pinned Gemma base with all final18 query/output LoRA B matrices zero, original published Romanian LoRA A matrices retained as a deterministic basis, and the selected linear response head from study26. Require original80 DEV classifications to reproduce before training. This is one shared bilingual response adapter, separate from every binary review adapter.",
+  "trainable": "Final18 query/output rank8 LoRA A/B parameters and the shared five-class RMS-normalized linear response head only. Embeddings, first24 layers, frozen KV sources and other base parameters cannot change.",
+  "optimization": {"epochs": 6, "learning_rate": 0.000005, "seed": 1048, "batch_size": 8, "weight_decay": 0.01, "gradient_norm_clip": 1.0, "teacher_kl_weight": 0.1},
+  "loss": "TRAIN language/category-balanced cross-entropy plus0.1 KL to the frozen study26 response logits, averaged within minibatches. Five-percent learning-rate warmup and linear decay to10 percent. Serial tail backward calls retain the existing Metal workaround.",
+  "memory": "Compute frozen-body states on demand for at most eight inputs at once. Do not create another persistent multi-gigabyte body cache. Release states after each update. Run only after the current full-encoder pipeline releases memory.",
+  "verification": "Check trainable tensor inventory and finite updates; verify initial fresh features/logits against bound study26/32 features. Verify sampled actual full-forward versus replay parity before and after training, and selected-checkpoint reload parity. Test gradients and frozen-parameter preservation on a small actual Gemma model before full training.",
+  "selection": "Evaluate epoch0 and each complete epoch on the unchanged80 DEV inputs. Minimize worst language/category error rate, total errors, then cross-entropy, as in study26. Freeze selection before context34 diagnostic access. Open the original ten diagnostics only if both selected DEV and context34 have zero errors.",
+  "qualification": "All these populations are exposed synthetic development diagnostics. A passing component would still require new robustness tests, independent response annotation, contextual factual-support qualification and the full v10 release requirements.",
+  "stable_release_ready": false
+}

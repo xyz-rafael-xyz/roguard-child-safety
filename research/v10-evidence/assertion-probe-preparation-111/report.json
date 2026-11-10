@@ -1,0 +1,60 @@
+{
+  "format": "roguard-assertion-probe-preparation-1",
+  "complete": true,
+  "sources": {
+    "training/assertion_probe_design_v10.py": "20680853b04f948f0443cf37684c4149e845d4f888f367a1801dbb05d463b604",
+    "tests/test_assertion_probe_design_v10.py": "5d90cc514bbccba46b7a37f460b1dd3de0559fe6d001104205cbe13664400be6"
+  },
+  "tests": {
+    "focused_portable": 28,
+    "additional_agent_corruption_checks": 10,
+    "full_passed": 1868,
+    "full_skipped": 379,
+    "full_subtests": 202,
+    "full_seconds": 35.72,
+    "full_log_sha256": "657264707cff85e63dba4f351a7e812681d86e142ebd3460c717313f06ba3bfb"
+  },
+  "agent_review_sha256": "2f5d040169fa8397eb686aa561c7db514c1c2a1508dcb12dc6e118af47145e6e",
+  "original_bank_guard": {
+    "format": "roguard-assertion-probe-guard-1",
+    "original_rows_sha256": "47340cab8cba88b1e8ceb3ba6cadea6134b3f012e4413dd6e2556dc2343671b0",
+    "original_rejected": true,
+    "rejection": "Partition differs from independently reconstructed family split",
+    "in_memory_correct_partition_check": {
+      "verification": "PASS",
+      "rows": 1728,
+      "unique_normalized_inputs": 1728,
+      "blocks": 36,
+      "counts": {
+        "probe_combination": 192,
+        "fit": 576,
+        "probe_meaning": 384,
+        "probe_operator": 384,
+        "probe_both": 192
+      },
+      "bilingual_sibling_groups": 864,
+      "protected_unique_inputs_checked": 0,
+      "design_sha256": "7d810229f77735b92c8c0897c2256086bed96e2589df6ec8dd941d43ffe3efec",
+      "rows_sha256": "5c2c20ef9b74d074ecb673dccbe4cd42bfeb28759c59c901c2d62423bdd2ba0f",
+      "training_admitted": false,
+      "semantic_labels_validated": false,
+      "token_overlap_checked": false,
+      "held_out_test_opened": false,
+      "independently_validated": false,
+      "qualified": false,
+      "scope": "Complete declared block assignment, sibling coverage and normalized role-preserving input checks only. Family margins are held out from the proposed additional fitting, not proven absent from prior model training. Semantic review, token checks, complete protected-source audit and new registration remain required."
+    },
+    "original_file_unchanged": true,
+    "repartitioned_dataset_written": false,
+    "semantic_bank_status": "REJECTED_RETAINED",
+    "training_admitted": false
+  },
+  "original_bank_guard_sha256": "b30b085af9e32401d31ee74601d771561b4504ccad87ff31c17f5a908ce7f648",
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "training_admitted": false,
+  "held_out_test_opened": false,
+  "independent_human_validation": false,
+  "qualified": false,
+  "scope": "Structural safeguards for generated fitting/probe proposals. Complete declared bilingual/context blocks, independently reconstructed family partitions, role-preserving NFKC identities, named/numeric field consistency and final minor focus are checked. Semantics, token overlap, complete protected-source coverage and fitting admission remain separate. The retained 1728-row draft remains semantically rejected."
+}

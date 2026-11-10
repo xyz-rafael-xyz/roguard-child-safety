@@ -1,0 +1,27 @@
+{
+  "format": "roguard-runtime-baseline-audit-plan-1",
+  "experiment": "runtime-review-baseline-audit-89",
+  "source_sha256": "42e935fe499c956c0d14ea459f929ab2babbb921616bd49cdce344c2bf83d971",
+  "source88_sha256": "7d61282563c1e09505902164c210bdf37c3e54c07cc8f7d432f6264c2adf5512",
+  "amendment73_sha256": "571c06276befa0d9799277c928fdd101c711a3ece2e3fc6336d01797f91c47ae",
+  "producer_pid": 17789,
+  "dependency": "Wait for88 writer lock, require completed extraction report, then require its producer process to exit within30 seconds. Failed or partial extraction is rejected before numerical imports or any proof creation.",
+  "scope": "Recount all37766 observation identities, historical feature differences, paired v9 decisions and report aggregates. Check all8837 saved warm-head DEV outputs against83, including seven argmax outputs and fixed-threshold decisions. Reconstruct bothheads on CPU:37766 original-v9 outputs and8837 warm-head outputs. Retain separate CPU argmax/threshold differences.",
+  "limits": {
+    "native_replay_observations": 0.001,
+    "saved_warm_start_vs83": 1e-05,
+    "reported_direct_serving_score": 1e-10,
+    "cpu_head_logit_replay": 0.001
+  },
+  "limitations": "Native full-forward arrays and per-group serving values were not retained by88. Their native-error observations are recounted; the direct-serving maximum remains a producer-reported observation. This CPU audit does not repeat encoder inference or establish independent gold labels.",
+  "future_binding": "No future report/artifact checksum is invented. Read the completed88 report, verify every exact artifact checksum, and bind report/protocol/artifacts in the audit proof; verify inputs remain unchanged at completion.",
+  "rows": 37766,
+  "warm_development_rows": 8837,
+  "expected_artifact_files": 10,
+  "cpu_head_rows": 46603,
+  "device": "cpu",
+  "encoder_loaded": false,
+  "training_performed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

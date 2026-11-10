@@ -1,0 +1,22 @@
+{
+  "format": "roguard-local-experiment-sequence-1",
+  "plan_sha256": "891cc831183b20f6a93e75fba1285968b4b5506b91d3f312124dbef5e1dd6227",
+  "source_sha256": "6b37d3d87497fd64abe90d6dfaa099e0920996b4e4c0b0e9d1bbb08eb8a7bcf7",
+  "source_hashes": {
+    "eval/assess_large_review_v10.py": "4d76cc9d8c213065bf4fbd43dd7536e4cc3c2f6ea719b6a2dbdd3feb9236e8d2",
+    "eval/evaluate_readout_challenge_v10.py": "02d2344f6697bc3620305fb97384a36548c3b50c37d6d4f59dce461a6e2e28a2",
+    "research/v10-evidence/protocol-amendment-55.json": "a73da194115715f31c47894009a964ebbf38abcaaa3375ec4ef6e3876ae8ce13",
+    "scripts/run_large_data_sequence_v10.py": "6b37d3d87497fd64abe90d6dfaa099e0920996b4e4c0b0e9d1bbb08eb8a7bcf7",
+    "training/compositional_review_frames_v10.py": "0cdae34b2c79992f131f260195a06cd57c74e378c34553893d9a173b1a8306fa",
+    "training/evaluate_cached_semantic_v10.py": "c4c8cf2d7bda8fa8048219ee9973e82e7a4d29c2aacc9fa49f1fa20ed6530f8d",
+    "training/extract_large_review_v10.py": "20518520e3a6b6ee50212b97eec25a7379667f0b9c47f514aac65e774197f103",
+    "training/prepare_compositional_review_v10.py": "92d96db55b4bfe094122e64a3044a51319ab0524346672571c093f87ff009bf0",
+    "training/train_semantic_readout_v10.py": "f487d42574227c4e33a6f001bce9e99d256f8701c07c466815b70bdcb5a098a6"
+  },
+  "execution_complete": false,
+  "completed_steps": [],
+  "phase": "cancelled_before_execution",
+  "stable_release_ready": false,
+  "promotion_performed": false,
+  "reason": "Replace Python3.11-only hashlib.file_digest with portable streaming hashing before any queued command starts; preserve Python3.9/3.10 support."
+}

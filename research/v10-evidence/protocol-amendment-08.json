@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-prospective-amendment-1",
+  "experiment": "semantic-readout-11",
+  "reason": "Score combinations did not resolve the remaining semantic errors. Train the neural interpretation and review readout on the frozen adapted v9 representation, using the existing verified training/development corpora.",
+  "data": "Caches 164, 174, 176 and 195, with original train/dev partitions. No calibration or old regression labels enter this fit. Representations and learned tensors remain outside Git until a qualified release artifact exists.",
+  "registered_candidates": [
+    {"name":"semantic-ce", "learning_rate":0.0001, "teacher_kl":0.0},
+    {"name":"semantic-distilled", "learning_rate":0.0001, "teacher_kl":0.2},
+    {"name":"semantic-conservative", "learning_rate":0.00003, "teacher_kl":0.5}
+  ],
+  "training": "12 epochs, seed 1011, batch size 64, AdamW with weight decay 0.01 and gradient norm clipping at 1. Equal binary and mean-six-field cross entropy, with inverse-square-root field-class balancing capped at 4; teacher KL as registered. Initialize each candidate from released v9 heads; freeze all base and attention adapter weights.",
+  "selection": "Evaluate initial and each complete epoch on original development only. Rank by binary errors under development-selected mode/threshold, then joint argmax errors, then mean field cross entropy, then larger binary margin. Preserve every candidate result and the initial model.",
+  "qualification": "A selected readout is only a candidate. It must subsequently pass the exposed regressions, fresh frozen calibration and a new declared final evaluation, installed inference parity and the product capability tests. No claim of independent human validation is made.",
+  "stable_release_ready": false
+}

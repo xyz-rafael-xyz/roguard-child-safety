@@ -1,0 +1,601 @@
+{
+  "decision": "REJECT_ESCALATION",
+  "verification": "PASS",
+  "summary": {
+    "ro": {
+      "primary_transfer_assertion_errors": 107,
+      "control_transfer_assertion_errors": 106,
+      "transfer_rows": 768,
+      "primary_dev": {
+        "rows": 4202,
+        "binary_errors": 11,
+        "joint_errors": 684,
+        "assertion_errors": 591,
+        "field_errors": [
+          46,
+          17,
+          591,
+          49,
+          5,
+          21
+        ],
+        "mean_field_ce": 0.25141957823512046,
+        "references": {
+          "v9": {
+            "introduced_binary": 2,
+            "fixed_binary": 176,
+            "introduced_joint": 36,
+            "fixed_joint": 279,
+            "introduced_fields": [
+              18,
+              3,
+              9,
+              25,
+              4,
+              0
+            ],
+            "fixed_fields": [
+              56,
+              32,
+              31,
+              48,
+              0,
+              184
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 3,
+            "introduced_joint": 29,
+            "fixed_joint": 44,
+            "introduced_fields": [
+              19,
+              0,
+              4,
+              20,
+              5,
+              1
+            ],
+            "fixed_fields": [
+              26,
+              2,
+              2,
+              26,
+              0,
+              11
+            ]
+          }
+        },
+        "introduced_v9": 2,
+        "fixed_v9": 176,
+        "introduced_initial75": 0
+      },
+      "control_dev": {
+        "rows": 4202,
+        "binary_errors": 12,
+        "joint_errors": 675,
+        "assertion_errors": 591,
+        "field_errors": [
+          36,
+          18,
+          591,
+          42,
+          0,
+          25
+        ],
+        "mean_field_ce": 0.29350572316363704,
+        "references": {
+          "v9": {
+            "introduced_binary": 2,
+            "fixed_binary": 175,
+            "introduced_joint": 17,
+            "fixed_joint": 269,
+            "introduced_fields": [
+              4,
+              4,
+              9,
+              8,
+              0,
+              1
+            ],
+            "fixed_fields": [
+              52,
+              32,
+              31,
+              38,
+              1,
+              181
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 1,
+            "fixed_binary": 3,
+            "introduced_joint": 10,
+            "fixed_joint": 34,
+            "introduced_fields": [
+              3,
+              0,
+              3,
+              5,
+              0,
+              4
+            ],
+            "fixed_fields": [
+              20,
+              1,
+              1,
+              18,
+              0,
+              10
+            ]
+          }
+        },
+        "introduced_v9": 2,
+        "fixed_v9": 175,
+        "introduced_initial75": 1
+      },
+      "primary_full_panel": {
+        "rows": 20,
+        "binary_errors": 0,
+        "joint_errors": 6,
+        "assertion_errors": 4,
+        "field_errors": [
+          0,
+          0,
+          4,
+          0,
+          2,
+          0
+        ],
+        "mean_field_ce": 0.07457199674353863,
+        "references": {
+          "v9": {
+            "introduced_binary": 0,
+            "fixed_binary": 4,
+            "introduced_joint": 0,
+            "fixed_joint": 9,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              6,
+              0,
+              8,
+              7,
+              11,
+              0
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 4,
+            "introduced_joint": 1,
+            "fixed_joint": 9,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            "fixed_fields": [
+              6,
+              0,
+              9,
+              6,
+              11,
+              0
+            ]
+          }
+        },
+        "introduced_v9": 0,
+        "fixed_v9": 4,
+        "introduced_initial75": 0,
+        "bank_aliases": 16,
+        "supplemental_rows": 4
+      },
+      "control_full_panel": {
+        "rows": 20,
+        "binary_errors": 0,
+        "joint_errors": 6,
+        "assertion_errors": 3,
+        "field_errors": [
+          0,
+          0,
+          3,
+          0,
+          4,
+          0
+        ],
+        "mean_field_ce": 0.17945345575659444,
+        "references": {
+          "v9": {
+            "introduced_binary": 0,
+            "fixed_binary": 4,
+            "introduced_joint": 0,
+            "fixed_joint": 9,
+            "introduced_fields": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              6,
+              0,
+              10,
+              7,
+              9,
+              0
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 4,
+            "introduced_joint": 1,
+            "fixed_joint": 9,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            "fixed_fields": [
+              6,
+              0,
+              10,
+              6,
+              9,
+              0
+            ]
+          }
+        },
+        "introduced_v9": 0,
+        "fixed_v9": 4,
+        "introduced_initial75": 0,
+        "bank_aliases": 16,
+        "supplemental_rows": 4
+      }
+    },
+    "uk": {
+      "primary_transfer_assertion_errors": 104,
+      "control_transfer_assertion_errors": 102,
+      "transfer_rows": 768,
+      "primary_dev": {
+        "rows": 4635,
+        "binary_errors": 1,
+        "joint_errors": 641,
+        "assertion_errors": 577,
+        "field_errors": [
+          33,
+          30,
+          577,
+          31,
+          0,
+          24
+        ],
+        "mean_field_ce": 0.25359383791300877,
+        "references": {
+          "v9": {
+            "introduced_binary": 1,
+            "fixed_binary": 125,
+            "introduced_joint": 9,
+            "fixed_joint": 232,
+            "introduced_fields": [
+              5,
+              7,
+              2,
+              7,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              44,
+              22,
+              73,
+              45,
+              0,
+              106
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 1,
+            "fixed_binary": 2,
+            "introduced_joint": 23,
+            "fixed_joint": 27,
+            "introduced_fields": [
+              12,
+              2,
+              2,
+              12,
+              0,
+              7
+            ],
+            "fixed_fields": [
+              13,
+              18,
+              3,
+              13,
+              0,
+              3
+            ]
+          }
+        },
+        "introduced_v9": 1,
+        "fixed_v9": 125,
+        "introduced_initial75": 1
+      },
+      "control_dev": {
+        "rows": 4635,
+        "binary_errors": 1,
+        "joint_errors": 634,
+        "assertion_errors": 579,
+        "field_errors": [
+          27,
+          27,
+          579,
+          26,
+          0,
+          19
+        ],
+        "mean_field_ce": 0.25730838312367105,
+        "references": {
+          "v9": {
+            "introduced_binary": 0,
+            "fixed_binary": 124,
+            "introduced_joint": 13,
+            "fixed_joint": 243,
+            "introduced_fields": [
+              9,
+              5,
+              3,
+              9,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              54,
+              23,
+              72,
+              52,
+              0,
+              111
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 1,
+            "introduced_joint": 16,
+            "fixed_joint": 27,
+            "introduced_fields": [
+              12,
+              0,
+              3,
+              13,
+              0,
+              2
+            ],
+            "fixed_fields": [
+              19,
+              19,
+              2,
+              19,
+              0,
+              3
+            ]
+          }
+        },
+        "introduced_v9": 0,
+        "fixed_v9": 124,
+        "introduced_initial75": 0
+      },
+      "primary_full_panel": {
+        "rows": 20,
+        "binary_errors": 0,
+        "joint_errors": 2,
+        "assertion_errors": 2,
+        "field_errors": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "mean_field_ce": 0.049905985174925775,
+        "references": {
+          "v9": {
+            "introduced_binary": 0,
+            "fixed_binary": 2,
+            "introduced_joint": 0,
+            "fixed_joint": 12,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              9,
+              0,
+              6,
+              10,
+              9,
+              0
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 6,
+            "introduced_joint": 0,
+            "fixed_joint": 11,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              12,
+              0,
+              6,
+              11,
+              7,
+              0
+            ]
+          }
+        },
+        "introduced_v9": 0,
+        "fixed_v9": 2,
+        "introduced_initial75": 0,
+        "bank_aliases": 16,
+        "supplemental_rows": 4
+      },
+      "control_full_panel": {
+        "rows": 20,
+        "binary_errors": 1,
+        "joint_errors": 3,
+        "assertion_errors": 2,
+        "field_errors": [
+          1,
+          0,
+          2,
+          1,
+          2,
+          0
+        ],
+        "mean_field_ce": 0.14057171209768934,
+        "references": {
+          "v9": {
+            "introduced_binary": 0,
+            "fixed_binary": 1,
+            "introduced_joint": 0,
+            "fixed_joint": 11,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              8,
+              0,
+              6,
+              9,
+              7,
+              0
+            ]
+          },
+          "initial75": {
+            "introduced_binary": 0,
+            "fixed_binary": 5,
+            "introduced_joint": 0,
+            "fixed_joint": 10,
+            "introduced_fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "fixed_fields": [
+              11,
+              0,
+              6,
+              10,
+              5,
+              0
+            ]
+          }
+        },
+        "introduced_v9": 0,
+        "fixed_v9": 1,
+        "introduced_initial75": 0,
+        "bank_aliases": 16,
+        "supplemental_rows": 4
+      }
+    }
+  },
+  "failed_gate_predicates": 22,
+  "failed_gates": [
+    "ro/probe_both/selected_control/assertion_errors",
+    "ro/probe_both/frozen125-primary/assertion_errors",
+    "ro/no_strict_transfer_improvement/selected_control",
+    "ro/no_strict_transfer_improvement/frozen125-primary",
+    "ro/no_strict_frozen125_floor_improvement",
+    "ro/original_dev/selected_control/joint_errors",
+    "ro/original_dev/frozen125-primary/joint_errors",
+    "ro/original_dev/frozen125-control-full_teacher/joint_errors",
+    "ro/fixed_original_dev_ceiling/joint_errors",
+    "ro/full_panel/joint_errors",
+    "uk/probe_operator/selected_control/assertion_errors",
+    "uk/probe_operator/frozen125-primary/assertion_errors",
+    "uk/no_strict_transfer_improvement/selected_control",
+    "uk/no_strict_transfer_improvement/frozen125-primary",
+    "uk/no_strict_frozen125_floor_improvement",
+    "uk/original_dev/selected_control/joint_errors",
+    "uk/original_dev/selected_control/introduced_v9",
+    "uk/original_dev/frozen125-primary/joint_errors",
+    "uk/original_dev/frozen125-primary/introduced_v9",
+    "uk/fixed_original_dev_ceiling/joint_errors",
+    "uk/fixed_original_dev_ceiling/introduced_v9",
+    "uk/full_panel/joint_errors"
+  ],
+  "control_checkpoints_byte_identical_to125": 26,
+  "control_dev_arrays_byte_identical_to125": 26,
+  "checkpoint_replays": 52,
+  "old_dev_head_replay_rows": 229762,
+  "scheduled_budget": {
+    "train_occurrences_per_language_per_arm": {
+      "ro": 22390,
+      "uk": 24971
+    },
+    "updates_per_language_per_arm": {
+      "ro": 4200,
+      "uk": 4692
+    },
+    "train_occurrences_per_arm": 47361,
+    "updates_per_arm": 8892,
+    "updates_all2arms": 17784,
+    "presentations_per_arm": 568332,
+    "presentations_all2arms": 1136664,
+    "development_rows": 8837,
+    "new_unique_fit_inputs": 576,
+    "new_core_propositions_per_language_in_fit": 8,
+    "occurrences_are_not_independent_examples": true
+  },
+  "independent_recount": {
+    "saved_unique_input_predictions": 18480,
+    "panel_responses": 240,
+    "selected_dev_predictions": 44185,
+    "group_metrics": 1332,
+    "maximum_mean_ce_difference": 3.552713678800501e-15
+  },
+  "qualified": false,
+  "independent_human_gold": false,
+  "held_out_test_opened": false,
+  "limits": [
+    "The 22 failed predicates overlap across comparators and fixed floors; they are not 22 independent experimental failures.",
+    "The synthetic probe families were already exposed in earlier studies. This is a controlled diagnostic ablation, not fresh independent generalization evidence.",
+    "All 40 panel responses are retained:32 aliases of main-bank probes and8 unique supplemental controls, not40 additional independent examples.",
+    "Removing contradictory teacher terms also reduces regularization; these two arms do not isolate those explanations.",
+    "Repeated training occurrences are not independent data. No secondary arm or checkpoint replaces the registered primary."
+  ]
+}

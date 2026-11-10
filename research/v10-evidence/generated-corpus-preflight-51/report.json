@@ -1,0 +1,41 @@
+{
+  "format": "roguard-large-generation-1",
+  "source_sha256": "e6538d888d4660d8b5607fc6af3187e85a130b0172a6098f45ad0c2b2b931772",
+  "amendment_sha256": "9cac8937e4e77920b7dad98e9ca4c863fa03e197cf4a2c897e6a0ac8b50b5c3b",
+  "manifest_sha256": "9ba7c50edb7e788e8109482d8fc43904c8bc51480b82a565a7d4740fb1784b75",
+  "generator": {
+    "model": "mlx-community/gemma-4-e4b-it-4bit",
+    "revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+    "seed": 1051,
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "maximum_output_tokens": 768,
+    "attempts_per_family": 3
+  },
+  "system_prompt": "Create fictional, non-graphic examples for defensive conversation-classifier research. Return only the requested JSON object. Use natural Romanian with diacritics and natural Ukrainian, not Russian. The language pairs must express the same intended meaning. Each value must be one or two concise sentences, between 20 and 240 characters. No names, actual contact details, instructions for wrongdoing or harm, explicit sexual content, markdown, explanations or labels inside the sentences. Write a fresh concrete scenario, avoiding repetitive boilerplate. The examples are training candidates, not advice.",
+  "historical_inputs": {
+    "research/v10-evidence/response-curriculum-25/train.jsonl": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "research/v10-evidence/response-curriculum-25/dev.jsonl": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+    "research/v10-evidence/response-curriculum-25/old-diagnostic.jsonl": "222f34075fa5c31af96f3d6fa63346b53a08760a476d6e023c6c4100075bed9b",
+    "research/v10-evidence/contrast-response-32/additional-train.jsonl": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "research/v10-evidence/response-context-34/inputs.jsonl": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+    "research/v10-evidence/data/calibration.jsonl": "ee82649d61631e16a10898159c413d3da6634add32111cda16f05945b6c10a26",
+    "research/v10-evidence/data/challenge.jsonl": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "research/v10-evidence/data/dev.jsonl": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "research/v10-evidence/data/train.jsonl": "c62d610bc951fc26e2a152d837b8b747eebcc76eee92ed268b660db8afc9dad0",
+    "research/v10-evidence/data/v9-regression.jsonl": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "research/v10-evidence/broad-v9-regression/cases.jsonl": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "research/v10-evidence/committee-challenge-data-44/cases.jsonl": "28bbca4da6f4f511434c5cdf8ed40d8e2487e89d0a96f3de72b8723b1b1d856f",
+    "research/v10-evidence/robust-training-47/train.jsonl": "39f0f4d8c225340d2ea572a2c365b871c8d85377990dc9667fea99f503f7b8ba",
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a"
+  },
+  "historical_unique_texts": 17417,
+  "requested_families": 1408,
+  "training_ready": false,
+  "semantic_labels_verified": false,
+  "stable_release_ready": false,
+  "model_loaded": false
+}

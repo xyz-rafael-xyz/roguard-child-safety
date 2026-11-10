@@ -1,0 +1,10 @@
+{
+  "study": "isolated-response-36",
+  "motivation": "The registered response labels describe behavior in the proposed draft and are unchanged across user contexts. Context34 exposed interference from unrelated instructions and quoted advice. Test a narrower draft-only behavior view, explicitly excluding contextual factual-support judgments.",
+  "inputs": "Reuse the verified zero-context representation already present for every study32 draft: 164 unique TRAIN drafts and 40 unique DEV drafts. Deduplicate context variants before fitting and selection. No new labels or inputs are authored.",
+  "candidates": {"C": [0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0], "solver": "lbfgs", "maximum_iterations": 2000, "tolerance": 1e-9, "class_weight": "balanced", "seed": 1036},
+  "selection": "Unique 40-draft DEV only: worst bilingual-category error rate, total errors, cross entropy. Freeze serialized coefficients before any diagnostic scoring. Reject nonconverged or serialization-mismatched fits.",
+  "diagnostics": "Score all original 80 DEV variants and 120 context34 variants using each draft's zero-context representation, then the ten original zero-context diagnostics. Context invariance is by construction and is not new accuracy evidence. Diagnostic features and source inputs must retain their original hashes.",
+  "scope": "Intrinsic draft behavior only. User context is intentionally excluded from this component and cannot be used to certify factual support, context-sensitive safety, or overall appropriateness. Output remains unqualified.",
+  "stable_release_ready": false
+}

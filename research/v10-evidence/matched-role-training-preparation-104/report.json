@@ -1,0 +1,560 @@
+{
+  "format": "roguard-matched-role-training-preparation-1",
+  "status": "prepared_not_registered_or_launched",
+  "sources": {
+    "training/matched_role_diversity_v10.py": "f1d4597176397509f17fc9c5da26e64185386045f1534387a6d1f51bfc867902",
+    "training/matched_role_attention_inputs_v10.py": "c70ca00df1c9378cab8d917a93f7ca84ed937c01a14d66817cd06401b373f7e5",
+    "training/train_matched_role_attention_v10.py": "48babb299af6b97e8326b3fe56335b9c28ae88ab74ffd34d0612ca787a87eb17",
+    "training/register_matched_role_attention_v10.py": "6bf9ae0d777239b664f36cc0ecb7133134171004315bbcafa36d863d60c32b68",
+    "tests/test_matched_role_diversity_v10.py": "3a419b1c6812ef21d0facf1da6c8d7eb99ccac17bfdabc4b1e77fe9ff17587c1",
+    "tests/test_matched_role_attention_inputs_v10.py": "358561ed1647186240e8790e9ca6e8629dfa62e92278af193e3e1574bcc360f7",
+    "tests/test_matched_role_attention_training_v10.py": "938cd8d35d69bc614a6f3fe50db7d5573237977d23b03febfa5c2535e70f748a",
+    "tests/test_matched_role_attention_registration_v10.py": "0fd6e1e06641f43b1d8fd0eeab35357a3aad323fed09a323b5eae3fd0462d984"
+  },
+  "population_design_sha256": "b952218273ada6245cfa066759281865b13c4bf54abec6e1908cc8252fe0ce85",
+  "assignments_sha256": "fb5cc7c261ef5e16d27936d2320bfd99c3e1600174397f45c6aa77c3ef170fbd",
+  "recovered_inputs_sha256": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a",
+  "new_training_inputs_sha256": "c4b2c0c4ea887ba7da02c6c3987ccc8707d9b21e122478471ba373a64aa8698d",
+  "languages": {
+    "ro": {
+      "summary": {
+        "language": "ro",
+        "seed": 1073,
+        "base_train_rows": 13174,
+        "development_rows": 4202,
+        "added_train_slots": 1584,
+        "train_rows_per_arm": 14758,
+        "control_distinct_repeated_inputs": 1071,
+        "control_max_additional_repetitions": 11,
+        "label_cells": [
+          {
+            "fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 120,
+            "control_pool": 1935,
+            "distinct_controls": 120
+          },
+          {
+            "fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "gold": 1,
+            "additions": 120,
+            "control_pool": 2516,
+            "distinct_controls": 120
+          },
+          {
+            "fields": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 167,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 808,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 156,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 449,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 27,
+            "distinct_controls": 27
+          },
+          {
+            "fields": [
+              0,
+              0,
+              3,
+              0,
+              1,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 389,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 396,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              0,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 767,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              1,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 9,
+            "distinct_controls": 9
+          },
+          {
+            "fields": [
+              2,
+              0,
+              1,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 23,
+            "distinct_controls": 23
+          },
+          {
+            "fields": [
+              2,
+              0,
+              2,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 9,
+            "distinct_controls": 9
+          },
+          {
+            "fields": [
+              2,
+              0,
+              2,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 30,
+            "distinct_controls": 30
+          },
+          {
+            "fields": [
+              2,
+              0,
+              3,
+              2,
+              1,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 33,
+            "distinct_controls": 33
+          },
+          {
+            "fields": [
+              2,
+              0,
+              3,
+              2,
+              1,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 28,
+            "distinct_controls": 28
+          }
+        ],
+        "assignment_sha256": "e09ba73325beab01057ccb28f2558e843346ec893e73db498a645532d319a85c",
+        "source_references_sha256": {
+          "control": "f0df3557ec6a17890bc78c910fd13991619eb1423ec26f3d76ca92a17f55b94b",
+          "treatment": "ce43c0d89dc1b94f9ba1ec668479b9ed2335e01be7360d9d09ed00d8d2ef6e87"
+        },
+        "development_case_ids_sha256": "128be7c13f21919f098655e413c90b939a1ae49cdf06cf7d2ccd690f924a3313",
+        "training_label_sequence_sha256": "d25fb391a2a63a506c3240ea018765123a741e57212fbdff3b3e05268a453677"
+      },
+      "schedule": {
+        "updates_per_epoch": 1845,
+        "total_updates": 5535,
+        "total_presentations": 44274
+      },
+      "exact_paired_label_sequence": true,
+      "exact_paired_class_weights": true
+    },
+    "uk": {
+      "summary": {
+        "language": "uk",
+        "seed": 1073,
+        "base_train_rows": 15755,
+        "development_rows": 4635,
+        "added_train_slots": 1584,
+        "train_rows_per_arm": 17339,
+        "control_distinct_repeated_inputs": 1322,
+        "control_max_additional_repetitions": 3,
+        "label_cells": [
+          {
+            "fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 120,
+            "control_pool": 1974,
+            "distinct_controls": 120
+          },
+          {
+            "fields": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "gold": 1,
+            "additions": 120,
+            "control_pool": 2584,
+            "distinct_controls": 120
+          },
+          {
+            "fields": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 195,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 827,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 186,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 467,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              0,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 66,
+            "distinct_controls": 66
+          },
+          {
+            "fields": [
+              0,
+              0,
+              3,
+              0,
+              1,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 409,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 448,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              0,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 796,
+            "distinct_controls": 96
+          },
+          {
+            "fields": [
+              2,
+              0,
+              1,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 47,
+            "distinct_controls": 47
+          },
+          {
+            "fields": [
+              2,
+              0,
+              1,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 77,
+            "distinct_controls": 77
+          },
+          {
+            "fields": [
+              2,
+              0,
+              2,
+              2,
+              0,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 38,
+            "distinct_controls": 38
+          },
+          {
+            "fields": [
+              2,
+              0,
+              2,
+              2,
+              0,
+              1
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 66,
+            "distinct_controls": 66
+          },
+          {
+            "fields": [
+              2,
+              0,
+              3,
+              2,
+              1,
+              0
+            ],
+            "gold": 0,
+            "additions": 96,
+            "control_pool": 59,
+            "distinct_controls": 59
+          },
+          {
+            "fields": [
+              2,
+              0,
+              3,
+              2,
+              1,
+              1
+            ],
+            "gold": 1,
+            "additions": 96,
+            "control_pool": 57,
+            "distinct_controls": 57
+          }
+        ],
+        "assignment_sha256": "c6d0363990a6b9bdeb5025fe343960a63d1c92b6ff0da6d57329cec80290db2b",
+        "source_references_sha256": {
+          "control": "3a671dcbf88590eac12830e3dabc2edaf724e52df17a4051b685f15d27d4706e",
+          "treatment": "6b8f3bfe3bc1d821de47b148d0e2e2811358904bf6049e55b7a0a47229b365f7"
+        },
+        "development_case_ids_sha256": "96826931a93f22d9bb8a1c0d1bb5f45ad3786361fc0a2ad55daf541b9bf56522",
+        "training_label_sequence_sha256": "529a042ff79fea64e7a316a31c7505855ce06b14a51c3d513062d41475032856"
+      },
+      "schedule": {
+        "updates_per_epoch": 2168,
+        "total_updates": 6504,
+        "total_presentations": 52017
+      },
+      "exact_paired_label_sequence": true,
+      "exact_paired_class_weights": true
+    }
+  },
+  "train_rows_per_arm": 32097,
+  "development_rows": 8837,
+  "arms": [
+    "control",
+    "treatment"
+  ],
+  "initialization": "selected95",
+  "planned_epochs_per_arm": 3,
+  "planned_updates_both_arms": 24078,
+  "planned_presentations_both_arms": 192582,
+  "focused_tests": {
+    "passed": 45,
+    "subtests": 15,
+    "seconds": 6.9,
+    "numerical_checks_executed": true
+  },
+  "cpu_training_fixture": {
+    "arms": 2,
+    "languages_per_arm": 2,
+    "epochs": 1,
+    "updates_per_language": 2,
+    "total_updates": 8,
+    "decoder_layers": 42,
+    "hidden_width": 8,
+    "full_encoder_loaded": false,
+    "selected_reload_passed": true,
+    "initial_checkpoint_unchanged": true,
+    "frozen_tensors_unchanged": true,
+    "tail_and_head_changes_verified": true
+  },
+  "reference103_complete": false,
+  "training_admitted": false,
+  "full_model_training_performed": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "scope": "Implementation and actual TRAIN-only population matching checked. CPU optimization uses a tiny fixture, not the production encoder. Registration and both full-model runs require completed102/103; no accuracy gain is claimed."
+}

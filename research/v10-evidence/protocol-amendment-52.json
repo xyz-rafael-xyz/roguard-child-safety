@@ -1,0 +1,16 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "compositional-response-54",
+  "motivation": "Four small-model generation pilots produced unreliable language or labels. Add a large deterministic composition corpus from explicitly authored paired Romanian/Ukrainian frames. Count its limited semantic diversity honestly; it complements later natural-generation work.",
+  "rows": {
+    "train": 12288,
+    "dev": 512,
+    "test": 1536
+  },
+  "construction": "Four response problem categories, 20 contrast frames per category and language. Each frame pairs an appropriate reply and a problematic reply. First12 frames are TRAIN, next4 DEV, final4 TEST. All translations, topics and context variants of a frame stay in its split. TRAIN topics0..15; DEV16..19; TEST20..27. Use four training contexts, two development contexts and three test contexts, including quoted adverse advice in user context.",
+  "diversity": "TRAIN has48 paired semantic frames,192 core sentences,3072 distinct drafts and12288 expanded inputs. DEV has16 frames,64 cores,256 drafts and512 inputs. TEST has16 frames,64 cores,512 drafts and1536 inputs. Do not describe expansion count as independent examples.",
+  "isolation": "Check all core and expanded draft strings against enumerated historical text and enforce no exact core, frame or topic overlap across splits. Keep instances private. Freeze source and materialized hashes before fitting. Public frame source is developer-authored test design, not independent human validation. No candidate may see TEST instances or labels before its checkpoint and selection are frozen.",
+  "labels": "Labels follow authored contrast intent; these synthetic labels have not received independent native review. Preserve ambiguous cases as limitations and do not silently relabel after test results. Controlled construction does not establish overall response safety.",
+  "qualification": "All old populations remain mandatory. Zero observed errors and zero introduced errors on all required engineering populations are necessary before final human reviewer evaluation. This dataset alone cannot qualify v10.",
+  "stable_release_ready": false
+}

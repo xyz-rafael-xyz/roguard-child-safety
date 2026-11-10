@@ -1,0 +1,115 @@
+{
+  "format": "roguard-semantic-admission-stop-1",
+  "complete": true,
+  "decision": "DATASET100_NOT_ADMITTED_FOR_FITTING_PENDING_SEMANTIC_REVISION",
+  "goal_remains_active": true,
+  "source_dataset": "role-framed-diversity-100/rows.jsonl",
+  "source_dataset_sha256": "c4b2c0c4ea887ba7da02c6c3987ccc8707d9b21e122478471ba373a64aa8698d",
+  "total_rows": 3168,
+  "software_integrity_does_not_validate_semantic_gold": true,
+  "reviewer_scope": "Separate AI-agent critiques plus root review; not independent human gold annotation.",
+  "benign_negation": {
+    "direct_benign_negated_rows": 192,
+    "highlighted_families": [
+      "asking_help",
+      "home_arrival",
+      "family_voices",
+      "friends"
+    ],
+    "highlighted_rows": 32,
+    "counts_by_family_language": {
+      "friends:ro": 4,
+      "friends:uk": 4,
+      "home_arrival:ro": 4,
+      "home_arrival:uk": 4,
+      "family_voices:ro": 4,
+      "family_voices:uk": 4,
+      "asking_help:ro": 4,
+      "asking_help:uk": 4
+    },
+    "strongest_case_ids": [
+      "semantic100:c82339611c1d1d08ed3e7e867d6f06387d25a937a2c3487e45ba39cfd20b3e60",
+      "semantic100:6dc8993ddb3d79e556345c4134265c2c7f6d4baca158f54acae529afc88337c5",
+      "semantic100:f41f2f2f42a54801553d34dae8f0d29ecbb7a66567ad512a66c9faec95f5a465",
+      "semantic100:651af03fbb4dfaa4037690f1f1414d4ca61a7645bc57ab5f4f59a495e79daabb",
+      "semantic100:ae56586b05b70cdc94ee6398ead0b9ad33167fbc8667e155a6f2f2626734f1c5",
+      "semantic100:2fd93e0b427e3a0cdcdfaef858b56b1924e0e8b48ee71fe44dcaf45c46bfc44e",
+      "semantic100:4a5afd7a0d321275bfaef56b19d508ff50c61d0fe43acdd95bdb65ae42735a38",
+      "semantic100:8855495329ba4148c7af4bbf622af517f0ba8cb402d3f374fd41be5abc22d9a6"
+    ],
+    "semantic_basis": "The real-current utterance explicitly denies a reassuring proposition: for example, being able to ask an adult for help without fear. Such denial plausibly conveys inability to seek help safely or fear of an adult, so uniformly labeling it no-review is not justified by the benign label of the quoted affirmative core. Denial of a conjunction need not logically entail one particular concerning alternative; the issue is unresolved semantic ambiguity, not proof that every flagged row must be relabeled1.",
+    "secondary_basis": "Denial of feeling welcomed at home, being listened to, or acceptance among friends similarly needs full-utterance adjudication. These32 rows are concrete high-priority examples, not an exhaustive declaration that all192 direct benign negations are wrong."
+  },
+  "concern_negation": {
+    "reviewed_concern_cores": 48,
+    "reviewed_context_variants": 1152,
+    "direct_negated_concern_rows": 192,
+    "high_priority_examples": 40,
+    "families": [
+      "mathematics",
+      "music",
+      "asking_help",
+      "games",
+      "snack"
+    ],
+    "semantic_basis": "Denying a conjunction or universal-frequency assertion does not deny every concerning component or every occurrence. Blanket gold0 after whole-proposition falsity is not established for these examples.",
+    "limits": "These are unresolved full-utterance ambiguities, not instructions to flip every label. Fictional negatives, explicit proposition-uncertainty operators and actual-prior retractions have no equally material new finding under the frozen policy."
+  },
+  "review_evidence_sha256": {
+    "benign_negation": "c3de23b9bdbaf1db8523c9600e0ad67b8319a9e4d5c4fe8c9c27e42ba0a70d0e",
+    "concern_negation": "2e6b2cecce9d80dc2313a3b5f592dbcfe710feb723d7d8f1a1335952cfcdb7ad",
+    "operator_draft": "d5a83bdb071fe1c5e3cce8eba220c6da8cef5be75b38cb7c2dbb3e7e0b5d1551"
+  },
+  "original_rows_labels_and_plans_preserved": true,
+  "automatic_relabeling_performed": false,
+  "waiting_training_stopped": {
+    "verification_sha256": "bdf720831c0188b68929e827ce3cc49619eb4bebccf5685f5d3bc4fcfcf870d2",
+    "stop_verified_utc": "2026-11-08T15:05:22.138481+00:00",
+    "sequences": [
+      {
+        "sequence": "matched-role-attention-audit-sequence-107",
+        "pid": 94720,
+        "command_verified": true,
+        "phase_before": "waiting_for_encoder",
+        "children_before": [],
+        "signal": "SIGTERM",
+        "pid_absent_verified": true
+      },
+      {
+        "sequence": "matched-role-attention-sequence-105-106",
+        "pid": 94700,
+        "command_verified": true,
+        "phase_before": "waiting_for_encoder",
+        "children_before": [],
+        "signal": "SIGTERM",
+        "pid_absent_verified": true
+      }
+    ],
+    "optimizer_updates": 0,
+    "actual_training_registration_created": false,
+    "arm_outputs_created": false,
+    "audit107_plan_created": false
+  },
+  "reference102_and_audit103": "May finish as retained numerical/reference-integrity evidence only. Their PASS cannot restore semantic admission.",
+  "new_operator_probe_draft": {
+    "rows": 1728,
+    "core_propositions_per_language": 12,
+    "status": "REJECTED_FOR_FITTING",
+    "issues": [
+      "Negated reassurance is not label-invariant",
+      "Confirmation capability/willingness is not identical to proposition uncertainty",
+      "Retraction keyword shortcut remains",
+      "All provisional rows marked train; fit/probe ingestion needs explicit enforcement"
+    ]
+  },
+  "next_work": "Review neutral benign replacements and independently redesign concern negation/atomic propositions before a separate data audit and new fitting registration. Do not restart105-107 or invoke revoked register104.",
+  "training_admitted": false,
+  "held_out_test_opened": false,
+  "reviewers_admitted": false,
+  "model_qualified": false,
+  "stable_release_ready": false,
+  "retained_sequence_reports": {
+    "matched-role-attention-audit-sequence-107": "487d17d617c4b5ca7dcb47dbce1dbeac8d1dd7217d1e4fad12816f59013b4cda",
+    "matched-role-attention-sequence-105-106": "e71d50b7b82460f0645aadf6693ed372c8000a28db46980d2524fc617fc5ff1a"
+  }
+}

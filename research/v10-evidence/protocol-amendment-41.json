@@ -1,0 +1,9 @@
+{
+  "study": "contrast-grounded-response-43",
+  "motivation": "Study41 produces two privacy false alerts on appropriate drafts. Test matched existing TRAIN demonstrations for scope and action direction rather than adding target-specific rules.",
+  "examples": "From unchanged study32 additional TRAIN, choose lexicographically first empty-context problematic example for each language and four problem categories, paired with the unique appropriate example in the same language/family. Sixteen examples, identical for every target. No case identifiers in model prompt. No new examples or DEV text in demonstrations.",
+  "model_and_decoding": "Same pinned Qwen, greedy 256 output tokens, thinking disabled; maximum4096 input tokens. No weight updates.",
+  "unchanged_contract": "Study41 category definitions/precedence, host source spans, strict reference parsing, no output repair. Source binding is not semantic evidence validation.",
+  "evaluation": "All40 distinct exposed DEV drafts; invalid outputs count as errors. Open original10 diagnostic only after zero DEV errors. Preserve all predictions. No independent qualification.",
+  "stable_release_ready": false
+}

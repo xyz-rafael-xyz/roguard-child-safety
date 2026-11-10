@@ -1,0 +1,46 @@
+{
+  "verification": "PASS",
+  "scope": "Completed saved artifacts, source bindings, registered selection and paired prediction counts/losses only; no new model inference.",
+  "study": "warm-large-response-attention-64",
+  "report_sha256": "95f095c5a1427f6468d1221c32a658d216bad792da24be59a2a28052c442f859",
+  "protocol_sha256": "86fcbec84ee0f912288ea416de9568c29754dfeb9f5698305352b9e20a0bc1e3",
+  "selection_sha256": "2d28ffcefe21292208b7f2ddceb48311eaa2c5bc238cf1f843b181f428bcee0d",
+  "selected_epoch": 0,
+  "checkpoints_verified": 7,
+  "paired_predictions": {
+    "historical-development": {
+      "rows": 80,
+      "errors": 3,
+      "baseline_errors": 3,
+      "fixed": 0,
+      "introduced": 0,
+      "predictions_sha256": "dc4d241ecb92bc2edc1a7a37f6e83dfd9488bb42c9b5abd1a64d4066317af4ac"
+    },
+    "generated-development": {
+      "rows": 512,
+      "errors": 36,
+      "baseline_errors": 36,
+      "fixed": 0,
+      "introduced": 0,
+      "predictions_sha256": "5305c3e4b143fc5ba5b20149035f21e59d7ae9465de3987b97bb0222dc3a7d95"
+    },
+    "context34": {
+      "rows": 120,
+      "errors": 19,
+      "baseline_errors": 19,
+      "fixed": 0,
+      "introduced": 0,
+      "predictions_sha256": "c0b02142063117e10604a0d9900fa514ab12c3393af93ac0070e9cb108d34d43"
+    },
+    "old-diagnostic": {
+      "rows": 10,
+      "errors": 0,
+      "baseline_errors": 0,
+      "fixed": 0,
+      "introduced": 0,
+      "predictions_sha256": "912845c22f423f8ab955bb48d40aeebe6c8664169618ee2ca4560453057f094b"
+    }
+  },
+  "decision": "REJECT",
+  "model_qualified": false
+}

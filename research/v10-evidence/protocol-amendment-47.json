@@ -1,0 +1,14 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-attention-49",
+  "motivation": "Study48 fits TRAIN but all six updated checkpoints perform worse than the original head on DEV. Test joint learning with a freshly initialized head and its own faster optimization rate, without distillation toward the confident older head. This is a single bounded alternative, not an assertion that initialization caused the errors.",
+  "data": "Unchanged596 TRAIN and80 DEV from studies25/32. No new labels. Context34 is accessed only after selection freezes; original ten diagnostics only if DEV and context both have zero errors.",
+  "fresh_response_head": true,
+  "initialization": "Same pinned Gemma base and deterministic rank8 LoRA basis as48, all attention LoRA B matrices zero. Fresh RMS-normalized linear five-class head at seed1049. Existing bound zero-adapter representations verify every initial DEV feature and the fresh head's decisions; sampled full/replay parity remains required.",
+  "optimization": {"epochs": 6, "learning_rate": 0.000005, "head_learning_rate": 0.001, "seed": 1049, "batch_size": 8, "weight_decay": 0.01, "gradient_norm_clip": 1.0, "teacher_kl_weight": 0.0},
+  "loss": "Language/category-balanced cross-entropy; no teacher KL. Same five-percent warmup and linear decay to ten percent, applied independently to the two learning-rate groups. Same final18 q/o adapters and two head tensors only.",
+  "selection": "Epoch0 and each complete epoch, lexicographic worst language/category error rate, total DEV errors, cross-entropy. No response committee, threshold search, diagnostic-based selection, or retry until a particular score appears.",
+  "verification": "Test exact optimizer parameter routing against independently applied optimizers before launch. Retain strict74 tensor inventory, finite updates, bounded streaming body memory, actual full/replay parity and exact selected reload checks. Pair every final prediction with unchanged response26 on all80 DEV and120 context inputs, reporting fixes and introduced errors.",
+  "qualification": "This tests a response component only. It cannot resolve the binary fresh44 misses, semantic/calibration gaps, missing independent annotation or reviewer benefit. Both populations are exposed synthetic diagnostics. Failure remains failure even if lower loss or a partial score improves.",
+  "stable_release_ready": false
+}

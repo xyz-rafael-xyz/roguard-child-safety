@@ -1,0 +1,15 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "neural-response-26",
+  "motivation": "Response curriculum 25 improves the original ten exposed replies from 3 to 7 correct, but leaves 23 of 80 new development inputs wrong. Compare a pretrained semantic representation using exactly the same TRAIN/DEV split, without further wording or label changes.",
+  "inputs": "Use response-curriculum-25: 340 TRAIN inputs from 100 unique drafts and 80 DEV inputs from 40 unique drafts. Original ten diagnostic replies are read for inference only after classifier selection is frozen. All inputs are synthetic and developer-exposed.",
+  "encoder": "Pinned Gemma4 base with every v9 task-adapter output matrix zeroed; no encoder updates. Fixed five-category response-review prompt registered literally in the source snapshot before inference. Context and proposed assistant reply occupy distinct role-labelled entries. Read the final hidden token before the assistant answer. Use one shared bilingual base and classifier.",
+  "candidates": [{"name": "linear", "hidden": 0, "learning_rate": 0.001}, {"name": "mlp128", "hidden": 128, "learning_rate": 0.0003}],
+  "optimization": {"epochs": 40, "batch_size": 64, "seed": 1026, "weight_decay": 0.01, "gradient_norm_clip": 1.0},
+  "objective": "Five-class cross-entropy with normalized frozen features. The curriculum is class-balanced. Do not train binary review, evidence selection or other existing runtime heads.",
+  "selection": "Evaluate epochs 0 through 40 on new DEV only. Minimize maximum language/category error rate, then total errors, then cross-entropy. Preserve every checkpoint and freeze selected classifier before old diagnostic inference.",
+  "verification": "Check cached-query hidden features against full uncached inference on TRAIN and DEV examples in each language with maximum error 1e-3. Verify selected checkpoint reloading exactly reproduces recorded DEV logits. Preserve model/input/source digests.",
+  "qualification": "Single-category synthetic response behavior is an engineering diagnostic. It does not qualify multi-issue responses, contextual factual support, deployment calibration or overall response safety. No public default or package version changes follow from passing this alone.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

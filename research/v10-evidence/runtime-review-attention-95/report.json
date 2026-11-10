@@ -1,0 +1,827 @@
+{
+  "complete": true,
+  "languages": {
+    "ro": {
+      "training_rows": 13174,
+      "development_rows": 4202,
+      "checkpoints": [
+        {
+          "binary_errors": 14,
+          "joint_argmax_errors": 699,
+          "field_errors": [
+            53,
+            19,
+            589,
+            55,
+            0,
+            31
+          ],
+          "mean_field_cross_entropy": 0.22215547953580883,
+          "mode": "coupled_policy",
+          "threshold": 0.7517327370369931,
+          "score_margin": 0.0,
+          "selection_rank": [
+            14,
+            699,
+            0.22215547953580883,
+            -0.0
+          ],
+          "fixed_v9": 176,
+          "introduced_v9": 5,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 10,
+              "introduced": 3
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 2,
+              "introduced": 2
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 0,
+          "adapter_sha256": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3",
+          "development_logits_sha256": "0b153a6c86a87c1a74fcdef7a2002e72f89d1f8042ed5bc5c7a614e2916bd2d5",
+          "completed_training_updates": 0,
+          "completed_training_presentations": 0
+        },
+        {
+          "binary_errors": 13,
+          "joint_argmax_errors": 695,
+          "field_errors": [
+            70,
+            17,
+            584,
+            68,
+            0,
+            19
+          ],
+          "mean_field_cross_entropy": 0.24568417071134466,
+          "mode": "coupled_policy",
+          "threshold": 0.689740385668886,
+          "score_margin": 0.0,
+          "selection_rank": [
+            13,
+            695,
+            0.24568417071134466,
+            -0.0
+          ],
+          "fixed_v9": 173,
+          "introduced_v9": 1,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 10,
+              "introduced": 1
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 3,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 1,
+          "adapter_sha256": "45cf0c5712da218b5a83a7b63bdff8214c28efad831162d68584fc5bfbece7d4",
+          "development_logits_sha256": "02d18da0038b6ccd995f83bbdd98434d1f9d83db0c48e0d85af528bbdda1b6b1",
+          "completed_training_updates": 1647,
+          "completed_training_presentations": 13174
+        },
+        {
+          "binary_errors": 10,
+          "joint_argmax_errors": 693,
+          "field_errors": [
+            69,
+            16,
+            588,
+            62,
+            0,
+            18
+          ],
+          "mean_field_cross_entropy": 0.27610851158849875,
+          "mode": "coupled_policy",
+          "threshold": 0.691711613121816,
+          "score_margin": 0.0,
+          "selection_rank": [
+            10,
+            693,
+            0.27610851158849875,
+            -0.0
+          ],
+          "fixed_v9": 175,
+          "introduced_v9": 0,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 8,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 2,
+          "adapter_sha256": "c1796103e2371099c44fb5b9cf76c4f4e0ceb240362b767966683cf0e8b774c2",
+          "development_logits_sha256": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369",
+          "completed_training_updates": 3294,
+          "completed_training_presentations": 26348
+        },
+        {
+          "binary_errors": 11,
+          "joint_argmax_errors": 694,
+          "field_errors": [
+            61,
+            17,
+            586,
+            63,
+            0,
+            26
+          ],
+          "mean_field_cross_entropy": 0.28360474391170604,
+          "mode": "coupled_policy",
+          "threshold": 0.7756488793791105,
+          "score_margin": 0.0,
+          "selection_rank": [
+            11,
+            694,
+            0.28360474391170604,
+            -0.0
+          ],
+          "fixed_v9": 175,
+          "introduced_v9": 1,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 8,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 1,
+              "introduced": 1
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 3,
+          "adapter_sha256": "a3c3630503d1c2d89fc009ef4dcb3eb5b6aa1a97a6a414165e0d7b0bd7d1e152",
+          "development_logits_sha256": "d97ec08819e7647fe10fc7f898d91d037180e93677f508cbe3bf9c3e3d5ce21e",
+          "completed_training_updates": 4941,
+          "completed_training_presentations": 39522
+        }
+      ],
+      "selected": {
+        "binary_errors": 10,
+        "joint_argmax_errors": 693,
+        "field_errors": [
+          69,
+          16,
+          588,
+          62,
+          0,
+          18
+        ],
+        "mean_field_cross_entropy": 0.27610851158849875,
+        "mode": "coupled_policy",
+        "threshold": 0.691711613121816,
+        "score_margin": 0.0,
+        "selection_rank": [
+          10,
+          693,
+          0.27610851158849875,
+          -0.0
+        ],
+        "fixed_v9": 175,
+        "introduced_v9": 0,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 8,
+            "introduced": 0
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 2,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 458,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 0,
+            "introduced": 0
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 0,
+            "introduced": 0
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        },
+        "epoch": 2,
+        "adapter_sha256": "c1796103e2371099c44fb5b9cf76c4f4e0ceb240362b767966683cf0e8b774c2",
+        "development_logits_sha256": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369",
+        "completed_training_updates": 3294,
+        "completed_training_presentations": 26348
+      },
+      "complete": true,
+      "trainable_tensors": 76,
+      "maximum_initial_feature_error": 0.0,
+      "maximum_initial_logit_error": 0.0,
+      "maximum_full_replay_error": 0.000125885009765625,
+      "inference_progress": {
+        "stage": "selected-reload",
+        "checked": 4202,
+        "rows": 4202
+      },
+      "initial_runtime_decision_parity": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "selected_reload_maximum_logit_error": 0.0,
+      "selected_reload_decision_parity": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "selected_reload_logits_sha256": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369"
+    },
+    "uk": {
+      "training_rows": 15755,
+      "development_rows": 4635,
+      "checkpoints": [
+        {
+          "binary_errors": 2,
+          "joint_argmax_errors": 645,
+          "field_errors": [
+            34,
+            46,
+            578,
+            32,
+            0,
+            20
+          ],
+          "mean_field_cross_entropy": 0.22575400020138114,
+          "mode": "coupled_policy",
+          "threshold": 0.9274289100413864,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            645,
+            0.22575400020138114,
+            -0.0
+          ],
+          "fixed_v9": 124,
+          "introduced_v9": 1,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 1,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 1,
+              "introduced": 1
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 0,
+          "adapter_sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+          "development_logits_sha256": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+          "completed_training_updates": 0,
+          "completed_training_presentations": 0
+        },
+        {
+          "binary_errors": 6,
+          "joint_argmax_errors": 652,
+          "field_errors": [
+            27,
+            66,
+            575,
+            29,
+            0,
+            23
+          ],
+          "mean_field_cross_entropy": 0.19889640649665227,
+          "mode": "coupled_policy",
+          "threshold": 0.904494396215336,
+          "score_margin": 0.0,
+          "selection_rank": [
+            6,
+            652,
+            0.19889640649665227,
+            -0.0
+          ],
+          "fixed_v9": 123,
+          "introduced_v9": 4,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 1,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 1,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 4,
+              "introduced": 4
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 1,
+          "adapter_sha256": "e8510b5d0fc80ff30fa0212ab9985d6d2c366b7d52975e44002ddc818d63b1f2",
+          "development_logits_sha256": "b818fb1d51686253a767fd5f5a72c2f858bb9938519ce796a7ae89b04b88558c",
+          "completed_training_updates": 1970,
+          "completed_training_presentations": 15755
+        },
+        {
+          "binary_errors": 4,
+          "joint_argmax_errors": 650,
+          "field_errors": [
+            31,
+            45,
+            576,
+            29,
+            0,
+            33
+          ],
+          "mean_field_cross_entropy": 0.21209854013559803,
+          "mode": "binary",
+          "threshold": 0.598436862810592,
+          "score_margin": 0.0,
+          "selection_rank": [
+            4,
+            650,
+            0.21209854013559803,
+            -0.0
+          ],
+          "fixed_v9": 121,
+          "introduced_v9": 0,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 2,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 0,
+              "introduced": 0
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 2,
+          "adapter_sha256": "5aed87c901eab42a1de25412bd083b61dee47f68beed839e3e3a6ff60b3ee9e0",
+          "development_logits_sha256": "0b9697d62befd38bf392a970870db36a54f443ca13e7f9721855036732c8ce10",
+          "completed_training_updates": 3940,
+          "completed_training_presentations": 31510
+        },
+        {
+          "binary_errors": 5,
+          "joint_argmax_errors": 653,
+          "field_errors": [
+            34,
+            46,
+            576,
+            35,
+            0,
+            27
+          ],
+          "mean_field_cross_entropy": 0.21814289003862963,
+          "mode": "policy",
+          "threshold": 0.936003856750991,
+          "score_margin": 0.0,
+          "selection_rank": [
+            5,
+            653,
+            0.21814289003862963,
+            -0.0
+          ],
+          "fixed_v9": 125,
+          "introduced_v9": 5,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 0,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 5,
+              "introduced": 5
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          },
+          "epoch": 3,
+          "adapter_sha256": "740825d7f359fe3cdf9c5300a8338f341c8a8f0138d4a333dd42ba071a196c64",
+          "development_logits_sha256": "9dc19bad83061e0b08e8fd6b8f454df2d5110ab35090ff9e70a1ad97ff22a2ff",
+          "completed_training_updates": 5910,
+          "completed_training_presentations": 47265
+        }
+      ],
+      "selected": {
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mean_field_cross_entropy": 0.22575400020138114,
+        "mode": "coupled_policy",
+        "threshold": 0.9274289100413864,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          645,
+          0.22575400020138114,
+          -0.0
+        ],
+        "fixed_v9": 124,
+        "introduced_v9": 1,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 1,
+            "introduced": 0
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 387,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 0,
+            "introduced": 0
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "reported_support_dev": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "stress": {
+            "rows": 216,
+            "errors": 0,
+            "introduced": 0
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        },
+        "epoch": 0,
+        "adapter_sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+        "development_logits_sha256": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+        "completed_training_updates": 0,
+        "completed_training_presentations": 0
+      },
+      "complete": true,
+      "trainable_tensors": 76,
+      "maximum_initial_feature_error": 0.0,
+      "maximum_initial_logit_error": 0.0,
+      "maximum_full_replay_error": 0.00011444091796875,
+      "inference_progress": {
+        "stage": "selected-reload",
+        "checked": 4635,
+        "rows": 4635
+      },
+      "initial_runtime_decision_parity": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "selected_reload_maximum_logit_error": 0.0,
+      "selected_reload_decision_parity": {
+        "maximum_logit_error": 0.0,
+        "argmax_rows_differing": 0,
+        "fixed_threshold_decision_differences": 0
+      },
+      "selected_reload_logits_sha256": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517"
+    }
+  },
+  "held_out_test_opened": false,
+  "stable_release_ready": false,
+  "training_rows": 28929,
+  "development_rows": 8837,
+  "seconds": 31224.54786008317,
+  "decision": "REJECT"
+}

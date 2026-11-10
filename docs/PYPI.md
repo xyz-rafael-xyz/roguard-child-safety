@@ -39,6 +39,51 @@ The first neural evaluation of the reserved 600 synthetic cases passed the uncha
 
 Measurements describe project-authored synthetic inputs. They do not establish accuracy on real children's messages or measured human benefit. Scores are not calibrated safety probabilities. A negative prediction cannot close a concern; an overlong input requests clarification, and malformed model output is rejected. The binary review task is qualified separately from the auxiliary interpretation heads.
 
+## V10 joint reviewer
+
+The opt-in v10 reviewer uses the pinned v9 Gemma 4 model's final token and focal message features with four checksum-bound heads included in the wheel. It keeps the v9 review command as the default. On native Apple Silicon with Python 3.12 or later:
+
+```sh
+pip install 'roguard-child-safety[gemma4-v10]==10.0.0'
+roguard-fetch fetch
+roguard-review --v10 --language ro --text 'Pot cere ajutor când sunt speriat.'
+roguard-review --v10 --language uk --text 'Можу попросити допомоги, коли мені страшно.'
+```
+
+The model runs locally after the pinned v9 base is fetched. Its Python entry point is `Gemma4RBFV10Model.from_installed_v9(language='ro')` from `roguard.gemma4_rbf_v10`. A frozen 120-case authored bilingual panel had zero v10 binary and concern errors after correcting 20 hypothetical-case labels to match the preexisting policy; v9 had six errors in each output per language. A separate frozen 40-case challenge had zero v10 errors in those outputs and nine v9 errors combined. The corrected labels, original panel and earlier failed v10 challenges are retained in the public release evidence. These finite synthetic results do not establish accuracy on real children's messages. Independent case-level human validation remains unavailable.
+
+## Explicit v10 bundle API
+
+The package includes an opt-in loader for local structured-review and five-class response-review bundles. The `gemma4-v10` extra pins the native dependencies, including Safetensors; install it from the exact wheel identified by your validation or release record. Model assets are separate from the wheel.
+
+The native extra requires Apple Silicon and Python 3.12 or later. Use the Python minor version, macOS version and dependency builds specified by the bundle's approved runtime inventory. Each runtime variant requires its own inventory and native validation. The loader verifies the complete bundle and matching installed files, including MLX's Metal libraries. These instructions do not imply that a candidate, downloadable v10 profile or public v10 release has qualified.
+
+Obtain the bundle checksum from its verified external record and set `ROGUARD_BUNDLE_SHA256`. Loading verifies local assets without downloading them; prediction loads the native model when needed.
+
+```python
+import json
+import os
+from pathlib import Path
+from roguard import load_v10
+
+payload = json.loads(Path("conversation.json").read_text(encoding="utf-8"))
+with load_v10("bundle/bundle.json",
+              expected_sha256=os.environ["ROGUARD_BUNDLE_SHA256"]) as model:
+    result = model.predict(payload)
+```
+
+The equivalent explicit CLI accepts an optional assistant draft only with caller-declared context; use `--context ""` when no context is supplied:
+
+```sh
+roguard-v10 conversation.json --bundle bundle/bundle.json \
+  --bundle-sha256 "$ROGUARD_BUNDLE_SHA256" \
+  --draft "Pot explica exercițiul pas cu pas." --context "Ajutor la teme."
+```
+
+In Python, use `model.review_response(draft, language, context=...)` for the same response path. Always close the loader or use its context manager. It releases its previous model before switching task or language and permits one active loader-owned encoder per process; unrelated model instances are outside that guarantee. Native loading requires disk headroom for the verified base copy plus an 8 GiB reserve. An inference or cleanup failure requires a fresh worker process.
+
+Calibration must belong to the exact frozen structured pipeline. The bundle checksum also binds its default calibration; an explicit override is a separate caller configuration. `--plan` is not supported in bundle mode. Low-level results retain `qualified=False` and grant no external-action permission. Model qualification, installed native parity and any release claims require their separately verified evidence; this loader does not establish them or replace the historical v9 profile.
+
 ## Decision assurance
 
 V9 preserves complete supplied interpretation hypotheses, computes an optimal adaptive clarification tree under declared reviewer costs, and verifies reports bound to their context, model identities and policy. Romanian and Ukrainian question labels and a local clarification workspace are included. The guarantee applies to the supplied finite problem; it does not establish that the true interpretation is among the supplied hypotheses. [Assurance guide](https://github.com/xyz-rafael-xyz/roguard-child-safety/blob/main/docs/V9_ASSURANCE.md).

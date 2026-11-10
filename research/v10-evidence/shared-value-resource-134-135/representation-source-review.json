@@ -1,0 +1,111 @@
+{
+  "status": "SOURCE_ONLY_DESIGN_RECOMMENDATION_NOT_IMPLEMENTED_OR_REGISTERED",
+  "source_files": {
+    "src/roguard/gemma4_attention.py": "c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6",
+    "src/roguard/gemma4_review.py": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+    "training/gemma4_shared_prefix_v9.py": "532bfe07383b970d837108fb8ca51b31e42f91a4c5962129166ca4fbf3df273f",
+    "training/gemma4_shared_tail_v9.py": "3346fa832398a6c72b203b6c67ef8b536e8a9f263002bab17d0d5e41b18940f2",
+    "[local-path-omitted:9e9fa95fa591]": "77f46bc3f162a0b9513157dade4be2c381d4df3295262c69034a53d46111370f",
+    "[local-path-omitted:43adbf4be62c]": "819ed95dcbf755652363cfdb15a639890447abb534a06dcefd52c7fff5055750",
+    "[local-path-omitted:7257d1d04d07]": "780ccb3a514a5f1ced161d383f948fc22eca9b84b752ca19494f625bd9bad7a6"
+  },
+  "architecture": {
+    "layers": 42,
+    "shared_tail_start": 24,
+    "tail_layers": 18,
+    "prefix_tokens": 387,
+    "maximum_classifier_tokens": 1024,
+    "sliding_window": 512,
+    "retained_sources": [
+      {
+        "index": 22,
+        "kind": "sliding_attention",
+        "shape": "B,2,L,256",
+        "flattened_width": 512
+      },
+      {
+        "index": 23,
+        "kind": "full_attention",
+        "shape": "B,2,L,512",
+        "flattened_width": 1024
+      }
+    ],
+    "stage24_hidden_width": 2560,
+    "attention_k_eq_v": false
+  },
+  "recommendation": "First bounded engineering design should pool only existing state.shared[23][1] normalized full-attention VALUE vectors. This requires no capture edit and no extra encoder pass. Keep qualified75 final feature/logits exactly from the current capture/replay path. Do not imply these are final hidden features or validated predictive improvements.",
+  "observations": [
+    {
+      "source": "gemma4_text.py:244-272",
+      "finding": "Attention returns (keys,values) after cache.update_and_fetch. Values are v_proj(input-layernorm hidden) followed by v_norm and B,H,L,D transpose. RoPE applies to keys and queries, not values. Values are not attention outputs or final normalized hidden states."
+    },
+    {
+      "source": "gemma4_text.py:434-442",
+      "finding": "The last pre-sharing layer of each attention type supplies all same-type tail layers. Pinned config yields sliding22 and global23; derive/verify this map rather than assume arbitrary source ordering."
+    },
+    {
+      "source": "gemma4_attention.py:capture_with_prefix",
+      "finding": "The frozen helper deep-copies prefix caches, verifies nonempty untrimmed states with positions exactly prefix.offset, computes all suffix hidden states through24layers, then returns only finalhidden plus both shared KV tuples. Existing finalhidden has no all-suffix axis available to pool."
+    },
+    {
+      "source": "cache.py:KVCache.update_and_fetch",
+      "finding": "Global23 cache returns chronological active prefix+suffix values sliced to actual offset, independent of allocated capacity. Use state.length and actual sequence shape, never backing-buffer capacity."
+    },
+    {
+      "source": "cache.py:RotatingKVCache._update_concat",
+      "finding": "For current one-shot suffix length>1, prefix length<512 implies trim_size=prefix_length-512+1<=0, so returned sliding22 values are chronological complete prefix+suffix even when total length exceeds512. Sliding attention masks restrict attention, not this returned concatenated tensor."
+    },
+    {
+      "source": "cache.py:RotatingKVCache._update_in_place",
+      "finding": "For suffix length1 in the admitted fresh-prefix state, offset+1<=512 so no old retained token is overwritten. This does not generalize to already-rotated or incremental caches, whose returned storage order may be circular."
+    },
+    {
+      "source": "gemma4_attention.py:capture",
+      "finding": "Non-prefix capture computes shared values with cacheNone and whole-token axes. The same global index mapping is possible if shape checks pass; a first pilot may restrict to the frozen shared-prefix16cases and separately test no-prefix behavior later."
+    }
+  ],
+  "index_contract": {
+    "global_value": "Alignment mask index i addresses V[:,:,i,:] directly because sequence includes prompt prefix. DO NOT subtract prefix length for VALUE arrays.",
+    "stage24_tap": "A hypothetical h captured just after layer23 contains suffix only in capture_with_prefix; there index must be i-prefix_length. No such tap is implemented.",
+    "flatten": "Transpose B,H,L,D to B,L,H,D before flattening H,D, or mean selected L positions first then flatten H,D; direct reshape of B,H,L,D to B,L,H*D is wrong.",
+    "eligible": "Use reviewed content-interior positions only; reject straddlers/special IDs; preserve focal, aligned priors, chronological count-matched controls and common6metadata. Empty pools are exactzero."
+  },
+  "required_guards": [
+    "Same pinned model/config/runtime/capture sources and fresh prefix cache; validate start24/layers42/previous_kvs and source23fullattention.",
+    "Values exactly B=1,H=2,L=classifier_length,D=512, finite; state.length same; prefix length and token match frozen contract. Reject shifted, trimmed or rotated state rather than silently reindex.",
+    "Zero residual bypass returns the same parent19logit object/bytes; install only exact75head as127. No scalar scaling or125/131model integration in this experiment.",
+    "Compute/retain qualified final/logits before observational pooling; no inplace operation or dtype rewrite on shared values. Recheck shared state and prefix identity/fingerprint, model parameters, all19logits/scores/7argmax/decisions against freshbaseline.",
+    "Pool references from the existing graph only; any extra eval synchronization can affect memory/latency and must be measured. Source inference alone does not certify numerical baseline identity.",
+    "Measure primary capture+replay+75head+fiveVALUEpools cost against matchedcapture/replay baseline; report loads/prefix and independent audit costs separately. Keep all16cases including reversed/interleaved mask differences; no learned fit/widecache."
+  ],
+  "alternatives": [
+    {
+      "name": "sliding22_plus_global23",
+      "width": 1536,
+      "tradeoff": "Both values already retained; more dimensions but different local/global causal representations. Requires the stricter fresh-untrimmed one-shot rotating-cache contract; not an automatic extension to incremental serving."
+    },
+    {
+      "name": "stage24_hidden_tap",
+      "width": 2560,
+      "tradeoff": "Richer residual stream after full layer23, but current helper discards all-suffix h. Requires a separately versioned private observational capture wrapper/mirror and exact graph/baseline proof. Do not monkeypatch or edit frozen runtime."
+    }
+  ],
+  "resource_estimates": {
+    "rows": 37766,
+    "formula": "float32 payload bytes only: N*(2560+5*pool_width)*4; excludes rows/metadata/headers/temp/rawstates/model.",
+    "global_value_only_bytes": 1160171520,
+    "concat_local_global_bytes": 1546895360,
+    "stage24_hidden_bytes": 2320343040,
+    "speedup": "Unknown until engineering measurement. Removes the proposed extra full42layer forward algebraically; no promised wallclock speedup."
+  },
+  "hypothesis_limits": [
+    "VALUE pooling changes the representation/hypothesis from127finalhidden pools; neither127parity nor cached features transfer.",
+    "Causal earlier tokens cannot see later clarification. Role alignment alone does not establish attribution understanding; count/presence/position and limited936/37766possiblemaskdifferences remain confounds.",
+    "Do not add multiple architecture arms merely because cheap. Start one globalVALUE engineering design; any laterfit needs separately frozen capacity-matched controls and all-row census.",
+    "No current actual model execution, tensor allocation, tokenizer invocation, GPU/CPU forward, fitting, new scoring or production-code edit was performed for this review."
+  ],
+  "qualified": false,
+  "original_private_artifact_sha256": "dcfe880e74d0596b3d4ae58fa4bef4a3b54e5d9be3cee9f1b93d5c38c0255eaf",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

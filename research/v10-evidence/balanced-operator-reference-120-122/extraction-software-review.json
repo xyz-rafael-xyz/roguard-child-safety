@@ -1,0 +1,87 @@
+{
+  "format": "roguard-balanced-feature-independent-review-1",
+  "status": "READY_FOR_ROOT_FINAL_REVIEW_AND_REGISTERED_EXECUTION",
+  "qualified": false,
+  "extractor": {
+    "path": "[private-artifact]/parallel-review-20261108/candidate-extractor-prototype-v5/extract.py",
+    "sha256": "4476f0862bcd3d579e70f738bf6cf5a2eec978454aa3a7a04a8070166bb24de1"
+  },
+  "auditor": {
+    "path": "[private-artifact]/parallel-review-20261108/balanced-feature-audit-prototype-v3/audit.py",
+    "sha256": "288e7484da55467e315b7e3f2397206033c3b658a16aa4d3eea83df637272d2c"
+  },
+  "independent_tests": {
+    "passed": 8,
+    "main_tests": 7,
+    "summary_header_test": 1,
+    "summary_header_subcases": 2,
+    "commands": [
+      "env PYTHONPATH=src:[local-path-omitted] VECLIB_MAXIMUM_THREADS=2 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 [local-path-omitted] [private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/test_fixed_types_v3.py",
+      "env PYTHONPATH=src:[local-path-omitted] VECLIB_MAXIMUM_THREADS=2 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 [local-path-omitted] [private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/test_summary_types_v3.py"
+    ],
+    "full_positive_fixture_rows": 3080,
+    "full_panel_controls": 40,
+    "main_bank_aliases": 32,
+    "unique_supplemental_controls": 8,
+    "synthetic_payloads_features_logits_only": true,
+    "tokenizer_stubbed": true,
+    "zero_fake_head": true,
+    "real_head_inference": false,
+    "encoder_loaded": false
+  },
+  "resolved_findings": [
+    {
+      "finding": "Auditv1 accepted retained fields/proposedfields/gold/focus bool replacements because Python equals ignores bool/int type.",
+      "reproduction": "Frozen8d291... controlPASS and corruptedrecordPASS.",
+      "fix": "Strict proposed integer fields/gold/focus, canonical complete reviewed/retained JSON identity."
+    },
+    {
+      "finding": "Auditv1 accepted bool alias index/proposal fields/gold.",
+      "reproduction": "Alias panelindex1 toTrue and numericzero proposals toFalse stillPASS.",
+      "fix": "Exactinteger alias indexes/labels and canonical label/sourcepanel checks."
+    },
+    {
+      "finding": "Extractorv4 accepted actual bool proposedfield/focus against original integer reviewedrows.",
+      "reproduction": "Pureload_registered accepted3080 forcontrol andbothcorruptions; noencoder/head.",
+      "fix": "Exactinteger fields/gold/focus and canonical source-versus-reviewed identity."
+    },
+    {
+      "finding": "Producer could accept float token_count while revised auditor rejected it.",
+      "fix": "Both require exactinteger token_count before extraction/audit replay."
+    },
+    {
+      "finding": "False summarymaximum could equal legitimatezero despite strict perrowobservations.",
+      "fix": "Auditv3 validates bothsummary maxima with existingfinite_error and unchanged1e-3/1e-10 bounds; bothFalse cases reject."
+    }
+  ],
+  "current_material_findings": [],
+  "reviewed_contract": [
+    "Exact3072+8 canonicalreviewed population,3080uniquecaseIDs and expectedperlanguage partition census.",
+    "All40panelcontrols boundby originalpanelrowdigest, canonicalslot, normalizedrolepreserving payload andtypedlabels;32bankaliases+8supplements retained withoutindependent-extra-panelclaim.",
+    "Lazy paritygroup fallback meaning_family thenpaired_meaning_id; operator_family thenpanel_pair_id thenblock_id; missing/blankmetadata fails beforeencoder; producer/auditor helpers agree.",
+    "Allsource/input/producerartifact hashes and importedprojectsource origins checked; pinnedtokenizerassets and softwareversions; originalv9weightidentities fixed.",
+    "Audit independentlyretokenizes and CPUreplays originalv9heads on savedfeatures; logitmax1e-3 plus exactall7argmax andfixedbinarydecision parity. No accuracy summary ortraining admission.",
+    "Native/serving observations are recounted, explicitly not independently inferred encoder/nativeparity.",
+    "Labelproposal review remains structural/provisional, not independenthumanannotation or semanticgold."
+  ],
+  "artifacts": {
+    "[private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/typed-metadata-reproductions.json": "196d27614908e87dca370c3b7895f67aaae8ca5aae89ce70906dd35614bd8408",
+    "[private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/extractor-type-reproductions.json": "7f37275701c1455369a610640b1d97d08206aeb7f060d8867ca49fd1a800b712",
+    "[private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/test_fixed_types_v3.py": "208ceb3a55b0ea3dac825cf34fbe5587f6d169cb34cb20ca4d270875b37fb9ec",
+    "[private-artifact]/parallel-review-20261108/balanced-feature-independent-v1/test_summary_types_v3.py": "bf062c51f00fd0042cffe911248108d131ff7f1ee0b4a489c90d3c8a6e7bb7e5",
+    "[private-artifact]/parallel-review-20261108/balanced-feature-audit-tests-v4/report.json": "bd8ac5066d10727d6f21c4f8c12d77fb742a521f7fbd6a4ab3f177682b9ec9ff"
+  },
+  "preservation": {
+    "old_extractor_v4_unchanged": true,
+    "old_audit_v1_unchanged": true,
+    "all_original_falsepass_reproductions_retained": true
+  },
+  "limits": [
+    "Independentreview used syntheticfixture/tokenizerstub/zerofakehead; it does not itself establish actualcandidate tokenization or nativeencoderparity. Registeredactual audit must perform realtoken replay andCPUheadchecks.",
+    "Actualnewcandidate feature/model scoring was not performed by thisreview.",
+    "Rootmust finalreview/register exactsource/input bindings beforeexecution; thisreport is notregistration.",
+    "Noencoder, optimizer, heldoutTEST access orv10qualification."
+  ],
+  "original_private_report_sha256": "b972f0827ff4e9ea82aabd6df72ab0cdec2aeca8b1abe7c229b182a7529cbb49",
+  "public_redaction": "Local paths replaced; all original numeric/bool/null values and digests retained."
+}

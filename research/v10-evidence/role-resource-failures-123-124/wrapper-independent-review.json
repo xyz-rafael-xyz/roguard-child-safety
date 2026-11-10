@@ -1,0 +1,22 @@
+{
+  "verification": "PASS",
+  "source_sha256": "97cc2debafde6915dc8035c0e4464e315c2faf16e58dd4c2705f4942a30c71d2",
+  "previous_v3_sha256": "abe95f1f887a6531dab52a14112ce2e68fa328eac2dd8faf2403326fe37cfb55",
+  "test_source_sha256": "dac0415ca62e10b6ac7d0ba16a2415c891947df0b0b6ac8945937f80f6b7ea61",
+  "tests_rerun_passed": 5,
+  "scope": "Independent source-delta review and rerun of author tests against actual pinned tokenizer/runtime wrapper, not an independent tokenizer implementation.",
+  "findings": [],
+  "checks": [
+    "Recognized TokenizerWrapper unwrapped only for callable fast offset tokenizer",
+    "Actual wrapper classifier IDs rechecked against prepare_input focus prefix",
+    "All16 frozen token IDs and complete masks match",
+    "Original noncallable-wrapper failure reproduced; wrapper ID drift rejected",
+    "Explicit focus excludes later malformed turn; plainHF still supported"
+  ],
+  "encoder_loaded": false,
+  "model_weights_loaded": false,
+  "model_scoring": false,
+  "qualified": false,
+  "original_private_report_sha256": "74e228a8779383f75913ad95372d8994c8738a2ecab330d6f7b38a8b1caa8074",
+  "public_redaction": "Local paths replaced. All numeric/bool/null values and original digests retained; redacted registrations are provenance summaries, not executable plans."
+}

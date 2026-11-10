@@ -1,0 +1,43 @@
+{
+  "format": "roguard-synthetic-transport-stage0-2",
+  "status": "SYNTHETIC_CHECKS_PASS_NOT_REGISTERED_FOR_REAL_DATA",
+  "source_sha256": "59932304d46d8ee85ca7f376538a2a6d46c138d2e6352cb2694d5343fd86218b",
+  "test_source_sha256": "45202665aad1a05935c6d3b2c41cfe8611add07fa543ea40e6a6e80824a6458b",
+  "preserved_v1_source_sha256": "81b97d3ea59c04dd1edf4486f6efba49716fadf741c3ebf0a64290a110949787",
+  "tests_passed": 16,
+  "test_details": {
+    "deterministic_worlds": 432,
+    "coupling_modes_per_world": 2,
+    "randomized_normalized_coupling_chain_cases": 384,
+    "independent_strata_cases": 64,
+    "explicit_above_unit_AR_total_case": true,
+    "exact_rational_threshold_equality": true,
+    "strict_negative_threshold": true,
+    "concern_cap_impossibility": true,
+    "floating_boundary_unresolved": true,
+    "invalid_inputs_rejected": true,
+    "policy_drift_rejected": true
+  },
+  "roundoff_revision": "No cost clipping. policy_weights divides each enumerated weighted expectation by explicitly checked AR total (already within1e-12 of1). All-review strata numerator equals denominator, producing exact1; other costs remain in[0,1]. Independent parent/joint/432-world scalar parity is checked within1e-12.",
+  "zero_residual_contract": "Return portable parent score directly, preserving exact Python-float scalar bits; independent enumeration is diagnostic parity, not replacement arithmetic.",
+  "float_bound_limit": "Greedy optimum arithmetic is float64 with an explicit non-certified guard max(1e-12,64ulp(1)+8*marginal_roundoff). Near-threshold positive/negative feasibility remains unresolved. Exact Fraction API provides rational equality decisions.",
+  "root_oracle_note": "Root independent v1 review binds preserved81b97d3e source; exact/float bound function ASTs unchanged in v2, but root will rerun independent report binding final v2 source.",
+  "implementation_limits": [
+    "Reachability bounds and zero-residual scorer only; no learned residual, transport/IPF convergence algorithm or gradient implementation.",
+    "Max attainable positive review mass cannot exceed frozen concern probability; if concern probability is below fixed threshold this mechanism cannot produce positive review.",
+    "Fixed scope/concern marginals can prevent correcting errors; no assumption this will solve remaining binary errors.",
+    "All9 scope cells retained in both witnesses; no aggregation loses row marginals.",
+    "No actual TRAIN/DEV/probe probabilities, weights, features or predictions loaded."
+  ],
+  "source_contracts": {
+    "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+    "src/roguard/native_fields.py": "e89eb365c7c8a586d3ab6e7aeb0697a7bf436608f5e7ac48fd57c098d2a66078"
+  },
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "real_data_scoring_performed": false,
+  "training_admitted": false,
+  "qualified": false,
+  "original_private_report_sha256": "539c81add76ab77e55014d1b0386433da09c5c26afe7c784e79412c7e820524e",
+  "public_redaction": "Local path strings replaced; all original numeric/bool/null values, source digests and artifact digests retained."
+}

@@ -1,0 +1,30 @@
+{
+  "decision": "DO_NOT_FIT_FIXED_MARGINAL_TRANSPORT_AS_COMPLETE_REPAIR",
+  "rows": 28929,
+  "parent_binary_errors": {
+    "ro": 4,
+    "uk": 7
+  },
+  "all_error_rows_false_negatives": true,
+  "all_error_rows_outside_diagnostic_attainable_range": true,
+  "concern_cap_errors": {
+    "ro": 3,
+    "uk": 6
+  },
+  "other_scope_bound_errors": {
+    "ro": 1,
+    "uk": 1
+  },
+  "numerical_boundary_rows": 0,
+  "minimum_error_gap": {
+    "ro": 0.0033327884049414447,
+    "uk": 0.009738087031960219
+  },
+  "independent_validation": "All28929 metadata/outcome counts independently recounted; all11 error extrema independently enumerated with70digitDecimal. Other28918 extrema were not independently replayed.",
+  "limits": [
+    "Fixed scope9 and concern2 effective marginals. This result does not rule out changing underlying predictions.",
+    "Diagnostic floating-point guard is noncertified; Decimal oracle applies supplied decimal probabilities, not a native-serving numerical certificate.",
+    "No parent-head replay, learned module, new accuracy improvement or TEST opening."
+  ],
+  "qualified": false
+}

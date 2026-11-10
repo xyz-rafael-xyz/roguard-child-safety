@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "report_sha256": "0f48f90fe9bd39b86e93524935e0270bd89abb84062b1cef41199759e7caa004",
+  "verification_sha256": "82189821397a8525bb6a468aedf15b2b55efde2ee6e66434b2dac4cf72742e7f",
+  "training_rows": 28929,
+  "selected62_training_binary_errors": 60,
+  "selected62_training_joint_field_errors": 12,
+  "binary_errors_with_all_field_argmax_correct": 59,
+  "all_training_binary_errors_are_false_negatives": true,
+  "binary_training_errors_by_origin": {
+    "historical": 0,
+    "generated56": 38,
+    "crossed61": 22
+  },
+  "selected62_development_binary_errors": 26,
+  "selected62_development_joint_field_errors": 1433,
+  "development_rows": 8837,
+  "development_metrics_source_sha256": "7da0e7bda7b0a43f37cd1043ec53dedbe70a152854dd3701e81de2853b530641",
+  "interpretation": [
+    "The selected head does not achieve perfect TRAIN binary decisions with its frozen served thresholds. Nearly all missed TRAIN decisions nevertheless have correct categorical argmax values for all six fields.",
+    "The served coupled-policy score is a function of full probabilities and fitted pair potentials, so categorical correctness does not imply that the score clears its saved threshold.",
+    "There are12 joint-field TRAIN errors versus1433 joint-field DEV errors on populations with different compositions. Larger model capacity alone is not established as the missing ingredient.",
+    "The existing objective trains separate binary cross-entropy and class-weighted field cross-entropy, plus teacher KL. It does not directly optimize cross-entropy of the coupled-policy score selected for serving. This objective/serving difference motivates a prospective consistency-loss experiment; it does not prove a cause or that such a loss will improve any gate."
+  ],
+  "next_experiment_hypothesis": "A separately registered small-head experiment could add a differentiable loss for the served coupled-policy probability while retaining field supervision, data splits, initial weights and strict qualification gates. First verify analytic probabilities and gradients against independent references. No threshold is changed by this audit.",
+  "new_training_registered": false,
+  "new_training_launched": false,
+  "thresholds_changed": false,
+  "labels_changed": false,
+  "held_out_accuracy_claimed": false,
+  "live65_changed": false,
+  "qualified": false
+}

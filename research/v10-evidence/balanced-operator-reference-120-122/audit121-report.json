@@ -1,0 +1,84 @@
+{
+  "format": "roguard-assertion-probe-features-audit-1",
+  "verification": "PASS",
+  "source_sha256": "288e7484da55467e315b7e3f2397206033c3b658a16aa4d3eea83df637272d2c",
+  "audit_plan_sha256": "9fb541df1f6a8a6b051711cbb4aac79b84732b4e867d546021d380ba298d1944",
+  "extraction_plan_sha256": "e8198243ecb865012f64dc404636a755498a26298241beb3a9a71013db7c659c",
+  "producer_report_sha256": "f55022a01f155341534e9f3b6289f2fcfc9b6d25fba9d846b7d5bedf3cd54872",
+  "feature_artifacts": {
+    "ro-features.npy": "4642f437ef4b7a81acbd74eb08b4ad8999adeb23f428a833fb17a7718a58129b",
+    "ro-logits.npy": "78d0a8c9f381ebf7bc1a331e60093a6366e5ba09ee8ab14bc7067d2d51e5fbcd",
+    "ro-rows.jsonl": "a2c466cb823f82f34fa62af2c67e4800ea84251a51b976f5e6402e45b4a431d8",
+    "uk-features.npy": "904961d6425258fb27b635699a5c5cd25ed9f36265a9818f9dfe3c903fc33520",
+    "uk-logits.npy": "3a58edf5a32593b369dd8f884eb8a8ac995de75949955ad3738433e4a33ceb6f",
+    "uk-rows.jsonl": "45afedabbc9b34cbc3b7ea941631226505f0c877833906b656af7856575f0c1f"
+  },
+  "encoder_weights": {
+    "ro": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09",
+    "uk": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+  },
+  "token_rows_replayed": 3080,
+  "head_rows_replayed": 3080,
+  "languages": {
+    "ro": {
+      "rows": 1540,
+      "partitions": {
+        "fit": 288,
+        "probe_operator": 384,
+        "probe_meaning": 384,
+        "probe_combination": 96,
+        "probe_both": 384,
+        "counterfoil": 4
+      },
+      "ordered_inputs_sha256": "07f80df8f967a3c22a4396f35a292b31a900197db13d888cab4d671b8aabcda2",
+      "maximum_cpu_logit_error": 2.6702880859375e-05,
+      "seven_head_argmax_rows_differing": 0,
+      "binary_decision_differences": 0,
+      "native_observations_recounted": 1540,
+      "producer_native_maximum_recounted": 0.0002638101577758789,
+      "producer_score_maximum_recounted": 0.0,
+      "producer_score_groups_recounted": 132,
+      "native_encoder_independently_replayed": false
+    },
+    "uk": {
+      "rows": 1540,
+      "partitions": {
+        "fit": 288,
+        "probe_operator": 384,
+        "probe_meaning": 384,
+        "probe_combination": 96,
+        "probe_both": 384,
+        "counterfoil": 4
+      },
+      "ordered_inputs_sha256": "3a9a77245c26334b2741af8e45c1a20670a47f164210c136e4662e008ac26d00",
+      "maximum_cpu_logit_error": 3.0517578125e-05,
+      "seven_head_argmax_rows_differing": 0,
+      "binary_decision_differences": 0,
+      "native_observations_recounted": 1540,
+      "producer_native_maximum_recounted": 0.000263214111328125,
+      "producer_score_maximum_recounted": 0.0,
+      "producer_score_groups_recounted": 132,
+      "native_encoder_independently_replayed": false
+    }
+  },
+  "device": "cpu",
+  "encoder_loaded": false,
+  "panel_alias_summary": {
+    "full_panel_rows": 40,
+    "main_bank_alias_rows": 32,
+    "unique_supplemental_rows": 8,
+    "all_panel_responses_represented": true,
+    "independent_extra_panel_examples": false
+  },
+  "full_panel_sha256": "3781ab148c79454b3078c741e70f0bb0ad648f917e63113e04a324402e78335e",
+  "panel_alias_map_sha256": "3037b1bd4c304d571ce5eba2b4b1950c4942ae1bf2700ecab7fa234d51dbccfa",
+  "native_encoder_independently_replayed": false,
+  "probe_accuracy_summaries_produced": false,
+  "training_performed": false,
+  "training_admitted": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "limitations": "CPU token/head replay and exact row/artifact checks only. Native/serving parity is a full recount of producer observations, not independent encoder inference or semantic gold validation.",
+  "original_private_report_sha256": "19ed5abe58a13989804454838b1477f20067cbfe4d55c224160c56c5a9f12522",
+  "public_redaction": "Local paths replaced; all original numeric/bool/null values and digests retained."
+}

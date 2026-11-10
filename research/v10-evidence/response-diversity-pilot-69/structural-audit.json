@@ -1,0 +1,178 @@
+{
+  "complete": true,
+  "checks_pass": true,
+  "scope": "Structure, source identities, normalized exact overlaps, and descriptive lexical similarity only.",
+  "source_sha256": "33457282b5a3befb3c902e0b1603e842f7b110044b5c72ebd2db4a0ca9c88aa6",
+  "plan_sha256": "41cda4d642fcd914120ffa6bd378357e89e39bb8cbc16246904dbee6c9a958bf",
+  "draft_sha256": "21ce54ac895696df963fc607f778abf455574e947aa089e51d18735ec8d6c511",
+  "metadata_sha256": "bc61956634ecb6844f913c259d59bfd6f18e3be4dfbc4fc932a62c2695560d08",
+  "task_definition_sha256": "93a986c7f1948a8804c88a19f065eb290e5bf39e527ea5a797a020c1cfdfaa8e",
+  "core_drafts": 128,
+  "families": 32,
+  "unique_normalized_drafts": 128,
+  "groups": {
+    "ro:appropriate": 32,
+    "ro:boundary": 8,
+    "ro:pressure": 8,
+    "ro:privacy": 8,
+    "ro:unsupported": 8,
+    "uk:appropriate": 32,
+    "uk:boundary": 8,
+    "uk:pressure": 8,
+    "uk:privacy": 8,
+    "uk:unsupported": 8
+  },
+  "forms_by_family": {
+    "conditional": 7,
+    "direct_statement": 7,
+    "explicit_action": 5,
+    "polite_request": 3,
+    "question": 5,
+    "quoted_advice_rejected_or_endorsed": 5
+  },
+  "character_length": {
+    "min": 68,
+    "max": 163
+  },
+  "prior_sources": {
+    "curriculum25_train": {
+      "sha256": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+      "rows": 340
+    },
+    "curriculum25_dev_exposed": {
+      "sha256": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+      "rows": 80
+    },
+    "contrast32_train": {
+      "sha256": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+      "rows": 256
+    },
+    "context34_exposed": {
+      "sha256": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+      "rows": 120
+    },
+    "old_diagnostic_exposed": {
+      "sha256": "222f34075fa5c31af96f3d6fa63346b53a08760a476d6e023c6c4100075bed9b",
+      "rows": 10
+    },
+    "composition54_train": {
+      "sha256": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd",
+      "rows": 12288
+    },
+    "composition54_dev_exposed": {
+      "sha256": "b885e697175a9f44399e5110ee7df2a61e9fac2ab66ac7e36d74d466a43d3a9a",
+      "rows": 512
+    },
+    "rejected66_initial": {
+      "sha256": "5a3c4ae22e5eb94e66bc716ff024ea85d75ed35f193f1b5b76ac59917574efae",
+      "rows": 64
+    },
+    "rejected66_revision1": {
+      "sha256": "755b84be8eeb93855351aee8c3a824d94ed0b223e676f005f44d18471aefd3f6",
+      "rows": 64
+    }
+  },
+  "prior_unique_language_reply_pairs": 3608,
+  "exact_normalized_prior_reply_collisions": 0,
+  "lexical_similarity": {
+    "metric": "Unicode-letter word bigram set Jaccard; descriptive, no pass threshold",
+    "max": 0.26666666666666666,
+    "top10": [
+      {
+        "case_id": "diversity69:privacy:04:ro:1",
+        "word_bigram_jaccard": 0.26666666666666666,
+        "prior_sources": [
+          "context34_exposed",
+          "curriculum25_dev_exposed"
+        ],
+        "prior_case_id_example": "dev:privacy:0:ro:0"
+      },
+      {
+        "case_id": "diversity69:privacy:04:uk:1",
+        "word_bigram_jaccard": 0.26666666666666666,
+        "prior_sources": [
+          "curriculum25_train"
+        ],
+        "prior_case_id_example": "train:privacy:1:uk:0"
+      },
+      {
+        "case_id": "diversity69:pressure:01:uk:0",
+        "word_bigram_jaccard": 0.2631578947368421,
+        "prior_sources": [
+          "rejected66_initial",
+          "rejected66_revision1"
+        ],
+        "prior_case_id_example": "authored66:pressure:03:uk:0"
+      },
+      {
+        "case_id": "diversity69:pressure:01:ro:0",
+        "word_bigram_jaccard": 0.2608695652173913,
+        "prior_sources": [
+          "rejected66_initial",
+          "rejected66_revision1"
+        ],
+        "prior_case_id_example": "authored66:pressure:03:ro:0"
+      },
+      {
+        "case_id": "diversity69:unsupported:02:ro:1",
+        "word_bigram_jaccard": 0.25806451612903225,
+        "prior_sources": [
+          "rejected66_initial",
+          "rejected66_revision1"
+        ],
+        "prior_case_id_example": "authored66:unsupported:00:ro:1"
+      },
+      {
+        "case_id": "diversity69:pressure:00:ro:0",
+        "word_bigram_jaccard": 0.25,
+        "prior_sources": [
+          "composition54_train"
+        ],
+        "prior_case_id_example": "composition54:pressure:05:ro:0:2:0"
+      },
+      {
+        "case_id": "diversity69:pressure:01:ro:1",
+        "word_bigram_jaccard": 0.24,
+        "prior_sources": [
+          "rejected66_initial",
+          "rejected66_revision1"
+        ],
+        "prior_case_id_example": "authored66:pressure:03:ro:0"
+      },
+      {
+        "case_id": "diversity69:pressure:01:uk:1",
+        "word_bigram_jaccard": 0.23809523809523808,
+        "prior_sources": [
+          "rejected66_initial",
+          "rejected66_revision1"
+        ],
+        "prior_case_id_example": "authored66:pressure:03:uk:0"
+      },
+      {
+        "case_id": "diversity69:unsupported:06:uk:0",
+        "word_bigram_jaccard": 0.22727272727272727,
+        "prior_sources": [
+          "composition54_train"
+        ],
+        "prior_case_id_example": "composition54:unsupported:10:uk:0:13:0"
+      },
+      {
+        "case_id": "diversity69:pressure:00:ro:1",
+        "word_bigram_jaccard": 0.2222222222222222,
+        "prior_sources": [
+          "composition54_train"
+        ],
+        "prior_case_id_example": "composition54:pressure:05:ro:0:2:0"
+      }
+    ]
+  },
+  "input_policy": "Only enumerated TRAIN and already exposed DEV/diagnostic sources; no candidate predictions or reserved TEST files.",
+  "semantic_independence_established": false,
+  "semantic_correctness_verified": false,
+  "independent_language_validation": false,
+  "training_ready": false,
+  "used_for_training": false,
+  "judge_run_launched": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

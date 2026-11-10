@@ -1,0 +1,159 @@
+{
+  "complete": true,
+  "source_sha256": "8c28ae4556c9bcb750bb5a171d05425396cd536934c13c9fe557ea42b2bd5e90",
+  "runtime_source_sha256": "ea65170669ae2ff35286ed8491057937e84062ab617cb9356a9c1740687bf09b",
+  "amendment_sha256": "63b37eef3771f0a2240c366cd44a17fd29370110714509cb37e262348abcf622",
+  "historical": {
+    "neural-04": {
+      "legacy_artifact_exact": true,
+      "inputs": {
+        "calibration": "23def0a60c8e7f29e2d30660a1fd9244b062e5b4a6bcd4c05c14cf0e54f6c2cb",
+        "old_artifact": "fee4aab38a812b9fcbd5564eec65eed4f69f22e6c3c64cfdf2b6ba92017bf373",
+        "dev": "4ffec6584437b2b1c5337ea2a844a0e7b91f3ce6f7ad866bf13f21ab8943475f",
+        "challenge": "e6b0d11272236014095c51976e18d997f07a77a2d64fb8f944126e7eeff76745",
+        "v9-regression": "a5265407441d1c85e74934eb8acda829e559e8f7b1661d442bec15c5f32a9a5c"
+      },
+      "probability_floors": {
+        "ro": 5.8814331160988085e-06,
+        "uk": 2.651417248481538e-05
+      },
+      "populations": {
+        "dev": {
+          "ro": {
+            "rows": 174,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 337,
+            "floor_total_worlds": 337
+          },
+          "uk": {
+            "rows": 174,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 210,
+            "floor_total_worlds": 210
+          }
+        },
+        "challenge": {
+          "ro": {
+            "rows": 16,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 37,
+            "floor_total_worlds": 37
+          },
+          "uk": {
+            "rows": 16,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 20,
+            "floor_total_worlds": 20
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "rows": 300,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 584,
+            "floor_total_worlds": 584
+          },
+          "uk": {
+            "rows": 300,
+            "changed_sets": 0,
+            "legacy_missing_gold": 2,
+            "floor_missing_gold": 2,
+            "legacy_total_worlds": 428,
+            "floor_total_worlds": 428
+          }
+        }
+      },
+      "calibration_status": "Previously exposed engineering data, including known prior-training overlap; not qualification"
+    },
+    "uniform-memory-09": {
+      "legacy_artifact_exact": true,
+      "inputs": {
+        "calibration": "a910780b740916afb6cb2e3d34e8b97a81a44d58b33fe7ce83162681872001f5",
+        "old_artifact": "21e4ad8b02f066ea49c05dc1b25ace619048e57f9e9391f281f4179ac6f28047",
+        "dev": "2ce475cbaaff6dc7885e97528f815514f4e0cc804163d7470b65bd28d50ba999",
+        "challenge": "5efffd6352703b6454df0f4d40afdc6b40ab5ae3bdc85a3172eca77fca207d3e",
+        "v9-regression": "956a20c11455443f09366048e8879f7fc854753720892e92585f4a142e675fbb"
+      },
+      "probability_floors": {
+        "ro": 0.0006979123451232812,
+        "uk": 0.12607160414068297
+      },
+      "populations": {
+        "dev": {
+          "ro": {
+            "rows": 174,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 201,
+            "floor_total_worlds": 201
+          },
+          "uk": {
+            "rows": 174,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 176,
+            "floor_total_worlds": 176
+          }
+        },
+        "challenge": {
+          "ro": {
+            "rows": 16,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 16,
+            "floor_total_worlds": 16
+          },
+          "uk": {
+            "rows": 16,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 16,
+            "floor_total_worlds": 16
+          }
+        },
+        "v9-regression": {
+          "ro": {
+            "rows": 300,
+            "changed_sets": 0,
+            "legacy_missing_gold": 0,
+            "floor_missing_gold": 0,
+            "legacy_total_worlds": 335,
+            "floor_total_worlds": 335
+          },
+          "uk": {
+            "rows": 300,
+            "changed_sets": 0,
+            "legacy_missing_gold": 22,
+            "floor_missing_gold": 22,
+            "legacy_total_worlds": 303,
+            "floor_total_worlds": 303
+          }
+        }
+      },
+      "calibration_status": "Previously exposed engineering data, including known prior-training overlap; not qualification"
+    }
+  },
+  "independent_validation": false,
+  "stable_release_ready": false,
+  "constructed_numerical_case": {
+    "legacy_set_size": 432,
+    "floor_set_size": 2,
+    "gold_retained_in_both": true,
+    "floor": 1e-30,
+    "empirical_model_accuracy_result": false
+  }
+}

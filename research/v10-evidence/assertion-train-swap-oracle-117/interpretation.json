@@ -1,0 +1,25 @@
+{
+  "decision": "NO_ELIGIBLE_AU_TRAIN_DISAGREEMENTS_CORRECTION_FEASIBILITY_UNMEASURED",
+  "rows": 28929,
+  "eligible_disagreements": 0,
+  "corrected": 0,
+  "eligible_acceptance_rate": null,
+  "rate_interpretation": "Undefined0/0; zero eligible examples provide no evidence that the adapter could or could not correct actual A/U errors.",
+  "not_exhaustive_reachability": true,
+  "not_learned_performance": true,
+  "parent_backend": "Torch CPU exact-erf head replay; no new native-serving parity proof.",
+  "observed_parent_errors": {
+    "ro": {
+      "binary": 4,
+      "assertion": 1,
+      "joint": 3
+    },
+    "uk": {
+      "binary": 7,
+      "assertion": 3,
+      "joint": 6
+    }
+  },
+  "next_action": "Test reviewed new construction examples under a separate baseline profile; do not repeat original-TRAIN gold swaps as if they supplied missing A/U supervision.",
+  "qualified": false
+}

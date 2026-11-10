@@ -1,0 +1,66 @@
+{
+  "verification": "PASS",
+  "producer_report_sha256": "c9c4b3698655b56f74e7c786439339b54414600e8a51a39abc659b1d59da1bb8",
+  "source_sha256": "2f0e3d2e2d55eeb9e19ed09b4c7b85924258ba5f35c65235f6e4c78c4343477a",
+  "rows_recounted": 6160,
+  "panel_responses_recounted": 80,
+  "initial75_head_rows_independently_replayed": 3080,
+  "initial75_head_backend": "MLX CPU exact pinned public head; producer used Torch CPU exact-erf.",
+  "head_parity": {
+    "ro": {
+      "rows": 1540,
+      "max_cpu_logit_error": 6.67572021484375e-06,
+      "seven_head_argmax_differences": 0,
+      "binary_decision_differences": 0
+    },
+    "uk": {
+      "rows": 1540,
+      "max_cpu_logit_error": 1.1444091796875e-05,
+      "seven_head_argmax_differences": 0,
+      "binary_decision_differences": 0
+    }
+  },
+  "eligibility": {
+    "primary_reference": "unchanged-initial75",
+    "partitions": [
+      "probe_operator",
+      "probe_both"
+    ],
+    "rows_per_language": 768,
+    "assertion_errors": {
+      "original-v9": {
+        "ro": 343,
+        "uk": 274
+      },
+      "unchanged-initial75": {
+        "ro": 357,
+        "uk": 296
+      }
+    },
+    "strict_improvement_study_eligible": true,
+    "ineligible_languages": [],
+    "zero_ceiling_flags": {
+      "original-v9": [],
+      "unchanged-initial75": []
+    },
+    "decision": "PARENT_ERROR_HEADROOM_ONLY_NOT_TRAINING_ADMISSION",
+    "rule": "Either initial75 language atzero makes the intended strict-improvement registration ineligible. No row deletion, easier-reference substitution, training or checkpoint selection follows.",
+    "qualified": false
+  },
+  "all_group_metrics_exact": true,
+  "all_panel_metrics_exact": true,
+  "artifacts": {
+    "ro-independent75-cpu-logits.npy": "51f713f3ed6c903311c9b527ea359a13af567f4b37d58dffbca99b36d3edf083",
+    "uk-independent75-cpu-logits.npy": "983e47c57903f3840ef88d733be9b6b142fd8edd0929b2e52f726e6a164514b2"
+  },
+  "encoder_loaded": false,
+  "training_performed": false,
+  "qualified": false,
+  "limits": [
+    "No independentsemanticgold validation.",
+    "CPUheadparity only; no newnativeencoder/GPU75parity.",
+    "Baselineheadroom is notimprovement, admission orv10qualification."
+  ],
+  "original_private_report_sha256": "4ae9db78633a02bf362876da65d6e95b948f43d887999b71fbc3d5db680bf7af",
+  "public_redaction": "Local paths replaced; all original numeric/bool/null values and digests retained."
+}

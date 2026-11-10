@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "purpose": "Check selected binary62 TRAIN fit to distinguish observed fitting failures from generalization-only errors; no claim of causal diagnosis.",
+  "bindings": {
+    "feature_report": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+    "selected_report": "7da0e7bda7b0a43f37cd1043ec53dedbe70a152854dd3701e81de2853b530641",
+    "fit_protocol": "8ca8023ef2b70419545cfa447c677dad5df84363a2e0c610a353080aa51887e9",
+    "head_source": "e5c791e8c20523f7fce7dbe76a448edc1eff358245d23b4fd9cfec75d0acb7ed",
+    "field_source": "5bdd1ece3562d9105ae0a4895e45aa5d5faf915f8bce98bd3152ac72380ffb8e",
+    "runtime_score_source": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "ro_candidate_spec": "5fea37263d76fcbe7d087c442010828bec1c2d5c4e574463511a68d8960af3db",
+    "ro_v9_spec": "6b2ea2979ffa43c735d8f8a6e3f7e1fbf6cf5c085889e8d484a13bf43026ccc5",
+    "ro_candidate_weights": "010e61e135743d13fd6909ebb1499c495c7602ba5d091c1addfdea771a01f686",
+    "ro_v9_weights": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09",
+    "uk_candidate_spec": "2c77dcf51da9d60dc48ddad15dd10826ae01c0d86b70f005c56b857c351c2300",
+    "uk_v9_spec": "fc86fed9981b786149c4f6855c3d98f07067654cf2af05d40aef589345be34ed",
+    "uk_candidate_weights": "fc8645dc9760e138f25b4d4617c81914fe063a2476b50add7293ca960fef1b13",
+    "uk_v9_weights": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+  },
+  "populations": "Only partition=train rows from the bound62 feature inventory. Existing row metadata for all partitions is read to select TRAIN; no DEV logits are evaluated or used to choose settings. No reservedTEST files.",
+  "models": "Frozen original-v9 and selected62 classification heads only; use unchanged normalization/GELU and saved threshold/mode/couplings. No fitting, threshold search or selection.",
+  "resources": "CPU device only, one language at a time, batch128; no full encoder or weights download. Preserve8GiB free disk.",
+  "verification": "Bind feature arrays/metadata/specs/checkpoints. Check original-v9 CPU head logits against cached original-v9 TRAIN logits with maximum absolute tolerance1e-3 and zero binary decision disagreements. Summarize binary and six-field joint errors by language/origin and original source group.",
+  "output": "Retain all per-TRAIN-case scores and field predictions privately; publish aggregates and hashes. TRAIN fit is not held-out accuracy.",
+  "causality": "Persistent TRAIN mistakes can motivate optimization/capacity/loss investigation but do not identify which change will work. Perfect TRAIN fit cannot establish generalization.",
+  "training_launched": false,
+  "encoder_loaded": false,
+  "reserved_test_opened": false,
+  "qualification_changed": false,
+  "stable_release_ready": false
+}

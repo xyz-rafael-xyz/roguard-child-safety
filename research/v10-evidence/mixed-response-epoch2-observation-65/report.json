@@ -1,0 +1,41 @@
+{
+  "complete": true,
+  "observation": "Second completed checkpoint of the continuing registered six-pass response run 65.",
+  "protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "progress_snapshot_sha256": "e4e4b51ae138a7345c990fc06a429662fc51f48e8f05621224efefd4bf99eb8d",
+  "progress_verification_sha256": "8003e3c75a8a8e7546e108c8aadcebc55bde45dd707c08bbea4aa9efadfaad59",
+  "verifier_source": "mixed-response-epoch1-observation-65/progress-verifier.py",
+  "verifier_sha256": "1204dd694dbb52ad114be2dab67e49ec35934dd9ac6cde414a121154908efdd8",
+  "epoch": 2,
+  "selected_epoch": 1,
+  "optimizer_updates_completed": 6144,
+  "training_presentations_completed": 49152,
+  "development_rows": 592,
+  "development_errors": 13,
+  "historical_errors": 4,
+  "generated_errors": 9,
+  "selection_rank": [
+    0.25,
+    0.05,
+    13,
+    0.7689900076580837
+  ],
+  "checkpoint_sha256": "cb6c1430ca960fbc9c9768f1281887426658008a1b7f97b69aaaf8105931360d",
+  "selected_development_errors": 13,
+  "selected_selection_rank": [
+    0.25,
+    0.05,
+    13,
+    0.6300822104004897
+  ],
+  "selected_checkpoint_sha256": "45b66771e1497aeb9ce026dd6bfb7da56d5ecf2ec87df0a44cdb8bd671d324fb",
+  "seconds": 10217.69095033314,
+  "interpretation": "Epoch 2 has the same aggregate and group error counts as epoch 1, but higher selection cross-entropy. The registered selection therefore retains epoch 1. Equal counts do not establish identical per-case decisions.",
+  "scope": "Saved checkpoint identities, metric/count consistency, selection, counters and complete log prefix. Epoch 2 was not selected; its per-case DEV logits were not retained by the registered trainer, and no separate inference is performed here.",
+  "epoch2_per_case_predictions_replayed": false,
+  "remaining_registered_passes": 4,
+  "training_continues": true,
+  "held_out_test_opened": false,
+  "training_settings_changed": false,
+  "qualified": false
+}

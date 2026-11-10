@@ -1,0 +1,49 @@
+{
+  "complete": true,
+  "scope": "Mechanical duplicate and gold-conflict audit of all bound TRAIN rows only; exact or NFKC-casefold-whitespace normalized payload/reply equality does not establish semantic equivalence or label correctness.",
+  "source_sha256": {
+    "curriculum25": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "contrast32": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "composition54": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd"
+  },
+  "source_counts": {
+    "curriculum25": 340,
+    "contrast32": 256,
+    "composition54": 12288
+  },
+  "rows": 12884,
+  "checks": {
+    "exact_payload": {
+      "unique_groups": 12884,
+      "repeated_groups": 0,
+      "rows_in_repeated_groups": 0,
+      "conflicting_gold_groups": 0,
+      "conflicting_case_ids": []
+    },
+    "normalized_payload": {
+      "unique_groups": 12884,
+      "repeated_groups": 0,
+      "rows_in_repeated_groups": 0,
+      "conflicting_gold_groups": 0,
+      "conflicting_case_ids": []
+    },
+    "exact_reply": {
+      "unique_groups": 3236,
+      "repeated_groups": 3216,
+      "rows_in_repeated_groups": 12864,
+      "conflicting_gold_groups": 0,
+      "conflicting_case_ids": []
+    },
+    "normalized_reply": {
+      "unique_groups": 3236,
+      "repeated_groups": 3216,
+      "rows_in_repeated_groups": 12864,
+      "conflicting_gold_groups": 0,
+      "conflicting_case_ids": []
+    }
+  },
+  "training_or_label_changes": false,
+  "reserved_test_opened": false,
+  "independent_validation": false,
+  "stable_release_ready": false
+}

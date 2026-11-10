@@ -1,0 +1,170 @@
+{
+  "complete": true,
+  "verified": true,
+  "plan_sha256": "35824f5349dcd5ce44d7623bcae23fa69dd74a36c96ddafac9cf08579f05d41f",
+  "source_sha256": "e20887ff41940d37e89f37561b83f0a5a3be43ad067b0c3a441f6e31bd88f693",
+  "languages": {
+    "ro": {
+      "rows": 4202,
+      "recount": {
+        "binary_errors": 17,
+        "joint_argmax_errors": 746,
+        "field_errors": [
+          57,
+          16,
+          585,
+          58,
+          1,
+          81
+        ],
+        "mean_field_cross_entropy": 0.24956508522717843,
+        "mode": "coupled_policy",
+        "threshold": 0.8824137277018487,
+        "score_margin": 0.0,
+        "selection_rank": [
+          17,
+          746,
+          0.24956508522717843,
+          -0.0
+        ],
+        "fixed_v9": 173,
+        "introduced_v9": 5,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 11,
+            "introduced": 1
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 2,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 458,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 3,
+            "introduced": 3
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        }
+      },
+      "maximum_policy_enumeration_error": 6.661338147750939e-16,
+      "all_saved_statistics_and_prediction_records_exact": true
+    },
+    "uk": {
+      "rows": 4635,
+      "recount": {
+        "binary_errors": 2,
+        "joint_argmax_errors": 645,
+        "field_errors": [
+          34,
+          46,
+          578,
+          32,
+          0,
+          20
+        ],
+        "mean_field_cross_entropy": 0.225754005720482,
+        "mode": "coupled_policy",
+        "threshold": 0.9274248149759536,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          645,
+          0.225754005720482,
+          -0.0
+        ],
+        "fixed_v9": 124,
+        "introduced_v9": 1,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 1,
+            "introduced": 0
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 387,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 0,
+            "introduced": 0
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "reported_support_dev": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "stress": {
+            "rows": 216,
+            "errors": 0,
+            "introduced": 0
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        }
+      },
+      "maximum_policy_enumeration_error": 5.551115123125783e-16,
+      "all_saved_statistics_and_prediction_records_exact": true
+    }
+  },
+  "rows_verified": 8837,
+  "maximum_policy_enumeration_error": 6.661338147750939e-16,
+  "independent_threshold_implementation": true,
+  "encoder_loaded": false,
+  "new_model_inference": false,
+  "training_performed": false,
+  "held_out_test_opened": false,
+  "completed73_audit_performed": false,
+  "qualified": false,
+  "scope": "Recount of exposed saved71 DEV logits, thresholds, selection statistics, policy semantics and paired decisions. No new accuracy population, independent gold labels or completed73 result."
+}

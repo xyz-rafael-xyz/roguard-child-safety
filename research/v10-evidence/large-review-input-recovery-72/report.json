@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "source_sha256": "e13871d66a2ed8906b3310d8dc154b96f9e6033a18271d923f13c6aa504ba089",
+  "plan_sha256": "b88d67d2a3bc4fc7a210403586c5c76e800fc29d7d29ae7cdaef0a3a322918e2",
+  "feature_report_sha256": "59de4e5110ee680e52c74b69ec75752f16aa42cf83f52241803f68572e9283ff",
+  "original_protocol_sha256": "12a5df2bb0d8c4102fc8dab60a7d13a7a11b80b75c08983df2badd1b930dcbf8",
+  "sources": {
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": {
+      "sha256": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+      "rows": 15390
+    },
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": {
+      "sha256": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+      "rows": 3696
+    },
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": {
+      "sha256": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+      "rows": 1304
+    },
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": {
+      "sha256": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a",
+      "rows": 2592
+    },
+    "compositional-review-56/report.json": {
+      "sha256": "7119ef70f3b322ade50f9e33ae2864db4c3ae7295eef549845e03152c5dbcaf7"
+    },
+    "compositional-review-56/train.jsonl": {
+      "sha256": "6ee55544763e0b18d0f235da4ec09deaf73719e83061ece69bb97870dcf49265",
+      "rows": 4608
+    },
+    "compositional-review-56/dev.jsonl": {
+      "sha256": "643eac851941e7dd29fe2fdd4caca055d1dc148706bbf503e6263b5ac5875799",
+      "rows": 576
+    },
+    "crossed-review-61/report.json": {
+      "sha256": "8454d7253267ba1b163e001ea3337b415932ed54a59aadeb9a060a298a3b1910"
+    },
+    "crossed-review-61/train.jsonl": {
+      "sha256": "bdd6e34dbb1dfda6f5c913f5d8b4357fa58e03b4987420816bc25218cc239e19",
+      "rows": 7680
+    },
+    "crossed-review-61/dev.jsonl": {
+      "sha256": "b69868c63f253dc70ddd5fab607520ae2c21ded885564358e2e0ecc6efa6baab",
+      "rows": 1920
+    }
+  },
+  "tokenizer_files": {
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656",
+    "chat_template.jinja": "2f1b4d75d067bae3fe44e676721c7f077d243bc007156cb9c2f8b5836613d082"
+  },
+  "base_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "rows": 37766,
+  "groups": {
+    "ro:dev": 4202,
+    "ro:train": 13174,
+    "uk:train": 15755,
+    "uk:dev": 4635
+  },
+  "inputs_sha256": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a",
+  "inputs_bytes": 149519679,
+  "unique_language_token_pairs": 37766,
+  "token_count": {
+    "minimum": 416,
+    "maximum": 600
+  },
+  "nonfinal_focus_prefixes_preserved": 0,
+  "every_token_hash_matches_feature_store": true,
+  "seconds": 52.09172737505287,
+  "scope": "Exact source/label/partition/token recovery only; no new examples or independent label validation.",
+  "encoder_loaded": false,
+  "training_experiment_registered": false,
+  "training_launched": false,
+  "held_out_test_opened": false,
+  "stable_release_ready": false
+}

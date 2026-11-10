@@ -1,0 +1,33 @@
+{
+  "format": "roguard-v10-study-protocol-1",
+  "status": "research-only",
+  "baseline_commit": "016113e233e12a39d87463195ae51f4d2103fe4e",
+  "baseline_profile": "v9-gemma4-20261019",
+  "baseline_manifest_sha256": "90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb",
+  "primary_hypothesis": "A learned bounded extractive view improves contextual review over recency and lexical retrieval at comparable review burden.",
+  "engineering_study": {
+    "source": "paired-scope-117 training partition only; v9 test remains a regression set",
+    "family_assignment": "Sort 36 content-family identifiers by SHA256 canonical JSON; first 20 train, next 6 development, last 10 calibration; shared assignment across languages.",
+    "augmentation": "0, 4, 12 or 30 synthetic distractor turns before focal turn; original spans weakly labeled relevant",
+    "challenge": "32 unreviewed developer-authored cases, four paired bilingual scenario families, gaps 0/8/32/100; development diagnostic only",
+    "model": "4096 hashed word/character features; logistic heads C=8, max_iter=400, seed=1010; 3000-character learned evidence budget",
+    "selection": "One shared review cutoff minimizes development misses, then false reviews; no challenge-based selection",
+    "calibration": "Language-stratified split conformal at alpha=0.1; maximum nonconformity per scenario family; undersized calibration returns all worlds",
+    "response_head": "20 developer-authored training replies and 10 separate diagnostic replies; no semantic quality qualification",
+    "distillation": "Optional frozen v9 soft targets from training prefixes only; equal-weight supervised anchors; separate candidate and calibration",
+    "comparators": ["frozen v9", "v9 with lexical retrieval", "student with recent selection", "student with lexical selection", "student with learned selection"],
+    "limits": ["synthetic and shared authoring style", "not independent observations", "not an authentic child-language test", "no larger-context neural comparator yet"]
+  },
+  "independent_study": {
+    "status": "requires external authors and reviewers",
+    "languages": ["ro", "uk"],
+    "scenario_axes": ["long-range reference", "correction versus topic change", "indirect concern", "fiction versus personal account", "code switching and transliteration", "assistant response quality", "unsupported ontology", "permission revocation"],
+    "separation": ["disjoint authors", "disjoint scenario families", "disjoint generation sources", "translation pairs remain together", "frozen model before sealed evaluation"],
+    "annotation": "Two independent labels and evidence spans per prefix; disagreements adjudicated; allow unresolved and outside-ontology labels.",
+    "sample_size": "Determine from a pilot, family dependence and preregistered minimum detectable paired effect before authoring the final test.",
+    "reviewer_study": "Blinded counterbalanced case assignment, no repeated case per reviewer; accuracy and measured elapsed review time; human cost is separate from symbolic question cost."
+  },
+  "metrics": ["recall including abstentions", "false alerts and review/abstention burden per 1000 benign conversations", "delay after first annotated review-worthy checkpoint and missed conversations", "joint interpretation coverage and set size", "annotated evidence retention", "paired family-bootstrap accuracy delta", "p95 latency and startup", "human review time and accuracy"],
+  "release_requirements": ["unchanged v9 regressions", "independent sealed bilingual evaluation", "field and joint-set qualification", "matched-recall reviewer burden improvement", "actual reviewer study", "installed-runtime and cross-platform checks"],
+  "stable_release_authorized_by_this_protocol": false
+}

@@ -1,0 +1,109 @@
+{
+  "verification": "PASS",
+  "source_sha256": "3cbe6d011b38906e0a77cfd3679a117fc171a0caa773f31243771695ed1536da",
+  "audit_plan_sha256": "000cc2b9a368e8c1b3f586a33341c5b1bd95210364f1d9c3a913d1ec95fc2296",
+  "extraction_plan_sha256": "cac3fb6400efc30d7ea77f52c6b713494198536d8a5d25bdcb5c5b96d4a1d332",
+  "report_sha256": "633b9d542c615bfe49e80c3eef142278b988d519a307ccaaab534c45b19d9e13",
+  "protocol_sha256": "a3567d26f30ea69014ce0a6d5bf5a32fe55b7935bdd12f09f26e50d0611cd007",
+  "sequence_sha256": "9bc77275c0d9f536d98a01da3618e4ef07bd7f140b8e771bf1343fa5ff24e56f",
+  "log_sha256": "f31b919a21e3a121bad899dcb5a13a8faa2f7f6e972e2154459767f63c06834e",
+  "artifact_count": 16,
+  "artifacts": {
+    "ro-rows.jsonl": "9231d65b9f40559856e38c2c19dc25037432183202be7f3c9bc1502fbc467522",
+    "ro-v9-features.npy": "3698fdd39e4cea4302824da6c29595380894f642f443e1935ba0de98006e6cdf",
+    "ro-v9-logits.npy": "be33aaf291598982e52ac854e8451fb6129102dece81409540a477664dcbb48e",
+    "ro-v9-observations.jsonl": "5df509281148566d63863feb925f7f34cfa9da0111bb183774fb96440aeb0234",
+    "ro-selected95-dev-logits.npy": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369",
+    "ro-selected95-features.npy": "cb3d764a156a4350cb9756ad84661aafe2e4d6cc09c4ff671c890f574e3dc1ef",
+    "ro-selected95-logits.npy": "fcf756835b11dece569bf86588e87fc7cdb7ede96d98c3269aed686a191c50ad",
+    "ro-selected95-observations.jsonl": "44f27bb4f3bc1fabdc0f4311bbec98a4f771e5376a0a739be95c277aca3643f5",
+    "uk-rows.jsonl": "f3f688364cb96a701a76ff089ac7f2cfc1178ac1633cfb79b0e38e9876e0a0d6",
+    "uk-v9-features.npy": "1c066581b5ba5535d19c9e63b124c5f8b04d8b2364000f2d471306d43073f4a7",
+    "uk-v9-logits.npy": "7ea37397e0b26f4c44e80af7319665254c6a850f89c49d35286a4929985f5f11",
+    "uk-v9-observations.jsonl": "15ae3d518980312520cc6f013e9ea2886d759260096cfda07fad4b05d224245c",
+    "uk-selected95-dev-logits.npy": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+    "uk-selected95-features.npy": "1c066581b5ba5535d19c9e63b124c5f8b04d8b2364000f2d471306d43073f4a7",
+    "uk-selected95-logits.npy": "0ac6c54b6e567d7bf3858b20f5207f8c35dad778dbde27d1d263786c02a4d7bf",
+    "uk-selected95-observations.jsonl": "15ae3d518980312520cc6f013e9ea2886d759260096cfda07fad4b05d224245c"
+  },
+  "cpu_head_rows": 6336,
+  "development_rows_compared": 8837,
+  "ordered_progress_events": 154,
+  "languages": {
+    "ro": {
+      "v9": {
+        "rows": 1584,
+        "train_native_observation_maximum": 0.00026035308837890625,
+        "reported_combined_native_maximum": 0.00026035308837890625,
+        "runtime_score_observation_maximum": 0.0,
+        "runtime_groups_checked": 18,
+        "dev_native_maximum_independently_recounted": false,
+        "cpu_head_replay": {
+          "maximum_logit_error": 1.71661376953125e-05,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        }
+      },
+      "selected95": {
+        "rows": 1584,
+        "train_native_observation_maximum": 0.00023746490478515625,
+        "reported_combined_native_maximum": 0.00023746490478515625,
+        "runtime_score_observation_maximum": 0.0,
+        "runtime_groups_checked": 18,
+        "dev_native_maximum_independently_recounted": false,
+        "cpu_head_replay": {
+          "maximum_logit_error": 1.52587890625e-05,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        },
+        "development_parity": {
+          "maximum_logit_error": 0.0,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        },
+        "development_rows": 4202
+      }
+    },
+    "uk": {
+      "v9": {
+        "rows": 1584,
+        "train_native_observation_maximum": 0.0002155303955078125,
+        "reported_combined_native_maximum": 0.0002155303955078125,
+        "runtime_score_observation_maximum": 0.0,
+        "runtime_groups_checked": 18,
+        "dev_native_maximum_independently_recounted": false,
+        "cpu_head_replay": {
+          "maximum_logit_error": 2.86102294921875e-05,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        }
+      },
+      "selected95": {
+        "rows": 1584,
+        "train_native_observation_maximum": 0.0002155303955078125,
+        "reported_combined_native_maximum": 0.0002155303955078125,
+        "runtime_score_observation_maximum": 0.0,
+        "runtime_groups_checked": 18,
+        "dev_native_maximum_independently_recounted": false,
+        "cpu_head_replay": {
+          "maximum_logit_error": 2.002716064453125e-05,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        },
+        "development_parity": {
+          "maximum_logit_error": 0.0,
+          "argmax_rows_differing": 0,
+          "fixed_threshold_decision_differences": 0
+        },
+        "development_rows": 4635
+      }
+    }
+  },
+  "device": "cpu",
+  "encoder_loaded": false,
+  "training_performed": false,
+  "training_admitted": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "scope": "All retained TRAIN features/logits/rows/observations and DEV logits with independent CPU head replay and exact registered DEV parity. TRAIN native and serving score differences are recounted observations, not new encoder inference. Selected95 DEV native maxima remain producer-only. No model or independent gold qualification."
+}

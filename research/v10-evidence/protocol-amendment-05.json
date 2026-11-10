@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-prospective-amendment-1",
+  "experiment": "score-combination-08",
+  "prior_result": "Combination 07 retained all 600 exposed v9 regression decisions and all 32 diagnostic decisions, but retained one Romanian error in both fitted and family-cross-validated development.",
+  "exposure": "All populations are already exposed engineering data. No independent validation is claimed.",
+  "change": "Extend the two centered logits and intercept with tanh(neural_margin/4), tanh(student_margin/4), and their product. The bounded features allow confidence-dependent combination without phrases or case identifiers.",
+  "fit": "Same nonnegative linear logit weights and quadratic prior toward v9; the three additional coefficients are unconstrained with zero prior. Regularization strengths 1, 10, 100.",
+  "selection": "Same leave-one-family-out selection on development only, then one challenge and regression evaluation. Calibration is not used for selection.",
+  "acceptance": "All previous requirements remain. A fitted or cross-validated perfect score cannot qualify release. Preserve and report regressions."
+}

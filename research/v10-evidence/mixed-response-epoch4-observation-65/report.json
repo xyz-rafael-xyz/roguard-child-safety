@@ -1,0 +1,46 @@
+{
+  "complete": true,
+  "observation": "Fourth completed checkpoint of the continuing registered six-pass response run 65.",
+  "protocol_sha256": "93a96fd4e4848d23531b40fdfb03562ebafe5a1c9cb50b8677b74db6a1d99cf2",
+  "progress_snapshot_sha256": "abb8f42ec9d649f5d845cc99b4a6a5e0ad4fe1fbdbdb135219b99ccd456ede46",
+  "progress_verification_sha256": "1dd49b4854bc602a6fa964326fec3af8077f9fa84e334c694e9d4f502f33927a",
+  "selected_logits_verification_sha256": "05592b7436ede845c77ec2b5850cee909c4d318bea4fef561994e28bbe1b7c82",
+  "paired_comparison_sha256": "447cd2fbef4c48e180e3792fb253351d181419b7e9df39b1b385fd329ee2640c",
+  "epoch": 4,
+  "selected_epoch": 4,
+  "optimizer_updates_completed": 12288,
+  "training_presentations_completed": 98304,
+  "development_rows": 592,
+  "development_errors": 12,
+  "historical_errors": 4,
+  "generated_errors": 8,
+  "selection_rank": [
+    0.25,
+    0.05,
+    12,
+    0.7921893765949894
+  ],
+  "checkpoint_sha256": "5d33450ee2b9f5764e4a2882771ee9dc9b1f0bb246f267d208abeab55acf7c72",
+  "retained_selected_dev_logits_sha256": "09b1fb2505f998cad5d92b984f16525774e49466935d8968a4bc4a0c0bd34aed",
+  "seconds": 20475.93595929118,
+  "comparison_with_previous_selection": {
+    "previous_epoch": 1,
+    "previous_errors": 13,
+    "current_errors": 12,
+    "fixes": 1,
+    "introductions": 0,
+    "both_wrong": 12,
+    "both_correct": 579,
+    "changed_predictions": 1,
+    "changed_groups": [
+      "generated:uk:unsupported"
+    ]
+  },
+  "interpretation": "Epoch 4 fixes one generated Ukrainian unsupported-claim DEV case relative to selected epoch 1 and changes no other argmax predictions. Worst-group and worst-population error rates remain unchanged; total error count improves, so the registered lexicographic rank selects epoch 4 despite its higher cross-entropy term.",
+  "scope": "Captured checkpoint/log identities, selected DEV-logit recount and paired comparison on the same 592 exposed development rows. No new model inference, broader regression, context diagnostic, v9 superiority or final qualification is established.",
+  "remaining_registered_passes": 2,
+  "training_continues": true,
+  "training_settings_changed": false,
+  "held_out_test_opened": false,
+  "qualified": false
+}

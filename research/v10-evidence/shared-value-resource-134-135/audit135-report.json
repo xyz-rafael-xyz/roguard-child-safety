@@ -1,0 +1,91 @@
+{
+  "verification": "PASS",
+  "study": 135,
+  "source_sha256": "0e3f74dbcc6b2bfb8c791eb4e8ea09db12dc39fb0cc6a53b5d3bb76faca13704",
+  "plan_sha256": "6f50337332254f51779df58e7378a939bfad4e070466cea8663c639c91b7dfbb",
+  "producer_report_sha256": "c7f8eb49de856de56117579d517df5c8bd8938ae06411f3a2e2ac6758c56af34",
+  "token_rows_replayed": 16,
+  "head_rows_replayed": 16,
+  "saved_value_arrays_checked": 16,
+  "pooled_vectors_independently_recomputed": 80,
+  "languages": {
+    "ro": {
+      "rows": 8,
+      "pools_independently_recomputed": 40,
+      "maximum_pool_mean_error": 4.76837158203125e-07,
+      "maximum_cpu75_logit_error": 1.9073486328125e-06,
+      "maximum_cpu75_score_difference": 1.417922033258856e-09,
+      "seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3,
+      "primary_single_path_seconds": [
+        1.7215307084843516,
+        0.9226465011015534,
+        0.9998425850644708,
+        0.9299123748205602,
+        0.8621950414963067,
+        0.8143569584935904,
+        1.0085608763620257,
+        1.1088021253235638
+      ],
+      "qualified_baseline_seconds": [
+        1.718928416725248,
+        0.9209195422008634,
+        0.9981657499447465,
+        0.9283107500523329,
+        0.8604560410603881,
+        0.8092531249858439,
+        1.0067632091231644,
+        1.1073262500576675
+      ]
+    },
+    "uk": {
+      "rows": 8,
+      "pools_independently_recomputed": 40,
+      "maximum_pool_mean_error": 4.76837158203125e-07,
+      "maximum_cpu75_logit_error": 2.86102294921875e-06,
+      "maximum_cpu75_score_difference": 2.215701450092311e-08,
+      "seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3,
+      "primary_single_path_seconds": [
+        1.6528157908469439,
+        1.244065789040178,
+        1.0518069164827466,
+        0.995707665104419,
+        0.9801642904058099,
+        1.0158317079767585,
+        1.2975014154799283,
+        1.0851991223171353
+      ],
+      "qualified_baseline_seconds": [
+        1.6509942500852048,
+        1.2423462909646332,
+        1.0500452080741525,
+        0.9942635828629136,
+        0.9784585828892887,
+        1.0142241660505533,
+        1.2957585421390831,
+        1.0838371249847114
+      ]
+    }
+  },
+  "encoder_loaded": false,
+  "training_performed": false,
+  "qualified": false,
+  "limitations": [
+    "Independent retokenization, float64 saved-VALUE means and CPU75 heads; no encoder replay.",
+    "Native VALUE origin, repeated feature and resource measurements are producer observations.",
+    "CPU score differences are reported separately and do not claim native 1e-10 parity.",
+    "Time reconstruction is a lower bound. Phase timings exclude load, prefix and audit/persistence overhead.",
+    "Zero-residual same-object and installation proofs are producer observations; no learned residual exists."
+  ],
+  "artifacts": {
+    "source.py": "0e3f74dbcc6b2bfb8c791eb4e8ea09db12dc39fb0cc6a53b5d3bb76faca13704",
+    "registered-plan.json": "6f50337332254f51779df58e7378a939bfad4e070466cea8663c639c91b7dfbb",
+    "cpu75-logits.npy": "986e3547de6a89218d4cede665ee365a1e674a46f93faf3bb2ebe238595086d2",
+    "cpu-value-pools.npy": "cf828ac29a57b7332a33933c70bc21cd78b833bb8bcb6dfc4fb2494369d12ef6"
+  },
+  "original_private_artifact_sha256": "a0155e706b73b3df846a2bfe892dd7f76abcbddba144fd49012a8434966a66ea",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

@@ -1,0 +1,74 @@
+{
+  "format": "roguard-native-regression-preparation-1",
+  "complete": true,
+  "sources": {
+    "eval/native_regression_inputs_v10.py": "974e3a3325acf4f6bd9067f9de5b056815e0888167b2681faed29dcd6f7a0933",
+    "eval/evaluate_native_regressions_v10.py": "d3f298876caf276865c57e490aa5f04bbe3ad30a5de95c8bba9fda35aee80c78",
+    "tests/test_native_regressions_v10.py": "d5e7905f9348b8d608558d529561aa031bb903c570b18a1c88141c764857d562"
+  },
+  "input_sha256": {
+    "broad": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "dev": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "challenge": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "v9-regression": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "fresh44": "28bbca4da6f4f511434c5cdf8ed40d8e2487e89d0a96f3de72b8723b1b1d856f"
+  },
+  "checkpoints": 6074,
+  "populations": {
+    "broad": 5022,
+    "dev": 348,
+    "challenge": 32,
+    "v9-regression": 600,
+    "fresh44": 72
+  },
+  "languages": {
+    "ro": 3073,
+    "uk": 3001
+  },
+  "unique_selected_inputs": 6026,
+  "structurally_unsupported": 0,
+  "historical_input_and_memory_identity_comparisons": 6074,
+  "historical_memory_differences": 0,
+  "tokenizer_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "tokenizer_files": {
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656",
+    "config.json": "780ccb3a514a5f1ced161d383f948fc22eca9b84b752ca19494f625bd9bad7a6"
+  },
+  "minimum_tokens": 416,
+  "maximum_tokens": 562,
+  "inputs_exceeding_1024_tokens": 0,
+  "field_annotated_checkpoints": 5954,
+  "field_unannotated_checkpoints": 120,
+  "published_v9_tag": "v9.0.0",
+  "published_runtime_sources": {
+    "src/roguard/gemma4_review.py": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "src/roguard/gemma4_attention.py": "c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6",
+    "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200"
+  },
+  "incomplete_audit_guard": {
+    "result": "PASS",
+    "rejected": true,
+    "expected_message": "Paired audit107 is not complete; no regression encoder may start",
+    "output_created": false,
+    "exit_code": 1,
+    "stderr_sha256": "8ab63bc70c61201a7b0ac44d8c98a787b0c93943b679119ea04ee3b589c8eaae"
+  },
+  "tests": {
+    "focused": 34,
+    "focused_optional_environment": true,
+    "full_passed": 1826,
+    "full_skipped": 379,
+    "full_subtests": 202,
+    "full_log_sha256": "851d9fc02fe91a312880d38564f018fa78714016cda0c5e7687d8bb35ed622d9"
+  },
+  "full_cli_fixture": "Both pass and failure paths checked with fake serving outputs; no neural accuracy claim.",
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "regression_started": false,
+  "candidate_admitted": false,
+  "held_out_test_opened": false,
+  "reviewers_admitted": false,
+  "model_qualified": false,
+  "scope": "Preparation of fresh v9/candidate inference on unchanged exposed synthetic regressions. Re-audit current paired artifacts and require zero DEV binary, joint-field and introduced errors before admission. All checkpoints remain in denominators; abstentions fail strict accuracy. Missing fresh44 field labels remain unannotated. A regression pass alone cannot qualify release."
+}

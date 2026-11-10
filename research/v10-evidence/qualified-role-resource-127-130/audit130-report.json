@@ -1,0 +1,65 @@
+{
+  "verification": "PASS",
+  "study": 130,
+  "source_sha256": "03d8b7f0bb8dc93508f838940e664ad14971e2a721b9f073fde83dd80e4a0d2e",
+  "plan_sha256": "e75c37053328c92b562ff240a41bbad48234112f44e2b48b19f5ec15b98194bd",
+  "producer_report_sha256": "f04fe40de9126a7c63eb164cf9e4eb1dff700076e3f07c7f29bf412fa64e3f8c",
+  "token_rows_replayed": 16,
+  "head_rows_replayed": 16,
+  "languages": {
+    "ro": {
+      "rows": 8,
+      "maximum_cpu75_logit_error": 1.9073486328125e-06,
+      "maximum_cpu75_score_difference": 1.417922033258856e-09,
+      "seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3,
+      "native_diagnostic_argmax_changes": 0,
+      "primary_two_path_seconds": [
+        1.675251833628863,
+        0.47592454217374325,
+        0.6237972066737711,
+        0.34191383328288794,
+        0.4772414998151362,
+        0.4851308739744127,
+        1.0610192907042801,
+        0.19856145791709423
+      ]
+    },
+    "uk": {
+      "rows": 8,
+      "maximum_cpu75_logit_error": 2.86102294921875e-06,
+      "maximum_cpu75_score_difference": 2.215701450092311e-08,
+      "seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3,
+      "native_diagnostic_argmax_changes": 0,
+      "primary_two_path_seconds": [
+        1.1534858760423958,
+        0.4730440001003444,
+        0.6189494584687054,
+        0.3426119997166097,
+        0.4773459997959435,
+        0.48385483399033546,
+        1.0594631657004356,
+        0.20119362557306886
+      ]
+    }
+  },
+  "encoder_loaded": false,
+  "training_performed": false,
+  "qualified": false,
+  "limitations": [
+    "Independent tokenizer and CPU75 head replay on retained qualified-final vectors; no native encoder replay.",
+    "Full states/reference features were not retained: pooling/repeated-feature/resource observations are recounted, not independently measured.",
+    "Only a lower bound on per-language elapsed time can be reconstructed; timings are producer observations.",
+    "Zero-residual same-object and installation/backbone proofs are producer observations; audit confirms saved outputs and pinned75 head behavior, not learned residual correctness."
+  ],
+  "artifacts": {
+    "source.py": "03d8b7f0bb8dc93508f838940e664ad14971e2a721b9f073fde83dd80e4a0d2e",
+    "registered-plan.json": "e75c37053328c92b562ff240a41bbad48234112f44e2b48b19f5ec15b98194bd",
+    "cpu75-logits.npy": "986e3547de6a89218d4cede665ee365a1e674a46f93faf3bb2ebe238595086d2"
+  },
+  "original_private_artifact_sha256": "e8e96948c7310fa5739862212ccc554d25e5c323d8e8d42be0c273d7c4dd5fde",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}

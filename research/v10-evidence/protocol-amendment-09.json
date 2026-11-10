@@ -1,0 +1,17 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-readout-12",
+  "motivation": "Readout-11 has near-zero training loss but over 1100 uncertainty field errors across original development languages. Expand training-only wording and include existing trajectory TRAIN prefixes; do not fit on regression labels.",
+  "training_data": "semantic-training-12/train.jsonl",
+  "training_data_sha256": "61ac1c52d49921d2001b17a7d49e3d52b59908a19908e8473e75660cabffb061",
+  "training_data_independently_annotated": false,
+  "protected_data": "Exact normalized prefix screening against recorded original development and v10 development/calibration/challenge/regression prefixes, including memory views. This is not proof of family independence.",
+  "registered_candidates": [
+    {"name": "augmented-semantic-ce", "learning_rate": 0.0001, "teacher_kl": 0.0},
+    {"name": "augmented-semantic-distilled", "learning_rate": 0.0001, "teacher_kl": 0.2},
+    {"name": "augmented-semantic-conservative", "learning_rate": 0.00003, "teacher_kl": 0.5}
+  ],
+  "selection": "12 epochs, same loss, seed, optimizer and original development-only lexicographic selection as readout-11. Start from released v9; retain epoch-zero candidates. No regression/calibration fit or threshold selection.",
+  "qualification": "Exposed diagnostic comparison only; a positive result still requires fresh calibration and independent final evaluation.",
+  "stable_release_ready": false
+}

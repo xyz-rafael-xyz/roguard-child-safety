@@ -1,0 +1,70 @@
+{
+  "verification": "PASS",
+  "source_sha256": "14685b2293d83e1978fed025a96b76f48171447b0e2026cdc1c08b0997a88954",
+  "audit_source_sha256": "6dd872fb9e62489c76231bc5e890341ec8f293589cede2013ecb5116ef61e324",
+  "report_sha256": "9ced3f0d0239e9ef625e726fa83f61127a210a6d39ffa9f1038314cd8917ffff",
+  "protocol_sha256": "d34b51c04c70f6a5cf2126e95606f25e8c93d1334d7dd686f19da07ac8057832",
+  "amendment_sha256": "0c21d8cd647217aa280a7f6978e37bf6294ac1fd282385cb7b0708d5359bb1df",
+  "sequence_sha256": "54f520b7cceb044380516b4f0a7ff1fb213b0f42034a433723628597168356f1",
+  "checkpoint_count": 8,
+  "checkpoint_dev_rows_recounted": 35348,
+  "reload_rows_recounted": 8837,
+  "selected": {
+    "ro": {
+      "epoch": 2,
+      "rows": 4202,
+      "binary_errors": 10,
+      "joint_argmax_errors": 693,
+      "fixed_v9": 175,
+      "introduced_v9": 0,
+      "checkpoint_count": 4,
+      "checkpoint_dev_rows_recounted": 16808,
+      "reload_rows_recounted": 4202,
+      "maximum_policy_enumeration_error": 6.661338147750939e-16,
+      "artifacts": {
+        "ro/epoch-0.safetensors": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3",
+        "ro/epoch-0-dev-logits.npy": "0b153a6c86a87c1a74fcdef7a2002e72f89d1f8042ed5bc5c7a614e2916bd2d5",
+        "ro/epoch-1.safetensors": "45cf0c5712da218b5a83a7b63bdff8214c28efad831162d68584fc5bfbece7d4",
+        "ro/epoch-1-dev-logits.npy": "02d18da0038b6ccd995f83bbdd98434d1f9d83db0c48e0d85af528bbdda1b6b1",
+        "ro/epoch-2.safetensors": "c1796103e2371099c44fb5b9cf76c4f4e0ceb240362b767966683cf0e8b774c2",
+        "ro/epoch-2-dev-logits.npy": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369",
+        "ro/epoch-3.safetensors": "a3c3630503d1c2d89fc009ef4dcb3eb5b6aa1a97a6a414165e0d7b0bd7d1e152",
+        "ro/epoch-3-dev-logits.npy": "d97ec08819e7647fe10fc7f898d91d037180e93677f508cbe3bf9c3e3d5ce21e",
+        "ro-selected.safetensors": "c1796103e2371099c44fb5b9cf76c4f4e0ceb240362b767966683cf0e8b774c2",
+        "ro-selected-dev-logits.npy": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369",
+        "ro-selected-reload-dev-logits.npy": "8019cfff2ad66c3b9d14cec8e6ec39b462ce1a9a88cd421c02833e50ad4a8369"
+      }
+    },
+    "uk": {
+      "epoch": 0,
+      "rows": 4635,
+      "binary_errors": 2,
+      "joint_argmax_errors": 645,
+      "fixed_v9": 124,
+      "introduced_v9": 1,
+      "checkpoint_count": 4,
+      "checkpoint_dev_rows_recounted": 18540,
+      "reload_rows_recounted": 4635,
+      "maximum_policy_enumeration_error": 5.551115123125783e-16,
+      "artifacts": {
+        "uk/epoch-0.safetensors": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+        "uk/epoch-0-dev-logits.npy": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+        "uk/epoch-1.safetensors": "e8510b5d0fc80ff30fa0212ab9985d6d2c366b7d52975e44002ddc818d63b1f2",
+        "uk/epoch-1-dev-logits.npy": "b818fb1d51686253a767fd5f5a72c2f858bb9938519ce796a7ae89b04b88558c",
+        "uk/epoch-2.safetensors": "5aed87c901eab42a1de25412bd083b61dee47f68beed839e3e3a6ff60b3ee9e0",
+        "uk/epoch-2-dev-logits.npy": "0b9697d62befd38bf392a970870db36a54f443ca13e7f9721855036732c8ce10",
+        "uk/epoch-3.safetensors": "740825d7f359fe3cdf9c5300a8338f341c8a8f0138d4a333dd42ba071a196c64",
+        "uk/epoch-3-dev-logits.npy": "9dc19bad83061e0b08e8fd6b8f454df2d5110ab35090ff9e70a1ad97ff22a2ff",
+        "uk-selected.safetensors": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+        "uk-selected-dev-logits.npy": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517",
+        "uk-selected-reload-dev-logits.npy": "574a2efe68fb238454fc45d41be83920a485156e070c0182a824fa655069c517"
+      }
+    }
+  },
+  "decision": "REJECT",
+  "training_events": 900,
+  "complete_log_sha256": "bc148c2d0607687eef333aef8f4b4cdc3abbc0c8ca1fccfbeee47586201bdb6b",
+  "encoder_loaded": false,
+  "model_qualified": false,
+  "scope": "All checkpoint tensors and saved DEV outputs, independently enumerated policy probabilities and threshold selection, exact initialization, retained reload logits, source/queue bindings and full event history. Native encoder feature/replay maxima remain producer measurements. No encoder rerun or independent gold validation."
+}

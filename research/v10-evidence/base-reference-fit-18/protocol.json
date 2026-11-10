@@ -1,0 +1,45 @@
+{
+  "format": "roguard-base-reference-fit-1",
+  "source_sha256": "36ee470deb68e857e1fe4669009e1574146acfed8b3345b0cd779dda3b1ae8ed",
+  "head_source_sha256": "9f426dd6940ed2be0e53367a054a93cde28cf14655f9940833fe59a6f114edfd",
+  "frontier_source_sha256": "ceea71808749415fd2e0a7150ef25d024abc2ff09a8a6c6ba083b0caa2ff6501",
+  "amendment_sha256": "0d4c565ec6f5bc9df45aea73ff5b582e66c88fa1d9c055b00d6513eae5b3dcb0",
+  "feature_report_sha256": "7ba88c9176901412ae3f1d5c8c53ea781d45969d33bfb5236cf4f6fd26ebebba",
+  "optimization": {
+    "epochs": 40,
+    "batch_size": 128,
+    "seed": 1018,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0,
+    "semantic_ce_weight": 1.0,
+    "binary_ce_weight": 1.0
+  },
+  "registered_candidates": [
+    {
+      "name": "base-linear",
+      "view": "base",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "dual-linear",
+      "view": "dual",
+      "hidden": 0,
+      "learning_rate": 0.001
+    },
+    {
+      "name": "base-mlp",
+      "view": "base",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "dual-mlp",
+      "view": "dual",
+      "hidden": 128,
+      "learning_rate": 0.0003
+    }
+  ],
+  "calibration_or_test_loaded": false,
+  "stable_release_ready": false
+}

@@ -1,0 +1,122 @@
+{
+  "format": "roguard-semantic-augmentation-v10-1",
+  "seed": 1012,
+  "source_sha256": "8184e34eaae732fd7d34fc5bca7809e9323b156a8c4d4c1c9ceff04d6d9df381",
+  "inputs": {
+    "research/v9-stabilization/shared-tail-corpus-164/inputs.jsonl.gz": "2f7438fe662e89e7e754dbd1f2764028316f4ee6a023b333305f75672ef98926",
+    "research/v9-stabilization/grounding-tail-corpus-174/inputs.jsonl.gz": "2074449fe17930fd6b4a6666a58c433c1f1418cc447bfcfedb86372a392367cc",
+    "research/v9-stabilization/referent-tail-corpus-176/inputs.jsonl.gz": "b5fa99aa391c2a0df03a36fb7c287408f7441f4c3a5842836405ab04f96b5e69",
+    "research/v9-stabilization/reported-tail-corpus-195/inputs.jsonl.gz": "a0342f5dca7d1b676c6fefea5dbb8474894f619ffff398acbec039e98ad6209a",
+    "research/v10-evidence/data/dev.jsonl": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "research/v10-evidence/data/calibration.jsonl": "ee82649d61631e16a10898159c413d3da6634add32111cda16f05945b6c10a26",
+    "research/v10-evidence/data/challenge.jsonl": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "research/v10-evidence/data/v9-regression.jsonl": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "research/v10-evidence/broad-v9-regression/cases.jsonl": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "research/v10-evidence/data/train.jsonl": "c62d610bc951fc26e2a152d837b8b747eebcc76eee92ed268b660db8afc9dad0"
+  },
+  "training_data_sha256": "61ac1c52d49921d2001b17a7d49e3d52b59908a19908e8473e75660cabffb061",
+  "training_rows": 2561,
+  "counts": {
+    "ro:training_bank_composition_v10": 432,
+    "uk:training_bank_composition_v10": 432,
+    "ro:existing_v10_training_only_memory": 852,
+    "uk:existing_v10_training_only_memory": 845
+  },
+  "excluded": {
+    "existing_or_duplicate_training_prefix": 135
+  },
+  "old_training_unique_prefixes": 14297,
+  "protected_unique_prefixes": 13262,
+  "exposed_evaluation_overlap_audit": {
+    "research/v10-evidence/data/dev.jsonl": {
+      "checkpoints": 348,
+      "old_finetuning_train_overlap": [
+        "v10-pair117-ro-train-130:4",
+        "v10-pair117-ro-train-465:30",
+        "v10-pair117-ro-train-479:1",
+        "v10-pair117-ro-train-485:30",
+        "v10-pair117-ro-train-1258:30",
+        "v10-pair117-ro-train-1262:0",
+        "v10-pair117-ro-train-1268:5",
+        "v10-pair117-ro-train-1279:12",
+        "v10-pair117-ro-train-1294:0",
+        "v10-pair117-ro-train-1371:0",
+        "v10-pair117-ro-train-1379:12",
+        "v10-pair117-uk-train-117:1",
+        "v10-pair117-uk-train-137:13",
+        "v10-pair117-uk-train-152:13",
+        "v10-pair117-uk-train-153:1",
+        "v10-pair117-uk-train-155:12",
+        "v10-pair117-uk-train-161:5",
+        "v10-pair117-uk-train-479:5",
+        "v10-pair117-uk-train-488:12",
+        "v10-pair117-uk-train-1295:4",
+        "v10-pair117-uk-train-1306:5"
+      ]
+    },
+    "research/v10-evidence/data/calibration.jsonl": {
+      "checkpoints": 580,
+      "old_finetuning_train_overlap": [
+        "v10-pair117-ro-train-302:4",
+        "v10-pair117-ro-train-312:13",
+        "v10-pair117-ro-train-315:13",
+        "v10-pair117-ro-train-334:5",
+        "v10-pair117-ro-train-669:13",
+        "v10-pair117-ro-train-681:13",
+        "v10-pair117-ro-train-687:5",
+        "v10-pair117-ro-train-703:31",
+        "v10-pair117-ro-train-716:4",
+        "v10-pair117-ro-train-718:1",
+        "v10-pair117-ro-train-732:13",
+        "v10-pair117-ro-train-734:13",
+        "v10-pair117-ro-train-742:30",
+        "v10-pair117-ro-train-770:12",
+        "v10-pair117-ro-train-773:0",
+        "v10-pair117-ro-train-786:0",
+        "v10-pair117-ro-train-787:1",
+        "v10-pair117-ro-train-792:5",
+        "v10-pair117-ro-train-970:12",
+        "v10-pair117-ro-train-990:12",
+        "v10-pair117-ro-train-998:0",
+        "v10-pair117-ro-train-1002:30",
+        "v10-pair117-ro-train-1008:31",
+        "v10-pair117-ro-train-1015:31",
+        "v10-pair117-ro-train-1019:5",
+        "v10-pair117-uk-train-288:1",
+        "v10-pair117-uk-train-629:13",
+        "v10-pair117-uk-train-636:12",
+        "v10-pair117-uk-train-675:1",
+        "v10-pair117-uk-train-692:12",
+        "v10-pair117-uk-train-718:31",
+        "v10-pair117-uk-train-729:12",
+        "v10-pair117-uk-train-734:1",
+        "v10-pair117-uk-train-755:5",
+        "v10-pair117-uk-train-787:31",
+        "v10-pair117-uk-train-794:31",
+        "v10-pair117-uk-train-981:4",
+        "v10-pair117-uk-train-985:0",
+        "v10-pair117-uk-train-986:0",
+        "v10-pair117-uk-train-1017:5",
+        "v10-pair117-uk-train-1024:31",
+        "v10-pair117-uk-train-1025:12",
+        "v10-pair117-uk-train-1370:30",
+        "v10-pair117-uk-train-1372:30"
+      ]
+    },
+    "research/v10-evidence/data/challenge.jsonl": {
+      "checkpoints": 32,
+      "old_finetuning_train_overlap": []
+    },
+    "research/v10-evidence/data/v9-regression.jsonl": {
+      "checkpoints": 600,
+      "old_finetuning_train_overlap": []
+    },
+    "research/v10-evidence/broad-v9-regression/cases.jsonl": {
+      "checkpoints": 5022,
+      "old_finetuning_train_overlap": []
+    }
+  },
+  "independent_language_review": false,
+  "new_held_out_claim": false,
+  "limitation": "Exact normalized prefix exclusion does not establish family or author independence."
+}

@@ -1,0 +1,11 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-tail-14-development-extension",
+  "timing": "Before semantic-tail-14 training starts; training-state extraction only is in progress.",
+  "reason": "Selecting solely on the original 6341 development cases does not evaluate the intended new trajectory task. Include the existing trajectory DEVELOPMENT partition after excluding every exact model-token overlap with original training, new training, and already represented development inputs.",
+  "unchanged": "All training inputs, loss, optimizer, seed, learning rate and one-epoch schedule from amendment 11 remain fixed. No challenge, calibration, old 600-case test or broad 5022-case regression labels enter selection.",
+  "selection": "Apply amendment 11's lexicographic rule jointly to original development plus eligible trajectory development. Keep original release mode and threshold at epoch zero. Require original-development epoch-zero score parity and zero original-development binary errors; expose pre-existing trajectory-development errors.",
+  "integrity": "Bind original and actual inference prefix identities to the previously captured frozen-v9 representations. Verify feature replay within 1e-5. Reject conflicting labels on repeated model-token inputs; retain exclusion IDs and reasons.",
+  "qualification": "These are exposed development inputs. They are not a fresh or independent final test.",
+  "stable_release_ready": false
+}

@@ -1,0 +1,31 @@
+{
+  "format": "roguard-v10-external-data-review-1",
+  "reviewed_on": "2026-11-06",
+  "complete": true,
+  "scope": "Targeted review of three public primary source descriptions; not an exhaustive data search. No data imported or relabeled. Source claims are not independently verified participant identities.",
+  "sources": [
+    {
+      "name": "RoSafetyBench",
+      "url": "https://huggingface.co/datasets/rosafety-bench/rosafety-bench",
+      "reported_scope": "953 Romanian safety prompts; 148 author-written seeds and 805 model-expanded records. Data card declares CC-BY-4.0. Refusal labels use model judges.",
+      "reported_limitations": "Independent native-speaker audit remains undone. The card acknowledges malformed expanded text, incorrect categories/expected behavior, and unverified factual references.",
+      "assessment": "Potential external exploratory prompt source after annotation; does not supply independent RoGuard conversation or response labels."
+    },
+    {
+      "name": "Ukrainian LLM Safety Dataset",
+      "url": "https://huggingface.co/datasets/mark-matviiv/ukrainian-safety-dataset/blob/main/README.md?code=true",
+      "access_url": "https://huggingface.co/datasets/mark-matviiv/ukrainian-safety-dataset/tree/main",
+      "reported_scope": "Nine national-security threat classes, 59,377 training samples and a reportedly human-verified 450-sample benchmark. Restricted research license; files are gated.",
+      "assessment": "Access and use rights have not been established. Taxonomy does not directly label child-review concerns or the five response behaviors. No access request submitted and no gated data accessed."
+    },
+    {
+      "name": "UAlign",
+      "url": "https://aclanthology.org/2025.unlp-1.4/",
+      "reported_scope": "3,682 moral-judgment scenarios and 1,700 ethical situations with English/Ukrainian pairs. Machine translation with model-based linguistic validation.",
+      "assessment": "Related Ukrainian alignment benchmark, but its moral labels cannot be treated as RoGuard review labels or independent native-language response annotations."
+    }
+  ],
+  "decision": "NO_DIRECT_SUBSTITUTE_FOR_REQUIRED_INDEPENDENT_STUDY_IDENTIFIED",
+  "independent_validation_obtained": false,
+  "stable_release_ready": false
+}

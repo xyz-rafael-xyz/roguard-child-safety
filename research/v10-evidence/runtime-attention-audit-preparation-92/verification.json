@@ -1,0 +1,25 @@
+{
+  "status": "implementation_prepared_not_registered",
+  "completion_audit_sources": {
+    "eval/verify_runtime_review_attention_v10.py": "a3893102ab51c9ecc063b929350eec00e4d8fc0b548b304fa1a503a893c5a250",
+    "eval/audit_attention_development_v10.py": "6dd872fb9e62489c76231bc5e890341ec8f293589cede2013ecb5116ef61e324",
+    "tests/test_runtime_attention_verifier_v10.py": "3722a11dc4487f9e80559cd6c68d711fb3e6ba47957f09b3ea2a3e617f144cb4"
+  },
+  "trainer_source_sha256": "a2002592fad3edaa11675ca514f71383586044711c7418c693acbe26deba3e44",
+  "new_tests_passed": 44,
+  "focused_numerical_tests_passed": 150,
+  "tested": "Recount a real tiny42-layer training run, every saved checkpoint and reload population; reject tensor, metric, counter, source-identity, threshold, reload and event-history corruption. Include all7 head argmax checks and threshold changes that leave argmax unchanged. Reject trained checkpoints that leave the entire attention or head component unchanged; verify source and artifact hashes again at audit completion.",
+  "future_audit": {
+    "checkpoints": 8,
+    "checkpoint_dev_predictions": 35348,
+    "selected_reload_rows": 8837,
+    "retained_private_artifacts": 22,
+    "encoder_loaded": false
+  },
+  "required_registration": "Future training91 amendment must bind these three completion_audit_sources and exact completed88/89/90 inputs. Audit CLI requires its amendment checksum and exited sequence PID; no future hashes are fabricated.",
+  "scope": "Stored tensors, independent world-enumeration policy probabilities, independent threshold sweep, all checkpoint metrics and fixed-v9 paired decisions, exact75 epoch-zero initialization, retained reload outputs and complete ordered training/progress log. Native encoder feature/replay maxima remain producer measurements; no independent gold validation or encoder rerun.",
+  "audit_registered": false,
+  "audit_queued": false,
+  "actual_large_fit_audited": false,
+  "qualified": false
+}

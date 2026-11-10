@@ -1,0 +1,16 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "crossed-review-61",
+  "motivation": "Study57 improves generated DEV and fresh44 but introduces11 broad regressions concentrated in negation combined with past/hypothetical time, uncertain benign content, and reported hypothetical concerns. Test combinations of semantic attributes rather than adding more topic-only variants. This is a hypothesis from exposed diagnostics, not established causation.",
+  "rows": {
+    "train": 7680,
+    "dev": 1920,
+    "test": 3840
+  },
+  "partition": "Reuse the unchanged composition56 frame split: first16 TRAIN, next8 DEV,last8 TEST, same parent family IDs across translations and new variants. TRAIN topics0/1, DEV16, TEST20/21. Do not copy diagnostic focal sentences or move DEV/TEST cores into TRAIN.",
+  "composition": "Concern-bearing cores: AFFIRMED/NEGATED/UNCERTAIN \u00d7 SELF-DIRECT/OTHER-REPORTED \u00d7 CURRENT/PAST/HYPOTHETICAL \u00d7 two clause orders \u00d7 topics \u00d7 neutral/instruction-bearing assistant context. Ordinary-functioning cores use only AFFIRMED/UNCERTAIN; never negate them and assume a benign label. Assertion describes quoted content within the declared temporal/conditional scope. Labels derive from the existing ontology, with no label changes after scoring.",
+  "limitations": "No new independent core meanings: TRAIN reuses64 core sentences from16 bilingual paired frames. These are correlated, developer-authored controlled combinations. Conditional scope and linguistic validity still require independent human validation after the engineering gate. Public source-authored tests are not independent authorship.",
+  "verification": "Check every generated label against the declared ontology; train/dev/test families, cores and topics remain disjoint; parent family assignments unchanged; reject exact historical protected focal text or payload duplicates. Preserve all prior data and rejected model evidence.",
+  "qualification": "Dataset materialization does not qualify a model. Test instances remain closed to model selection; final reviewers and stable release stay gated on the complete candidate passing every zero-error/no-regression engineering population.",
+  "stable_release_ready": false
+}

@@ -1,0 +1,73 @@
+{
+  "format": "roguard-assertion-probe-features-audit-1",
+  "verification": "PASS",
+  "source_sha256": "8360bf292845d219bd3c5531faf46e3fdefe66932af2daf8b83443d1ea8fbec0",
+  "audit_plan_sha256": "4ff6820e330e30df434546543a5aad47aba740d7665207c85086fbac2dc73f5a",
+  "extraction_plan_sha256": "f558cf7b3ef3d9ba360000b54ae9806d149290a910285b60778e27016e1e51d1",
+  "producer_report_sha256": "a72d4fd7a737ce25244fedcdbecab3b17684acc29f24388ca99e926d7f312586",
+  "feature_artifacts": {
+    "ro-features.npy": "f58e3175aeabfc49e6cb00737d35d0d62659ddce8d8c6ad468a6c41073f4f4f1",
+    "ro-logits.npy": "1340917e625d282284bb1f1d4bd047332f983ef3a730eeaca0bd604cc46bfa91",
+    "ro-rows.jsonl": "ff71e94e0ead92add64c3c519f57db4dbfab92143a560be91ac394d6c9550f8d",
+    "uk-features.npy": "c471f083d94e86e86da3fe284b44e62cffcd5c3ef7f4fe32575cad0638d76e18",
+    "uk-logits.npy": "a7e4390c0556bca0204202eb4689fdf81fb43e89ebf136f8f2c782911114ec2c",
+    "uk-rows.jsonl": "e1b96c24a99372e5e35dc0b7eb871e2c3c12ecd1e42c9647d0285a8529fc8b71"
+  },
+  "encoder_weights": {
+    "ro": "114d3e89191d06152cceccd080114998901a4f0bf6a9540de8e11dd8b6cf6b09",
+    "uk": "0fee43a071d2c07c26e8b3d69cacb4933fd284bc64dbee0d18fe5481e1e4815f"
+  },
+  "token_rows_replayed": 306,
+  "head_rows_replayed": 306,
+  "languages": {
+    "ro": {
+      "rows": 153,
+      "partitions": {
+        "fit": 48,
+        "probe_operator": 32,
+        "probe_meaning": 32,
+        "probe_combination": 16,
+        "probe_both": 16,
+        "counterfoil": 9
+      },
+      "ordered_inputs_sha256": "c6fd3bd5df6b585cc5fc46fd381a743e9168c82fc70e8069ed45a5d0a2282ecf",
+      "maximum_cpu_logit_error": 1.52587890625e-05,
+      "seven_head_argmax_rows_differing": 0,
+      "binary_decision_differences": 0,
+      "native_observations_recounted": 153,
+      "producer_native_maximum_recounted": 0.00019073486328125,
+      "producer_score_maximum_recounted": 0.0,
+      "producer_score_groups_recounted": 45,
+      "native_encoder_independently_replayed": false
+    },
+    "uk": {
+      "rows": 153,
+      "partitions": {
+        "fit": 48,
+        "probe_operator": 32,
+        "probe_meaning": 32,
+        "probe_combination": 16,
+        "probe_both": 16,
+        "counterfoil": 9
+      },
+      "ordered_inputs_sha256": "3d74f7536ee97a01d915645961d169abba8e0d79c190e7f0389410a77ea0f3a9",
+      "maximum_cpu_logit_error": 2.09808349609375e-05,
+      "seven_head_argmax_rows_differing": 0,
+      "binary_decision_differences": 0,
+      "native_observations_recounted": 153,
+      "producer_native_maximum_recounted": 0.00019979476928710938,
+      "producer_score_maximum_recounted": 0.0,
+      "producer_score_groups_recounted": 45,
+      "native_encoder_independently_replayed": false
+    }
+  },
+  "device": "cpu",
+  "encoder_loaded": false,
+  "native_encoder_independently_replayed": false,
+  "probe_accuracy_summaries_produced": false,
+  "training_performed": false,
+  "training_admitted": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "limitations": "CPU token/head replay and exact row/artifact checks only. Native/serving parity is a full recount of producer observations, not independent encoder inference or semantic gold validation."
+}

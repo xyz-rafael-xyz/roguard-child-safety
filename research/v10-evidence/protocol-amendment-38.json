@@ -1,0 +1,10 @@
+{
+  "study": "evidence-response-40",
+  "motivation": "Fixed final-token response readouts remain below acceptance. Test an autoregressive, evidence-first judgment from the pinned Qwen model: copy a supporting phrase, give one brief behavior description, then choose a category.",
+  "model": "Unchanged pinned Qwen3.5-9B from qwen-control-87; no adapters or fitting. Same category definitions as study26, with a fixed JSON output instruction. Greedy decoding, thinking disabled, maximum256 generated tokens.",
+  "inputs": "All 40 distinct original DEV drafts, empty user context. No subset selected by earlier correctness. Draft-intrinsic behavior scope only. Advance to the original ten diagnostic drafts only if all DEV categories are correct and every output passes the format/evidence checks.",
+  "output_contract": "Exactly one JSON object with evidence, behavior and category strings. Evidence must be a nonempty exact substring of the NFC-normalized draft, behavior must be nonempty, and category must be A-E. Invalid/truncated JSON, altered evidence or unknown categories count as failures; no repair or label extraction from prose.",
+  "interpretation": "The quote span is mechanically verified; the generated behavior description is unverified model output. It is not evidence of factual support, correctness of interpretation, or overall safety. No hidden reasoning is requested or scored.",
+  "selection": "One registered prompt and decoder. Freeze source and model manifest before generation. Preserve every raw generated response and failure. No developer correction or diagnostic-driven checkpoint selection.",
+  "stable_release_ready": false
+}

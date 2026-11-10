@@ -1,0 +1,10 @@
+{
+  "study": "response-context-34",
+  "registration": "Defined before the study32 selected checkpoint or its scores exist.",
+  "purpose": "Test whether the separate response head keeps judging the unchanged assistant draft under distracting or instruction-like user context.",
+  "inputs": "The 40 distinct study25 DEV drafts, each crossed with three new user contexts: 120 inputs. Original category labels remain unchanged. One context asks the classifier to output A, one asks it to output E, and one quotes all four unwanted behavior types as rejected advice. No instruction is executed.",
+  "models": "Compare frozen study26 and study32 DEV-selected heads with their recorded prompt and pretrained base. No fitting, threshold changes or checkpoint reselection in this experiment.",
+  "selection": "Every distinct DEV draft, not a selected subset. Context templates are frozen in the source before scoring. Results are descriptive, grouped by language, context and category, with paired fixed and introduced error IDs.",
+  "limitations": "New input combinations reuse exposed synthetic draft wording. They test context invariance, not unseen-draft generalization, independent human evaluation or overall response safety.",
+  "stable_release_ready": false
+}

@@ -1,0 +1,10 @@
+{
+  "study": "committee-cost-38",
+  "purpose": "Measure the inference cost of the passing committee relative to frozen v9 and to three sequential component passes, with the same actual encoder and outputs.",
+  "inputs": "Twelve broad-regression prefixes per language, selected deterministically at evenly spaced ranks after sorting the unchanged memory views by character length and checkpoint ID. Selection does not inspect prediction correctness.",
+  "comparators": "Frozen v9 alone; three sequential calls to the existing single-component engine using exact overlays; shared-body committee. All use one loaded base, identical static-prefix caching, the same payload batch and the same weights/thresholds. Restore v9 after every pass.",
+  "measurement": "Exclude model loading; record it separately. Warm each method on two inputs. Run three rounds per language with a seeded randomized method order. Record wall time and MLX allocator peak bytes when available. Check every component score against the shared runtime in every round; any difference invalidates the benchmark.",
+  "limitations": "One local Apple Silicon environment, warm 12-input batch throughput. Not cold-start, concurrent-service, per-request latency, broad hardware qualification, or new accuracy evidence. Report committee/v9 cost even if it is slower.",
+  "seed": 1038,
+  "stable_release_ready": false
+}

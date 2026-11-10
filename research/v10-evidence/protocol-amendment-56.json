@@ -1,0 +1,10 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "response-runtime-58",
+  "motivation": "Response models currently require repository-only training helpers. Add an explicit checksum-bound installed-package interface using the identical fixed query and normalized response head. This packaging work does not change active training or qualify a model.",
+  "contract": "Accept an exact research metadata schema, pinned base/revision/query digest, five ordered labels, float32 finite head tensors of registered shapes and a caller-owned validated Gemma4 reference. Reuse that reference encoder under its existing lock. Temporarily zero36 LoRA output matrices for the unchanged base view and restore them in finally. Retain only an input-independent query prefix on the reference engine; clear temporary caches after each request.",
+  "limits": "Validate language and bounded Unicode draft/context before loading. Exceeding1024 model tokens yields an explicit abstention requesting review. Outputs contain no conversation text and never establish overall safety, calibration, factual support, release qualification or permission for external action.",
+  "verification": "Portable schema/input/identity tests; exact CPU head parity with training for linear and128-hidden architectures; exception restoration on a small actual42-layer Gemma; real-tokenizer parity for128 exposed TRAIN/DEV inputs; build and install a local research wheel outside the checkout and compare all packaged bytes. Once encoder resources are free and model selection is complete, compare actual installed runtime features, probabilities and labels against frozen TRAIN/DEV reference features; inject an inference failure and verify original binary output and all adapter/head parameters are unchanged.",
+  "qualification": "A faithful runtime can reproduce a failed classifier. Numerical parity is not model accuracy. Do not open reserved TEST data during this verification; do not publish v10 or open the final reviewer stage without the full required engineering and external evidence.",
+  "stable_release_ready": false
+}

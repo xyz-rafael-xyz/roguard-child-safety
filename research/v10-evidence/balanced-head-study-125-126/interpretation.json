@@ -1,0 +1,117 @@
+{
+  "decision": "REJECT_ESCALATION",
+  "four_arm_results": {
+    "ro": {
+      "control-full_teacher": {
+        "dev_binary_errors": 13,
+        "dev_joint_errors": 673,
+        "introduced_v9": 4,
+        "transfer_assertion_errors": 345,
+        "panel_binary_errors": 4,
+        "panel_joint_errors": 14,
+        "fit_binary_errors": 30,
+        "fit_joint_errors": 134
+      },
+      "control-mask_wrong_assertion": {
+        "dev_binary_errors": 12,
+        "dev_joint_errors": 683,
+        "introduced_v9": 2,
+        "transfer_assertion_errors": 339,
+        "panel_binary_errors": 4,
+        "panel_joint_errors": 14,
+        "fit_binary_errors": 31,
+        "fit_joint_errors": 131
+      },
+      "new-full_teacher": {
+        "dev_binary_errors": 12,
+        "dev_joint_errors": 677,
+        "introduced_v9": 2,
+        "transfer_assertion_errors": 169,
+        "panel_binary_errors": 1,
+        "panel_joint_errors": 8,
+        "fit_binary_errors": 0,
+        "fit_joint_errors": 0
+      },
+      "new-mask_wrong_assertion": {
+        "dev_binary_errors": 12,
+        "dev_joint_errors": 675,
+        "introduced_v9": 2,
+        "transfer_assertion_errors": 106,
+        "panel_binary_errors": 0,
+        "panel_joint_errors": 6,
+        "fit_binary_errors": 0,
+        "fit_joint_errors": 0
+      }
+    },
+    "uk": {
+      "control-full_teacher": {
+        "dev_binary_errors": 2,
+        "dev_joint_errors": 645,
+        "introduced_v9": 1,
+        "transfer_assertion_errors": 296,
+        "panel_binary_errors": 6,
+        "panel_joint_errors": 13,
+        "fit_binary_errors": 36,
+        "fit_joint_errors": 127
+      },
+      "control-mask_wrong_assertion": {
+        "dev_binary_errors": 0,
+        "dev_joint_errors": 644,
+        "introduced_v9": 0,
+        "transfer_assertion_errors": 285,
+        "panel_binary_errors": 5,
+        "panel_joint_errors": 13,
+        "fit_binary_errors": 34,
+        "fit_joint_errors": 127
+      },
+      "new-full_teacher": {
+        "dev_binary_errors": 1,
+        "dev_joint_errors": 632,
+        "introduced_v9": 0,
+        "transfer_assertion_errors": 147,
+        "panel_binary_errors": 1,
+        "panel_joint_errors": 3,
+        "fit_binary_errors": 0,
+        "fit_joint_errors": 0
+      },
+      "new-mask_wrong_assertion": {
+        "dev_binary_errors": 1,
+        "dev_joint_errors": 634,
+        "introduced_v9": 0,
+        "transfer_assertion_errors": 102,
+        "panel_binary_errors": 1,
+        "panel_joint_errors": 3,
+        "fit_binary_errors": 0,
+        "fit_joint_errors": 0
+      }
+    }
+  },
+  "gate": {
+    "escalation_allowed": false,
+    "failures": [
+      "ro/original_dev/selected_control/joint_errors",
+      "ro/full_panel/joint_errors",
+      "uk/full_panel/binary_errors",
+      "uk/full_panel/joint_errors"
+    ],
+    "primary_candidate": "new-mask_wrong_assertion",
+    "primary_control": "control-full_teacher",
+    "qualified": false
+  },
+  "updates": 35568,
+  "example_presentations": 2273328,
+  "new_unique_fit_inputs": 576,
+  "fit_seconds": 132.3850804157555,
+  "checkpoints_replayed": 104,
+  "dev_rows_replayed": 459524,
+  "maximum_cpu_logit_error": 1.52587890625e-05,
+  "new_predictions_independently_recounted": 18480,
+  "panel_responses_independently_recounted": 240,
+  "limits": [
+    "Primary transfer improvement is real on this exposed generated bank, but all acceptance gates are conjunctive.",
+    "Primary intervention changes both added data and assertion distillation; do not attribute all improvement to either alone.",
+    "Zero FIT errors do not establish transfer perfection. Repeated presentations are not independent examples.",
+    "AI-reviewed generated targets are not independent human gold. No final TEST, human qualification or public v10 package."
+  ],
+  "qualified": false
+}

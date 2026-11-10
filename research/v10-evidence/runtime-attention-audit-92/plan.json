@@ -1,0 +1,25 @@
+{
+  "format": "roguard-runtime-attention-completion-audit-plan-1",
+  "status": "queued_after91",
+  "preregistration_sha256": "37db23d0d7a44ce70e6bc27c4402c903b8004171902e978d4e9635192cb8500f",
+  "training_queue_plan_sha256": "fd4f16acf7dd8b580c2ac2bf32fafbbe7d1df51e984988ef44b971474fd196fc",
+  "command_sha256": "c0dc194ab520734cb763b6bce176aaa41cb43358df34136067274fa298d76dbe",
+  "dependency_pid": 46829,
+  "wrapper_sha256": "1273c471297efb939f1a438be2bd46c3f67fa7552d44fcbd88a4fb5fc78a1df3",
+  "auditor_sha256": "a3893102ab51c9ecc063b929350eec00e4d8fc0b548b304fa1a503a893c5a250",
+  "completion_audit_sources": {
+    "eval/verify_runtime_review_attention_v10.py": "a3893102ab51c9ecc063b929350eec00e4d8fc0b548b304fa1a503a893c5a250",
+    "eval/audit_attention_development_v10.py": "6dd872fb9e62489c76231bc5e890341ec8f293589cede2013ecb5116ef61e324",
+    "tests/test_runtime_attention_verifier_v10.py": "3722a11dc4487f9e80559cd6c68d711fb3e6ba47957f09b3ea2a3e617f144cb4"
+  },
+  "checkpoint_count": 8,
+  "checkpoint_dev_predictions": 35348,
+  "reload_dev_predictions": 8837,
+  "tests_passed": 44,
+  "registration_tests_passed": 28,
+  "inputs": "Wait successful91 sequence and parent exit. Rebuild and verify exact generated input registration against frozen preregistration and actual completed88/89/90, including completed training preflight. Pass its verified amendment hash into the independent auditor.",
+  "scope": "Retained tensor/logit/statistic/selection/paired-output/progress-log audit; native encoder maxima remain producer observations. No new encoder, TEST, gold validation or model promotion.",
+  "encoder_loaded": false,
+  "actual_large_fit_audited": false,
+  "qualified": false
+}

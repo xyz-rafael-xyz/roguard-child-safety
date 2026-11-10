@@ -1,0 +1,35 @@
+{
+  "frozen_alpha": {
+    "ro": 2.0,
+    "uk": 1.5
+  },
+  "selection_sha256": "f7ecf2a1339e70cd38fc308715af9f0e6d0fb00da9aadd9bb4153a5cd7d25f97",
+  "audit129_report_sha256": "02c3c50881db4b64a71bb3f7ee2a392d37e669c8d5aa31cdcfbec4798e94897a",
+  "scale_source_sha256": "c9bccff28a36561211fddbd1722c66941ee53ad0a26f8f73a3c95f7f881d8d34",
+  "oracle_source_sha256": "f8290afbd22edbbbe721c2159359c21197e90cb997be08519f3d48b14ffdfd4c",
+  "new_search": false,
+  "selection": {
+    "ro": {
+      "alpha": 2.0,
+      "binary_errors": 0,
+      "improved": true,
+      "rule": "Minimize allTRAIN binary errors among zero-introduced candidates; then closest to1 and numeric alpha. Identity if no strict gain.",
+      "candidate_artifacts": {
+        "ro/alpha-2.0/logits.npy": "ad443a08cb94f7d3aee3a44d1e952b4cd4336ce8561ad582f3fa06c0f8f7ec54",
+        "ro/alpha-2.0/results.jsonl": "0b1428eeb3f2308bec97576087a18ac7fb380d984c5b16d09b7635f67bb14c6f"
+      }
+    },
+    "uk": {
+      "alpha": 1.5,
+      "binary_errors": 0,
+      "improved": true,
+      "rule": "Minimize allTRAIN binary errors among zero-introduced candidates; then closest to1 and numeric alpha. Identity if no strict gain.",
+      "candidate_artifacts": {
+        "uk/alpha-1.5/logits.npy": "b24dd7694ac834079d945c9132d415c3af4508ad764eb792fa211417a13f1c3c",
+        "uk/alpha-1.5/results.jsonl": "6b8259895badbb1aa90f53e77a82d2e709f565138bb5a4e59a72a4a2655b107e"
+      }
+    }
+  },
+  "original_private_report_sha256": "75bd31ecd5ac92e7e4b7b882a792b5c2c4dced2eb6ad35b7cce64c49a8023795",
+  "public_redaction": "Local paths replaced. Original numbers, booleans, nulls and digests retained. Registrations are provenance summaries, not executable plans."
+}

@@ -1,0 +1,106 @@
+{
+  "synthetic_probability_vectors_only": true,
+  "float32_logit_representability_claimed": false,
+  "actual_data_scored": false,
+  "source_sha256": "59932304d46d8ee85ca7f376538a2a6d46c138d2e6352cb2694d5343fd86218b",
+  "finding": "A concern marginal one ulp below fixedthreshold can coexist with portable scalar one ulp above due to parent pair-normalization roundoff. Concerncap is exact-math but rawfloat shortcut cannot establish served impossibility near threshold.",
+  "minimal_fix": "Keep rawcap fact separately, override effective reachability to numerical-boundary-unresolved within frozen guard; retain actualparent containment/cap residual diagnostics.",
+  "witnesses": {
+    "ro": {
+      "draw": 52,
+      "threshold": 0.7517333793124337,
+      "concern": 0.7517333793124336,
+      "parent_score": 0.7517333793124338,
+      "fields": {
+        "subject": [
+          0.2710261371462647,
+          0.13947992303458517,
+          0.5894939398191501
+        ],
+        "source": [
+          0.16295492064481917,
+          0.03943551175837571,
+          0.7976095675968051
+        ],
+        "time": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "assertion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "relation": [
+          0.5,
+          0.5
+        ],
+        "concern": [
+          0.24826662068756644,
+          0.7517333793124336
+        ]
+      },
+      "raw_transport_reachability": {
+        "positive": "IMPOSSIBLE_CONCERN_CAP",
+        "negative": "FEASIBLE_CONCERN_CAP",
+        "positive_impossible_by_concern": true,
+        "numerical_boundary": false
+      },
+      "minimum": 0.7517333793124337,
+      "maximum": 0.7517333793124337,
+      "guard": 1e-12,
+      "spec_sha256": "5fdeae97843d873755ed41a02453b5c29823fd8028508c3e99d1586175c8f4a9"
+    },
+    "uk": {
+      "draw": 36,
+      "threshold": 0.9274248149759536,
+      "concern": 0.9274248149759535,
+      "parent_score": 0.9274248149759537,
+      "fields": {
+        "subject": [
+          0.4481574587361969,
+          0.058779604916364046,
+          0.4930629363474391
+        ],
+        "source": [
+          0.360769818575343,
+          0.18476039220049817,
+          0.4544697892241589
+        ],
+        "time": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "assertion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "relation": [
+          0.5,
+          0.5
+        ],
+        "concern": [
+          0.07257518502404647,
+          0.9274248149759535
+        ]
+      },
+      "raw_transport_reachability": {
+        "positive": "IMPOSSIBLE_CONCERN_CAP",
+        "negative": "FEASIBLE_CONCERN_CAP",
+        "positive_impossible_by_concern": true,
+        "numerical_boundary": false
+      },
+      "minimum": 0.9274248149759535,
+      "maximum": 0.9274248149759535,
+      "guard": 1e-12,
+      "spec_sha256": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27"
+    }
+  },
+  "original_private_report_sha256": "d0c0d5d555c4d7bafa3443722434491c9ba5610a2a131540592b3d8e6e1f3bdc",
+  "public_redaction": "Local path strings replaced; all original numeric/bool/null values, source digests and artifact digests retained."
+}

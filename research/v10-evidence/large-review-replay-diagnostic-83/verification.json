@@ -1,0 +1,71 @@
+{
+  "complete": true,
+  "report_sha256": "3d3166015f574b20d791b9c8739b9479a1e0367efea3ae9dbd6c9b6c3ef446ff",
+  "protocol_sha256": "cef89c232f2ff0699258bc05783ba94bcbc968b73f11c338aa6b69bb7324b048",
+  "source_sha256": "6e4da0356afc8978d2c6c06e157a6a1abe2c53ae8db26c8992c6bae929c80d4a",
+  "languages": {
+    "ro": {
+      "development_rows": 4202,
+      "training_probes": 20,
+      "full_forward_checks": 76,
+      "artifacts_verified": {
+        "ro-observations.jsonl": "2dd67e995a008e5be44470f2a0990066f8ad4cd101325faecc47489128a758f5",
+        "ro-prefix-dev-logits.npy": "32fe52ff0f5e2a86a2f88cc257e951cc7d35e4812a7c9ad2897001c2f9f920df",
+        "ro-uncached-dev-logits.npy": "e69f972a96f2112f5e8c55d404254e3ddb8310e8938f8adffd15e07b9203baf6"
+      },
+      "paths": {
+        "prefix": {
+          "argmax_changes": 0,
+          "fixed_threshold_decision_changes": 0,
+          "binary_errors": 17,
+          "joint_argmax_errors": 746,
+          "feature_failures": 3,
+          "logit_failures": 2,
+          "full_replay_failures": 40
+        },
+        "uncached": {
+          "argmax_changes": 0,
+          "fixed_threshold_decision_changes": 0,
+          "binary_errors": 17,
+          "joint_argmax_errors": 746,
+          "feature_failures": 46,
+          "logit_failures": 3,
+          "full_replay_failures": 0
+        }
+      }
+    },
+    "uk": {
+      "development_rows": 4635,
+      "training_probes": 23,
+      "full_forward_checks": 35,
+      "artifacts_verified": {
+        "uk-observations.jsonl": "4e76f97d92f9d9120ec374d8953e3e4b97374e4728cb9a2bcc7d0261a8bf7b15",
+        "uk-prefix-dev-logits.npy": "fda2205f83693bebf66629fa7d0b61e67175a1bca1b99445309d1b46b84f053e",
+        "uk-uncached-dev-logits.npy": "a3fc11967d1c3991558b195f0ca571458c0bf4ff5a7d19c6888da64a7e73b396"
+      },
+      "paths": {
+        "prefix": {
+          "argmax_changes": 0,
+          "fixed_threshold_decision_changes": 0,
+          "binary_errors": 2,
+          "joint_argmax_errors": 645,
+          "feature_failures": 1,
+          "logit_failures": 1,
+          "full_replay_failures": 1
+        },
+        "uncached": {
+          "argmax_changes": 0,
+          "fixed_threshold_decision_changes": 0,
+          "binary_errors": 2,
+          "joint_argmax_errors": 645,
+          "feature_failures": 2,
+          "logit_failures": 1,
+          "full_replay_failures": 0
+        }
+      }
+    }
+  },
+  "optimizer_updates": 0,
+  "qualified": false,
+  "scope": "Recomputed saved-logit argmax, scores, fixed-threshold decisions, label error counts and numerical discrepancy aggregates; verified retained artifact hashes. No encoder loaded."
+}

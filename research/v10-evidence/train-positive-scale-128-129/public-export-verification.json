@@ -1,0 +1,53 @@
+{
+  "status": "PASS_PATH_REDACTION_NUMERIC_AND_DIGEST_PRESERVATION",
+  "exports": [
+    {
+      "artifact": "train-positive-scale-128-129/producer128-report.json",
+      "original_sha256": "bb5a56649160a3bebbe2dfd814b91ae2236d009e648f53f7eb970c65a344bd12",
+      "public_sha256": "48bf64a5759d305104f9e8c3a00d616698114bc14eaca9b3f8f8fa58e650585b",
+      "numeric_bool_null_leaves_preserved": 14482,
+      "original_digest_leaves_preserved": 67
+    },
+    {
+      "artifact": "train-positive-scale-128-129/audit129-report.json",
+      "original_sha256": "02c3c50881db4b64a71bb3f7ee2a392d37e669c8d5aa31cdcfbec4798e94897a",
+      "public_sha256": "d1b7acfe51cd405d6a811318a97762ccd5e72e6a6a1f6183340bc6620175272e",
+      "numeric_bool_null_leaves_preserved": 14499,
+      "original_digest_leaves_preserved": 239
+    },
+    {
+      "artifact": "train-positive-scale-128-129/registration128-summary.json",
+      "original_sha256": "6927a03c3ab161d049a7d27ea87326de018f1406be517870dcbcd73d2f94335c",
+      "public_sha256": "b0839de483cf38ee625faa3b5d799e25a2d611933cf8a10403fde1fcb74443a8",
+      "numeric_bool_null_leaves_preserved": 19,
+      "original_digest_leaves_preserved": 167
+    },
+    {
+      "artifact": "train-positive-scale-128-129/registration129-summary.json",
+      "original_sha256": "14590a2986626fd409c5f4689f3ea6f501f414ec9ea32eb89a54441be023f697",
+      "public_sha256": "7bc6664373972367d50bcab649d83f22196e1ede2974d5a16e9c9587846d7298",
+      "numeric_bool_null_leaves_preserved": 5,
+      "original_digest_leaves_preserved": 40
+    },
+    {
+      "artifact": "train-positive-scale-128-129/frozen-train-selection.json",
+      "original_sha256": "f7ecf2a1339e70cd38fc308715af9f0e6d0fb00da9aadd9bb4153a5cd7d25f97",
+      "public_sha256": "491d90479f9fbb80064bdb38ddf80f63e5bf8f55ed13204e12f92db15ce22eb9",
+      "numeric_bool_null_leaves_preserved": 6,
+      "original_digest_leaves_preserved": 4
+    }
+  ],
+  "sources": [
+    {
+      "artifact": "train-positive-scale-128-129/producer128.py",
+      "sha256": "c9bccff28a36561211fddbd1722c66941ee53ad0a26f8f73a3c95f7f881d8d34",
+      "byte_identical": true
+    },
+    {
+      "artifact": "train-positive-scale-128-129/auditor129.py",
+      "sha256": "f8290afbd22edbbbe721c2159359c21197e90cb997be08519f3d48b14ffdfd4c",
+      "byte_identical": true
+    }
+  ],
+  "qualified": false
+}

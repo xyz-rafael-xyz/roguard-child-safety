@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "date": "2026-11-07",
+  "scope": "Documentation-level assessment of five selected external sources, not an exhaustive search or validation of underlying labels.",
+  "sources": [
+    {
+      "name": "RTP-LX",
+      "sources": [
+        "https://github.com/microsoft/RTP-LX/blob/805763e2e37354ad7b24bea9f199e285008e94db/README.md",
+        "https://github.com/microsoft/RTP-LX/blob/805763e2e37354ad7b24bea9f199e285008e94db/LICENSE",
+        "https://github.com/microsoft/RTP-LX/blob/805763e2e37354ad7b24bea9f199e285008e94db/NOTICE",
+        "https://github.com/microsoft/RTP-LX/blob/805763e2e37354ad7b24bea9f199e285008e94db/rtp-lx_metadata.json"
+      ],
+      "reported_evidence": "Native-speaker transcreation and annotation; Romanian and Ukrainian are listed. Romanian is marked as lacking completions and culturally specific prompts. Eight toxicity-related dimensions use ordinal annotations.",
+      "task_fit": "No established mapping to RoGuard response boundary/privacy/pressure/unsupported classes or its user-support concern task. A toxicity label cannot be silently substituted.",
+      "rights_status": "Repository LICENSE references MIT plus third-party NOTICE; older dataset metadata also lists noncommercial terms. Component-specific rights have not been resolved for proposed reuse.",
+      "decision": "NOT_ACCEPTED_AS_ROGUARD_QUALIFICATION_GOLD",
+      "potential_use": "Possible separately scoped auxiliary evaluation after task and component-rights review; no corpus imported."
+    },
+    {
+      "name": "RoSafetyBench",
+      "repository": "rosafety-bench/rosafety-bench",
+      "reported_evidence": "953 Romanian-first prompts, including805 generated expansions. The card says the independent native-speaker audit is unfinished and identifies malformed text, category/expected-behavior issues and unreliable factual references.",
+      "task_fit": "Prompt refusal, bias and factual-response evaluation differs from RoGuard five-category behavior and concern classification.",
+      "decision": "NOT_ACCEPTED_AS_INDEPENDENT_GOLD",
+      "potential_use": "External synthetic research source only after an appropriate separate design and quality checks.",
+      "revision": "57ed4dfe5d74dca31dabac8394a32707deaa7999",
+      "sources": [
+        "https://huggingface.co/datasets/rosafety-bench/rosafety-bench/resolve/57ed4dfe5d74dca31dabac8394a32707deaa7999/README.md"
+      ],
+      "card_sha256": "6d2d1308470a211761c37f5eea6b98a1c599952d666bc5409661817c2c2a57b2",
+      "declared_license": "cc-by-4.0"
+    },
+    {
+      "name": "Ukrainian Nemotron adaptation",
+      "repository": "MINTSYFRAGOVUA/UA_Nemotron-Safety-Guard-Dataset-v3",
+      "reported_evidence": "32782 TRAIN,1965 validation and2313 TEST rows. Ukrainian localization uses automated translation/fluency and ensemble label-consistency checks. The inspected card does not establish independent native-human verification of this localized release.",
+      "task_fit": "Broad safe/unsafe labels and Nemotron categories differ from RoGuard. Row-level category tags and repeated upstream IDs require explicit handling; labels must not be mapped mechanically to response classes.",
+      "decision": "NOT_ACCEPTED_AS_INDEPENDENT_ROGUARD_GOLD",
+      "potential_use": "Potential external synthetic TRAIN diversity after a registered role-specific annotation/mapping and deduplication plan. No current training use.",
+      "revision": "52f2219bbebe00ac06bb4b2dde2e35a5fe50164d",
+      "sources": [
+        "https://huggingface.co/datasets/MINTSYFRAGOVUA/UA_Nemotron-Safety-Guard-Dataset-v3/resolve/52f2219bbebe00ac06bb4b2dde2e35a5fe50164d/README.md"
+      ],
+      "card_sha256": "781d6faac863d8ad5a3eb229c4dab8522537c1742942106bf9e5e2f3b2992abf",
+      "declared_license": "cc-by-4.0"
+    },
+    {
+      "name": "NVIDIA Nemotron Safety Guard v3",
+      "repository": "nvidia/Nemotron-Safety-Guard-Dataset-v3",
+      "reported_evidence": "Twelve declared languages exclude Romanian and Ukrainian. The card describes translated/adapted synthetic data and mixed human/model label provenance.",
+      "task_fit": "Does not directly supply either target-language qualification population. Broad moderation labels differ from RoGuard tasks.",
+      "decision": "NOT_ACCEPTED_FOR_TARGET_LANGUAGE_QUALIFICATION",
+      "potential_use": "Upstream provenance reference; no current corpus use.",
+      "revision": "a3f7ecb3433d1933701a83f18de16c36934a7f51",
+      "sources": [
+        "https://huggingface.co/datasets/nvidia/Nemotron-Safety-Guard-Dataset-v3/resolve/a3f7ecb3433d1933701a83f18de16c36934a7f51/README.md"
+      ],
+      "card_sha256": "f2def55a5ece9ba671d4f04de9913adb53049921dbfca9d77c3757d1a26e1fe5",
+      "declared_license": "cc-by-4.0"
+    },
+    {
+      "name": "Hasan Kursun multilingual safety classification",
+      "repository": "hasankursun/multilingual-safety-classification-dataset",
+      "reported_evidence": "Includes Romanian and Ukrainian via NLLB machine translation. Three labels represent safe, needs-review and unsafe; target-language independent human annotation is not established by the inspected card.",
+      "task_fit": "Neither translated labels nor the three-way moderation taxonomy establish RoGuard gold labels.",
+      "decision": "NOT_ACCEPTED_AS_INDEPENDENT_ROGUARD_GOLD",
+      "potential_use": "No import; the card declares CC-BY-NC-SA-4.0, which also requires review before any proposed public artifact reuse.",
+      "revision": "09dcc94253a5eac78289b1eaf4022d16ee4514cd",
+      "sources": [
+        "https://huggingface.co/datasets/hasankursun/multilingual-safety-classification-dataset/resolve/09dcc94253a5eac78289b1eaf4022d16ee4514cd/README.md"
+      ],
+      "card_sha256": "81acd617022befbfcc6e0f18955371a1f49862ee723945920cbfc2ee7f6e5beb",
+      "declared_license": "cc-by-nc-sa-4.0"
+    }
+  ],
+  "snapshot_inventory_sha256": "682a75fc7da60f380469f5b2a03ef30a3d9f8d443200f9912eef5e3e06056635",
+  "rtplx_document_snapshot_sha256": {
+    "rtplx-LICENSE.txt": "05ee4c82d91d011f41956f228dab74a737d1642c9554ad17a61e9e75532227b3",
+    "rtplx-metadata.json": "89f296e3759b8cc7e01a58ce41cb8dd37337c0c59b3541567d67deeeda474b2d",
+    "rtplx-README.txt": "62f7902ee6bd27b52e7cbd7229a811634a4425eee057379c16d96a659d35c9b6",
+    "rtplx-NOTICE.txt": "9b3de8e4284df25e16562e3468262be2961ab5c59d955d998dc0e7d424f06751"
+  },
+  "public_dataset_previews_seen": true,
+  "external_rows_independent_of_model_pretraining_established": false,
+  "raw_data_files_downloaded": false,
+  "project_reserved_test_opened": false,
+  "labels_imported_or_mapped": false,
+  "live_study65_inputs_changed": false,
+  "independent_evaluation_gate_satisfied": false,
+  "stable_release_ready": false
+}

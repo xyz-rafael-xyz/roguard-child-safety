@@ -1,0 +1,15 @@
+{
+  "study": "contrast-response-32",
+  "motivation": "Study 26 missed three exposed development replies involving negation and boundaries. Add new matched training pairs across all four response problems, with no development relabeling or copied development drafts.",
+  "training": "340 original TRAIN inputs plus 64 newly authored bilingual drafts crossed with the four original TRAIN contexts: 596 total inputs. Each appropriate/problem pair differs in the assistant behavior, not user context.",
+  "data_status": "Developer-authored synthetic engineering evidence. Development errors informed this intervention; the resulting development result is not independent validation.",
+  "feature_prompt": "Unchanged study-26 prompt and zero-adapter Gemma representation. Reuse verified study-26 TRAIN/DEV features and extract only the new TRAIN inputs.",
+  "candidates": [
+    {"name": "linear", "hidden": 0, "learning_rate": 0.001},
+    {"name": "mlp128", "hidden": 128, "learning_rate": 0.0003}
+  ],
+  "optimization": {"seed": 1032, "epochs": 40, "batch_size": 32, "weight_decay": 0.01, "gradient_norm_clip": 1.0, "class_weights": "N/(5*n_class), computed from TRAIN only"},
+  "selection": "Existing 80 DEV inputs only: maximum per-category error count, total errors, cross entropy, existing deterministic configuration/epoch order. Freeze before original ten diagnostic replies.",
+  "acceptance": "Zero DEV and original diagnostic errors is only an engineering pass. No safe-response guarantee, independent result or v10 release qualification follows.",
+  "old_studies_preserved": true
+}

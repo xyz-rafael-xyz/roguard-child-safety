@@ -1,0 +1,218 @@
+{
+  "decision": "TRAIN_ONLY_PARAMETER_SELECTION_AND_SAVED_OUTPUT_AUDIT",
+  "languages": {
+    "ro": {
+      "alpha": 2.0,
+      "parent": {
+        "rows": 13174,
+        "binary_errors": 4,
+        "parent_binary_errors": 4,
+        "introduced": 0,
+        "fixed": 0,
+        "tp": 6115,
+        "tn": 7055,
+        "fp": 0,
+        "fn": 4,
+        "joint_errors": 3,
+        "field_errors": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          2
+        ],
+        "fallbacks": 0,
+        "scaled": 0,
+        "coupled_map_changes": 0,
+        "field_nll": [
+          0.0031083651041095284,
+          0.0016862646094738848,
+          0.0029329762513913235,
+          0.0032721158604067943,
+          0.00012580657163099371,
+          0.004260497671213402
+        ],
+        "field_brier": [
+          0.0009538383918736487,
+          0.00017732001848481856,
+          0.0003830367504628316,
+          0.0010468942096952846,
+          1.8540433305748753e-05,
+          0.000798931821681029
+        ],
+        "binary_nll": 0.004015362379157929,
+        "binary_brier": 0.00030139967026059815,
+        "binary_true_probability_zeros": 0,
+        "parent_within_diagnostic_band": 0
+      },
+      "selected": {
+        "rows": 13174,
+        "binary_errors": 0,
+        "parent_binary_errors": 4,
+        "introduced": 0,
+        "fixed": 4,
+        "tp": 6119,
+        "tn": 7055,
+        "fp": 0,
+        "fn": 0,
+        "joint_errors": 3,
+        "field_errors": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          2
+        ],
+        "fallbacks": 0,
+        "scaled": 13174,
+        "coupled_map_changes": 1,
+        "field_nll": [
+          0.0010302647306728164,
+          0.0016862646094738848,
+          0.000272958003763493,
+          0.0013023780725279998,
+          1.211728663149707e-05,
+          0.0007840247461172929
+        ],
+        "field_brier": [
+          0.00033900768766049474,
+          0.00017732001848481856,
+          6.38438852455426e-05,
+          0.00038613407720841897,
+          6.907039314411989e-07,
+          0.00025764132635640465
+        ],
+        "binary_nll": 0.0004288519177956101,
+        "binary_brier": 3.2304625275239674e-05,
+        "binary_true_probability_zeros": 0,
+        "parent_within_diagnostic_band": 0
+      }
+    },
+    "uk": {
+      "alpha": 1.5,
+      "parent": {
+        "rows": 15755,
+        "binary_errors": 7,
+        "parent_binary_errors": 7,
+        "introduced": 0,
+        "fixed": 0,
+        "tp": 6928,
+        "tn": 8820,
+        "fp": 0,
+        "fn": 7,
+        "joint_errors": 6,
+        "field_errors": [
+          3,
+          0,
+          3,
+          2,
+          0,
+          0
+        ],
+        "fallbacks": 0,
+        "scaled": 0,
+        "coupled_map_changes": 0,
+        "field_nll": [
+          0.0035199693301925317,
+          0.0003977349937646978,
+          0.0014914937539762104,
+          0.003400132163810562,
+          3.0437625934732887e-06,
+          0.0012574926116703112
+        ],
+        "field_brier": [
+          0.0011338825244254246,
+          5.2625275260625564e-05,
+          0.00034659805877259225,
+          0.001120480907818899,
+          9.778029792153504e-08,
+          0.00020676663032381763
+        ],
+        "binary_nll": 0.0010356986141864533,
+        "binary_brier": 3.172381291321476e-05,
+        "binary_true_probability_zeros": 0,
+        "parent_within_diagnostic_band": 0
+      },
+      "selected": {
+        "rows": 15755,
+        "binary_errors": 0,
+        "parent_binary_errors": 7,
+        "introduced": 0,
+        "fixed": 7,
+        "tp": 6935,
+        "tn": 8820,
+        "fp": 0,
+        "fn": 0,
+        "joint_errors": 6,
+        "field_errors": [
+          3,
+          0,
+          3,
+          2,
+          0,
+          0
+        ],
+        "fallbacks": 0,
+        "scaled": 15755,
+        "coupled_map_changes": 2,
+        "field_nll": [
+          0.0017432067053931531,
+          0.0003977349937646978,
+          0.0005871317360766638,
+          0.001718873899138407,
+          3.5496489901048027e-07,
+          0.0003688737497419983
+        ],
+        "field_brier": [
+          0.000622705173323035,
+          5.2625275260625564e-05,
+          0.00023407571499687178,
+          0.0006338171363440562,
+          2.582343012229134e-09,
+          7.415590636207904e-05
+        ],
+        "binary_nll": 0.00017558359711878548,
+        "binary_brier": 2.2090447141017826e-06,
+        "binary_true_probability_zeros": 0,
+        "parent_within_diagnostic_band": 0
+      }
+    }
+  },
+  "total_train_rows": 28929,
+  "total_candidate_rows_independently_recounted": 202503,
+  "alphas": [
+    1.0,
+    1.125,
+    1.25,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "field_order": [
+    "subject",
+    "time",
+    "assertion",
+    "source",
+    "relation",
+    "concern"
+  ],
+  "unchanged_fields": [
+    "time",
+    "legacy_binary_logits"
+  ],
+  "fixed75_policy_and_thresholds": true,
+  "encoder_loaded": false,
+  "parent_head_replayed": false,
+  "dev_rows_scored": 0,
+  "new_probe_rows_scored": 0,
+  "calibration_claimed": false,
+  "qualified": false,
+  "limits": [
+    "The same TRAIN labels selected and measured these scales; zero errors are not an independent performance estimate.",
+    "All nine wrong unary-field tuples remain. Scaling changes confidence and coupled probabilities, not unary argmax labels.",
+    "These studies establish no DEV improvement, native75 parity, inherited calibration or qualifiedv10 release."
+  ]
+}

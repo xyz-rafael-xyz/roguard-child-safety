@@ -1,0 +1,44 @@
+{
+  "complete": true,
+  "draft_sha256": "5a3c4ae22e5eb94e66bc716ff024ea85d75ed35f193f1b5b76ac59917574efae",
+  "author_source_sha256": "969737c1c6e8d1443df7cbd77ddea84d1c1ee203c6f2894955df63f9db2ed0cb",
+  "prior_source_sha256": {
+    "curriculum25_train": "c6325545d837391337b7d38989af503b5d5d89be0b86628c8a0585b3cea2ca91",
+    "curriculum25_dev": "f9231dec0b8c3039dbda91c570e71232e29185b5f8d4c17d91ae54af31386a25",
+    "contrast32_train": "ec210a60f1928d9197660b75321b0e993b67b9ea2a88f43076b4d917f64c6a3d",
+    "context34_exposed": "9db373909b1a61951361031fcbd1e7da757cf59e032b13f8394a0bca473c6575",
+    "old_diagnostic_exposed": "222f34075fa5c31af96f3d6fa63346b53a08760a476d6e023c6c4100075bed9b",
+    "composition54_train": "305b594e544491fc222a8982bd70faebef0a9a186d83b49c587bd084486ce0dd",
+    "composition54_dev": "b885e697175a9f44399e5110ee7df2a61e9fac2ab66ac7e36d74d466a43d3a9a"
+  },
+  "core_drafts": 64,
+  "bilingual_families": 16,
+  "unique_normalized_drafts": 64,
+  "exact_normalized_prior_reply_collisions": [],
+  "minimum_expected_script_fraction": {
+    "ro": 1.0,
+    "uk": 1.0
+  },
+  "structural_checks_pass": true,
+  "qualitative_scope": "Assistant inspection of all64 self-authored drafts against the response-category contract; not independent annotation or a native-speaker validation.",
+  "wording_flags": [
+    {
+      "family": "authored66:unsupported:02",
+      "case_id": "authored66:unsupported:02:ro:1",
+      "issue": "The explicit word pretind can sound like an admission of pretending rather than an ordinary direct assertion. It also makes the paired Ukrainian statement less closely parallel. Retain the draft and consider a separately recorded wording revision before any materialization.",
+      "confirmed_label_reversal": false
+    }
+  ],
+  "remaining_limitations": [
+    "Same author as prior synthetic curricula; independence not established.",
+    "Several pairs reuse existing concepts with new wording;64 texts are not64 new independent meanings.",
+    "Four unsupported contrasts explicitly state missing access/evidence before certainty, so this subset remains formulaic.",
+    "No independent semantic screening and no candidate predictions were obtained.",
+    "No reserved TEST contents were read for screening; only enumerated TRAIN and exposed DEV/diagnostic replies were checked."
+  ],
+  "training_ready": false,
+  "used_for_training": false,
+  "scaled": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

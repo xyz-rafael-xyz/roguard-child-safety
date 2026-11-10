@@ -158,7 +158,8 @@ def test_engine_uses_fixed_qualified_prefix_and_abstains_without_truncation(monk
     import numpy as np
     from mlx_lm.models.gemma4_text import Model, ModelArgs
     from mlx_lm.models.cache import make_prompt_cache
-    import roguard.gemma4_review as module
+    import roguard.gemma4_review as base_module
+    import roguard.gemma4_review_v10 as module
     mx.set_default_device(mx.cpu)
     mx.random.seed(167)
     base = Model(ModelArgs(hidden_size=16, num_hidden_layers=42, intermediate_size=32,
@@ -166,16 +167,20 @@ def test_engine_uses_fixed_qualified_prefix_and_abstains_without_truncation(monk
         num_kv_shared_layers=18, vocab_size=64, vocab_size_per_layer_input=64,
         hidden_size_per_layer_input=8, sliding_window=4,
         layer_types=['sliding_attention', 'full_attention']*21))
-    model = module._make_model(base, width=12)
-    engine = object.__new__(module._Engine)
+    model = base_module._make_model(base, width=12)
+    engine = object.__new__(module.V10FeatureEngine)
     engine.mx, engine.model, engine.tokenizer, engine.make_cache = mx, model, None, make_prompt_cache
     monkeypatch.setattr(module, 'PREFIX_TOKENS', [1, 2])
     monkeypatch.setattr(module, 'classifier_tokens', lambda tokenizer, prefix: prefix['ids'])
     sequences = [[1, 2, 3], [7, 8, 9], [1, 2]+[3]*1023]
     spec = dict(language='ro', mode='binary', couplings=None)
     result = engine.scores([dict(ids=v) for v in sequences], spec)
+    raw = engine.scores([dict(ids=v) for v in sequences], spec, return_logits=True)
     assert result[-1] is None
-    for tokens, score in zip(sequences[:2], result[:2]):
+    assert raw[-1] is None
+    for tokens, score, values in zip(sequences[:2], result[:2], raw[:2]):
         logits = model.heads['ro'](model.base.model(mx.array([tokens]))[:, -1, :])
         mx.eval(logits)
         assert abs(score-module._score(np.asarray(logits)[0], spec)) < 1e-6
+        assert values.shape == (19,) and np.isfinite(values).all()
+        assert np.max(np.abs(values - np.asarray(logits)[0])) < 1e-6

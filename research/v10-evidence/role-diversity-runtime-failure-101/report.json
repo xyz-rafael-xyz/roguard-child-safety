@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "decision": "BOOTSTRAP_FAILED_BEFORE_SEQUENCE_OR_ENCODER",
+  "queue_pid": 71437,
+  "queue_pid_absent": true,
+  "queue_plan_sha256": "41767c7d507950f7884a634ea31a9ed949cb76fb820394f656c4091935df8d4c",
+  "launch_log_sha256": "e4d6ea6fa42a082c6c6bc8a6a9caee311336119391a72e5cff489b697f11593a",
+  "exception": "ModuleNotFoundError: No module named 'scripts'",
+  "cause": "The wrapper process was launched without the registered PYTHONPATH. Its import failed before it could read the plan or create a sequence report. The per-step environment was therefore never applied.",
+  "sequence_report_created": false,
+  "extractor_started": false,
+  "encoder_loaded": false,
+  "outputs_created": false,
+  "training_performed": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "continuation": "Preserve101 launch artifacts unchanged. Use a separate102 sequence and output directories, the unchanged registered extractor/preflight, and an explicitly tested wrapper environment."
+}

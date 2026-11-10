@@ -1,0 +1,81 @@
+{
+  "decision": "QUALIFIED_BASELINE_IDENTITY_AND_SAVED_VALUE_RESOURCE_EVIDENCE_ONLY",
+  "languages": {
+    "ro": {
+      "rows": 8,
+      "native_qualified_score_maximum_error": 0.0,
+      "native_qualified_repeat_feature_maximum_error": 0.0,
+      "native_qualified_repeat_logit_maximum_error": 0.0,
+      "baseline_component_mean_seconds": 1.0437653855187818,
+      "primary_component_mean_seconds": 1.0459808963933028,
+      "incremental_conversion_and_pooling_mean_seconds": 0.0022155108745209873,
+      "same_run_mean_primary_over_baseline_component_ratio": 1.002122613860604,
+      "saved_value_pool_mean_maximum_error": 4.76837158203125e-07,
+      "cpu_head_maximum_logit_error": 1.9073486328125e-06,
+      "cpu_head_maximum_score_difference": 1.417922033258856e-09,
+      "cpu_seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3
+    },
+    "uk": {
+      "rows": 8,
+      "native_qualified_score_maximum_error": 0.0,
+      "native_qualified_repeat_feature_maximum_error": 0.0,
+      "native_qualified_repeat_logit_maximum_error": 0.0,
+      "baseline_component_mean_seconds": 1.1637409685063176,
+      "primary_component_mean_seconds": 1.16538658720674,
+      "incremental_conversion_and_pooling_mean_seconds": 0.0016456187004223466,
+      "same_run_mean_primary_over_baseline_component_ratio": 1.0014140764525412,
+      "saved_value_pool_mean_maximum_error": 4.76837158203125e-07,
+      "cpu_head_maximum_logit_error": 2.86102294921875e-06,
+      "cpu_head_maximum_score_difference": 2.215701450092311e-08,
+      "cpu_seven_argmax_differences": 0,
+      "cpu_binary_decision_differences": 0,
+      "chronological_masks_different": 3
+    }
+  },
+  "producer_total_seconds": 138.99712387518957,
+  "non_report_artifact_bytes": 33202013,
+  "artifact_hash_checks": [
+    {
+      "artifact_count": 40,
+      "all_hashes_match": true
+    },
+    {
+      "artifact_count": 4,
+      "all_hashes_match": true
+    }
+  ],
+  "retokenized_inputs": 16,
+  "independent_saved_value_pool_means": 80,
+  "cpu75_head_replays": 16,
+  "native_score_tolerance": 1e-10,
+  "cpu_logit_tolerance": 0.001,
+  "pool_mean_tolerance": 1e-05,
+  "cpu_score_differences_are_not_native_1e_minus10_parity": true,
+  "independent_encoder_replay": false,
+  "learned_residual_implemented": false,
+  "accuracy_evaluation_performed": false,
+  "qualified": false,
+  "registration_correction": {
+    "initial_plan_sha256": "cb32638fec01f713a33fcae1b94e772f1c6ebfa78f34d5c0320a72523a98c574",
+    "successful_plan_sha256": "1586b7af65d5f07ff8f1a2b6196703dfe45885b3b27f215ffccfcb5a77d85ec8",
+    "initial_plan_executed": false,
+    "failed_actual_run": false,
+    "changed_keys": [
+      "registration_metadata_correction",
+      "root_review"
+    ],
+    "reason": "Before any execution, root review prose corrected950bindings to951. All951bindings were already checked; source, inputs, limits and gates are unchanged."
+  },
+  "auditor_pre_registration_fix": {
+    "actual_data_opened_before_fix": false,
+    "fix": "A missing global input/source/artifact barrier immediately after alignment-module import allowed tokenizer calls before detecting injected late mutations. The preserved synthetic v1 failed3cases; revised v2 rejected those mutations before any tokenizer call and passed all30independenttests. Actual135usedv2only."
+  },
+  "timing_limits": [
+    "The primary/baseline components are paired within the same134run. Increment is conversion plus pooling, not an independently randomized A/B speed comparison.",
+    "Load, prefix, fresh repeats, policy reference, CPU audits, host copy and persistence are separate phases. No end-to-end speedup claimed.",
+    "Study127 baseline component averaged roughly0.205seconds while134baseline exceeds1second. Cache warming, host state and synchronization were uncontrolled across studies; do not infer a cross-study speedup from their ratios.",
+    "Only16syntheticunlabeledinputs; predictive value and production scaling remain untested."
+  ]
+}

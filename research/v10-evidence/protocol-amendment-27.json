@@ -1,0 +1,13 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "committee-runtime-29",
+  "purpose": "Verify that an executable one-body runtime reproduces the passing binary unanimity-28 calculation on fresh neural inference, rather than relying only on saved component decisions.",
+  "models": "Use exactly the published v9, readout-11 and attention-14 artifacts and their frozen thresholds. Validate all tensor inventories. Readout may change only its active language head; attention may additionally change final-18-layer query/output LoRA tensors. Any other change prevents shared-state inference.",
+  "runtime": "Capture the frozen first 24 layers once for each input. Compute v9 and readout-11 heads on the original tail representation, then replay the attention-14 tail on the same captured state. Restore original tensors in a finally block. Use the same prefix for all three decisions, and the registered all-three-positive rule. Results expose disagreement and remain unqualified.",
+  "evaluation": "Fresh inference on all 6002 exposed checkpoints: broad 5022, trajectory DEV 348, challenge 32 and original regression 600. Keep the identical Student03 memory selector, 1200-character budget and complete-turn memory rendering used in parent evaluations. No fitting, thresholds or model selection occur.",
+  "verification": "Compare every fresh component score with its bound saved parent score, tolerance 1e-5, and require exact component and committee decision equality. Verify actual memory and original input identities. Evaluate in API batches of at most 64 with no padding, no cross-conversation text cache and no old neural prediction reuse.",
+  "software_checks": "Test all eight vote combinations, invalid and partial outputs, focal-prefix isolation, abstention behavior, shared-state equivalence to full independent models, and restoration after an injected attention-inference failure.",
+  "qualification": "Passing establishes executable binary engineering parity only. Semantic sets, response checking, independent evaluation, calibration and measured reviewer benefit remain separate requirements.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

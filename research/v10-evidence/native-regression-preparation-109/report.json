@@ -1,0 +1,144 @@
+{
+  "format": "roguard-native-regression-preparation-1",
+  "complete": true,
+  "sources": {
+    "eval/native_regression_inputs_v10.py": "2e4267e3cd18c618f1c74810a5e9bfa65cba3c1eae1aca29062358005902d09d",
+    "eval/evaluate_native_regressions_v10.py": "d64e572e06961a4fde0a331586b56bd021e8d5ae948d931ce36f049dceb524a5",
+    "tests/test_native_regressions_v10.py": "564ba64ecd198177bf77d7f829f458963bd36e0b4c99d0040101353993ca72be",
+    "src/roguard/trajectory_neural.py": "ec7ccc19a836cfdf2a555ca327079158325050a3d7d9fa8e109d7d1a5e4b4e4e",
+    "tests/test_trajectory_neural_ownership.py": "cbc1e21c7360f2168ff3646ee9f21a329d1b7d627a9768b60ba7437a3772f33c"
+  },
+  "input_sha256": {
+    "broad": "09b2d452c9b5585c325b29edf9bfb7e1e853fea8539dc3e67fe57a69d04481c9",
+    "dev": "af4234260ae547ae2dcb7230fbdd715f027f2d6efeec86f74039cf1bf05cd409",
+    "challenge": "9debb385a233e6247058988b5f7d92ca0cf6f4160f5e39fb9ae1a45d45d63356",
+    "v9-regression": "2c9cff32ac8d202412f4101083af05bbdf5977050c926f0bfb129f875eb57a77",
+    "fresh44": "28bbca4da6f4f511434c5cdf8ed40d8e2487e89d0a96f3de72b8723b1b1d856f"
+  },
+  "checkpoints": 6074,
+  "populations": {
+    "broad": 5022,
+    "dev": 348,
+    "challenge": 32,
+    "v9-regression": 600,
+    "fresh44": 72
+  },
+  "languages": {
+    "ro": 3073,
+    "uk": 3001
+  },
+  "unique_selected_inputs": 6026,
+  "structurally_unsupported": 0,
+  "historical_input_and_memory_identity_comparisons": 6074,
+  "historical_memory_differences": 0,
+  "tokenizer_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "tokenizer_files": {
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656",
+    "config.json": "780ccb3a514a5f1ced161d383f948fc22eca9b84b752ca19494f625bd9bad7a6"
+  },
+  "minimum_tokens": 416,
+  "maximum_tokens": 562,
+  "inputs_exceeding_1024_tokens": 0,
+  "field_annotated_checkpoints": 5954,
+  "field_unannotated_checkpoints": 120,
+  "published_v9_tag": "v9.0.0",
+  "published_runtime_sources": {
+    "src/roguard/gemma4_review.py": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+    "src/roguard/gemma4_attention.py": "c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6",
+    "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200"
+  },
+  "incomplete_audit_guard": {
+    "result": "PASS",
+    "rejected": true,
+    "expected_message": "Paired audit107 is not complete; no regression encoder may start",
+    "output_created": false,
+    "exit_code": 1,
+    "stderr_sha256": "9ed0fb880d459184ac324c189e60f630c760c6633252b0402714f9b4437ac8bf"
+  },
+  "tests": {
+    "focused": 48,
+    "focused_optional_environment": true,
+    "full_passed": 1840,
+    "full_skipped": 379,
+    "full_subtests": 202,
+    "full_log_sha256": "f65f03a462eafa2301d4e6e50d226eca6b624ddbc61dbc5c26e72b657e26141e"
+  },
+  "full_cli_fixture": "Both pass and failure paths checked with fake serving outputs; no neural accuracy claim.",
+  "encoder_loaded": false,
+  "optimizer_started": false,
+  "regression_started": false,
+  "candidate_admitted": false,
+  "held_out_test_opened": false,
+  "reviewers_admitted": false,
+  "model_qualified": false,
+  "scope": "Preparation of fresh v9/candidate inference on unchanged exposed synthetic regressions. Re-audit current paired artifacts and require zero DEV binary, joint-field and introduced errors before admission. All checkpoints remain in denominators; abstentions fail strict accuracy. Missing fresh44 field labels remain unannotated. A regression pass alone cannot qualify release.",
+  "published_catalog": {
+    "src/roguard/model-download-v9-gemma4-20261019.json": "90c9cbacf83a78070565dccab1a8de4fb64015b4f2ed210e1425ec3e7ecad2bb"
+  },
+  "supersedes_preparation": "native-regression-preparation-108: retained historical pre-review software checks; no production regression ran",
+  "installed_research_package": {
+    "base_commit": "26ca3ea4b725c28ad71fdbdfbf575f97f4dd4e3e",
+    "source": "Exact current tracked packaging worktree snapshot, including constructor ownership fix; no editable install",
+    "source_inventory_sha256": "32768f8fa1c1cae8021fdb365b6d1a2050acef46e0bb0f69c294b61392b91ea0",
+    "runtime_source": "src/roguard/trajectory_neural.py",
+    "runtime_sha256": "ec7ccc19a836cfdf2a555ca327079158325050a3d7d9fa8e109d7d1a5e4b4e4e",
+    "installed_outside_checkout": true,
+    "source_snapshot_still_matches_worktree": true,
+    "wheel": "roguard_child_safety-9.0.0-py3-none-any.whl",
+    "wheel_sha256": "a897c0b8c57b279901a6270e1097efac6819f692f9b179a85ebf7b376d468385",
+    "wheel_bytes": 10549338,
+    "wheel_package_files_verified": 177,
+    "entrypoints_loaded": 40,
+    "fresh_venv_packages": {
+      "roguard-child-safety": "9.0.0",
+      "pip": "26.1.2"
+    },
+    "python": "3.12.13 (main, Mar  3 2026, 12:39:30) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-14.6.1-arm64-arm-64bit",
+    "smokes": {
+      "unicode": {
+        "returncode": 0,
+        "seconds": 2.1861923751421273,
+        "stdout": "Installed Romanian and Ukrainian CLIs preserve UTF-8 inputs under legacy output encoding\n",
+        "stderr": ""
+      },
+      "trajectory": {
+        "returncode": 0,
+        "seconds": 0.27315533300861716,
+        "stdout": "Portable bilingual inference, durable sessions, planner and legacy-encoding CLI smoke passed; no model qualification implied.\n",
+        "stderr": ""
+      },
+      "ownership": {
+        "returncode": 0,
+        "seconds": 0.0690543339587748,
+        "stdout": "Both installed portable ownership regressions passed\n",
+        "stderr": ""
+      }
+    },
+    "full_encoder_loaded": false,
+    "production_model_predictions_verified": false,
+    "cross_platform_execution_verified": false,
+    "public_package_release": false,
+    "model_qualified": false,
+    "scope": "Installed portable interfaces and two ownership regressions pass. This9.0.0 research wheel is not the stable published wheel or a qualifiedv10 release."
+  },
+  "installed_package_report_sha256": "6fa9ca39e0d24deebe0f38893e4305d4222aba8f105f3d7805c9829356911e5c",
+  "parallel_review": {
+    "user_authorized": true,
+    "independent_agent_cpu_checks": 5,
+    "issues_fixed": [
+      "imported module origin could differ from the hashed checkout",
+      "retained predictions could differ from in-memory metrics",
+      "conditional singleton coverage omitted abstentions",
+      "review specification could change immediately after admission",
+      "caller-owned selector and component dictionary could change a bound pipeline"
+    ],
+    "additional_hardening": "Published-v9 download catalog pinned; local source snapshot includes lazy imports; audit child uses absolute checkout PYTHONPATH.",
+    "live_sources_102_to_107_unchanged": true,
+    "trajectory_constructor_outside_live_bindings": "694 predecessor/source hash checks; zero queries to trajectory_neural.py; actual predecessor validator passes counterfactual changed hash",
+    "binding_counterfactual_sha256": "b3a14666318a6415016f84641461c55951cad934800b0a7c6e4e46ee44539036",
+    "production_encoder_loaded": false,
+    "independent_human_review": false
+  }
+}

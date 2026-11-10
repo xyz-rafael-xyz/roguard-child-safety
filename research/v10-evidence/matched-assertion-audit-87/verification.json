@@ -1,0 +1,708 @@
+{
+  "verification": "PASS",
+  "source_sha256": "e617d64fd3f6fdc1fbf1882fed08c05392ba5d0bc84f86d83e18f7c22fb79a9a",
+  "audit_source_sha256": "6dd872fb9e62489c76231bc5e890341ec8f293589cede2013ecb5116ef61e324",
+  "report_sha256": "5254d6354ffefd036147a9a43a67c5c23840f2f3566b6804907be7eaa7da0f4b",
+  "protocol_sha256": "f5332f5f7a02f015d265922790e6a00d507ee3e7fb9d9b9275f8c8f6943fa68e",
+  "sequence_sha256": "a815569968fa76d3b0bb89edaafafb21260f329af2263de266e8c58783cc6ac6",
+  "training_log_sha256": "3d47173ff99f0a1a966a9931c62e0efbed899f35739e3012f43450a23093045a",
+  "checkpoints_replayed": 52,
+  "development_predictions_replayed": 229762,
+  "optimizer_updates_from_registered_checkpoint_counters": 11184,
+  "training_presentations_from_registered_counters": 715032,
+  "maximum_checkpoint_replay_error": 0.0,
+  "maximum_policy_enumeration_error": 7.771561172376096e-16,
+  "languages": {
+    "ro": {
+      "selected": {
+        "candidate": "matched-control",
+        "epoch": 11,
+        "binary_errors": 17,
+        "joint_argmax_errors": 711,
+        "field_errors": [
+          73,
+          19,
+          589,
+          71,
+          0,
+          26
+        ],
+        "mean_field_cross_entropy": 0.2448604410633486,
+        "mode": "coupled_policy",
+        "threshold": 0.63561187421682,
+        "score_margin": 0.0,
+        "selection_rank": [
+          17,
+          711,
+          0.2448604410633486,
+          -0.0
+        ],
+        "checkpoint_sha256": "36963e75632b3527b4043a7bd3fee06774eeba82c05222f43407b9a8438dc65f",
+        "completed_training_updates": 2343,
+        "completed_training_presentations": 149754,
+        "development_logits_sha256": "b82efca33979da7bade25a4f3a01225d56cc9042895d1d74d75cac1f633c7fae",
+        "adapter_sha256": "5ecf0e571e995ac10d58bac4c26c3e43583cea137f0eb53556beb58c736d84e4"
+      },
+      "selected_recount": {
+        "binary_errors": 17,
+        "joint_argmax_errors": 711,
+        "field_errors": [
+          73,
+          19,
+          589,
+          71,
+          0,
+          26
+        ],
+        "mean_field_cross_entropy": 0.2448604410633486,
+        "mode": "coupled_policy",
+        "threshold": 0.63561187421682,
+        "score_margin": 0.0,
+        "selection_rank": [
+          17,
+          711,
+          0.2448604410633486,
+          -0.0
+        ],
+        "fixed_v9": 173,
+        "introduced_v9": 5,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 11,
+            "introduced": 1
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 2,
+            "introduced": 0
+          },
+          "conversational": {
+            "rows": 458,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 2,
+            "introduced": 2
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 1,
+            "introduced": 1
+          }
+        }
+      },
+      "arm_selected": {
+        "matched-control": {
+          "candidate": "matched-control",
+          "epoch": 11,
+          "binary_errors": 17,
+          "joint_argmax_errors": 711,
+          "field_errors": [
+            73,
+            19,
+            589,
+            71,
+            0,
+            26
+          ],
+          "mean_field_cross_entropy": 0.2448604410633486,
+          "mode": "coupled_policy",
+          "threshold": 0.63561187421682,
+          "score_margin": 0.0,
+          "selection_rank": [
+            17,
+            711,
+            0.2448604410633486,
+            -0.0
+          ],
+          "checkpoint_sha256": "36963e75632b3527b4043a7bd3fee06774eeba82c05222f43407b9a8438dc65f",
+          "completed_training_updates": 2343,
+          "completed_training_presentations": 149754,
+          "development_logits_sha256": "b82efca33979da7bade25a4f3a01225d56cc9042895d1d74d75cac1f633c7fae"
+        },
+        "wording-treatment": {
+          "candidate": "wording-treatment",
+          "epoch": 12,
+          "binary_errors": 20,
+          "joint_argmax_errors": 694,
+          "field_errors": [
+            38,
+            20,
+            585,
+            44,
+            0,
+            46
+          ],
+          "mean_field_cross_entropy": 0.2030904927128557,
+          "mode": "coupled_policy",
+          "threshold": 0.7385654450859132,
+          "score_margin": 0.0,
+          "selection_rank": [
+            20,
+            694,
+            0.2030904927128557,
+            -0.0
+          ],
+          "checkpoint_sha256": "f15d71dbd5d79ecca9f4a6d6404df3b051afd02cce94827032b9f622127407e8",
+          "completed_training_updates": 2556,
+          "completed_training_presentations": 163368,
+          "development_logits_sha256": "3eb537a54c292813848fde2c18e2e1b4387e5be9b73168205715fc029ab1b666"
+        }
+      },
+      "arm_recounts": {
+        "matched-control": {
+          "binary_errors": 17,
+          "joint_argmax_errors": 711,
+          "field_errors": [
+            73,
+            19,
+            589,
+            71,
+            0,
+            26
+          ],
+          "mean_field_cross_entropy": 0.2448604410633486,
+          "mode": "coupled_policy",
+          "threshold": 0.63561187421682,
+          "score_margin": 0.0,
+          "selection_rank": [
+            17,
+            711,
+            0.2448604410633486,
+            -0.0
+          ],
+          "fixed_v9": 173,
+          "introduced_v9": 5,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 11,
+              "introduced": 1
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 2,
+              "introduced": 2
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 1,
+              "introduced": 1
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 1,
+              "introduced": 1
+            }
+          }
+        },
+        "wording-treatment": {
+          "binary_errors": 20,
+          "joint_argmax_errors": 694,
+          "field_errors": [
+            38,
+            20,
+            585,
+            44,
+            0,
+            46
+          ],
+          "mean_field_cross_entropy": 0.2030904927128557,
+          "mode": "coupled_policy",
+          "threshold": 0.7385654450859132,
+          "score_margin": 0.0,
+          "selection_rank": [
+            20,
+            694,
+            0.2030904927128557,
+            -0.0
+          ],
+          "fixed_v9": 172,
+          "introduced_v9": 7,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 12,
+              "introduced": 1
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 2,
+              "introduced": 0
+            },
+            "conversational": {
+              "rows": 458,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 2,
+              "introduced": 2
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 3,
+              "introduced": 3
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 1,
+              "introduced": 1
+            }
+          }
+        }
+      },
+      "selected_vs_v9": {
+        "rows": 4202,
+        "baseline_errors": 185,
+        "candidate_errors": 17,
+        "fixes": 173,
+        "introductions": 5,
+        "both_wrong": 12,
+        "both_correct": 4012
+      },
+      "control_vs_v9": {
+        "rows": 4202,
+        "baseline_errors": 185,
+        "candidate_errors": 17,
+        "fixes": 173,
+        "introductions": 5,
+        "both_wrong": 12,
+        "both_correct": 4012
+      },
+      "treatment_vs_v9": {
+        "rows": 4202,
+        "baseline_errors": 185,
+        "candidate_errors": 20,
+        "fixes": 172,
+        "introductions": 7,
+        "both_wrong": 13,
+        "both_correct": 4010
+      },
+      "treatment_vs_control": {
+        "rows": 4202,
+        "baseline_errors": 17,
+        "candidate_errors": 20,
+        "fixes": 2,
+        "introductions": 5,
+        "both_wrong": 15,
+        "both_correct": 4180
+      }
+    },
+    "uk": {
+      "selected": {
+        "candidate": "matched-control",
+        "epoch": 11,
+        "binary_errors": 2,
+        "joint_argmax_errors": 657,
+        "field_errors": [
+          37,
+          37,
+          576,
+          45,
+          0,
+          16
+        ],
+        "mean_field_cross_entropy": 0.21848907217693736,
+        "mode": "coupled_policy",
+        "threshold": 0.8684688943455172,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          657,
+          0.21848907217693736,
+          -0.0
+        ],
+        "checkpoint_sha256": "9cb94d0096b568f3d807d156ea371dba989b2dc78b5de82e72c20cfe632f9a6b",
+        "completed_training_updates": 2783,
+        "completed_training_presentations": 177969,
+        "development_logits_sha256": "7d3852428a010f553bd770e0501ee4a8e885eef2503bc748a689bdfda9e3acb1",
+        "adapter_sha256": "e9ee44679546549f109d17a9719eb620fda030862252e10348f24b8a683fb433"
+      },
+      "selected_recount": {
+        "binary_errors": 2,
+        "joint_argmax_errors": 657,
+        "field_errors": [
+          37,
+          37,
+          576,
+          45,
+          0,
+          16
+        ],
+        "mean_field_cross_entropy": 0.21848907217693736,
+        "mode": "coupled_policy",
+        "threshold": 0.8684688943455172,
+        "score_margin": 0.0,
+        "selection_rank": [
+          2,
+          657,
+          0.21848907217693736,
+          -0.0
+        ],
+        "fixed_v9": 125,
+        "introduced_v9": 2,
+        "groups": {
+          "controlled-crossed-scope-composition": {
+            "rows": 960,
+            "errors": 0,
+            "introduced": 0
+          },
+          "controlled-synthetic-scope-composition": {
+            "rows": 288,
+            "errors": 1,
+            "introduced": 1
+          },
+          "conversational": {
+            "rows": 387,
+            "errors": 0,
+            "introduced": 0
+          },
+          "formal": {
+            "rows": 2000,
+            "errors": 0,
+            "introduced": 0
+          },
+          "grounding_dev": {
+            "rows": 120,
+            "errors": 0,
+            "introduced": 0
+          },
+          "referent_dev": {
+            "rows": 52,
+            "errors": 0,
+            "introduced": 0
+          },
+          "reported_support_dev": {
+            "rows": 288,
+            "errors": 0,
+            "introduced": 0
+          },
+          "scope_dev": {
+            "rows": 180,
+            "errors": 1,
+            "introduced": 1
+          },
+          "stress": {
+            "rows": 216,
+            "errors": 0,
+            "introduced": 0
+          },
+          "transition_dev": {
+            "rows": 144,
+            "errors": 0,
+            "introduced": 0
+          }
+        }
+      },
+      "arm_selected": {
+        "matched-control": {
+          "candidate": "matched-control",
+          "epoch": 11,
+          "binary_errors": 2,
+          "joint_argmax_errors": 657,
+          "field_errors": [
+            37,
+            37,
+            576,
+            45,
+            0,
+            16
+          ],
+          "mean_field_cross_entropy": 0.21848907217693736,
+          "mode": "coupled_policy",
+          "threshold": 0.8684688943455172,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            657,
+            0.21848907217693736,
+            -0.0
+          ],
+          "checkpoint_sha256": "9cb94d0096b568f3d807d156ea371dba989b2dc78b5de82e72c20cfe632f9a6b",
+          "completed_training_updates": 2783,
+          "completed_training_presentations": 177969,
+          "development_logits_sha256": "7d3852428a010f553bd770e0501ee4a8e885eef2503bc748a689bdfda9e3acb1"
+        },
+        "wording-treatment": {
+          "candidate": "wording-treatment",
+          "epoch": 12,
+          "binary_errors": 5,
+          "joint_argmax_errors": 636,
+          "field_errors": [
+            32,
+            46,
+            572,
+            32,
+            0,
+            21
+          ],
+          "mean_field_cross_entropy": 0.20165365889945827,
+          "mode": "coupled_policy",
+          "threshold": 0.8817834009175474,
+          "score_margin": 0.0,
+          "selection_rank": [
+            5,
+            636,
+            0.20165365889945827,
+            -0.0
+          ],
+          "checkpoint_sha256": "736d54e56542eb657434df075334243b1bb04be85161521113f22028487115b3",
+          "completed_training_updates": 3036,
+          "completed_training_presentations": 194148,
+          "development_logits_sha256": "7e7d195f297722b7b0eaba7698a93699046de89973535c34ce961d8f735f4e8b"
+        }
+      },
+      "arm_recounts": {
+        "matched-control": {
+          "binary_errors": 2,
+          "joint_argmax_errors": 657,
+          "field_errors": [
+            37,
+            37,
+            576,
+            45,
+            0,
+            16
+          ],
+          "mean_field_cross_entropy": 0.21848907217693736,
+          "mode": "coupled_policy",
+          "threshold": 0.8684688943455172,
+          "score_margin": 0.0,
+          "selection_rank": [
+            2,
+            657,
+            0.21848907217693736,
+            -0.0
+          ],
+          "fixed_v9": 125,
+          "introduced_v9": 2,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 0,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 1,
+              "introduced": 1
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 1,
+              "introduced": 1
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          }
+        },
+        "wording-treatment": {
+          "binary_errors": 5,
+          "joint_argmax_errors": 636,
+          "field_errors": [
+            32,
+            46,
+            572,
+            32,
+            0,
+            21
+          ],
+          "mean_field_cross_entropy": 0.20165365889945827,
+          "mode": "coupled_policy",
+          "threshold": 0.8817834009175474,
+          "score_margin": 0.0,
+          "selection_rank": [
+            5,
+            636,
+            0.20165365889945827,
+            -0.0
+          ],
+          "fixed_v9": 123,
+          "introduced_v9": 3,
+          "groups": {
+            "controlled-crossed-scope-composition": {
+              "rows": 960,
+              "errors": 0,
+              "introduced": 0
+            },
+            "controlled-synthetic-scope-composition": {
+              "rows": 288,
+              "errors": 3,
+              "introduced": 1
+            },
+            "conversational": {
+              "rows": 387,
+              "errors": 0,
+              "introduced": 0
+            },
+            "formal": {
+              "rows": 2000,
+              "errors": 0,
+              "introduced": 0
+            },
+            "grounding_dev": {
+              "rows": 120,
+              "errors": 0,
+              "introduced": 0
+            },
+            "referent_dev": {
+              "rows": 52,
+              "errors": 0,
+              "introduced": 0
+            },
+            "reported_support_dev": {
+              "rows": 288,
+              "errors": 0,
+              "introduced": 0
+            },
+            "scope_dev": {
+              "rows": 180,
+              "errors": 2,
+              "introduced": 2
+            },
+            "stress": {
+              "rows": 216,
+              "errors": 0,
+              "introduced": 0
+            },
+            "transition_dev": {
+              "rows": 144,
+              "errors": 0,
+              "introduced": 0
+            }
+          }
+        }
+      },
+      "selected_vs_v9": {
+        "rows": 4635,
+        "baseline_errors": 125,
+        "candidate_errors": 2,
+        "fixes": 125,
+        "introductions": 2,
+        "both_wrong": 0,
+        "both_correct": 4508
+      },
+      "control_vs_v9": {
+        "rows": 4635,
+        "baseline_errors": 125,
+        "candidate_errors": 2,
+        "fixes": 125,
+        "introductions": 2,
+        "both_wrong": 0,
+        "both_correct": 4508
+      },
+      "treatment_vs_v9": {
+        "rows": 4635,
+        "baseline_errors": 125,
+        "candidate_errors": 5,
+        "fixes": 123,
+        "introductions": 3,
+        "both_wrong": 2,
+        "both_correct": 4507
+      },
+      "treatment_vs_control": {
+        "rows": 4635,
+        "baseline_errors": 2,
+        "candidate_errors": 5,
+        "fixes": 0,
+        "introductions": 3,
+        "both_wrong": 2,
+        "both_correct": 4630
+      }
+    }
+  },
+  "paired_predictions_sha256": "f5c98a01a5699e053ed190cf88d5d1748b7209294296d7c903acfa8bf262d23e",
+  "paired_rows": 8837,
+  "decision": "REJECT",
+  "checkpoint_events": 52,
+  "per_minibatch_log_available": false,
+  "device": "cpu",
+  "encoder_loaded": false,
+  "head_inference_performed": true,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "scope": "All52 retained heads and DEV arrays, independent threshold/world recount, earliest selections, per-arm/v9 comparisons, full exports and frozen tensors, registered counters and52 checkpoint log events. No per-minibatch trace, new encoder inference or independent gold validation."
+}

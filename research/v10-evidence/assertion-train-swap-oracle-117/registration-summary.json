@@ -1,0 +1,744 @@
+{
+  "study": 117,
+  "plan_sha256": "374275b8cc977607af2c4692c4bb1711e6bfe58dc1b4df09dd6514222e35c562",
+  "source_sha256": "b1c57ecde2b80feb20be71e077e53604e67e8b7e22786f4eb0232ad88b31a847",
+  "authorization": "ROOT_REGISTERED_TRAIN_ORACLE_FEASIBILITY_ONLY",
+  "scope": "Original TRAIN specified A/U probability-swap oracle diagnostic only; all rows retained; no learning or exhaustive reachability claim.",
+  "risk_tolerance": 1e-12,
+  "batch_size": 256,
+  "numerical_versions": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "safetensors": "0.8.0"
+  },
+  "languages": {
+    "ro": {
+      "total_metadata_rows": 17376,
+      "train_rows": 13174,
+      "train_order_sha256": "adeb369e339dc25b4d6523564ad597c67950365666b7e0a9b1f21655f48a573c",
+      "train_groups": {
+        "v7_training_frame_projection": 100,
+        "authored_hesitancy_contrasts_v8": 100,
+        "paired_scope_v9": 100,
+        "authored_scope_contrasts_v8": 100,
+        "natural_contrasts_v9": 100,
+        "indirect_distress_v9": 1272,
+        "freeform_scope_v9": 60,
+        "focus_boundary_contrasts_v9": 100,
+        "temporal_contrasts_v9": 100,
+        "scope_operators_v9": 100,
+        "morphology_scope_v9": 100,
+        "revision_contrasts_v9": 100,
+        "time_scope_contrasts_v9": 100,
+        "context_interventions_v8": 99,
+        "train": 3192,
+        "controlled_composition_v8": 1107,
+        "training_scope_separation_v8": 100,
+        "training_only_authored_paraphrases_v8": 100,
+        "controlled-synthetic-scope-composition": 2304,
+        "controlled-crossed-scope-composition": 3840
+      }
+    },
+    "uk": {
+      "total_metadata_rows": 20390,
+      "train_rows": 15755,
+      "train_order_sha256": "4c2ff29fd703625b6492629941ea1cbef2b8bbba1973d858757e3082bd98847f",
+      "train_groups": {
+        "bare_distress_repair_v9": 100,
+        "v7_training_frame_projection": 100,
+        "paired_scope_v9": 100,
+        "distress_repair_v9": 100,
+        "natural_contrasts_v9": 100,
+        "needs_repair_v9": 100,
+        "authored_uk_scope_contrasts_v8": 100,
+        "indirect_distress_v9": 1272,
+        "scope_operators_v9": 100,
+        "focus_boundary_contrasts_v9": 100,
+        "freeform_scope_v9": 60,
+        "temporal_contrasts_v9": 100,
+        "authored_scope_contrasts_v8": 100,
+        "morphology_scope_v9": 100,
+        "revision_contrasts_v9": 100,
+        "time_scope_contrasts_v9": 100,
+        "context_interventions_v8": 88,
+        "train": 5496,
+        "controlled_composition_v8": 1095,
+        "training_only_authored_paraphrases_v8": 100,
+        "training_scope_separation_v8": 100,
+        "controlled-synthetic-scope-composition": 2304,
+        "controlled-crossed-scope-composition": 3840
+      }
+    }
+  },
+  "bound_files": {
+    "feature_audit89": {
+      "sha256": "16159066a309328b7000767d8b5fd75c0130435b6412a429ae40e583180cde83",
+      "artifact": "[local-path-omitted]/runtime-review-baseline88-verification-for89.json"
+    },
+    "warm_start90_report": {
+      "sha256": "b8a46b3018217302e8a3c1627026e71fef0476f0cb33a8e16fcad08bbccb4f38",
+      "artifact": "research/v10-evidence/runtime-warm-start-90/report.json"
+    },
+    "probability_projection": {
+      "sha256": "aec96156c0c029c56c490c89802bc22b57e7c3cbe8cbd06b19e11276e99a2959",
+      "artifact": "[local-path-omitted]/projection.py"
+    },
+    "serving_adapter": {
+      "sha256": "12754dca395eff37f087a41b049cdea0f966427dc558d72d476f6de37a992fa2",
+      "artifact": "[local-path-omitted]/adapter.py"
+    },
+    "adapter_report": {
+      "sha256": "7ffe73776c3f9ed230858099b7fcd974c976ec6eb053b5678ed0845f709e926b",
+      "artifact": "[local-path-omitted]/report.json"
+    },
+    "independent_adapter_review": {
+      "sha256": "40fb3e0ac8546e309edab36a52db8cc3934ac02609d160c03bd12edf03208457",
+      "artifact": "[local-path-omitted]/review.json"
+    },
+    "failed116": {
+      "sha256": "0b704c790e47f104540152a69115b0954012848bfd6c92bc8854666369688ab7",
+      "artifact": "[local-path-omitted]/report.json"
+    },
+    "ro_features": {
+      "sha256": "3d0ed4a4bd4f2ce423c2a22f6fabfb1b4e63c9a4b36b6d4d46d8ea6e0b225b5c",
+      "artifact": "[local-path-omitted]/ro-features.npy"
+    },
+    "ro_rows": {
+      "sha256": "c1d7539dd90d87a7889591797de1330e774acf4d78fa7c1f5fcc7d1d5b300351",
+      "artifact": "[local-path-omitted]/ro-rows.jsonl"
+    },
+    "ro_weights75": {
+      "sha256": "1c18db5e5fc26baf4c0739d053c0546338201d76fcb9061e47477c14650535e3",
+      "artifact": "[local-path-omitted]/ro-selected.safetensors"
+    },
+    "ro_spec75": {
+      "sha256": "5fdeae97843d873755ed41a02453b5c29823fd8028508c3e99d1586175c8f4a9",
+      "artifact": "research/v10-evidence/dropout-readout-75/ro-review.json"
+    },
+    "uk_features": {
+      "sha256": "6dd6edb6d75c2a2e41795ba1a9087a875fe57516c00f4c78cff3e8994d464586",
+      "artifact": "[local-path-omitted]/uk-features.npy"
+    },
+    "uk_rows": {
+      "sha256": "7154c4256d6b4562c0a5579338168b4293763c4f82c9ec37382570d27fdc41b5",
+      "artifact": "[local-path-omitted]/uk-rows.jsonl"
+    },
+    "uk_weights75": {
+      "sha256": "466a1900655c85a6db809adb384d90fc634357a4f7b72f1415274c4787b3ecb7",
+      "artifact": "[local-path-omitted]/uk-selected.safetensors"
+    },
+    "uk_spec75": {
+      "sha256": "bbf3fea8ee298c40d86701851fe045352ea1a924ba5287dd52b70e59ce25de27",
+      "artifact": "research/v10-evidence/dropout-readout-75/uk-review.json"
+    },
+    "executing_source": {
+      "sha256": "b1c57ecde2b80feb20be71e077e53604e67e8b7e22786f4eb0232ad88b31a847",
+      "artifact": "[local-path-omitted]/train-feasibility117-source.py"
+    },
+    "prospective_inputs": {
+      "sha256": "73bf534d9dcf924af4d616397441252fa8552d689c34bbaa696e4bd862d5e0a6",
+      "artifact": "[local-path-omitted]/train-feasibility117-prospective-inputs.json"
+    },
+    "producer_schema": {
+      "sha256": "b438133ff6053c207a2a18e9fe1809cb77cfbf4b431d5e6895e1d8abc6ff0112",
+      "artifact": "[local-path-omitted]/schema-and-freeze.json"
+    },
+    "producer_independent_review": {
+      "sha256": "c0df41aac28acb94e79d3900c7726c59ac0c22e6572896466abf07ccb77ce78f",
+      "artifact": "[local-path-omitted]/review.json"
+    },
+    "producer_synthetic_report": {
+      "sha256": "cf66c129c89c414b3bcfe63fa13abca6fc754f84443272896e80b7ec94088816",
+      "artifact": "[local-path-omitted]/report.json"
+    },
+    "producer_test_source": {
+      "sha256": "7ab2fa1900ec0ac1892401308efc4f120053a3376dbabda246b02d10cefe607e",
+      "artifact": "[local-path-omitted]/test_feasibility.py"
+    },
+    "independent_boundary_tests": {
+      "sha256": "3faf81d9dfedcf27ec03378bcfe47893d1ff614b87c6ee7e1005ae353930eaa1",
+      "artifact": "[local-path-omitted]/test_boundaries.py"
+    },
+    "independent_accounting_tests": {
+      "sha256": "b5c95d61fbe924b7ef13afcb16e494a8fce2ebc097c13a21fa0c7dbca66f32f7",
+      "artifact": "[local-path-omitted]/test_accounting.py"
+    },
+    "public:src/roguard/__init__.py": {
+      "sha256": "e9461e3b32bb2dbe433ee294ccc2171de57ef9bca2f72c37a0542e7191370d0b",
+      "artifact": "src/roguard/__init__.py"
+    },
+    "public:src/roguard/__main__.py": {
+      "sha256": "e2d11684b4decfd2b40c56faff9fe2311095bfb4e11ec0b0d3321127c07c773c",
+      "artifact": "src/roguard/__main__.py"
+    },
+    "public:src/roguard/action.py": {
+      "sha256": "9bd7ea8a1ea452d40737af2e93d189a49c4b6b345cd1173fde41c6dce3229467",
+      "artifact": "src/roguard/action.py"
+    },
+    "public:src/roguard/adapted.py": {
+      "sha256": "f8489b1b607d431c63d0b210570204b08a5f4ed7a22a144a3eb79949da2e6a75",
+      "artifact": "src/roguard/adapted.py"
+    },
+    "public:src/roguard/agreement.py": {
+      "sha256": "e4c46cfc8762159e3136dec0ebb4961c5e91279d164249e359459046e7c6859c",
+      "artifact": "src/roguard/agreement.py"
+    },
+    "public:src/roguard/agreement_batch.py": {
+      "sha256": "35d9a6743b30a12190f031da0c24657a565325ca7fe77f3b871de6fea7a34b7d",
+      "artifact": "src/roguard/agreement_batch.py"
+    },
+    "public:src/roguard/annotate_packet.py": {
+      "sha256": "3f2a9217fd5787b651f73cd710ab87beff9abdb967670cef91dbc83550078237",
+      "artifact": "src/roguard/annotate_packet.py"
+    },
+    "public:src/roguard/annotate_packet_bound.py": {
+      "sha256": "b97aeb7fa5f8f7483a283d01b30048850c19e9f216f7d57d60c3021deed1e454",
+      "artifact": "src/roguard/annotate_packet_bound.py"
+    },
+    "public:src/roguard/assess.py": {
+      "sha256": "e385101471a1186918abaf32a881da4d9e882c9d49e146053754db264bd93f50",
+      "artifact": "src/roguard/assess.py"
+    },
+    "public:src/roguard/assurance.py": {
+      "sha256": "9baaa5d7949b562a0a4966fa33ca8ddc4bf49bb138531a5187899f7ae81b653a",
+      "artifact": "src/roguard/assurance.py"
+    },
+    "public:src/roguard/author_kit.py": {
+      "sha256": "3e808c68de457ad49b9f3e7e024f398d0dd66ef4676022e0517ff486699a7600",
+      "artifact": "src/roguard/author_kit.py"
+    },
+    "public:src/roguard/balanced_adapter.py": {
+      "sha256": "e7afb39919710aaf58cdd058486edd8a846e27429a433ff52492530f28a1274d",
+      "artifact": "src/roguard/balanced_adapter.py"
+    },
+    "public:src/roguard/blind_packets.py": {
+      "sha256": "f481fe6dcde0b8d91662be87a9841ed7a1ceaea1b762f506f4f2db8fce4fa75b",
+      "artifact": "src/roguard/blind_packets.py"
+    },
+    "public:src/roguard/calibrate.py": {
+      "sha256": "023cb8b49de1edc1cfe221c9d64c72e89773a45449a1c31c35e98b2472cd05a9",
+      "artifact": "src/roguard/calibrate.py"
+    },
+    "public:src/roguard/cli.py": {
+      "sha256": "11818338b8067c62fef6b6b5ce6ab04a1c1e9a13e42cb23c66e15688e9a2c490",
+      "artifact": "src/roguard/cli.py"
+    },
+    "public:src/roguard/committee_bundle.py": {
+      "sha256": "5a27a62ffc58e5400c42534764eb8c4b0a899b3d0fe16c41b260852917f8cbde",
+      "artifact": "src/roguard/committee_bundle.py"
+    },
+    "public:src/roguard/committee_trajectory.py": {
+      "sha256": "418667e4b92db843c56e868245abbe33f84e31bbec1a7a8c3d4e217043e98308",
+      "artifact": "src/roguard/committee_trajectory.py"
+    },
+    "public:src/roguard/consensus_bundle.py": {
+      "sha256": "e75c5622d784ffb9c3fe39517570520a74abaeb29ad154283de52b15cfa09bbd",
+      "artifact": "src/roguard/consensus_bundle.py"
+    },
+    "public:src/roguard/consistency.py": {
+      "sha256": "28cfcdcec296ac650edf2d29fc39b16afb4e82c6ca5d071b94b5615468a639b2",
+      "artifact": "src/roguard/consistency.py"
+    },
+    "public:src/roguard/context.py": {
+      "sha256": "b29a2369b861d9180e199cb363bc0bce131028cf59f443e550e6be045ba149e9",
+      "artifact": "src/roguard/context.py"
+    },
+    "public:src/roguard/context_session.py": {
+      "sha256": "2166f5dfc59a5613c0b5b76eafc34fac2a208338c979e6027e2ec4589144b859",
+      "artifact": "src/roguard/context_session.py"
+    },
+    "public:src/roguard/context_signals.py": {
+      "sha256": "471843ec34ba5bb20698bd5f0cc65090e41d8b33976d54c4fe379266809a06cb",
+      "artifact": "src/roguard/context_signals.py"
+    },
+    "public:src/roguard/contrast.py": {
+      "sha256": "cd207dc47ddf8c588d89321df42055ff83eb0f176ee53212362fafc0a4912d0c",
+      "artifact": "src/roguard/contrast.py"
+    },
+    "public:src/roguard/conversation.py": {
+      "sha256": "bbb6c0ec9c4fdd40827c9d5f60a203ce6fe790f9476908bc50836b120995f7e0",
+      "artifact": "src/roguard/conversation.py"
+    },
+    "public:src/roguard/disclosure.py": {
+      "sha256": "43624a0dfdbeb310d8c761d1f7306d26057024d59cc6c3dde033f04ff3740151",
+      "artifact": "src/roguard/disclosure.py"
+    },
+    "public:src/roguard/discrete_fields.py": {
+      "sha256": "0350da9bc21d8d8242c6b4c3fcc704043d0bac657b04beefaa8b460ece6ec135",
+      "artifact": "src/roguard/discrete_fields.py"
+    },
+    "public:src/roguard/durable.py": {
+      "sha256": "d72f4d9eb72ed1d731b939b83d0a193df98f8d5c39cdb5af0bf72f9ca34794a9",
+      "artifact": "src/roguard/durable.py"
+    },
+    "public:src/roguard/entailment_bundle.py": {
+      "sha256": "ff49176579a02581b62a7d3aa0162bbabb5ec8b89884a666cdf065db58c2dad0",
+      "artifact": "src/roguard/entailment_bundle.py"
+    },
+    "public:src/roguard/escalate.py": {
+      "sha256": "f7b100bac9d85be24d3ff6e3cdc5889b0fc7929fe0f34c96a9becbd5b497c436",
+      "artifact": "src/roguard/escalate.py"
+    },
+    "public:src/roguard/evidence.py": {
+      "sha256": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+      "artifact": "src/roguard/evidence.py"
+    },
+    "public:src/roguard/explore.py": {
+      "sha256": "34e8b50014b1ef44f638f7d4e81085bfb2adbe813c41caaf439a106767d058a3",
+      "artifact": "src/roguard/explore.py"
+    },
+    "public:src/roguard/factor_adapter.py": {
+      "sha256": "1f722a1587026770d6297fecbe24d7f497a0aa9fdb2c59b546bf57607e52d608",
+      "artifact": "src/roguard/factor_adapter.py"
+    },
+    "public:src/roguard/field_fusion.py": {
+      "sha256": "2f93a4c09a49b20fd5faa6bd9b97c1c0658e2847207bf033e656ca2979757d80",
+      "artifact": "src/roguard/field_fusion.py"
+    },
+    "public:src/roguard/field_pipeline.py": {
+      "sha256": "83b661436c05aaddf7ee4e825f3dbb9f9d9731eb8ee607c6b21eeae904875135",
+      "artifact": "src/roguard/field_pipeline.py"
+    },
+    "public:src/roguard/flow.py": {
+      "sha256": "a05669b484d8fd9e23e434485b04f47dd26fbbfdb46a3bde459a88b9006d52e9",
+      "artifact": "src/roguard/flow.py"
+    },
+    "public:src/roguard/gemma4_attention.py": {
+      "sha256": "c004be4960fd84c8f3b024d6b996ac36f2f28bb5d9c11004586c3a439d355fa6",
+      "artifact": "src/roguard/gemma4_attention.py"
+    },
+    "public:src/roguard/gemma4_committee.py": {
+      "sha256": "31a4db45b72b8bc3ed9ac863c00042e4f6996f871c9e89ab930b6de0f981a51e",
+      "artifact": "src/roguard/gemma4_committee.py"
+    },
+    "public:src/roguard/gemma4_contract.py": {
+      "sha256": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+      "artifact": "src/roguard/gemma4_contract.py"
+    },
+    "public:src/roguard/gemma4_response.py": {
+      "sha256": "fafc3b8a0e7882f56dcc836ba22bf2d50afe27c9acdfbbe66879c4f52a444e82",
+      "artifact": "src/roguard/gemma4_response.py"
+    },
+    "public:src/roguard/gemma4_response_attention.py": {
+      "sha256": "14501c9eda2ebcd87434def866889f488269f9b7d19bc97ef224a5be21cf28b3",
+      "artifact": "src/roguard/gemma4_response_attention.py"
+    },
+    "public:src/roguard/gemma4_review.py": {
+      "sha256": "259a2a189b74cc8ab31d022e82b5a3b1308648aacfe15a14bd20560546200715",
+      "artifact": "src/roguard/gemma4_review.py"
+    },
+    "public:src/roguard/human_eval.py": {
+      "sha256": "dacdde70a8a200fc0cd7101b14edab230a9967b1e2a1aa4097124b60d053c2c2",
+      "artifact": "src/roguard/human_eval.py"
+    },
+    "public:src/roguard/human_eval_bound.py": {
+      "sha256": "c4c7ec87cdb7e8041c30b687b5119644a27abbf10d6b8028cec5c040f4358590",
+      "artifact": "src/roguard/human_eval_bound.py"
+    },
+    "public:src/roguard/human_eval_registered.py": {
+      "sha256": "2b0f8eb737a5b095f887385bb905435591039131e6048a0b55b9444ac2606db7",
+      "artifact": "src/roguard/human_eval_registered.py"
+    },
+    "public:src/roguard/independent_check.py": {
+      "sha256": "32e268a3ad6682d65eb4306f893709b24891f132197ef6cc54e008e42f2c1ed3",
+      "artifact": "src/roguard/independent_check.py"
+    },
+    "public:src/roguard/intake_overlap.py": {
+      "sha256": "6fabe300162c37a70a66448c1127b2b4c0879c309e6fca35a1577a5fc8359bf6",
+      "artifact": "src/roguard/intake_overlap.py"
+    },
+    "public:src/roguard/interaction_lab.py": {
+      "sha256": "b01a0fff307127377d7931d749de234b52b846310ff1125fdf927604354eb025",
+      "artifact": "src/roguard/interaction_lab.py"
+    },
+    "public:src/roguard/interpreter.py": {
+      "sha256": "839f7ce7d5375784db67780aac162ed9573927536d5846c9d41b4ba58360c2bc",
+      "artifact": "src/roguard/interpreter.py"
+    },
+    "public:src/roguard/interpreter_archive.py": {
+      "sha256": "b488df8575e72ca36d783faa0e3138b8db62fe236e48bbd5e65a30819f90636a",
+      "artifact": "src/roguard/interpreter_archive.py"
+    },
+    "public:src/roguard/interpreter_assets.py": {
+      "sha256": "87baa70b6ccf216a253d677e8c80a37762019d18b1a5e5ac99ef2864e7ec63e5",
+      "artifact": "src/roguard/interpreter_assets.py"
+    },
+    "public:src/roguard/interpreter_assurance.py": {
+      "sha256": "c72d3e3d91ba5623ad9f1809eb8fc4474f3b1e5de0c4cd3b67aeb8744ff403e0",
+      "artifact": "src/roguard/interpreter_assurance.py"
+    },
+    "public:src/roguard/interpreter_schema.py": {
+      "sha256": "f1b40dfa01af994c28fa27ad55bc8d57f16a81971b16f8365c8b6f764a74542c",
+      "artifact": "src/roguard/interpreter_schema.py"
+    },
+    "public:src/roguard/joint_adapter.py": {
+      "sha256": "6536e08f4c5a1fdc6ae517914d6e563e1cbf9b5d303a357ec0119c4403275ba3",
+      "artifact": "src/roguard/joint_adapter.py"
+    },
+    "public:src/roguard/lab.py": {
+      "sha256": "997115358f25f8358546e00c42c8ddb1bb2e010260ee03f8ee1d83d440c2af13",
+      "artifact": "src/roguard/lab.py"
+    },
+    "public:src/roguard/lab_metrics.py": {
+      "sha256": "f2f8e24fc91cd3890e21ef6297c3c793ffdd6cf7a34c90b4e7099e9cf99fa270",
+      "artifact": "src/roguard/lab_metrics.py"
+    },
+    "public:src/roguard/lab_scenarios.py": {
+      "sha256": "e079fcdca02e6c9b27b89b28ca7adbd6396370e47d0a2a9c625bb39000d5b73e",
+      "artifact": "src/roguard/lab_scenarios.py"
+    },
+    "public:src/roguard/language_bundle.py": {
+      "sha256": "cc98b8d8abd3ebd3bab72440f2bf2a558bdbb12585640532c0c0665fc27d4004",
+      "artifact": "src/roguard/language_bundle.py"
+    },
+    "public:src/roguard/long_context.py": {
+      "sha256": "fc3a0113861fb6bda61b8f8db525f02d9d06ce57e1b50c8f3279e91cdb8dbc8a",
+      "artifact": "src/roguard/long_context.py"
+    },
+    "public:src/roguard/message_model.py": {
+      "sha256": "80d4a7d47b19f053fbadba3128f641c54ce6df4e05257cd436edad3443262a75",
+      "artifact": "src/roguard/message_model.py"
+    },
+    "public:src/roguard/metrics.py": {
+      "sha256": "5f2ad3692e0b0b6d75bfc91df2ddef79ada1c1103d73d08f34cac9b1fc3c4a50",
+      "artifact": "src/roguard/metrics.py"
+    },
+    "public:src/roguard/mmbert_adapter.py": {
+      "sha256": "47114531fa08d93f6fb91b56a50531847405098fc3fc4b3c0a660201fe4bcb3a",
+      "artifact": "src/roguard/mmbert_adapter.py"
+    },
+    "public:src/roguard/mmbert_study.py": {
+      "sha256": "3d37f6879eabbae0bb64c1a909eb33fca75616308190e827171ee27697283c79",
+      "artifact": "src/roguard/mmbert_study.py"
+    },
+    "public:src/roguard/model.py": {
+      "sha256": "9baf721474c02fd50184054f66a928a845d11936f67bdb295ca262879b86c820",
+      "artifact": "src/roguard/model.py"
+    },
+    "public:src/roguard/model_bundle.py": {
+      "sha256": "aa4bd18e15426f4688c7ae9f05c47145acc77bade006649e4935eeb278539d0c",
+      "artifact": "src/roguard/model_bundle.py"
+    },
+    "public:src/roguard/model_install.py": {
+      "sha256": "ac4ce910726007b08b4509736879992ef62453c92ddef96ba7fa1b45cfeebba5",
+      "artifact": "src/roguard/model_install.py"
+    },
+    "public:src/roguard/model_setup.py": {
+      "sha256": "a527ca659dbf96b266f87c3b8256dd096677d4b0ba0974387a3d66e793de73fb",
+      "artifact": "src/roguard/model_setup.py"
+    },
+    "public:src/roguard/native_assets.py": {
+      "sha256": "9b216cb1c82bdd24f451d0b32ab8e960ebff7548e0625adc0fa8fd7cdeedaed9",
+      "artifact": "src/roguard/native_assets.py"
+    },
+    "public:src/roguard/native_field_bundle.py": {
+      "sha256": "6cd3ad4aeb77d6926a4d303975b9efb27279fd062bfccdd59e7f0feab0dda0df",
+      "artifact": "src/roguard/native_field_bundle.py"
+    },
+    "public:src/roguard/native_fields.py": {
+      "sha256": "e89eb365c7c8a586d3ab6e7aeb0697a7bf436608f5e7ac48fd57c098d2a66078",
+      "artifact": "src/roguard/native_fields.py"
+    },
+    "public:src/roguard/native_review.py": {
+      "sha256": "38a9c8b866680265d485b1ea49c0652d82b57d5cc58f00f38291fc2fa0b0de83",
+      "artifact": "src/roguard/native_review.py"
+    },
+    "public:src/roguard/nli_adapter.py": {
+      "sha256": "1a5a26fdec0d4d6c2ca6f18c286b1f05eb3330505acd6d889c7cd71c7f476dfc",
+      "artifact": "src/roguard/nli_adapter.py"
+    },
+    "public:src/roguard/nli_v21.py": {
+      "sha256": "2b75966ed4a82f50bb5161f26e59737ef042db37edacd3f626467df9ce4dcea9",
+      "artifact": "src/roguard/nli_v21.py"
+    },
+    "public:src/roguard/observability.py": {
+      "sha256": "d9c910a8a3cde79fe359696b429722cd5f6aba7e29643b4c9066f8ad7b68e27f",
+      "artifact": "src/roguard/observability.py"
+    },
+    "public:src/roguard/ops.py": {
+      "sha256": "0266e2eee7bcc19a29293befdd6ea8fe4ba5b198a03cc64bda656e659f7a5641",
+      "artifact": "src/roguard/ops.py"
+    },
+    "public:src/roguard/packet_binding.py": {
+      "sha256": "e04a8282aacf3dce17a584a19966df0fe83e299e2abcc47337916fc6d20a7bc1",
+      "artifact": "src/roguard/packet_binding.py"
+    },
+    "public:src/roguard/pair_eval.py": {
+      "sha256": "4f3330285383a928993745c511db4b08bd918a02499c00a96e2bc938a14da83e",
+      "artifact": "src/roguard/pair_eval.py"
+    },
+    "public:src/roguard/paired_nli.py": {
+      "sha256": "da414dafe32753d917c2cbefdb930a267718c18f70ef901b5e604a0d54c1e74a",
+      "artifact": "src/roguard/paired_nli.py"
+    },
+    "public:src/roguard/policy.py": {
+      "sha256": "5abab8797966ddfee531b7c77b1f327fc2cea293d7f0159974f50248e136c260",
+      "artifact": "src/roguard/policy.py"
+    },
+    "public:src/roguard/policy_entailment.py": {
+      "sha256": "5fc162b086a3ce47432e5babde993288a0691a18bcca43669817d358751b8376",
+      "artifact": "src/roguard/policy_entailment.py"
+    },
+    "public:src/roguard/policy_v1.py": {
+      "sha256": "8f6fdc7fd902a9fc944c3f96f148148cb0f30d3318256531f81e823bbc7a686f",
+      "artifact": "src/roguard/policy_v1.py"
+    },
+    "public:src/roguard/prompt.py": {
+      "sha256": "f3b9f0607a05ea703a682ef7ac19d73e32c5c3711b23c9787959b84b428a2e4b",
+      "artifact": "src/roguard/prompt.py"
+    },
+    "public:src/roguard/prompt_v18.py": {
+      "sha256": "02f166af6bf4c3f1a5f2e070dc3c54cac084622c34474faa0e9f7c302bb8ab4b",
+      "artifact": "src/roguard/prompt_v18.py"
+    },
+    "public:src/roguard/prompt_v4.py": {
+      "sha256": "778615f38a2fec8f409e2af4f325b452dc2ea2f5234d9ba449c8df1a71bee864",
+      "artifact": "src/roguard/prompt_v4.py"
+    },
+    "public:src/roguard/prospective_predict.py": {
+      "sha256": "f59787c9fc6eb2261033ad6cb447784ae16d39ceacf288a937cea160a8780297",
+      "artifact": "src/roguard/prospective_predict.py"
+    },
+    "public:src/roguard/prospective_predict_bilingual.py": {
+      "sha256": "a46ae180d0a4ce1cc5244a9bd823c56901a4e2903d5dcb270d66b73a75bcff52",
+      "artifact": "src/roguard/prospective_predict_bilingual.py"
+    },
+    "public:src/roguard/prospective_replay_bilingual.py": {
+      "sha256": "b63ef149968aa2378884f073e073ae3b9d764c917fb989977c6267ca7f2dde36",
+      "artifact": "src/roguard/prospective_replay_bilingual.py"
+    },
+    "public:src/roguard/qwen_contract.py": {
+      "sha256": "5fa7a9f4db6faea32a0ae48893ac98d64672f6b09cbf6a7224a8ddf752e6003f",
+      "artifact": "src/roguard/qwen_contract.py"
+    },
+    "public:src/roguard/qwen_output.py": {
+      "sha256": "5d3ec70a2cf249470481452a5155744fc7f60a550cf04bb111b18b7827ee1231",
+      "artifact": "src/roguard/qwen_output.py"
+    },
+    "public:src/roguard/qwen_review.py": {
+      "sha256": "31f3c9023682ee35215880c209ca000549de4d6cf209fbd943162bc1d9ac05c4",
+      "artifact": "src/roguard/qwen_review.py"
+    },
+    "public:src/roguard/reason_entailment.py": {
+      "sha256": "87352aee744c8ea57bcaffc93756e89231bd28a940f2dcfcb44e66cdb7948b8d",
+      "artifact": "src/roguard/reason_entailment.py"
+    },
+    "public:src/roguard/repair.py": {
+      "sha256": "00172e25c4599620db51e73720cd0a1f8a89723b2576d8fffb1c1f09c7cc69c0",
+      "artifact": "src/roguard/repair.py"
+    },
+    "public:src/roguard/response_review.py": {
+      "sha256": "807c8dbce2e8e3afb30a1773efca28b6b261d7f44eaf87fb1743aabc8b95b8e4",
+      "artifact": "src/roguard/response_review.py"
+    },
+    "public:src/roguard/review.py": {
+      "sha256": "1e76f81bf54c00c3143f26b8f34e1f028756831500ba43d1765e5e626b108a5f",
+      "artifact": "src/roguard/review.py"
+    },
+    "public:src/roguard/review_audit.py": {
+      "sha256": "ed62fb6bed0e4348bb874cd4d6efbfc04b556366172d95df037909bea83de526",
+      "artifact": "src/roguard/review_audit.py"
+    },
+    "public:src/roguard/review_bundle.py": {
+      "sha256": "df16ee56f2f9360fb51bb6fd39a27f79bed629e131c8f7588cc172902141be05",
+      "artifact": "src/roguard/review_bundle.py"
+    },
+    "public:src/roguard/review_card.py": {
+      "sha256": "63e6c6dc44c4c8932dfc9981f8b14bae8d07f808fafc0a500b9fad7ef0ac23e2",
+      "artifact": "src/roguard/review_card.py"
+    },
+    "public:src/roguard/review_cli.py": {
+      "sha256": "b678b66a06c33b091059a273046c14fbc0d7db0c644c6f93e5f8c8855a63608d",
+      "artifact": "src/roguard/review_cli.py"
+    },
+    "public:src/roguard/review_evaluation.py": {
+      "sha256": "d3569095edc47d67e60092ef4dd931fd250c568797c7df72a8b56ed698878cc1",
+      "artifact": "src/roguard/review_evaluation.py"
+    },
+    "public:src/roguard/review_fusion.py": {
+      "sha256": "904bd02bca270e5feafc13cfc615beefc1dea6f45013db06059a1934c084dae9",
+      "artifact": "src/roguard/review_fusion.py"
+    },
+    "public:src/roguard/review_labels.py": {
+      "sha256": "5578ec6100c1bc76fe3abe78528e5795b259ded11ed99e79ca1c0f9cf27f2942",
+      "artifact": "src/roguard/review_labels.py"
+    },
+    "public:src/roguard/review_pipeline.py": {
+      "sha256": "649661a0a1904b506aaf0f6035412a3a5574466af65841dd694918d0a558472d",
+      "artifact": "src/roguard/review_pipeline.py"
+    },
+    "public:src/roguard/review_workspace.py": {
+      "sha256": "ffb81394648efb6795ffd973fdf099508599c243325b45ebdb0466475953fd3d",
+      "artifact": "src/roguard/review_workspace.py"
+    },
+    "public:src/roguard/runtime_requirements.py": {
+      "sha256": "e4b45d7eb3c81fe71e156f43c82df3ac6cf516c55750594b869add6e13a23594",
+      "artifact": "src/roguard/runtime_requirements.py"
+    },
+    "public:src/roguard/scope_consensus.py": {
+      "sha256": "3b54073b858a78fca646c732ab6e7365fbc8ac3082f87f47063ca57bca215c1e",
+      "artifact": "src/roguard/scope_consensus.py"
+    },
+    "public:src/roguard/screen.py": {
+      "sha256": "edad364254bb1f51edac4e24524ab02ad985f9323e76e426debca9d38076f248",
+      "artifact": "src/roguard/screen.py"
+    },
+    "public:src/roguard/semantic.py": {
+      "sha256": "656da81aa0bc9040a738b0fcdd188611245ac0d16846b244181680d6e20eef11",
+      "artifact": "src/roguard/semantic.py"
+    },
+    "public:src/roguard/service.py": {
+      "sha256": "f5d489311fc2dd8e4e286bcb22a01d9bb376bd285894ae931f9b1bad6795ee44",
+      "artifact": "src/roguard/service.py"
+    },
+    "public:src/roguard/studio.py": {
+      "sha256": "1eae1fba2f5a80b1b72eaf071721385e23bf83a2546985b7ec7d7a962434783e",
+      "artifact": "src/roguard/studio.py"
+    },
+    "public:src/roguard/study_freeze.py": {
+      "sha256": "f7d9da0671ee8d135868ea99921cf40863898f6dd3a8568204abd655082c1c31",
+      "artifact": "src/roguard/study_freeze.py"
+    },
+    "public:src/roguard/targets.py": {
+      "sha256": "c8b591525a93e2f157a60fc686742c74a1bd658136fea495964c0e3247b72743",
+      "artifact": "src/roguard/targets.py"
+    },
+    "public:src/roguard/three_expert.py": {
+      "sha256": "517e9e842361e13bf7fbe5e99c42e362aa5da939fa2d2de39a88e35ad8ac5e32",
+      "artifact": "src/roguard/three_expert.py"
+    },
+    "public:src/roguard/three_expert_pipeline.py": {
+      "sha256": "4c4669da077828cbb64dfa7b4e7c461d0e9699b391f1881d8a508265e2b67d5b",
+      "artifact": "src/roguard/three_expert_pipeline.py"
+    },
+    "public:src/roguard/token_margin.py": {
+      "sha256": "810742265a24731d70c602896a0e76236d353ced71b0d02859dd90b67c212659",
+      "artifact": "src/roguard/token_margin.py"
+    },
+    "public:src/roguard/trajectory_annotation.py": {
+      "sha256": "e7d9e0cccdd4ae507095e5eb2c6680c0fc14601f0d456ee6b83dff84f696dba8",
+      "artifact": "src/roguard/trajectory_annotation.py"
+    },
+    "public:src/roguard/trajectory_cli.py": {
+      "sha256": "9e2cb76ccf8b2d76052664510c9a445249a73158d10995fd14fc58935757b982",
+      "artifact": "src/roguard/trajectory_cli.py"
+    },
+    "public:src/roguard/trajectory_data.py": {
+      "sha256": "a046974c382ac31da80aaec1172f0d36d87112683111904a489c6cb5f201ec55",
+      "artifact": "src/roguard/trajectory_data.py"
+    },
+    "public:src/roguard/trajectory_evaluation.py": {
+      "sha256": "f2552ac43fd044ada0a2ef755535b49f357f3991c20cc29e223533e25c21e310",
+      "artifact": "src/roguard/trajectory_evaluation.py"
+    },
+    "public:src/roguard/trajectory_gate.py": {
+      "sha256": "ee18bce0b2c5e9efc4aee61c867b47d8dbb85f0a10daeaf757ccf078113caea6",
+      "artifact": "src/roguard/trajectory_gate.py"
+    },
+    "public:src/roguard/trajectory_memory.py": {
+      "sha256": "324a5bc1d2b6563c48b5dd09b42be0e59acf6a7b498031b26370c7b6511c77ca",
+      "artifact": "src/roguard/trajectory_memory.py"
+    },
+    "public:src/roguard/trajectory_model.py": {
+      "sha256": "356022edaf3d0afb9392f62b830665a7999da4f85793d7a746290625e86d3d03",
+      "artifact": "src/roguard/trajectory_model.py"
+    },
+    "public:src/roguard/trajectory_neural.py": {
+      "sha256": "ec7ccc19a836cfdf2a555ca327079158325050a3d7d9fa8e109d7d1a5e4b4e4e",
+      "artifact": "src/roguard/trajectory_neural.py"
+    },
+    "public:src/roguard/trajectory_review.py": {
+      "sha256": "116805581185990b55bb1928a0ce021dc0e0b3676afcb182df27abc0df22f8be",
+      "artifact": "src/roguard/trajectory_review.py"
+    },
+    "public:src/roguard/trajectory_sets.py": {
+      "sha256": "ea65170669ae2ff35286ed8491057937e84062ab617cb9356a9c1740687bf09b",
+      "artifact": "src/roguard/trajectory_sets.py"
+    },
+    "public:src/roguard/trajectory_store.py": {
+      "sha256": "0a0abbf5428a5cdbb6e938d453f987464147002f9dfad6d81fbaf1ff0ec9325d",
+      "artifact": "src/roguard/trajectory_store.py"
+    },
+    "public:src/roguard/trajectory_study.py": {
+      "sha256": "15b0e388f1a587302cbd8218fa2163ed0136fc41d560cf36743b9e1d6c865130",
+      "artifact": "src/roguard/trajectory_study.py"
+    },
+    "public:src/roguard/uncertainty.py": {
+      "sha256": "55ff00703fe7916f73bed1af1a3e52462d84987671fe27e8b764df7bbd0dad52",
+      "artifact": "src/roguard/uncertainty.py"
+    },
+    "public:src/roguard/v1_author_check.py": {
+      "sha256": "e106a01d4e8cec85b37927696dd742724c61e833ccea6d284510f53d803b98d1",
+      "artifact": "src/roguard/v1_author_check.py"
+    },
+    "public:src/roguard/v1_contract.py": {
+      "sha256": "df26b6f4fcbf00d1908473f5a782df5e540f3869d959a7c295dcbe1a855e78a6",
+      "artifact": "src/roguard/v1_contract.py"
+    },
+    "public:src/roguard/v1_envelope.py": {
+      "sha256": "0689395e03de8c689e9f591eb6f1241409fabbd17f31abd5e6d5de60a58b3730",
+      "artifact": "src/roguard/v1_envelope.py"
+    },
+    "public:src/roguard/v1_evidence.py": {
+      "sha256": "32b331b753a4e761698e9b5a04f77f617b653521aec910854c3e73fe76a178bb",
+      "artifact": "src/roguard/v1_evidence.py"
+    },
+    "public:src/roguard/v1_explore.py": {
+      "sha256": "b7c79e7e6784c60dccbc00cfd74093dd59fc1a3e1c06680ce40f3d749f5c7997",
+      "artifact": "src/roguard/v1_explore.py"
+    },
+    "public:src/roguard/v1_review.py": {
+      "sha256": "8f8c9d5dcfd3bed74e8d756aa5513322102bae82ac9e1767278a9f08d56c4ac6",
+      "artifact": "src/roguard/v1_review.py"
+    },
+    "public:src/roguard/v1_study_annotate.py": {
+      "sha256": "86c9c8a982bf657dfa8fdca749c9dd58865321083d8599088f02634c0e8efb9d",
+      "artifact": "src/roguard/v1_study_annotate.py"
+    },
+    "public:src/roguard/v1_study_eval.py": {
+      "sha256": "ae1c491efa980b060c17a63620c181580199b5f4da486b205479afad0544b795",
+      "artifact": "src/roguard/v1_study_eval.py"
+    },
+    "public:src/roguard/v1_study_kit.py": {
+      "sha256": "77c31ab05eef932f922a2f1294686348ad9f7bd7db7292c9e68b2d8550b926ba",
+      "artifact": "src/roguard/v1_study_kit.py"
+    },
+    "public:src/roguard/v1_study_packet.py": {
+      "sha256": "b51d1a1fdb333d85be42c6473e577784c30b0cf8d1cb57f3dde3c8e71caf0e03",
+      "artifact": "src/roguard/v1_study_packet.py"
+    },
+    "public:src/roguard/v1_study_seal.py": {
+      "sha256": "2fe746ac9d8ddc35d16d78883fb8e8135551bc7520920a74e01f400c98e4152d",
+      "artifact": "src/roguard/v1_study_seal.py"
+    },
+    "public:src/roguard/v25_abstract.py": {
+      "sha256": "55ec4397e41ac020d090da21c4cba113715851c93a174ee1b353de2add09f743",
+      "artifact": "src/roguard/v25_abstract.py"
+    },
+    "public:src/roguard/v26_facts.py": {
+      "sha256": "a1db673ae72998cc7d0bb34acaa28613093c413439f3616ae835461f739c3e41",
+      "artifact": "src/roguard/v26_facts.py"
+    },
+    "public:src/roguard/v27_balanced.py": {
+      "sha256": "ac2d230b17b407a216b1cad0221963a1ca8b9f91927cd0f5f24e41c5dd21c82b",
+      "artifact": "src/roguard/v27_balanced.py"
+    },
+    "public:src/roguard/v28_hybrid.py": {
+      "sha256": "598a30fc27589a960e014f343f5819b61a00a0b0df4bfbc4c2cb60f3c63c21cd",
+      "artifact": "src/roguard/v28_hybrid.py"
+    },
+    "public:src/roguard/v29_hybrid.py": {
+      "sha256": "c7ec0e125cb7e1ea68bc6a6593f6af41f92f21a727ab7e2d8f6a073a1c5be49d",
+      "artifact": "src/roguard/v29_hybrid.py"
+    },
+    "public:src/roguard/v2_audit.py": {
+      "sha256": "64225bce26879bee34dc7a5b8b0e990013ef9c0596ceee83729325a8922e7b25",
+      "artifact": "src/roguard/v2_audit.py"
+    },
+    "public:src/roguard/words.py": {
+      "sha256": "99cf9b710e95dd8b2555fd929856a3433e782adb5b6e72dad0d48eda73567c7d",
+      "artifact": "src/roguard/words.py"
+    }
+  },
+  "qualified": false
+}

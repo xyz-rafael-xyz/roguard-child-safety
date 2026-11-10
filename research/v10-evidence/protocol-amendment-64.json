@@ -1,0 +1,40 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "authored-response-screen-66",
+  "motivation": "Inspect a small64-draft TRAIN-only assistant-authored pilot before any materialization or scale-up. Earlier local-generator pilots had malformed wording and label ambiguity; authorship and a separate machine screen do not establish independent gold labels.",
+  "judge": {
+    "model": "mlx-community/Qwen3-4B-Instruct-2507-bf16",
+    "revision": "f9e77d4283734966e9cd641bf35547f0cff5d427",
+    "seed": 1066,
+    "temperature": 0,
+    "maximum_output_tokens": 128,
+    "compute_dtype": "native"
+  },
+  "source": "All16 bilingual families from authored-response-pilot66 revision1. All64 drafts remain TRAIN-only. Preserve original drafts, the flagged wording and the two-row revision. No wrapper expansion and no use in study64 or65.",
+  "screening": "Use the existing screen_large_corpus_v10 implementation without changed rules. One deterministic judgment per family/language,32 judgments total; expose only generic rules, language and two reply texts. Expected category and labels are withheld. Hash-selected order places problematic first25 times and appropriate first7 times; order is varied but not balanced. Judge each reply independently; permit unclear or non-natural results.",
+  "acceptance": "Retain every raw judgment, malformed output, disagreement and failure. No rerun solely to obtain agreement. All32 pair judgments must agree with intended labels and mark both replies natural before considering later materialization, and assistant inspection must find no unresolved issue. Agreement is only machine screening; semantic_labels_verified and independent_annotation remain false. Training requires a separate registered materialization/fitting protocol.",
+  "limitations": "The Qwen model failed earlier authoring-language quality checks as a generator. Its classification reliability here is unestablished, and shared pretraining or correlated errors are possible. This screen cannot independently validate Romanian/Ukrainian labels, measure reviewer utility or qualify v10.",
+  "resources": "Prepared only; do not load the judge while study64 or any other full encoder is live. After64 completion and verification, prioritize required evaluation if64 passes response development; otherwise a brief screen may precede the already prepared65 experiment. Preserve8GiB free disk and all retained attempts.",
+  "bindings": {
+    "training/screen_large_corpus_v10.py": "5241fcf5a9ca9a09562c407466e89e12eaadf1831a307a809bbeffe2b6be6165",
+    "training/generate_large_corpus_v10.py": "cf236b04b1b75d9f383dc8042f9fdabcde3a83f3a13ab35521d362f0dc865f81",
+    "research/v10-evidence/authored-response-pilot-66/protocol.json": "f1f1836c4220e8b442b08c889c810fb73d28c237a4b276c174ac5ce21b9228f5",
+    "research/v10-evidence/authored-response-pilot-66/manifest.json": "6738f319c2193a4f37c92e80dc7d4ef1b51aec0a1edc3f34aadae1f03da5a45b",
+    "research/v10-evidence/authored-response-pilot-66/report.json": "849218937614d1a57a528df499f16d1f023aff8cb9736705bbdd740362c7197d",
+    "research/v10-evidence/generated-corpus-53/model-files.json": "5eb668cdb68e1766745bed67b33a15b5f708feb69c4a833275d9d27ec1c32d30"
+  },
+  "model_files": {
+    "chat_template.jinja": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+    "config.json": "e93e48b151e03b7ba7365f56852996336f8236a7f1be9b30dd25800e86486f66",
+    "generation_config.json": "835fffe355c9438e7a25be099b3fccaa98350b83451f9fd2d99512e74f1ade48",
+    "model-00001-of-00002.safetensors": "404ba1ac78aaba98239c541fa75caab730230c9f5ec96434a4a719639dd15351",
+    "model-00002-of-00002.safetensors": "35d82d9374e0e37622a5270d74d716c6bf01619e2444711ce633dc53a1c768f8",
+    "model.safetensors.index.json": "5e699a61da09415f33a625885364d3889a80acb6ab88aedaf6e195b2612addf4",
+    "tokenizer.json": "05d47c87966b4db779200053de490f89936ed529f8ab889244e271630715fcfe",
+    "tokenizer_config.json": "34ed6b4c114a09d2c73cc6dc48f2a83de2e3c0aef8dd6c743f74b42dd63cbd73"
+  },
+  "training_ready": false,
+  "screen_launched": false,
+  "reserved_test_opened": false,
+  "stable_release_ready": false
+}

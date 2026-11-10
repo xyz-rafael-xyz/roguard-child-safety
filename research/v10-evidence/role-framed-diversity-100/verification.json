@@ -1,0 +1,42 @@
+{
+  "verification": "PASS",
+  "rows": 3168,
+  "fiction_rows_changed": 1536,
+  "direct_rows_unchanged": 1632,
+  "labels_cores_factors_preserved": true,
+  "actual_token_replays": 3168,
+  "minimum_tokens": 426,
+  "maximum_tokens": 565,
+  "counts": [
+    {
+      "language": "ro",
+      "fiction": false,
+      "rows": 816
+    },
+    {
+      "language": "ro",
+      "fiction": true,
+      "rows": 768
+    },
+    {
+      "language": "uk",
+      "fiction": false,
+      "rows": 816
+    },
+    {
+      "language": "uk",
+      "fiction": true,
+      "rows": 768
+    }
+  ],
+  "rows_sha256": "c4b2c0c4ea887ba7da02c6c3987ccc8707d9b21e122478471ba373a64aa8698d",
+  "report_sha256": "8f46fede73c6ae6327c71bd0234f882a3608eb28b30c8a16ec5e833eddfea8d8",
+  "plan_sha256": "6d36985e5ee3bcf04212343b472b2ada2038015b3e84e5bd306b58152e8a0600",
+  "audit_source_sha256": "71751e76de1a9151c11f0a452f2b346165628ac08a5eab4f09115e714f447c52",
+  "encoder_loaded": false,
+  "training_admitted": false,
+  "independent_language_or_label_validation": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "scope": "Independent allowed-change audit and actual token replay of every retained continuation row. No generator transform is called by audit mode. Explicit framing and preserved labels are structural/author evidence, not independent natural-language gold."
+}

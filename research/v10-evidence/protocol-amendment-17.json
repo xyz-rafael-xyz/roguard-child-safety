@@ -1,0 +1,12 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "scope-curriculum-20",
+  "motivation": "Both adapted and pretrained representation fits retain a large development uncertainty error. Diversify training language and use matched outer-assertion contrasts instead of copying test failures or adding inference keyword rules.",
+  "content": "Concern and benign content comes exclusively from the existing TRAIN banks. New developer-authored Romanian/Ukrainian frames express subject, time and affirmation, denial, uncertainty or explicit retraction. All four assertion variants share the same body and context within a family. These synthetic labels have not received independent native-language review.",
+  "generation": {"seed": 1020, "families_per_subject_time_signal_language": 24, "assertion_variants_per_family": 4, "languages": ["ro", "uk"]},
+  "screening": "Exclude exact normalized original or actual-memory prefixes found in any recorded DEV, calibration, diagnostic or broad/original regression set; also exclude previous TRAIN duplicates. No evaluation labels or model error IDs enter generation. Preserve exclusions and input hashes.",
+  "fitting_plan": "Extract both frozen representation views for accepted new TRAIN rows and append to base-reference-18b. Train the four registered base-reference classifiers from scratch for 40 epochs, seed 1020, with equal total weight for old versus new TRAIN and per-field inverse-square-root class balancing. Use the unchanged 6668 eligible DEV rows and selection ordering. Preserve the previous frozen candidates as comparators; no regression fitting.",
+  "evaluation": "Freeze selected weights before exposed regression replay or fresh neural inference. New representations must preserve the pinned encoder and exact input identities; later final evaluation still requires fresh independent families.",
+  "stable_release_ready": false,
+  "independent_validation": false
+}

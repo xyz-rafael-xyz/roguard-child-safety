@@ -1,0 +1,37 @@
+{
+  "verification": "PASS",
+  "source_sha256": "f135e5d15f60e957299345e6e380dd2ea66ea00bd0441dc2721ef6286bed7208",
+  "tests": 33,
+  "subtests": 53,
+  "author_tests": 18,
+  "peer_tests": 15,
+  "command": "env PYTHONPATH=src:[local-path-omitted] OPENBLAS_NUM_THREADS=2 [local-path-omitted] -m pytest -q test_evaluate.py test_provenance.py ../frozen-scale-independent-v1/test_review.py",
+  "log_sha256": "cc840b17658dea7f5228aa4537d70f8436f2f2c12f81bb5450127d60a55698f3",
+  "synthetic_full_flow": {
+    "unique_candidate_rows": 11917,
+    "original_dev": 8837,
+    "larger_bank": 3080,
+    "panel_responses": 120
+  },
+  "tests_scope": [
+    "Both language reference arrays validated before scoring/output. Full original denominators exercised on synthetic logits only.",
+    "Every synthetic saved NPY/result/panel read back and rescored; late artifact/input/report mutations reject completion.",
+    "Fixed language scales, separate reference specs, independent129 transform bytes/status, exact protected time/legacy and seven argmax/tie preservation.",
+    "Metadata-only actual128/129/88/89/90/121/122 lineage check; 44 provenance corruption cells and 9 other author subtests.",
+    "Source/group/panel error recounts and introduced/fixed regression metrics; no subset filtering."
+  ],
+  "actual_model_arrays_decoded": false,
+  "actual_dev_or_bank_scored": false,
+  "encoder_loaded": false,
+  "optimizer_run": false,
+  "qualified": false,
+  "files": {
+    "evaluate.py": "f135e5d15f60e957299345e6e380dd2ea66ea00bd0441dc2721ef6286bed7208",
+    "design.json": "d2d440d4233c90ae23e5a0053b12672b77b1b77d00acaba8537d5c0ddb19a8a5",
+    "test_evaluate.py": "ce6a288a222137b1e1879d6799be046a440e9bb08d198eb17c0b2bf55af31019",
+    "test_provenance.py": "b5bf085b1ffcc4d7774273877d8b1deb1f87bf73426891e3f9e9482b46dc55db",
+    "metadata-contract-check.json": "a6f4bc759b1fe5ab3ea6c080881fb719013da9f74a8914cbf61f8e633eaf9996"
+  },
+  "original_private_report_sha256": "e36b8143ecea52da8c8587c411b4eafd0e7a0ca6c00f5bad61c13911cde372a4",
+  "public_redaction": "Local paths replaced. Original numbers, booleans, nulls and digests retained. Registrations are provenance summaries, not executable plans."
+}

@@ -1,0 +1,42 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "large-response-55",
+  "motivation": "Train and test on substantially more generated examples while preserving historical regressions. Use all12288 controlled-composition TRAIN inputs plus596 historical TRAIN inputs; do not fit any generated DEV/TEST or historical DEV/context34 rows.",
+  "train_rows": 12884,
+  "dev_rows": 592,
+  "encoder": "Use the same pinned frozen Gemma4 encoder and fixed response query as26 and32, with v9 adapter outputs zeroed by QueryView. Reuse676 bound historical feature rows, checking fresh parity in each language/split. Extract12800 new TRAIN+DEV rows in hashed resumable chunks. No encoder or binary-head updates.",
+  "candidates": [
+    {
+      "name": "warm-linear",
+      "hidden": 0,
+      "learning_rate": 0.0005,
+      "warm_start": true
+    },
+    {
+      "name": "fresh-linear",
+      "hidden": 0,
+      "learning_rate": 0.001,
+      "warm_start": false
+    },
+    {
+      "name": "mlp128",
+      "hidden": 128,
+      "learning_rate": 0.0003,
+      "warm_start": false
+    }
+  ],
+  "optimization": {
+    "epochs": 80,
+    "batch_size": 256,
+    "seed": 1055,
+    "weight_decay": 0.01,
+    "gradient_norm_clip": 1.0
+  },
+  "objective": "Weighted cross-entropy. Equal total mass for each of20 origin/language/category groups: historical vs generated, Romanian vs Ukrainian, five categories. Larger generated populations must not wash out old examples. Never change source labels or hidden thresholds based on results.",
+  "selection": "Evaluate epochs0..80 on80 historical DEV and512 generated DEV only. Minimize maximum origin/language/category error rate, then maximum per-origin error rate, then total errors, then mean per-origin cross-entropy. Exact ties retain the earliest candidate/epoch. Preserve every checkpoint and freeze selected weights/selection JSON before diagnostics.",
+  "evaluation": "After frozen selection, compare with bound response26 head on both DEV populations, all120 context34 inputs, and10 original diagnostic replies. Only if every preceding population has zero candidate errors and zero introduced errors open1536 generated TEST inputs once. Otherwise retain TEST sealed and reject. Report candidate errors, baseline errors, fixes and regressions for each population.",
+  "verification": "Bound source/data/feature hashes; no TRAIN/DEV input overlap; exact selected-checkpoint reload; full/query feature parity within1e-3; float32 finite features. Retain all generation pilots and all failing model evidence. Source-authored composition tests are not independent linguistic or author validation.",
+  "resources": "One full encoder on16GB host; preserve8GiB disk reserve. Chunked feature extraction may resume with identical source/input bindings. An interrupted optimizer run is retained and cannot silently overwrite checkpoints.",
+  "qualification": "This is a response subtask experiment. Even perfect response scores do not resolve the binary challenge44 misses or external qualification. Final reviewer evaluation stays closed until the complete candidate is error-free and has zero regressions across every required engineering population. Stable package stays v9.",
+  "stable_release_ready": false
+}

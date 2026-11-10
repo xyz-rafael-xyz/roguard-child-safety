@@ -1,0 +1,40 @@
+{
+  "format": "roguard-semantic-diversity-plan-1",
+  "partition": "train",
+  "manifest": "semantic-diversity-99/authored-pairs.json",
+  "protected_inputs": "large-review-input-recovery-72/actual/inputs.jsonl",
+  "public": {
+    "training/semantic_diversity_v10.py": "894c1d4636bb4350f96c3e624af64110df6ad90289a1d08967a5f0349abd5e4b",
+    "training/prepare_semantic_diversity_v10.py": "a226602bba449d5c6ba55e58226f86a1e33464c07200268c8c66f19fad51cb58",
+    "tests/test_semantic_diversity_v10.py": "32311586e4882da300b684f5b3f6b0dbfb5253ad62f0de647efa9099600120ad",
+    "src/roguard/assurance.py": "9baaa5d7949b562a0a4966fa33ca8ddc4bf49bb138531a5187899f7ae81b653a",
+    "src/roguard/evidence.py": "e6a4e95012352f198674d861f72e612903e88b0046a300233769f68a6f79372f",
+    "src/roguard/trajectory_data.py": "a046974c382ac31da80aaec1172f0d36d87112683111904a489c6cb5f201ec55",
+    "src/roguard/gemma4_contract.py": "34d45bfbbd4e03b622031d61b762dc598a56800e75a6e7f21e6f47cf393aa200",
+    "training/prepare_instruction_sft_v8.py": "c9f7b2fdeee4e3f135d508f436f2e7b2bcdf1e184472130e36fa40f4d00b2aec"
+  },
+  "private": {
+    "semantic-diversity-99/authored-pairs.json": "d352f2249e219a3966b6775f54273477f7f86451add846c35c53c7e14a2dbeb6",
+    "large-review-input-recovery-72/actual/inputs.jsonl": "46106ace697bada540fb97acd699b7b03c4442dc89937ab72db3f81e65f4bd6a"
+  },
+  "tokenizer_revision": "475b9088d29754a3379866cf5aeb6b41acd313c2",
+  "tokenizer_files": {
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "080d9e1aff284e2f6043889cd05367966f7c7b80e025fbc0b06745e218158656",
+    "config.json": "780ccb3a514a5f1ced161d383f948fc22eca9b84b752ca19494f625bd9bad7a6"
+  },
+  "families": 24,
+  "rows": 3168,
+  "maximum_tokens": 600,
+  "training_admitted": false,
+  "independently_annotated": false,
+  "held_out_test_opened": false,
+  "qualified": false,
+  "design": "New author-written benign/concern pairs, SELF/DIRECT and FICTIONAL/FICTION CURRENT contexts, four assertion states, two operators and two placements, plus bare direct statements. Existing TRAIN/DEV inputs only reject exact overlap; no existing row supplies a training core.",
+  "limitations": [
+    "Created after DEV error inspection; not independent evaluation.",
+    "Author labels are synthetic intentions, not independently validated gold.",
+    "Any preparation failure is retained; no truncation or silent dropping.",
+    "Semantic review, independent artifact verification and separate fitting registration are required before training."
+  ]
+}

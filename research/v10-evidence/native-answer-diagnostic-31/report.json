@@ -1,0 +1,209 @@
+{
+  "complete": true,
+  "source_reports_verified": true,
+  "dequantization_maximum_error": 0.0,
+  "probe_rows_checked": 256,
+  "probe_prediction_mismatches": [],
+  "probe_maximum_probability_error": 2.0779642186607994e-05,
+  "projection_parity_pass": true,
+  "assertion": {
+    "ro:dev": {
+      "total": 2954,
+      "errors": 1118,
+      "classes": {
+        "AFFIRMED": {
+          "total": 1378,
+          "errors": 1058
+        },
+        "UNCERTAIN": {
+          "total": 644,
+          "errors": 38
+        },
+        "NEGATED": {
+          "total": 621,
+          "errors": 14
+        },
+        "RETRACTED": {
+          "total": 311,
+          "errors": 8
+        }
+      }
+    },
+    "ro:train": {
+      "total": 7030,
+      "errors": 4217,
+      "classes": {
+        "AFFIRMED": {
+          "total": 5287,
+          "errors": 3930
+        },
+        "UNCERTAIN": {
+          "total": 464,
+          "errors": 7
+        },
+        "NEGATED": {
+          "total": 886,
+          "errors": 181
+        },
+        "RETRACTED": {
+          "total": 393,
+          "errors": 99
+        }
+      }
+    },
+    "uk:train": {
+      "total": 9611,
+      "errors": 4637,
+      "classes": {
+        "AFFIRMED": {
+          "total": 6113,
+          "errors": 4121
+        },
+        "UNCERTAIN": {
+          "total": 1000,
+          "errors": 13
+        },
+        "NEGATED": {
+          "total": 1539,
+          "errors": 407
+        },
+        "RETRACTED": {
+          "total": 959,
+          "errors": 96
+        }
+      }
+    },
+    "uk:dev": {
+      "total": 3387,
+      "errors": 1216,
+      "classes": {
+        "AFFIRMED": {
+          "total": 1512,
+          "errors": 1085
+        },
+        "UNCERTAIN": {
+          "total": 703,
+          "errors": 40
+        },
+        "NEGATED": {
+          "total": 789,
+          "errors": 83
+        },
+        "RETRACTED": {
+          "total": 383,
+          "errors": 8
+        }
+      }
+    }
+  },
+  "response": {
+    "ro:train": {
+      "total": 170,
+      "errors": 43,
+      "classes": {
+        "appropriate": {
+          "total": 34,
+          "errors": 1
+        },
+        "boundary": {
+          "total": 34,
+          "errors": 2
+        },
+        "privacy": {
+          "total": 34,
+          "errors": 24
+        },
+        "pressure": {
+          "total": 34,
+          "errors": 13
+        },
+        "unsupported": {
+          "total": 34,
+          "errors": 3
+        }
+      }
+    },
+    "uk:train": {
+      "total": 170,
+      "errors": 30,
+      "classes": {
+        "appropriate": {
+          "total": 34,
+          "errors": 3
+        },
+        "boundary": {
+          "total": 34,
+          "errors": 1
+        },
+        "privacy": {
+          "total": 34,
+          "errors": 20
+        },
+        "pressure": {
+          "total": 34,
+          "errors": 5
+        },
+        "unsupported": {
+          "total": 34,
+          "errors": 1
+        }
+      }
+    },
+    "ro:dev": {
+      "total": 40,
+      "errors": 15,
+      "classes": {
+        "appropriate": {
+          "total": 8,
+          "errors": 1
+        },
+        "boundary": {
+          "total": 8,
+          "errors": 2
+        },
+        "privacy": {
+          "total": 8,
+          "errors": 8
+        },
+        "pressure": {
+          "total": 8,
+          "errors": 2
+        },
+        "unsupported": {
+          "total": 8,
+          "errors": 2
+        }
+      }
+    },
+    "uk:dev": {
+      "total": 40,
+      "errors": 13,
+      "classes": {
+        "appropriate": {
+          "total": 8,
+          "errors": 1
+        },
+        "boundary": {
+          "total": 8,
+          "errors": 0
+        },
+        "privacy": {
+          "total": 8,
+          "errors": 7
+        },
+        "pressure": {
+          "total": 8,
+          "errors": 3
+        },
+        "unsupported": {
+          "total": 8,
+          "errors": 2
+        }
+      }
+    }
+  },
+  "decision": "DIAGNOSTIC_ONLY",
+  "fitting_performed": false,
+  "independent_test": false,
+  "stable_release_ready": false
+}

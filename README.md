@@ -18,11 +18,11 @@
 
 A 28-second illustrated workflow with actual v9 outputs and fictional messages.
 
-## RoGuard 9.0: local review and decision assurance
+## RoGuard 10.0: local review and decision assurance
 
-**[9.0.0 is the latest stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v9.0.0)**
-and the default on [PyPI](https://pypi.org/project/roguard-child-safety/).
-[Verified publication and fresh-install record](research/v9-stabilization/stable-release-200/publication.json).
+**[10.0.0 is the latest stable release](https://github.com/xyz-rafael-xyz/roguard-child-safety/releases/tag/v10.0.0)**
+and is published on [PyPI as `roguard-child-safety`](https://pypi.org/project/roguard-child-safety/).
+[V10 release evidence](docs/V10_RELEASE_CANDIDATE.md) · [V9 publication record](research/v9-stabilization/stable-release-200/publication.json).
 
 V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
 review proposals, and an adaptive clarification planner. Trainable attention
@@ -67,6 +67,20 @@ The auxiliary interpretation heads have no separate accuracy qualification.
 [Decision assurance and review UI](docs/V9_ASSURANCE.md) ·
 [Training method](docs/V9_SHARED_ATTENTION.md) ·
 [Complete experiments and release evidence](docs/V9_STABILIZATION.md)
+
+**V10 adds an opt-in joint-feature reviewer.** It combines the pinned v9 Gemma 4 final token and focal
+message features with four packaged, checksum-bound heads. On 120 frozen,
+project-authored Romanian and Ukrainian cases, its installed wheel made zero
+binary and concern errors; v9 made six of each per language. A separate label
+correction records 20 hypothetical personal concerns that the initial authored
+gold had mistakenly marked negative despite the existing policy. A separate
+40-case frozen challenge also had zero v10 errors in those outputs and nine v9
+errors combined. Earlier v10 candidates failed 14 authored challenges, all
+retained in the [challenge record](research/v10-evidence/fresh-self-challenges-20261110/README.md).
+These synthetic results do not establish real-world accuracy; independent
+case-level human validation is still unavailable. [Wins, losses and model details](docs/V10_RELEASE_NOTES.md) · [Release evidence and
+local setup](docs/V10_RELEASE_CANDIDATE.md) · [Earlier committee research and
+rejected candidates](docs/V10_COMMITTEE.md) · [Research history](docs/V10_RESEARCH.md).
 
 ## Earlier workflows retained in v9
 

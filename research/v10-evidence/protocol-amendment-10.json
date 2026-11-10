@@ -1,0 +1,13 @@
+{
+  "format": "roguard-v10-protocol-amendment-1",
+  "experiment": "semantic-consensus-13",
+  "parent": "semantic-readout-12",
+  "motivation": "The published model exposes separate binary and ontology-policy logits. The readout study selects one score mode by development separation; instead test a training-fitted monotone consensus. Never use exposed regression labels in fitting or threshold selection.",
+  "features": ["clipped binary log-odds", "clipped factor-policy log-odds", "clipped coupled-policy log-odds"],
+  "probability_clipping": [0.000001, 0.999999],
+  "registered_candidates": {"regularization": [0.01, 0.1, 1.0, 10.0], "anchors": ["binary", "coupled-policy"]},
+  "training": "Nonnegative score weights and free intercept, weighted logistic loss with equal original training-group/label strata. L2 penalty toward the registered anchor, including intercept zero. Fit only semantic-features-12 train rows; selected head and encoder remain frozen.",
+  "selection": "Original development only: first binary error count, then largest separating score margin, then regularization descending. Thresholds use the same development frontier as the semantic readout study. Compare the frozen selected consensus to its parent and released v9; no post-regression selection.",
+  "qualification": "Exposed diagnostic study only; all structured failures of the parent remain unless independently measured otherwise. No release or calibrated coverage claim.",
+  "stable_release_ready": false
+}

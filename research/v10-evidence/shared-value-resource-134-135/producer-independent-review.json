@@ -1,0 +1,50 @@
+{
+  "status": "PASS_BOUNDED_ENGINEERING_DESIGN_AND_SOURCE",
+  "source_sha256": "06a3c20298c00c2865b1ade93c4411c43c07320e66ff303c9cbcd34f42eddc53",
+  "design_sha256": "0fbf35f40fd2bc8936ce5bc3261ef0883a4892440e65dea4cca675e9a21ddfbd",
+  "investigation_sha256": "dcfe880e74d0596b3d4ae58fa4bef4a3b54e5d9be3cee9f1b93d5c38c0255eaf",
+  "tests": 35,
+  "passed": 35,
+  "seconds": 0.23,
+  "test_sha256": "ba327c8abe5fa0f71d702759f1b7815ff1c7024b471f8c32ed356c8dbd6f0946",
+  "independent_scope": [
+    "Verified all8 source/config hashes from original source investigation",
+    "Read frozen attention capture/replay, Gemma4 VALUE projection/normalization/cache path, global KV chronological slice and rotating one-append scope",
+    "NumPy-only native adapter versus explicit scalarhead/token/dimension means; float32/float16 conversions; global token coordinates and head-major flatten",
+    "Wrong prefix-relative/bool/duplicate/unsorted/out-of-range masks reject; malformed/truncated/nonfinite/wronghash rawVALUE rejects",
+    "State source/shape/length/previous_kvs and exact39,321,600-byte maxVALUEpayload, fixedarrays and oversizebudget guards",
+    "Reviewedv2sourceonlydelta: exact declared numerical/resource dictionaries checked beforeboundfiles orencoderimports; runtime equations unchanged",
+    "All13 numerical/resource values individually corrupted and twoobsolete-key additions reject beforebindings; validcontract reachesbindingstage",
+    "Cleanprospective134draft preserves127asparentcontext ratherthan inherited registration revision/correction; registered remainsfalse"
+  ],
+  "no_encoder": true,
+  "no_actual_mlx_runtime": true,
+  "no_actual_tokenizer": true,
+  "no_real_head_or_data_scoring": true,
+  "pending": [],
+  "limitations": [
+    "Earlier causal normalized global23 VALUE is a different representation from finalhidden; no accuracy or speed inference.",
+    "Saved rawVALUE verification can validate pooling/indexing from bytes, not independently reproduce encoder/VALUEgeneration.",
+    "First16case pilot only; notwidecache or learnedresidual admission.",
+    "Parentprediction evaluated beforepooling and fullKV/state/prefix checks are designed safeguards; actualregistered16caseexecution must still pass them.",
+    "Timings are paired computephases plus separately reported hostcopy/persistence/repeataudit overhead, notproduction end-to-end orwide-cache evidence."
+  ],
+  "qualified": false,
+  "draft_sha256": "65f879f17cdeb5e65cdbc1a71890b6faf2e5f4404858aac23de327b712699c5e",
+  "remaining_material_findings": [],
+  "engineering_limits": {
+    "zero_residual_sameobjectbytes": true,
+    "repeat_feature_error": 0.0,
+    "repeat_logit_error": 0.0,
+    "repeat_logit_bytes": true,
+    "served_score_error": 1e-10,
+    "pool_mean_error": 1e-05,
+    "same_classifier_tokens": true,
+    "single_encoder": true,
+    "raw_values_saved_for_16_only": true,
+    "actual_runtime_measured_by_this_review": false,
+    "speed_or_accuracy_claim": false
+  },
+  "original_private_artifact_sha256": "50c75e904984206100898f60413608a6ea418ca362b7bfb38eb776b6586d40fe",
+  "public_redaction": "Local paths redacted. Every original numeric, boolean, null and standalone64-character digest value is retained. Registration summaries are provenance records, not executable plans."
+}
