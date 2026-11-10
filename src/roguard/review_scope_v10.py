@@ -5,18 +5,18 @@ import re
 import unicodedata
 
 _MODAL = {
-    'ro': re.compile(r'\bpoate\s+că\b|\bmă\s+întreb\s+ce\s+s-ar\s+întâmpla\s+dacă\b|\bnu\s+știu\s+dacă\b|\bnu\s+exclud\b|\be\s+posibil\b|\bnu\s+pot\s+stabili\s+dacă\s+această\s+descriere\s+este\s+adevărată\s+despre\s+mine\b'),
-    'uk': re.compile(r'\bможливо\b|\bне\s+знаю\s*,?\s*чи\b|\bне\s+впевнен\s*,?\s*чи\b|\bне\s+виключаю\b|\bя\s+не\s+можу\s+визначити\s*,?\s+чи\s+цей\s+опис\s+відповідає\s+дійсності\s+щодо\s+мене\b'),
+    'ro': re.compile(r'\bpoate\s+că\b|\bmă\s+întreb\s+ce\s+s-ar\s+întâmpla\s+dacă\b|\bnu\s+știu\s+dacă\b|\bnu\s+exclud\b|\be\s+posibil\b|\bnu\s+pot\s+stabili\s+dacă\s+această\s+descriere\s+este\s+adevărată\s+despre\s+mine\b|\bun\s+prieten\s+nu\s+știe\s+dacă\b'),
+    'uk': re.compile(r'\bможливо\b|\bне\s+знаю\s*,?\s*чи\b|\bне\s+впевнен\s*,?\s*чи\b|\bне\s+виключаю\b|\bя\s+не\s+можу\s+визначити\s*,?\s+чи\s+цей\s+опис\s+відповідає\s+дійсності\s+щодо\s+мене\b|\bдруг\s+не\s+знає\s*,?\s*чи\b|\bя\s+замислююся\s*,?\s+що\s+було\s+б\s*,?\s+якби\b'),
 }
 _ROLE = {
     'ro': {
         'self': (r'asta\s+mă\s+privește\s+pe\s+mine', r'mă\s+refer\s+la\s+propria\s+mea\s+situație'),
-        'other': (r'povestesc\s+ce\s+mi-a\s+zis\s+o\s+prietenă', r'un\s+prieten\s+spune\s+că'),
+        'other': (r'povestesc\s+ce\s+mi-a\s+zis\s+o\s+prietenă', r'un\s+prieten\s+spune\s+că', r'un\s+prieten\s+nu\s+știe\s+dacă'),
         'fiction': (r'compun\s+un\s+dialog\s+pentru\s+un\s+roman',),
     },
     'uk': {
         'self': (r'це\s+стосується\s+мене',),
-        'other': (r'розповідаю\s*,?\s*що\s+сказала\s+подруга', r'друг\s+каже\s*,?\s*що'),
+        'other': (r'розповідаю\s*,?\s*що\s+сказала\s+подруга', r'друг\s+каже\s*,?\s*що', r'друг\s+не\s+знає\s*,?\s*чи'),
         'fiction': (r'складаю\s+діалог\s+для\s+роману',),
     },
 }
@@ -29,7 +29,7 @@ _TIME = {
     'uk': {
         0: (r'це\s+сьогоднішня\s+ситуація', r'я\s+говорю\s+про\s+теперішню\s+ситуацію'),
         1: (r'говорю\s+про\s+минулий\s+період',),
-        2: (r'я\s+говорю\s+про\s+можливу\s+ситуацію', r'лише\s+уявляю\s*,?\s*що\s+це\s+могло\s+б\s+статися'),
+        2: (r'я\s+говорю\s+про\s+можливу\s+ситуацію', r'лише\s+уявляю\s*,?\s*що\s+це\s+могло\s+б\s+статися', r'я\s+замислююся\s*,?\s+що\s+було\s+б\s*,?\s+якби'),
     },
 }
 _ROLES = {'self': (0, 0), 'other': (1, 1), 'fiction': (2, 2)}
