@@ -12,11 +12,11 @@
 [![Inference: local](https://img.shields.io/badge/inference-local-7ee4c6)](docs/RELIABILITY.md)
 [![Controls: scoped permissions](https://img.shields.io/badge/controls-scoped%20permissions-ffc484)](docs/RELIABILITY.md)
 
-[![RoGuard 10.0 Apple-style animation: explanation of the frozen v9 backbone, two v10 feature streams, guarded bilingual review, and authored synthetic comparisons](media/roguard-v10-demo-apple-loop.gif)](media/roguard-v10-demo-apple.mp4)
+[![RoGuard 10.0 orange-and-black animated reel: the reused Gemma 4 body, four RBF heads, a guarded review decision, and authored synthetic comparisons](media/roguard-v10-reel-loop.webp)](media/roguard-v10-reel.mp4)
 
-**RoGuard 10.0 in motion** · [Watch / pause the video](media/roguard-v10-demo-apple.mp4) · [Still preview](media/roguard-v10-demo-apple-poster.png) · [Transcript and evidence](docs/V10_DEMO_VIDEO.md)
+**RoGuard 10.0 in motion** · [Watch / pause the full video](media/roguard-v10-reel.mp4) · [Still preview](media/roguard-v10-reel-poster.png) · [Reel notes and evidence](docs/V10_REEL.md)
 
-A 27-second illustrated walkthrough of v10's new model path and recorded outputs on fictional messages.
+A 45-second looping visual summary of v10's model path and recorded comparisons on fictional messages. The linked video includes the source audio; the embedded animation is silent.
 
 ## RoGuard 10.0: local review and decision assurance
 
