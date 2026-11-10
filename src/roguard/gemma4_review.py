@@ -129,8 +129,10 @@ class _Engine:
             mx.eval(self.model.parameters())
         del original, tensors, raw
 
-    def scores(self, prefixes, spec, *, return_logits=False):
+    def scores(self, prefixes, spec, *, return_logits=False, return_features=False):
         from .gemma4_attention import capture, capture_with_prefix, replay
+        if return_features and not return_logits:
+            raise ValueError('Feature capture requires raw logits')
         if return_logits:
             import numpy as np
         mx = self.mx
@@ -154,7 +156,11 @@ class _Engine:
             features = replay(self.model.base, state)[:, 0, :]
             logits = self.model.heads[spec['language']](features)
             mx.eval(logits)
-            output.append(np.asarray(logits[0], dtype=np.float32).copy() if return_logits else _score(logits[0], spec))
+            if return_features:
+                output.append((np.asarray(logits[0], dtype=np.float32).copy(),
+                               np.asarray(features[0], dtype=np.float32).copy()))
+            else:
+                output.append(np.asarray(logits[0], dtype=np.float32).copy() if return_logits else _score(logits[0], spec))
             del state, features, logits
             mx.clear_cache()
         # No conversation cache survives this method call.
