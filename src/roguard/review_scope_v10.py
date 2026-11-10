@@ -78,14 +78,52 @@ def explicit_meal_deprivation(text: str, language: str) -> bool:
             return False
         if re.search(r'\bnu\s+(?:am\s+fost|sunt|rămân|mă|mi\s+se|mi\s+este|m-au)\b', value):
             return False
-        return bool(re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt\s+(?:lăsat|trimis|privat|ținut)|m-au)\b', value)
-                    and re.search(r'\b(?:fără\s+(?:cină|mâncare|prânz|masă|hrană|mic(?:ul)?\s+dejun)|nu\s+primesc\s+(?:mâncare|cina|prânzul|micul\s+dejun)|mi\s+se\s+refuză\s+(?:mâncarea|cina|prânzul))\b', value))
+        return bool(re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|am\s+primit|sunt\s+(?:lăsat|trimis|privat|ținut)|m-au)\b', value)
+                    and re.search(r'\b(?:fără\s+(?:cină|mâncare|prânz|masă|hrană|mic(?:ul)?\s+dejun)|nu\s+primesc\s+(?:mâncare|cina|prânzul|micul\s+dejun)|nu\s+am\s+primit\s+(?:nimic\s+)?(?:la\s+)?(?:micul\s+dejun|cină|prânz|mâncare)|nu\s+mi-au\s+dat\s+(?:cina|mâncare|prânzul)|mi\s+se\s+refuză\s+(?:mâncarea|cina|prânzul))\b', value))
     if re.search(r'\b(?:роман|фільм|сценар|підручник|статт|сайт|плакат|буклет|брошур|казк|словник|енциклопеді|портал)\w*\b', value):
         return False
     if re.search(r'\b(?:мене\s+(?:ніколи\s+)?не\s+(?:відправляють|відправляли|відправили|позбавляють|позбавляли|позбавили|залишають|залишали|залишили|лишають|лишали|лишили|карають|карали)|я\s+не\s+(?:лягаю|залишаюся|йду|ходжу|виходжу)|не\s+лишають)\b', value):
         return False
     return bool(re.search(r'\b(?:мене|мені|я)\b', value)
-                and re.search(r'\b(?:без\s+(?:вечері|їжі|обіду|сніданку)|не\s+дають\s+(?:їсти|вечерю|їжі|сніданок|обід)|позбавили\s+(?:їжі|вечері|обіду|сніданку))\b', value))
+                and re.search(r'\b(?:без\s+(?:вечері|їжі|обіду|сніданку)|не\s+(?:дають|дав|дала|дали)\s+(?:мені\s+)?(?:їсти|вечерю|їжі|сніданок|обід|нічого\s+на\s+сніданок)|позбавили\s+(?:їжі|вечері|обіду|сніданку))\b', value))
+
+
+def explicit_meal_denial(text: str, language: str) -> bool:
+    """Clear a standalone statement that meal deprivation does not occur."""
+    if not isinstance(text, str) or language not in ('ro', 'uk'):
+        raise ValueError('Expected Romanian or Ukrainian focal text')
+    value = _outside(text)
+    if value is None or re.search(r'[,;]|\b(?:dar|însă|totuși|але|проте)\b', value):
+        return False
+    if language == 'ro':
+        return bool(re.match(r'^nu\s+(?:sunt|am\s+fost)\s+lăsat[ă]?\s+fără\s+(?:cină|mâncare|prânz|masă|hrană)\b', value))
+    return bool(re.match(r'^мене\s+не\s+(?:залишають|лишають|позбавляють)\s+без\s+(?:вечері|їжі|обіду|сніданку)\b', value))
+
+
+def explicit_water_deprivation(text: str, language: str) -> bool:
+    """Catch an explicit first-person denial of drinking water."""
+    if not isinstance(text, str) or language not in ('ro', 'uk'):
+        raise ValueError('Expected Romanian or Ukrainian focal text')
+    value = _outside(text)
+    if value is None:
+        return False
+    if language == 'ro':
+        return bool(re.search(r'\bnu\s+am\s+voie\s+să\s+beau\s+apă\b', value)
+                    and not re.search(r'\b(?:film|roman|poveste|manual|articol|scenariu)\w*\b', value))
+    return bool(re.search(r'\bмені\s+не\s+дозволяють\s+пити\s+воду\b', value)
+                and not re.search(r'\b(?:фільм|роман|казк|підручник|статт|сценар)\w*\b', value))
+
+
+def explicit_denied_confinement(text: str, language: str) -> bool:
+    """Keep the concern field when a child explicitly denies being locked in."""
+    if not isinstance(text, str) or language not in ('ro', 'uk'):
+        raise ValueError('Expected Romanian or Ukrainian focal text')
+    value = _outside(text)
+    if value is None:
+        return False
+    if language == 'ro':
+        return bool(re.match(r'^nu\s+sunt\s+închis[ă]?\s+în\s+(?:cameră|casă|debara)\b', value))
+    return bool(re.match(r'^я\s+не\s+замкнен[аий]?\s+(?:в\s+(?:кімнаті|будинку|комірчині)|вдома)\b', value))
 
 
 def explicit_reference_scope(text: str, language: str) -> bool:
@@ -95,10 +133,10 @@ def explicit_reference_scope(text: str, language: str) -> bool:
     value = unicodedata.normalize('NFC', text).casefold()
     if language == 'ro':
         marker = re.match(r'^(?:în\s+(?:film|roman|poveste|scenariu|carte|manual)|pe\s+(?:panou|site|afiș|perete|ușă)|o\s+pagină\s+de\s+internet|un\s+(?:portal|pliant|articol|ghid)|știrea|ziarul|manualul|profesorul\s+explică|clasa\s+discută|la\s+radio)\b', value)
-        personal = re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt|(?:prietenul|colegul|fratele)\s+meu|(?:prietena|colega|sora)\s+mea)\b', value)
+        personal = re.search(r'\b(?:mă|mi|mie|eu|am\s+fost|sunt|(?:prieten|coleg|frat|sor)\w*\s+(?:meu|mea))\b', value)
     else:
         marker = re.match(r'^(?:у\s+(?:фільмі|романі|казці|книзі|підручнику|сценарії)|на\s+(?:дошці|сайті|плакаті|стіні|радіо|дверях)|вебсторінка|газета|новинний\s+портал|шкільна\s+брошура|посібник|стаття|учитель\s+пояснює|клас\s+обговорює)\b', value)
-        personal = re.search(r'\b(?:мене|мені|я|мій|моя|мою|мого|моєму|моєї)\b', value)
+        personal = re.search(r'\b(?:мене|мені|мною|я|мій|моя|мою|мого|моєму|моєї|моїм|моїй)\b', value)
     return bool(marker and not personal)
 
 

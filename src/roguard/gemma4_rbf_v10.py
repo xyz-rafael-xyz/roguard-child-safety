@@ -21,7 +21,7 @@ def _binary_decision(parent_predicted: int, binary_margin: float, concern_margin
     if parent_predicted == 1 and binary_margin <= 0.05:
         if concern_margin < concern_threshold or binary_margin <= -0.45:
             return 0
-    if parent_predicted == 0 and binary_margin >= 0.4 and concern_margin > concern_threshold:
+    if parent_predicted == 0 and binary_margin >= 0.35 and concern_margin > concern_threshold:
         return 1
     return parent_predicted
 
@@ -42,7 +42,7 @@ class Gemma4RBFV10Model:
         binding = json.dumps({'format': 'roguard-gemma4-rbf-v10', 'parent': parent.identity,
                               'language': self.language, 'binary': self.binary.identity,
                               'concern': self.concern.identity, 'feature_mode': 'joint',
-                              'decision_rule': 'guard-v7-ro0-uk0.1-binary0.4-clear-0.45-meal-and-reference-cues'},
+                              'decision_rule': 'guard-v9-ro0-uk0.1-binary0.35-clear0.45-scope-cues'},
                              sort_keys=True, separators=(',', ':'))
         self.identity = hashlib.sha256(binding.encode('utf-8')).hexdigest()
 
@@ -121,8 +121,10 @@ class Gemma4RBFV10Model:
 
     def interpret_many(self, payloads, *, focuses=None):
         from .evidence import ONTOLOGY
-        from .review_scope_v10 import (correct_logits, explicit_meal_deprivation,
-                                       explicit_reference_scope)
+        from .review_scope_v10 import (correct_logits, explicit_denied_confinement,
+                                       explicit_meal_denial,
+                                       explicit_meal_deprivation,
+                                       explicit_reference_scope, explicit_water_deprivation)
 
         if not isinstance(payloads, list) or not 1 <= len(payloads) <= 128:
             raise ValueError('Expected one to 128 conversations')
@@ -164,14 +166,20 @@ class Gemma4RBFV10Model:
             predicted = _binary_decision(parent_predicted, binary_margin, concern_margin,
                                          concern_threshold)
             meal_deprivation = explicit_meal_deprivation(prefix['turns'][-1]['text'], self.language)
-            if meal_deprivation:
+            water_deprivation = explicit_water_deprivation(prefix['turns'][-1]['text'], self.language)
+            if meal_deprivation or water_deprivation:
                 predicted = 1
+            meal_denial = explicit_meal_denial(prefix['turns'][-1]['text'], self.language)
+            if meal_denial:
+                predicted = 0
             reference_scope = explicit_reference_scope(prefix['turns'][-1]['text'], self.language)
             if reference_scope:
                 predicted = 0
             field_ids = list(evidence['fields'])
             field_ids[5] = int(concern_margin >= concern_threshold)
-            if meal_deprivation:
+            denied_confinement = explicit_denied_confinement(prefix['turns'][-1]['text'],
+                                                            self.language)
+            if meal_deprivation or water_deprivation or denied_confinement:
                 field_ids[5] = 1
             fields = {field: ONTOLOGY[field][index] for field, index in zip(ONTOLOGY, field_ids)}
             results.append(dict(shared, predicted=predicted,
@@ -183,5 +191,8 @@ class Gemma4RBFV10Model:
                                 scope_evidence={'cues': evidence['cues'],
                                                 'binary_guard_rejected': evidence['binary_guard_rejected'],
                                                 'explicit_meal_deprivation': meal_deprivation,
+                                                'explicit_water_deprivation': water_deprivation,
+                                                'explicit_meal_denial': meal_denial,
+                                                'explicit_denied_confinement': denied_confinement,
                                                 'explicit_reference_scope': reference_scope}))
         return results

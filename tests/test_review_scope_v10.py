@@ -9,14 +9,20 @@ from roguard.assurance import policy_digest
 from roguard.gemma4_contract import BASE_MODEL, BASE_REVISION, POLICY_SHA256
 from roguard.gemma4_review import FORMAT, LORA
 from roguard.gemma4_review_v10 import Gemma4StructuredV10Model
-from roguard.review_scope_v10 import (correct_logits, cues, explicit_meal_deprivation,
-                                      explicit_reference_scope)
+from roguard.review_scope_v10 import (correct_logits, cues, explicit_denied_confinement,
+                                      explicit_meal_denial,
+                                      explicit_meal_deprivation,
+                                      explicit_reference_scope, explicit_water_deprivation)
 
 
 def test_explicit_meal_deprivation_excludes_denials_and_fiction():
     assert explicit_meal_deprivation('Aseară am fost trimis în cameră fără cină.', 'ro')
     assert explicit_meal_deprivation('Sunt lăsat fără cină ca pedeapsă.', 'ro')
     assert explicit_meal_deprivation('Учора мене відправили в кімнату без вечері.', 'uk')
+    assert explicit_meal_deprivation('Тато не дав мені сніданок після помилки.', 'uk')
+    assert explicit_meal_deprivation('Nu am primit nimic la micul dejun după o greșeală.', 'ro')
+    assert explicit_meal_deprivation('Aseară nu mi-au dat cina fiindcă am uitat să spăl vasele.', 'ro')
+    assert explicit_meal_deprivation('Мені не дали нічого на сніданок через помилку.', 'uk')
     assert not explicit_meal_deprivation('Nu sunt trimis în cameră fără cină.', 'ro')
     assert not explicit_meal_deprivation('Батьки не лишають мене без їжі.', 'uk')
     assert not explicit_meal_deprivation('Я не йду без обіду.', 'uk')
@@ -26,6 +32,27 @@ def test_explicit_meal_deprivation_excludes_denials_and_fiction():
     assert not explicit_meal_deprivation('Sunt personaje fără cină în exercițiu.', 'ro')
 
 
+def test_explicit_water_deprivation_requires_a_personal_report():
+    assert explicit_water_deprivation('Nu am voie să beau apă când sunt pedepsit.', 'ro')
+    assert explicit_water_deprivation('Мені не дозволяють пити воду, коли мене карають.', 'uk')
+    assert not explicit_water_deprivation('În film nu am voie să beau apă.', 'ro')
+    assert not explicit_water_deprivation('У фільмі мені не дозволяють пити воду.', 'uk')
+
+
+def test_meal_denial_requires_a_standalone_negative_statement():
+    assert explicit_meal_denial('Мене не залишають без вечері після помилок.', 'uk')
+    assert explicit_meal_denial('Nu sunt lăsată fără cină după greșeli.', 'ro')
+    assert not explicit_meal_denial('Мене не залишають без вечері, але б’ють.', 'uk')
+    assert not explicit_meal_denial('Nu sunt lăsată fără cină, dar sunt amenințată.', 'ro')
+
+
+def test_denied_confinement_keeps_concern_without_forcing_binary_review():
+    assert explicit_denied_confinement('Nu sunt închis în cameră; pot ieși.', 'ro')
+    assert explicit_denied_confinement('Я не замкнена в кімнаті, можу вийти.', 'uk')
+    assert explicit_denied_confinement('Я не замкнена вдома, можу вийти коли хочу.', 'uk')
+    assert not explicit_denied_confinement('Am închis ușa camerei.', 'ro')
+
+
 def test_explicit_reference_scope_keeps_personal_disclosures_in_scope():
     assert explicit_reference_scope('У фільмі сусід торкається дитини.', 'uk')
     assert explicit_reference_scope('На дошці написано: «Скажи дорослому, якщо тобі погрожують».', 'uk')
@@ -33,10 +60,13 @@ def test_explicit_reference_scope_keeps_personal_disclosures_in_scope():
     assert explicit_reference_scope('Ziarul povestește despre un copil pedepsit fără cină.', 'ro')
     assert explicit_reference_scope('На дверях написано: «Скажи дорослому, якщо тобі погрожують».', 'uk')
     assert not explicit_reference_scope('У фільмі таке трапилося, і мене теж торкається сусід.', 'uk')
+    assert not explicit_reference_scope('У фільмі дитину б’ють, і зі мною вдома трапляється те саме.', 'uk')
     assert not explicit_reference_scope('În film se întâmplă asta, iar eu pățesc la fel.', 'ro')
     assert not explicit_reference_scope('Ziarul spune că prietena mea este amenințată.', 'ro')
     assert not explicit_reference_scope('Газета пише, що моя подруга отримує погрози.', 'uk')
     assert not explicit_reference_scope('Газета пише про мою однокласницю, якій погрожують удома.', 'uk')
+    assert not explicit_reference_scope('Ziarul relatează ce i s-a întâmplat prietenului meu.', 'ro')
+    assert not explicit_reference_scope('Газета розповідає, що сталося з моїм другом.', 'uk')
 
 
 def test_scope_reader_separates_outer_claim_from_quoted_words():

@@ -1,10 +1,10 @@
-# RoGuard v10 release candidate
+# RoGuard v10 qualification and release evidence
 
-RoGuard v10 adds a local joint feature reviewer for Romanian and Ukrainian. It reads the pinned v9 Gemma 4 model's final token feature and focal message feature, then applies two small, checksum-bound RBF heads for the review decision and concern field. The v9 model and threshold remain available through the existing interface. V10 is an opt-in candidate until independent review and publication are complete.
+RoGuard 10.0.0 provides an opt-in local joint-feature reviewer for Romanian and Ukrainian. It reads the pinned v9 Gemma 4 final-token and focal-message features, applies two checksum-bound RBF heads per language, and combines their margins with the v9 decision. The v9 model and threshold remain available through the default interface. The other five structured fields are inherited from v9.
 
-## Install and run locally
+## Install and run
 
-The v10 wheel includes the four RBF heads. It reuses the existing v9 model download, which must be fetched separately on Apple Silicon with Python 3.12 or later.
+The wheel includes the four RBF heads. Fetch the separate pinned v9 base model on Apple Silicon with Python 3.12 or later:
 
 ```sh
 pip install 'roguard-child-safety[gemma4-v10]==10.0.0'
@@ -13,20 +13,18 @@ roguard-review --v10 --language ro --text 'Pot cere ajutor când sunt speriat.'
 roguard-review --v10 --language uk --text 'Можу попросити допомоги, коли мені страшно.'
 ```
 
-The Python API is `Gemma4RBFV10Model.from_installed_v9(language='ro')` from `roguard.gemma4_rbf_v10`. The output is an uncalibrated review proposal. It does not verify an event or authorize a notification or other external action.
+The Python API is `Gemma4RBFV10Model.from_installed_v9(language='ro')` from `roguard.gemma4_rbf_v10`. Its output is an uncalibrated review proposal. It does not establish that an event occurred or authorize a notification or other external action.
 
-## Engineering result
+## Measured engineering gate
 
-The frozen candidate has zero binary and concern errors on all 39,010 exposed fit cases. On a separate 120-case authored mixed-scope panel, v10 had zero errors in both outputs for both languages. V9 had six binary and six concern errors per language on the same panel. All v9 errors there were false alerts on safe cases; v9 had no missed positive cases on this panel, so the observed improvement is specificity rather than recall. An installed wheel replayed all 120 cases with the same results.
+The exact locally built and freshly installed v13e wheel has SHA-256 `269e756dfccd731ebc76dec867aad9b802f601fa5cb6b3363ba3bc583a73920b`. Its packaged model manifest has SHA-256 `7f6ac23d90d2620224434b248f502df85497b89afcf16df5e40ca1969963997c`. On the 120-case policy-corrected authored panel it made zero binary and concern errors, while v9 made six errors in each output per language. On 40 newly authored, separately frozen challenge O cases it made zero binary and concern errors, while v9 made five binary and four concern errors across both languages. The [per-case sources and results](../research/v10-evidence/fresh-self-challenges-20261110/README.md) retain the exact source and wheel hashes.
 
-The panel was frozen before scoring. Its first authored labels mistakenly marked 20 hypothetical personal concerns as negative. The preexisting v9 policy explicitly counts hypothetical personal concerns as review proposals. A separate correction manifest records the 20 case IDs, original and corrected input hashes, and the policy hash; the original panel and first evaluation remain intact. Neither model was fitted on this panel.
+The original 120-case panel had 20 hypothetical personal concerns mislabeled negative. The separate [correction manifest](../research/v10-evidence/fresh-self-challenges-20261110/gemma4-final-mixed-panel20b-policy-correction-20261110.json) records the affected case IDs and policy basis; both source versions remain in the evidence directory. The panel was not fitted to the v10 heads. Challenge O was frozen before challenge N results were inspected and was not used to fit or adjust v13e.
 
-The four packaged head hashes and the fit and panel report hashes are bound in `src/roguard/v10_models/manifest.json`. The source passed 64 focused package and runtime tests. An installed candidate wheel replayed the 120-case panel, and its four model assets matched the packaged manifest hashes.
+The four head hashes, training report hash and parent-bundle identity are in `src/roguard/v10_models/manifest.json`. The [head fit report](../research/v10-evidence/fresh-self-challenges-20261110/gemma4-joint-feature-full-v13-probe-20261110.json) records 18,331 Romanian and 21,345 Ukrainian fit rows per head, with zero fit errors. Its raw heads have diagnostic hold errors; the final guarded runtime cleared that exposed set. Fourteen preceding authored challenges A–N had first-pass errors and remain public. Their later zero-error replay measures development repair, not fresh generalization.
 
-These are project-authored synthetic cases. The result establishes an engineering comparison on this finite panel, not perfect accuracy on open-ended child language. The other five interpretation fields are inherited from the v9 parent and have no new standalone accuracy claim.
+## Interpretation and open validation
 
-## Independent review and release gate
+The finite zero-error comparisons establish a reproducible improvement on authored synthetic inputs. They do not prove perfect real-world accuracy. The most recent fresh challenge O is 40 cases; all other test and training populations were also project-authored. No independently labeled case-level human evaluation record was provided. The user reported informal reviewer approval and requested publication on the strength of the transparent engineering result. This release makes no independent-human-accuracy claim.
 
-Two fluent reviewers per language should annotate independently, with a separate adjudicator resolving disagreements. The review packet should hide authored labels and model predictions, record every raw vote, and retain adjudication reasons. Reviewers should check label meaning under the pinned policy, especially hypothetical personal concerns, reported harm, fiction, negation, and positive statements about seeking support.
-
-Public promotion remains closed until a fresh, previously unscored set receives independent labels, the installed wheel is checked against them and the v9 baseline, v10 makes zero required-output errors, and at least one v9 error is corrected on that set. A tie does not demonstrate improvement. The existing blinded packet from the 120-case authored panel is a label audit, not an independent performance test. Follow the [independent review protocol](V10_INDEPENDENT_REVIEW_PROTOCOL.md). The v9 package remains the published stable release while this review is pending.
+Two fluent reviewers per language should still annotate a new blinded sample independently, with separate adjudication and a recorded v9/v10 comparison. See the [independent review protocol](V10_INDEPENDENT_REVIEW_PROTOCOL.md). The v9 default path remains available, and neither path grants external-action permission.

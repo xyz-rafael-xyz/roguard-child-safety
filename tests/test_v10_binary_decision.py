@@ -25,7 +25,7 @@ def test_positive_override_requires_both_heads():
     assert _binary_decision(0, 0.6, 0.2) == 1
     assert _binary_decision(0, 0.6, -0.2) == 0
     assert _binary_decision(0, 0.4, 0.2) == 1
-    assert _binary_decision(0, 0.39, 0.2) == 0
+    assert _binary_decision(0, 0.34, 0.2) == 0
 
 
 def test_language_threshold_can_clear_weak_concern_margin():
