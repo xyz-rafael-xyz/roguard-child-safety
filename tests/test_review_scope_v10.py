@@ -7,7 +7,8 @@ np = pytest.importorskip('numpy')
 
 from roguard.assurance import policy_digest
 from roguard.gemma4_contract import BASE_MODEL, BASE_REVISION, POLICY_SHA256
-from roguard.gemma4_review import FORMAT, LORA, Gemma4ReviewModel
+from roguard.gemma4_review import FORMAT, LORA
+from roguard.gemma4_review_v10 import Gemma4StructuredV10Model
 from roguard.review_scope_v10 import correct_logits, cues
 
 
@@ -47,6 +48,7 @@ def test_counterfactual_guard_keeps_parent_binary_decision():
 
 def test_opt_in_structured_review_preserves_default_review(tmp_path, monkeypatch):
     import roguard.gemma4_review as review
+    import roguard.gemma4_review_v10 as v10_review
 
     spec = dict(format=FORMAT, language='ro', base_model=BASE_MODEL, base_revision=BASE_REVISION,
                 policy_sha256=POLICY_SHA256, policy_digest=policy_digest(), adapter_sha256='0'*64,
@@ -66,7 +68,8 @@ def test_opt_in_structured_review_preserves_default_review(tmp_path, monkeypatch
             return [raw.copy() if return_logits else review._score(raw, spec) for _ in prefixes]
 
     monkeypatch.setattr(review, '_Engine', Engine)
-    model = Gemma4ReviewModel(artifact, tmp_path / 'adapter', tmp_path / 'base', expected_sha256=identity)
+    monkeypatch.setattr(v10_review, 'V10FeatureEngine', Engine)
+    model = Gemma4StructuredV10Model(artifact, tmp_path / 'adapter', tmp_path / 'base', expected_sha256=identity)
     payload = {'language': 'ro', 'turns': [{'role': 'minor', 'text': 'Poate că este așa: «Nu sunt sigur.» Asta mă privește pe mine. Asta e situația de azi.'}]}
     baseline = model.predict(payload)
     structured = model.interpret(payload)

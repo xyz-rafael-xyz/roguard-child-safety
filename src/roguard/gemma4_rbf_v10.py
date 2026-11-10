@@ -6,7 +6,8 @@ import json
 from pathlib import Path
 
 from ._portable_rbf_v10 import PortableRBF
-from .gemma4_review import Gemma4ReviewModel, _LOCK, _Engine, _score
+from .gemma4_review import Gemma4ReviewModel, _LOCK, _score
+from .gemma4_review_v10 import V10FeatureEngine
 from .interpreter import prepare_input
 
 PACKAGED_MANIFEST_SHA256 = '507192f632505267ccbb8bf98d4d5af507f0a7100d704f8e9cf92ca72ab77b2b'
@@ -119,7 +120,7 @@ class Gemma4RBFV10Model:
             raise ValueError('Gemma4 adapter language differs')
         with _LOCK:
             if self.parent._engine is None:
-                self.parent._engine = _Engine(*self.parent._args)
+                self.parent._engine = V10FeatureEngine(*self.parent._args)
             outputs = self.parent._engine.scores([p[0] for p in prepared], self.parent._spec,
                                                  return_logits=True, return_features=True,
                                                  return_focal=True)

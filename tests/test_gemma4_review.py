@@ -158,7 +158,8 @@ def test_engine_uses_fixed_qualified_prefix_and_abstains_without_truncation(monk
     import numpy as np
     from mlx_lm.models.gemma4_text import Model, ModelArgs
     from mlx_lm.models.cache import make_prompt_cache
-    import roguard.gemma4_review as module
+    import roguard.gemma4_review as base_module
+    import roguard.gemma4_review_v10 as module
     mx.set_default_device(mx.cpu)
     mx.random.seed(167)
     base = Model(ModelArgs(hidden_size=16, num_hidden_layers=42, intermediate_size=32,
@@ -166,8 +167,8 @@ def test_engine_uses_fixed_qualified_prefix_and_abstains_without_truncation(monk
         num_kv_shared_layers=18, vocab_size=64, vocab_size_per_layer_input=64,
         hidden_size_per_layer_input=8, sliding_window=4,
         layer_types=['sliding_attention', 'full_attention']*21))
-    model = module._make_model(base, width=12)
-    engine = object.__new__(module._Engine)
+    model = base_module._make_model(base, width=12)
+    engine = object.__new__(module.V10FeatureEngine)
     engine.mx, engine.model, engine.tokenizer, engine.make_cache = mx, model, None, make_prompt_cache
     monkeypatch.setattr(module, 'PREFIX_TOKENS', [1, 2])
     monkeypatch.setattr(module, 'classifier_tokens', lambda tokenizer, prefix: prefix['ids'])
