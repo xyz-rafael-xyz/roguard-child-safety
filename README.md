@@ -24,6 +24,8 @@ A 27-second illustrated walkthrough of v10's new model path and recorded outputs
 and is published on [PyPI as `roguard-child-safety`](https://pypi.org/project/roguard-child-safety/).
 [V10 release evidence](docs/V10_RELEASE_CANDIDATE.md) · [V9 publication record](research/v9-stabilization/stable-release-200/publication.json).
 
+[Precise v10 versus v9 comparison](docs/V10_VS_V9.md).
+
 V9 adds a qualified optional Romanian/Ukrainian review model, conversation-aware
 review proposals, and an adaptive clarification planner. Trainable attention
 adapters use a frozen Gemma 4 body; recorded numerical checks bind training,
