@@ -1,7 +1,7 @@
 from pathlib import Path
 import subprocess
 
-from scripts.verify_public_tree import forbidden
+from scripts.verify_public_tree import PUBLIC_MODEL_HEADS, forbidden
 
 
 def test_generated_tensor_caches_are_ignored_and_rejected_from_public_history():
@@ -17,3 +17,9 @@ def test_generated_tensor_caches_are_ignored_and_rejected_from_public_history():
     assert set(result.stdout.splitlines()) == set(caches)
     assert all(forbidden(path) for path in caches)
     assert not forbidden(metadata)
+
+
+def test_only_pinned_public_model_heads_are_exempt_from_tensor_exclusion():
+    assert len(PUBLIC_MODEL_HEADS) == 4
+    assert all(not forbidden(path) for path in PUBLIC_MODEL_HEADS)
+    assert forbidden('src/roguard/v10_models/unreviewed.npz')
